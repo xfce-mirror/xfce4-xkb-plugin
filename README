@@ -1,10 +1,48 @@
 XFce4 XKB Layout Switch panel plugin.
 
+Information
+===========
+
 The plugin itself cannot be used for defining the keyboard
 layouts one wants to use, this is done the XKB way - either 
 in XF86Config or by xetskbmap tool.
 The plugin may be used as an indicator for the current layout
 and as a switcher to the next layout also.
+
+
+XKB Configuration
+=================
+
+Here is an example XKB configuration (part from XF86Config):
+
+Section "InputDevice"
+	Identifier  "Keyboard0"
+	Driver      "keyboard"
+
+  Option          "CoreKeyboard"
+  Option          "XkbRules"      "xfree86"
+  
+  # This is the kb model.
+  Option          "XkbModel"      "pc104"
+  
+  # These are the layouts you wish to use.
+  Option          "XkbLayout"     "us,bg,es"
+  
+  # These are the various keyboard variants.
+  Option          "XkbVariant"    ",phonetic,"
+
+  # This option defines the kb shortcut which will switch
+  # the layout.
+  Option          "XKbOptions"    "grp:alt_shift_toggle"
+EndSection
+
+For more information about configuring XKB see
+http://xfree86.org/current/XKB-Config.html and
+http://xfree86.org/current/XKB-Enhancing.html.
+
+
+Contact
+=======
 
 Send any question, suggestions, etc. to sasoiliev@mail.bg
 
