@@ -19,7 +19,8 @@ libxkb_la_CFLAGS =							\
         -I/usr/lib/gtk-2.0/include                                      \
         -I/usr/lib/glib-2.0/include                                     \
         -I/usr/include/pango-1.0                                        \
-        -I/usr/include/atk-1.0
+        -I/usr/include/atk-1.0                                          \
+	-DFLAGSDIR=\"$(datadir)/xfce4/xkb/flags\"
 
 libxkb_la_LIBADD = 							\
 	@XFCE4_PANEL_LIBS@ -lX11 -lXext -lXpm

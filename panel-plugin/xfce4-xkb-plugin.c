@@ -28,27 +28,29 @@
 
 #include <glib.h>
 
-typedef enum {
-  TEXT = 0,
-  IMAGE = 1
-} t_display_type;
-
-typedef struct {
-  GtkWidget	*ebox;
-  GtkWidget *btn;
-  GtkWidget *label;
-  GtkWidget *image;
-  
-  t_display_type display_type;
-} t_xkb;
-
 t_xkb *plugin;
 GIOChannel *channel;
 guint source_id;
 
 void change_group() {
   // TODO: sent the proper display widget: text/image
-  do_change_group(1, plugin->label);
+  do_change_group(1, plugin);
+}
+
+static void xkb_refresh_gui(t_xkb *data) {
+  t_xkb *plugin = (t_xkb *) data;
+
+  switch (plugin->display_type) {
+    case TEXT:
+      gtk_widget_hide(plugin->image);
+      gtk_widget_show(plugin->label);
+      break;
+    case IMAGE:
+      gtk_widget_hide(plugin->label);
+      gtk_widget_show(plugin->image);
+      break;
+    default: break;
+  }
 }
 
 static t_xkb * xkb_new(void) {
@@ -56,26 +58,35 @@ static t_xkb * xkb_new(void) {
 
   xkb = g_new(t_xkb, 1);
 
+  xkb->size = ICONSIZETINY;
+  
   xkb->ebox = gtk_event_box_new();
   gtk_widget_show(xkb->ebox);
 
   xkb->btn = gtk_button_new();
   gtk_button_set_relief(GTK_BUTTON(xkb->btn), GTK_RELIEF_NONE);
-  
-  xkb->label = gtk_label_new("");
-  gtk_container_add(GTK_CONTAINER(xkb->btn), xkb->label);
-  gtk_widget_show(xkb->label);
-
-  // TODO: initialize with the proper display type: text/image
-  char *initial_group = initialize_xkb(xkb->label);
-
   gtk_widget_show(xkb->btn);
   gtk_container_add(GTK_CONTAINER(xkb->ebox), xkb->btn);
   g_signal_connect(xkb->btn, "clicked", G_CALLBACK(change_group), do_change_group);
+  
+  xkb->vbox = gtk_vbox_new(FALSE, 0);
+  gtk_container_add(GTK_CONTAINER(xkb->btn), xkb->vbox);
+  
+  xkb->label = gtk_label_new("");
+  gtk_container_add(GTK_CONTAINER(xkb->vbox), xkb->label);
+  xkb->image = gtk_image_new();
+  gtk_container_add(GTK_CONTAINER(xkb->vbox), xkb->image);
+  gtk_box_pack_start(GTK_BOX(xkb->vbox), xkb->label, TRUE, TRUE, 0);
+  gtk_box_pack_start(GTK_BOX(xkb->vbox), xkb->image, TRUE, TRUE, 0);
+  
+  gtk_widget_show(xkb->vbox);
+  
+  xkb_refresh_gui(xkb);
 
-  // TODO: initialize with the proper display type: text/image
+  char *initial_group = initialize_xkb(xkb);
+
   channel = g_io_channel_unix_new(get_connection_number());
-  source_id = g_io_add_watch(channel, G_IO_IN | G_IO_PRI, (GIOFunc) &gio_callback, (gpointer) xkb->label);
+  source_id = g_io_add_watch(channel, G_IO_IN | G_IO_PRI, (GIOFunc) &gio_callback, (gpointer) xkb);
 
   plugin = xkb;
 
@@ -111,16 +122,33 @@ static void xkb_free(Control *ctrl) {
   g_free(xkb);
 }
 
-static void xkb_read_config(Control *ctrl, xmlNodePtr parent) {
-  // TODO: read config data
+static void xkb_read_config(Control *ctrl, xmlNodePtr node) {
+  xmlChar *value;
+  t_xkb *plugin = ctrl->data;
+
+  for (node = node->children; node; node = node->next) {
+    if (xmlStrEqual(node->name, (const xmlChar *)"XKBLayoutSwitch")) {
+      if ((value = xmlGetProp(node, (const xmlChar *)"displayType"))) {
+        plugin->display_type = atoi(value);
+        g_free(value);
+      }
+      break;
+    }
+  }
+  xkb_refresh_gui(plugin);
 }
 
 static void xkb_write_config(Control *ctrl, xmlNodePtr parent) {
-  // TODO: write config data
+  t_xkb *plugin = (t_xkb *) ctrl->data;
+  xmlNodePtr root;
+  char value[20];
+
+  root = xmlNewTextChild(parent, NULL, "XKBLayoutSwitch", NULL);
+  g_snprintf(value, 10, "%d", plugin->display_type);
+  xmlSetProp(root, "displayType", value);
 }
 
-static void xkb_attach_callback(Control *ctrl, const gchar *signal, GCallback cb,
-                                gpointer data) {
+static void xkb_attach_callback(Control *ctrl, const gchar *signal, GCallback cb, gpointer data) {
   t_xkb *xkb;
 
   xkb = (t_xkb *)ctrl->data;
@@ -128,12 +156,24 @@ static void xkb_attach_callback(Control *ctrl, const gchar *signal, GCallback cb
   g_signal_connect(xkb->btn, signal, cb, data);
 }
 
-static void xkb_set_size(Control *ctrl, int size) {}
+/*static void xkb_set_size(Control *ctrl, int size) {
+  t_xkb *xkb = (t_xkb *) ctrl;
+  if (size == TINY) {
+    xkb->size = ICONSIZETINY;
+  } else if (size == SMALL) {
+    xkb->size = ICONSIZESMALL;
+  } else if (size == MEDIUM) {
+    xkb->size = ICONSIZEMEDIUM;
+  } else {
+    xkb->size = ICONSIZELARGE;
+  }
+  gtk_widget_set_size_request(xkb->btn, xkb->size, xkb->size);
+}*/
 
 static void xkb_display_type_changed(GtkOptionMenu *om, gpointer *data) {
   t_xkb *xkb = (t_xkb *) data;
   xkb->display_type = gtk_option_menu_get_history(om);
-  printf("in xkb_display_type_changed: %i \n", xkb->display_type);
+  xkb_refresh_gui(xkb);
 }
 
 static void xkb_create_options (Control *ctrl, GtkContainer *con, GtkWidget *done) {
@@ -168,18 +208,19 @@ static void xkb_create_options (Control *ctrl, GtkContainer *con, GtkWidget *don
 
 G_MODULE_EXPORT void xfce_control_class_init(ControlClass *cc) {
   /* these are required */
-  cc->name		= "xkb";
-  cc->caption		= _("XKB Layout Switcher");
+  cc->name = "xkb";
+  cc->caption = _("XKB Layout Switcher");
 
-  cc->create_control	= (CreateControlFunc)xkb_control_new;
+  cc->create_control = (CreateControlFunc)xkb_control_new;
 
-  cc->free		= xkb_free;
-  cc->attach_callback	= xkb_attach_callback;
+  cc->free = xkb_free;
+  cc->attach_callback = xkb_attach_callback;
 
-  /* options; don't define if you don't have any ;) */
-  cc->read_config	= xkb_read_config;
-  cc->write_config	= xkb_write_config;
-  cc->create_options	= xkb_create_options;
+  cc->read_config = xkb_read_config;
+  cc->write_config = xkb_write_config;
+  cc->create_options = xkb_create_options;
+
+  //cc->set_size = xkb_set_size;
 
   /* unused in the sample:
    * ->set_orientation

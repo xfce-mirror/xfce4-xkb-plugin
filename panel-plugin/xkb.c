@@ -257,26 +257,33 @@ HastaLaVista:
   return status;
 }
 
-void set_new_label(GtkWidget *ctrl) {
-  char *filename, *group;
-  if (GTK_IS_LABEL(ctrl)) {
-    gtk_label_set_label((GtkLabel *) ctrl, get_symbol_name_by_res_no(current_group_xkb_no));
-  } else if (GTK_IS_IMAGE(ctrl)) {
-    // TODO: set the proper flag image
-    /*group = strdup(get_symbol_name_by_res_no(current_group_xkb_no));
-    filename = strcat("/usr/share/pixmaps/", group);
-    filename = strcat(filename, ".xpm");
-    to_lower(filename);
-    if (ctrl != NULL) {
-      //ctrl = gtk_image_set_from_file();
-    } else {
-      //ctrl = gtk_image_new_from_file();
-    }*/
-    printf("image\n");
-  }
+void set_new_locale(t_xkb *ctrl) {
+  t_xkb *plugin = (t_xkb *) ctrl;
+  char *group, filename[255];
+
+  // Set the label  
+  gtk_label_set_label((GtkLabel *) plugin->label, get_symbol_name_by_res_no(current_group_xkb_no));
+  
+  // Set the image
+  group = strdup(get_symbol_name_by_res_no(current_group_xkb_no));
+  strcpy(filename, FLAGSDIR);
+  strcat(filename, "/");
+  strcat(filename, group);
+  strcat(filename, ".png");
+  to_lower(filename);
+
+  GdkPixbuf *pixbuf, *tmp;
+  int size = plugin->size - 4;
+  // TODO: perform some action if the image file is missing
+  printf("filename: %s\n", filename);
+  tmp = gdk_pixbuf_new_from_file(filename, NULL);
+  pixbuf = gdk_pixbuf_scale_simple(tmp, size + (int) (size / 3), size, GDK_INTERP_BILINEAR);
+  gtk_image_set_from_pixbuf((GtkImage *) plugin->image, pixbuf);
+  g_object_unref(G_OBJECT(tmp));
+  g_object_unref(G_OBJECT(pixbuf));
 }
 
-void handle_xevent(GtkWidget *ctrl) {
+void handle_xevent(t_xkb *ctrl) {
   XkbEvent evnt;
 
   XNextEvent(dsp, &evnt.core);
@@ -287,12 +294,12 @@ void handle_xevent(GtkWidget *ctrl) {
         (new_group_no = evnt.state.group) != current_group_xkb_no) {
       current_group_xkb_no = new_group_no;
       accomodate_group_xkb();
-      set_new_label(ctrl);
+      set_new_locale(ctrl);
     }
   }
 }
 
-char * initialize_xkb(GtkWidget *ctrl) {
+char * initialize_xkb(t_xkb *ctrl) {
   XkbEvent evnt;
   int event_code, error_rtrn, major, minor, reason_rtrn;
   major = XkbMajorVersion;
@@ -332,7 +339,7 @@ char * initialize_xkb(GtkWidget *ctrl) {
   current_group_xkb_no = (current_group_xkb_no != state.group) ? state.group : current_group_xkb_no;
   accomodate_group_xkb();
 
-  if (ctrl != NULL) set_new_label(ctrl);
+  if (ctrl != NULL) set_new_locale(ctrl);
 
   return group;
 }
@@ -361,7 +368,7 @@ int get_connection_number() {
 }
 
 // Sets the kb layout to the next layout
-int do_change_group(int increment, GtkWidget *ctrl) {
+int do_change_group(int increment, t_xkb *ctrl) {
   if (group_count <= 1) return 0;
   XkbLockGroup(dsp, device_id,
     (current_group_xkb_no + group_count + increment) % group_count);
@@ -370,6 +377,6 @@ int do_change_group(int increment, GtkWidget *ctrl) {
 }
 
 gboolean gio_callback(GIOChannel *source, GIOCondition condition, gpointer data) {
-  handle_xevent((GtkWidget *) data);
+  handle_xevent((t_xkb *) data);
   return TRUE;
 }

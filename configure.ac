@@ -35,4 +35,5 @@ BM_DEBUG_SUPPORT
 AC_OUTPUT([
 Makefile
 panel-plugin/Makefile
+flags/Makefile
 ])
