@@ -26,7 +26,7 @@
 #include <stdio.h>
 #include <ctype.h>
 
-#include <pthread.h>
+#include <glib.h>
 
 typedef struct {
   GtkWidget	*ebox;
@@ -35,32 +35,12 @@ typedef struct {
   guint      timeout_id2;
 } t_xkb;
 
-#define INIT_TIMEOUT  500
-
 t_xkb *plugin;
-pthread_t thrd;
-
-char *to_upper(char *src) {
-  int i = 0;
-  for (i = 0; i < strlen(src); i++) {
-    src[i] = toupper(src[i]);
-  }
-  return src;
-}
-
-void *refresh(void *ptr) {
-  char *label_text;
-  label_text = (char *) ptr;
-  gtk_button_set_label((GtkButton *) plugin->btn, to_upper(label_text));
-}
+GIOChannel *channel;
+guint source_id;
 
 void change_group() {
-  do_change_group(1, (void*)&refresh);
-}
-
-gint init_xkb(t_xkb * xkb) {
-  pthread_create( &thrd, NULL, (void*)&catch_the_keys, (void*)&refresh); //xkb->label
-  return FALSE;
+  do_change_group(1, (GtkButton *) plugin->btn);
 }
 
 static t_xkb * xkb_new(void) {
@@ -68,19 +48,21 @@ static t_xkb * xkb_new(void) {
 
   xkb = g_new(t_xkb, 1);
 
-  char *initial_group = initialize_xkb();
-
   xkb->ebox = gtk_event_box_new();
   gtk_widget_show(xkb->ebox);
 
-  xkb->btn = gtk_button_new_with_label(_(to_upper(initial_group)));
+  xkb->btn = gtk_button_new();
   gtk_button_set_relief(GTK_BUTTON(xkb->btn), GTK_RELIEF_NONE);
+
+  char *initial_group = initialize_xkb((GtkButton *) xkb->btn);
+//_(initial_group)
 
   gtk_widget_show(xkb->btn);
   gtk_container_add(GTK_CONTAINER(xkb->ebox), xkb->btn);
   g_signal_connect(xkb->btn, "clicked", G_CALLBACK(change_group), do_change_group);
 
-  xkb->timeout_id = g_timeout_add(INIT_TIMEOUT, (GtkFunction)init_xkb, xkb);
+  channel = g_io_channel_unix_new(get_connection_number());
+  source_id = g_io_add_watch(channel, G_IO_IN | G_IO_PRI, (GIOFunc) &gio_callback, (gpointer) xkb->btn);
 
   plugin = xkb;
 
@@ -103,8 +85,7 @@ static gboolean xkb_control_new(Control *ctrl) {
 }
 
 static void xkb_free(Control *ctrl) {
-  terminate();
-  pthread_kill_other_threads_np();
+  g_source_remove(source_id);
   deinitialize_xkb();
 
   t_xkb *xkb;

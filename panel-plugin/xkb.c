@@ -18,6 +18,9 @@
 
 #include <X11/XKBlib.h>
 
+#include <gtk/gtk.h>
+#include <glib.h>
+
 Display *dsp;
 
 int group_title_source;
@@ -37,7 +40,13 @@ int group_count;
 char *group_names[XkbNumKbdGroups];
 char *symbol_names[XkbNumKbdGroups];
 
-static int term = 0;
+char *to_upper(char *src) {
+  int i = 0;
+  for (i = 0; i < strlen(src); i++) {
+    src[i] = toupper(src[i]);
+  }
+  return src;
+}
 
 static int group_lookup(int source_value, char *from_texts[], char *to_texts[], int count) {
   if (flexy_groups) {
@@ -175,7 +184,7 @@ int do_init_xkb() {
 
     if (strncmp(ptr, "group", 5) == 0) continue;
 
-    symbol_names[count++] = strdup(ptr);
+    symbol_names[count++] = to_upper(strdup(ptr));
   }
 
   if (count == 1 && group_names[0] == NULL &&
@@ -241,7 +250,27 @@ HastaLaVista:
   return status;
 }
 
-char * initialize_xkb() {
+void set_new_label(GtkButton *btn) {
+  gtk_button_set_label(btn, get_symbol_name_by_res_no(current_group_xkb_no));
+}
+
+void handle_xevent(GtkButton *btn) {
+  XkbEvent evnt;
+
+  XNextEvent(dsp, &evnt.core);
+  if (evnt.type == base_event_code) {
+    int new_group_no;
+
+    if (evnt.any.xkb_type == XkbStateNotify &&
+        (new_group_no = evnt.state.group) != current_group_xkb_no) {
+      current_group_xkb_no = new_group_no;
+      accomodate_group_xkb();
+      set_new_label(btn);
+    }
+  }
+}
+
+char * initialize_xkb(GtkButton *btn) {
   XkbEvent evnt;
   int event_code, error_rtrn, major, minor, reason_rtrn;
   major = XkbMajorVersion;
@@ -276,6 +305,13 @@ char * initialize_xkb() {
   XkbSelectEventDetails(dsp, XkbUseCoreKbd, XkbStateNotify,
                         XkbAllStateComponentsMask, XkbGroupStateMask);
 
+  XkbStateRec state;
+  XkbGetState(dsp, device_id, &state);
+  current_group_xkb_no = (current_group_xkb_no != state.group) ? state.group : current_group_xkb_no;
+  accomodate_group_xkb();
+
+  if (btn != NULL) set_new_label(btn);
+
   return group;
 }
 
@@ -295,47 +331,23 @@ static void deinit_group_names() {
 
 void deinitialize_xkb() {
 	deinit_group_names();
+  XCloseDisplay(dsp);
 }
 
-// Checks and updates the current layout
-void update_state(void *ptr(void *)) {
-  XkbStateRec state;
-  XkbGetState(dsp, device_id, &state);
-  current_group_xkb_no = (current_group_xkb_no != state.group) ? state.group : current_group_xkb_no;
-  accomodate_group_xkb();
-  ptr((void *) get_symbol_name_by_res_no(current_group_xkb_no));
+int get_connection_number() {
+  return ConnectionNumber(dsp);
 }
 
 // Sets the kb layout to the next layout
-int do_change_group(int increment, void *ptr(void *)) {
+int do_change_group(int increment, GtkButton *btn) {
   if (group_count <= 1) return 0;
   XkbLockGroup(dsp, device_id,
     (current_group_xkb_no + group_count + increment) % group_count);
-  update_state(ptr);
+  handle_xevent(btn);
   return 1;
 }
 
-// Sets the flag for termination
-void terminate() {
-  term = 1;
-}
-
-// Here we catch the event from xkb extension and set the current layout
-void catch_the_keys(void *ptr(void *)) {
-  XkbEvent evnt;
-
-  for (;;) {
-    if (term != 0) break;
-    XNextEvent(dsp, &evnt.core);
-    if (evnt.type == base_event_code) {
-      int new_group_no;
-
-      if (evnt.any.xkb_type == XkbStateNotify &&
-          (new_group_no = evnt.state.group) != current_group_xkb_no) {
-        current_group_xkb_no = new_group_no;
-        accomodate_group_xkb();
-        ptr((void *) get_symbol_name_by_res_no(current_group_xkb_no));
-      }
-    }
-  }
+gboolean gio_callback(GIOChannel *source, GIOCondition condition, gpointer data) {
+  handle_xevent((GtkButton *) data);
+  return TRUE;
 }

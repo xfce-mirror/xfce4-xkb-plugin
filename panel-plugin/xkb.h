@@ -14,12 +14,16 @@
 #define _XFCE_XKB_H_
 
 #include <X11/Xlib.h>
+#include <gtk/gtk.h>
+#include <glib.h>
 
-char * initialize_xkb();
-void catch_the_keys(void *ptr(void *));
-const char *get_current_group_name();
-void terminate();
-int do_change_group(int increment, void *ptr(void *));
+char * initialize_xkb(GtkButton *btn);
 void deinitialize_xkb();
+
+int do_change_group(int increment, GtkButton *btn);
+
+gboolean gio_callback(GIOChannel *source, GIOCondition condition, gpointer data);
+
+int get_connection_number();
 
 #endif
