@@ -44,14 +44,11 @@ typedef struct {
   t_display_type display_type;
 } t_xkb;
 
-
 char * initialize_xkb(t_xkb *ctrl);
 void deinitialize_xkb();
 
 int do_change_group(int increment, t_xkb *ctrl);
-
 gboolean gio_callback(GIOChannel *source, GIOCondition condition, gpointer data);
-
 int get_connection_number();
 
 #endif

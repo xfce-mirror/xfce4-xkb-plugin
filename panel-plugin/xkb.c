@@ -257,30 +257,63 @@ HastaLaVista:
   return status;
 }
 
-void set_new_locale(t_xkb *ctrl) {
-  t_xkb *plugin = (t_xkb *) ctrl;
-  char *group, filename[255];
-
-  // Set the label  
-  gtk_label_set_label((GtkLabel *) plugin->label, get_symbol_name_by_res_no(current_group_xkb_no));
+char *get_current_gourp_flag_name(char *filename) {
+  char *group;
   
-  // Set the image
   group = strdup(get_symbol_name_by_res_no(current_group_xkb_no));
   strcpy(filename, FLAGSDIR);
   strcat(filename, "/");
   strcat(filename, group);
   strcat(filename, ".png");
   to_lower(filename);
+  
+  free(group);
+  
+  return filename;
+}
 
+gboolean temporary_changed_display_type = FALSE;
+
+gboolean is_current_group_flag_available() {
+  char filename[255];
+  gboolean result = FALSE;
+  GdkPixbuf *tmp = gdk_pixbuf_new_from_file(get_current_gourp_flag_name(filename), NULL);
+  result = (gboolean) (tmp != NULL);
+  g_object_unref(tmp);
+  return result;
+}
+
+void set_new_locale(t_xkb *ctrl) {
+  t_xkb *plugin = (t_xkb *) ctrl;
+  char filename[255];
+
+  // Set the label  
+  gtk_label_set_label((GtkLabel *) plugin->label, get_symbol_name_by_res_no(current_group_xkb_no));
+  
+  // Set the image
   GdkPixbuf *pixbuf, *tmp;
   int size = plugin->size - 4;
-  // TODO: perform some action if the image file is missing
-  printf("filename: %s\n", filename);
-  tmp = gdk_pixbuf_new_from_file(filename, NULL);
-  pixbuf = gdk_pixbuf_scale_simple(tmp, size + (int) (size / 3), size, GDK_INTERP_BILINEAR);
-  gtk_image_set_from_pixbuf((GtkImage *) plugin->image, pixbuf);
-  g_object_unref(G_OBJECT(tmp));
-  g_object_unref(G_OBJECT(pixbuf));
+  tmp = gdk_pixbuf_new_from_file(get_current_gourp_flag_name(filename), NULL);
+  if (tmp == NULL) { // could not be loaded for some reason
+    printf("in set_new_locale: tmp is NULL\n");
+    if (plugin->display_type == IMAGE) {
+      temporary_changed_display_type = TRUE;
+      gtk_widget_hide(plugin->image);
+      gtk_widget_show(plugin->label);
+    }
+  } else { // loaded successfully
+    printf("in set_new_locale: tmp is not null\n");
+    temporary_changed_display_type = TRUE;
+    pixbuf = gdk_pixbuf_scale_simple(tmp, size + (int) (size / 3), size, GDK_INTERP_BILINEAR);
+    gtk_image_set_from_pixbuf((GtkImage *) plugin->image, pixbuf);
+    g_object_unref(G_OBJECT(tmp));
+    g_object_unref(G_OBJECT(pixbuf));
+    
+    if (plugin->display_type == IMAGE) { // the image for the previous active layout could not be loaded
+      gtk_widget_hide(plugin->label);
+      gtk_widget_show(plugin->image);
+    }
+  }
 }
 
 void handle_xevent(t_xkb *ctrl) {

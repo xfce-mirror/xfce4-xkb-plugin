@@ -42,12 +42,16 @@ static void xkb_refresh_gui(t_xkb *data) {
 
   switch (plugin->display_type) {
     case TEXT:
+      printf("in xkb_refresh_gui: text\n");
       gtk_widget_hide(plugin->image);
       gtk_widget_show(plugin->label);
       break;
     case IMAGE:
-      gtk_widget_hide(plugin->label);
-      gtk_widget_show(plugin->image);
+      printf("in xkb_refresh_gui: image\n");
+      if (is_current_group_flag_available()) {
+        gtk_widget_hide(plugin->label);
+        gtk_widget_show(plugin->image);
+      }
       break;
     default: break;
   }
