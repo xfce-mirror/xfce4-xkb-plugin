@@ -28,11 +28,16 @@
 
 #include <glib.h>
 
+typedef enum {
+  TEXT = 0,
+  IMAGE = 1
+} t_display_type;
+
 typedef struct {
   GtkWidget	*ebox;
   GtkWidget *btn;
-  guint      timeout_id;
-  guint      timeout_id2;
+  
+  t_display_type display_type;
 } t_xkb;
 
 t_xkb *plugin;
@@ -98,9 +103,13 @@ static void xkb_free(Control *ctrl) {
   g_free(xkb);
 }
 
-static void xkb_read_config(Control *ctrl, xmlNodePtr parent) {}
+static void xkb_read_config(Control *ctrl, xmlNodePtr parent) {
+  
+}
 
-static void xkb_write_config(Control *ctrl, xmlNodePtr parent) {}
+static void xkb_write_config(Control *ctrl, xmlNodePtr parent) {
+  
+}
 
 static void xkb_attach_callback(Control *ctrl, const gchar *signal, GCallback cb,
                                 gpointer data) {
@@ -113,7 +122,41 @@ static void xkb_attach_callback(Control *ctrl, const gchar *signal, GCallback cb
 
 static void xkb_set_size(Control *ctrl, int size) {}
 
-static void xkb_create_options (Control *ctrl, GtkContainer *con, GtkWidget *done) {}
+static void xkb_display_type_changed(GtkOptionMenu *om, gpointer *data) {
+  t_xkb *xkb = (t_xkb *) data;
+  xkb->display_type = gtk_option_menu_get_history(om);
+  printf("in xkb_display_type_changed: %i \n", xkb->display_type);
+}
+
+static void xkb_create_options (Control *ctrl, GtkContainer *con, GtkWidget *done) {
+  t_xkb *xkb = (t_xkb *) ctrl->data;
+  GtkWidget *hbox, *label, *menu, *opt_menu;
+
+  hbox = gtk_hbox_new(FALSE, 2);
+  gtk_widget_show(hbox);
+  gtk_container_add(GTK_CONTAINER(con), hbox);
+
+  menu = gtk_menu_new();
+  gtk_menu_append(GTK_MENU(menu), gtk_menu_item_new_with_label("text"));
+  gtk_menu_append(GTK_MENU(menu), gtk_menu_item_new_with_label("image"));
+  opt_menu = gtk_option_menu_new();
+  gtk_option_menu_set_menu(GTK_OPTION_MENU(opt_menu), menu);
+
+  if (xkb->display_type == TEXT)
+    gtk_option_menu_set_history(GTK_OPTION_MENU(opt_menu), 0);
+  else
+    gtk_option_menu_set_history(GTK_OPTION_MENU(opt_menu), 1);
+
+  label = gtk_label_new("Display layout as:");
+  gtk_container_add(GTK_CONTAINER(hbox), label);
+  gtk_container_add(GTK_CONTAINER(hbox), opt_menu);
+  gtk_box_pack_start(GTK_BOX(hbox), label, TRUE, TRUE, 2);
+  gtk_box_pack_start(GTK_BOX(hbox), opt_menu, TRUE, TRUE, 2);
+
+  gtk_widget_show_all(hbox);
+
+  g_signal_connect(opt_menu, "changed", G_CALLBACK(xkb_display_type_changed), xkb);
+}
 
 G_MODULE_EXPORT void xfce_control_class_init(ControlClass *cc) {
   /* these are required */
