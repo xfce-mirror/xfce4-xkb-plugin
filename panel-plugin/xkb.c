@@ -299,14 +299,12 @@ void set_new_locale(t_xkb *ctrl) {
   size = plugin->size - 4;
   tmp = gdk_pixbuf_new_from_file(get_current_gourp_flag_name(filename), NULL);
   if (tmp == NULL) { /* could not be loaded for some reason */
-    printf("in set_new_locale: tmp is NULL\n");
     if (plugin->display_type == IMAGE) {
       temporary_changed_display_type = TRUE;
       gtk_widget_hide(plugin->image);
       gtk_widget_show(plugin->label);
     }
   } else { /* loaded successfully */
-    printf("in set_new_locale: tmp is not null\n");
     temporary_changed_display_type = TRUE;
     pixbuf = gdk_pixbuf_scale_simple(tmp, size + (int) (size / 3), size, GDK_INTERP_BILINEAR);
     gtk_image_set_from_pixbuf((GtkImage *) plugin->image, pixbuf);
