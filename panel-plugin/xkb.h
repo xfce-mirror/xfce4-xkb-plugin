@@ -46,6 +46,7 @@ typedef struct {
   t_display_type display_type;
 } t_xkb;
 
+void set_new_locale(t_xkb *ctrl);
 char *initialize_xkb(t_xkb *ctrl);
 void deinitialize_xkb();
 

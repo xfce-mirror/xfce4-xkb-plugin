@@ -306,7 +306,7 @@ void set_new_locale(t_xkb *ctrl) {
     }
   } else { /* loaded successfully */
     temporary_changed_display_type = TRUE;
-    pixbuf = gdk_pixbuf_scale_simple(tmp, size + (int) (size / 3), size, GDK_INTERP_BILINEAR);
+	pixbuf = gdk_pixbuf_scale_simple(tmp, size, size - (int) (size / 3), GDK_INTERP_BILINEAR);
     gtk_image_set_from_pixbuf((GtkImage *) plugin->image, pixbuf);
     g_object_unref(G_OBJECT(tmp));
     g_object_unref(G_OBJECT(pixbuf));

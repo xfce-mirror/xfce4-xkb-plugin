@@ -35,7 +35,6 @@ GIOChannel *channel;
 guint source_id;
 
 void change_group() {
-  /* TODO: sent the proper display widget: text/image */
   do_change_group(1, plugin);
 }
 
@@ -81,8 +80,8 @@ static t_xkb * xkb_new(void) {
   gtk_container_add(GTK_CONTAINER(xkb->vbox), xkb->label);
   xkb->image = gtk_image_new();
   gtk_container_add(GTK_CONTAINER(xkb->vbox), xkb->image);
-  gtk_box_pack_start(GTK_BOX(xkb->vbox), xkb->label, TRUE, TRUE, 0);
-  gtk_box_pack_start(GTK_BOX(xkb->vbox), xkb->image, TRUE, TRUE, 0);
+/*  gtk_box_pack_start(GTK_BOX(xkb->vbox), xkb->label, TRUE, TRUE, 0);
+  gtk_box_pack_start(GTK_BOX(xkb->vbox), xkb->image, TRUE, TRUE, 0); */
   
   gtk_widget_show(xkb->vbox);
   
@@ -162,9 +161,8 @@ static void xkb_attach_callback(Control *ctrl, const gchar *signal, GCallback cb
   g_signal_connect(xkb->btn, signal, cb, data);
 }
 
-/*
 static void xkb_set_size(Control *ctrl, int size) {
-  t_xkb *xkb = (t_xkb *) ctrl;
+  t_xkb *xkb = (t_xkb *) ctrl->data;
   if (size == TINY) {
     xkb->size = ICONSIZETINY;
   } else if (size == SMALL) {
@@ -175,8 +173,8 @@ static void xkb_set_size(Control *ctrl, int size) {
     xkb->size = ICONSIZELARGE;
   }
   gtk_widget_set_size_request(xkb->btn, xkb->size, xkb->size);
+  set_new_locale(xkb);
 }
-*/
 
 static void xkb_display_type_changed(GtkOptionMenu *om, gpointer *data) {
   t_xkb *xkb = (t_xkb *) data;
@@ -228,7 +226,7 @@ G_MODULE_EXPORT void xfce_control_class_init(ControlClass *cc) {
   cc->write_config = xkb_write_config;
   cc->create_options = xkb_create_options;
 
-  /* cc->set_size = xkb_set_size; */
+  cc->set_size = xkb_set_size;
 
   /* unused in the sample:
    * ->set_orientation
