@@ -74,3 +74,5 @@ flags_DATA = ae.png \
                                  vn.png \
                                  ye.png \
                                  yu.png
+
+EXTRA_DIST = $(flags_DATA)
