@@ -1,0 +1,14 @@
+XFce4 XKB Layout Switch panel plugin.
+
+The plugin itself cannot be used for defining the keyboard
+layouts one wants to use, this is done the XKB way - either 
+in XF86Config or by xetskbmap tool.
+The plugin may be used as an indicator for the current layout
+and as a switcher to the next layout also.
+
+Send any question, suggestions, etc. to sasoiliev@mail.bg
+
+NOTE: most of the XKB specific code is from the wmxkb program
+by Michael Glickman <wmalms@yahooo.com>.
+
+Alexander Iliev <sasoiliev@mail.bg>
