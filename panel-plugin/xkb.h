@@ -1,3 +1,4 @@
+/*
 //====================================================================
 //  xfce4-xkb-plugin - XFCE4 Xkb Layout Indicator panel plugin
 // -------------------------------------------------------------------
@@ -9,6 +10,7 @@
 //  WARNING: DO NOT BOTHER Michael Glickman WITH QUESTIONS ABOUT THIS
 //           PROGRAM!!! SEND INSTEAD EMAILS TO <sasoiliev@mail.bg>
 //====================================================================
+*/
 
 #ifndef _XFCE_XKB_H_
 #define _XFCE_XKB_H_
@@ -44,7 +46,7 @@ typedef struct {
   t_display_type display_type;
 } t_xkb;
 
-char * initialize_xkb(t_xkb *ctrl);
+char *initialize_xkb(t_xkb *ctrl);
 void deinitialize_xkb();
 
 int do_change_group(int increment, t_xkb *ctrl);

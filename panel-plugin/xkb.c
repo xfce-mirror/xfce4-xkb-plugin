@@ -1,4 +1,5 @@
-//====================================================================
+/*
+// ====================================================================
 //  xfce4-xkb-plugin - XFCE4 Xkb Layout Indicator panel plugin
 // -------------------------------------------------------------------
 //  Alexander Iliev <sasoiliev@mail.bg>
@@ -9,6 +10,7 @@
 //  WARNING: DO NOT BOTHER Michael Glickman WITH QUESTIONS ABOUT THIS
 //           PROGRAM!!! SEND INSTEAD EMAILS TO <sasoiliev@mail.bg>
 //====================================================================
+*/
 
 #include "xkb.h"
 
@@ -26,8 +28,8 @@ Display *dsp;
 int group_title_source;
 int group_code_count;
 Bool flexy_groups;
-char *group_codes[];
-char *custom_names[];
+char **group_codes;
+char **custom_names;
 
 static int base_event_code;
 static int base_error_code;
@@ -105,15 +107,23 @@ int do_init_xkb() {
   const Atom *group_source;
   Bool status;
   int major, minor, oppcode;
+  int i;
+  XkbStateRec xkb_state;
+  XkbDescRec *kbd_desc_ptr = NULL;
+  const Atom *tmp_group_source;
+  Atom cur_group_atom;
+  Atom sym_name_atom;
+  char *ptr;
+  char *sym_name;
+  char *ptr1;
+  int  count;
 
-  // Initialize the Xkb extension
+
+  /* Initialize the Xkb extension */
   status = XkbQueryExtension(dsp, &oppcode,
     &base_event_code, &base_error_code, &major, &minor);
 
-  XkbStateRec xkb_state;
   device_id = XkbUseCoreKbd;
-
-  XkbDescRec *kbd_desc_ptr = NULL;
 
   kbd_desc_ptr = XkbAllocKeyboard();
   if (kbd_desc_ptr == NULL) {
@@ -135,7 +145,7 @@ int do_init_xkb() {
 
   group_source = kbd_desc_ptr->names->groups;
 
-  // And more bug patches !
+  /* And more bug patches ! */
   if (kbd_desc_ptr->ctrls != NULL) {
     group_count = kbd_desc_ptr->ctrls->num_groups;
   } else {
@@ -146,15 +156,12 @@ int do_init_xkb() {
 
   if (group_count == 0) group_count=1;
 
-  int i;
   for (i = 0; i < group_count; i++) {
     group_names[i] = NULL;
     symbol_names[i] = NULL;
   }
 
-  const Atom *tmp_group_source = kbd_desc_ptr->names->groups;
-  Atom cur_group_atom;
-  char *ptr;
+  tmp_group_source = kbd_desc_ptr->names->groups;
 
   for (i = 0; i < group_count; i++) {
     if ((cur_group_atom = tmp_group_source[i]) != None) {
@@ -163,11 +170,7 @@ int do_init_xkb() {
         *ptr = '\0';
     }
   }
-  Atom sym_name_atom = kbd_desc_ptr->names->symbols;
-  char *sym_name;
-  char *ptr1;
-  int  count;
-
+  sym_name_atom = kbd_desc_ptr->names->symbols;
   if (sym_name_atom == None ||
       (sym_name = XGetAtomName(dsp, sym_name_atom)) == NULL) return 0;
 
@@ -183,7 +186,7 @@ int do_init_xkb() {
 
     ptr1 = strrchr(ptr, '/');
     if (ptr1 != NULL) {
-      // Filter out cases like pc/pc
+      /* Filter out cases like pc/pc */
       if (memcmp(ptr, ptr1+1, ptr1-ptr) == 0) continue;
 
       ptr = ptr1+1;
@@ -219,7 +222,7 @@ int do_init_xkb() {
     }
 
     switch(group_title_source) {
-    case 1: // Group name
+    case 1: /* Group name */
       if (group_names[i] == NULL) {
         char *name = get_symbol_name_by_res_no(i);
         if (name == NULL) name = "U/A";
@@ -228,7 +231,7 @@ int do_init_xkb() {
       }
       break;
 
-    case 2: // Gustom name
+    case 2: /* Gustom name */
       if (custom_names[i] == NULL) {
         const char *name = get_symbol_name_by_res_no(i);
         if (name == NULL) name = get_group_name_by_res_no(i);
@@ -238,7 +241,7 @@ int do_init_xkb() {
       }
       break;
 
-    default: // Symbolic name (0), No title source but can be used for images (3)
+    default: /* Symbolic name (0), No title source but can be used for images (3) */
       if (symbol_names[i] == NULL) {
         fprintf(stderr, "\nGroup Symbol %i is undefined, set to 'U/A' !\n", i+1);
         symbol_names[i] = strdup("U/A");
@@ -286,22 +289,23 @@ gboolean is_current_group_flag_available() {
 void set_new_locale(t_xkb *ctrl) {
   t_xkb *plugin = (t_xkb *) ctrl;
   char filename[255];
+  int size;
+  GdkPixbuf *pixbuf, *tmp;
 
-  // Set the label  
+  /* Set the label   */
   gtk_label_set_label((GtkLabel *) plugin->label, get_symbol_name_by_res_no(current_group_xkb_no));
   
-  // Set the image
-  GdkPixbuf *pixbuf, *tmp;
-  int size = plugin->size - 4;
+  /* Set the image */
+  size = plugin->size - 4;
   tmp = gdk_pixbuf_new_from_file(get_current_gourp_flag_name(filename), NULL);
-  if (tmp == NULL) { // could not be loaded for some reason
+  if (tmp == NULL) { /* could not be loaded for some reason */
     printf("in set_new_locale: tmp is NULL\n");
     if (plugin->display_type == IMAGE) {
       temporary_changed_display_type = TRUE;
       gtk_widget_hide(plugin->image);
       gtk_widget_show(plugin->label);
     }
-  } else { // loaded successfully
+  } else { /* loaded successfully */
     printf("in set_new_locale: tmp is not null\n");
     temporary_changed_display_type = TRUE;
     pixbuf = gdk_pixbuf_scale_simple(tmp, size + (int) (size / 3), size, GDK_INTERP_BILINEAR);
@@ -309,7 +313,8 @@ void set_new_locale(t_xkb *ctrl) {
     g_object_unref(G_OBJECT(tmp));
     g_object_unref(G_OBJECT(pixbuf));
     
-    if (plugin->display_type == IMAGE) { // the image for the previous active layout could not be loaded
+    if (plugin->display_type == IMAGE) { 
+      /* the image for the previous active layout could not be loaded */
       gtk_widget_hide(plugin->label);
       gtk_widget_show(plugin->image);
     }
@@ -334,11 +339,14 @@ void handle_xevent(t_xkb *ctrl) {
 
 char * initialize_xkb(t_xkb *ctrl) {
   XkbEvent evnt;
+  XkbStateRec state;
   int event_code, error_rtrn, major, minor, reason_rtrn;
+  char * display_name;
+  char *group;
+
   major = XkbMajorVersion;
   minor = XkbMinorVersion;
 
-  char * display_name;
   display_name = "";
   XkbIgnoreExtension(False);
   dsp = XkbOpenDisplay(display_name, &event_code, &error_rtrn, &major, &minor, &reason_rtrn);
@@ -362,12 +370,11 @@ char * initialize_xkb(t_xkb *ctrl) {
 
   if (do_init_xkb() != True) return "N/A";
 
-  char *group = get_symbol_name_by_res_no(current_group_xkb_no);
+  group = get_symbol_name_by_res_no(current_group_xkb_no);
 
   XkbSelectEventDetails(dsp, XkbUseCoreKbd, XkbStateNotify,
                         XkbAllStateComponentsMask, XkbGroupStateMask);
 
-  XkbStateRec state;
   XkbGetState(dsp, device_id, &state);
   current_group_xkb_no = (current_group_xkb_no != state.group) ? state.group : current_group_xkb_no;
   accomodate_group_xkb();
@@ -400,7 +407,7 @@ int get_connection_number() {
   return ConnectionNumber(dsp);
 }
 
-// Sets the kb layout to the next layout
+/* Sets the kb layout to the next layout */
 int do_change_group(int increment, t_xkb *ctrl) {
   if (group_count <= 1) return 0;
   XkbLockGroup(dsp, device_id,

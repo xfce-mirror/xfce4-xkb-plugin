@@ -1,3 +1,4 @@
+/*
 //====================================================================
 //  xfce4-xkb-plugin - XFCE4 Xkb Layout Indicator panel plugin
 // -------------------------------------------------------------------
@@ -9,6 +10,7 @@
 //  WARNING: DO NOT BOTHER Michael Glickman WITH QUESTIONS ABOUT THIS
 //           PROGRAM!!! SEND INSTEAD EMAILS TO <sasoiliev@mail.bg>
 //====================================================================
+*/
 
 #include "xkb.h"
 
@@ -33,7 +35,7 @@ GIOChannel *channel;
 guint source_id;
 
 void change_group() {
-  // TODO: sent the proper display widget: text/image
+  /* TODO: sent the proper display widget: text/image */
   do_change_group(1, plugin);
 }
 
@@ -59,7 +61,8 @@ static void xkb_refresh_gui(t_xkb *data) {
 
 static t_xkb * xkb_new(void) {
   t_xkb *xkb;
-
+  char *initial_group;
+  
   xkb = g_new(t_xkb, 1);
 
   xkb->size = ICONSIZETINY;
@@ -87,7 +90,7 @@ static t_xkb * xkb_new(void) {
   
   xkb_refresh_gui(xkb);
 
-  char *initial_group = initialize_xkb(xkb);
+  initial_group = initialize_xkb(xkb);
 
   channel = g_io_channel_unix_new(get_connection_number());
   source_id = g_io_add_watch(channel, G_IO_IN | G_IO_PRI, (GIOFunc) &gio_callback, (gpointer) xkb);
@@ -113,10 +116,11 @@ static gboolean xkb_control_new(Control *ctrl) {
 }
 
 static void xkb_free(Control *ctrl) {
+  t_xkb *xkb;
+  
   g_source_remove(source_id);
   deinitialize_xkb();
 
-  t_xkb *xkb;
 
   g_return_if_fail(ctrl != NULL);
   g_return_if_fail(ctrl->data != NULL);
@@ -160,7 +164,8 @@ static void xkb_attach_callback(Control *ctrl, const gchar *signal, GCallback cb
   g_signal_connect(xkb->btn, signal, cb, data);
 }
 
-/*static void xkb_set_size(Control *ctrl, int size) {
+/*
+static void xkb_set_size(Control *ctrl, int size) {
   t_xkb *xkb = (t_xkb *) ctrl;
   if (size == TINY) {
     xkb->size = ICONSIZETINY;
@@ -172,7 +177,8 @@ static void xkb_attach_callback(Control *ctrl, const gchar *signal, GCallback cb
     xkb->size = ICONSIZELARGE;
   }
   gtk_widget_set_size_request(xkb->btn, xkb->size, xkb->size);
-}*/
+}
+*/
 
 static void xkb_display_type_changed(GtkOptionMenu *om, gpointer *data) {
   t_xkb *xkb = (t_xkb *) data;
@@ -224,7 +230,7 @@ G_MODULE_EXPORT void xfce_control_class_init(ControlClass *cc) {
   cc->write_config = xkb_write_config;
   cc->create_options = xkb_create_options;
 
-  //cc->set_size = xkb_set_size;
+  /* cc->set_size = xkb_set_size; */
 
   /* unused in the sample:
    * ->set_orientation
