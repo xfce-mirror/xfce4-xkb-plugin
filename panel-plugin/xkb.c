@@ -47,6 +47,13 @@ char *to_upper(char *src) {
   }
   return src;
 }
+char *to_lower(char *src) {
+  int i = 0;
+  for (i = 0; i < strlen(src); i++) {
+    src[i] = tolower(src[i]);
+  }
+  return src;
+}
 
 static int group_lookup(int source_value, char *from_texts[], char *to_texts[], int count) {
   if (flexy_groups) {
@@ -250,11 +257,26 @@ HastaLaVista:
   return status;
 }
 
-void set_new_label(GtkButton *btn) {
-  gtk_button_set_label(btn, get_symbol_name_by_res_no(current_group_xkb_no));
+void set_new_label(GtkWidget *ctrl) {
+  char *filename, *group;
+  if (GTK_IS_LABEL(ctrl)) {
+    gtk_label_set_label((GtkLabel *) ctrl, get_symbol_name_by_res_no(current_group_xkb_no));
+  } else if (GTK_IS_IMAGE(ctrl)) {
+    // TODO: set the proper flag image
+    /*group = strdup(get_symbol_name_by_res_no(current_group_xkb_no));
+    filename = strcat("/usr/share/pixmaps/", group);
+    filename = strcat(filename, ".xpm");
+    to_lower(filename);
+    if (ctrl != NULL) {
+      //ctrl = gtk_image_set_from_file();
+    } else {
+      //ctrl = gtk_image_new_from_file();
+    }*/
+    printf("image\n");
+  }
 }
 
-void handle_xevent(GtkButton *btn) {
+void handle_xevent(GtkWidget *ctrl) {
   XkbEvent evnt;
 
   XNextEvent(dsp, &evnt.core);
@@ -265,12 +287,12 @@ void handle_xevent(GtkButton *btn) {
         (new_group_no = evnt.state.group) != current_group_xkb_no) {
       current_group_xkb_no = new_group_no;
       accomodate_group_xkb();
-      set_new_label(btn);
+      set_new_label(ctrl);
     }
   }
 }
 
-char * initialize_xkb(GtkButton *btn) {
+char * initialize_xkb(GtkWidget *ctrl) {
   XkbEvent evnt;
   int event_code, error_rtrn, major, minor, reason_rtrn;
   major = XkbMajorVersion;
@@ -310,7 +332,7 @@ char * initialize_xkb(GtkButton *btn) {
   current_group_xkb_no = (current_group_xkb_no != state.group) ? state.group : current_group_xkb_no;
   accomodate_group_xkb();
 
-  if (btn != NULL) set_new_label(btn);
+  if (ctrl != NULL) set_new_label(ctrl);
 
   return group;
 }
@@ -339,15 +361,15 @@ int get_connection_number() {
 }
 
 // Sets the kb layout to the next layout
-int do_change_group(int increment, GtkButton *btn) {
+int do_change_group(int increment, GtkWidget *ctrl) {
   if (group_count <= 1) return 0;
   XkbLockGroup(dsp, device_id,
     (current_group_xkb_no + group_count + increment) % group_count);
-  handle_xevent(btn);
+  handle_xevent(ctrl);
   return 1;
 }
 
 gboolean gio_callback(GIOChannel *source, GIOCondition condition, gpointer data) {
-  handle_xevent((GtkButton *) data);
+  handle_xevent((GtkWidget *) data);
   return TRUE;
 }

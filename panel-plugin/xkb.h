@@ -17,10 +17,10 @@
 #include <gtk/gtk.h>
 #include <glib.h>
 
-char * initialize_xkb(GtkButton *btn);
+char * initialize_xkb(GtkWidget *ctrl);
 void deinitialize_xkb();
 
-int do_change_group(int increment, GtkButton *btn);
+int do_change_group(int increment, GtkWidget *ctrl);
 
 gboolean gio_callback(GIOChannel *source, GIOCondition condition, gpointer data);
 

@@ -36,6 +36,8 @@ typedef enum {
 typedef struct {
   GtkWidget	*ebox;
   GtkWidget *btn;
+  GtkWidget *label;
+  GtkWidget *image;
   
   t_display_type display_type;
 } t_xkb;
@@ -45,7 +47,8 @@ GIOChannel *channel;
 guint source_id;
 
 void change_group() {
-  do_change_group(1, (GtkButton *) plugin->btn);
+  // TODO: sent the proper display widget: text/image
+  do_change_group(1, plugin->label);
 }
 
 static t_xkb * xkb_new(void) {
@@ -58,16 +61,21 @@ static t_xkb * xkb_new(void) {
 
   xkb->btn = gtk_button_new();
   gtk_button_set_relief(GTK_BUTTON(xkb->btn), GTK_RELIEF_NONE);
+  
+  xkb->label = gtk_label_new("");
+  gtk_container_add(GTK_CONTAINER(xkb->btn), xkb->label);
+  gtk_widget_show(xkb->label);
 
-  char *initial_group = initialize_xkb((GtkButton *) xkb->btn);
-//_(initial_group)
+  // TODO: initialize with the proper display type: text/image
+  char *initial_group = initialize_xkb(xkb->label);
 
   gtk_widget_show(xkb->btn);
   gtk_container_add(GTK_CONTAINER(xkb->ebox), xkb->btn);
   g_signal_connect(xkb->btn, "clicked", G_CALLBACK(change_group), do_change_group);
 
+  // TODO: initialize with the proper display type: text/image
   channel = g_io_channel_unix_new(get_connection_number());
-  source_id = g_io_add_watch(channel, G_IO_IN | G_IO_PRI, (GIOFunc) &gio_callback, (gpointer) xkb->btn);
+  source_id = g_io_add_watch(channel, G_IO_IN | G_IO_PRI, (GIOFunc) &gio_callback, (gpointer) xkb->label);
 
   plugin = xkb;
 
@@ -104,11 +112,11 @@ static void xkb_free(Control *ctrl) {
 }
 
 static void xkb_read_config(Control *ctrl, xmlNodePtr parent) {
-  
+  // TODO: read config data
 }
 
 static void xkb_write_config(Control *ctrl, xmlNodePtr parent) {
-  
+  // TODO: write config data
 }
 
 static void xkb_attach_callback(Control *ctrl, const gchar *signal, GCallback cb,
