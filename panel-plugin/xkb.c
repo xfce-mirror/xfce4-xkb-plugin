@@ -42,6 +42,13 @@ int group_count;
 char *group_names[XkbNumKbdGroups];
 char *symbol_names[XkbNumKbdGroups];
 
+#include <panel/xfce.h>
+//int default_group = 0;
+GHashTable* pGroupHash = NULL;
+
+gint get_group_count() { 
+  return group_count;
+}
 char *to_upper(char *src) {
   int i = 0;
   for (i = 0; i < strlen(src); i++) {
@@ -91,7 +98,7 @@ static char * get_group_name_by_res_no(int group_res_no) {
   return group_names[group_no_res_to_xkb(group_res_no)];
 }
 
-static char * get_symbol_name_by_res_no(int group_res_no) {
+char * get_symbol_name_by_res_no(int group_res_no) {
   return symbol_names[group_no_res_to_xkb(group_res_no)];
 }
 
@@ -100,6 +107,10 @@ const char *get_current_group_name() {
 }
 
 void accomodate_group_xkb(void) {
+	XkbStateRec xkb_state;
+	XkbGetState(dsp, device_id, &xkb_state);
+	current_group_xkb_no = xkb_state.group;
+
 	current_group_res_no = group_xkb_to_res(current_group_xkb_no);
 }
 
@@ -117,6 +128,9 @@ int do_init_xkb() {
   char *sym_name;
   char *ptr1;
   int  count;
+
+  // create hash asap, so it'll be ready when events arrive
+  pGroupHash = g_hash_table_new(g_direct_hash, NULL);
 
 
   /* Initialize the Xkb extension */
@@ -253,7 +267,8 @@ int do_init_xkb() {
   XkbGetState(dsp, device_id, &xkb_state);
   current_group_xkb_no = xkb_state.group;
 
-  status = True;
+
+ status = True;
 
 HastaLaVista:
   if (kbd_desc_ptr) XkbFreeKeyboard(kbd_desc_ptr, 0, True);
@@ -316,6 +331,20 @@ void set_new_locale(t_xkb *ctrl) {
       gtk_widget_hide(plugin->label);
       gtk_widget_show(plugin->image);
     }
+  }
+
+  /* Part of the image may remain visible after image or display type change */
+  gtk_widget_queue_draw_area(plugin->btn, 0, 0, plugin->size, plugin->size);
+
+  // "locale per process"
+  // TBF:: bad here, it's not really a "window" related file
+  NetkWindow* win = netk_screen_get_active_window(netk_screen_get_default());
+  if (pGroupHash && win)
+  {
+	  gint pid = netk_window_get_pid(win);
+		printf("Storing locale %s for %d\n", get_symbol_name_by_res_no(current_group_xkb_no), pid);
+	
+		g_hash_table_insert(pGroupHash, GINT_TO_POINTER(pid), GINT_TO_POINTER(current_group_xkb_no));
   }
 }
 
@@ -399,6 +428,10 @@ static void deinit_group_names() {
 void deinitialize_xkb() {
 	deinit_group_names();
   XCloseDisplay(dsp);
+  dsp = NULL;
+
+  g_hash_table_destroy(pGroupHash);
+  pGroupHash = NULL;
 }
 
 int get_connection_number() {
@@ -409,12 +442,39 @@ int get_connection_number() {
 int do_change_group(int increment, t_xkb *ctrl) {
   if (group_count <= 1) return 0;
   XkbLockGroup(dsp, device_id,
-    (current_group_xkb_no + group_count + increment) % group_count);
+    (current_group_xkb_no + group_count + increment) % group_count); // why not simply (current_group_xkb_no + increment) % group_count ?
   handle_xevent(ctrl);
+  return 1;
+}
+
+int do_set_group(int group, t_xkb *ctrl) {
+  if (group >= group_count)
+    return 0;
+  XkbLockGroup(dsp, device_id, group);
+	accomodate_group_xkb();
+	set_new_locale(ctrl);
+	
   return 1;
 }
 
 gboolean gio_callback(GIOChannel *source, GIOCondition condition, gpointer data) {
   handle_xevent((t_xkb *) data);
   return TRUE;
+}
+
+void react_active_window_changed(gint pid, t_xkb *ctrl)
+{
+	gpointer pKey=0, pVal=0;
+	gint new_group_xkb_no = ctrl->default_group;
+	
+	if (pGroupHash && g_hash_table_lookup_extended(pGroupHash, GINT_TO_POINTER(pid), &pKey, &pVal))
+    	new_group_xkb_no = GPOINTER_TO_INT(pVal);
+
+	do_set_group(new_group_xkb_no, ctrl);
+}
+
+void react_window_closed(gint pid)
+{
+  if (pGroupHash)
+    g_hash_table_remove(pGroupHash, GINT_TO_POINTER(pid));
 }

@@ -40,18 +40,31 @@ typedef struct {
   GtkWidget *label;
   GtkWidget *image;
   GtkWidget *vbox;
+  GtkWidget *def_lang_menu;
   
   gint size;
   
   t_display_type display_type;
+
+  // perapps
+  gboolean enable_perapp;
+  // default group for "locale per process"
+  gint default_group;
 } t_xkb;
 
 void set_new_locale(t_xkb *ctrl);
 char *initialize_xkb(t_xkb *ctrl);
 void deinitialize_xkb();
 
+gint get_group_count();
+char * get_symbol_name_by_res_no(int group_res_no);
+
 int do_change_group(int increment, t_xkb *ctrl);
 gboolean gio_callback(GIOChannel *source, GIOCondition condition, gpointer data);
 int get_connection_number();
 
+// "locale per process" functions
+void react_active_window_changed(gint pid, t_xkb *ctrl);
+void react_window_closed(gint pid);
+int do_set_group(gint group, t_xkb *ctrl);
 #endif
