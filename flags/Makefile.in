@@ -229,6 +229,7 @@ flags_DATA = ae.png \
                                  ye.png \
                                  yu.png
 
+EXTRA_DIST = $(flags_DATA)
 all: all-am
 
 .SUFFIXES:
