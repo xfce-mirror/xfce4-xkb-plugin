@@ -37,8 +37,7 @@ guint source_id;
 gulong win_change_hanler, win_close_hanler;
 
 
-static void active_window_changed(NetkScreen *screen, gpointer data)
-{
+static void active_window_changed(NetkScreen *screen, gpointer data) {
 	NetkWindow* win = netk_screen_get_active_window(screen);
 	if (!win)
 		return;
@@ -46,11 +45,8 @@ static void active_window_changed(NetkScreen *screen, gpointer data)
 	react_active_window_changed(netk_window_get_pid(win), plugin);
 }
 
-static void window_closed(NetkScreen *screen, NetkWindow* win, gpointer data)
-{
-  if (!netk_window_get_application(win)) // only if the process is no more. dead. ceased to be. gone to meet it's creator.
-    react_window_closed(netk_window_get_pid(win));
-	
+static void application_closed(NetkScreen *screen, NetkApplication* app, gpointer data) {
+  react_application_closed(netk_application_get_pid(app));	
 }
 
 void change_group() {
@@ -130,8 +126,8 @@ static t_xkb * xkb_new(void) {
 	win_change_hanler = g_signal_connect( G_OBJECT (netk_screen), "active_window_changed", 
 		G_CALLBACK(active_window_changed), NULL);
 
-	win_close_hanler = g_signal_connect( G_OBJECT (netk_screen), "window_closed", 
-    	G_CALLBACK(window_closed), NULL);
+	win_close_hanler = g_signal_connect( G_OBJECT (netk_screen), "application_closed", 
+    	G_CALLBACK(application_closed), NULL);
 
   return(xkb);
 }
@@ -342,7 +338,7 @@ static void xkb_create_options (Control *ctrl, GtkContainer *con, GtkWidget *don
 
   g_signal_connect(opt_menu, "changed", G_CALLBACK(xkb_display_type_changed), xkb);
   g_signal_connect(perapp_checkbutton, "toggled", G_CALLBACK(xkb_enable_perapp_changed), xkb);
-  g_signal_connect(def_lang_menu, "changed", G_CALLBACK(xkb_def_lang_changed), xkb);
+  g_signal_connect(xkb->def_lang_menu, "changed", G_CALLBACK(xkb_def_lang_changed), xkb);
 }
 
 G_MODULE_EXPORT void xfce_control_class_init(ControlClass *cc) {

@@ -473,8 +473,9 @@ void react_active_window_changed(gint pid, t_xkb *ctrl)
 	do_set_group(new_group_xkb_no, ctrl);
 }
 
-void react_window_closed(gint pid)
+void react_application_closed(gint pid)
 {
-  if (pGroupHash)
+  if (pGroupHash) {
     g_hash_table_remove(pGroupHash, GINT_TO_POINTER(pid));
+  }
 }
