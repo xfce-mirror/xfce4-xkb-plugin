@@ -5,35 +5,42 @@ dnl
 dnl 2003 Benedikt Meurer <benedikt.meurer@unix-ag.uni-siegen.de>
 dnl
 
-AC_INIT([panel-plugin/xfce4-xkb-plugin.c])
+m4_define([xfce4_xkb_plugin_version],[0.4.0])
 
+dnl init autoconf
+AC_INIT([xfce4-xkb-plugin], [xfce4_xkb_plugin_version()], [sasoiliev@mamul.org])
+AC_CONFIG_SRCDIR([configure])
+
+dnl init automake
+AM_INIT_AUTOMAKE([xfce4-xkb-plugin], [0.4.0])
 AM_CONFIG_HEADER([config.h])
-
-AM_INIT_AUTOMAKE([xfce4-xkb-plugin], [0.3.3])
-
 AM_MAINTAINER_MODE
 
 dnl Check for UNIX variants
 AC_AIX
 AC_ISC_POSIX
 AC_MINIX
+AM_CONDITIONAL([HAVE_CYGWIN], [test "`uname | grep \"CYGWIN\"`" != ""])
+
+dnl disable static lib
+AC_DISABLE_STATIC
 
 dnl Check for basic programs
 AC_PROG_CC
 AC_PROG_INSTALL
 AC_PROG_LIBTOOL
 
-dnl Check for standard header files
-AC_HEADER_STDC
+dnl Check for X11
+XDT_CHECK_LIBX11_REQUIRE
 
 dnl configure the panel plugin
-XFCE_PANEL_PLUGIN([XFCE4_PANEL], [3.99.2])
+XDT_CHECK_PACKAGE([LIBXFCE4PANEL], [libxfce4panel-1.0], [4.3.20])
 
-dnl Check for debugging support
-BM_DEBUG_SUPPORT
+dnl check for debugging support
+XDT_FEATURE_DEBUG()
 
 AC_OUTPUT([
-Makefile
 panel-plugin/Makefile
 flags/Makefile
+Makefile
 ])
