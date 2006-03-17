@@ -207,6 +207,7 @@ int do_init_xkb() {
     }
 
     if (strncmp(ptr, "group", 5) == 0) continue;
+    if (strncmp(ptr, "inet", 4) == 0) continue;    
 
     symbol_names[count++] = to_upper(strdup(ptr));
   }
@@ -464,13 +465,15 @@ gboolean gio_callback(GIOChannel *source, GIOCondition condition, gpointer data)
 
 void react_active_window_changed(gint pid, t_xkb *ctrl)
 {
-	gpointer pKey=0, pVal=0;
-	gint new_group_xkb_no = ctrl->default_group;
-	
-	if (pGroupHash && g_hash_table_lookup_extended(pGroupHash, GINT_TO_POINTER(pid), &pKey, &pVal))
-    	new_group_xkb_no = GPOINTER_TO_INT(pVal);
+  if (ctrl->enable_perapp) {
+    gpointer pKey=0, pVal=0;
+    gint new_group_xkb_no = ctrl->default_group;
 
-	do_set_group(new_group_xkb_no, ctrl);
+    if (pGroupHash && g_hash_table_lookup_extended(pGroupHash, GINT_TO_POINTER(pid), &pKey, &pVal))
+      new_group_xkb_no = GPOINTER_TO_INT(pVal);
+
+    do_set_group(new_group_xkb_no, ctrl);
+  }
 }
 
 void react_application_closed(gint pid)
