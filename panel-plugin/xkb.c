@@ -2,13 +2,13 @@
 // ====================================================================
 //  xfce4-xkb-plugin - XFCE4 Xkb Layout Indicator panel plugin
 // -------------------------------------------------------------------
-//  Alexander Iliev <sasoiliev@mail.bg>
+//  Alexander Iliev <sasoiliev@mamul.org>
 //  20-Feb-04
 // -------------------------------------------------------------------
 //  Parts of this code belong to Michael Glickman <wmalms@yahooo.com>
 //  and his program wmxkb.
 //  WARNING: DO NOT BOTHER Michael Glickman WITH QUESTIONS ABOUT THIS
-//           PROGRAM!!! SEND INSTEAD EMAILS TO <sasoiliev@mail.bg>
+//           PROGRAM!!! SEND INSTEAD EMAILS TO <sasoiliev@mamul.org>
 //====================================================================
 */
 
