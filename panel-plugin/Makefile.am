@@ -9,25 +9,27 @@ xfce4_xkb_plugin_SOURCES =								\
 
 xfce4_xkb_plugin_CFLAGS =									\
 	@LIBXFCE4PANEL_CFLAGS@          				\
+	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"				\
 	-DFLAGSDIR=\"$(datadir)/xfce4/xkb/flags\"
 
 xfce4_xkb_plugin_LDADD = 									\
 	@LIBXFCE4PANEL_LIBS@										\
 	@LIBS@
 
-desktop_in_files = xkb-plugin.desktop.in
-desktop_files = $(desktop_in_files:.desktop.in=.desktop)
+desktop_in_in_files = xkb-plugin.desktop.in.in
+desktop_in_files = $(desktop_in_in_files:.desktop.in.in=.desktop.in)
 
 desktopdir = $(datadir)/xfce4/panel-plugins
-desktop_DATA = $(desktop_files)
+desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
+@INTLTOOL_DESKTOP_RULE@
 
 EXTRA_DIST =															\
-	$(desktop_in_files)
+	$(desktop_in_in_files)
 
 DISTCLEANFILES = 													\
 	$(desktop_DATA) $(desktop_in_files)
 
-%.desktop: %.desktop.in
+%.desktop.in: %.desktop.in.in
 	sed -e "s^@PLUGIN_PATH@^$(libexecdir)/xfce4/panel-plugins^" \
 		$< > $@
 
