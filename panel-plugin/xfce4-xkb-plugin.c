@@ -166,18 +166,18 @@ xfce_xkb_about(XfcePanelPlugin *plugin, t_xkb *xkb)
   };
   about = gtk_about_dialog_new();
   gtk_about_dialog_set_name(GTK_ABOUT_DIALOG(about), 
-      "Keyboard Layout Switcher");
+      _("Keyboard Layout Switcher"));
   gtk_about_dialog_set_logo(GTK_ABOUT_DIALOG(about), 
       NULL);
   gtk_about_dialog_set_authors(GTK_ABOUT_DIALOG(about), 
       (const gchar**) authors);
   gtk_about_dialog_set_comments(GTK_ABOUT_DIALOG(about), 
-      "Allows you to switch the keyboard layout and \
-       displays the currently selected layout.");
+      _("Allows you to switch the keyboard layout and\n"
+        "displays the currently selected layout."));
   gtk_about_dialog_set_website(GTK_ABOUT_DIALOG(about), 
       "http://xfce-goodies.berlios.de");
   gtk_about_dialog_set_website_label(GTK_ABOUT_DIALOG(about), 
-      "Other plugins available here");
+      _("Other plugins available here"));
   gtk_dialog_run(GTK_DIALOG(about));
   gtk_widget_destroy (about); 
 }
