@@ -1,0 +1,54 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-03-19 12:50+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:410
+msgid "Configure Keyboard Layout Switcher"
+msgstr ""
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:423
+msgid "Show layout as"
+msgstr ""
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:438
+msgid "image"
+msgstr ""
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:439
+msgid "text"
+msgstr ""
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:443
+msgid "Per applcation settings"
+msgstr ""
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:457
+msgid "_Remember layout for each application"
+msgstr ""
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:466
+msgid "Default layout:"
+msgstr ""
+
+#: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
+msgid ""
+"Displays the current keyboard layout and switches the layout when clicked"
+msgstr ""
+
+#: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
+msgid "Keyboard Layout Switcher"
+msgstr ""

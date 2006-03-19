@@ -1,0 +1,4 @@
+2006-03-19  Daichi Kawahata <daichi@xfce.org>
+
+	* ChangeLog, POTFILES.in, bg.po, ja.po, xfce4-xkb-plugin.pot:
+	  Initial import for i18n support.

@@ -1,0 +1,6 @@
+# List of source files containing translatable strings.
+
+panel-plugin/xfce4-xkb-plugin.c
+
+# files added by intltool-prepare.
+panel-plugin/xkb-plugin.desktop.in.in
