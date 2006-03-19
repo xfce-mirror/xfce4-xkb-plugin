@@ -12,14 +12,14 @@
 //====================================================================
 */
 
-#include "xkb.h"
-
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
 
 #include <stdio.h>
 #include <ctype.h>
+
+#include "xkb.h"
 
 t_xkb_options_dlg *dlg = NULL;
 GIOChannel *channel;
