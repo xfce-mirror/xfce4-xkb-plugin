@@ -63,5 +63,4 @@ msgstr "Подредба по подразбиране:"
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
 msgid ""
 "Displays the current keyboard layout and switches the layout when clicked"
-msgstr ""
-"Показва и превключва клавиатурната подредба"
+msgstr "Показва и превключва клавиатурната подредба"

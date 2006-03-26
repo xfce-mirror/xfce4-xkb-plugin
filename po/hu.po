@@ -1,10 +1,16 @@
+# Hungarian translations for xfce4-xkb-plugin package.
+# Copyright (C) 2004-2006 Alexander Iliev.
+# This file is distributed under the same license as the xfce4-xkb-plugin.
+# SZERVÁC Attila <sas@321.hu>, 2006.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
-"POT-Creation-Date: \n"
+"Project-Id-Version: xfce4-xkb-plugin 0.4.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-03-19 17:31+0900\n"
 "PO-Revision-Date: 2006-03-20 03:46+0100\n"
-"Last-Translator: SZERVÑC Attila <sas@321.hu>\n"
-"Language-Team: hu\n"
+"Last-Translator: SZERVÁC Attila <sas@321.hu>\n"
+"Language-Team: Hungarian\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -57,6 +63,6 @@ msgid "Default layout:"
 msgstr "Alapkiosztás:"
 
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
-msgid "Displays the current keyboard layout and switches the layout when clicked"
+msgid ""
+"Displays the current keyboard layout and switches the layout when clicked"
 msgstr "Kijelzi a jelenlegi billentyűkiosztást és kattintásra vált"
-

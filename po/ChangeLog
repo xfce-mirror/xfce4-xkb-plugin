@@ -1,3 +1,15 @@
+2006-03-26  Daichi Kawahata <daich@xfce.org>
+
+	* bg.po, hu.po: Updated.
+
+2006-03-20  Szervac Attila <sas@321.hu>
+
+	* hu.po: Hungarian translation added.
+
+2006-03-19  Alexander Iliev <sasoiliev@mamul.org>
+
+	* bg.po: Added Bulgarian translation.
+
 2006-03-19  Daichi Kawahata <daichi@xfce.org>
 
 	* bg.po, ja.po, xfce4-xkb-plugin.pot: Added translatable strings.
