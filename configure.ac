@@ -9,7 +9,7 @@ AC_INIT([panel-plugin/xfce4-xkb-plugin.c])
 
 AM_CONFIG_HEADER([config.h])
 
-AM_INIT_AUTOMAKE([xfce4-xkb-plugin], [0.3.3])
+AM_INIT_AUTOMAKE([xfce4-xkb-plugin], [0.3.5])
 
 AM_MAINTAINER_MODE
 
