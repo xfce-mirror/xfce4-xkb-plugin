@@ -229,7 +229,10 @@ do_init_xkb()
 		}
 
 		if (strncmp(ptr, "group", 5) == 0) continue;
-
+        if (strncmp(ptr, "inet", 4) == 0) continue;
+        /* Filter cases like pc(pc105) (Xorg 7.0 update) */
+        if (strncmp(ptr, "pc", 2) == 0) continue;
+        
 		symbol_names[count++] = to_upper(strdup(ptr));
 	}
 
