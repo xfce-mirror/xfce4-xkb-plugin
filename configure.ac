@@ -5,14 +5,15 @@ dnl
 dnl 2003 Benedikt Meurer <benedikt.meurer@unix-ag.uni-siegen.de>
 dnl
 
-m4_define([xfce4_xkb_plugin_version],[0.4.0])
+m4_define([xfce4_xkb_plugin_version],[0.4.1])
 
 dnl init autoconf
 AC_INIT([xfce4-xkb-plugin], [xfce4_xkb_plugin_version()], [sasoiliev@mamul.org])
 AC_CONFIG_SRCDIR([configure])
 
 dnl init automake
-AM_INIT_AUTOMAKE([xfce4-xkb-plugin], [0.4.0])
+XKB_VERSION=xfce4_xkb_plugin_version()
+AM_INIT_AUTOMAKE([xfce4-xkb-plugin], [$XKB_VERSION])
 AM_CONFIG_HEADER([config.h])
 AM_MAINTAINER_MODE
 

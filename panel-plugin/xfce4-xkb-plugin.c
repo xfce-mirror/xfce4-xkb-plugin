@@ -123,7 +123,7 @@ xfce_xkb_set_size(XfcePanelPlugin *plugin, gint size,
                   t_xkb *xkb)
 {
   DBG ("setting size %d", size);
-  xkb->size = (int) (0.9 * size);
+  xkb->size = size;
   gtk_widget_set_size_request(xkb->btn, xkb->size, xkb->size);
   set_new_locale(xkb);
   return TRUE;
@@ -297,7 +297,7 @@ xkb_new(XfcePanelPlugin *plugin)
     xkb_load_default(xkb);
   }
 
-  xkb->size = 0.9 * xfce_panel_plugin_get_size(plugin);
+  xkb->size = xfce_panel_plugin_get_size(plugin);
 
   xkb->display_type = IMAGE;
   xkb->enable_perapp = TRUE;
@@ -318,6 +318,7 @@ xkb_new(XfcePanelPlugin *plugin)
   gtk_container_add(GTK_CONTAINER(xkb->btn), xkb->vbox);
 
   xkb->label = gtk_label_new("");
+  gtk_label_set_use_markup (GTK_LABEL (xkb->label), TRUE);
   gtk_container_add(GTK_CONTAINER(xkb->vbox), xkb->label);
   xkb->image = gtk_image_new();
   gtk_container_add(GTK_CONTAINER(xkb->vbox), xkb->image);
