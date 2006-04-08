@@ -1,8 +1,13 @@
-2006-04-02  Daichi Kawahata <daich@xfce.org>
+2006-04-08  Daichi Kawahata <daichi@xfce.org>
+
+	* pl.po: Added Polish translations by Piotr Malinski
+	  <admin@rk.edu.pl>.
+
+2006-04-02  Daichi Kawahata <daichi@xfce.org>
 
 	* xfce4-xkb-plugin.pot, *.po: Updated.
 
-2006-03-26  Daichi Kawahata <daich@xfce.org>
+2006-03-26  Daichi Kawahata <daichi@xfce.org>
 
 	* bg.po, hu.po: Updated.
 
