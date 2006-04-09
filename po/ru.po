@@ -1,0 +1,67 @@
+# Russian translation of xfce4-xkb-plugin.
+# Copyright (C) 2004-2006 Alexander Iliev.
+# This file is distributed under the same license as the xfce4-xkb-plugin package.
+# Andrey Fedoseev <andrey.fedoseev@gmail.com>, 2006.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4-xkb-plugin 0.4.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-04-01 17:33+0900\n"
+"PO-Revision-Date: 2006-03-24 21:57+0500\n"
+"Last-Translator: Andrey Fedoseev <andrey.fedoseev@gmail.com>\n"
+"Language-Team: Russian <ru@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:169
+#: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
+msgid "Keyboard Layout Switcher"
+msgstr "Раскладки клавиатуры"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:175
+msgid ""
+"Allows you to switch the keyboard layout and\n"
+"displays the currently selected layout."
+msgstr ""
+"Позволяет переключать раскладку клавиатуры и \n"
+"отображает текщую раскладку"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:180
+msgid "Other plugins available here"
+msgstr "Другие доступные расширения"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:411
+msgid "Configure Keyboard Layout Switcher"
+msgstr "Параметры"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:424
+msgid "Show layout as"
+msgstr "Стиль отображения"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:439
+msgid "image"
+msgstr "картинка"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:440
+msgid "text"
+msgstr "текст"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:444
+msgid "Per applcation settings"
+msgstr "Дополнительно"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:458
+msgid "_Remember layout for each application"
+msgstr "Запоминать раскладку для каждого приложения"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:467
+msgid "Default layout:"
+msgstr "Раскладка по умолчанию:"
+
+#: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
+msgid ""
+"Displays the current keyboard layout and switches the layout when clicked"
+msgstr ""
+"Отображает текущую раскладку клавиатуры и позволяет переключать раскладки"
