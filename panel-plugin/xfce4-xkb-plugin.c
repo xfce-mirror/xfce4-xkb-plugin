@@ -289,6 +289,7 @@ xkb_new(XfcePanelPlugin *plugin)
   t_xkb *xkb;
   gchar *filename;
   char *initial_group;
+  NetkScreen* netk_screen;
 
   xkb = g_new(t_xkb, 1);
   filename = xfce_panel_plugin_save_location(plugin, TRUE);
@@ -335,7 +336,7 @@ xkb_new(XfcePanelPlugin *plugin)
       (GIOFunc) &gio_callback, (gpointer) xkb);
 
   /* track signals about window change */
-  NetkScreen* netk_screen = netk_screen_get_default ();
+  netk_screen = netk_screen_get_default ();
   win_change_hanler = g_signal_connect( G_OBJECT (netk_screen), 
       "active_window_changed", G_CALLBACK(active_window_changed), xkb);
 

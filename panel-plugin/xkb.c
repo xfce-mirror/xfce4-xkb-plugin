@@ -370,6 +370,8 @@ set_new_locale(t_xkb *ctrl)
   char *label_markup;
   int size;
   GdkPixbuf *pixbuf, *tmp;
+  NetkWindow* win;
+  gint pid;
 
   /* Set the label   */
   label_markup = xkb_get_label_markup (plugin); 
@@ -404,10 +406,10 @@ set_new_locale(t_xkb *ctrl)
 
   /* "locale per process" */
   /* TBF:: bad here, it's not really a "window" related file */
-  NetkWindow* win = netk_screen_get_active_window(netk_screen_get_default());
+  win = netk_screen_get_active_window(netk_screen_get_default());
   if (pGroupHash && win)
   {
-    gint pid = netk_window_get_pid(win);
+    pid = netk_window_get_pid(win);
     DBG("Storing locale %s for %d\n", get_symbol_name_by_res_no(current_group_xkb_no), pid);
 
     g_hash_table_insert(pGroupHash, GINT_TO_POINTER(pid), GINT_TO_POINTER(current_group_xkb_no));
@@ -418,10 +420,10 @@ void
 handle_xevent(t_xkb *ctrl)
 {
   XkbEvent evnt;
+  int new_group_no;
 
   XNextEvent(dsp, &evnt.core);
   if (evnt.type == base_event_code) {
-    int new_group_no;
 
     if (evnt.any.xkb_type == XkbStateNotify &&
         (new_group_no = evnt.state.group) != current_group_xkb_no) {
