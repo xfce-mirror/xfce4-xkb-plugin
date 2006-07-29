@@ -1,0 +1,52 @@
+# French translations of the xfce4-rss-plugin package.
+# Copyright (C) 2006 Adriano Winter Bess <adriano@xfce.org>
+# This file is distributed under the same license as the xfce4-rss-plugin package.
+# Maximilian Schleiss <maxschleiss@bluewin.ch>, 2006.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4-rss-plugin v0.0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-07-28 14:12-0300\n"
+"PO-Revision-Date: 2006-07-28 23:54+0100\n"
+"Last-Translator: Maximilian Schleiss <maxschleiss@bluewin.ch>\n"
+"Language-Team: French <xfce-i18n@xfce.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../panel-plugin/props.py:25
+#: ../panel-plugin/rss.desktop.in.in.h:2
+msgid "RSS Aggregator"
+msgstr "RSS agrégés"
+
+#: ../panel-plugin/props.py:46
+msgid "RSS Feeds:"
+msgstr "Flux RSS:"
+
+#: ../panel-plugin/props.py:63
+#: ../panel-plugin/props.py:107
+msgid "Name"
+msgstr "Nom"
+
+#: ../panel-plugin/props.py:73
+msgid "URL"
+msgstr "URL"
+
+#. Start with an empty feeds menu
+#: ../panel-plugin/plugin.py:51
+msgid "Feeds"
+msgstr "Flux"
+
+#: ../panel-plugin/plugin.py:61
+msgid "Refresh all"
+msgstr "Rafraîchir"
+
+#: ../panel-plugin/plugin.py:66
+msgid "RSS"
+msgstr "RSS"
+
+#: ../panel-plugin/rss.desktop.in.in.h:1
+msgid "Check and display RSS feeds from the internet"
+msgstr "Vérifier et afficher les flux RSS"
+
