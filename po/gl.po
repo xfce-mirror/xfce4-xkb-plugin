@@ -1,0 +1,65 @@
+# Galician translation for xfce4-xkb-plugin
+# Copyright (c) (c) 2006 Canonical Ltd, and Rosetta Contributors 2006
+# This file is distributed under the same license as the xfce4-xkb-plugin package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2006.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4-xkb-plugin\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2006-05-09 07:44+0000\n"
+"PO-Revision-Date: 2006-08-17 19:44+0000\n"
+"Last-Translator: Leandro Regueiro <leandro.regueiro@gmail.com>\n"
+"Language-Team: Galician <gl@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:169
+#: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
+msgid "Keyboard Layout Switcher"
+msgstr ""
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:175
+msgid ""
+"Allows you to switch the keyboard layout and\n"
+"displays the currently selected layout."
+msgstr ""
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:180
+msgid "Other plugins available here"
+msgstr ""
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:411
+msgid "Configure Keyboard Layout Switcher"
+msgstr ""
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:424
+msgid "Show layout as"
+msgstr ""
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:439
+msgid "image"
+msgstr "imaxe"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:440
+msgid "text"
+msgstr "texto"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:444
+msgid "Per applcation settings"
+msgstr ""
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:458
+msgid "_Remember layout for each application"
+msgstr ""
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:467
+msgid "Default layout:"
+msgstr ""
+
+#: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
+msgid ""
+"Displays the current keyboard layout and switches the layout when clicked"
+msgstr ""
