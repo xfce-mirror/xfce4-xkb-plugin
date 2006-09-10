@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-04-01 17:33+0900\n"
+"POT-Creation-Date: 2006-09-10 21:12+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,31 +31,31 @@ msgstr ""
 msgid "Other plugins available here"
 msgstr ""
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:411
+#: ../panel-plugin/xfce4-xkb-plugin.c:412
 msgid "Configure Keyboard Layout Switcher"
 msgstr ""
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:424
+#: ../panel-plugin/xfce4-xkb-plugin.c:425
 msgid "Show layout as"
 msgstr ""
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:439
+#: ../panel-plugin/xfce4-xkb-plugin.c:440
 msgid "image"
 msgstr ""
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:440
+#: ../panel-plugin/xfce4-xkb-plugin.c:441
 msgid "text"
 msgstr ""
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:444
+#: ../panel-plugin/xfce4-xkb-plugin.c:445
 msgid "Per applcation settings"
 msgstr ""
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:458
+#: ../panel-plugin/xfce4-xkb-plugin.c:459
 msgid "_Remember layout for each application"
 msgstr ""
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:467
+#: ../panel-plugin/xfce4-xkb-plugin.c:468
 msgid "Default layout:"
 msgstr ""
 
