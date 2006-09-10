@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-xkb-plugin 0.4.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-04-01 17:33+0900\n"
+"POT-Creation-Date: 2006-09-10 21:29+0200\n"
 "PO-Revision-Date: 2006-07-08 01:13+0100\n"
 "Last-Translator: SZERVÑC Attila <sas@321.hu>\n"
 "Language-Team: Hungarian\n"
@@ -34,35 +34,35 @@ msgstr ""
 msgid "Other plugins available here"
 msgstr "Más itt elérhető bővítmények"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:411
+#: ../panel-plugin/xfce4-xkb-plugin.c:412
 msgid "Configure Keyboard Layout Switcher"
 msgstr "Billentyűkiosztás váltó beállítása"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:424
+#: ../panel-plugin/xfce4-xkb-plugin.c:425
 msgid "Show layout as"
 msgstr "Megjelenítés mint"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:439
+#: ../panel-plugin/xfce4-xkb-plugin.c:440
 msgid "image"
 msgstr "kép"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:440
+#: ../panel-plugin/xfce4-xkb-plugin.c:441
 msgid "text"
 msgstr "szöveg"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:444
+#: ../panel-plugin/xfce4-xkb-plugin.c:445
 msgid "Per applcation settings"
 msgstr "Alkalmazásonkénti beállítás"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:458
+#: ../panel-plugin/xfce4-xkb-plugin.c:459
 msgid "_Remember layout for each application"
 msgstr "_Emlékezz minden alkalmazás kiosztására"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:467
+#: ../panel-plugin/xfce4-xkb-plugin.c:468
 msgid "Default layout:"
 msgstr "Alapkiosztás:"
 
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
-msgid "Displays the current keyboard layout and switches the layout when clicked"
+msgid ""
+"Displays the current keyboard layout and switches the layout when clicked"
 msgstr "Kijelzi a jelenlegi billentyűkiosztást és kattintásra vált"
-

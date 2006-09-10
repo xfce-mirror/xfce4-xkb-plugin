@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-xkb-plugin 0.4.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-04-01 17:33+0900\n"
+"POT-Creation-Date: 2006-09-10 21:29+0200\n"
 "PO-Revision-Date: 2006-07-28 23:49+0800\n"
 "Last-Translator: Cosmo Chene <cosmolax@gmail.com>\n"
 "Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>\n"
@@ -32,37 +32,35 @@ msgstr ""
 msgid "Other plugins available here"
 msgstr "其他可用的外掛"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:411
+#: ../panel-plugin/xfce4-xkb-plugin.c:412
 msgid "Configure Keyboard Layout Switcher"
 msgstr "設定切換鍵盤對應"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:424
+#: ../panel-plugin/xfce4-xkb-plugin.c:425
 msgid "Show layout as"
 msgstr "顯示鍵盤對應的方式"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:439
+#: ../panel-plugin/xfce4-xkb-plugin.c:440
 msgid "image"
 msgstr "圖片"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:440
+#: ../panel-plugin/xfce4-xkb-plugin.c:441
 msgid "text"
 msgstr "文字"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:444
+#: ../panel-plugin/xfce4-xkb-plugin.c:445
 msgid "Per applcation settings"
 msgstr "針對每個程式作設定"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:458
+#: ../panel-plugin/xfce4-xkb-plugin.c:459
 msgid "_Remember layout for each application"
 msgstr "記住每個程式的設定(_R)"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:467
+#: ../panel-plugin/xfce4-xkb-plugin.c:468
 msgid "Default layout:"
 msgstr "預設鍵盤:"
 
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
 msgid ""
 "Displays the current keyboard layout and switches the layout when clicked"
-msgstr ""
-"顯示目前使用的鍵盤類型，並讓您用滑鼠點選切換想用的鍵盤對應方式"
-
+msgstr "顯示目前使用的鍵盤類型，並讓您用滑鼠點選切換想用的鍵盤對應方式"

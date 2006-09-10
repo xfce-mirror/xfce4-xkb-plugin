@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-xkb-plugin 0.4.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-04-01 17:33+0900\n"
+"POT-Creation-Date: 2006-09-10 21:29+0200\n"
 "PO-Revision-Date: 2006-04-08 11:01+0200\n"
 "Last-Translator: Stavros Giannouris <stavrosg2002@freemail.gr>\n"
 "Language-Team: Greek <nls@tux.hellug.gr>\n"
@@ -33,31 +33,31 @@ msgstr ""
 msgid "Other plugins available here"
 msgstr "Άλλα διαθέσιμα πρόσθετα"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:411
+#: ../panel-plugin/xfce4-xkb-plugin.c:412
 msgid "Configure Keyboard Layout Switcher"
 msgstr "Ρύθμιση εναλλάκτη διάταξης πληκτρολογίου"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:424
+#: ../panel-plugin/xfce4-xkb-plugin.c:425
 msgid "Show layout as"
 msgstr "Προβολή διάταξης ως"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:439
+#: ../panel-plugin/xfce4-xkb-plugin.c:440
 msgid "image"
 msgstr "εικόνα"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:440
+#: ../panel-plugin/xfce4-xkb-plugin.c:441
 msgid "text"
 msgstr "κείμενο"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:444
+#: ../panel-plugin/xfce4-xkb-plugin.c:445
 msgid "Per applcation settings"
 msgstr "Ρυθμίσεις ανά εφαρμογή"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:458
+#: ../panel-plugin/xfce4-xkb-plugin.c:459
 msgid "_Remember layout for each application"
 msgstr "_Καταγραφή διάταξης ανά εφαρμογή"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:467
+#: ../panel-plugin/xfce4-xkb-plugin.c:468
 msgid "Default layout:"
 msgstr "Εξορισμού διάταξη:"
 

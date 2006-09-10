@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-xkb-plugin 0.4.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-04-01 17:33+0900\n"
+"POT-Creation-Date: 2006-09-10 21:29+0200\n"
 "PO-Revision-Date: 2006-08-27 12:13+0100\n"
 "Last-Translator: Michal Várady <miko.vaji@gmail.com>\n"
 "Language-Team: Czech <translation-team-cs@lists.sourceforge.net>\n"
@@ -33,35 +33,36 @@ msgstr ""
 msgid "Other plugins available here"
 msgstr "Další zásuvné moduly jsou dostupné zde"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:411
+#: ../panel-plugin/xfce4-xkb-plugin.c:412
 msgid "Configure Keyboard Layout Switcher"
 msgstr "Konfigurovat přepínač rozvržení klávesnice"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:424
+#: ../panel-plugin/xfce4-xkb-plugin.c:425
 msgid "Show layout as"
 msgstr "Zobrazit rozvržení jako"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:439
+#: ../panel-plugin/xfce4-xkb-plugin.c:440
 msgid "image"
 msgstr "obrázek"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:440
+#: ../panel-plugin/xfce4-xkb-plugin.c:441
 msgid "text"
 msgstr "text"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:444
+#: ../panel-plugin/xfce4-xkb-plugin.c:445
 msgid "Per applcation settings"
 msgstr "Nastavení pro jednotlivé aplikace"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:458
+#: ../panel-plugin/xfce4-xkb-plugin.c:459
 msgid "_Remember layout for each application"
 msgstr "_Pamatovat si rozvržení pro každou aplikaci zvlášť"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:467
+#: ../panel-plugin/xfce4-xkb-plugin.c:468
 msgid "Default layout:"
 msgstr "Výchozí rozvržení:"
 
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
-msgid "Displays the current keyboard layout and switches the layout when clicked"
-msgstr "Zobrazuje aktuální rozložení klávesnice a přepíná rozvržení při kliknutí"
-
+msgid ""
+"Displays the current keyboard layout and switches the layout when clicked"
+msgstr ""
+"Zobrazuje aktuální rozložení klávesnice a přepíná rozvržení při kliknutí"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-rss-plugin v0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-07-28 14:12-0300\n"
+"POT-Creation-Date: 2006-09-10 21:29+0200\n"
 "PO-Revision-Date: 2006-07-28 23:54+0100\n"
 "Last-Translator: Maximilian Schleiss <maxschleiss@bluewin.ch>\n"
 "Language-Team: French <xfce-i18n@xfce.org>\n"
@@ -15,38 +15,74 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/props.py:25
-#: ../panel-plugin/rss.desktop.in.in.h:2
-msgid "RSS Aggregator"
-msgstr "RSS agrégés"
+#: ../panel-plugin/xfce4-xkb-plugin.c:169
+#: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
+msgid "Keyboard Layout Switcher"
+msgstr ""
 
-#: ../panel-plugin/props.py:46
-msgid "RSS Feeds:"
-msgstr "Flux RSS:"
+#: ../panel-plugin/xfce4-xkb-plugin.c:175
+msgid ""
+"Allows you to switch the keyboard layout and\n"
+"displays the currently selected layout."
+msgstr ""
 
-#: ../panel-plugin/props.py:63
-#: ../panel-plugin/props.py:107
-msgid "Name"
-msgstr "Nom"
+#: ../panel-plugin/xfce4-xkb-plugin.c:180
+msgid "Other plugins available here"
+msgstr ""
 
-#: ../panel-plugin/props.py:73
-msgid "URL"
-msgstr "URL"
+#: ../panel-plugin/xfce4-xkb-plugin.c:412
+msgid "Configure Keyboard Layout Switcher"
+msgstr ""
 
-#. Start with an empty feeds menu
-#: ../panel-plugin/plugin.py:51
-msgid "Feeds"
-msgstr "Flux"
+#: ../panel-plugin/xfce4-xkb-plugin.c:425
+msgid "Show layout as"
+msgstr ""
 
-#: ../panel-plugin/plugin.py:61
-msgid "Refresh all"
-msgstr "Rafraîchir"
+#: ../panel-plugin/xfce4-xkb-plugin.c:440
+msgid "image"
+msgstr ""
 
-#: ../panel-plugin/plugin.py:66
-msgid "RSS"
-msgstr "RSS"
+#: ../panel-plugin/xfce4-xkb-plugin.c:441
+msgid "text"
+msgstr ""
 
-#: ../panel-plugin/rss.desktop.in.in.h:1
-msgid "Check and display RSS feeds from the internet"
-msgstr "Vérifier et afficher les flux RSS"
+#: ../panel-plugin/xfce4-xkb-plugin.c:445
+msgid "Per applcation settings"
+msgstr ""
 
+#: ../panel-plugin/xfce4-xkb-plugin.c:459
+msgid "_Remember layout for each application"
+msgstr ""
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:468
+msgid "Default layout:"
+msgstr ""
+
+#: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
+msgid ""
+"Displays the current keyboard layout and switches the layout when clicked"
+msgstr ""
+
+#~ msgid "RSS Aggregator"
+#~ msgstr "RSS agrégés"
+
+#~ msgid "RSS Feeds:"
+#~ msgstr "Flux RSS:"
+
+#~ msgid "Name"
+#~ msgstr "Nom"
+
+#~ msgid "URL"
+#~ msgstr "URL"
+
+#~ msgid "Feeds"
+#~ msgstr "Flux"
+
+#~ msgid "Refresh all"
+#~ msgstr "Rafraîchir"
+
+#~ msgid "RSS"
+#~ msgstr "RSS"
+
+#~ msgid "Check and display RSS feeds from the internet"
+#~ msgstr "Vérifier et afficher les flux RSS"
