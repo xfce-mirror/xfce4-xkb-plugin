@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-rss-plugin v0.0.1\n"
+"Project-Id-Version: xfce4-xkb-plugin v0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-09-10 21:29+0200\n"
-"PO-Revision-Date: 2006-07-28 23:54+0100\n"
+"PO-Revision-Date: 2006-09-11 18:23+0100\n"
 "Last-Translator: Maximilian Schleiss <maxschleiss@bluewin.ch>\n"
 "Language-Team: French <xfce-i18n@xfce.org>\n"
 "MIME-Version: 1.0\n"
@@ -18,71 +18,66 @@ msgstr ""
 #: ../panel-plugin/xfce4-xkb-plugin.c:169
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
 msgid "Keyboard Layout Switcher"
-msgstr ""
+msgstr "Changeur de disposition de clavier"
 
 #: ../panel-plugin/xfce4-xkb-plugin.c:175
 msgid ""
 "Allows you to switch the keyboard layout and\n"
 "displays the currently selected layout."
 msgstr ""
+"Permet de changer la disposition du clavier et\n"
+"affiche la disposition actuelle."
 
 #: ../panel-plugin/xfce4-xkb-plugin.c:180
 msgid "Other plugins available here"
-msgstr ""
+msgstr "Autres greffons disponibles ici"
 
 #: ../panel-plugin/xfce4-xkb-plugin.c:412
 msgid "Configure Keyboard Layout Switcher"
-msgstr ""
+msgstr "Configurer le changeur de disposition de clavier"
 
 #: ../panel-plugin/xfce4-xkb-plugin.c:425
 msgid "Show layout as"
-msgstr ""
+msgstr "Afficher la disposition en tant que"
 
 #: ../panel-plugin/xfce4-xkb-plugin.c:440
 msgid "image"
-msgstr ""
+msgstr "image"
 
 #: ../panel-plugin/xfce4-xkb-plugin.c:441
 msgid "text"
-msgstr ""
+msgstr "texte"
 
 #: ../panel-plugin/xfce4-xkb-plugin.c:445
 msgid "Per applcation settings"
-msgstr ""
+msgstr "Paramètres par application"
 
 #: ../panel-plugin/xfce4-xkb-plugin.c:459
 msgid "_Remember layout for each application"
-msgstr ""
+msgstr "_Retenir les dispositions pour chaque application"
 
 #: ../panel-plugin/xfce4-xkb-plugin.c:468
 msgid "Default layout:"
-msgstr ""
+msgstr "Disposition par défaut :"
 
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
-msgid ""
-"Displays the current keyboard layout and switches the layout when clicked"
-msgstr ""
+msgid "Displays the current keyboard layout and switches the layout when clicked"
+msgstr "Affiche la disposition de clavier actuelle et la change par un clic de souris"
 
 #~ msgid "RSS Aggregator"
 #~ msgstr "RSS agrégés"
-
 #~ msgid "RSS Feeds:"
 #~ msgstr "Flux RSS:"
-
 #~ msgid "Name"
 #~ msgstr "Nom"
-
 #~ msgid "URL"
 #~ msgstr "URL"
-
 #~ msgid "Feeds"
 #~ msgstr "Flux"
-
 #~ msgid "Refresh all"
 #~ msgstr "Rafraîchir"
-
 #~ msgid "RSS"
 #~ msgstr "RSS"
-
 #~ msgid "Check and display RSS feeds from the internet"
 #~ msgstr "Vérifier et afficher les flux RSS"
+
