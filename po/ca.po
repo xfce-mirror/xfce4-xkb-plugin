@@ -1,0 +1,68 @@
+# Catalan translation of xfce4-xkb-plugin.
+# Copyright (C) 2004-2006 Alexander Iliev.
+# This file is distributed under the same license as the xfce4-xkb-plugin package.
+# Pau Ruŀlan Ferragut <paurullan@bulma.net>, 2006.
+# 
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4-xkb-plugin 0.4.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-09-10 21:29+0200\n"
+"PO-Revision-Date: 2006-09-18 19:02+0200\n"
+"Last-Translator: Pau Ruŀlan Ferragut <paurullan@bulma.net>\n"
+"Language-Team: Catalan\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:169
+#: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
+msgid "Keyboard Layout Switcher"
+msgstr "Canviador de disposicions de teclat"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:175
+msgid ""
+"Allows you to switch the keyboard layout and\n"
+"displays the currently selected layout."
+msgstr ""
+"Permet commutar la distribució del teclat i\n"
+"mostra la distribució actual."
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:180
+msgid "Other plugins available here"
+msgstr "Altres connectors disponibles"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:412
+msgid "Configure Keyboard Layout Switcher"
+msgstr "Commuta la configuració de la distribució del teclat"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:425
+msgid "Show layout as"
+msgstr "Mostra la distribució del teclat"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:440
+msgid "image"
+msgstr "imatge"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:441
+msgid "text"
+msgstr "text"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:445
+msgid "Per applcation settings"
+msgstr "Paràmetres per aplicacions"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:459
+msgid "_Remember layout for each application"
+msgstr "_Recorda la distribució segons l’aplicacions"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:468
+msgid "Default layout:"
+msgstr "Distribució per defecte:"
+
+#: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
+msgid ""
+"Displays the current keyboard layout and switches the layout when clicked"
+msgstr "Mostra la distribució del teclat i la commuta en fer clic"
+
