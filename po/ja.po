@@ -51,7 +51,7 @@ msgid "text"
 msgstr "文字"
 
 #: ../panel-plugin/xfce4-xkb-plugin.c:445
-msgid "Per applcation settings"
+msgid "Per application settings"
 msgstr "アプリケーション毎の設定"
 
 #: ../panel-plugin/xfce4-xkb-plugin.c:459

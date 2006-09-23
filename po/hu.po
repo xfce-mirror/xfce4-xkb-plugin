@@ -51,7 +51,7 @@ msgid "text"
 msgstr "szöveg"
 
 #: ../panel-plugin/xfce4-xkb-plugin.c:445
-msgid "Per applcation settings"
+msgid "Per application settings"
 msgstr "Alkalmazásonkénti beállítás"
 
 #: ../panel-plugin/xfce4-xkb-plugin.c:459

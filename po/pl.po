@@ -49,7 +49,7 @@ msgid "text"
 msgstr "tekst"
 
 #: ../panel-plugin/xfce4-xkb-plugin.c:445
-msgid "Per applcation settings"
+msgid "Per application settings"
 msgstr "wg. ustawień aplikacji"
 
 #: ../panel-plugin/xfce4-xkb-plugin.c:459

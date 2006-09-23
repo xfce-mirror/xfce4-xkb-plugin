@@ -442,7 +442,7 @@ xkb_options_dlg_create()
   gtk_box_pack_start(GTK_BOX(hbox), dlg->display_type_optmenu, TRUE, TRUE, 2);
 
   per_app_frame = gtk_frame_new (NULL);
-  gtk_frame_set_label (GTK_FRAME (per_app_frame), _("Per applcation settings"));
+  gtk_frame_set_label (GTK_FRAME (per_app_frame), _("Per application settings"));
   gtk_widget_show (per_app_frame);
   gtk_box_pack_start (GTK_BOX (vbox), per_app_frame, TRUE, TRUE, 2);
   gtk_container_set_border_width (GTK_CONTAINER (per_app_frame), 5);

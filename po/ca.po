@@ -50,7 +50,7 @@ msgid "text"
 msgstr "text"
 
 #: ../panel-plugin/xfce4-xkb-plugin.c:445
-msgid "Per applcation settings"
+msgid "Per application settings"
 msgstr "Paràmetres per aplicacions"
 
 #: ../panel-plugin/xfce4-xkb-plugin.c:459
