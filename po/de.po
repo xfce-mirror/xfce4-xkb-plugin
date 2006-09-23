@@ -1,0 +1,65 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4-xkb-plugin 0.4.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-09-10 21:29+0200\n"
+"PO-Revision-Date: 2006-09-18 19:26+0100\n"
+"Last-Translator: Frank Lanitz <frank@frank.uvena.de>\n"
+"Language-Team:  <frank@frank.uvena.de>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: German\n"
+"X-Poedit-Country: GERMANY\n"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:169
+#: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
+msgid "Keyboard Layout Switcher"
+msgstr "Tastaturlayoutumschalter"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:175
+msgid ""
+"Allows you to switch the keyboard layout and\n"
+"displays the currently selected layout."
+msgstr ""
+"Bietet die Möglichkeit, das Tastaturlayout zu wechseln und zeigt das im "
+"Moment aktive Layout an. "
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:180
+msgid "Other plugins available here"
+msgstr "Weitere Plugins kann man hier finden"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:412
+msgid "Configure Keyboard Layout Switcher"
+msgstr "Einstellungen für das Tastaturlayout-Plugin"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:425
+msgid "Show layout as"
+msgstr "Zeigen Layout an als"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:440
+msgid "image"
+msgstr "Bild"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:441
+msgid "text"
+msgstr "Text"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:445
+msgid "Per applcation settings"
+msgstr "Weitere Optionen"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:459
+msgid "_Remember layout for each application"
+msgstr "_Benutze Layout für alle Anwendungen"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:468
+msgid "Default layout:"
+msgstr "Standard Layout: "
+
+#: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
+msgid ""
+"Displays the current keyboard layout and switches the layout when clicked"
+msgstr ""
+"Zeigt das aktuelle Tastaturlayout an und erlaubt es, durch einen Klick das "
+"Layout zu wechseln. "
