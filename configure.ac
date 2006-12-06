@@ -5,7 +5,7 @@ dnl
 dnl 2003 Benedikt Meurer <benedikt.meurer@unix-ag.uni-siegen.de>
 dnl
 
-m4_define([xfce4_xkb_plugin_version],[0.4.1])
+m4_define([xfce4_xkb_plugin_version],[0.4.2])
 
 dnl init autoconf
 AC_INIT([xfce4-xkb-plugin], [xfce4_xkb_plugin_version()], [sasoiliev@mamul.org])
