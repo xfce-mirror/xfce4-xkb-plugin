@@ -300,10 +300,6 @@ xkb_new(XfcePanelPlugin *plugin)
 
   xkb->size = xfce_panel_plugin_get_size(plugin);
 
-  xkb->display_type = IMAGE;
-  xkb->enable_perapp = TRUE;
-  xkb->default_group = 0;
-
   xkb->plugin = plugin;
 
   xkb->btn = gtk_button_new();
