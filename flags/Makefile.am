@@ -25,7 +25,7 @@ flags_DATA = ae.png \
                                  fi.png \
                                  fr.png \
                                  ge.png \
-                                 el.png \
+                                 gr.png \
                                  hr.png \
                                  hu.png \
                                  il.png \
