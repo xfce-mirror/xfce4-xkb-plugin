@@ -36,6 +36,9 @@ dnl Check for X11
 XDT_CHECK_LIBX11_REQUIRE
 
 dnl configure the panel plugin
+XDT_CHECK_PACKAGE([GTK], [gtk+-2.0], [2.6.0])
+XDT_CHECK_PACKAGE([LIBXFCE4UTIL], [libxfce4util-1.0], [4.3.90.2])
+XDT_CHECK_PACKAGE([LIBXFCEGUI4], [libxfcegui4-1.0], [4.3.90.2])
 XDT_CHECK_PACKAGE([LIBXFCE4PANEL], [libxfce4panel-1.0], [4.3.20])
 
 dnl Check for i18n support

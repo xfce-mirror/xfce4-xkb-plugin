@@ -21,6 +21,7 @@
 #include <X11/XKBlib.h>
 
 #include <gtk/gtk.h>
+#include <gdk-pixbuf/gdk-pixbuf.h>
 #include <glib.h>
 
 Display *dsp;
@@ -48,26 +49,6 @@ gint
 get_group_count() 
 { 
   return group_count;
-}
-
-char*
-to_upper(char *src) 
-{
-  int i = 0;
-  for (i = 0; i < strlen(src); i++) {
-    src[i] = toupper(src[i]);
-  }
-  return src;
-}
-
-char*
-to_lower(char *src) 
-{
-  int i = 0;
-  for (i = 0; i < strlen(src); i++) {
-    src[i] = tolower(src[i]);
-  }
-  return src;
 }
 
 static int 
@@ -106,22 +87,23 @@ group_no_res_to_xkb(int group_res_no)
   return group_lookup(group_res_no, group_codes, symbol_names, group_count);
 }
 
-static char * 
+static const char * 
 get_group_name_by_res_no(int group_res_no) 
 {
   return group_names[group_no_res_to_xkb(group_res_no)];
 }
 
-char * 
+const char * 
 get_symbol_name_by_res_no(int group_res_no) 
 {
   return symbol_names[group_no_res_to_xkb(group_res_no)];
 }
 
-const char *
-get_current_group_name() 
+static char *
+get_current_group_name(void) 
 {
-  return get_symbol_name_by_res_no(current_group_xkb_no);
+  const char *tmp = get_symbol_name_by_res_no(current_group_xkb_no);
+  return g_utf8_strdown (tmp, -1);
 }
 
 void 
@@ -216,7 +198,7 @@ do_init_xkb()
     ptr1 = strchr(ptr, '(');
     if (ptr1 != NULL) *ptr1 = '\0';
     ptr1 = strchr(ptr, '_');
-    if (ptr1 != NULL && !isupper(*(ptr1+1))) *ptr1 = '\0';
+    if (ptr1 != NULL && !g_ascii_isupper((int) *(ptr1+1))) *ptr1 = '\0';
     ptr1 = strchr(ptr, ':');
     if (ptr1 != NULL) *ptr1 = '\0';
 
@@ -233,7 +215,7 @@ do_init_xkb()
         /* Filter cases like pc(pc105) (Xorg 7.0 update) */
         if (strncmp(ptr, "pc", 2) == 0) continue;
         
-    symbol_names[count++] = to_upper(strdup(ptr));
+    symbol_names[count++] = g_utf8_strup(ptr, -1);
   }
 
   if (count == 1 && group_names[0] == NULL &&
@@ -263,7 +245,7 @@ do_init_xkb()
     switch(group_title_source) {
       case 1: /* Group name */
         if (group_names[i] == NULL) {
-          char *name = get_symbol_name_by_res_no(i);
+          const char *name = get_symbol_name_by_res_no(i);
           if (name == NULL) name = "U/A";
           fprintf(stderr, "\nGroup Name %i is undefined, set to '%s' !\n", i+1, name);
           group_names[i] = strdup(name);
@@ -302,15 +284,20 @@ HastaLaVista:
 gboolean temporary_changed_display_type = FALSE;
 
 gboolean 
-is_current_group_flag_available() 
+is_current_group_flag_available(void) 
 {
   char *filename;
   gboolean result = FALSE;
-  filename = g_strdup_printf("%s/%s.png", FLAGSDIR, to_lower(get_current_group_name()));
-  GdkPixbuf *tmp = gdk_pixbuf_new_from_file(filename, NULL);
+  GdkPixbuf *tmp = NULL;
+  char *group_name = get_current_group_name();
+  filename = g_strdup_printf("%s/%s.png", FLAGSDIR, group_name);
+  DBG ("Try to load image: %s", filename);
+  tmp = gdk_pixbuf_new_from_file(filename, NULL);
   g_free(filename);
+  g_free (group_name);
   result = (gboolean) (tmp != NULL);
-  g_object_unref(tmp);
+  if (tmp)
+    g_object_unref(G_OBJECT (tmp));
   return result;
 }
 
@@ -353,8 +340,9 @@ set_new_locale(t_xkb *ctrl)
   t_xkb *plugin = (t_xkb *) ctrl;
   char *filename;
   char *label_markup;
+  char *group_name;
   int size;
-  GdkPixbuf *pixbuf, *tmp;
+  GdkPixbuf *pixbuf = NULL, *tmp = NULL;
   NetkWindow* win;
   gint pid;
 
@@ -362,12 +350,15 @@ set_new_locale(t_xkb *ctrl)
   label_markup = xkb_get_label_markup (plugin); 
   gtk_label_set_markup (GTK_LABEL (plugin->label), label_markup);
   g_free(label_markup);
-
+  
   /* Set the image */
   size = 0.9 * plugin->size;
-  filename = g_strdup_printf("%s/%s.png", FLAGSDIR, to_lower(get_current_group_name()));
+  group_name = get_current_group_name();
+  filename = g_strdup_printf("%s/%s.png", FLAGSDIR, group_name);
+  DBG ("Try to load image: %s", filename);
   tmp = gdk_pixbuf_new_from_file(filename, NULL);
   g_free(filename);
+  g_free(group_name);
   if (tmp == NULL) { /* could not be loaded for some reason */
     if (plugin->display_type == IMAGE) {
       temporary_changed_display_type = TRUE;
@@ -378,8 +369,11 @@ set_new_locale(t_xkb *ctrl)
     temporary_changed_display_type = TRUE;
     pixbuf = gdk_pixbuf_scale_simple(tmp, size, size - (int) (size / 3), GDK_INTERP_BILINEAR);
     gtk_image_set_from_pixbuf((GtkImage *) plugin->image, pixbuf);
-    g_object_unref(G_OBJECT(tmp));
-    g_object_unref(G_OBJECT(pixbuf));
+    if (tmp)
+      g_object_unref(G_OBJECT(tmp));
+      
+    if (pixbuf)
+      g_object_unref(G_OBJECT(pixbuf));
 
     if (plugin->display_type == IMAGE) { 
       /* the image for the previous active layout could not be loaded */
@@ -421,14 +415,13 @@ handle_xevent(t_xkb *ctrl)
   }
 }
 
-char * 
+const char * 
 initialize_xkb(t_xkb *ctrl) 
 {
-  XkbEvent evnt;
   XkbStateRec state;
   int event_code, error_rtrn, major, minor, reason_rtrn;
   char * display_name;
-  char *group;
+  const char *group;
 
   major = XkbMajorVersion;
   minor = XkbMinorVersion;

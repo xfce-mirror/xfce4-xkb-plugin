@@ -122,9 +122,16 @@ gboolean
 xfce_xkb_set_size(XfcePanelPlugin *plugin, gint size,
                   t_xkb *xkb)
 {
+  GtkOrientation orientation;
   DBG ("setting size %d", size);
   xkb->size = size;
-  gtk_widget_set_size_request(xkb->btn, xkb->size, xkb->size);
+  
+  orientation = xfce_panel_plugin_get_orientation (plugin);
+  if (orientation == GTK_ORIENTATION_HORIZONTAL)
+    gtk_widget_set_size_request(xkb->btn, -1, xkb->size);
+  else
+    gtk_widget_set_size_request(xkb->btn, xkb->size, -1);
+  
   set_new_locale(xkb);
   return TRUE;
 }
@@ -288,7 +295,7 @@ xkb_new(XfcePanelPlugin *plugin)
 {
   t_xkb *xkb;
   gchar *filename;
-  char *initial_group;
+  const char *initial_group;
   NetkScreen* netk_screen;
 
   xkb = g_new(t_xkb, 1);
@@ -354,7 +361,7 @@ xkb_free(t_xkb *xkb)
 
   g_return_if_fail(xkb != NULL);
 
-  g_object_unref(xkb->btn);
+  gtk_widget_destroy(xkb->btn);
 
   g_free(xkb);
 }
@@ -399,7 +406,7 @@ static t_xkb_options_dlg*
 xkb_options_dlg_create()
 {
   int x;
-  GtkWidget *vbox, *hbox, *label, *opt_menu, *display_type_frame,
+  GtkWidget *vbox, *hbox, *display_type_frame,
             *per_app_frame, *alignment1, *alignment2, *hbox3, *label4;
 
   dlg = g_new0(t_xkb_options_dlg, 1);

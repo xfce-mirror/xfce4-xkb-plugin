@@ -72,16 +72,16 @@ typedef struct
 } t_xkb_options_dlg;
 
 void set_new_locale(t_xkb *ctrl);
-char *initialize_xkb(t_xkb *ctrl);
+const char *initialize_xkb(t_xkb *ctrl);
 void deinitialize_xkb();
-
+void react_application_closed(gint pid);
 gint get_group_count();
-char * get_symbol_name_by_res_no(int group_res_no);
+const char * get_symbol_name_by_res_no(int group_res_no);
 
 int do_change_group(int increment, t_xkb *ctrl);
 gboolean gio_callback(GIOChannel *source, GIOCondition condition, gpointer data);
 int get_connection_number();
-
+gboolean is_current_group_flag_available(void);
 /* "locale per process" functions */
 void react_active_window_changed(gint pid, t_xkb *ctrl);
 void react_window_closed(gint pid);
