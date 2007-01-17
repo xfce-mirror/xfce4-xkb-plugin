@@ -1,3 +1,4 @@
+# $Id$
 
 INCLUDES =										\
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"						\
@@ -9,7 +10,7 @@ plugin_PROGRAMS = xfce4-xkb-plugin
 
 xfce4_xkb_plugin_SOURCES =								\
 	xfce4-xkb-plugin.c								\
-	xkb.c																		\
+	xkb.c										\
 	xkb.h
 
 xfce4_xkb_plugin_CFLAGS =								\
@@ -25,20 +26,23 @@ xfce4_xkb_plugin_LDADD = 								\
 	@LIBXFCEGUI4_LIBS@								\
 	@LIBXFCE4UTIL_LIBS@
 
+#
+# Desktop file
+#
+desktopdir = $(datadir)/xfce4/panel-plugins
 desktop_in_in_files = xkb-plugin.desktop.in.in
 desktop_in_files = $(desktop_in_in_files:.desktop.in.in=.desktop.in)
-
-desktopdir = $(datadir)/xfce4/panel-plugins
+%.desktop.in: %.desktop.in.in
+	sed -e "s,\@libexecdir\@,$(libexecdir),g" < $< > $@
 desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
 @INTLTOOL_DESKTOP_RULE@
 
-EXTRA_DIST =															\
+EXTRA_DIST =								\
 	$(desktop_in_in_files)
 
-DISTCLEANFILES = 									\
-	$(desktop_DATA) $(desktop_in_files)
+CLEANFILES =								\
+	$(desktop_in_files)						\
+	$(desktop_DATA)
 
-%.desktop.in: %.desktop.in.in
-	sed -e "s^@PLUGIN_PATH@^$(libexecdir)/xfce4/panel-plugins^" \
-		$< > $@
+# vi:set ts=8 sw=8 noet ai nocindent syntax=automake:
 

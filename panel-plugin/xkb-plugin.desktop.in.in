@@ -2,7 +2,7 @@
 Type=X-XFCE-PanelPlugin
 Encoding=UTF-8
 _Name=Keyboard Layout Switcher
-_Comment=Displays the current keyboard layout and switches the layout when clicked
+_Comment=Button to switch the X keyboard layout
 Icon=gnome-dev-keyboard
-X-XFCE-Exec=@PLUGIN_PATH@/xfce4-xkb-plugin
+X-XFCE-Exec=@libexecdir@/xfce4/panel-plugins/xfce4-xkb-plugin
 X-XFCE-Unique=TRUE

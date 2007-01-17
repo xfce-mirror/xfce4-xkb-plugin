@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-09-10 21:29+0200\n"
+"POT-Creation-Date: 2007-01-17 13:26+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,50 +16,49 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:169
+#: ../panel-plugin/xfce4-xkb-plugin.c:176
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
 msgid "Keyboard Layout Switcher"
 msgstr ""
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:175
+#: ../panel-plugin/xfce4-xkb-plugin.c:182
 msgid ""
 "Allows you to switch the keyboard layout and\n"
 "displays the currently selected layout."
 msgstr ""
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:180
+#: ../panel-plugin/xfce4-xkb-plugin.c:187
 msgid "Other plugins available here"
 msgstr ""
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:412
+#: ../panel-plugin/xfce4-xkb-plugin.c:415
 msgid "Configure Keyboard Layout Switcher"
 msgstr ""
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:425
+#: ../panel-plugin/xfce4-xkb-plugin.c:428
 msgid "Show layout as"
 msgstr ""
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:440
+#: ../panel-plugin/xfce4-xkb-plugin.c:443
 msgid "image"
 msgstr ""
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:441
+#: ../panel-plugin/xfce4-xkb-plugin.c:444
 msgid "text"
 msgstr ""
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:445
-msgid "Per applcation settings"
+#: ../panel-plugin/xfce4-xkb-plugin.c:448
+msgid "Per application settings"
 msgstr ""
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:459
+#: ../panel-plugin/xfce4-xkb-plugin.c:462
 msgid "_Remember layout for each application"
 msgstr ""
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:468
+#: ../panel-plugin/xfce4-xkb-plugin.c:471
 msgid "Default layout:"
 msgstr ""
 
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
-msgid ""
-"Displays the current keyboard layout and switches the layout when clicked"
+msgid "Button to switch the X keyboard layout"
 msgstr ""

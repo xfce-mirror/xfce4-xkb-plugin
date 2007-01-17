@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-xkb-plugin 0.4.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-09-10 21:29+0200\n"
+"POT-Creation-Date: 2007-01-17 13:26+0100\n"
 "PO-Revision-Date: 2006-03-19 13:41+0900\n"
 "Last-Translator: Daichi Kawahata <daichi@xfce.org>\n"
 "Language-Team: Japanese <xfce-users-jp@ml.fdiary.net>\n"
@@ -17,12 +17,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:169
+#: ../panel-plugin/xfce4-xkb-plugin.c:176
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
 msgid "Keyboard Layout Switcher"
 msgstr "キーボードレイアウトの切り換え"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:175
+#: ../panel-plugin/xfce4-xkb-plugin.c:182
 msgid ""
 "Allows you to switch the keyboard layout and\n"
 "displays the currently selected layout."
@@ -30,40 +30,43 @@ msgstr ""
 "現在のキーボードレイアウトを表示します。\n"
 "また、レイアウトを切り換える事ができます。"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:180
+#: ../panel-plugin/xfce4-xkb-plugin.c:187
 msgid "Other plugins available here"
 msgstr "その他のプラグインはここにあります。"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:412
+#: ../panel-plugin/xfce4-xkb-plugin.c:415
 msgid "Configure Keyboard Layout Switcher"
 msgstr "キーボードレイアウト切り換えの設定"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:425
+#: ../panel-plugin/xfce4-xkb-plugin.c:428
 msgid "Show layout as"
 msgstr "レイアウトの表示方法"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:440
+#: ../panel-plugin/xfce4-xkb-plugin.c:443
 msgid "image"
 msgstr "画像"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:441
+#: ../panel-plugin/xfce4-xkb-plugin.c:444
 msgid "text"
 msgstr "文字"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:445
+#: ../panel-plugin/xfce4-xkb-plugin.c:448
 msgid "Per application settings"
 msgstr "アプリケーション毎の設定"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:459
+#: ../panel-plugin/xfce4-xkb-plugin.c:462
 msgid "_Remember layout for each application"
 msgstr "アプリケーション毎のレイアウトを覚えておく(_R)"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:468
+#: ../panel-plugin/xfce4-xkb-plugin.c:471
 msgid "Default layout:"
 msgstr "標準レイアウト:"
 
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
-msgid ""
-"Displays the current keyboard layout and switches the layout when clicked"
+msgid "Button to switch the X keyboard layout"
 msgstr ""
-"現在のキーボードレイアウトを表示、クリックでそのレイアウトを切り換えます。"
+
+#~ msgid ""
+#~ "Displays the current keyboard layout and switches the layout when clicked"
+#~ msgstr ""
+#~ "現在のキーボードレイアウトを表示、クリックでそのレイアウトを切り換えます。"

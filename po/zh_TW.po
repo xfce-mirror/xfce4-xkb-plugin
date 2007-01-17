@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-xkb-plugin 0.4.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-09-10 21:29+0200\n"
+"POT-Creation-Date: 2007-01-17 13:26+0100\n"
 "PO-Revision-Date: 2006-07-28 23:49+0800\n"
 "Last-Translator: Cosmo Chene <cosmolax@gmail.com>\n"
 "Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>\n"
@@ -15,12 +15,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:169
+#: ../panel-plugin/xfce4-xkb-plugin.c:176
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
 msgid "Keyboard Layout Switcher"
 msgstr "切換鍵盤對應"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:175
+#: ../panel-plugin/xfce4-xkb-plugin.c:182
 msgid ""
 "Allows you to switch the keyboard layout and\n"
 "displays the currently selected layout."
@@ -28,39 +28,42 @@ msgstr ""
 "讓您能夠切換別的鍵盤對應方式以及\n"
 "顯示目前所用的鍵盤類別."
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:180
+#: ../panel-plugin/xfce4-xkb-plugin.c:187
 msgid "Other plugins available here"
 msgstr "其他可用的外掛"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:412
+#: ../panel-plugin/xfce4-xkb-plugin.c:415
 msgid "Configure Keyboard Layout Switcher"
 msgstr "設定切換鍵盤對應"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:425
+#: ../panel-plugin/xfce4-xkb-plugin.c:428
 msgid "Show layout as"
 msgstr "顯示鍵盤對應的方式"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:440
+#: ../panel-plugin/xfce4-xkb-plugin.c:443
 msgid "image"
 msgstr "圖片"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:441
+#: ../panel-plugin/xfce4-xkb-plugin.c:444
 msgid "text"
 msgstr "文字"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:445
+#: ../panel-plugin/xfce4-xkb-plugin.c:448
 msgid "Per application settings"
 msgstr "針對每個程式作設定"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:459
+#: ../panel-plugin/xfce4-xkb-plugin.c:462
 msgid "_Remember layout for each application"
 msgstr "記住每個程式的設定(_R)"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:468
+#: ../panel-plugin/xfce4-xkb-plugin.c:471
 msgid "Default layout:"
 msgstr "預設鍵盤:"
 
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
-msgid ""
-"Displays the current keyboard layout and switches the layout when clicked"
-msgstr "顯示目前使用的鍵盤類型，並讓您用滑鼠點選切換想用的鍵盤對應方式"
+msgid "Button to switch the X keyboard layout"
+msgstr ""
+
+#~ msgid ""
+#~ "Displays the current keyboard layout and switches the layout when clicked"
+#~ msgstr "顯示目前使用的鍵盤類型，並讓您用滑鼠點選切換想用的鍵盤對應方式"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-xkb-plugin 0.4.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-09-10 21:29+0200\n"
+"POT-Creation-Date: 2007-01-17 13:26+0100\n"
 "PO-Revision-Date: 2006-04-08 11:01+0200\n"
 "Last-Translator: Stavros Giannouris <stavrosg@serverhive.com>\n"
 "Language-Team: Greek <nls@tux.hellug.gr>\n"
@@ -16,12 +16,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:169
+#: ../panel-plugin/xfce4-xkb-plugin.c:176
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
 msgid "Keyboard Layout Switcher"
 msgstr "Εναλλάκτης διάταξης πληκτρολογίου"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:175
+#: ../panel-plugin/xfce4-xkb-plugin.c:182
 msgid ""
 "Allows you to switch the keyboard layout and\n"
 "displays the currently selected layout."
@@ -29,41 +29,44 @@ msgstr ""
 "Επιτρέπει την εναλλαγή της διάταξης πληκτρολογίου\n"
 "και εμφανίζει την τρέχουσα διάταξη."
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:180
+#: ../panel-plugin/xfce4-xkb-plugin.c:187
 msgid "Other plugins available here"
 msgstr "Άλλα διαθέσιμα πρόσθετα"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:412
+#: ../panel-plugin/xfce4-xkb-plugin.c:415
 msgid "Configure Keyboard Layout Switcher"
 msgstr "Ρύθμιση εναλλάκτη διάταξης πληκτρολογίου"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:425
+#: ../panel-plugin/xfce4-xkb-plugin.c:428
 msgid "Show layout as"
 msgstr "Προβολή διάταξης ως"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:440
+#: ../panel-plugin/xfce4-xkb-plugin.c:443
 msgid "image"
 msgstr "εικόνα"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:441
+#: ../panel-plugin/xfce4-xkb-plugin.c:444
 msgid "text"
 msgstr "κείμενο"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:445
+#: ../panel-plugin/xfce4-xkb-plugin.c:448
 msgid "Per application settings"
 msgstr "Ρυθμίσεις ανά εφαρμογή"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:459
+#: ../panel-plugin/xfce4-xkb-plugin.c:462
 msgid "_Remember layout for each application"
 msgstr "_Καταγραφή διάταξης ανά εφαρμογή"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:468
+#: ../panel-plugin/xfce4-xkb-plugin.c:471
 msgid "Default layout:"
 msgstr "Εξορισμού διάταξη:"
 
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
-msgid ""
-"Displays the current keyboard layout and switches the layout when clicked"
+msgid "Button to switch the X keyboard layout"
 msgstr ""
-"Εμφανίζει την τρέχουσα διάταξη πληκτρολογίου και την αλλάζει όταν κάνετε "
-"κλικ επάνω"
+
+#~ msgid ""
+#~ "Displays the current keyboard layout and switches the layout when clicked"
+#~ msgstr ""
+#~ "Εμφανίζει την τρέχουσα διάταξη πληκτρολογίου και την αλλάζει όταν κάνετε "
+#~ "κλικ επάνω"

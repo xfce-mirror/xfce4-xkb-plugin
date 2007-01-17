@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-xkb-plugin v0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-09-10 21:29+0200\n"
+"POT-Creation-Date: 2007-01-17 13:26+0100\n"
 "PO-Revision-Date: 2006-09-11 18:23+0100\n"
 "Last-Translator: Maximilian Schleiss <maxschleiss@bluewin.ch>\n"
 "Language-Team: French <xfce-i18n@xfce.org>\n"
@@ -15,12 +15,12 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:169
+#: ../panel-plugin/xfce4-xkb-plugin.c:176
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
 msgid "Keyboard Layout Switcher"
 msgstr "Changeur de disposition de clavier"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:175
+#: ../panel-plugin/xfce4-xkb-plugin.c:182
 msgid ""
 "Allows you to switch the keyboard layout and\n"
 "displays the currently selected layout."
@@ -28,56 +28,68 @@ msgstr ""
 "Permet de changer la disposition du clavier et\n"
 "affiche la disposition actuelle."
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:180
+#: ../panel-plugin/xfce4-xkb-plugin.c:187
 msgid "Other plugins available here"
 msgstr "Autres greffons disponibles ici"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:412
+#: ../panel-plugin/xfce4-xkb-plugin.c:415
 msgid "Configure Keyboard Layout Switcher"
 msgstr "Configurer le changeur de disposition de clavier"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:425
+#: ../panel-plugin/xfce4-xkb-plugin.c:428
 msgid "Show layout as"
 msgstr "Afficher la disposition en tant que"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:440
+#: ../panel-plugin/xfce4-xkb-plugin.c:443
 msgid "image"
 msgstr "image"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:441
+#: ../panel-plugin/xfce4-xkb-plugin.c:444
 msgid "text"
 msgstr "texte"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:445
+#: ../panel-plugin/xfce4-xkb-plugin.c:448
 msgid "Per application settings"
 msgstr "Paramètres par application"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:459
+#: ../panel-plugin/xfce4-xkb-plugin.c:462
 msgid "_Remember layout for each application"
 msgstr "_Retenir les dispositions pour chaque application"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:468
+#: ../panel-plugin/xfce4-xkb-plugin.c:471
 msgid "Default layout:"
 msgstr "Disposition par défaut :"
 
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
-msgid "Displays the current keyboard layout and switches the layout when clicked"
-msgstr "Affiche la disposition de clavier actuelle et la change par un clic de souris"
+msgid "Button to switch the X keyboard layout"
+msgstr ""
+
+#~ msgid ""
+#~ "Displays the current keyboard layout and switches the layout when clicked"
+#~ msgstr ""
+#~ "Affiche la disposition de clavier actuelle et la change par un clic de "
+#~ "souris"
 
 #~ msgid "RSS Aggregator"
 #~ msgstr "RSS agrégés"
+
 #~ msgid "RSS Feeds:"
 #~ msgstr "Flux RSS:"
+
 #~ msgid "Name"
 #~ msgstr "Nom"
+
 #~ msgid "URL"
 #~ msgstr "URL"
+
 #~ msgid "Feeds"
 #~ msgstr "Flux"
+
 #~ msgid "Refresh all"
 #~ msgstr "Rafraîchir"
+
 #~ msgid "RSS"
 #~ msgstr "RSS"
+
 #~ msgid "Check and display RSS feeds from the internet"
 #~ msgstr "Vérifier et afficher les flux RSS"
-

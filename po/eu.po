@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-xkb-plugin 0.4.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-09-10 21:29+0200\n"
+"POT-Creation-Date: 2007-01-17 13:26+0100\n"
 "PO-Revision-Date: 2006-004-10 12:02+0100\n"
 "Last-Translator: Piarres Beobide <pi@beobide.net>\n"
 "Language-Team: Librezale <Librezale@librezale.org>\n"
@@ -15,12 +15,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:169
+#: ../panel-plugin/xfce4-xkb-plugin.c:176
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
 msgid "Keyboard Layout Switcher"
 msgstr "Teklatu Ingurune Aldatzailea"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:175
+#: ../panel-plugin/xfce4-xkb-plugin.c:182
 msgid ""
 "Allows you to switch the keyboard layout and\n"
 "displays the currently selected layout."
@@ -28,40 +28,43 @@ msgstr ""
 "Teklatu ingurunea aldatu edo erabilitako\n"
 "ingurunea ikusteko aukera ematen du."
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:180
+#: ../panel-plugin/xfce4-xkb-plugin.c:187
 msgid "Other plugins available here"
 msgstr "Hemen erabilgarri dauden beste plugin-ak"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:412
+#: ../panel-plugin/xfce4-xkb-plugin.c:415
 msgid "Configure Keyboard Layout Switcher"
 msgstr "Teklatu Ingurune Aldatzailea Konfiguratu"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:425
+#: ../panel-plugin/xfce4-xkb-plugin.c:428
 msgid "Show layout as"
 msgstr "Ikusi ingurunea horrela"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:440
+#: ../panel-plugin/xfce4-xkb-plugin.c:443
 msgid "image"
 msgstr "irudia"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:441
+#: ../panel-plugin/xfce4-xkb-plugin.c:444
 msgid "text"
 msgstr "testua"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:445
+#: ../panel-plugin/xfce4-xkb-plugin.c:448
 msgid "Per application settings"
 msgstr "Aplikazio ezarpen bakoitzagatik"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:459
+#: ../panel-plugin/xfce4-xkb-plugin.c:462
 msgid "_Remember layout for each application"
 msgstr "Aplikazio bakoitzaren ingurunea gogo_ratu"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:468
+#: ../panel-plugin/xfce4-xkb-plugin.c:471
 msgid "Default layout:"
 msgstr "Lehenetsiriko ingurunea:"
 
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
-msgid ""
-"Displays the current keyboard layout and switches the layout when clicked"
+msgid "Button to switch the X keyboard layout"
 msgstr ""
-"Erabilitako teklatu ingurunea bistarazi eta klikatzean aldatu egiten du"
+
+#~ msgid ""
+#~ "Displays the current keyboard layout and switches the layout when clicked"
+#~ msgstr ""
+#~ "Erabilitako teklatu ingurunea bistarazi eta klikatzean aldatu egiten du"
