@@ -1,14 +1,14 @@
 # French translations of the xfce4-rss-plugin package.
 # Copyright (C) 2006 Adriano Winter Bess <adriano@xfce.org>
 # This file is distributed under the same license as the xfce4-rss-plugin package.
-# Maximilian Schleiss <maxschleiss@bluewin.ch>, 2006.
+# Maximilian Schleiss <maxschleiss@bluewin.ch>, 2006-2007.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-xkb-plugin v0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-01-17 13:26+0100\n"
-"PO-Revision-Date: 2006-09-11 18:23+0100\n"
+"PO-Revision-Date: 2007-01-18 11:29+0100\n"
 "Last-Translator: Maximilian Schleiss <maxschleiss@bluewin.ch>\n"
 "Language-Team: French <xfce-i18n@xfce.org>\n"
 "MIME-Version: 1.0\n"
@@ -24,9 +24,7 @@ msgstr "Changeur de disposition de clavier"
 msgid ""
 "Allows you to switch the keyboard layout and\n"
 "displays the currently selected layout."
-msgstr ""
-"Permet de changer la disposition du clavier et\n"
-"affiche la disposition actuelle."
+msgstr "Permet d'afficher et changer la disposition du clavier"
 
 #: ../panel-plugin/xfce4-xkb-plugin.c:187
 msgid "Other plugins available here"
@@ -34,7 +32,7 @@ msgstr "Autres greffons disponibles ici"
 
 #: ../panel-plugin/xfce4-xkb-plugin.c:415
 msgid "Configure Keyboard Layout Switcher"
-msgstr "Configurer le changeur de disposition de clavier"
+msgstr "Configurer le changeur de disposition du clavier"
 
 #: ../panel-plugin/xfce4-xkb-plugin.c:428
 msgid "Show layout as"
@@ -62,34 +60,27 @@ msgstr "Disposition par défaut :"
 
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
 msgid "Button to switch the X keyboard layout"
-msgstr ""
+msgstr "Bouton de changement de disposition du clavier X"
 
 #~ msgid ""
 #~ "Displays the current keyboard layout and switches the layout when clicked"
 #~ msgstr ""
 #~ "Affiche la disposition de clavier actuelle et la change par un clic de "
 #~ "souris"
-
 #~ msgid "RSS Aggregator"
 #~ msgstr "RSS agrégés"
-
 #~ msgid "RSS Feeds:"
 #~ msgstr "Flux RSS:"
-
 #~ msgid "Name"
 #~ msgstr "Nom"
-
 #~ msgid "URL"
 #~ msgstr "URL"
-
 #~ msgid "Feeds"
 #~ msgstr "Flux"
-
 #~ msgid "Refresh all"
 #~ msgstr "Rafraîchir"
-
 #~ msgid "RSS"
 #~ msgstr "RSS"
-
 #~ msgid "Check and display RSS feeds from the internet"
 #~ msgstr "Vérifier et afficher les flux RSS"
+
