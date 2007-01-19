@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xfce4-xkb-plugin 0.4.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-01-17 13:26+0100\n"
-"PO-Revision-Date: 2006-07-08 01:13+0100\n"
+"PO-Revision-Date: 2007-01-19 20:13+0100\n"
 "Last-Translator: SZERVÁC Attila <sas@321.hu>\n"
 "Language-Team: Hungarian\n"
 "MIME-Version: 1.0\n"
@@ -16,11 +16,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: Hungarian\n"
 "X-Poedit-Country: HUNGARY\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../panel-plugin/xfce4-xkb-plugin.c:176
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
 msgid "Keyboard Layout Switcher"
-msgstr "Billentyűkiosztás váltó"
+msgstr "Billentyű-kiosztás váltó"
 
 #: ../panel-plugin/xfce4-xkb-plugin.c:182
 msgid ""
@@ -36,7 +37,7 @@ msgstr "Más itt elérhető bővítmények"
 
 #: ../panel-plugin/xfce4-xkb-plugin.c:415
 msgid "Configure Keyboard Layout Switcher"
-msgstr "Billentyűkiosztás váltó beállítása"
+msgstr "Billentyű-kiosztás váltó beállítása"
 
 #: ../panel-plugin/xfce4-xkb-plugin.c:428
 msgid "Show layout as"
@@ -64,8 +65,9 @@ msgstr "Alapkiosztás:"
 
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
 msgid "Button to switch the X keyboard layout"
-msgstr ""
+msgstr "X billentyű-kiosztást váltó gomb"
 
 #~ msgid ""
 #~ "Displays the current keyboard layout and switches the layout when clicked"
 #~ msgstr "Kijelzi a jelenlegi billentyűkiosztást és kattintásra vált"
+
