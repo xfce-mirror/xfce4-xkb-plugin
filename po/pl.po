@@ -62,7 +62,7 @@ msgstr "Domyślny układ:"
 
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
 msgid "Button to switch the X keyboard layout"
-msgstr ""
+msgstr "Przycisk przełączający układ klawiatury"
 
 #~ msgid ""
 #~ "Displays the current keyboard layout and switches the layout when clicked"
