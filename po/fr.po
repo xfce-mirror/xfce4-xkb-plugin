@@ -1,4 +1,4 @@
-# French translations of the xfce4-rss-plugin package.
+# French translation of the xfce4-rss-plugin package.
 # Copyright (C) 2006 Adriano Winter Bess <adriano@xfce.org>
 # This file is distributed under the same license as the xfce4-rss-plugin package.
 # Maximilian Schleiss <maxschleiss@bluewin.ch>, 2006-2007.
