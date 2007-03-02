@@ -1,0 +1,68 @@
+# Ukrainian translation of xfce4-xkb-plugin.
+# Copyright (C) 2007 Dmitry Nikitin.
+# This file is distributed under the same license as the xfce4-xkb-plugin package.
+#
+# Dmitry Nikitin <luckas_fb@mail.ru>, 2007.
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4-xkb-plugin-0.4.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-01-17 13:26+0100\n"
+"PO-Revision-Date: 2007-03-02 13:14+0200\n"
+"Last-Translator: Dmitry Nikitin <luckas_fb@mail.ru>\n"
+"Language-Team: Ukrainian <xfce-i18n@xfce.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:176
+#: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
+msgid "Keyboard Layout Switcher"
+msgstr "Перемикач розкладок клавіатури"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:182
+msgid ""
+"Allows you to switch the keyboard layout and\n"
+"displays the currently selected layout."
+msgstr ""
+"Дозволяє Вам перемикати розкладки клавіатури і \n"
+"відображає поточну вибрану розкладку."
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:187
+msgid "Other plugins available here"
+msgstr "Інші доповнення доступні тут"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:415
+msgid "Configure Keyboard Layout Switcher"
+msgstr "Налаштувати перемикач розкладок клавіатури"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:428
+msgid "Show layout as"
+msgstr "Стиль відображення"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:443
+msgid "image"
+msgstr "малюнок"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:444
+msgid "text"
+msgstr "текст"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:448
+msgid "Per application settings"
+msgstr "Опції для програм"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:462
+msgid "_Remember layout for each application"
+msgstr "_Запам'ятовувати розкладку для кожної програми"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:471
+msgid "Default layout:"
+msgstr "Основна розкладка:"
+
+#: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
+msgid "Button to switch the X keyboard layout"
+msgstr "Кнопка перемикання розкладки клавіатури"
+
