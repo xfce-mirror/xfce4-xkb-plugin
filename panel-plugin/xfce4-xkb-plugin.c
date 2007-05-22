@@ -299,7 +299,7 @@ xkb_new(XfcePanelPlugin *plugin)
   NetkScreen* netk_screen;
 
   xkb = g_new(t_xkb, 1);
-  filename = xfce_panel_plugin_save_location(plugin, TRUE);
+  filename = xfce_panel_plugin_lookup_rc_file(plugin);
   if ((!filename) || (!xkb_load_config(xkb, filename)))
   {
     xkb_load_default(xkb);
