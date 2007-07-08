@@ -1,0 +1,66 @@
+# European Portuguese translation of the xfce4-xkb-plugin.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Nuno Miguel <nunis@netcabo.pt>, 2007.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4-xkb-plugin\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-01-17 13:26+0100\n"
+"PO-Revision-Date: 2007-06-30 16:15+0100\n"
+"Last-Translator: Nuno Miguel <nunis@netcabo.pt>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:176
+#: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
+msgid "Keyboard Layout Switcher"
+msgstr "Alternador de Disposição de Teclado"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:182
+msgid ""
+"Allows you to switch the keyboard layout and\n"
+"displays the currently selected layout."
+msgstr ""
+"Permite mudar a disposição do teclado e\n"
+"mostra a disposição actualmente seleccionada."
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:187
+msgid "Other plugins available here"
+msgstr "Outros plugins disponíveis aqui"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:415
+msgid "Configure Keyboard Layout Switcher"
+msgstr "Configurar Alternador de Disposição de Teclado"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:428
+msgid "Show layout as"
+msgstr "Mostrar disposição como"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:443
+msgid "image"
+msgstr "imagem"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:444
+msgid "text"
+msgstr "texto"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:448
+msgid "Per application settings"
+msgstr "Por definições de aplicação"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:462
+msgid "_Remember layout for each application"
+msgstr "_Relembrar disposição para cada aplicação"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:471
+msgid "Default layout:"
+msgstr "Disposição Padrão"
+
+#: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
+msgid "Button to switch the X keyboard layout"
+msgstr "Botão para mudar a disposição do teclado do X"
+
