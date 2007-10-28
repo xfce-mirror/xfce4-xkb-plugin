@@ -1,0 +1,69 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4-xkb-plugin\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-01-17 13:26+0100\n"
+"PO-Revision-Date: 2007-10-27 18:45+0500\n"
+"Last-Translator: Muhammad Ali Makki <makk.ma@gmail.com>\n"
+"Language-Team: Urdu <makki.ma@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Urdu\n"
+"X-Poedit-Country: PAKISTAN\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:176
+#: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
+msgid "Keyboard Layout Switcher"
+msgstr "کیبورڈ خاکہ مبدل"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:182
+msgid ""
+"Allows you to switch the keyboard layout and\n"
+"displays the currently selected layout."
+msgstr ""
+"آپ کو کی بورڈ خاکہ تبدیل کرنے اور حالیہ منتخب\n"
+"کردہ خاکے ظاہر کرنے کی صلاحیت دیتا ہے."
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:187
+msgid "Other plugins available here"
+msgstr "دیگر پلگ ان یہاں دستیاب ہیں"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:415
+msgid "Configure Keyboard Layout Switcher"
+msgstr "کی بورڈ خاکہ مبدل تشکیل دیں"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:428
+msgid "Show layout as"
+msgstr "خاکہ ظاہر کریں بطور"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:443
+msgid "image"
+msgstr "تصویر"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:444
+msgid "text"
+msgstr "متن"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:448
+msgid "Per application settings"
+msgstr "فی اطلاقیہ ترتیبات"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:462
+msgid "_Remember layout for each application"
+msgstr "ہر اطلاقیہ کا خاکہ _یاد رکھیں"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:471
+msgid "Default layout:"
+msgstr "طے شدہ خاکہ:"
+
+#: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
+msgid "Button to switch the X keyboard layout"
+msgstr "بٹن برائے تبدیلی X کی بورڈ خاکہ"
+
