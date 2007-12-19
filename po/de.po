@@ -1,3 +1,7 @@
+# German translations for xfce4-xkb-plugin package.
+# Copyright (C) 2004-2007 Benedikt Meurer, Alexander Iliev.
+# This file is distributed under the same license as the
+# xfce4-xkb-plugin package.
 # Frank Lanitz <frank@frank.uvena.de>, 2006.
 # Fabian Nowak <timystery@arcor.de>, 2007.
 #
@@ -6,7 +10,7 @@ msgstr ""
 "Project-Id-Version: xfce4-xkb-plugin 0.4.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-01-17 13:26+0100\n"
-"PO-Revision-Date: 2007-01-18 08:53+0100\n"
+"PO-Revision-Date: 2007-12-18 23:38+0000\n"
 "Last-Translator: Fabian Nowak <timystery@arcor.de>\n"
 "Language-Team:  <frank@frank.uvena.de>\n"
 "MIME-Version: 1.0\n"
@@ -54,15 +58,15 @@ msgstr "Weitere Optionen"
 
 #: ../panel-plugin/xfce4-xkb-plugin.c:462
 msgid "_Remember layout for each application"
-msgstr "_Benutze Layout für alle Anwendungen"
+msgstr "_Benutze Anordnung für alle Anwendungen"
 
 #: ../panel-plugin/xfce4-xkb-plugin.c:471
 msgid "Default layout:"
-msgstr "Standard Layout: "
+msgstr "Standardanordnung: "
 
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
 msgid "Button to switch the X keyboard layout"
-msgstr "Knopf, um das Layout der X-Tastatur zu ändern"
+msgstr "Knopf, um die Anordnung der X-Tastatur zu ändern"
 
 #~ msgid ""
 #~ "Displays the current keyboard layout and switches the layout when clicked"
