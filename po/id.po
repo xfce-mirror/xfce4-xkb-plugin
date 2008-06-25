@@ -1,0 +1,66 @@
+# Indonesian translations for xfce4-xkb-plugin package.
+# Copyright (C) 2008 THE xfce4-xkb-plugin'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the xfce4-xkb-plugin package.
+# Andhika Padmawan <andhika.padmawan@gmail.com>, 2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4-xkb-plugin v0.0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-01-17 13:26+0100\n"
+"PO-Revision-Date: 2008-06-21 20:17+0700\n"
+"Last-Translator: Andhika Padmawan <andhika.padmawan@gmail.com>\n"
+"Language-Team: Indonesian <id@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:176
+#: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
+msgid "Keyboard Layout Switcher"
+msgstr "Pengganti Tata Letak Papan Ketik"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:182
+msgid ""
+"Allows you to switch the keyboard layout and\n"
+"displays the currently selected layout."
+msgstr ""
+"Memungkinkan anda untuk mengganti tata letak\n"
+"papan ketik dan tampilan tata letak yang saat\n"
+"ini terpilih."
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:187
+msgid "Other plugins available here"
+msgstr "Plugin lainnya tersedia di sini"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:415
+msgid "Configure Keyboard Layout Switcher"
+msgstr "Atur Pengganti Tata Letak Papan Ketik"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:428
+msgid "Show layout as"
+msgstr "Tampilkan tata letak sebagai"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:443
+msgid "image"
+msgstr "gambar"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:444
+msgid "text"
+msgstr "teks"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:448
+msgid "Per application settings"
+msgstr "Pengaturan per aplikasi"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:462
+msgid "_Remember layout for each application"
+msgstr "_Ingat tata letak untuk tiap aplikasi"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:471
+msgid "Default layout:"
+msgstr "Tata letak standar:"
+
+#: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
+msgid "Button to switch the X keyboard layout"
+msgstr "Tombol untuk mengganti tata letak papan ketik X"
