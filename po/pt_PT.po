@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xfce4-xkb-plugin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-01-17 13:26+0100\n"
-"PO-Revision-Date: 2007-06-30 16:15+0100\n"
+"PO-Revision-Date: 2008-07-03 15:09+0100\n"
 "Last-Translator: Nuno Miguel <nunis@netcabo.pt>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -58,7 +58,7 @@ msgstr "_Relembrar disposição para cada aplicação"
 
 #: ../panel-plugin/xfce4-xkb-plugin.c:471
 msgid "Default layout:"
-msgstr "Disposição Padrão"
+msgstr "Disposição Por Omissão:"
 
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
 msgid "Button to switch the X keyboard layout"
