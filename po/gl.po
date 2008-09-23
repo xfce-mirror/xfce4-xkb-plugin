@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-xkb-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-01-17 13:26+0100\n"
+"POT-Creation-Date: 2008-09-24 00:37+0300\n"
 "PO-Revision-Date: 2008-06-24 20:30+0100\n"
 "Last-Translator: Leandro Regueiro <leandro DOT regueiro AT gmail DOT com>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
@@ -20,50 +20,69 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:176
-#: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
-msgid "Keyboard Layout Switcher"
+#: ../panel-plugin/xkb-settings-dialog.c:367
+#: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
+msgid "Keyboard Layouts"
 msgstr ""
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:182
-msgid ""
-"Allows you to switch the keyboard layout and\n"
-"displays the currently selected layout."
+#: ../panel-plugin/xkb-settings-dialog.c:388
+msgid "Keyboard model:"
 msgstr ""
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:187
-msgid "Other plugins available here"
+#: ../panel-plugin/xkb-settings-dialog.c:408
+msgid "Change layout option:"
 msgstr ""
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:415
-msgid "Configure Keyboard Layout Switcher"
+#: ../panel-plugin/xkb-settings-dialog.c:428
+msgid "Keyboard layouts:"
 msgstr ""
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:428
-msgid "Show layout as"
+#. ***
+#: ../panel-plugin/xkb-settings-dialog.c:493
+#, fuzzy
+msgid "Show layout as:"
 msgstr "Mostrar a disposición coma"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:443
+#: ../panel-plugin/xkb-settings-dialog.c:508
 msgid "image"
 msgstr "imaxe"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:444
+#: ../panel-plugin/xkb-settings-dialog.c:509
 msgid "text"
 msgstr "texto"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:448
-msgid "Per application settings"
+#: ../panel-plugin/xkb-settings-dialog.c:514
+msgid "Manage layout:"
 msgstr ""
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:462
-msgid "_Remember layout for each application"
+#: ../panel-plugin/xkb-settings-dialog.c:519
+msgid "globally"
 msgstr ""
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:471
-msgid "Default layout:"
+#: ../panel-plugin/xkb-settings-dialog.c:520
+msgid "per window"
 msgstr ""
 
-#: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
-msgid "Button to switch the X keyboard layout"
+#: ../panel-plugin/xkb-settings-dialog.c:521
+msgid "per application"
 msgstr ""
 
+#: ../panel-plugin/xkb-settings-dialog.c:561
+msgid "Keyboard Layouts Plugin"
+msgstr ""
+
+#: ../panel-plugin/xkb-settings-dialog.c:567
+msgid "Allows you to configure and use multiple keyboard layouts."
+msgstr ""
+
+#: ../panel-plugin/xkb-settings-dialog.c:571
+msgid "Other plugins available here"
+msgstr ""
+
+#: ../panel-plugin/xkb-settings-dialog.c:620
+msgid "Add layout"
+msgstr ""
+
+#: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
+msgid "Keyboard layouts setup and switch plugin"
+msgstr ""

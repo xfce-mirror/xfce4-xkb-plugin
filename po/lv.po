@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-xkb-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-01-17 13:26+0100\n"
+"POT-Creation-Date: 2008-09-24 00:37+0300\n"
 "PO-Revision-Date: 2007-11-17 01:02+0300\n"
 "Last-Translator: Rihards Priedītis <rprieditis@inbox.lv>\n"
 "Language-Team: Latvian <rprieditis@inbox.lv>\n"
@@ -15,52 +15,91 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:176
-#: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
-msgid "Keyboard Layout Switcher"
+#: ../panel-plugin/xkb-settings-dialog.c:367
+#: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
+#, fuzzy
+msgid "Keyboard Layouts"
 msgstr "Klaviatūras Izkārtojuma Pārslēdzējs"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:182
-msgid ""
-"Allows you to switch the keyboard layout and\n"
-"displays the currently selected layout."
+#: ../panel-plugin/xkb-settings-dialog.c:388
+msgid "Keyboard model:"
 msgstr ""
-"Ļauj pārslēgt klaviatūras izkārtojumus un\n"
-"attēlo atlasito izkārtojumu."
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:187
-msgid "Other plugins available here"
-msgstr "Citi spraudņi pieejami šeit"
+#: ../panel-plugin/xkb-settings-dialog.c:408
+msgid "Change layout option:"
+msgstr ""
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:415
-msgid "Configure Keyboard Layout Switcher"
-msgstr "Konfigurēt Klaviatūras Izkārtojuma Pārslēdzēju"
+#: ../panel-plugin/xkb-settings-dialog.c:428
+#, fuzzy
+msgid "Keyboard layouts:"
+msgstr "Klaviatūras Izkārtojuma Pārslēdzējs"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:428
-msgid "Show layout as"
+#. ***
+#: ../panel-plugin/xkb-settings-dialog.c:493
+#, fuzzy
+msgid "Show layout as:"
 msgstr "Rādīt izkārtojumu, kā"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:443
+#: ../panel-plugin/xkb-settings-dialog.c:508
 msgid "image"
 msgstr "attēlu"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:444
+#: ../panel-plugin/xkb-settings-dialog.c:509
 msgid "text"
 msgstr "tekstu"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:448
-msgid "Per application settings"
-msgstr "Uzstādījumi pa lietotnei"
-
-#: ../panel-plugin/xfce4-xkb-plugin.c:462
-msgid "_Remember layout for each application"
-msgstr "_Atcerēties izkārtojumus, katrai lietotnei"
-
-#: ../panel-plugin/xfce4-xkb-plugin.c:471
-msgid "Default layout:"
+#: ../panel-plugin/xkb-settings-dialog.c:514
+#, fuzzy
+msgid "Manage layout:"
 msgstr "Noklusētais izkārtojums:"
 
-#: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
-msgid "Button to switch the X keyboard layout"
-msgstr "Poga, lai pārslēgtu X klaviatūras izkārtojumus"
+#: ../panel-plugin/xkb-settings-dialog.c:519
+msgid "globally"
+msgstr ""
 
+#: ../panel-plugin/xkb-settings-dialog.c:520
+msgid "per window"
+msgstr ""
+
+#: ../panel-plugin/xkb-settings-dialog.c:521
+#, fuzzy
+msgid "per application"
+msgstr "Uzstādījumi pa lietotnei"
+
+#: ../panel-plugin/xkb-settings-dialog.c:561
+#, fuzzy
+msgid "Keyboard Layouts Plugin"
+msgstr "Klaviatūras Izkārtojuma Pārslēdzējs"
+
+#: ../panel-plugin/xkb-settings-dialog.c:567
+msgid "Allows you to configure and use multiple keyboard layouts."
+msgstr ""
+
+#: ../panel-plugin/xkb-settings-dialog.c:571
+msgid "Other plugins available here"
+msgstr "Citi spraudņi pieejami šeit"
+
+#: ../panel-plugin/xkb-settings-dialog.c:620
+msgid "Add layout"
+msgstr ""
+
+#: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
+#, fuzzy
+msgid "Keyboard layouts setup and switch plugin"
+msgstr "Klaviatūras Izkārtojuma Pārslēdzējs"
+
+#~ msgid ""
+#~ "Allows you to switch the keyboard layout and\n"
+#~ "displays the currently selected layout."
+#~ msgstr ""
+#~ "Ļauj pārslēgt klaviatūras izkārtojumus un\n"
+#~ "attēlo atlasito izkārtojumu."
+
+#~ msgid "Configure Keyboard Layout Switcher"
+#~ msgstr "Konfigurēt Klaviatūras Izkārtojuma Pārslēdzēju"
+
+#~ msgid "_Remember layout for each application"
+#~ msgstr "_Atcerēties izkārtojumus, katrai lietotnei"
+
+#~ msgid "Button to switch the X keyboard layout"
+#~ msgstr "Poga, lai pārslēgtu X klaviatūras izkārtojumus"

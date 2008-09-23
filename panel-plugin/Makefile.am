@@ -1,30 +1,46 @@
 # $Id$
 
-INCLUDES =										\
-	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"						\
-	-DFLAGSDIR=\"$(datadir)/xfce4/xkb/flags\"
-
 plugindir = $(libexecdir)/xfce4/panel-plugins
 
 plugin_PROGRAMS = xfce4-xkb-plugin
 
 xfce4_xkb_plugin_SOURCES =								\
+	xfce4-xkb-plugin.h								\
+	xfce4-xkb-plugin-private.h							\
 	xfce4-xkb-plugin.c								\
-	xkb.c										\
-	xkb.h
+	xkb-settings-dialog.h								\
+	xkb-settings-dialog.c								\
+	xkb-config.h									\
+	xkb-config.c									\
+	xkb-util.h									\
+	xkb-util.c									\
+	xkb-cairo.h									\
+	xkb-cairo.c									\
+	xkb-callbacks.h									\
+	xkb-callbacks.c
+
 
 xfce4_xkb_plugin_CFLAGS =								\
 	@LIBXFCE4PANEL_CFLAGS@								\
 	@GTK_CFLAGS@									\
 	@LIBXFCEGUI4_CFLAGS@								\
-	@LIBXFCE4UTIL_CFLAGS@
+	@LIBXFCE4UTIL_CFLAGS@								\
+	@LIBXKLAVIER_CFLAGS@								\
+	@LIBRSVG_CFLAGS@								\
+	@LIBWNCK_CFLAGS@								\
+	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"						\
+	-DFLAGSDIR=\"$(datadir)/xfce4/xkb/flags\"					\
+	-DWNCK_I_KNOW_THIS_IS_UNSTABLE
 	
 
 xfce4_xkb_plugin_LDADD = 								\
 	@LIBXFCE4PANEL_LIBS@								\
 	@GTK_LIBS@									\
 	@LIBXFCEGUI4_LIBS@								\
-	@LIBXFCE4UTIL_LIBS@
+	@LIBXFCE4UTIL_LIBS@								\
+	@LIBXKLAVIER_LIBS@								\
+	@LIBWNCK_LIBS@									\
+	@LIBRSVG_LIBS@
 
 #
 # Desktop file

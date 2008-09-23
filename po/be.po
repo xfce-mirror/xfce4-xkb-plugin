@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-xkb-plugin trunk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-01-17 13:26+0100\n"
+"POT-Creation-Date: 2008-09-24 00:37+0300\n"
 "PO-Revision-Date: 2007-04-03 21:31+0300\n"
 "Last-Translator: Alexander Nyakhaychyk <nyakhaychyk@gmail.com>\n"
 "Language-Team: Belarusian <i18n@mova.org>\n"
@@ -15,54 +15,93 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:176
-#: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
-msgid "Keyboard Layout Switcher"
+#: ../panel-plugin/xkb-settings-dialog.c:367
+#: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
+#, fuzzy
+msgid "Keyboard Layouts"
 msgstr "Пераключальнік раскладак"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:182
-msgid ""
-"Allows you to switch the keyboard layout and\n"
-"displays the currently selected layout."
+#: ../panel-plugin/xkb-settings-dialog.c:388
+msgid "Keyboard model:"
 msgstr ""
-"Адлюстроўвае бягучую раскладку і\n"
-"дазваляе вам зьмяніць яе."
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:187
-msgid "Other plugins available here"
-msgstr "Іншыя наяўныя ўтулкі"
+#: ../panel-plugin/xkb-settings-dialog.c:408
+msgid "Change layout option:"
+msgstr ""
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:415
-msgid "Configure Keyboard Layout Switcher"
-msgstr "Наладка пераключальніка раскладак"
+#: ../panel-plugin/xkb-settings-dialog.c:428
+#, fuzzy
+msgid "Keyboard layouts:"
+msgstr "Пераключальнік раскладак"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:428
-msgid "Show layout as"
+#. ***
+#: ../panel-plugin/xkb-settings-dialog.c:493
+#, fuzzy
+msgid "Show layout as:"
 msgstr "Паказваць раскладку як"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:443
+#: ../panel-plugin/xkb-settings-dialog.c:508
 msgid "image"
 msgstr "відарыс"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:444
+#: ../panel-plugin/xkb-settings-dialog.c:509
 msgid "text"
 msgstr "тэкст"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:448
-msgid "Per application settings"
+#: ../panel-plugin/xkb-settings-dialog.c:514
+#, fuzzy
+msgid "Manage layout:"
+msgstr "Прадвызначаная раскладка:"
+
+#: ../panel-plugin/xkb-settings-dialog.c:519
+msgid "globally"
+msgstr ""
+
+#: ../panel-plugin/xkb-settings-dialog.c:520
+msgid "per window"
+msgstr ""
+
+#: ../panel-plugin/xkb-settings-dialog.c:521
+#, fuzzy
+msgid "per application"
 msgstr ""
 "Асобныя настаўленьні для\n"
 "розных дастасаваньняў"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:462
-msgid "_Remember layout for each application"
-msgstr "За_помніць раскладку для кожнага дастасаваньня"
+#: ../panel-plugin/xkb-settings-dialog.c:561
+#, fuzzy
+msgid "Keyboard Layouts Plugin"
+msgstr "Пераключальнік раскладак"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:471
-msgid "Default layout:"
-msgstr "Прадвызначаная раскладка:"
+#: ../panel-plugin/xkb-settings-dialog.c:567
+msgid "Allows you to configure and use multiple keyboard layouts."
+msgstr ""
 
-#: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
-msgid "Button to switch the X keyboard layout"
-msgstr "Кнопка для пераключэньня раскладак X"
+#: ../panel-plugin/xkb-settings-dialog.c:571
+msgid "Other plugins available here"
+msgstr "Іншыя наяўныя ўтулкі"
 
+#: ../panel-plugin/xkb-settings-dialog.c:620
+msgid "Add layout"
+msgstr ""
+
+#: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
+#, fuzzy
+msgid "Keyboard layouts setup and switch plugin"
+msgstr "Пераключальнік раскладак"
+
+#~ msgid ""
+#~ "Allows you to switch the keyboard layout and\n"
+#~ "displays the currently selected layout."
+#~ msgstr ""
+#~ "Адлюстроўвае бягучую раскладку і\n"
+#~ "дазваляе вам зьмяніць яе."
+
+#~ msgid "Configure Keyboard Layout Switcher"
+#~ msgstr "Наладка пераключальніка раскладак"
+
+#~ msgid "_Remember layout for each application"
+#~ msgstr "За_помніць раскладку для кожнага дастасаваньня"
+
+#~ msgid "Button to switch the X keyboard layout"
+#~ msgstr "Кнопка для пераключэньня раскладак X"

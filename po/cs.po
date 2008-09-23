@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-xkb-plugin 0.4.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-01-17 13:26+0100\n"
+"POT-Creation-Date: 2008-09-24 00:37+0300\n"
 "PO-Revision-Date: 2007-01-20 13:16+0100\n"
 "Last-Translator: Michal Várady <miko.vaji@gmail.com>\n"
 "Language-Team: Czech <translation-team-cs@lists.sourceforge.net>\n"
@@ -16,57 +16,96 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:176
-#: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
-msgid "Keyboard Layout Switcher"
+#: ../panel-plugin/xkb-settings-dialog.c:367
+#: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
+#, fuzzy
+msgid "Keyboard Layouts"
 msgstr "Přepínač rozložení klávesnice"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:182
-msgid ""
-"Allows you to switch the keyboard layout and\n"
-"displays the currently selected layout."
+#: ../panel-plugin/xkb-settings-dialog.c:388
+msgid "Keyboard model:"
 msgstr ""
-"Umožňuje Vám přepnout rozložení klávesnice\n"
-"a zobrazuje aktuálně používané rozložení."
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:187
-msgid "Other plugins available here"
-msgstr "Další zásuvné moduly jsou dostupné zde"
+#: ../panel-plugin/xkb-settings-dialog.c:408
+msgid "Change layout option:"
+msgstr ""
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:415
-msgid "Configure Keyboard Layout Switcher"
-msgstr "Konfigurovat přepínač rozvržení klávesnice"
+#: ../panel-plugin/xkb-settings-dialog.c:428
+#, fuzzy
+msgid "Keyboard layouts:"
+msgstr "Přepínač rozložení klávesnice"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:428
-msgid "Show layout as"
+#. ***
+#: ../panel-plugin/xkb-settings-dialog.c:493
+#, fuzzy
+msgid "Show layout as:"
 msgstr "Zobrazit rozvržení jako"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:443
+#: ../panel-plugin/xkb-settings-dialog.c:508
 msgid "image"
 msgstr "obrázek"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:444
+#: ../panel-plugin/xkb-settings-dialog.c:509
 msgid "text"
 msgstr "text"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:448
-msgid "Per application settings"
-msgstr "Nastavení pro jednotlivé aplikace"
-
-#: ../panel-plugin/xfce4-xkb-plugin.c:462
-msgid "_Remember layout for each application"
-msgstr "_Pamatovat si rozvržení pro každou aplikaci zvlášť"
-
-#: ../panel-plugin/xfce4-xkb-plugin.c:471
-msgid "Default layout:"
+#: ../panel-plugin/xkb-settings-dialog.c:514
+#, fuzzy
+msgid "Manage layout:"
 msgstr "Výchozí rozvržení:"
 
-#: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
-msgid "Button to switch the X keyboard layout"
-msgstr "Tlačítko pro přepínání rozložení klávesnice"
+#: ../panel-plugin/xkb-settings-dialog.c:519
+msgid "globally"
+msgstr ""
+
+#: ../panel-plugin/xkb-settings-dialog.c:520
+msgid "per window"
+msgstr ""
+
+#: ../panel-plugin/xkb-settings-dialog.c:521
+#, fuzzy
+msgid "per application"
+msgstr "Nastavení pro jednotlivé aplikace"
+
+#: ../panel-plugin/xkb-settings-dialog.c:561
+#, fuzzy
+msgid "Keyboard Layouts Plugin"
+msgstr "Přepínač rozložení klávesnice"
+
+#: ../panel-plugin/xkb-settings-dialog.c:567
+msgid "Allows you to configure and use multiple keyboard layouts."
+msgstr ""
+
+#: ../panel-plugin/xkb-settings-dialog.c:571
+msgid "Other plugins available here"
+msgstr "Další zásuvné moduly jsou dostupné zde"
+
+#: ../panel-plugin/xkb-settings-dialog.c:620
+msgid "Add layout"
+msgstr ""
+
+#: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
+#, fuzzy
+msgid "Keyboard layouts setup and switch plugin"
+msgstr "Přepínač rozložení klávesnice"
+
+#~ msgid ""
+#~ "Allows you to switch the keyboard layout and\n"
+#~ "displays the currently selected layout."
+#~ msgstr ""
+#~ "Umožňuje Vám přepnout rozložení klávesnice\n"
+#~ "a zobrazuje aktuálně používané rozložení."
+
+#~ msgid "Configure Keyboard Layout Switcher"
+#~ msgstr "Konfigurovat přepínač rozvržení klávesnice"
+
+#~ msgid "_Remember layout for each application"
+#~ msgstr "_Pamatovat si rozvržení pro každou aplikaci zvlášť"
+
+#~ msgid "Button to switch the X keyboard layout"
+#~ msgstr "Tlačítko pro přepínání rozložení klávesnice"
 
 #~ msgid ""
 #~ "Displays the current keyboard layout and switches the layout when clicked"
 #~ msgstr ""
 #~ "Zobrazuje aktuální rozložení klávesnice a přepíná rozvržení při kliknutí"
-
