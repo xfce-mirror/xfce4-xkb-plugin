@@ -1,3 +1,32 @@
+2008-09-24 12:21  sasoiliev
+
+	* panel-plugin/xfce4-xkb-plugin.c, panel-plugin/xkb-config.c,
+	  panel-plugin/xkb-config.h: added a hidden option -
+	  never_modify_config
+
+2008-09-24 09:37  sasoiliev
+
+	* panel-plugin/xkb-cairo.c, panel-plugin/xkb-util.c,
+	  panel-plugin/xkb-util.h: only the first 3 characters are
+	  displayed for layout names which are longer
+
+2008-09-24 07:37  sasoiliev
+
+	* ChangeLog: updated ChangeLog
+
+2008-09-24 07:21  sasoiliev
+
+	* configure.in.in: reapplied the (somehow lost) patch from r5431
+	  for libtool 2.2 by mmassonnet
+	  
+	  fixed the version of the dist tarball - now it does not include
+	  svn-rXXXX
+
+2008-09-24 07:16  sasoiliev
+
+	* panel-plugin/xkb-settings-dialog.c: applied patch by Yves-Alexis
+	  Perez for bug #4411
+
 2008-09-24 00:39  omaciel
 
 	* po/ChangeLog, po/pt_BR.po: Updated Brazilian Portuguese

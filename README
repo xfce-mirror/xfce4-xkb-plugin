@@ -20,6 +20,22 @@ The plugin detects any change in the layout configuration
 (e.g. setxkbmap invokations) and reconfigures itself to use
 the new settings.
 
+The plugin shows a small black circle with a thin white
+outline in the bottom right corner of the flag image if the
+current layout is the second variant configured for some
+language. If the display mode is set to "text" then a little
+dot is displayed as a subscript of the layout text.
+
+There is a hidden (not available in the GUI) setting -
+"never_modify_config". If this setting is set to "true" in
+the configuration file, then the plugin will not modify the
+layout configuration under any circumstances (currently
+even when the configuration is modified through the settings
+dialog). This option is for users who wish to configure
+some XKB options, which are not present in the GUI and thus
+are limited by the plugin. These users can use the plugin
+so that it only displays the active layouts.
+
 Known limitations and bugs
 ==========================
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-xkb-plugin-0.4.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-24 00:37+0300\n"
+"POT-Creation-Date: 2008-09-24 16:14+0300\n"
 "PO-Revision-Date: 2007-03-02 13:14+0200\n"
 "Last-Translator: Dmitry Nikitin <luckas_fb@mail.ru>\n"
 "Language-Team: Ukrainian <xfce-i18n@xfce.org>\n"
@@ -18,71 +18,79 @@ msgstr ""
 "Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: ../panel-plugin/xkb-settings-dialog.c:367
+#: ../panel-plugin/xkb-settings-dialog.c:361
+msgid ""
+"XKB configuration modifications are\n"
+"disabled from the config file.\n"
+"\n"
+"See the README file for more information."
+msgstr ""
+
+#: ../panel-plugin/xkb-settings-dialog.c:387
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
 #, fuzzy
 msgid "Keyboard Layouts"
 msgstr "Перемикач розкладок клавіатури"
 
-#: ../panel-plugin/xkb-settings-dialog.c:388
+#: ../panel-plugin/xkb-settings-dialog.c:408
 msgid "Keyboard model:"
 msgstr ""
 
-#: ../panel-plugin/xkb-settings-dialog.c:408
+#: ../panel-plugin/xkb-settings-dialog.c:432
 msgid "Change layout option:"
 msgstr ""
 
-#: ../panel-plugin/xkb-settings-dialog.c:428
+#: ../panel-plugin/xkb-settings-dialog.c:456
 #, fuzzy
 msgid "Keyboard layouts:"
 msgstr "Перемикач розкладок клавіатури"
 
 #. ***
-#: ../panel-plugin/xkb-settings-dialog.c:493
+#: ../panel-plugin/xkb-settings-dialog.c:528
 #, fuzzy
 msgid "Show layout as:"
 msgstr "Стиль відображення"
 
-#: ../panel-plugin/xkb-settings-dialog.c:508
+#: ../panel-plugin/xkb-settings-dialog.c:533
 msgid "image"
 msgstr "малюнок"
 
-#: ../panel-plugin/xkb-settings-dialog.c:509
+#: ../panel-plugin/xkb-settings-dialog.c:534
 msgid "text"
 msgstr "текст"
 
-#: ../panel-plugin/xkb-settings-dialog.c:514
+#: ../panel-plugin/xkb-settings-dialog.c:538
 #, fuzzy
 msgid "Manage layout:"
 msgstr "Основна розкладка:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:519
+#: ../panel-plugin/xkb-settings-dialog.c:543
 msgid "globally"
 msgstr ""
 
-#: ../panel-plugin/xkb-settings-dialog.c:520
+#: ../panel-plugin/xkb-settings-dialog.c:544
 msgid "per window"
 msgstr ""
 
-#: ../panel-plugin/xkb-settings-dialog.c:521
+#: ../panel-plugin/xkb-settings-dialog.c:545
 #, fuzzy
 msgid "per application"
 msgstr "Опції для програм"
 
-#: ../panel-plugin/xkb-settings-dialog.c:561
+#: ../panel-plugin/xkb-settings-dialog.c:584
 #, fuzzy
 msgid "Keyboard Layouts Plugin"
 msgstr "Перемикач розкладок клавіатури"
 
-#: ../panel-plugin/xkb-settings-dialog.c:567
+#: ../panel-plugin/xkb-settings-dialog.c:590
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr ""
 
-#: ../panel-plugin/xkb-settings-dialog.c:571
+#: ../panel-plugin/xkb-settings-dialog.c:594
 msgid "Other plugins available here"
 msgstr "Інші доповнення доступні тут"
 
-#: ../panel-plugin/xkb-settings-dialog.c:620
+#: ../panel-plugin/xkb-settings-dialog.c:643
 msgid "Add layout"
 msgstr ""
 

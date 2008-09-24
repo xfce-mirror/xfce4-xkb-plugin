@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-xkb-plugin 0.4.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-24 00:37+0300\n"
+"POT-Creation-Date: 2008-09-24 16:14+0300\n"
 "PO-Revision-Date: 2006-07-28 23:49+0800\n"
 "Last-Translator: Cosmo Chene <cosmolax@gmail.com>\n"
 "Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>\n"
@@ -15,71 +15,79 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/xkb-settings-dialog.c:367
+#: ../panel-plugin/xkb-settings-dialog.c:361
+msgid ""
+"XKB configuration modifications are\n"
+"disabled from the config file.\n"
+"\n"
+"See the README file for more information."
+msgstr ""
+
+#: ../panel-plugin/xkb-settings-dialog.c:387
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
 #, fuzzy
 msgid "Keyboard Layouts"
 msgstr "切換鍵盤對應"
 
-#: ../panel-plugin/xkb-settings-dialog.c:388
+#: ../panel-plugin/xkb-settings-dialog.c:408
 msgid "Keyboard model:"
 msgstr ""
 
-#: ../panel-plugin/xkb-settings-dialog.c:408
+#: ../panel-plugin/xkb-settings-dialog.c:432
 msgid "Change layout option:"
 msgstr ""
 
-#: ../panel-plugin/xkb-settings-dialog.c:428
+#: ../panel-plugin/xkb-settings-dialog.c:456
 #, fuzzy
 msgid "Keyboard layouts:"
 msgstr "切換鍵盤對應"
 
 #. ***
-#: ../panel-plugin/xkb-settings-dialog.c:493
+#: ../panel-plugin/xkb-settings-dialog.c:528
 #, fuzzy
 msgid "Show layout as:"
 msgstr "顯示鍵盤對應的方式"
 
-#: ../panel-plugin/xkb-settings-dialog.c:508
+#: ../panel-plugin/xkb-settings-dialog.c:533
 msgid "image"
 msgstr "圖片"
 
-#: ../panel-plugin/xkb-settings-dialog.c:509
+#: ../panel-plugin/xkb-settings-dialog.c:534
 msgid "text"
 msgstr "文字"
 
-#: ../panel-plugin/xkb-settings-dialog.c:514
+#: ../panel-plugin/xkb-settings-dialog.c:538
 #, fuzzy
 msgid "Manage layout:"
 msgstr "預設鍵盤:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:519
+#: ../panel-plugin/xkb-settings-dialog.c:543
 msgid "globally"
 msgstr ""
 
-#: ../panel-plugin/xkb-settings-dialog.c:520
+#: ../panel-plugin/xkb-settings-dialog.c:544
 msgid "per window"
 msgstr ""
 
-#: ../panel-plugin/xkb-settings-dialog.c:521
+#: ../panel-plugin/xkb-settings-dialog.c:545
 #, fuzzy
 msgid "per application"
 msgstr "針對每個程式作設定"
 
-#: ../panel-plugin/xkb-settings-dialog.c:561
+#: ../panel-plugin/xkb-settings-dialog.c:584
 #, fuzzy
 msgid "Keyboard Layouts Plugin"
 msgstr "切換鍵盤對應"
 
-#: ../panel-plugin/xkb-settings-dialog.c:567
+#: ../panel-plugin/xkb-settings-dialog.c:590
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr ""
 
-#: ../panel-plugin/xkb-settings-dialog.c:571
+#: ../panel-plugin/xkb-settings-dialog.c:594
 msgid "Other plugins available here"
 msgstr "其他可用的外掛"
 
-#: ../panel-plugin/xkb-settings-dialog.c:620
+#: ../panel-plugin/xkb-settings-dialog.c:643
 msgid "Add layout"
 msgstr ""
 

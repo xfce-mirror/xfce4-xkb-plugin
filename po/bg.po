@@ -1,81 +1,93 @@
 # Bulgarian translations for xfce4-xkb-plugin package.
-# Copyright (C) 2004-2006 Alexander Iliev.
+# Copyright (C) 2004-2008 Alexander Iliev.
 # This file is distributed under the same license as the xfce4-xkb-plugin package.
-# Alexander Iliev <sasoiliev@mamul.org>, 2006.
+# Alexander Iliev <sasoiliev@mamul.org>, 2008.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-xkb-plugin 0.5.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-24 00:37+0300\n"
-"PO-Revision-Date: 2006-03-19 13:41+0900\n"
+"POT-Creation-Date: 2008-09-24 16:14+0300\n"
+"PO-Revision-Date: 2008-09-24 16:16+0300\n"
 "Last-Translator: Alexander Iliev <sasoiliev@mamul.org>\n"
 "Language-Team: Bulgarian <sasoiliev@mamul.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/xkb-settings-dialog.c:367
+#: ../panel-plugin/xkb-settings-dialog.c:361
+msgid ""
+"XKB configuration modifications are\n"
+"disabled from the config file.\n"
+"\n"
+"See the README file for more information."
+msgstr ""
+"Промяната на XKB конфигурацията е забранена\n"
+"от конфигурационния файл.\n"
+"\n"
+"За повече информация вижте README файла."
+
+#: ../panel-plugin/xkb-settings-dialog.c:387
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
 msgid "Keyboard Layouts"
 msgstr "Клавиатурна подредба"
 
-#: ../panel-plugin/xkb-settings-dialog.c:388
+#: ../panel-plugin/xkb-settings-dialog.c:408
 msgid "Keyboard model:"
 msgstr "Модел клавиатура:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:408
+#: ../panel-plugin/xkb-settings-dialog.c:432
 msgid "Change layout option:"
 msgstr "Промяна на подредбата:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:428
+#: ../panel-plugin/xkb-settings-dialog.c:456
 msgid "Keyboard layouts:"
-msgstr "Клавиатурни подредби"
+msgstr "Клавиатурни подредби:"
 
 #. ***
-#: ../panel-plugin/xkb-settings-dialog.c:493
+#: ../panel-plugin/xkb-settings-dialog.c:528
 msgid "Show layout as:"
-msgstr "Показване на подредбата като"
+msgstr "Показване на подредбата като:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:508
+#: ../panel-plugin/xkb-settings-dialog.c:533
 msgid "image"
 msgstr "картинка"
 
-#: ../panel-plugin/xkb-settings-dialog.c:509
+#: ../panel-plugin/xkb-settings-dialog.c:534
 msgid "text"
 msgstr "текст"
 
-#: ../panel-plugin/xkb-settings-dialog.c:514
+#: ../panel-plugin/xkb-settings-dialog.c:538
 msgid "Manage layout:"
 msgstr "Помни подредбата:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:519
+#: ../panel-plugin/xkb-settings-dialog.c:543
 msgid "globally"
 msgstr "глобално"
 
-#: ../panel-plugin/xkb-settings-dialog.c:520
+#: ../panel-plugin/xkb-settings-dialog.c:544
 msgid "per window"
 msgstr "за всеки прозорец"
 
-#: ../panel-plugin/xkb-settings-dialog.c:521
+#: ../panel-plugin/xkb-settings-dialog.c:545
 msgid "per application"
 msgstr "за всяко приложение"
 
-#: ../panel-plugin/xkb-settings-dialog.c:561
+#: ../panel-plugin/xkb-settings-dialog.c:584
 msgid "Keyboard Layouts Plugin"
 msgstr "Клавиатурна подредба"
 
-#: ../panel-plugin/xkb-settings-dialog.c:567
+#: ../panel-plugin/xkb-settings-dialog.c:590
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr ""
 "Позволява Ви да конфигурирате и използвате повече от една клавиатурни "
 "подредби."
 
-#: ../panel-plugin/xkb-settings-dialog.c:571
+#: ../panel-plugin/xkb-settings-dialog.c:594
 msgid "Other plugins available here"
 msgstr "Тук ще намерите други плъгини"
 
-#: ../panel-plugin/xkb-settings-dialog.c:620
+#: ../panel-plugin/xkb-settings-dialog.c:643
 msgid "Add layout"
 msgstr "Добави подредба"
 

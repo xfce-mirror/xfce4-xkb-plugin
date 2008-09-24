@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-24 00:37+0300\n"
+"POT-Creation-Date: 2008-09-24 16:14+0300\n"
 "PO-Revision-Date: 2008-07-16 23:32+0200\n"
 "Last-Translator: Ahmad Farghal <ahmad.farghal@gmail.com>\n"
 "Language-Team: Arabeyes <doc@arabeyes.org>\n"
@@ -11,66 +11,74 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: Arabic\n"
 
-#: ../panel-plugin/xkb-settings-dialog.c:367
+#: ../panel-plugin/xkb-settings-dialog.c:361
+msgid ""
+"XKB configuration modifications are\n"
+"disabled from the config file.\n"
+"\n"
+"See the README file for more information."
+msgstr ""
+
+#: ../panel-plugin/xkb-settings-dialog.c:387
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
 msgid "Keyboard Layouts"
 msgstr ""
 
-#: ../panel-plugin/xkb-settings-dialog.c:388
+#: ../panel-plugin/xkb-settings-dialog.c:408
 msgid "Keyboard model:"
 msgstr ""
 
-#: ../panel-plugin/xkb-settings-dialog.c:408
+#: ../panel-plugin/xkb-settings-dialog.c:432
 msgid "Change layout option:"
 msgstr ""
 
-#: ../panel-plugin/xkb-settings-dialog.c:428
+#: ../panel-plugin/xkb-settings-dialog.c:456
 msgid "Keyboard layouts:"
 msgstr ""
 
 #. ***
-#: ../panel-plugin/xkb-settings-dialog.c:493
+#: ../panel-plugin/xkb-settings-dialog.c:528
 #, fuzzy
 msgid "Show layout as:"
 msgstr "أظهر التخطيط على هيئة"
 
-#: ../panel-plugin/xkb-settings-dialog.c:508
+#: ../panel-plugin/xkb-settings-dialog.c:533
 msgid "image"
 msgstr "صورة"
 
-#: ../panel-plugin/xkb-settings-dialog.c:509
+#: ../panel-plugin/xkb-settings-dialog.c:534
 msgid "text"
 msgstr "نص"
 
-#: ../panel-plugin/xkb-settings-dialog.c:514
+#: ../panel-plugin/xkb-settings-dialog.c:538
 msgid "Manage layout:"
 msgstr ""
 
-#: ../panel-plugin/xkb-settings-dialog.c:519
+#: ../panel-plugin/xkb-settings-dialog.c:543
 msgid "globally"
 msgstr ""
 
-#: ../panel-plugin/xkb-settings-dialog.c:520
+#: ../panel-plugin/xkb-settings-dialog.c:544
 msgid "per window"
 msgstr ""
 
-#: ../panel-plugin/xkb-settings-dialog.c:521
+#: ../panel-plugin/xkb-settings-dialog.c:545
 msgid "per application"
 msgstr ""
 
-#: ../panel-plugin/xkb-settings-dialog.c:561
+#: ../panel-plugin/xkb-settings-dialog.c:584
 msgid "Keyboard Layouts Plugin"
 msgstr ""
 
-#: ../panel-plugin/xkb-settings-dialog.c:567
+#: ../panel-plugin/xkb-settings-dialog.c:590
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr ""
 
-#: ../panel-plugin/xkb-settings-dialog.c:571
+#: ../panel-plugin/xkb-settings-dialog.c:594
 msgid "Other plugins available here"
 msgstr ""
 
-#: ../panel-plugin/xkb-settings-dialog.c:620
+#: ../panel-plugin/xkb-settings-dialog.c:643
 msgid "Add layout"
 msgstr ""
 

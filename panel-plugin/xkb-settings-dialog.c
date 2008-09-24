@@ -92,8 +92,6 @@ void
 on_group_policy_changed (GtkComboBox *cb, t_xkb *xkb) 
 {
     xkb->settings->group_policy = gtk_combo_box_get_active (cb);
-    /*gtk_widget_set_sensitive (default_layout_menu, 
-        xkb->settings->group_policy > GROUP_POLICY_GLOBAL);*/
 }
 
 /* from the gnome control center keyboard applet */
@@ -234,8 +232,10 @@ xkb_settings_show_hide_layout_buttons (t_xkb *xkb)
 {
     gint nb = xkb_settings_get_group_count (xkb);
     gint max_nb = xkb_config_get_max_layout_number ();
-    gtk_widget_set_sensitive (xkb->add_layout_btn, (nb < max_nb));
-    gtk_widget_set_sensitive (xkb->rm_layout_btn, (nb > 1));
+    gtk_widget_set_sensitive (xkb->add_layout_btn, 
+            (nb < max_nb && !xkb->settings->never_modify_config));
+    gtk_widget_set_sensitive (xkb->rm_layout_btn, 
+            (nb > 1 && !xkb->settings->never_modify_config));
 }
 
 static void
@@ -245,7 +245,8 @@ xkb_settings_edit_layout_btn_show (GtkTreeView *tree_view,
     GtkTreePath *p;
     GtkTreeViewColumn *c;
     gtk_tree_view_get_cursor (GTK_TREE_VIEW (tree_view), &p, &c);
-    gtk_widget_set_sensitive (xkb->edit_layout_btn, (p != NULL));
+    gtk_widget_set_sensitive (xkb->edit_layout_btn, 
+            (p != NULL && !xkb->settings->never_modify_config));
 }
 
 static void
@@ -347,6 +348,26 @@ xkb_settings_default_layout_toggled (GtkCellRendererToggle *renderer,
     xkb_settings_update_from_ui (xkb);
 }
 
+gboolean
+xkb_settings_config_modification_disabled_tooltip (GtkWidget *widget,
+                                                   gint x, gint y,
+                                                   gboolean keyboard_mode,
+                                                   GtkTooltip *tooltip,
+                                                   t_xkb *xkb)
+{
+    if (xkb->settings->never_modify_config)
+    {
+        gtk_tooltip_set_text (GTK_TOOLTIP (tooltip),
+            _("XKB configuration modifications are\n"
+            "disabled from the config file.\n\n"
+            "See the README file for more information."));
+
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
 void
 xfce_xkb_configure (XfcePanelPlugin *plugin,
                     t_xkb *xkb)
@@ -403,6 +424,10 @@ xfce_xkb_configure (XfcePanelPlugin *plugin,
 
     xkb_settings_set_kbd_combo_default_value (xkb);
     gtk_widget_show (xkb->kbd_model_combo);
+
+    gtk_widget_set_sensitive (GTK_WIDGET (xkb->kbd_model_combo), !xkb->settings->never_modify_config);
+    g_object_set (G_OBJECT (xkb->kbd_model_combo), "has-tooltip", TRUE, NULL);
+    g_signal_connect (xkb->kbd_model_combo, "query-tooltip", G_CALLBACK (xkb_settings_config_modification_disabled_tooltip), xkb);
     
     frame = xfce_framebox_new (_("Change layout option:"), TRUE);
     gtk_frame_set_shadow_type (GTK_FRAME (frame), GTK_SHADOW_NONE);
@@ -423,6 +448,10 @@ xfce_xkb_configure (XfcePanelPlugin *plugin,
 
     xkb_settings_set_toggle_option_combo_default_value (xkb);
     gtk_widget_show (xkb->toggle_options_combo);
+
+    gtk_widget_set_sensitive (GTK_WIDGET (xkb->toggle_options_combo), !xkb->settings->never_modify_config);
+    g_object_set (G_OBJECT (xkb->toggle_options_combo), "has-tooltip", TRUE, NULL);
+    g_signal_connect (xkb->toggle_options_combo, "query-tooltip", G_CALLBACK (xkb_settings_config_modification_disabled_tooltip), xkb);
     
     frame = xfce_framebox_new (_("Keyboard layouts:"), TRUE);
     gtk_frame_set_shadow_type (GTK_FRAME (frame), GTK_SHADOW_NONE);
@@ -476,14 +505,21 @@ xfce_xkb_configure (XfcePanelPlugin *plugin,
     xkb->add_layout_btn = gtk_button_new_from_stock (GTK_STOCK_ADD);
     gtk_box_pack_start (GTK_BOX (vbox2), xkb->add_layout_btn, FALSE, FALSE, 0);
     gtk_widget_show (xkb->add_layout_btn);
+    g_object_set (G_OBJECT (xkb->add_layout_btn), "has-tooltip", TRUE, NULL);
+    g_signal_connect (xkb->add_layout_btn, "query-tooltip", G_CALLBACK (xkb_settings_config_modification_disabled_tooltip), xkb);
+
 
     xkb->edit_layout_btn = gtk_button_new_from_stock (GTK_STOCK_EDIT);
     gtk_box_pack_start (GTK_BOX (vbox2), xkb->edit_layout_btn, FALSE, FALSE, 0);
     gtk_widget_show (xkb->edit_layout_btn);
+    g_object_set (G_OBJECT (xkb->edit_layout_btn), "has-tooltip", TRUE, NULL);
+    g_signal_connect (xkb->edit_layout_btn, "query-tooltip", G_CALLBACK (xkb_settings_config_modification_disabled_tooltip), xkb);
 
     xkb->rm_layout_btn = gtk_button_new_from_stock (GTK_STOCK_DELETE);
     gtk_box_pack_start (GTK_BOX (vbox2), xkb->rm_layout_btn, FALSE, FALSE, 0);
     gtk_widget_show (xkb->rm_layout_btn);
+    g_object_set (G_OBJECT (xkb->rm_layout_btn), "has-tooltip", TRUE, NULL);
+    g_signal_connect (xkb->rm_layout_btn, "query-tooltip", G_CALLBACK (xkb_settings_config_modification_disabled_tooltip), xkb);
 
     xkb_settings_show_hide_layout_buttons (xkb);
     xkb_settings_edit_layout_btn_show (GTK_TREE_VIEW (xkb->layout_tree_view), xkb);
@@ -492,22 +528,11 @@ xfce_xkb_configure (XfcePanelPlugin *plugin,
     display_type_frame = xfce_framebox_new (_("Show layout as:"), TRUE);
     gtk_widget_show (display_type_frame);
     gtk_box_pack_start (GTK_BOX (vbox), display_type_frame, TRUE, TRUE, 2);
-    /*gtk_container_set_border_width (GTK_CONTAINER (display_type_frame), 5);
-
-    alignment2 = gtk_alignment_new (0.5, 0.5, 1, 1);
-    gtk_widget_show (alignment2);
-    xfce_framebox_add (XFCE_FRAMEBOX (display_type_frame), alignment2);
-    gtk_alignment_set_padding (GTK_ALIGNMENT (alignment2), 4, 4, 10, 10);
-
-    hbox1 = gtk_hbox_new (FALSE, 2);
-    gtk_widget_show (hbox1);
-    gtk_container_add (GTK_CONTAINER (alignment2), hbox1);*/
 
     display_type_optmenu = gtk_combo_box_new_text ();
     gtk_combo_box_append_text (GTK_COMBO_BOX (display_type_optmenu), _("image"));
     gtk_combo_box_append_text (GTK_COMBO_BOX (display_type_optmenu), _("text"));
     gtk_widget_set_size_request (display_type_optmenu, 230, -1);
-    /*gtk_box_pack_start(GTK_BOX(hbox1), display_type_optmenu, TRUE, TRUE, 2);*/
     xfce_framebox_add (XFCE_FRAMEBOX (display_type_frame), display_type_optmenu);
 
     group_policy_frame = xfce_framebox_new (_("Manage layout:"), TRUE);
@@ -533,7 +558,6 @@ xfce_xkb_configure (XfcePanelPlugin *plugin,
 
     g_signal_connect (display_type_optmenu, "changed", G_CALLBACK (on_display_type_changed), xkb);
     g_signal_connect (group_policy_combo, "changed", G_CALLBACK (on_group_policy_changed), xkb);
-    /*g_signal_connect (default_layout_menu, "changed", G_CALLBACK (on_def_lang_changed), xkb);*/
 
     g_signal_connect (xkb->add_layout_btn, "clicked", G_CALLBACK (xkb_settings_add_layout), xkb);
     g_signal_connect (xkb->rm_layout_btn, "clicked", G_CALLBACK (xkb_settings_rm_layout), xkb);
