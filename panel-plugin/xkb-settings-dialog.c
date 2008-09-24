@@ -101,8 +101,7 @@ char *
 xci_desc_to_utf8 (XklConfigItem * ci)
 {
   char *sd = g_strstrip (ci->description);
-  return sd[0] == 0 ? g_strdup (ci->name) :
-    g_locale_to_utf8 (sd, -1, NULL, NULL, NULL);
+  return sd[0] == 0 ? g_strdup (ci->name) : g_strdup(sd);
 }
 /**/
 
