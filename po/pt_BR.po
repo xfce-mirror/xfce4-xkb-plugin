@@ -2,14 +2,15 @@
 # Copyright (C) xfce4-xkb-plugin COPYRIGHT HOLDER
 # This file is distributed under the same license as the xfce4-xkb-plugin package.
 # Vladimir Melo <vladimirmelo@foresightlinux.org>, 2007.
+# Fábio Nogueira <deb-user-ba@ubuntu.com>, 2008.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-xkb-plugin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-09-24 00:37+0300\n"
-"PO-Revision-Date: 2007-06-30 16:15+0100\n"
-"Last-Translator: Vladimir Melo <vladimirmelo@foresightlinux.org>\n"
+"PO-Revision-Date: 2008-09-23 19:41-0300\n"
+"Last-Translator: Fábio Nogueira <deb-user-ba@ubuntu.com>\n"
 "Language-Team: Brazilian Portuguese <ldp-br@bazar2.conectiva.com.br>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -17,28 +18,25 @@ msgstr ""
 
 #: ../panel-plugin/xkb-settings-dialog.c:367
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
-#, fuzzy
 msgid "Keyboard Layouts"
-msgstr "Alternador de Disposição de Teclado"
+msgstr "Disposições de teclado"
 
 #: ../panel-plugin/xkb-settings-dialog.c:388
 msgid "Keyboard model:"
-msgstr ""
+msgstr "Modelo do teclado:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:408
 msgid "Change layout option:"
-msgstr ""
+msgstr "Alterar opção de disposição:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:428
-#, fuzzy
 msgid "Keyboard layouts:"
-msgstr "Alternador de Disposição de Teclado"
+msgstr "Disposições de teclado:"
 
 #. ***
 #: ../panel-plugin/xkb-settings-dialog.c:493
-#, fuzzy
 msgid "Show layout as:"
-msgstr "Mostrar disposição como"
+msgstr "Mostrar disposição como:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:508
 msgid "image"
@@ -49,31 +47,28 @@ msgid "text"
 msgstr "texto"
 
 #: ../panel-plugin/xkb-settings-dialog.c:514
-#, fuzzy
 msgid "Manage layout:"
-msgstr "Disposição padrão:"
+msgstr "Gerenciar disposição:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:519
 msgid "globally"
-msgstr ""
+msgstr "globalmente"
 
 #: ../panel-plugin/xkb-settings-dialog.c:520
 msgid "per window"
-msgstr ""
+msgstr "por janela"
 
 #: ../panel-plugin/xkb-settings-dialog.c:521
-#, fuzzy
 msgid "per application"
-msgstr "Por preferências de aplicação"
+msgstr "por aplicação"
 
 #: ../panel-plugin/xkb-settings-dialog.c:561
-#, fuzzy
 msgid "Keyboard Layouts Plugin"
-msgstr "Alternador de Disposição de Teclado"
+msgstr "Plug-in de disposições de teclado"
 
 #: ../panel-plugin/xkb-settings-dialog.c:567
 msgid "Allows you to configure and use multiple keyboard layouts."
-msgstr ""
+msgstr "Permite configurar e usar múltiplas disposições de teclado."
 
 #: ../panel-plugin/xkb-settings-dialog.c:571
 msgid "Other plugins available here"
@@ -81,12 +76,11 @@ msgstr "Outros plug-ins disponíveis aqui"
 
 #: ../panel-plugin/xkb-settings-dialog.c:620
 msgid "Add layout"
-msgstr ""
+msgstr "Adicionar disposição"
 
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
-#, fuzzy
 msgid "Keyboard layouts setup and switch plugin"
-msgstr "Alternador de Disposição de Teclado"
+msgstr "Plug-in configurador e alternador de disposições de teclado"
 
 #~ msgid ""
 #~ "Allows you to switch the keyboard layout and\n"
