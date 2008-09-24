@@ -34,6 +34,7 @@ gchar*      xkb_util_get_flag_filename      (gchar* group_name);
 
 gchar*      xkb_util_get_layout_string      (gchar* group_name,
                                              gchar* variant);
+gchar*      xkb_util_normalize_group_name   (gchar* group_name);
 
 #endif
 

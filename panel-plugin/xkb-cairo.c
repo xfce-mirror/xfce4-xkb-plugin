@@ -155,6 +155,7 @@ xkb_cairo_draw_label (cairo_t *cr,
 {
     g_assert (cr != NULL);
 
+    gchar **normalized_group_name;
     gchar font_str[80];
     gint pango_width, pango_height;
     gint layoutx, layouty;
@@ -162,11 +163,13 @@ xkb_cairo_draw_label (cairo_t *cr,
     gint i;
     gint radius;
 
+    normalized_group_name = xkb_util_normalize_group_name (group_name);
+
     PangoLayout *layout;
     PangoFontDescription *desc;
     layout = pango_cairo_create_layout (cr);
 
-    pango_layout_set_text (layout, group_name, -1);
+    pango_layout_set_text (layout, normalized_group_name, -1);
     g_sprintf (font_str, XKB_PREFERRED_FONT, font_sizes[panel_size - 16]);
     desc = pango_font_description_from_string (font_str);
     pango_layout_set_font_description (layout, desc);
@@ -194,6 +197,7 @@ xkb_cairo_draw_label (cairo_t *cr,
         cairo_fill (cr);
     }
 
+    g_free (normalized_group_name);
     g_object_unref (layout);
 }
 
