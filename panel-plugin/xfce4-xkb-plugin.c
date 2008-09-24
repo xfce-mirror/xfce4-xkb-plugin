@@ -261,6 +261,7 @@ xfce_xkb_save_config (XfcePanelPlugin *plugin, t_xkb *xkb)
     xfce_rc_write_int_entry (rcfile, "display_type", xkb->display_type);
     xfce_rc_write_int_entry (rcfile, "group_policy", xkb->settings->group_policy);
     xfce_rc_write_int_entry (rcfile, "default_group", xkb->settings->default_group);
+    xfce_rc_write_bool_entry (rcfile, "never_modify_config", xkb->settings->never_modify_config);
 
     if (xkb->settings->kbd_config != NULL)
     {
@@ -289,6 +290,8 @@ xkb_load_config (t_xkb *xkb, const gchar *filename)
         {
             xkb->settings->default_group = xfce_rc_read_int_entry (rcfile, "default_group", 0);
         }
+
+        xkb->settings->never_modify_config = xfce_rc_read_bool_entry (rcfile, "never_modify_config", FALSE);
 
         if (xkb->settings->kbd_config == NULL)
         {

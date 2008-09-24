@@ -54,6 +54,7 @@ typedef struct
 {
     t_group_policy      group_policy;
     gint                default_group;
+    gboolean            never_modify_config;
     t_xkb_kbd_config*   kbd_config;
 } t_xkb_settings;
 

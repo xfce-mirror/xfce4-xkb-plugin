@@ -269,7 +269,7 @@ xkb_config_update_settings (t_xkb_settings *settings)
         config->config_rec = xkl_config_rec_new ();
     }
 
-    if (settings->kbd_config == NULL)
+    if (settings->kbd_config == NULL || settings->never_modify_config)
     {
         xkl_config_rec_get_from_server (config->config_rec, config->engine);
         settings->kbd_config = g_new (t_xkb_kbd_config, 1);
@@ -305,7 +305,7 @@ xkb_config_update_settings (t_xkb_settings *settings)
         opt++;
     }
     
-    if (activate_settings)
+    if (activate_settings && !settings->never_modify_config)
         xkl_config_rec_activate (config->config_rec, config->engine);
 
     xkb_config_initialize_xkb_options (settings);
