@@ -76,7 +76,7 @@ void                xkb_config_xkl_config_changed       (XklEngine *engine);
 GdkFilterReturn     handle_xevent                       (GdkXEvent * xev,
                                                          GdkEvent * event);
 
-void                xkb_config_update_configuration	    (t_xkb_settings *settings);
+void                xkb_config_update_configuration     (t_xkb_settings *settings);
 static void         xkb_config_free                     ();
 static void         xkb_config_initialize_xkb_options   (t_xkb_settings *settings);
 
@@ -84,44 +84,44 @@ static void         xkb_config_initialize_xkb_options   (t_xkb_settings *setting
 
 gboolean
 xkb_config_initialize (t_xkb_settings *settings,
-		       XkbCallback callback,
-		       gpointer callback_data) 
+               XkbCallback callback,
+               gpointer callback_data) 
 {
-	g_assert (settings != NULL);
+    g_assert (settings != NULL);
 
-	config = g_new0 (t_xkb_config, 1);
+    config = g_new0 (t_xkb_config, 1);
 
-	config->settings = settings;
+    config->settings = settings;
 
-	config->callback = callback;
-	config->callback_data = callback_data;
+    config->callback = callback;
+    config->callback_data = callback_data;
 
-	config->engine = xkl_engine_get_instance (GDK_DISPLAY ());
+    config->engine = xkl_engine_get_instance (GDK_DISPLAY ());
 
-	if (!config->engine)
-	{
-		return FALSE;
-	}
+    if (!config->engine)
+    {
+        return FALSE;
+    }
 
-	xkb_config_update_settings (settings);
+    xkb_config_update_settings (settings);
 
-	xkl_engine_set_group_per_toplevel_window (config->engine, FALSE);
+    xkl_engine_set_group_per_toplevel_window (config->engine, FALSE);
 
     xkb_config_initialize_xkb_options (settings);
 
-	xkl_engine_start_listen (config->engine, XKLL_TRACK_KEYBOARD_STATE);
+    xkl_engine_start_listen (config->engine, XKLL_TRACK_KEYBOARD_STATE);
 
-	g_signal_connect (config->engine, 
-			"X-state-changed", 
-			G_CALLBACK (xkb_config_state_changed), 
-			NULL);
+    g_signal_connect (config->engine, 
+            "X-state-changed", 
+            G_CALLBACK (xkb_config_state_changed), 
+            NULL);
     g_signal_connect (config->engine,
             "X-config-changed",
             G_CALLBACK (xkb_config_xkl_config_changed),
             NULL);
-	gdk_window_add_filter (NULL, (GdkFilterFunc) handle_xevent, NULL);
+    gdk_window_add_filter (NULL, (GdkFilterFunc) handle_xevent, NULL);
 
-	return TRUE;
+    return TRUE;
 }
 
 static void
@@ -132,10 +132,10 @@ xkb_config_initialize_xkb_options (t_xkb_settings *settings)
     XklConfigItem *config_item;
     GHashTable *index_variants;
     gchar **group;
-	gint val;
-	gpointer pval;
+    gint val;
+    gpointer pval;
 
-	XklState *state = xkl_engine_get_current_state (config->engine);
+    XklState *state = xkl_engine_get_current_state (config->engine);
     group = config->config_rec->layouts;
     config->group_count = 0;
     while (*group)
@@ -144,70 +144,70 @@ xkb_config_initialize_xkb_options (t_xkb_settings *settings)
         config->group_count++;
     }
     
-	//config->group_count = xkl_engine_get_num_groups (config->engine);
+    //config->group_count = xkl_engine_get_num_groups (config->engine);
 
 
     xkb_config_free ();
     
-	config->window_map = g_hash_table_new (g_direct_hash, NULL);
-	config->application_map = g_hash_table_new (g_direct_hash, NULL);
+    config->window_map = g_hash_table_new (g_direct_hash, NULL);
+    config->application_map = g_hash_table_new (g_direct_hash, NULL);
 
-	registry = xkl_config_registry_get_instance (config->engine);
-	xkl_config_registry_load (registry);
-	
-	config_item = xkl_config_item_new ();
+    registry = xkl_config_registry_get_instance (config->engine);
+    xkl_config_registry_load (registry);
+    
+    config_item = xkl_config_item_new ();
 
-	config->group_names = (gchar **) g_new0 (typeof (gchar **), config->group_count);
-	config->variants = (gchar **) g_new0 (typeof (gchar **), config->group_count);
-	config->variant_index_by_group = g_hash_table_new (NULL, NULL);
-	index_variants = g_hash_table_new (g_str_hash, g_str_equal);
+    config->group_names = (gchar **) g_new0 (typeof (gchar **), config->group_count);
+    config->variants = (gchar **) g_new0 (typeof (gchar **), config->group_count);
+    config->variant_index_by_group = g_hash_table_new (NULL, NULL);
+    index_variants = g_hash_table_new (g_str_hash, g_str_equal);
 
-	for (i = 0; i < config->group_count; i++)
-	{
+    for (i = 0; i < config->group_count; i++)
+    {
 
         g_stpcpy (config_item->name, config->config_rec->layouts[i]);
         config->group_names[i] = g_strdup (config->config_rec->layouts[i]);
 
-		if (config->config_rec->variants[i] != NULL)
-		{
-			g_stpcpy (config_item->name, config->config_rec->variants[i]);
-		}
-		config->variants[i] = (config->config_rec->variants[i] == NULL) 
-			? g_strdup ("") : g_strdup (config->config_rec->variants[i]);
+        if (config->config_rec->variants[i] != NULL)
+        {
+            g_stpcpy (config_item->name, config->config_rec->variants[i]);
+        }
+        config->variants[i] = (config->config_rec->variants[i] == NULL) 
+            ? g_strdup ("") : g_strdup (config->config_rec->variants[i]);
 
-		pval = g_hash_table_lookup (
-				index_variants, 
-				config->group_names[i]
-		);
-		val = (pval != NULL) ? GPOINTER_TO_INT (pval) : 0;
-		val++;
-		g_hash_table_insert (
-				config->variant_index_by_group, 
-				config->group_names[i], 
-				GINT_TO_POINTER (val)
-		);
-		g_hash_table_insert (
-				index_variants,
-				config->group_names[i],
-				GINT_TO_POINTER (val)
-		);
-	}
-	g_hash_table_destroy (index_variants);
+        pval = g_hash_table_lookup (
+                index_variants, 
+                config->group_names[i]
+        );
+        val = (pval != NULL) ? GPOINTER_TO_INT (pval) : 0;
+        val++;
+        g_hash_table_insert (
+                config->variant_index_by_group, 
+                config->group_names[i], 
+                GINT_TO_POINTER (val)
+        );
+        g_hash_table_insert (
+                index_variants,
+                config->group_names[i],
+                GINT_TO_POINTER (val)
+        );
+    }
+    g_hash_table_destroy (index_variants);
 }
 
 static void
 xkb_config_free ()
 {
-	gint i;
+    gint i;
 
-	g_assert (config != NULL);
+    g_assert (config != NULL);
 
-	if (config->group_names) g_free (config->group_names);
-	if (config->variants) g_free (config->variants);
-	g_hash_table_destroy (config->variant_index_by_group);
+    if (config->group_names) g_free (config->group_names);
+    if (config->variants) g_free (config->variants);
+    g_hash_table_destroy (config->variant_index_by_group);
 
-	g_hash_table_destroy (config->window_map);
-	g_hash_table_destroy (config->application_map);
+    g_hash_table_destroy (config->window_map);
+    g_hash_table_destroy (config->application_map);
 }
 
 void 
