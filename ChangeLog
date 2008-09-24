@@ -1,3 +1,12 @@
+2008-09-24 00:39  omaciel
+
+	* po/ChangeLog, po/pt_BR.po: Updated Brazilian Portuguese
+	  translation.
+
+2008-09-23 21:59  sasoiliev
+
+	* ChangeLog: ChangeLog updated
+
 2008-09-23 21:38  sasoiliev
 
 	* AUTHORS, INSTALL, README, configure.in.in, flags/Makefile.am,
