@@ -2,14 +2,14 @@
 # Copyright (C) 2004-2006 Alexander Iliev.
 # This file is distributed under the same license as the xfce4-xkb-plugin package.
 # Daichi Kawahata <daichi@xfce.org>, 2006.
-# Nobuhiro Iwamatsu <iwamatsu@nigauri.org>, 2007.
+# Nobuhiro Iwamatsu <iwamatsu@nigauri.org>, 2007 - 2008.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-xkb-plugin 0.4.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-09-24 16:14+0300\n"
-"PO-Revision-Date: 2007-02-20 22:19+0900\n"
+"PO-Revision-Date: 2008-10-10 03:35+0900\n"
 "Last-Translator: Nobuhiro Iwamatsu <iwamatsu@nigauri.org>\n"
 "Language-Team: Japanese <xfce-i18n@xfce.org>\n"
 "MIME-Version: 1.0\n"
@@ -23,31 +23,32 @@ msgid ""
 "\n"
 "See the README file for more information."
 msgstr ""
+"XKB 設定はコンフィグファイルによって\n"
+"無効になっています。\n"
+"\n"
+"より多くの情報のために READMEファイルを参照してください。"
 
 #: ../panel-plugin/xkb-settings-dialog.c:387
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
-#, fuzzy
 msgid "Keyboard Layouts"
-msgstr "キーボードレイアウトの切り換え"
+msgstr "キーボードレイアウト"
 
 #: ../panel-plugin/xkb-settings-dialog.c:408
 msgid "Keyboard model:"
-msgstr ""
+msgstr "キーボードモデル:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:432
 msgid "Change layout option:"
-msgstr ""
+msgstr "レイアウトオプションの変更:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:456
-#, fuzzy
 msgid "Keyboard layouts:"
-msgstr "キーボードレイアウトの切り換え"
+msgstr "キーボードレイアウト:"
 
 #. ***
 #: ../panel-plugin/xkb-settings-dialog.c:528
-#, fuzzy
 msgid "Show layout as:"
-msgstr "レイアウトの表示方法"
+msgstr "レイアウトを表示:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:533
 msgid "image"
@@ -58,31 +59,28 @@ msgid "text"
 msgstr "文字"
 
 #: ../panel-plugin/xkb-settings-dialog.c:538
-#, fuzzy
 msgid "Manage layout:"
-msgstr "標準レイアウト:"
+msgstr "管理レイアウト:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:543
 msgid "globally"
-msgstr ""
+msgstr "全体的に"
 
 #: ../panel-plugin/xkb-settings-dialog.c:544
 msgid "per window"
-msgstr ""
+msgstr "ウィンドウ毎"
 
 #: ../panel-plugin/xkb-settings-dialog.c:545
-#, fuzzy
 msgid "per application"
-msgstr "アプリケーション毎の設定"
+msgstr "アプリケーション毎"
 
 #: ../panel-plugin/xkb-settings-dialog.c:584
-#, fuzzy
 msgid "Keyboard Layouts Plugin"
-msgstr "キーボードレイアウトの切り換え"
+msgstr "キーボードレイアウトプラグイン"
 
 #: ../panel-plugin/xkb-settings-dialog.c:590
 msgid "Allows you to configure and use multiple keyboard layouts."
-msgstr ""
+msgstr "複数のキーボードレイアウトを構成し、使うことを許可する。"
 
 #: ../panel-plugin/xkb-settings-dialog.c:594
 msgid "Other plugins available here"
@@ -90,12 +88,11 @@ msgstr "その他のプラグインはここにあります。"
 
 #: ../panel-plugin/xkb-settings-dialog.c:643
 msgid "Add layout"
-msgstr ""
+msgstr "レイアウトの追加"
 
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
-#, fuzzy
 msgid "Keyboard layouts setup and switch plugin"
-msgstr "キーボードレイアウトの切り換え"
+msgstr "キーボードレイアウトセットアップと切替用プラグイン"
 
 #~ msgid ""
 #~ "Allows you to switch the keyboard layout and\n"
@@ -103,17 +100,14 @@ msgstr "キーボードレイアウトの切り換え"
 #~ msgstr ""
 #~ "現在のキーボードレイアウトを表示します。\n"
 #~ "また、レイアウトを切り換える事ができます。"
-
 #~ msgid "Configure Keyboard Layout Switcher"
 #~ msgstr "キーボードレイアウト切り換えの設定"
-
 #~ msgid "_Remember layout for each application"
 #~ msgstr "アプリケーション毎のレイアウトを覚えておく(_R)"
-
 #~ msgid "Button to switch the X keyboard layout"
 #~ msgstr "X キーボードレイアウト切替ボタン"
-
 #~ msgid ""
 #~ "Displays the current keyboard layout and switches the layout when clicked"
 #~ msgstr ""
 #~ "現在のキーボードレイアウトを表示、クリックでそのレイアウトを切り換えます。"
+
