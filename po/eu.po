@@ -1,17 +1,17 @@
-# translation of eu.po to librezale
+# translation of eu.po to Euskara
 # Basque translations for xfce4-xkb-plugin package.
 # Copyright (C) 2004-2006 Alexander Iliev.
 # This file is distributed under the same license as the xfce4-xkb-plugin package.
 #
-# Piarres Beobide <pi@beobide.net>,2006, 2007.
+# Piarres Beobide <pi@beobide.net>,2006, 2007, 2008.
 msgid ""
 msgstr ""
 "Project-Id-Version: eu\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-09-24 16:14+0300\n"
-"PO-Revision-Date: 2007-01-18 13:49+0100\n"
+"PO-Revision-Date: 2008-10-12 00:07+0200\n"
 "Last-Translator: Piarres Beobide <pi@beobide.net>\n"
-"Language-Team: librezale <librezale@librezale.org>\n"
+"Language-Team: Euskara <debian-l10n-basque@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -25,31 +25,32 @@ msgid ""
 "\n"
 "See the README file for more information."
 msgstr ""
+"XKB konfigurazio aldaketak konfigurazio\n"
+"fitxategitik ezgaiturik daude.\n"
+"\n"
+"Ikusi README fitxategia argibide gehiagotako."
 
 #: ../panel-plugin/xkb-settings-dialog.c:387
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
-#, fuzzy
 msgid "Keyboard Layouts"
-msgstr "Teklatu Ingurune Aldatzailea"
+msgstr "Teklatu inguruneak"
 
 #: ../panel-plugin/xkb-settings-dialog.c:408
 msgid "Keyboard model:"
-msgstr ""
+msgstr "Teklatu modeloa:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:432
 msgid "Change layout option:"
-msgstr ""
+msgstr "Aldatu ingurune aukera:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:456
-#, fuzzy
 msgid "Keyboard layouts:"
-msgstr "Teklatu Ingurune Aldatzailea"
+msgstr "Teklatu inguruneak:"
 
 #. ***
 #: ../panel-plugin/xkb-settings-dialog.c:528
-#, fuzzy
 msgid "Show layout as:"
-msgstr "Ikusi ingurunea horrela"
+msgstr "Ikusi ingurunea horrela:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:533
 msgid "image"
@@ -60,57 +61,38 @@ msgid "text"
 msgstr "testua"
 
 #: ../panel-plugin/xkb-settings-dialog.c:538
-#, fuzzy
 msgid "Manage layout:"
-msgstr "Lehenetsiriko ingurunea:"
+msgstr "Kudeatu ingurunea:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:543
 msgid "globally"
-msgstr ""
+msgstr "orokorrean"
 
 #: ../panel-plugin/xkb-settings-dialog.c:544
 msgid "per window"
-msgstr ""
+msgstr "leiho bakoitzeko"
 
 #: ../panel-plugin/xkb-settings-dialog.c:545
-#, fuzzy
 msgid "per application"
-msgstr "Aplikazio ezarpen bakoitzagatik"
+msgstr "Aplikazio bakoizeko"
 
 #: ../panel-plugin/xkb-settings-dialog.c:584
-#, fuzzy
 msgid "Keyboard Layouts Plugin"
-msgstr "Teklatu Ingurune Aldatzailea"
+msgstr "Teklatu ingurune plugina"
 
 #: ../panel-plugin/xkb-settings-dialog.c:590
 msgid "Allows you to configure and use multiple keyboard layouts."
-msgstr ""
+msgstr "Teklatu ingurune ezberdinak konfiguratzeko aukera ematen du."
 
 #: ../panel-plugin/xkb-settings-dialog.c:594
 msgid "Other plugins available here"
-msgstr "Hemen erabilgarri dauden beste plugin-ak"
+msgstr "Hemen eskurgarri dauden beste zenbait plugin:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:643
 msgid "Add layout"
-msgstr ""
+msgstr "Gehitu ingurunea"
 
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
-#, fuzzy
 msgid "Keyboard layouts setup and switch plugin"
-msgstr "Teklatu Ingurune Aldatzailea"
+msgstr "Teklatu ingurune konfigurazio eta txandakatze plugina"
 
-#~ msgid ""
-#~ "Allows you to switch the keyboard layout and\n"
-#~ "displays the currently selected layout."
-#~ msgstr ""
-#~ "Teklatu ingurunea aldatu edo erabilitako\n"
-#~ "ingurunea ikusteko aukera ematen du."
-
-#~ msgid "Configure Keyboard Layout Switcher"
-#~ msgstr "Teklatu Ingurune Aldatzailea Konfiguratu"
-
-#~ msgid "_Remember layout for each application"
-#~ msgstr "Aplikazio bakoitzaren ingurunea gogo_ratu"
-
-#~ msgid "Button to switch the X keyboard layout"
-#~ msgstr "X teklatu ingurunea aldatzeko botoia"
