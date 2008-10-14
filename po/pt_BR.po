@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-xkb-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-24 16:14+0300\n"
-"PO-Revision-Date: 2008-09-23 19:41-0300\n"
-"Last-Translator: Fábio Nogueira <deb-user-ba@ubuntu.com>\n"
+"POT-Creation-Date: 2008-10-14 18:31-0400\n"
+"PO-Revision-Date: 2008-10-14 18:35-0500\n"
+"Last-Translator: Og Maciel <ogmaciel@gnome.org>\n"
 "Language-Team: Brazilian Portuguese <ldp-br@bazar2.conectiva.com.br>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -23,6 +23,10 @@ msgid ""
 "\n"
 "See the README file for more information."
 msgstr ""
+"As modificações de configurações do XKB são\n"
+"disabilitadas do arquivo de configurações.\n"
+"\n"
+"Veja o arquivo README para mais informação."
 
 #: ../panel-plugin/xkb-settings-dialog.c:387
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
@@ -96,12 +100,10 @@ msgstr "Plug-in configurador e alternador de disposições de teclado"
 #~ msgstr ""
 #~ "Permite mudar a disposição do teclado e\n"
 #~ "exibe a disposição selecionada atual."
-
 #~ msgid "Configure Keyboard Layout Switcher"
 #~ msgstr "Configurar o Alternador de Disposição de Teclado"
-
 #~ msgid "_Remember layout for each application"
 #~ msgstr "Lembra_r disposição para cada aplicação"
-
 #~ msgid "Button to switch the X keyboard layout"
 #~ msgstr "Botão para alternar a disposição do teclado do X"
+
