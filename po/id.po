@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xfce4-xkb-plugin v0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-09-24 16:14+0300\n"
-"PO-Revision-Date: 2008-06-21 20:17+0700\n"
+"PO-Revision-Date: 2008-10-22 22:20+0700\n"
 "Last-Translator: Andhika Padmawan <andhika.padmawan@gmail.com>\n"
 "Language-Team: Indonesian <id@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -22,31 +22,32 @@ msgid ""
 "\n"
 "See the README file for more information."
 msgstr ""
+"Modifikasi konfigurasi XKB dinonaktifkan\n"
+"dari berkas konfigurasi.\n"
+"\n"
+"Lihat berkas README untuk informasi lebih lanjut."
 
 #: ../panel-plugin/xkb-settings-dialog.c:387
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
-#, fuzzy
 msgid "Keyboard Layouts"
-msgstr "Pengganti Tata Letak Papan Ketik"
+msgstr "Tata Letak Papan Ketik"
 
 #: ../panel-plugin/xkb-settings-dialog.c:408
 msgid "Keyboard model:"
-msgstr ""
+msgstr "Model papan ketik:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:432
 msgid "Change layout option:"
-msgstr ""
+msgstr "Ubah opsi tata letak:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:456
-#, fuzzy
 msgid "Keyboard layouts:"
-msgstr "Pengganti Tata Letak Papan Ketik"
+msgstr "Tata letak papan ketik:"
 
 #. ***
 #: ../panel-plugin/xkb-settings-dialog.c:528
-#, fuzzy
 msgid "Show layout as:"
-msgstr "Tampilkan tata letak sebagai"
+msgstr "Tampilkan tata letak sebagai:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:533
 msgid "image"
@@ -57,31 +58,28 @@ msgid "text"
 msgstr "teks"
 
 #: ../panel-plugin/xkb-settings-dialog.c:538
-#, fuzzy
 msgid "Manage layout:"
-msgstr "Tata letak standar:"
+msgstr "Atur tata letak:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:543
 msgid "globally"
-msgstr ""
+msgstr "secara global"
 
 #: ../panel-plugin/xkb-settings-dialog.c:544
 msgid "per window"
-msgstr ""
+msgstr "per jendela"
 
 #: ../panel-plugin/xkb-settings-dialog.c:545
-#, fuzzy
 msgid "per application"
-msgstr "Pengaturan per aplikasi"
+msgstr "per aplikasi"
 
 #: ../panel-plugin/xkb-settings-dialog.c:584
-#, fuzzy
 msgid "Keyboard Layouts Plugin"
-msgstr "Pengganti Tata Letak Papan Ketik"
+msgstr "Plugin Tata Letak Papan Ketik"
 
 #: ../panel-plugin/xkb-settings-dialog.c:590
 msgid "Allows you to configure and use multiple keyboard layouts."
-msgstr ""
+msgstr "Izinkan anda untuk mengatur dan menggunakan tata letak banyak papan ketik."
 
 #: ../panel-plugin/xkb-settings-dialog.c:594
 msgid "Other plugins available here"
@@ -89,12 +87,11 @@ msgstr "Plugin lainnya tersedia di sini"
 
 #: ../panel-plugin/xkb-settings-dialog.c:643
 msgid "Add layout"
-msgstr ""
+msgstr "Tambah tata letak"
 
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
-#, fuzzy
 msgid "Keyboard layouts setup and switch plugin"
-msgstr "Pengganti Tata Letak Papan Ketik"
+msgstr "Pengaturan tata letak papan ketik dan pengalih plugin"
 
 #~ msgid ""
 #~ "Allows you to switch the keyboard layout and\n"
@@ -103,12 +100,10 @@ msgstr "Pengganti Tata Letak Papan Ketik"
 #~ "Memungkinkan anda untuk mengganti tata letak\n"
 #~ "papan ketik dan tampilan tata letak yang saat\n"
 #~ "ini terpilih."
-
 #~ msgid "Configure Keyboard Layout Switcher"
 #~ msgstr "Atur Pengganti Tata Letak Papan Ketik"
-
 #~ msgid "_Remember layout for each application"
 #~ msgstr "_Ingat tata letak untuk tiap aplikasi"
-
 #~ msgid "Button to switch the X keyboard layout"
 #~ msgstr "Tombol untuk mengganti tata letak papan ketik X"
+
