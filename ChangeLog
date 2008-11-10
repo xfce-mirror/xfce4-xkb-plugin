@@ -1,3 +1,61 @@
+2008-11-10 09:05  sasoiliev
+
+	* configure.in.in: version bump for 0.5.2
+
+2008-11-10 09:04  sasoiliev
+
+	* flags/Makefile.am, flags/epo.svg: added esperanto flag thanks to
+	  Jan Aniŝĉuk <matimatik@gmail.com>
+
+2008-11-09 23:17  maximilian
+
+	* po/ChangeLog, po/de.po, po/pt_PT.po, po/sq.po: Translations
+	  updates for a lot of languages in a lot of packages
+
+2008-11-09 12:00  nab
+
+	* po/ChangeLog, po/be.po: * Belarusian translation update
+
+2008-11-01 22:52  majkl
+
+	* po/ChangeLog, po/cs.po: Czech translation updated
+
+2008-10-28 23:14  maximilian
+
+	* po/ChangeLog, po/id.po: Translations updates
+
+2008-10-14 22:36  omaciel
+
+	* po/ChangeLog, po/pt_BR.po: Updated Brazilian Portuguese
+	  translation.
+
+2008-10-11 22:10  piarres
+
+	* po/ChangeLog, po/eu.po: xfce4-xkb-plugin Basque translation
+	  update
+
+2008-10-10 07:34  maximilian
+
+	* po/ChangeLog, po/ja.po: Translations updates and added for the
+	  sensors, gsynaptics, xfmedia, xfmpc, smartbookmark, timer, xkb
+	  and taskmanager plugins
+
+2008-09-24 19:49  sasoiliev
+
+	* panel-plugin/xkb-config.c: indentation updated
+
+2008-09-24 13:21  sasoiliev
+
+	* ChangeLog, INSTALL, README, panel-plugin/xkb-settings-dialog.c,
+	  po/ar.po, po/be.po, po/bg.po, po/ca.po, po/cs.po, po/da.po,
+	  po/de.po, po/el.po, po/en_GB.po, po/eu.po, po/fr.po, po/gl.po,
+	  po/hu.po, po/id.po, po/ja.po, po/lv.po, po/pl.po, po/pt_BR.po,
+	  po/pt_PT.po, po/ru.po, po/uk.po, po/ur.po,
+	  po/xfce4-xkb-plugin.pot, po/zh_TW.po: added a hidden option -
+	  never_modify_config - GUI elements for
+	  layout configuration are not disabled, one string added for
+	  translation
+
 2008-09-24 12:21  sasoiliev
 
 	* panel-plugin/xfce4-xkb-plugin.c, panel-plugin/xkb-config.c,
@@ -80,20 +138,19 @@
 	  flags/vn.png, flags/vn.svg, flags/ye.png, flags/ye.svg,
 	  flags/yu.png, flags/yu.svg, panel-plugin/Makefile.am,
 	  panel-plugin/xfce4-xkb-plugin-private.h,
-	  panel-plugin/xfce4-xkb-plugin.c,
-	  panel-plugin/xfce4-xkb-plugin.h, panel-plugin/xkb-cairo.c,
-	  panel-plugin/xkb-cairo.h, panel-plugin/xkb-callbacks.c,
-	  panel-plugin/xkb-callbacks.h, panel-plugin/xkb-config.c,
-	  panel-plugin/xkb-config.h,
+	  panel-plugin/xfce4-xkb-plugin.c, panel-plugin/xfce4-xkb-plugin.h,
+	  panel-plugin/xkb-cairo.c, panel-plugin/xkb-cairo.h,
+	  panel-plugin/xkb-callbacks.c, panel-plugin/xkb-callbacks.h,
+	  panel-plugin/xkb-config.c, panel-plugin/xkb-config.h,
 	  panel-plugin/xkb-plugin.desktop.in.in,
 	  panel-plugin/xkb-settings-dialog.c,
 	  panel-plugin/xkb-settings-dialog.h, panel-plugin/xkb-util.c,
 	  panel-plugin/xkb-util.h, panel-plugin/xkb.c, panel-plugin/xkb.h,
-	  po/POTFILES.in, po/ar.po, po/be.po, po/bg.po, po/ca.po,
-	  po/cs.po, po/da.po, po/de.po, po/el.po, po/en_GB.po, po/eu.po,
-	  po/fr.po, po/gl.po, po/hu.po, po/id.po, po/ja.po, po/lv.po,
-	  po/pl.po, po/pt_BR.po, po/pt_PT.po, po/ru.po, po/uk.po,
-	  po/ur.po, po/xfce4-xkb-plugin.pot, po/zh_TW.po: Version 0.5.0
+	  po/POTFILES.in, po/ar.po, po/be.po, po/bg.po, po/ca.po, po/cs.po,
+	  po/da.po, po/de.po, po/el.po, po/en_GB.po, po/eu.po, po/fr.po,
+	  po/gl.po, po/hu.po, po/id.po, po/ja.po, po/lv.po, po/pl.po,
+	  po/pt_BR.po, po/pt_PT.po, po/ru.po, po/uk.po, po/ur.po,
+	  po/xfce4-xkb-plugin.pot, po/zh_TW.po: Version 0.5.0
 	  
 	  This is a major rewrite including the following changes:
 	  
@@ -154,8 +211,8 @@
 
 2007-11-19 23:06  maximilian
 
-	* po/ChangeLog, po/LINGUAS, po/lv.po: Latvian translations added
-	  to most goodies.
+	* po/ChangeLog, po/LINGUAS, po/lv.po: Latvian translations added to
+	  most goodies.
 
 2007-11-15 08:37  mmassonnet
 
@@ -185,13 +242,13 @@
 
 2007-09-08 01:11  omaciel
 
-	* po/ChangeLog, po/LINGUAS: Brazilian Portuguese translations
-	  added by Vladimir Melo.
+	* po/ChangeLog, po/LINGUAS: Brazilian Portuguese translations added
+	  by Vladimir Melo.
 
 2007-07-08 21:34  maximilian
 
-	* po/ChangeLog, po/fr.po: Last bunch of pt_PT and nb_NO files to
-	  be added.
+	* po/ChangeLog, po/fr.po: Last bunch of pt_PT and nb_NO files to be
+	  added.
 
 2007-07-08 20:18  maximilian
 
@@ -228,9 +285,8 @@
 2007-03-02 15:48  maximilian
 
 	* po/LINGUAS, po/uk.po: Updated the Ukrainian translations for the
-	  gsynaptics, thunar-media-tags, thunar-archive, xkb,
-	  thunar-volman and notification-daemon plugin packages by Dmitry
-	  Nikitin.
+	  gsynaptics, thunar-media-tags, thunar-archive, xkb, thunar-volman
+	  and notification-daemon plugin packages by Dmitry Nikitin.
 
 2007-02-22 18:12  mmassonnet
 
@@ -252,8 +308,8 @@
 
 2007-02-02 18:52  maximilian
 
-	* po/ChangeLog, po/sq.po: Added the Albanian translations by
-	  Besnik Bleta for all the goodies.
+	* po/ChangeLog, po/sq.po: Added the Albanian translations by Besnik
+	  Bleta for all the goodies.
 
 2007-01-20 12:22  majkl
 
@@ -385,8 +441,8 @@
 
 2006-07-28 16:23  hydonsingore
 
-	* configure.ac, po/ChangeLog, po/zh_TW.po: Add trational Chinese
-	  po files from Cosmo Chene <cosmolax@gmail.com>
+	* configure.ac, po/ChangeLog, po/zh_TW.po: Add trational Chinese po
+	  files from Cosmo Chene <cosmolax@gmail.com>
 
 2006-07-07 23:14  sas
 
@@ -493,8 +549,7 @@
 
 	* Makefile.am, configure.ac, panel-plugin/Makefile.am,
 	  panel-plugin/xkb-plugin.desktop.in,
-	  panel-plugin/xkb-plugin.desktop.in.in: Modified for i18n
-	  support.
+	  panel-plugin/xkb-plugin.desktop.in.in: Modified for i18n support.
 
 2006-03-19 04:17  daichi
 
@@ -577,15 +632,14 @@
 	  Alexander <durilka@gmail.com>
 	  * A few bugfixes by Dimitar Zhekov <jimmy@is-vn.bg>
 	  - empty layout indicator when initially adding plugin to panel
-	  - gtk_container_add/gtk_box_pack_start fix - removed gtk
-	  warnings
+	  - gtk_container_add/gtk_box_pack_start fix - removed gtk warnings
 	  - flag redraw problem in some occasions
 
 2005-03-29 07:16  sasoiliev
 
-	* flags/Makefile.am, flags/Makefile.in, flags/el.png,
-	  flags/gr.png: Greek flag name changed from gr to el (since greek
-	  locale is el_GR)
+	* flags/Makefile.am, flags/Makefile.in, flags/el.png, flags/gr.png:
+	  Greek flag name changed from gr to el (since greek locale is
+	  el_GR)
 
 2004-08-22 10:55  sasoiliev
 
