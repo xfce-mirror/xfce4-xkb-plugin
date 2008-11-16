@@ -2,20 +2,20 @@
 # Copyright (C) 2004-2007 Alexander Iliev.
 # This file is distributed under the same license as the xfce4-xkb-plugin package.
 # Pau Ruŀlan Ferragut <paurullan@bulma.net>, 2006.
-# Carles Muñoz Forriz <carlesmu@internautas.org>, 2007.
+# Carles Muñoz Forriz <carlesmu@internautas.org>, 2007-2008.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-xkb-plugin 0.4.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-09-24 16:14+0300\n"
-"PO-Revision-Date: 2007-05-11 19:46+0100\n"
+"PO-Revision-Date: 2008-11-16 14:15+0100\n"
 "Last-Translator: Carles Muñoz Gorriz <carlesmu@internautas.org>\n"
 "Language-Team: Catalan\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../panel-plugin/xkb-settings-dialog.c:361
 msgid ""
@@ -24,31 +24,32 @@ msgid ""
 "\n"
 "See the README file for more information."
 msgstr ""
+"Les modificacions de la configuració de XKB\n"
+"s'han deshabilitat en el fitxer de configuració.\n"
+"\n"
+"Mireu el fitxer README per més informació."
 
 #: ../panel-plugin/xkb-settings-dialog.c:387
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
-#, fuzzy
 msgid "Keyboard Layouts"
-msgstr "Canviador de disposicions de teclat"
+msgstr "Tipus de teclat"
 
 #: ../panel-plugin/xkb-settings-dialog.c:408
 msgid "Keyboard model:"
-msgstr ""
+msgstr "Model de teclat:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:432
 msgid "Change layout option:"
-msgstr ""
+msgstr "Canvia les opcions del tipus:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:456
-#, fuzzy
 msgid "Keyboard layouts:"
-msgstr "Canviador de disposicions de teclat"
+msgstr "Tipus de teclat:"
 
 #. ***
 #: ../panel-plugin/xkb-settings-dialog.c:528
-#, fuzzy
 msgid "Show layout as:"
-msgstr "Mostra la distribució del teclat"
+msgstr "Mostra el tipus com:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:533
 msgid "image"
@@ -59,31 +60,28 @@ msgid "text"
 msgstr "text"
 
 #: ../panel-plugin/xkb-settings-dialog.c:538
-#, fuzzy
 msgid "Manage layout:"
-msgstr "Distribució per defecte:"
+msgstr "Gestiona el tipus:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:543
 msgid "globally"
-msgstr ""
+msgstr "globalment"
 
 #: ../panel-plugin/xkb-settings-dialog.c:544
 msgid "per window"
-msgstr ""
+msgstr "per finestra"
 
 #: ../panel-plugin/xkb-settings-dialog.c:545
-#, fuzzy
 msgid "per application"
-msgstr "Paràmetres per aplicacions"
+msgstr "per aplicació"
 
 #: ../panel-plugin/xkb-settings-dialog.c:584
-#, fuzzy
 msgid "Keyboard Layouts Plugin"
-msgstr "Canviador de disposicions de teclat"
+msgstr "Connector de tipus de teclat"
 
 #: ../panel-plugin/xkb-settings-dialog.c:590
 msgid "Allows you to configure and use multiple keyboard layouts."
-msgstr ""
+msgstr "Us permet configurar i emprar diversos tipus de teclat."
 
 #: ../panel-plugin/xkb-settings-dialog.c:594
 msgid "Other plugins available here"
@@ -91,12 +89,11 @@ msgstr "Altres connectors disponibles"
 
 #: ../panel-plugin/xkb-settings-dialog.c:643
 msgid "Add layout"
-msgstr ""
+msgstr "Afegeix tipus"
 
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
-#, fuzzy
 msgid "Keyboard layouts setup and switch plugin"
-msgstr "Canviador de disposicions de teclat"
+msgstr "Connector de configuració i canvi del tipus teclat"
 
 #~ msgid ""
 #~ "Allows you to switch the keyboard layout and\n"
