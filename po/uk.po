@@ -5,18 +5,17 @@
 # Dmitry Nikitin <luckas_fb@mail.ru>, 2007.
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-xkb-plugin-0.4.1\n"
+"Project-Id-Version: xfce4-xkb-plugin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-09-24 16:14+0300\n"
-"PO-Revision-Date: 2007-03-02 13:14+0200\n"
+"PO-Revision-Date: 2007-11-17 14:00+0200\n"
 "Last-Translator: Dmitry Nikitin <luckas_fb@mail.ru>\n"
 "Language-Team: Ukrainian <xfce-i18n@xfce.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
-"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../panel-plugin/xkb-settings-dialog.c:361
 msgid ""
@@ -25,31 +24,32 @@ msgid ""
 "\n"
 "See the README file for more information."
 msgstr ""
+"Конфігурація модифікаторів XKB є \n"
+"вимкнутою з конфігураційного файлу.\n"
+"\n"
+"Для ширшої інформації дивись файл README."
 
 #: ../panel-plugin/xkb-settings-dialog.c:387
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
-#, fuzzy
 msgid "Keyboard Layouts"
-msgstr "Перемикач розкладок клавіатури"
+msgstr "Розкладки клавіатури"
 
 #: ../panel-plugin/xkb-settings-dialog.c:408
 msgid "Keyboard model:"
-msgstr ""
+msgstr "Модель клавіатури:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:432
 msgid "Change layout option:"
-msgstr ""
+msgstr "Виберіть опції розкладки:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:456
-#, fuzzy
 msgid "Keyboard layouts:"
-msgstr "Перемикач розкладок клавіатури"
+msgstr "Розкладки клавіатури:"
 
 #. ***
 #: ../panel-plugin/xkb-settings-dialog.c:528
-#, fuzzy
 msgid "Show layout as:"
-msgstr "Стиль відображення"
+msgstr "Показувати розкладки як:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:533
 msgid "image"
@@ -60,31 +60,28 @@ msgid "text"
 msgstr "текст"
 
 #: ../panel-plugin/xkb-settings-dialog.c:538
-#, fuzzy
 msgid "Manage layout:"
-msgstr "Основна розкладка:"
+msgstr "Керувати розкладками:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:543
 msgid "globally"
-msgstr ""
+msgstr "глобально"
 
 #: ../panel-plugin/xkb-settings-dialog.c:544
 msgid "per window"
-msgstr ""
+msgstr "для вікна"
 
 #: ../panel-plugin/xkb-settings-dialog.c:545
-#, fuzzy
 msgid "per application"
-msgstr "Опції для програм"
+msgstr "для програми"
 
 #: ../panel-plugin/xkb-settings-dialog.c:584
-#, fuzzy
 msgid "Keyboard Layouts Plugin"
-msgstr "Перемикач розкладок клавіатури"
+msgstr "Розширення - Розкладки клавіатури"
 
 #: ../panel-plugin/xkb-settings-dialog.c:590
 msgid "Allows you to configure and use multiple keyboard layouts."
-msgstr ""
+msgstr "Дозволяє Вам налаштувати і використовувати кілька розкладок клавіатури."
 
 #: ../panel-plugin/xkb-settings-dialog.c:594
 msgid "Other plugins available here"
@@ -92,25 +89,9 @@ msgstr "Інші доповнення доступні тут"
 
 #: ../panel-plugin/xkb-settings-dialog.c:643
 msgid "Add layout"
-msgstr ""
+msgstr "Додати розкладку"
 
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
-#, fuzzy
 msgid "Keyboard layouts setup and switch plugin"
-msgstr "Перемикач розкладок клавіатури"
+msgstr "Розширення для налаштування розкладок клавіатури та їх перемикання"
 
-#~ msgid ""
-#~ "Allows you to switch the keyboard layout and\n"
-#~ "displays the currently selected layout."
-#~ msgstr ""
-#~ "Дозволяє Вам перемикати розкладки клавіатури і \n"
-#~ "відображає поточну вибрану розкладку."
-
-#~ msgid "Configure Keyboard Layout Switcher"
-#~ msgstr "Налаштувати перемикач розкладок клавіатури"
-
-#~ msgid "_Remember layout for each application"
-#~ msgstr "_Запам'ятовувати розкладку для кожної програми"
-
-#~ msgid "Button to switch the X keyboard layout"
-#~ msgstr "Кнопка перемикання розкладки клавіатури"
