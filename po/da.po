@@ -2,19 +2,21 @@
 # Copyright (C) 2008 THE xfce4-xkb-plugin'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the xfce4-xkb-plugin package.
 # Jannich Brendle <jannich@bredsaal.dk>, 2008.
-#
-#, fuzzy
+# Per Kongstad <p_kongstad@op.pl>, 2008.
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-xkb-plugin\n"
+"Project-Id-Version: xfce4-xkb-plugin 0.5.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-09-24 16:14+0300\n"
-"PO-Revision-Date: 2008-05-13 13:15+0200\n"
-"Last-Translator: Jannich Brendle <jannich@bredsaal.dk>\n"
-"Language-Team: Danish\n"
+"PO-Revision-Date: 2008-11-26 14:44+0100\n"
+"Last-Translator: Per Kongstad <p_kongstad@op.pl>\n"
+"Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Danish\n"
+"X-Poedit-Country: DENMARK\n"
+"X-Poedit-SourceCharset: utf-8\n"
 
 #: ../panel-plugin/xkb-settings-dialog.c:361
 msgid ""
@@ -23,31 +25,32 @@ msgid ""
 "\n"
 "See the README file for more information."
 msgstr ""
+"XKB-indstillingsmuligheder er\n"
+"blevet slået fra i config-fil.\n"
+"\n"
+"Se README-fil for flere informationer."
 
 #: ../panel-plugin/xkb-settings-dialog.c:387
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
-#, fuzzy
 msgid "Keyboard Layouts"
-msgstr "Tastaturlayoutskifter"
+msgstr "Tastaturlayouts"
 
 #: ../panel-plugin/xkb-settings-dialog.c:408
 msgid "Keyboard model:"
-msgstr ""
+msgstr "Tastaturmodel:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:432
 msgid "Change layout option:"
-msgstr ""
+msgstr "Ændr layoutindstilling:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:456
-#, fuzzy
 msgid "Keyboard layouts:"
-msgstr "Tastaturlayoutskifter"
+msgstr "Tastaturlayouts:"
 
 #. ***
 #: ../panel-plugin/xkb-settings-dialog.c:528
-#, fuzzy
 msgid "Show layout as:"
-msgstr "Vis layout som"
+msgstr "Vis layout som:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:533
 msgid "image"
@@ -58,31 +61,28 @@ msgid "text"
 msgstr "tekst"
 
 #: ../panel-plugin/xkb-settings-dialog.c:538
-#, fuzzy
 msgid "Manage layout:"
-msgstr "Standard layout:"
+msgstr "Håndtér layout:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:543
 msgid "globally"
-msgstr ""
+msgstr "globalt"
 
 #: ../panel-plugin/xkb-settings-dialog.c:544
 msgid "per window"
-msgstr ""
+msgstr "hvert vindue"
 
 #: ../panel-plugin/xkb-settings-dialog.c:545
-#, fuzzy
 msgid "per application"
-msgstr "Indstilling per program"
+msgstr "hvert program"
 
 #: ../panel-plugin/xkb-settings-dialog.c:584
-#, fuzzy
 msgid "Keyboard Layouts Plugin"
-msgstr "Tastaturlayoutskifter"
+msgstr "Udvidelsesmodul til tastaturlayouts"
 
 #: ../panel-plugin/xkb-settings-dialog.c:590
 msgid "Allows you to configure and use multiple keyboard layouts."
-msgstr ""
+msgstr "Tillader dig at indstille og bruge flere tastaturlayouts."
 
 #: ../panel-plugin/xkb-settings-dialog.c:594
 msgid "Other plugins available here"
@@ -90,25 +90,9 @@ msgstr "Andre plugins er tilgængelige her"
 
 #: ../panel-plugin/xkb-settings-dialog.c:643
 msgid "Add layout"
-msgstr ""
+msgstr "Tilføj layout"
 
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
-#, fuzzy
 msgid "Keyboard layouts setup and switch plugin"
-msgstr "Tastaturlayoutskifter"
+msgstr "Udvidelsesmodul til indstilling og skift af tastaturlayout"
 
-#~ msgid ""
-#~ "Allows you to switch the keyboard layout and\n"
-#~ "displays the currently selected layout."
-#~ msgstr ""
-#~ "Giver dig mulighed for at ændre tastaturlayoutog viser det layout der "
-#~ "bruges i øjeblikket."
-
-#~ msgid "Configure Keyboard Layout Switcher"
-#~ msgstr "Konfigurer Tastaturlayout skifter"
-
-#~ msgid "_Remember layout for each application"
-#~ msgstr "Husk layout fo_r hver applikation"
-
-#~ msgid "Button to switch the X keyboard layout"
-#~ msgstr "Knap til at skifte keyboardlayoutet i X"
