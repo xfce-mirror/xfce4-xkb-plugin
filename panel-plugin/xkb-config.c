@@ -293,13 +293,18 @@ xkb_config_update_settings (t_xkb_settings *settings)
 
     /* select the first "grp" option and use it (should be fixed to support more options) */
     opt = config->config_rec->options;
-    //settings->kbd_config->options;
+    /*settings->kbd_config->options;*/
     while (opt && *opt)
     {
         prefix = g_strsplit(*opt, ":", 2);
         if (prefix && strcmp(*prefix, "grp") == 0)
         {
             settings->kbd_config->toggle_option = *opt;
+            break;
+        }
+        else if (prefix && strcmp(*prefix, "compose") == 0)
+        {
+            settings->kbd_config->compose_key_position = *opt;
             break;
         }
         opt++;

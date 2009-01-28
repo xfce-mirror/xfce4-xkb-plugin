@@ -72,6 +72,9 @@ typedef struct
     GtkWidget *toggle_options_combo;
     GtkListStore *toggle_options_store;
 
+    GtkWidget *compose_key_options_combo;
+    GtkListStore *compose_key_options_store;
+
     GtkWidget *add_layout_btn;
     GtkWidget *rm_layout_btn;
     GtkWidget *edit_layout_btn;
