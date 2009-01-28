@@ -1,3 +1,88 @@
+2009-01-28 18:54  sasoiliev
+
+	* configure.in.in, panel-plugin/xfce4-xkb-plugin.c,
+	  panel-plugin/xfce4-xkb-plugin.h, panel-plugin/xkb-config.c,
+	  panel-plugin/xkb-config.h, panel-plugin/xkb-settings-dialog.c,
+	  po/bg.po, po/xfce4-xkb-plugin.pot: Implemented Compose key
+	  position selection feature (bug #4870)
+	  Version bumped to 0.5.3
+	  Updated the bulgarian translation
+
+2008-12-21 16:26  lars
+
+	* po/ChangeLog, po/da.po: update-po
+
+2008-12-20 21:52  eulex
+
+	* po/ChangeLog, po/LINGUAS, po/sv.po: xfce4-taskmanager/trunk/po:
+	  * sv.po, LINGUAS: Swedish translation added (Daniel Nylander)
+	  xfce4-time-out-plugin/trunk/po:
+	  * sv.po, LINGUAS: Swedish translation added (Daniel Nylander)
+	  xfce4-wavelan-plugin/trunk/po:
+	  * sv.po, LINGUAS: Swedish translation added (Daniel Nylander)
+	  xfce4-radio-plugin/trunk/po:
+	  * sv.po, LINGUAS: Swedish translation added (Daniel Nylander)
+	  xfce4-datetime-plugin/trunk/po:
+	  * sv.po, LINGUAS: Swedish translation added (Daniel Nylander)
+	  xfce4-cpufreq-plugin/trunk/po:
+	  * sv.po, LINGUAS: Swedish translation added (Daniel Nylander)
+	  xfburn/trunk/po:
+	  * sv.po: Swedish translation update (Daniel Nylander)
+	  xfce4-xkb-plugin/trunk/po:
+	  * sv.po, LINGUAS: Swedish translation added (Daniel Nylander)
+	  xfce4-smartbookmark-plugin/trunk/po:
+	  * sv.po, LINGUAS: Swedish translation added (Daniel Nylander)
+	  xfce4-smartpm-plugin/trunk/po:
+	  * sv.po: Swedish translation update (Daniel Nylander)
+	  thunar-media-tags-plugin/trunk/po:
+	  * sv.po, LINGUAS: Swedish translation added (Daniel Nylander)
+	  xfvnc/trunk/po:
+	  * sv.po, LINGUAS: Swedish translation added (Daniel Nylander)
+	  xfce4-verve-plugin/trunk/po:
+	  * sv.po, LINGUAS: Swedish translation added (Daniel Nylander)
+	  xfce4-xfapplet-plugin/trunk/po:
+	  * sv.po, LINGUAS: Swedish translation added (Daniel Nylander)
+	  thunar-archive-plugin/trunk/po:
+	  * sv.po, LINGUAS: Swedish translation added (Daniel Nylander)
+	  xfce4-websearch-plugin/trunk/po:
+	  * sv.po, LINGUAS: Swedish translation added (Daniel Nylander)
+	  xfce4-screenshooter-plugin/trunk/po:
+	  * sv.po, LINGUAS: Swedish translation added (Daniel Nylander)
+	  xfce4-teatime-plugin/trunk/po:
+	  * sv.po, LINGUAS: Swedish translation added (Daniel Nylander)
+	  xfce4-rss-plugin/trunk/po:
+	  * sv.po, LINGUAS: Swedish translation added (Daniel Nylander)
+	  xfmpc/trunk/po:
+	  * sv.po, LINGUAS: Swedish translation added (Daniel Nylander)
+
+2008-12-13 14:34  maximilian
+
+	* po/ChangeLog, po/LINGUAS, po/zh_CN.po: Translations updates - ja
+	  uk zh_CN
+
+2008-11-23 14:45  maximilian
+
+	* po/ChangeLog, po/uk.po: Translations updates - ca id nb sq uk
+
+2008-11-17 14:12  erenturkay
+
+	* po/ChangeLog, po/LINGUAS, po/tr.po: Add/update Turkish
+	  translation files thanks to the Turkish translation team! (Gökmen
+	  Görgen, Samed Beyribey, Özgür Kuru, Utku Aydın)
+
+2008-11-16 22:45  maximilian
+
+	* po/ChangeLog, po/ca.po: Translations updates and additions - ca,
+	  nb_NO, uk, zh_CN
+
+2008-11-12 10:59  piarres
+
+	* po/ChangeLog, po/eu.po: Some goodies Basque translation update
+
+2008-11-10 09:27  sasoiliev
+
+	* ChangeLog: ChangeLog updated
+
 2008-11-10 09:05  sasoiliev
 
 	* configure.in.in: version bump for 0.5.2
