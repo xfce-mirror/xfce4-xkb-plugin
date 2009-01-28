@@ -98,8 +98,8 @@ on_group_policy_changed (GtkComboBox *cb, t_xkb *xkb)
 char *
 xci_desc_to_utf8 (XklConfigItem * ci)
 {
-  char *sd = g_strstrip (ci->description);
-  return sd[0] == 0 ? g_strdup (ci->name) : g_strdup(sd);
+    char *sd = g_strstrip (ci->description);
+    return sd[0] == 0 ? g_strdup (ci->name) : g_strdup(sd);
 }
 /**/
 
@@ -135,6 +135,19 @@ xkb_settings_add_toggle_options_to_list (XklConfigRegistry * config_registry,
     gtk_list_store_set (xkb->toggle_options_store, &iter, 
                       DESC, utf_option_name,
                       NOM, config_item->name, -1);
+    g_free (utf_option_name);
+}
+
+static void
+xkb_settings_add_combo_key_position_options_to_list (XklConfigRegistry * config_registry,
+                                                     XklConfigItem * config_item,
+                                                     t_xkb *xkb)
+{
+    char *utf_option_name = xci_desc_to_utf8 (config_item);
+    gtk_list_store_append (xkb->compose_key_options_store, &iter);
+    gtk_list_store_set (xkb->compose_key_options_store, &iter,
+                        DESC, utf_option_name,
+                        NOM, config_item->name, -1);
     g_free (utf_option_name);
 }
 
@@ -184,7 +197,41 @@ xkb_settings_set_toggle_option_combo_default_value (t_xkb *xkb)
     }
     
     g_free (id);
+}
 
+void
+xkb_settings_set_compose_key_position_combo_default_value (t_xkb *xkb)
+{
+    gchar *id;
+
+    t_xkb_kbd_config *config = xkb->settings->kbd_config;
+
+    if (config->compose_key_position == NULL)
+        return;
+
+    model = GTK_TREE_MODEL (xkb->compose_key_options_store);
+    gtk_tree_model_get_iter_first (model, &iter);
+    gtk_tree_model_get (model, &iter, NOM, &id, -1);
+    XKB_DEBUG ("COMPOSE KEY: ", config->compose_key_position);
+    if (strcmp (id, config->compose_key_position) == 0)
+    {
+        gtk_combo_box_set_active_iter (GTK_COMBO_BOX (xkb->compose_key_options_combo), &iter);
+    }
+    else
+    {
+        while (gtk_tree_model_iter_next (model, &iter))
+        {
+            gtk_tree_model_get (model, &iter, NOM, &id, -1);
+
+            if (strcmp (id, config->compose_key_position) == 0)
+            {
+                gtk_combo_box_set_active_iter (GTK_COMBO_BOX (xkb->compose_key_options_combo), &iter);
+                break;
+            }
+        }
+    }
+
+    g_free (id);
 }
 
 void
@@ -400,6 +447,7 @@ xfce_xkb_configure (XfcePanelPlugin *plugin,
 
     xkb->combo_store = gtk_list_store_new (COMBO_NUM, G_TYPE_STRING, G_TYPE_STRING);
     xkb->toggle_options_store = gtk_list_store_new (COMBO_NUM, G_TYPE_STRING, G_TYPE_STRING);
+    xkb->compose_key_options_store = gtk_list_store_new (COMBO_NUM, G_TYPE_STRING, G_TYPE_STRING);
     
     vbox1 = gtk_vbox_new (FALSE, 5);
     gtk_container_add (GTK_CONTAINER (vbox), vbox1);
@@ -429,6 +477,7 @@ xfce_xkb_configure (XfcePanelPlugin *plugin,
     g_object_set (G_OBJECT (xkb->kbd_model_combo), "has-tooltip", TRUE, NULL);
     g_signal_connect (xkb->kbd_model_combo, "query-tooltip", G_CALLBACK (xkb_settings_config_modification_disabled_tooltip), xkb);
     
+    /* toggle layout option */
     frame = xfce_framebox_new (_("Change layout option:"), TRUE);
     gtk_frame_set_shadow_type (GTK_FRAME (frame), GTK_SHADOW_NONE);
     gtk_widget_show (frame);
@@ -440,11 +489,11 @@ xfce_xkb_configure (XfcePanelPlugin *plugin,
     gtk_cell_layout_pack_start (GTK_CELL_LAYOUT (xkb->toggle_options_combo), renderer, TRUE);
     gtk_cell_layout_add_attribute (GTK_CELL_LAYOUT (xkb->toggle_options_combo), renderer, "text", 0);
     xkl_config_registry_foreach_option (registry,
-                       "grp",
-                                       (ConfigItemProcessFunc) xkb_settings_add_toggle_options_to_list,
-                                       xkb);
+                                        "grp",
+                                        (ConfigItemProcessFunc) xkb_settings_add_toggle_options_to_list,
+                                        xkb);
     gtk_tree_sortable_set_sort_column_id (GTK_TREE_SORTABLE (xkb->toggle_options_store),
-                                        0, GTK_SORT_ASCENDING);
+                                          0, GTK_SORT_ASCENDING);
 
     xkb_settings_set_toggle_option_combo_default_value (xkb);
     gtk_widget_show (xkb->toggle_options_combo);
@@ -452,7 +501,35 @@ xfce_xkb_configure (XfcePanelPlugin *plugin,
     gtk_widget_set_sensitive (GTK_WIDGET (xkb->toggle_options_combo), !xkb->settings->never_modify_config);
     g_object_set (G_OBJECT (xkb->toggle_options_combo), "has-tooltip", TRUE, NULL);
     g_signal_connect (xkb->toggle_options_combo, "query-tooltip", G_CALLBACK (xkb_settings_config_modification_disabled_tooltip), xkb);
+
+    /* compose key position option */
+    frame = xfce_framebox_new (_("Compose key position:"), TRUE);
+    gtk_frame_set_shadow_type (GTK_FRAME (frame), GTK_SHADOW_NONE);
+    gtk_widget_show (frame);
+    gtk_box_pack_start (GTK_BOX (vbox), frame, TRUE, TRUE, 0);
+
+    xkb->compose_key_options_combo = gtk_combo_box_new_with_model (GTK_TREE_MODEL (xkb->compose_key_options_store));
+    gtk_widget_set_size_request (xkb->compose_key_options_combo, 230, -1);
+    xfce_framebox_add (XFCE_FRAMEBOX (frame), xkb->compose_key_options_combo);
+    gtk_cell_layout_pack_start (GTK_CELL_LAYOUT (xkb->compose_key_options_combo), renderer, TRUE);
+    gtk_cell_layout_add_attribute (GTK_CELL_LAYOUT (xkb->compose_key_options_combo), renderer, "text", 0);
+    xkl_config_registry_foreach_option (registry,
+                                        "Compose key",
+                                        (ConfigItemProcessFunc) xkb_settings_add_combo_key_position_options_to_list,
+                                        xkb);
+    gtk_tree_sortable_set_sort_column_id (GTK_TREE_SORTABLE (xkb->compose_key_options_store),
+                                          0, GTK_SORT_ASCENDING);
+
+    XKB_DEBUG ("compose key: ", xkb->settings->kbd_config->compose_key_position);
+    xkb_settings_set_compose_key_position_combo_default_value (xkb);
+    gtk_widget_show (xkb->compose_key_options_combo);
+
+    gtk_widget_set_sensitive (GTK_WIDGET (xkb->compose_key_options_combo), !xkb->settings->never_modify_config);
+    g_object_set (G_OBJECT (xkb->compose_key_options_combo), "has-tooltip", TRUE, NULL);
+    g_signal_connect (xkb->compose_key_options_combo, "query-tooltip", G_CALLBACK (xkb_settings_config_modification_disabled_tooltip), xkb);
+
     
+    /* the actual layouts */
     frame = xfce_framebox_new (_("Keyboard layouts:"), TRUE);
     gtk_frame_set_shadow_type (GTK_FRAME (frame), GTK_SHADOW_NONE);
     gtk_widget_show (frame);
@@ -719,7 +796,8 @@ xkb_settings_layout_dialog_run ()
 void
 xkb_settings_update_from_ui (t_xkb *xkb)
 {
-    gchar *layouts, *variants, *kbdmodel, *toggle_option;
+    gchar *layouts, *variants, *kbdmodel, *toggle_option, 
+          *compose_key_position, *tmp;
     t_xkb_kbd_config *config = xkb->settings->kbd_config;
     gboolean is_default;
     gint i = 0;
@@ -735,6 +813,20 @@ xkb_settings_update_from_ui (t_xkb *xkb)
         gtk_tree_model_get (model, &iter, NOM, &toggle_option, -1);
         config->toggle_option = toggle_option;
         config->options = toggle_option;
+    }
+
+    model = GTK_TREE_MODEL (xkb->compose_key_options_store);
+    if (gtk_combo_box_get_active_iter (GTK_COMBO_BOX (xkb->compose_key_options_combo), &iter))
+    {
+        gtk_tree_model_get (model, &iter, NOM, &compose_key_position, -1);
+        config->compose_key_position = compose_key_position;
+        if (config->options)
+        {
+            tmp = config->options;
+            config->options = g_strconcat (config->options, ",", compose_key_position, NULL);
+            g_free (tmp);
+        }
+        else config->options = compose_key_position;
     }
 
     model = GTK_TREE_MODEL (xkb->layout_store);

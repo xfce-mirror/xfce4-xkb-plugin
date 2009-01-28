@@ -144,9 +144,6 @@ xkb_config_initialize_xkb_options (t_xkb_settings *settings)
         config->group_count++;
     }
     
-    //config->group_count = xkl_engine_get_num_groups (config->engine);
-
-
     xkb_config_free ();
     
     config->window_map = g_hash_table_new (g_direct_hash, NULL);
@@ -293,14 +290,17 @@ xkb_config_update_settings (t_xkb_settings *settings)
 
     /* select the first "grp" option and use it (should be fixed to support more options) */
     opt = config->config_rec->options;
-    //settings->kbd_config->options;
     while (opt && *opt)
     {
         prefix = g_strsplit(*opt, ":", 2);
-        if (prefix && strcmp(*prefix, "grp") == 0)
+        if (settings->kbd_config->toggle_option == NULL
+                && prefix && strcmp(*prefix, "grp") == 0)
         {
             settings->kbd_config->toggle_option = *opt;
-            break;
+        }
+        else if (prefix && strcmp(*prefix, "compose") == 0)
+        {
+            settings->kbd_config->compose_key_position = *opt;
         }
         opt++;
     }
