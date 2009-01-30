@@ -46,7 +46,6 @@ typedef struct
     gchar*          model;
     gchar*          layouts;
     gchar*          variants;
-    gchar*          options;
     gchar*          toggle_option;
     gchar*          compose_key_position;
 } t_xkb_kbd_config;

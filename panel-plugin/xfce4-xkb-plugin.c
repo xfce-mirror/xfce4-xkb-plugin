@@ -268,7 +268,7 @@ xfce_xkb_save_config (XfcePanelPlugin *plugin, t_xkb *xkb)
         xfce_rc_write_entry (rcfile, "model", xkb->settings->kbd_config->model);
         xfce_rc_write_entry (rcfile, "layouts", xkb->settings->kbd_config->layouts);
         xfce_rc_write_entry (rcfile, "variants", xkb->settings->kbd_config->variants);
-        xfce_rc_write_entry (rcfile, "options", xkb->settings->kbd_config->toggle_option);
+        xfce_rc_write_entry (rcfile, "toggle_option", xkb->settings->kbd_config->toggle_option);
         xfce_rc_write_entry (rcfile, "compose_key_position", xkb->settings->kbd_config->compose_key_position);
     }
 
@@ -301,17 +301,8 @@ xkb_load_config (t_xkb *xkb, const gchar *filename)
         xkb->settings->kbd_config->model = g_strdup (xfce_rc_read_entry (rcfile, "model", NULL));
         xkb->settings->kbd_config->layouts = g_strdup (xfce_rc_read_entry (rcfile, "layouts", NULL));
         xkb->settings->kbd_config->variants = g_strdup (xfce_rc_read_entry (rcfile, "variants", NULL));
-        xkb->settings->kbd_config->options = g_strdup (xfce_rc_read_entry (rcfile, "options", NULL));
+        xkb->settings->kbd_config->toggle_option = g_strdup (xfce_rc_read_entry (rcfile, "toggle_option", NULL));
         xkb->settings->kbd_config->compose_key_position = g_strdup (xfce_rc_read_entry (rcfile, "compose_key_position", NULL));
-        if (xkb->settings->kbd_config->compose_key_position
-                && strlen (xkb->settings->kbd_config->compose_key_position) > 0)
-        {
-            gchar *tmp = xkb->settings->kbd_config->options;
-            xkb->settings->kbd_config->options = 
-                g_strconcat (xkb->settings->kbd_config->options, 
-                             ",", xkb->settings->kbd_config->compose_key_position, NULL);
-            g_free (tmp);
-        }
 
         xfce_rc_close (rcfile);
 

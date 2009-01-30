@@ -212,7 +212,6 @@ xkb_settings_set_compose_key_position_combo_default_value (t_xkb *xkb)
     model = GTK_TREE_MODEL (xkb->compose_key_options_store);
     gtk_tree_model_get_iter_first (model, &iter);
     gtk_tree_model_get (model, &iter, NOM, &id, -1);
-    XKB_DEBUG ("COMPOSE KEY: ", config->compose_key_position);
     if (strcmp (id, config->compose_key_position) == 0)
     {
         gtk_combo_box_set_active_iter (GTK_COMBO_BOX (xkb->compose_key_options_combo), &iter);
@@ -520,7 +519,6 @@ xfce_xkb_configure (XfcePanelPlugin *plugin,
     gtk_tree_sortable_set_sort_column_id (GTK_TREE_SORTABLE (xkb->compose_key_options_store),
                                           0, GTK_SORT_ASCENDING);
 
-    XKB_DEBUG ("compose key: ", xkb->settings->kbd_config->compose_key_position);
     xkb_settings_set_compose_key_position_combo_default_value (xkb);
     gtk_widget_show (xkb->compose_key_options_combo);
 
@@ -798,46 +796,40 @@ xkb_settings_update_from_ui (t_xkb *xkb)
 {
     gchar *layouts, *variants, *kbdmodel, *toggle_option, 
           *compose_key_position, *tmp;
-    t_xkb_kbd_config *config = xkb->settings->kbd_config;
+    t_xkb_kbd_config *kbd_config = xkb->settings->kbd_config;
     gboolean is_default;
     gint i = 0;
 
     model = GTK_TREE_MODEL (xkb->combo_store);
     gtk_combo_box_get_active_iter (GTK_COMBO_BOX (xkb->kbd_model_combo), &iter);
     gtk_tree_model_get (model, &iter, NOM, &kbdmodel, -1);
-    config->model = kbdmodel;
+    kbd_config->model = kbdmodel;
 
     model = GTK_TREE_MODEL (xkb->toggle_options_store);
     if (gtk_combo_box_get_active_iter (GTK_COMBO_BOX (xkb->toggle_options_combo), &iter))
     {
         gtk_tree_model_get (model, &iter, NOM, &toggle_option, -1);
-        config->toggle_option = toggle_option;
-        config->options = toggle_option;
+        g_free (kbd_config->toggle_option);
+        kbd_config->toggle_option = g_strdup (toggle_option);
     }
 
     model = GTK_TREE_MODEL (xkb->compose_key_options_store);
     if (gtk_combo_box_get_active_iter (GTK_COMBO_BOX (xkb->compose_key_options_combo), &iter))
     {
         gtk_tree_model_get (model, &iter, NOM, &compose_key_position, -1);
-        config->compose_key_position = compose_key_position;
-        if (config->options)
-        {
-            tmp = config->options;
-            config->options = g_strconcat (config->options, ",", compose_key_position, NULL);
-            g_free (tmp);
-        }
-        else config->options = compose_key_position;
+        g_free (kbd_config->compose_key_position);
+        kbd_config->compose_key_position = g_strdup (compose_key_position);
     }
 
     model = GTK_TREE_MODEL (xkb->layout_store);
     gtk_tree_model_get_iter_first (model, &iter);
     gtk_tree_model_get (model, &iter, DEFAULT_LAYOUT, &is_default, LAYOUTS, &layouts, VARIANTS, &variants, -1);
     if (is_default) xkb->settings->default_group = i;
-    config->layouts = layouts;
+    kbd_config->layouts = layouts;
     if (variants != NULL)
-        config->variants = variants;
+        kbd_config->variants = variants;
     else
-        config->variants = "";
+        kbd_config->variants = "";
     
     i = 1;
     while (gtk_tree_model_iter_next (model, &iter))
@@ -846,11 +838,11 @@ xkb_settings_update_from_ui (t_xkb *xkb)
         if (is_default) xkb->settings->default_group = i;
         i++;
 
-        config->layouts = g_strdup(g_strconcat(config->layouts, ",", layouts, NULL));
+        kbd_config->layouts = g_strdup(g_strconcat(kbd_config->layouts, ",", layouts, NULL));
         if (variants != NULL)
-            config->variants = g_strdup(g_strconcat(config->variants, ",", variants, NULL));
+            kbd_config->variants = g_strdup(g_strconcat(kbd_config->variants, ",", variants, NULL));
         else
-            config->variants = g_strdup(g_strconcat(config->variants, ",", NULL));
+            kbd_config->variants = g_strdup(g_strconcat(kbd_config->variants, ",", NULL));
     }
     xkb_config_update_settings (xkb->settings);
     xkb_refresh_gui (xkb);

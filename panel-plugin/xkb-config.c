@@ -255,6 +255,7 @@ xkb_config_update_settings (t_xkb_settings *settings)
 
     gchar **opt;
     gchar **prefix;
+    gchar *options;
 
     g_assert (config != NULL);
     g_assert (settings != NULL);
@@ -269,14 +270,14 @@ xkb_config_update_settings (t_xkb_settings *settings)
     if (settings->kbd_config == NULL || settings->never_modify_config)
     {
         xkl_config_rec_get_from_server (config->config_rec, config->engine);
-        settings->kbd_config = g_new (t_xkb_kbd_config, 1);
+        settings->kbd_config = g_new0 (t_xkb_kbd_config, 1);
         settings->kbd_config->model = g_strdup (config->config_rec->model);
         settings->kbd_config->layouts = g_strjoinv (",", config->config_rec->layouts);
         settings->kbd_config->variants = g_strjoinv (",", config->config_rec->variants);
-        settings->kbd_config->options = g_strjoinv (",", config->config_rec->options);
-        if (strcmp ("", settings->kbd_config->options) == 0)
+        options = g_strjoinv (",", config->config_rec->options);
+        if (strcmp ("", options) == 0)
         {
-            settings->kbd_config->options = NULL;
+            options = NULL;
         }
     }
     else
@@ -285,10 +286,20 @@ xkb_config_update_settings (t_xkb_settings *settings)
         config->config_rec->model = g_strdup (settings->kbd_config->model);
         config->config_rec->layouts = g_strsplit_set (settings->kbd_config->layouts, ",", 0);
         config->config_rec->variants = g_strsplit_set (settings->kbd_config->variants, ",", 0);
-        config->config_rec->options = g_strsplit_set (settings->kbd_config->options, ",", 0);
+
+        options = g_strdup (settings->kbd_config->toggle_option);
+        if (strlen (settings->kbd_config->compose_key_position) > 0)
+        {
+            gchar *tmp = options;
+            options = g_strconcat (options, ",", settings->kbd_config->compose_key_position, NULL);
+            g_free (tmp);
+        }
+        config->config_rec->options = g_strsplit_set (options, ",", 0);
     }
 
     /* select the first "grp" option and use it (should be fixed to support more options) */
+    g_free (settings->kbd_config->toggle_option);
+    settings->kbd_config->toggle_option = NULL;
     opt = config->config_rec->options;
     while (opt && *opt)
     {
@@ -296,11 +307,11 @@ xkb_config_update_settings (t_xkb_settings *settings)
         if (settings->kbd_config->toggle_option == NULL
                 && prefix && strcmp(*prefix, "grp") == 0)
         {
-            settings->kbd_config->toggle_option = *opt;
+            settings->kbd_config->toggle_option = g_strdup (*opt);
         }
         else if (prefix && strcmp(*prefix, "compose") == 0)
         {
-            settings->kbd_config->compose_key_position = *opt;
+            settings->kbd_config->compose_key_position = g_strdup (*opt);
         }
         opt++;
     }
