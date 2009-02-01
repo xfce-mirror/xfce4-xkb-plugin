@@ -1,14 +1,14 @@
 # Czech translations for xfce4-xkb-plugin package.
 # Copyright (C) 2006 THE xfce4-xkb-plugin'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the xfce4-xkb-plugin package.
-# Michal Várady <miko.vaji@gmail.com>, 2006-2008.
+# Michal Várady <miko.vaji@gmail.com>, 2006-2009.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-xkb-plugin 0.4.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-09-24 16:14+0300\n"
-"PO-Revision-Date: 2008-11-01 23:32+0100\n"
+"PO-Revision-Date: 2009-02-01 02:19+0100\n"
 "Last-Translator: Michal Várady <miko.vaji@gmail.com>\n"
 "Language-Team: Czech <translation-team-cs@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +26,7 @@ msgstr ""
 "Změny konfigurace XKB jsou zakázány\n"
 "souborem konfigurace.\n"
 "\n"
-"Pro více informací čtěte soubor README (v angličtině)."
+"Více informací naleznete v souboru README (v angličtině)."
 
 #: ../panel-plugin/xkb-settings-dialog.c:387
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
