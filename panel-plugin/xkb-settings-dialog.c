@@ -139,10 +139,20 @@ xkb_settings_add_toggle_options_to_list (XklConfigRegistry * config_registry,
 }
 
 static void
-xkb_settings_add_combo_key_position_options_to_list (XklConfigRegistry * config_registry,
+xkb_settings_add_compose_key_position_options_to_list (XklConfigRegistry * config_registry,
                                                      XklConfigItem * config_item,
                                                      t_xkb *xkb)
 {
+    /* add a possibility to set no position for the compose key */
+    if (config_item == NULL)
+    {
+        gtk_list_store_append (xkb->compose_key_options_store, &iter);
+        gtk_list_store_set (xkb->compose_key_options_store, &iter,
+                            DESC, "-",
+                            NOM, "", -1);
+        return;
+    }
+
     char *utf_option_name = xci_desc_to_utf8 (config_item);
     gtk_list_store_append (xkb->compose_key_options_store, &iter);
     gtk_list_store_set (xkb->compose_key_options_store, &iter,
@@ -206,12 +216,17 @@ xkb_settings_set_compose_key_position_combo_default_value (t_xkb *xkb)
 
     t_xkb_kbd_config *config = xkb->settings->kbd_config;
 
-    if (config->compose_key_position == NULL)
-        return;
-
     model = GTK_TREE_MODEL (xkb->compose_key_options_store);
     gtk_tree_model_get_iter_first (model, &iter);
     gtk_tree_model_get (model, &iter, NOM, &id, -1);
+
+    if (config->compose_key_position == NULL)
+    {
+        /* select the empty option if compose_key_position is null */
+        gtk_combo_box_set_active_iter (GTK_COMBO_BOX (xkb->compose_key_options_combo), &iter);
+        return;
+    }
+
     if (strcmp (id, config->compose_key_position) == 0)
     {
         gtk_combo_box_set_active_iter (GTK_COMBO_BOX (xkb->compose_key_options_combo), &iter);
@@ -512,9 +527,10 @@ xfce_xkb_configure (XfcePanelPlugin *plugin,
     xfce_framebox_add (XFCE_FRAMEBOX (frame), xkb->compose_key_options_combo);
     gtk_cell_layout_pack_start (GTK_CELL_LAYOUT (xkb->compose_key_options_combo), renderer, TRUE);
     gtk_cell_layout_add_attribute (GTK_CELL_LAYOUT (xkb->compose_key_options_combo), renderer, "text", 0);
+    xkb_settings_add_compose_key_position_options_to_list (NULL, NULL, xkb);
     xkl_config_registry_foreach_option (registry,
                                         "Compose key",
-                                        (ConfigItemProcessFunc) xkb_settings_add_combo_key_position_options_to_list,
+                                        (ConfigItemProcessFunc) xkb_settings_add_compose_key_position_options_to_list,
                                         xkb);
     gtk_tree_sortable_set_sort_column_id (GTK_TREE_SORTABLE (xkb->compose_key_options_store),
                                           0, GTK_SORT_ASCENDING);
@@ -818,7 +834,10 @@ xkb_settings_update_from_ui (t_xkb *xkb)
     {
         gtk_tree_model_get (model, &iter, NOM, &compose_key_position, -1);
         g_free (kbd_config->compose_key_position);
-        kbd_config->compose_key_position = g_strdup (compose_key_position);
+        if (strcmp ("", compose_key_position) == 0)
+            kbd_config->compose_key_position = NULL;
+        else kbd_config->compose_key_position = g_strdup (compose_key_position);
+
     }
 
     model = GTK_TREE_MODEL (xkb->layout_store);

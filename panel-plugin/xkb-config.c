@@ -288,7 +288,8 @@ xkb_config_update_settings (t_xkb_settings *settings)
         config->config_rec->variants = g_strsplit_set (settings->kbd_config->variants, ",", 0);
 
         options = g_strdup (settings->kbd_config->toggle_option);
-        if (strlen (settings->kbd_config->compose_key_position) > 0)
+        if (settings->kbd_config->compose_key_position
+                && strlen (settings->kbd_config->compose_key_position) > 0)
         {
             gchar *tmp = options;
             options = g_strconcat (options, ",", settings->kbd_config->compose_key_position, NULL);
@@ -300,6 +301,8 @@ xkb_config_update_settings (t_xkb_settings *settings)
     /* select the first "grp" option and use it (should be fixed to support more options) */
     g_free (settings->kbd_config->toggle_option);
     settings->kbd_config->toggle_option = NULL;
+    g_free (settings->kbd_config->compose_key_position);
+    settings->kbd_config->compose_key_position = NULL;
     opt = config->config_rec->options;
     while (opt && *opt)
     {
