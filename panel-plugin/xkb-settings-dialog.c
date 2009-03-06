@@ -130,6 +130,16 @@ xkb_settings_add_toggle_options_to_list (XklConfigRegistry * config_registry,
                                          XklConfigItem * config_item,
                                          t_xkb *xkb)
 {
+    /* add a possibility to set no toggle layout combination */
+    if (config_item == NULL)
+    {
+        gtk_list_store_append (xkb->toggle_options_store, &iter);
+        gtk_list_store_set (xkb->toggle_options_store, &iter,
+                            DESC, "-",
+                            NOM, "", -1);
+        return;
+    }
+
     char *utf_option_name = xci_desc_to_utf8 (config_item);
     gtk_list_store_append (xkb->toggle_options_store, &iter);
     gtk_list_store_set (xkb->toggle_options_store, &iter, 
@@ -181,13 +191,16 @@ xkb_settings_set_toggle_option_combo_default_value (t_xkb *xkb)
 
     t_xkb_kbd_config *config = xkb->settings->kbd_config;
 
-    /* dirty insurance hack */
-    if (config->toggle_option == NULL)
-        return;
-
     model = GTK_TREE_MODEL (xkb->toggle_options_store);
     gtk_tree_model_get_iter_first (model, &iter);
     gtk_tree_model_get (model, &iter, NOM, &id, -1);
+
+    if (config->toggle_option == NULL)
+    {
+        gtk_combo_box_set_active_iter (GTK_COMBO_BOX (xkb->toggle_options_combo), &iter);
+        return;
+    }
+
     if (strcmp (id, config->toggle_option) == 0 )
     {
         gtk_combo_box_set_active_iter (GTK_COMBO_BOX (xkb->toggle_options_combo), &iter);
@@ -502,6 +515,7 @@ xfce_xkb_configure (XfcePanelPlugin *plugin,
     xfce_framebox_add (XFCE_FRAMEBOX (frame), xkb->toggle_options_combo);
     gtk_cell_layout_pack_start (GTK_CELL_LAYOUT (xkb->toggle_options_combo), renderer, TRUE);
     gtk_cell_layout_add_attribute (GTK_CELL_LAYOUT (xkb->toggle_options_combo), renderer, "text", 0);
+    xkb_settings_add_toggle_options_to_list (NULL, NULL, xkb);
     xkl_config_registry_foreach_option (registry,
                                         "grp",
                                         (ConfigItemProcessFunc) xkb_settings_add_toggle_options_to_list,
@@ -826,7 +840,9 @@ xkb_settings_update_from_ui (t_xkb *xkb)
     {
         gtk_tree_model_get (model, &iter, NOM, &toggle_option, -1);
         g_free (kbd_config->toggle_option);
-        kbd_config->toggle_option = g_strdup (toggle_option);
+        if (strcmp ("", toggle_option) == 0)
+            kbd_config->toggle_option = NULL;
+        else kbd_config->toggle_option = g_strdup (toggle_option);
     }
 
     model = GTK_TREE_MODEL (xkb->compose_key_options_store);

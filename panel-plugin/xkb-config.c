@@ -287,7 +287,11 @@ xkb_config_update_settings (t_xkb_settings *settings)
         config->config_rec->layouts = g_strsplit_set (settings->kbd_config->layouts, ",", 0);
         config->config_rec->variants = g_strsplit_set (settings->kbd_config->variants, ",", 0);
 
-        options = g_strdup (settings->kbd_config->toggle_option);
+        if (settings->kbd_config->toggle_option
+                && strlen (settings->kbd_config->toggle_option) > 0)
+            options = g_strdup (settings->kbd_config->toggle_option);
+        else options = "";
+
         if (settings->kbd_config->compose_key_position
                 && strlen (settings->kbd_config->compose_key_position) > 0)
         {

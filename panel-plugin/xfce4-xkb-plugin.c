@@ -268,7 +268,11 @@ xfce_xkb_save_config (XfcePanelPlugin *plugin, t_xkb *xkb)
         xfce_rc_write_entry (rcfile, "model", xkb->settings->kbd_config->model);
         xfce_rc_write_entry (rcfile, "layouts", xkb->settings->kbd_config->layouts);
         xfce_rc_write_entry (rcfile, "variants", xkb->settings->kbd_config->variants);
-        xfce_rc_write_entry (rcfile, "toggle_option", xkb->settings->kbd_config->toggle_option);
+
+        if (xkb->settings->kbd_config->toggle_option == NULL)
+            xfce_rc_write_entry (rcfile, "toggle_option", "");
+        else xfce_rc_write_entry (rcfile, "toggle_option", xkb->settings->kbd_config->toggle_option);
+
         if (xkb->settings->kbd_config->compose_key_position == NULL)
             xfce_rc_write_entry (rcfile, "compose_key_position", "");
         else xfce_rc_write_entry (rcfile, "compose_key_position", xkb->settings->kbd_config->compose_key_position);
