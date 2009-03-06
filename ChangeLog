@@ -1,3 +1,86 @@
+2009-03-06 13:10  sasoiliev
+
+	* panel-plugin/xfce4-xkb-plugin.c, panel-plugin/xkb-config.c,
+	  panel-plugin/xkb-settings-dialog.c: Added an option to not select
+	  key combination to change layout
+
+2009-03-05 20:12  mmassonnet
+
+	* po/pt.no, po/pt.po: Fix the renaming of the pt nb files -- thanks
+	  to jerome who noticed this problem
+
+2009-03-05 14:53  mmassonnet
+
+	* po/ChangeLog, po/LINGUAS, po/pt.no, po/pt_PT.po: Renamed pt_PT to
+	  pt and nb_NO to nb (bug #4574)
+
+2009-03-01 22:48  maximilian
+
+	* po/ChangeLog, po/uk.po: Translations updates - es pl uk
+
+2009-03-01 16:39  dumol
+
+	* po/ChangeLog, po/LINGUAS, po/ro.po: Added Romanian translation
+
+2009-02-22 22:57  mmassonnet
+
+	* po/ChangeLog, po/LINGUAS, po/es.po, po/ja.po: Update translations
+	  -- Remove executable property on all po files (only da.po
+	  actuall)
+
+2009-02-19 19:45  pko
+
+	* po/ChangeLog, po/ru.po: * ru.po: Russian translation updated
+	  (Pavel Lakushev)
+	  * ru.po: Russian translation updated (Pavel Lakushev)
+	  * ru.po, LINGUAS: Russian translation added (Pavel Labushev)
+
+2009-02-09 00:44  eulex
+
+	* po/ChangeLog, po/sv.po: xfce4-cddrive-plugin/trunk/po:
+	  * sv.po: Swedish translation update (Daniel Nylander)
+	  xfce4-radio-plugin/trunk/po:
+	  * sv.po: Swedish translation update (Daniel Nylander)
+	  xfce4-xkb-plugin/trunk/po:
+	  * sv.po: Swedish translation update (Daniel Nylander)
+	  xfce4-xfapplet-plugin/trunk/po:
+	  * sv.po: Swedish translation update (Daniel Nylander)
+	  xfce4-sensors-plugin/trunk/po:
+	  * sv.po: Swedish translation update (Daniel Nylander)
+	  xfce4-dict/trunk/po:
+	  * sv.po: Swedish translation update (Daniel Nylander)
+	  xfce4-teatime-plugin/trunk/po:
+	  * sv.po: Swedish translation update (Daniel Nylander)
+	  xfce4-cellmodem-plugin/trunk/po:
+	  * sv.po: Swedish translation update (Daniel Nylander)
+	  thunar-shares-plugin/trunk/po:
+	  * sv.po: Swedish translation update (Daniel Nylander)
+	  xfmpc/trunk/po:
+	  * sv.po: Swedish translation update (Daniel Nylander)
+
+2009-02-08 08:24  maximilian
+
+	* po/ChangeLog, po/LINGUAS, po/fr.po, po/it.po: Translations
+	  updates - fr id it ja nb pl
+
+2009-02-03 22:30  sasoiliev
+
+	* configure.in.in: Version bump for 0.5.3.2
+
+2009-02-03 22:29  sasoiliev
+
+	* panel-plugin/xfce4-xkb-plugin.c, panel-plugin/xkb-config.c,
+	  panel-plugin/xkb-settings-dialog.c: Added an option to not select
+	  the compose key position - bugzilla #4895
+
+2009-02-01 01:22  majkl
+
+	* po/ChangeLog, po/cs.po: Czech translation fixed
+
+2009-01-30 13:42  sasoiliev
+
+	* ChangeLog: ChangeLog updated
+
 2009-01-30 11:17  sasoiliev
 
 	* configure.in.in: Version bump for 0.5.3.1

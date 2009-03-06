@@ -11,7 +11,7 @@ dnl ***************************
 m4_define([xkb_version_major], [0])
 m4_define([xkb_version_minor], [5])
 m4_define([xkb_version_micro], [3])
-m4_define([xkb_version_nano], [2])
+m4_define([xkb_version_nano], [3])
 m4_define([xkb_version], [xkb_version_major().xkb_version_minor().xkb_version_micro()ifelse(xkb_version_nano(), [], [], .[xkb_version_nano()])])
 
 dnl ***************************
