@@ -678,7 +678,7 @@ void
 xfce_xkb_about (XfcePanelPlugin *plugin)
 {
     GtkWidget *about;
-    const gchar* authors[2] = {
+    const gchar* authors[3] = {
         "Alexander Iliev <sasoiliev@mamul.org>", 
         "Gauvain Pocentek <gauvainpocentek@gmail.com>", 
         NULL
