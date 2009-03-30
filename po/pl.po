@@ -2,20 +2,21 @@
 # Copyright (C) 2004-2006 Alexander Iliev.
 # This file is distributed under the same license as the xfce4-xkb-plugin package.
 # Piotr Maliński <admin@rk.edu.pl>, 2006.
+# Piotr Sokół <piotr.sokol@10g.pl>, 2009.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-xkb-plugin 0.4.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-24 16:14+0300\n"
-"PO-Revision-Date: 2006-04-08 13:25+0900\n"
-"Last-Translator: Piotr Maliński <admin@rk.edu.pl>\n"
-"Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
+"POT-Creation-Date: 2009-01-28 20:43+0200\n"
+"PO-Revision-Date: 2009-03-29 13:12+0100\n"
+"Last-Translator: Piotr Sokół <piotr.sokol@10g.pl>\n"
+"Language-Team: Polish\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/xkb-settings-dialog.c:361
+#: ../panel-plugin/xkb-settings-dialog.c:408
 msgid ""
 "XKB configuration modifications are\n"
 "disabled from the config file.\n"
@@ -23,78 +24,78 @@ msgid ""
 "See the README file for more information."
 msgstr ""
 
-#: ../panel-plugin/xkb-settings-dialog.c:387
+#: ../panel-plugin/xkb-settings-dialog.c:434
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
-#, fuzzy
 msgid "Keyboard Layouts"
-msgstr "Przełącznik układów klawiatury"
+msgstr "Układy klawiatury"
 
-#: ../panel-plugin/xkb-settings-dialog.c:408
+#: ../panel-plugin/xkb-settings-dialog.c:456
 msgid "Keyboard model:"
-msgstr ""
+msgstr "Model klawiatury"
 
-#: ../panel-plugin/xkb-settings-dialog.c:432
+#. toggle layout option
+#: ../panel-plugin/xkb-settings-dialog.c:481
 msgid "Change layout option:"
 msgstr ""
 
-#: ../panel-plugin/xkb-settings-dialog.c:456
-#, fuzzy
+#. compose key position option
+#: ../panel-plugin/xkb-settings-dialog.c:506
+msgid "Compose key position:"
+msgstr ""
+
+#. the actual layouts
+#: ../panel-plugin/xkb-settings-dialog.c:533
 msgid "Keyboard layouts:"
-msgstr "Przełącznik układów klawiatury"
+msgstr "Układy"
 
 #. ***
-#: ../panel-plugin/xkb-settings-dialog.c:528
-#, fuzzy
+#: ../panel-plugin/xkb-settings-dialog.c:605
 msgid "Show layout as:"
-msgstr "Pokaż układ jako"
+msgstr "Przycisk"
 
-#: ../panel-plugin/xkb-settings-dialog.c:533
+#: ../panel-plugin/xkb-settings-dialog.c:610
 msgid "image"
-msgstr "grafika"
+msgstr "Ikona"
 
-#: ../panel-plugin/xkb-settings-dialog.c:534
+#: ../panel-plugin/xkb-settings-dialog.c:611
 msgid "text"
-msgstr "tekst"
+msgstr "Etykieta"
 
-#: ../panel-plugin/xkb-settings-dialog.c:538
-#, fuzzy
+#: ../panel-plugin/xkb-settings-dialog.c:615
 msgid "Manage layout:"
-msgstr "Domyślny układ:"
+msgstr "Zastosowanie"
 
-#: ../panel-plugin/xkb-settings-dialog.c:543
+#: ../panel-plugin/xkb-settings-dialog.c:620
 msgid "globally"
-msgstr ""
+msgstr "Globalne"
 
-#: ../panel-plugin/xkb-settings-dialog.c:544
+#: ../panel-plugin/xkb-settings-dialog.c:621
 msgid "per window"
-msgstr ""
+msgstr "Okno"
 
-#: ../panel-plugin/xkb-settings-dialog.c:545
-#, fuzzy
+#: ../panel-plugin/xkb-settings-dialog.c:622
 msgid "per application"
-msgstr "wg. ustawień aplikacji"
+msgstr "Program"
 
-#: ../panel-plugin/xkb-settings-dialog.c:584
-#, fuzzy
+#: ../panel-plugin/xkb-settings-dialog.c:661
 msgid "Keyboard Layouts Plugin"
-msgstr "Przełącznik układów klawiatury"
+msgstr "xfce4 xkb plugin"
 
-#: ../panel-plugin/xkb-settings-dialog.c:590
+#: ../panel-plugin/xkb-settings-dialog.c:667
 msgid "Allows you to configure and use multiple keyboard layouts."
-msgstr ""
+msgstr "Umożliwia skonfigurowanie i używanie wielu układów klawiatury"
 
-#: ../panel-plugin/xkb-settings-dialog.c:594
+#: ../panel-plugin/xkb-settings-dialog.c:671
 msgid "Other plugins available here"
 msgstr "Inne wtyczki dostępne tutaj"
 
-#: ../panel-plugin/xkb-settings-dialog.c:643
+#: ../panel-plugin/xkb-settings-dialog.c:720
 msgid "Add layout"
-msgstr ""
+msgstr "Dodaj"
 
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
-#, fuzzy
 msgid "Keyboard layouts setup and switch plugin"
-msgstr "Przełącznik układów klawiatury"
+msgstr "Konfiguruje i przełącza układy klawiatury"
 
 #~ msgid ""
 #~ "Allows you to switch the keyboard layout and\n"
@@ -102,16 +103,13 @@ msgstr "Przełącznik układów klawiatury"
 #~ msgstr ""
 #~ "Umożliwia zmianę ustawień klawiatury\n"
 #~ "oraz podaje obecne ustawienia"
-
 #~ msgid "Configure Keyboard Layout Switcher"
 #~ msgstr "Konfiguracja wtyczki"
-
 #~ msgid "_Remember layout for each application"
 #~ msgstr "_Zapamiętaj ustawienia układów dla poszczególnych aplikacji"
-
 #~ msgid "Button to switch the X keyboard layout"
 #~ msgstr "Przycisk przełączający układ klawiatury"
-
 #~ msgid ""
 #~ "Displays the current keyboard layout and switches the layout when clicked"
 #~ msgstr "Pokazuje obecny układ i zmienia go po kliknięciu"
+
