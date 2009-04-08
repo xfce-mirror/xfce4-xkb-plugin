@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: xfce4-xkb-plugin 0.4.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-01-28 20:43+0200\n"
-"PO-Revision-Date: 2009-03-29 13:12+0100\n"
+"PO-Revision-Date: 2009-04-03 16:34+0100\n"
 "Last-Translator: Piotr Sokół <piotr.sokol@10g.pl>\n"
 "Language-Team: Polish\n"
 "MIME-Version: 1.0\n"
@@ -23,6 +23,10 @@ msgid ""
 "\n"
 "See the README file for more information."
 msgstr ""
+"Konfiguracja wtyczki XKB została wyłączona\n"
+"za pośrednictwem pliku konfiguracyjnego.\n"
+"\n"
+"Więcej informacji w pliku README."
 
 #: ../panel-plugin/xkb-settings-dialog.c:434
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
@@ -36,12 +40,13 @@ msgstr "Model klawiatury"
 #. toggle layout option
 #: ../panel-plugin/xkb-settings-dialog.c:481
 msgid "Change layout option:"
-msgstr ""
+msgstr "Klawisz zmiany układu"
 
 #. compose key position option
 #: ../panel-plugin/xkb-settings-dialog.c:506
+#, fuzzy
 msgid "Compose key position:"
-msgstr ""
+msgstr "Klawisz szybkiego uruchamiania"
 
 #. the actual layouts
 #: ../panel-plugin/xkb-settings-dialog.c:533
@@ -67,7 +72,7 @@ msgstr "Zastosowanie"
 
 #: ../panel-plugin/xkb-settings-dialog.c:620
 msgid "globally"
-msgstr "Globalne"
+msgstr "Środowisko"
 
 #: ../panel-plugin/xkb-settings-dialog.c:621
 msgid "per window"
