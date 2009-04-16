@@ -10,10 +10,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-xkb-plugin\n"
-"Report-Msgid-Bugs-To: xfce-i18n@xfce.org\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-01-28 20:43+0200\n"
-"PO-Revision-Date: 2009-03-07 21:08+0100\n"
-"Last-Translator: Leandro Regueiro <leandro DOT regueiro AT gmail DOT com>\n"
+"PO-Revision-Date: 2009-04-14 21:14+0100\n"
+"Last-Translator: Leandro Regueiro <leandro.regueiro@gmail.com>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -48,9 +48,8 @@ msgstr "Cambiar a opción de disposición:"
 
 #. compose key position option
 #: ../panel-plugin/xkb-settings-dialog.c:506
-#, fuzzy
 msgid "Compose key position:"
-msgstr "Posición do manipulador: %0.4f"
+msgstr ""
 
 #. the actual layouts
 #: ../panel-plugin/xkb-settings-dialog.c:533
