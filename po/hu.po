@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xfce4-xkb-plugin 0.4.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-09-24 16:14+0300\n"
-"PO-Revision-Date: 2007-01-19 20:13+0100\n"
+"PO-Revision-Date: 2009-05-26 06:18+0100\n"
 "Last-Translator: SZERVÁC Attila <sas@321.hu>\n"
 "Language-Team: Hungarian\n"
 "MIME-Version: 1.0\n"
@@ -25,31 +25,32 @@ msgid ""
 "\n"
 "See the README file for more information."
 msgstr ""
+"Az XKB beállításainak módosításai\n"
+"ki vannak kapcsolva a beállító fájlban.\n"
+"\n"
+"Lásd a README fájlt további részletekért"
 
 #: ../panel-plugin/xkb-settings-dialog.c:387
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
-#, fuzzy
 msgid "Keyboard Layouts"
-msgstr "Billentyű-kiosztás váltó"
+msgstr "Billentyűkiosztások"
 
 #: ../panel-plugin/xkb-settings-dialog.c:408
 msgid "Keyboard model:"
-msgstr ""
+msgstr "Billentyűzet modell:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:432
 msgid "Change layout option:"
-msgstr ""
+msgstr "Kiosztás opcióinak cseréje:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:456
-#, fuzzy
 msgid "Keyboard layouts:"
-msgstr "Billentyű-kiosztás váltó"
+msgstr "Billentyűkiosztások"
 
 #. ***
 #: ../panel-plugin/xkb-settings-dialog.c:528
-#, fuzzy
 msgid "Show layout as:"
-msgstr "Megjelenítés mint"
+msgstr "Kiosztás mutatása mint:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:533
 msgid "image"
@@ -60,31 +61,28 @@ msgid "text"
 msgstr "szöveg"
 
 #: ../panel-plugin/xkb-settings-dialog.c:538
-#, fuzzy
 msgid "Manage layout:"
-msgstr "Alapkiosztás:"
+msgstr "Kiosztás kezelése:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:543
 msgid "globally"
-msgstr ""
+msgstr "globálisan"
 
 #: ../panel-plugin/xkb-settings-dialog.c:544
 msgid "per window"
-msgstr ""
+msgstr "ablakonként"
 
 #: ../panel-plugin/xkb-settings-dialog.c:545
-#, fuzzy
 msgid "per application"
-msgstr "Alkalmazásonkénti beállítás"
+msgstr "alkalmazásonként"
 
 #: ../panel-plugin/xkb-settings-dialog.c:584
-#, fuzzy
 msgid "Keyboard Layouts Plugin"
-msgstr "Billentyű-kiosztás váltó"
+msgstr "Billentyűkiosztás beillesztés"
 
 #: ../panel-plugin/xkb-settings-dialog.c:590
 msgid "Allows you to configure and use multiple keyboard layouts."
-msgstr ""
+msgstr "Lehetővé teszi több billentyűkiosztás beállítását és használatát"
 
 #: ../panel-plugin/xkb-settings-dialog.c:594
 msgid "Other plugins available here"
@@ -92,12 +90,11 @@ msgstr "Más itt elérhető bővítmények"
 
 #: ../panel-plugin/xkb-settings-dialog.c:643
 msgid "Add layout"
-msgstr ""
+msgstr "Kiosztás hozzáadása"
 
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
-#, fuzzy
 msgid "Keyboard layouts setup and switch plugin"
-msgstr "Billentyű-kiosztás váltó"
+msgstr "Billentyűkiosztás beállító és váltó beillesztés"
 
 #~ msgid ""
 #~ "Allows you to switch the keyboard layout and\n"
@@ -105,16 +102,13 @@ msgstr "Billentyű-kiosztás váltó"
 #~ msgstr ""
 #~ "Lehetővé teszi a billentyűzet kiosztás váltását\n"
 #~ "és kijelzi a mostanit."
-
 #~ msgid "Configure Keyboard Layout Switcher"
 #~ msgstr "Billentyű-kiosztás váltó beállítása"
-
 #~ msgid "_Remember layout for each application"
 #~ msgstr "_Emlékezz minden alkalmazás kiosztására"
-
 #~ msgid "Button to switch the X keyboard layout"
 #~ msgstr "X billentyű-kiosztást váltó gomb"
-
 #~ msgid ""
 #~ "Displays the current keyboard layout and switches the layout when clicked"
 #~ msgstr "Kijelzi a jelenlegi billentyűkiosztást és kattintásra vált"
+
