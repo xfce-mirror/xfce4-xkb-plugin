@@ -9,94 +9,98 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-xkb-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-24 16:14+0300\n"
-"PO-Revision-Date: 2007-03-31 10:47+1000\n"
+"POT-Creation-Date: 2009-01-28 20:43+0200\n"
+"PO-Revision-Date: 2009-08-30 17:14+1000\n"
 "Last-Translator: Jeff Bailes <thepizzaking@gmail.com>\n"
 "Language-Team: English/GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/xkb-settings-dialog.c:361
+#: ../panel-plugin/xkb-settings-dialog.c:408
 msgid ""
 "XKB configuration modifications are\n"
 "disabled from the config file.\n"
 "\n"
 "See the README file for more information."
 msgstr ""
+"XKB configuration modifications are\n"
+"disabled from the config file.\n"
+"\n"
+"See the README file for more information."
 
-#: ../panel-plugin/xkb-settings-dialog.c:387
+#: ../panel-plugin/xkb-settings-dialog.c:434
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
-#, fuzzy
 msgid "Keyboard Layouts"
-msgstr "Keyboard Layout Switcher"
-
-#: ../panel-plugin/xkb-settings-dialog.c:408
-msgid "Keyboard model:"
-msgstr ""
-
-#: ../panel-plugin/xkb-settings-dialog.c:432
-msgid "Change layout option:"
-msgstr ""
+msgstr "Keyboard Layouts"
 
 #: ../panel-plugin/xkb-settings-dialog.c:456
-#, fuzzy
+msgid "Keyboard model:"
+msgstr "Keyboard model:"
+
+#. toggle layout option
+#: ../panel-plugin/xkb-settings-dialog.c:481
+msgid "Change layout option:"
+msgstr "Change layout option:"
+
+#. compose key position option
+#: ../panel-plugin/xkb-settings-dialog.c:506
+msgid "Compose key position:"
+msgstr "Compose key position:"
+
+#. the actual layouts
+#: ../panel-plugin/xkb-settings-dialog.c:533
 msgid "Keyboard layouts:"
-msgstr "Keyboard Layout Switcher"
+msgstr "Keyboard layouts:"
 
 #. ***
-#: ../panel-plugin/xkb-settings-dialog.c:528
-#, fuzzy
+#: ../panel-plugin/xkb-settings-dialog.c:605
 msgid "Show layout as:"
-msgstr "Show layout as"
+msgstr "Show layout as:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:533
+#: ../panel-plugin/xkb-settings-dialog.c:610
 msgid "image"
 msgstr "image"
 
-#: ../panel-plugin/xkb-settings-dialog.c:534
+#: ../panel-plugin/xkb-settings-dialog.c:611
 msgid "text"
 msgstr "text"
 
-#: ../panel-plugin/xkb-settings-dialog.c:538
-#, fuzzy
+#: ../panel-plugin/xkb-settings-dialog.c:615
 msgid "Manage layout:"
-msgstr "Default layout:"
+msgstr "Manage layout:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:543
+#: ../panel-plugin/xkb-settings-dialog.c:620
 msgid "globally"
-msgstr ""
+msgstr "globally"
 
-#: ../panel-plugin/xkb-settings-dialog.c:544
+#: ../panel-plugin/xkb-settings-dialog.c:621
 msgid "per window"
-msgstr ""
+msgstr "per window"
 
-#: ../panel-plugin/xkb-settings-dialog.c:545
-#, fuzzy
+#: ../panel-plugin/xkb-settings-dialog.c:622
 msgid "per application"
-msgstr "Per application settings"
+msgstr "per application"
 
-#: ../panel-plugin/xkb-settings-dialog.c:584
-#, fuzzy
+#: ../panel-plugin/xkb-settings-dialog.c:661
 msgid "Keyboard Layouts Plugin"
-msgstr "Keyboard Layout Switcher"
+msgstr "Keyboard Layouts Plugin"
 
-#: ../panel-plugin/xkb-settings-dialog.c:590
+#: ../panel-plugin/xkb-settings-dialog.c:667
 msgid "Allows you to configure and use multiple keyboard layouts."
-msgstr ""
+msgstr "Allows you to configure and use multiple keyboard layouts."
 
-#: ../panel-plugin/xkb-settings-dialog.c:594
+#: ../panel-plugin/xkb-settings-dialog.c:671
 msgid "Other plugins available here"
 msgstr "Other plugins available here"
 
-#: ../panel-plugin/xkb-settings-dialog.c:643
+#: ../panel-plugin/xkb-settings-dialog.c:720
 msgid "Add layout"
-msgstr ""
+msgstr "Add layout"
 
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
-#, fuzzy
 msgid "Keyboard layouts setup and switch plugin"
-msgstr "Keyboard Layout Switcher"
+msgstr "Keyboard layouts setup and switch plugin"
 
 #~ msgid ""
 #~ "Allows you to switch the keyboard layout and\n"
