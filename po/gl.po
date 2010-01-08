@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: xfce4-xkb-plugin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-01-28 20:43+0200\n"
-"PO-Revision-Date: 2009-07-15 18:19+0100\n"
+"PO-Revision-Date: 2010-01-08 13:07+0100\n"
 "Last-Translator: Leandro Regueiro <leandro.regueiro@gmail.com>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
 "MIME-Version: 1.0\n"
@@ -59,7 +59,7 @@ msgstr "Disposicións de teclado:"
 #. ***
 #: ../panel-plugin/xkb-settings-dialog.c:605
 msgid "Show layout as:"
-msgstr "Mostrar a disposición coma:"
+msgstr "Mostrar a disposición como:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:610
 msgid "image"
@@ -79,11 +79,11 @@ msgstr "globalmente"
 
 #: ../panel-plugin/xkb-settings-dialog.c:621
 msgid "per window"
-msgstr "por ventá"
+msgstr "por fiestra"
 
 #: ../panel-plugin/xkb-settings-dialog.c:622
 msgid "per application"
-msgstr "por aplicación"
+msgstr "por aplicativo"
 
 #: ../panel-plugin/xkb-settings-dialog.c:661
 msgid "Keyboard Layouts Plugin"
@@ -103,5 +103,5 @@ msgstr "Engadir disposición"
 
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
 msgid "Keyboard layouts setup and switch plugin"
-msgstr "Engadido de configuración e intercambio de disposicións"
+msgstr "Engadido de configuración e cambio de disposicións de teclado"
 
