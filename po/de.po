@@ -43,7 +43,7 @@ msgstr "Tastaturmodell:"
 #. toggle layout option
 #: ../panel-plugin/xkb-settings-dialog.c:481
 msgid "Change layout option:"
-msgstr "Layout ändern:"
+msgstr "Belegung ändern:"
 
 #. compose key position option
 #: ../panel-plugin/xkb-settings-dialog.c:506
