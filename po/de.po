@@ -34,7 +34,7 @@ msgstr ""
 #: ../panel-plugin/xkb-settings-dialog.c:434
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
 msgid "Keyboard Layouts"
-msgstr "Tastaturlayouts"
+msgstr "Tastaturbelegung"
 
 #: ../panel-plugin/xkb-settings-dialog.c:456
 msgid "Keyboard model:"
@@ -53,12 +53,12 @@ msgstr "Position der Compose-Taste:"
 #. the actual layouts
 #: ../panel-plugin/xkb-settings-dialog.c:533
 msgid "Keyboard layouts:"
-msgstr "Tastaturlayouts:"
+msgstr "Tastaturbelegungen:"
 
 #. ***
 #: ../panel-plugin/xkb-settings-dialog.c:605
 msgid "Show layout as:"
-msgstr "Zeige Layout an als:"
+msgstr "Zeige Belegung an als:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:610
 msgid "image"
@@ -70,7 +70,7 @@ msgstr "Text"
 
 #: ../panel-plugin/xkb-settings-dialog.c:615
 msgid "Manage layout:"
-msgstr "Layout verwalten:"
+msgstr "Belegung verwalten:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:620
 msgid "globally"
@@ -86,11 +86,11 @@ msgstr "pro Anwendung"
 
 #: ../panel-plugin/xkb-settings-dialog.c:661
 msgid "Keyboard Layouts Plugin"
-msgstr "Tastaturlayout-Plugin"
+msgstr "Tastaturbelegungs-Plugin"
 
 #: ../panel-plugin/xkb-settings-dialog.c:667
 msgid "Allows you to configure and use multiple keyboard layouts."
-msgstr "Ermöglicht das Einstellen und Verwenden verschiedener Tastaturlayouts."
+msgstr "Ermöglicht das Einstellen und Verwenden verschiedener Tastaturbelegungen."
 
 #: ../panel-plugin/xkb-settings-dialog.c:671
 msgid "Other plugins available here"
@@ -98,11 +98,11 @@ msgstr "Weitere Plugins kann man hier finden"
 
 #: ../panel-plugin/xkb-settings-dialog.c:720
 msgid "Add layout"
-msgstr "Layout hinzufügen"
+msgstr "Tastaturbelegung hinzufügen"
 
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
 msgid "Keyboard layouts setup and switch plugin"
-msgstr "Plugin zum Einstellen und Umschalten des Tastaturlayouts"
+msgstr "Plugin zum Einstellen und Umschalten der Tastaturbelegung"
 
 #~ msgid ""
 #~ "Allows you to switch the keyboard layout and\n"
