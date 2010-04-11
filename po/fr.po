@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xfce4-xkb-plugin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-01-28 20:43+0200\n"
-"PO-Revision-Date: 2009-01-28 20:36+0100\n"
+"PO-Revision-Date: 2010-04-11 12:03+0200\n"
 "Last-Translator: Maximilian Schleiss <maximilian@xfce.org>\n"
 "Language-Team: French <xfce-i18n@xfce.org>\n"
 "MIME-Version: 1.0\n"
@@ -44,7 +44,6 @@ msgstr "Changer la disposition :"
 
 #. compose key position option
 #: ../panel-plugin/xkb-settings-dialog.c:506
-#, fuzzy
 msgid "Compose key position:"
 msgstr "Position de la touche compose :"
 
@@ -106,31 +105,42 @@ msgstr "Greffon de disposition de clavier"
 #~ "Allows you to switch the keyboard layout and\n"
 #~ "displays the currently selected layout."
 #~ msgstr "Permet d'afficher et changer la disposition du clavier"
+
 #~ msgid "Configure Keyboard Layout Switcher"
 #~ msgstr "Configurer le changeur de disposition du clavier"
+
 #~ msgid "_Remember layout for each application"
 #~ msgstr "_Retenir les dispositions pour chaque application"
+
 #~ msgid "Button to switch the X keyboard layout"
 #~ msgstr "Bouton de changement de disposition du clavier X"
+
 #~ msgid ""
 #~ "Displays the current keyboard layout and switches the layout when clicked"
 #~ msgstr ""
 #~ "Affiche la disposition de clavier actuelle et la change par un clic de "
 #~ "souris"
+
 #~ msgid "RSS Aggregator"
 #~ msgstr "RSS agrégés"
+
 #~ msgid "RSS Feeds:"
 #~ msgstr "Flux RSS:"
+
 #~ msgid "Name"
 #~ msgstr "Nom"
+
 #~ msgid "URL"
 #~ msgstr "URL"
+
 #~ msgid "Feeds"
 #~ msgstr "Flux"
+
 #~ msgid "Refresh all"
 #~ msgstr "Rafraîchir"
+
 #~ msgid "RSS"
 #~ msgstr "RSS"
+
 #~ msgid "Check and display RSS feeds from the internet"
 #~ msgstr "Vérifier et afficher les flux RSS"
-
