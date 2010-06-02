@@ -2,7 +2,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Baurzhan Muftakhidinov <baurthefirst@gmail.com>, 2009.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: trunk\n"
@@ -31,7 +31,7 @@ msgstr ""
 #: ../panel-plugin/xkb-settings-dialog.c:434
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
 msgid "Keyboard Layouts"
-msgstr "Пернетақта жаймалары"
+msgstr "Keyboard Layouts"
 
 #: ../panel-plugin/xkb-settings-dialog.c:456
 msgid "Keyboard model:"
@@ -83,7 +83,7 @@ msgstr "әр қолданба үшін"
 
 #: ../panel-plugin/xkb-settings-dialog.c:661
 msgid "Keyboard Layouts Plugin"
-msgstr "Пернетақта жаймасын баптау плагині"
+msgstr "Пернетақта жаймалары плагині"
 
 #: ../panel-plugin/xkb-settings-dialog.c:667
 msgid "Allows you to configure and use multiple keyboard layouts."
@@ -100,4 +100,3 @@ msgstr "Жайманы қосу"
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
 msgid "Keyboard layouts setup and switch plugin"
 msgstr "Пернетақта жаймаларын орнату мен ауыстыру плагині"
-
