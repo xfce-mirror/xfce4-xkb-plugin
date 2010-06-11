@@ -40,7 +40,7 @@ msgstr "Пернетақта түрі:"
 #. toggle layout option
 #: ../panel-plugin/xkb-settings-dialog.c:481
 msgid "Change layout option:"
-msgstr "Жайманы аустыру пернелері:"
+msgstr "Жайманы ауыстыру пернелері:"
 
 #. compose key position option
 #: ../panel-plugin/xkb-settings-dialog.c:506
