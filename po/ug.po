@@ -21,36 +21,39 @@ msgid ""
 "disabled from the config file.\n"
 "\n"
 "See the README file for more information."
-msgstr ""
+msgstr "XKB تەڭشىكى تەڭشەك ھۆججىتىدە \n"
+"ئىناۋەتسىز قىلىنغان\n"
+"\n"
+"تەپسىلاتىنى README ھۆججىتىدىن كۆرۈڭ."
 
 #: ../panel-plugin/xkb-settings-dialog.c:461
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
 msgid "Keyboard Layouts"
-msgstr ""
+msgstr "ھەرپتاختا ئورۇنلاشتۇرۇلۇشى"
 
 #: ../panel-plugin/xkb-settings-dialog.c:483
 msgid "Keyboard model:"
-msgstr ""
+msgstr "ھەرپتاختا تىپ نومۇرى:"
 
 #. toggle layout option
 #: ../panel-plugin/xkb-settings-dialog.c:508
 msgid "Change layout option:"
-msgstr ""
+msgstr "ئورۇنلاشتۇرۇش تاللانمىسىنى ئۆزگەرت:"
 
 #. compose key position option
 #: ../panel-plugin/xkb-settings-dialog.c:534
 msgid "Compose key position:"
-msgstr ""
+msgstr "بىرىكمە كۇنۇپكىنىڭ ئورنى:"
 
 #. the actual layouts
 #: ../panel-plugin/xkb-settings-dialog.c:561
 msgid "Keyboard layouts:"
-msgstr ""
+msgstr "ھەرپتاختا ئورۇنلاشتۇرۇلۇشى:"
 
 #. ***
 #: ../panel-plugin/xkb-settings-dialog.c:633
 msgid "Show layout as:"
-msgstr ""
+msgstr "ئورۇنلاشتۇرۇلۇشىنى كۆرسەت:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:638
 msgid "image"
@@ -58,40 +61,40 @@ msgstr "سۈرەت"
 
 #: ../panel-plugin/xkb-settings-dialog.c:639
 msgid "text"
-msgstr "تېكست"
+msgstr "تېكىست"
 
 #: ../panel-plugin/xkb-settings-dialog.c:643
 msgid "Manage layout:"
-msgstr ""
+msgstr "ئورۇنلاشتۇرۇلۇشىنى باشقۇرۇش:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:648
 msgid "globally"
-msgstr ""
+msgstr "سىستېمىدا"
 
 #: ../panel-plugin/xkb-settings-dialog.c:649
 msgid "per window"
-msgstr ""
+msgstr "ھەر بىر كۆزنەكتە"
 
 #: ../panel-plugin/xkb-settings-dialog.c:650
 msgid "per application"
-msgstr ""
+msgstr "ھەر بىر پروگراممىدا"
 
 #: ../panel-plugin/xkb-settings-dialog.c:689
 msgid "Keyboard Layouts Plugin"
-msgstr ""
+msgstr "ھەرپتاختا ئورۇنلاشتۇرۇلۇشى قىستۇرمىسى"
 
 #: ../panel-plugin/xkb-settings-dialog.c:695
 msgid "Allows you to configure and use multiple keyboard layouts."
-msgstr ""
+msgstr "بىر نەچچە ھەرپتاختا ئورۇنلاشتۇرۇلۇشى تەڭشەپ، ئۇنى ئىشلەتكىلى بولىدىغان قىلىدۇ."
 
 #: ../panel-plugin/xkb-settings-dialog.c:699
 msgid "Other plugins available here"
-msgstr ""
+msgstr "باشقا قىستۇرمىلارمۇ بار."
 
 #: ../panel-plugin/xkb-settings-dialog.c:748
 msgid "Add layout"
-msgstr ""
+msgstr "ئورۇنلاشتۇرۇش قوش"
 
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
 msgid "Keyboard layouts setup and switch plugin"
-msgstr ""
+msgstr "ھەرپتاختا ئورۇنلاشتۇرۇلۇشىنى تەڭشەش ۋە ئالماشتۇرۇش قىستۇرمىسىدۇر."
