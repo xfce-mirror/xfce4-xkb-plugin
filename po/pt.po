@@ -2,7 +2,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Nuno Miguel <nunis@netcabo.pt>, 2007.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-xkb-plugin\n"
@@ -22,15 +22,15 @@ msgid ""
 "\n"
 "See the README file for more information."
 msgstr ""
-"Modificações de configuração XKB estão\n"
-"desligadas do ficheiro config.\n"
+"As modificações na configuração XKB estão\n"
+"inactivas no ficheiro config.\n"
 "\n"
-"Veja o ficheiro README para mais informação."
+"Veja o ficheiro README para mais informações."
 
 #: ../panel-plugin/xkb-settings-dialog.c:434
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
 msgid "Keyboard Layouts"
-msgstr "Disposições de Teclado"
+msgstr "Disposições de teclado"
 
 #: ../panel-plugin/xkb-settings-dialog.c:456
 msgid "Keyboard model:"
@@ -39,7 +39,7 @@ msgstr "Modelo do teclado:"
 #. toggle layout option
 #: ../panel-plugin/xkb-settings-dialog.c:481
 msgid "Change layout option:"
-msgstr "Mudar opção de disposição:"
+msgstr "Alterar disposição:"
 
 #. compose key position option
 #: ../panel-plugin/xkb-settings-dialog.c:506
@@ -49,7 +49,7 @@ msgstr "Definir posição de tecla:"
 #. the actual layouts
 #: ../panel-plugin/xkb-settings-dialog.c:533
 msgid "Keyboard layouts:"
-msgstr "Disposições de teclado"
+msgstr "Disposições de teclado:"
 
 #. ***
 #: ../panel-plugin/xkb-settings-dialog.c:605
@@ -82,15 +82,15 @@ msgstr "por aplicação"
 
 #: ../panel-plugin/xkb-settings-dialog.c:661
 msgid "Keyboard Layouts Plugin"
-msgstr "Plugin de Disposição de Teclado"
+msgstr "\"Plug-in\" de disposição de teclado"
 
 #: ../panel-plugin/xkb-settings-dialog.c:667
 msgid "Allows you to configure and use multiple keyboard layouts."
-msgstr "Permite-lhe configurar e usar diversas disposições de teclado."
+msgstr "Permite-lhe configurar e utilizar diversas disposições de teclado."
 
 #: ../panel-plugin/xkb-settings-dialog.c:671
 msgid "Other plugins available here"
-msgstr "Outros plugins disponíveis aqui"
+msgstr "Outros \"plug-ins\" aqui"
 
 #: ../panel-plugin/xkb-settings-dialog.c:720
 msgid "Add layout"
@@ -98,5 +98,4 @@ msgstr "Adicionar disposição"
 
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
 msgid "Keyboard layouts setup and switch plugin"
-msgstr "Plugin de configuração da disposição do teclado"
-
+msgstr "\"Plug-in\" de configuração da disposição do teclado"
