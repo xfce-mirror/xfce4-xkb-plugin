@@ -79,7 +79,7 @@ msgstr "globalmente"
 
 #: ../panel-plugin/xkb-settings-dialog.c:621
 msgid "per window"
-msgstr "por fiestra"
+msgstr "por xanela"
 
 #: ../panel-plugin/xkb-settings-dialog.c:622
 msgid "per application"
