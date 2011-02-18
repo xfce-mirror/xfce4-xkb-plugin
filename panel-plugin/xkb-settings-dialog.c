@@ -32,7 +32,7 @@
 #include <gtk/gtk.h>
 
 #include <libxfce4panel/xfce-panel-plugin.h>
-#include <libxfcegui4/libxfcegui4.h>
+#include <libxfce4ui/libxfce4ui.h>
 
 #include "xfce4-xkb-plugin.h"
 #include "xfce4-xkb-plugin-private.h"
@@ -447,7 +447,7 @@ xfce_xkb_configure (XfcePanelPlugin *plugin,
                     t_xkb *xkb)
 {
     GtkWidget *display_type_optmenu, *group_policy_combo;
-    GtkWidget *vbox, *display_type_frame, *group_policy_frame;
+    GtkWidget *vbox, *display_type_frame, *group_policy_frame, *bin;
           
 
     GtkCellRenderer *renderer, *renderer2;
@@ -480,14 +480,14 @@ xfce_xkb_configure (XfcePanelPlugin *plugin,
     gtk_container_add (GTK_CONTAINER (vbox), vbox1);
     gtk_widget_show (vbox1);
 
-    frame = xfce_framebox_new (_("Keyboard model:"), TRUE);
+    frame = xfce_gtk_frame_box_new (_("Keyboard model:"), &bin);
     gtk_frame_set_shadow_type (GTK_FRAME (frame), GTK_SHADOW_NONE);
-    gtk_widget_show (frame);
+    gtk_widget_show ((frame));
     gtk_box_pack_start (GTK_BOX (vbox), frame, TRUE, TRUE, 0);
 
     xkb->kbd_model_combo = gtk_combo_box_new_with_model (GTK_TREE_MODEL (xkb->combo_store));
     gtk_widget_set_size_request (xkb->kbd_model_combo, 230, -1);
-    xfce_framebox_add (XFCE_FRAMEBOX (frame), xkb->kbd_model_combo);
+    gtk_container_add (GTK_CONTAINER (bin), xkb->kbd_model_combo);
     gtk_cell_layout_pack_start (GTK_CELL_LAYOUT (xkb->kbd_model_combo), renderer, TRUE);
     gtk_cell_layout_add_attribute (GTK_CELL_LAYOUT (xkb->kbd_model_combo), renderer, "text", 0);
     
@@ -505,14 +505,14 @@ xfce_xkb_configure (XfcePanelPlugin *plugin,
     g_signal_connect (xkb->kbd_model_combo, "query-tooltip", G_CALLBACK (xkb_settings_config_modification_disabled_tooltip), xkb);
     
     /* toggle layout option */
-    frame = xfce_framebox_new (_("Change layout option:"), TRUE);
+    frame = xfce_gtk_frame_box_new (_("Change layout option:"), &bin);
     gtk_frame_set_shadow_type (GTK_FRAME (frame), GTK_SHADOW_NONE);
     gtk_widget_show (frame);
     gtk_box_pack_start (GTK_BOX (vbox), frame, TRUE, TRUE, 0);
 
     xkb->toggle_options_combo = gtk_combo_box_new_with_model (GTK_TREE_MODEL (xkb->toggle_options_store));
     gtk_widget_set_size_request (xkb->toggle_options_combo, 230, -1);
-    xfce_framebox_add (XFCE_FRAMEBOX (frame), xkb->toggle_options_combo);
+    gtk_container_add (GTK_CONTAINER (bin), xkb->toggle_options_combo);
     gtk_cell_layout_pack_start (GTK_CELL_LAYOUT (xkb->toggle_options_combo), renderer, TRUE);
     gtk_cell_layout_add_attribute (GTK_CELL_LAYOUT (xkb->toggle_options_combo), renderer, "text", 0);
     xkb_settings_add_toggle_options_to_list (NULL, NULL, xkb);
@@ -531,14 +531,14 @@ xfce_xkb_configure (XfcePanelPlugin *plugin,
     g_signal_connect (xkb->toggle_options_combo, "query-tooltip", G_CALLBACK (xkb_settings_config_modification_disabled_tooltip), xkb);
 
     /* compose key position option */
-    frame = xfce_framebox_new (_("Compose key position:"), TRUE);
+    frame = xfce_gtk_frame_box_new (_("Compose key position:"), &bin);
     gtk_frame_set_shadow_type (GTK_FRAME (frame), GTK_SHADOW_NONE);
     gtk_widget_show (frame);
     gtk_box_pack_start (GTK_BOX (vbox), frame, TRUE, TRUE, 0);
 
     xkb->compose_key_options_combo = gtk_combo_box_new_with_model (GTK_TREE_MODEL (xkb->compose_key_options_store));
     gtk_widget_set_size_request (xkb->compose_key_options_combo, 230, -1);
-    xfce_framebox_add (XFCE_FRAMEBOX (frame), xkb->compose_key_options_combo);
+    gtk_container_add (GTK_CONTAINER (bin), xkb->compose_key_options_combo);
     gtk_cell_layout_pack_start (GTK_CELL_LAYOUT (xkb->compose_key_options_combo), renderer, TRUE);
     gtk_cell_layout_add_attribute (GTK_CELL_LAYOUT (xkb->compose_key_options_combo), renderer, "text", 0);
     xkb_settings_add_compose_key_position_options_to_list (NULL, NULL, xkb);
@@ -558,13 +558,13 @@ xfce_xkb_configure (XfcePanelPlugin *plugin,
 
     
     /* the actual layouts */
-    frame = xfce_framebox_new (_("Keyboard layouts:"), TRUE);
+    frame = xfce_gtk_frame_box_new (_("Keyboard layouts:"), &bin);
     gtk_frame_set_shadow_type (GTK_FRAME (frame), GTK_SHADOW_NONE);
     gtk_widget_show (frame);
     gtk_box_pack_start (GTK_BOX (vbox), frame, TRUE, TRUE, 0);
     
     hbox = gtk_hbox_new (FALSE, 5);
-    xfce_framebox_add (XFCE_FRAMEBOX (frame), hbox);
+    gtk_container_add (GTK_CONTAINER (bin), hbox);
     gtk_widget_show (hbox);
     
     // TreeView
@@ -630,7 +630,7 @@ xfce_xkb_configure (XfcePanelPlugin *plugin,
     xkb_settings_edit_layout_btn_show (GTK_TREE_VIEW (xkb->layout_tree_view), xkb);
 
     /*****/
-    display_type_frame = xfce_framebox_new (_("Show layout as:"), TRUE);
+    display_type_frame = xfce_gtk_frame_box_new (_("Show layout as:"), &bin);
     gtk_widget_show (display_type_frame);
     gtk_box_pack_start (GTK_BOX (vbox), display_type_frame, TRUE, TRUE, 2);
 
@@ -638,9 +638,9 @@ xfce_xkb_configure (XfcePanelPlugin *plugin,
     gtk_combo_box_append_text (GTK_COMBO_BOX (display_type_optmenu), _("image"));
     gtk_combo_box_append_text (GTK_COMBO_BOX (display_type_optmenu), _("text"));
     gtk_widget_set_size_request (display_type_optmenu, 230, -1);
-    xfce_framebox_add (XFCE_FRAMEBOX (display_type_frame), display_type_optmenu);
+    gtk_container_add (GTK_CONTAINER (bin), display_type_optmenu);
 
-    group_policy_frame = xfce_framebox_new (_("Manage layout:"), TRUE);
+    group_policy_frame = xfce_gtk_frame_box_new (_("Manage layout:"), &bin);
     gtk_widget_show (group_policy_frame);
     gtk_box_pack_start (GTK_BOX (vbox), group_policy_frame, TRUE, TRUE, 2);
 
@@ -649,7 +649,7 @@ xfce_xkb_configure (XfcePanelPlugin *plugin,
     gtk_combo_box_append_text (GTK_COMBO_BOX (group_policy_combo), _("per window"));
     gtk_combo_box_append_text (GTK_COMBO_BOX (group_policy_combo), _("per application"));
     gtk_widget_set_size_request (group_policy_combo, 230, -1);
-    xfce_framebox_add (XFCE_FRAMEBOX (group_policy_frame), group_policy_combo);
+    gtk_container_add (GTK_CONTAINER (bin), group_policy_combo);
     gtk_widget_show (group_policy_combo);
 
     gtk_widget_show_all (vbox);
