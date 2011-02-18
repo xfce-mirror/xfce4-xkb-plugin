@@ -150,7 +150,7 @@ xkb_config_initialize_xkb_options (t_xkb_settings *settings)
     config->application_map = g_hash_table_new (g_direct_hash, NULL);
 
     registry = xkl_config_registry_get_instance (config->engine);
-    xkl_config_registry_load (registry);
+    xkl_config_registry_load (registry, FALSE);
     
     config_item = xkl_config_item_new ();
 
@@ -214,7 +214,7 @@ xkb_config_finalize ()
 
     gdk_window_remove_filter (NULL, (GdkFilterFunc) handle_xevent, NULL);
 
-    xkl_engine_stop_listen (config->engine);
+    xkl_engine_stop_listen (config->engine, XKLL_TRACK_KEYBOARD_STATE);
 }
 
 gint
@@ -547,7 +547,7 @@ xkb_config_get_xkl_registry ()
     if (!config) return NULL;
 
     registry = xkl_config_registry_get_instance (config->engine);
-    xkl_config_registry_load (registry);
+    xkl_config_registry_load (registry, FALSE);
 
     return registry;
 }
