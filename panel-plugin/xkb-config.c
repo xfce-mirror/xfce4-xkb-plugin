@@ -290,7 +290,7 @@ xkb_config_update_settings (t_xkb_settings *settings)
         if (settings->kbd_config->toggle_option
                 && strlen (settings->kbd_config->toggle_option) > 0)
             options = g_strdup (settings->kbd_config->toggle_option);
-        else options = "";
+        else options = g_strdup ("");
 
         if (settings->kbd_config->compose_key_position
                 && strlen (settings->kbd_config->compose_key_position) > 0)
@@ -312,11 +312,11 @@ xkb_config_update_settings (t_xkb_settings *settings)
     {
         prefix = g_strsplit(*opt, ":", 2);
         if (settings->kbd_config->toggle_option == NULL
-                && prefix && strcmp(*prefix, "grp") == 0)
+                && prefix && *prefix && strcmp(*prefix, "grp") == 0)
         {
             settings->kbd_config->toggle_option = g_strdup (*opt);
         }
-        else if (prefix && strcmp(*prefix, "compose") == 0)
+        else if (prefix && *prefix && strcmp(*prefix, "compose") == 0)
         {
             settings->kbd_config->compose_key_position = g_strdup (*opt);
         }
