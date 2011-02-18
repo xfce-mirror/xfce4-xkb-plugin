@@ -65,6 +65,7 @@ flags_DATA = ae.svg \
 			pt.svg \
 			qa.svg \
 			ro.svg \
+			rs.svg \
 			ru.svg \
 			sa.svg \
 			sd.svg \
@@ -82,7 +83,6 @@ flags_DATA = ae.svg \
 			uy.svg \
 			uz.svg \
 			vn.svg \
-			ye.svg \
-			yu.svg
+			ye.svg
 
 EXTRA_DIST = $(flags_DATA)
