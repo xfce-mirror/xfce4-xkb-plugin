@@ -1,3 +1,16 @@
+2011-02-19 04:06  winterheart
+	* configure.in.in, panel-plugin/Makefile.am, 
+	  panel-plugin/xfce4-xkb-plugin.h panel-plugin/xkb-settings-dialog.c:
+	  New version 0.5.4, switch to libxfce4ui, updated dependencies. Based
+	  on patch taken from Gentoo Portage tree
+	* panel-plugin/xkb-config.c: Compilation with libxklavier 5.0 API 
+	  (bug #6221)
+	* panel-plugin/xkb-config.c: Prevent crashing when removing from 
+	  panel (bug #6122)
+	* flags/ge.svg: New flag of Georgia (#3695) 
+	* flags/Makefile.am, flags/rs.svg, flags/yu.svg: New flag of Serbia, 
+	  removed flag of Yugoslavia as obsoleted (bug #6723)
+
 2009-03-06 13:10  sasoiliev
 
 	* panel-plugin/xfce4-xkb-plugin.c, panel-plugin/xkb-config.c,
