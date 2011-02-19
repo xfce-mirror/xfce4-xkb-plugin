@@ -22,7 +22,7 @@ AC_COPYRIGHT([Copyright (c) 2006-2011
 AC_INIT([xfce4-xkb-plugin], [xkb_version], [http://bugzilla.xfce.org/], [xfce4-xkb-plugin])
 AC_PREREQ([2.50])
 AC_CANONICAL_TARGET()
-AC_REVISION([$Id$])
+AC_REVISION([@REVISION@])
 
 dnl ***************************
 dnl *** Initialize automake ***
