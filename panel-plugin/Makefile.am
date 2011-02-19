@@ -23,7 +23,7 @@ xfce4_xkb_plugin_SOURCES =								\
 xfce4_xkb_plugin_CFLAGS =								\
 	@LIBXFCE4PANEL_CFLAGS@								\
 	@GTK_CFLAGS@									\
-	@@LIBXFCE4UI_CFLAGS@								\
+	@LIBXFCE4UI_CFLAGS@								\
 	@LIBXFCE4UTIL_CFLAGS@								\
 	@LIBXKLAVIER_CFLAGS@								\
 	@LIBRSVG_CFLAGS@								\
@@ -36,7 +36,7 @@ xfce4_xkb_plugin_CFLAGS =								\
 xfce4_xkb_plugin_LDADD = 								\
 	@LIBXFCE4PANEL_LIBS@								\
 	@GTK_LIBS@									\
-	@@LIBXFCE4UI_LIBS@								\
+	@LIBXFCE4UI_LIBS@								\
 	@LIBXFCE4UTIL_LIBS@								\
 	@LIBXKLAVIER_LIBS@								\
 	@LIBWNCK_LIBS@									\
