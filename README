@@ -17,7 +17,7 @@ If a certain flag is missing, the plugin will fallback to
 displaying the layout as text.
 
 The plugin detects any change in the layout configuration
-(e.g. setxkbmap invokations) and reconfigures itself to use
+(e.g. setxkbmap invocations) and reconfigures itself to use
 the new settings.
 
 The plugin shows a small black circle with a thin white
@@ -49,6 +49,6 @@ will be resolved in future versions.
 Contact
 =======
 
-Send any question, suggestions, etc. to sasoiliev@mamul.org
+Send any question, suggestions, etc. to me, Azamat H. Hackimov
+(azamat.hackimov@gmail.com).
 
-Alexander Iliev <sasoiliev@mamul.org>
