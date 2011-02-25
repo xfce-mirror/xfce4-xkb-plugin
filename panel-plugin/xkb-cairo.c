@@ -23,12 +23,6 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-#include <glib.h>
-#include <gdk/gdk.h>
-#include <cairo/cairo.h>
-#include <librsvg/rsvg.h>
-#include <pango/pangocairo.h>
-
 #include "xkb-cairo.h"
 #include "xkb-util.h"
 

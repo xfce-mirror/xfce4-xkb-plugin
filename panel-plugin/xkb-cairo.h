@@ -27,8 +27,12 @@
 #define _XKB_CAIRO_H_
 
 #include <glib.h>
+#include <glib/gprintf.h>
 #include <gdk/gdk.h>
 #include <cairo/cairo.h>
+#include <librsvg/rsvg.h>
+#include <librsvg/rsvg-cairo.h>
+#include <pango/pangocairo.h>
 
 void        xkb_cairo_draw_flag     (cairo_t *cr,
                                      gchar *flag_name,
