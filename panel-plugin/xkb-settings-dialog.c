@@ -831,9 +831,11 @@ xkb_settings_update_from_ui (t_xkb *xkb)
     gint i = 0;
 
     model = GTK_TREE_MODEL (xkb->combo_store);
-    gtk_combo_box_get_active_iter (GTK_COMBO_BOX (xkb->kbd_model_combo), &iter);
-    gtk_tree_model_get (model, &iter, NOM, &kbdmodel, -1);
-    kbd_config->model = kbdmodel;
+    if (gtk_combo_box_get_active_iter (GTK_COMBO_BOX (xkb->kbd_model_combo), &iter))
+    {
+        gtk_tree_model_get (model, &iter, NOM, &kbdmodel, -1);
+        kbd_config->model = kbdmodel;
+    }
 
     model = GTK_TREE_MODEL (xkb->toggle_options_store);
     if (gtk_combo_box_get_active_iter (GTK_COMBO_BOX (xkb->toggle_options_combo), &iter))
