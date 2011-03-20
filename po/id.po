@@ -2,12 +2,12 @@
 # Copyright (C) 2008 THE xfce4-xkb-plugin'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the xfce4-xkb-plugin package.
 # Andhika Padmawan <andhika.padmawan@gmail.com>, 2008.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-xkb-plugin v0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-24 16:14+0300\n"
+"POT-Creation-Date: 2009-01-28 20:43+0200\n"
 "PO-Revision-Date: 2008-10-22 22:20+0700\n"
 "Last-Translator: Andhika Padmawan <andhika.padmawan@gmail.com>\n"
 "Language-Team: Indonesian <id@li.org>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/xkb-settings-dialog.c:361
+#: ../panel-plugin/xkb-settings-dialog.c:408
 msgid ""
 "XKB configuration modifications are\n"
 "disabled from the config file.\n"
@@ -27,65 +27,72 @@ msgstr ""
 "\n"
 "Lihat berkas README untuk informasi lebih lanjut."
 
-#: ../panel-plugin/xkb-settings-dialog.c:387
+#: ../panel-plugin/xkb-settings-dialog.c:434
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
 msgid "Keyboard Layouts"
 msgstr "Tata Letak Papan Ketik"
 
-#: ../panel-plugin/xkb-settings-dialog.c:408
+#: ../panel-plugin/xkb-settings-dialog.c:456
 msgid "Keyboard model:"
 msgstr "Model papan ketik:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:432
+#. toggle layout option
+#: ../panel-plugin/xkb-settings-dialog.c:481
 msgid "Change layout option:"
 msgstr "Ubah opsi tata letak:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:456
+#. compose key position option
+#: ../panel-plugin/xkb-settings-dialog.c:506
+msgid "Compose key position:"
+msgstr "Tulis posisi tombol:"
+
+#. the actual layouts
+#: ../panel-plugin/xkb-settings-dialog.c:533
 msgid "Keyboard layouts:"
 msgstr "Tata letak papan ketik:"
 
 #. ***
-#: ../panel-plugin/xkb-settings-dialog.c:528
+#: ../panel-plugin/xkb-settings-dialog.c:605
 msgid "Show layout as:"
 msgstr "Tampilkan tata letak sebagai:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:533
+#: ../panel-plugin/xkb-settings-dialog.c:610
 msgid "image"
 msgstr "gambar"
 
-#: ../panel-plugin/xkb-settings-dialog.c:534
+#: ../panel-plugin/xkb-settings-dialog.c:611
 msgid "text"
 msgstr "teks"
 
-#: ../panel-plugin/xkb-settings-dialog.c:538
+#: ../panel-plugin/xkb-settings-dialog.c:615
 msgid "Manage layout:"
 msgstr "Atur tata letak:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:543
+#: ../panel-plugin/xkb-settings-dialog.c:620
 msgid "globally"
 msgstr "secara global"
 
-#: ../panel-plugin/xkb-settings-dialog.c:544
+#: ../panel-plugin/xkb-settings-dialog.c:621
 msgid "per window"
 msgstr "per jendela"
 
-#: ../panel-plugin/xkb-settings-dialog.c:545
+#: ../panel-plugin/xkb-settings-dialog.c:622
 msgid "per application"
 msgstr "per aplikasi"
 
-#: ../panel-plugin/xkb-settings-dialog.c:584
+#: ../panel-plugin/xkb-settings-dialog.c:661
 msgid "Keyboard Layouts Plugin"
 msgstr "Plugin Tata Letak Papan Ketik"
 
-#: ../panel-plugin/xkb-settings-dialog.c:590
+#: ../panel-plugin/xkb-settings-dialog.c:667
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "Izinkan anda untuk mengatur dan menggunakan tata letak banyak papan ketik."
 
-#: ../panel-plugin/xkb-settings-dialog.c:594
+#: ../panel-plugin/xkb-settings-dialog.c:671
 msgid "Other plugins available here"
 msgstr "Plugin lainnya tersedia di sini"
 
-#: ../panel-plugin/xkb-settings-dialog.c:643
+#: ../panel-plugin/xkb-settings-dialog.c:720
 msgid "Add layout"
 msgstr "Tambah tata letak"
 
@@ -100,10 +107,12 @@ msgstr "Pengaturan tata letak papan ketik dan pengalih plugin"
 #~ "Memungkinkan anda untuk mengganti tata letak\n"
 #~ "papan ketik dan tampilan tata letak yang saat\n"
 #~ "ini terpilih."
+
 #~ msgid "Configure Keyboard Layout Switcher"
 #~ msgstr "Atur Pengganti Tata Letak Papan Ketik"
+
 #~ msgid "_Remember layout for each application"
 #~ msgstr "_Ingat tata letak untuk tiap aplikasi"
+
 #~ msgid "Button to switch the X keyboard layout"
 #~ msgstr "Tombol untuk mengganti tata letak papan ketik X"
-
