@@ -1,0 +1,4 @@
+Makefile
+po/*.gmo
+.deps
+*.o

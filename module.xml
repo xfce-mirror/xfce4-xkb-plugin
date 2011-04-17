@@ -1,0 +1,14 @@
+<Project>
+	<name xml:lang="en">xfce4-clipman-plugin</name>
+	<shortdesc xml:lang="en">XKB layout switching panel plug-in for the Xfce desktop environment</shortdesc>
+	<homepage rdf:resource="http://goodies.xfce.org/projects/panel-plugins/xfce4-xkb-plugin"/>
+	<mailing-list rdf:resource="http://foo-projects.org/mailman/listinfo/xfce"/>
+	<maintainer>
+		<foaf:Person>
+			<foaf:name>Azamat H. Hackimov</foaf:name>
+			<foaf:mbox>mailto:azamat.hackimov@gmail.com</foaf:mbox>
+			<gnome:userid>winterheart</gnome:userid>
+		</foaf:Person>
+	</maintainer>
+</Project>
+
