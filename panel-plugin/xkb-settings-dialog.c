@@ -875,11 +875,11 @@ xkb_settings_update_from_ui (t_xkb *xkb)
         if (is_default) xkb->settings->default_group = i;
         i++;
 
-        kbd_config->layouts = g_strdup(g_strconcat(kbd_config->layouts, ",", layouts, NULL));
+        kbd_config->layouts = g_strconcat(kbd_config->layouts, ",", layouts, NULL);
         if (variants != NULL)
-            kbd_config->variants = g_strdup(g_strconcat(kbd_config->variants, ",", variants, NULL));
+            kbd_config->variants = g_strconcat(kbd_config->variants, ",", variants, NULL);
         else
-            kbd_config->variants = g_strdup(g_strconcat(kbd_config->variants, ",", NULL));
+            kbd_config->variants = g_strconcat(kbd_config->variants, ",", NULL);
     }
     xkb_config_update_settings (xkb->settings);
     xkb_refresh_gui (xkb);
