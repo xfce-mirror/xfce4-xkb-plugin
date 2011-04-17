@@ -1,4 +1,11 @@
+2011-04-18 00:59  winterheart
+
+	* panel-plugin/xkb-settings-dialog.c: Remove unnedeed g_strdup as 
+	  g_strconcat already allocates memory.
+	* po/be.po, po/id.po: Translation updates.
+
 2011-02-19 04:06  winterheart
+
 	* configure.in.in, panel-plugin/Makefile.am, 
 	  panel-plugin/xfce4-xkb-plugin.h panel-plugin/xkb-settings-dialog.c:
 	  New version 0.5.4, switch to libxfce4ui, updated dependencies. Based
