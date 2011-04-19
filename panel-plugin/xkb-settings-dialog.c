@@ -571,14 +571,14 @@ xfce_xkb_configure (XfcePanelPlugin *plugin,
     xkb->layout_tree_view = gtk_tree_view_new ();
     gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (xkb->layout_tree_view),
                                                -1,      
-                                               "Default",  
+                                               _("Default"),
                                                renderer2,
                                                "active", DEFAULT_LAYOUT,
                                                NULL);
                                                
     gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (xkb->layout_tree_view),
                                                -1,      
-                                               "Layout",  
+                                               _("Layout"),
                                                renderer,
                                                "text", LAYOUTS,
                                                NULL);
@@ -586,7 +586,7 @@ xfce_xkb_configure (XfcePanelPlugin *plugin,
     renderer = gtk_cell_renderer_text_new ();
     gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (xkb->layout_tree_view),
                                                -1,      
-                                               "Variant",  
+                                               _("Variant"),
                                                renderer,
                                                "text", VARIANTS,
                                                NULL);
