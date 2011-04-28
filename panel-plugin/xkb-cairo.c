@@ -88,6 +88,8 @@ xkb_cairo_draw_flag (cairo_t *cr,
 
     filename = xkb_util_get_flag_filename (group_name);
     handle = rsvg_handle_new_from_file (filename, NULL);
+    g_free (filename);
+
     if (!handle)
     {
         xkb_cairo_draw_label (cr, group_name,

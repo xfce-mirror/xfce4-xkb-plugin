@@ -222,7 +222,7 @@ xkb_free (t_xkb *xkb)
     xkb_config_finalize ();
 
     if (xkb->settings->kbd_config)
-        g_free (xkb->settings->kbd_config);
+        kbd_config_free (xkb->settings->kbd_config);
 
     g_free (xkb->settings);
 
@@ -365,20 +365,24 @@ xkb_initialize_menu (t_xkb *xkb)
     xkb->popup = gtk_menu_new ();
     for (i = 0; i < xkb_config_get_group_count (); i++)
     {
-        imgfilename = xkb_util_get_flag_filename (xkb_config_get_group_name (i));
+        gchar *layout_string;
 
+        imgfilename = xkb_util_get_flag_filename (xkb_config_get_group_name (i));
         handle = rsvg_handle_new_from_file (imgfilename, NULL);
+        g_free (imgfilename);
+
         if (handle)
         {
             tmp = rsvg_handle_get_pixbuf (handle);
         }
 
-        menu_item = gtk_image_menu_item_new_with_label (
-                xkb_util_get_layout_string (
-                    xkb_config_get_group_name (i),
-                    xkb_config_get_variant (i)
-                    )
-                );
+        layout_string =
+            xkb_util_get_layout_string (xkb_config_get_group_name (i),
+                                        xkb_config_get_variant (i));
+
+        menu_item = gtk_image_menu_item_new_with_label (layout_string);
+        g_free (layout_string);
+
         g_signal_connect (G_OBJECT (menu_item), "activate",
                 G_CALLBACK (xkb_plugin_set_group), GINT_TO_POINTER (i));
 

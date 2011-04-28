@@ -107,8 +107,6 @@ xkb_config_initialize (t_xkb_settings *settings,
 
     xkl_engine_set_group_per_toplevel_window (config->engine, FALSE);
 
-    xkb_config_initialize_xkb_options (settings);
-
     xkl_engine_start_listen (config->engine, XKLL_TRACK_KEYBOARD_STATE);
 
     g_signal_connect (config->engine,
@@ -135,6 +133,8 @@ xkb_config_initialize_xkb_options (t_xkb_settings *settings)
     gint val;
     gpointer pval;
 
+    xkb_config_free ();
+
     group = config->config_rec->layouts;
     config->group_count = 0;
     while (*group)
@@ -142,8 +142,6 @@ xkb_config_initialize_xkb_options (t_xkb_settings *settings)
         group++;
         config->group_count++;
     }
-
-    xkb_config_free ();
 
     config->window_map = g_hash_table_new (g_direct_hash, NULL);
     config->application_map = g_hash_table_new (g_direct_hash, NULL);
@@ -191,13 +189,39 @@ xkb_config_initialize_xkb_options (t_xkb_settings *settings)
     g_hash_table_destroy (index_variants);
 }
 
+void
+kbd_config_free (t_xkb_kbd_config *kbd_config)
+{
+    g_free (kbd_config->model);
+    g_free (kbd_config->layouts);
+    g_free (kbd_config->variants);
+    g_free (kbd_config->toggle_option);
+    g_free (kbd_config->compose_key_position);
+
+    g_free (kbd_config);
+}
+
 static void
 xkb_config_free (void)
 {
+    gint i;
+
     g_assert (config != NULL);
 
-    if (config->group_names) g_free (config->group_names);
-    if (config->variants) g_free (config->variants);
+    if (config->group_names)
+    {
+        for (i = 0; i < config->group_count; i++)
+            g_free (config->group_names[i]);
+        g_free (config->group_names);
+    }
+
+    if (config->variants)
+    {
+        for (i = 0; i < config->group_count; i++)
+            g_free (config->variants[i]);
+        g_free (config->variants);
+    }
+
     g_hash_table_destroy (config->variant_index_by_group);
 
     g_hash_table_destroy (config->window_map);
@@ -208,6 +232,8 @@ void
 xkb_config_finalize (void)
 {
     xkb_config_free ();
+
+    g_free (config);
 
     gdk_window_remove_filter (NULL, (GdkFilterFunc) handle_xevent, NULL);
 
@@ -252,7 +278,6 @@ xkb_config_update_settings (t_xkb_settings *settings)
 
     gchar **opt;
     gchar **prefix;
-    gchar *options;
 
     g_assert (config != NULL);
     g_assert (settings != NULL);
@@ -271,17 +296,20 @@ xkb_config_update_settings (t_xkb_settings *settings)
         settings->kbd_config->model = g_strdup (config->config_rec->model);
         settings->kbd_config->layouts = g_strjoinv (",", config->config_rec->layouts);
         settings->kbd_config->variants = g_strjoinv (",", config->config_rec->variants);
-        options = g_strjoinv (",", config->config_rec->options);
-        if (strcmp ("", options) == 0)
-        {
-            options = NULL;
-        }
     }
     else
     {
+        gchar *options;
+
         activate_settings = TRUE;
+
+        g_free (config->config_rec->model);
         config->config_rec->model = g_strdup (settings->kbd_config->model);
+
+        g_strfreev (config->config_rec->layouts);
         config->config_rec->layouts = g_strsplit_set (settings->kbd_config->layouts, ",", 0);
+
+        g_strfreev (config->config_rec->variants);
         config->config_rec->variants = g_strsplit_set (settings->kbd_config->variants, ",", 0);
 
         if (settings->kbd_config->toggle_option
@@ -296,7 +324,10 @@ xkb_config_update_settings (t_xkb_settings *settings)
             options = g_strconcat (options, ",", settings->kbd_config->compose_key_position, NULL);
             g_free (tmp);
         }
+
+        g_strfreev (config->config_rec->options);
         config->config_rec->options = g_strsplit_set (options, ",", 0);
+        g_free (options);
     }
 
     /* select the first "grp" option and use it (should be fixed to support more options) */
@@ -317,6 +348,8 @@ xkb_config_update_settings (t_xkb_settings *settings)
         {
             settings->kbd_config->compose_key_position = g_strdup (*opt);
         }
+
+        g_strfreev (prefix);
         opt++;
     }
 
@@ -493,7 +526,7 @@ xkb_config_state_changed (XklEngine *engine,
 void
 xkb_config_xkl_config_changed (XklEngine *engine)
 {
-    g_free (config->settings->kbd_config);
+    kbd_config_free (config->settings->kbd_config);
     config->settings->kbd_config = NULL;
     xkb_config_update_settings (config->settings);
 

@@ -66,6 +66,7 @@ gboolean    xkb_config_initialize                   (t_xkb_settings *settings,
                                                      XkbCallback callback,
                                                      gpointer data);
 void        xkb_config_finalize                     (void);
+void        kbd_config_free                         (t_xkb_kbd_config *kbd_config);
 gboolean    xkb_config_update_settings              (t_xkb_settings *settings);
 gint        xkb_config_get_group_count              (void);
 gchar*      xkb_config_get_group_name               (gint group);
