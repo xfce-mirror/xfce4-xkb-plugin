@@ -130,6 +130,8 @@ xkb_settings_add_toggle_options_to_list (XklConfigRegistry * config_registry,
                                          XklConfigItem * config_item,
                                          t_xkb *xkb)
 {
+    char *utf_option_name;
+
     /* add a possibility to set no toggle layout combination */
     if (config_item == NULL)
     {
@@ -140,7 +142,7 @@ xkb_settings_add_toggle_options_to_list (XklConfigRegistry * config_registry,
         return;
     }
 
-    char *utf_option_name = xci_desc_to_utf8 (config_item);
+    utf_option_name = xci_desc_to_utf8 (config_item);
     gtk_list_store_append (xkb->toggle_options_store, &iter);
     gtk_list_store_set (xkb->toggle_options_store, &iter,
                       DESC, utf_option_name,
@@ -153,6 +155,8 @@ xkb_settings_add_compose_key_position_options_to_list (XklConfigRegistry * confi
                                                      XklConfigItem * config_item,
                                                      t_xkb *xkb)
 {
+    char *utf_option_name;
+
     /* add a possibility to set no position for the compose key */
     if (config_item == NULL)
     {
@@ -163,7 +167,7 @@ xkb_settings_add_compose_key_position_options_to_list (XklConfigRegistry * confi
         return;
     }
 
-    char *utf_option_name = xci_desc_to_utf8 (config_item);
+    utf_option_name = xci_desc_to_utf8 (config_item);
     gtk_list_store_append (xkb->compose_key_options_store, &iter);
     gtk_list_store_set (xkb->compose_key_options_store, &iter,
                         DESC, utf_option_name,
@@ -332,8 +336,9 @@ xkb_settings_edit_layout (GtkWidget *widget, t_xkb *xkb)
     c = xkb_settings_layout_dialog_run ();
     if (c != NULL)
     {
-        selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (xkb->layout_tree_view));
         gchar **strings;
+
+        selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (xkb->layout_tree_view));
         strings = g_strsplit_set(c, ",", 0);
 
         gtk_tree_selection_get_selected (selection, &model, &iter);
@@ -734,14 +739,16 @@ xkb_settings_add_layout_to_available_layouts_tree (XklConfigRegistry * config_re
 }
 
 static gchar *
-xkb_settings_layout_dialog_run ()
+xkb_settings_layout_dialog_run (void)
 {
     GtkWidget *dialog;
     GtkTreeStore *treestore;
     GtkWidget *tree_view = gtk_tree_view_new ();
     GtkCellRenderer *renderer;
+    GtkTreeViewColumn *column;
     GtkWidget *scrolledw;
     XklConfigRegistry *registry;
+    int response;
 
     registry = xkb_config_get_xkl_registry ();
 
@@ -763,11 +770,12 @@ xkb_settings_layout_dialog_run ()
 
     renderer = gtk_cell_renderer_text_new ();
 
-    GtkTreeViewColumn *column = gtk_tree_view_column_new_with_attributes (NULL,
-                                    renderer,
-                                    "text",
-                                    AVAIL_LAYOUT_TREE_COL_DESCRIPTION,
-                                    NULL);
+    column =
+        gtk_tree_view_column_new_with_attributes (NULL,
+                                                  renderer,
+                                                  "text",
+                                                  AVAIL_LAYOUT_TREE_COL_DESCRIPTION,
+                                                  NULL);
     gtk_tree_view_set_model (GTK_TREE_VIEW (tree_view),
                GTK_TREE_MODEL (treestore));
     gtk_tree_view_append_column (GTK_TREE_VIEW (tree_view), column);
@@ -787,13 +795,14 @@ xkb_settings_layout_dialog_run ()
     gtk_window_set_default_size(GTK_WINDOW (dialog), 400, 400);
     gtk_widget_show (dialog);
 
-    int response = gtk_dialog_run (GTK_DIALOG (dialog));
+    response = gtk_dialog_run (GTK_DIALOG (dialog));
 
     if (response == GTK_RESPONSE_OK)
     {
-        selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (tree_view));
         gchar *id;
         gchar *strings[2];
+
+        selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (tree_view));
 
         gtk_tree_selection_get_selected (selection, &model, &iter);
         gtk_tree_model_get (model, &iter, AVAIL_LAYOUT_TREE_COL_ID, &id, -1);
@@ -825,7 +834,7 @@ static void
 xkb_settings_update_from_ui (t_xkb *xkb)
 {
     gchar *layouts, *variants, *kbdmodel, *toggle_option,
-          *compose_key_position, *tmp;
+          *compose_key_position;
     t_xkb_kbd_config *kbd_config = xkb->settings->kbd_config;
     gboolean is_default;
     gint i = 0;
