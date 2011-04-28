@@ -4,7 +4,7 @@
  *
  * Parts of this program comes from the XfKC tool:
  * Copyright (C) 2006 Gauvain Pocentek <gauvainpocentek@gmail.com>
- * 
+ *
  * A part of this file comes from the gnome keyboard capplet (control-center):
  * Copyright (C) 2003 Sergey V. Oudaltsov <svu@users.sourceforge.net>
  *
@@ -126,7 +126,7 @@ gint        xkb_config_get_max_layout_number        (void);
 
 #else
 
-#define XKB_DEBUG(...) 
+#define XKB_DEBUG(...)
 #define XKB_DEBUG_KBD(kbd, msg)
 #define XKB_DEBUG_CONFIG_REC(crec, msg)
 #define XKB_DEBUG_GROUP_NAMES(groupnames, i, count)
