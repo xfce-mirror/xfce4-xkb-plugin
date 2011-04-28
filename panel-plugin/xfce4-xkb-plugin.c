@@ -4,7 +4,7 @@
  *
  * Parts of this program comes from the XfKC tool:
  * Copyright (C) 2006 Gauvain Pocentek <gauvainpocentek@gmail.com>
- * 
+ *
  * A part of this file comes from the gnome keyboard capplet (control-center):
  * Copyright (C) 2003 Sergey V. Oudaltsov <svu@users.sourceforge.net>
  *
@@ -65,12 +65,12 @@ static void         xfce_xkb_free_data                  (XfcePanelPlugin *plugin
 static t_xkb *      xkb_new                             (XfcePanelPlugin *plugin);
 
 static void         xkb_free                            (t_xkb *xkb);
-    
+
 static gboolean     xkb_calculate_sizes                 (t_xkb *xkb,
                                                          GtkOrientation orientation,
                                                          gint panel_size);
 
-static gboolean     xkb_load_config                     (t_xkb *xkb, 
+static gboolean     xkb_load_config                     (t_xkb *xkb,
                                                          const gchar *filename);
 
 static void         xkb_load_default                    (t_xkb *xkb);
@@ -84,35 +84,35 @@ static void         xkb_initialize_menu                 (t_xkb *xkb);
 
 XFCE_PANEL_PLUGIN_REGISTER_EXTERNAL (xfce_xkb_construct);
 
-static void 
+static void
 xfce_xkb_construct (XfcePanelPlugin *plugin)
 {
     t_xkb *xkb = xkb_new (plugin);
     xfce_textdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");
 
-    g_signal_connect (plugin, "orientation-changed", 
+    g_signal_connect (plugin, "orientation-changed",
             G_CALLBACK (xfce_xkb_orientation_changed), xkb);
 
-    g_signal_connect (plugin, "size-changed", 
+    g_signal_connect (plugin, "size-changed",
             G_CALLBACK (xfce_xkb_set_size), xkb);
 
-    g_signal_connect (plugin, "free-data", 
+    g_signal_connect (plugin, "free-data",
             G_CALLBACK (xfce_xkb_free_data), xkb);
 
-    g_signal_connect (plugin, "save", 
+    g_signal_connect (plugin, "save",
             G_CALLBACK (xfce_xkb_save_config), xkb);
 
     xfce_panel_plugin_menu_show_configure (plugin);
-    g_signal_connect (plugin, "configure-plugin", 
+    g_signal_connect (plugin, "configure-plugin",
             G_CALLBACK (xfce_xkb_configure), xkb);
 
     xfce_panel_plugin_menu_show_about (plugin);
-    g_signal_connect (plugin, "about", 
+    g_signal_connect (plugin, "about",
             G_CALLBACK (xfce_xkb_about), xkb);
 
 }
 
-static void 
+static void
 xfce_xkb_orientation_changed (XfcePanelPlugin *plugin,
                               GtkOrientation orientation,
                               t_xkb *xkb)
@@ -120,7 +120,7 @@ xfce_xkb_orientation_changed (XfcePanelPlugin *plugin,
     xkb_calculate_sizes (xkb, orientation, xfce_panel_plugin_get_size (plugin));
 }
 
-static gboolean 
+static gboolean
 xfce_xkb_set_size (XfcePanelPlugin *plugin, gint size,
                    t_xkb *xkb)
 {
@@ -158,7 +158,7 @@ xkb_plugin_set_group (GtkMenuItem *item,
 }
 
 static t_xkb *
-xkb_new (XfcePanelPlugin *plugin) 
+xkb_new (XfcePanelPlugin *plugin)
 {
     t_xkb *xkb;
     gint i;
@@ -187,9 +187,9 @@ xkb_new (XfcePanelPlugin *plugin)
     g_signal_connect (xkb->btn, "query-tooltip",
             G_CALLBACK (xkb_plugin_set_tooltip), xkb);
 
-    g_signal_connect (G_OBJECT (xkb->btn), "enter-notify-event", 
+    g_signal_connect (G_OBJECT (xkb->btn), "enter-notify-event",
             G_CALLBACK (xkb_plugin_button_entered), xkb);
-    g_signal_connect (G_OBJECT (xkb->btn), "leave-notify-event", 
+    g_signal_connect (G_OBJECT (xkb->btn), "leave-notify-event",
             G_CALLBACK (xkb_plugin_button_left), xkb);
     g_signal_connect (G_OBJECT (xkb->btn), "size-allocate",
             G_CALLBACK (xkb_plugin_button_size_allocated), xkb);
@@ -218,8 +218,8 @@ xkb_new (XfcePanelPlugin *plugin)
     return xkb;
 }
 
-static void 
-xkb_free (t_xkb *xkb) 
+static void
+xkb_free (t_xkb *xkb)
 {
     xkb_config_finalize ();
 
@@ -251,7 +251,7 @@ xfce_xkb_save_config (XfcePanelPlugin *plugin, t_xkb *xkb)
     }
 
     rcfile = xfce_rc_simple_open (filename, FALSE);
-    if (!rcfile) 
+    if (!rcfile)
     {
         return;
     }
@@ -293,7 +293,7 @@ xkb_load_config (t_xkb *xkb, const gchar *filename)
         xkb->display_type = xfce_rc_read_int_entry (rcfile, "display_type", DISPLAY_TYPE_IMAGE);
         xkb->settings->group_policy = xfce_rc_read_int_entry (rcfile, "group_policy", GROUP_POLICY_PER_APPLICATION);
 
-        if (xkb->settings->group_policy != GROUP_POLICY_GLOBAL) 
+        if (xkb->settings->group_policy != GROUP_POLICY_GLOBAL)
         {
             xkb->settings->default_group = xfce_rc_read_int_entry (rcfile, "default_group", 0);
         }
@@ -345,13 +345,13 @@ xkb_calculate_sizes (t_xkb *xkb, GtkOrientation orientation, gint panel_size)
             gtk_widget_set_size_request (xkb->btn, xkb->hsize, xkb->vsize);
             break;
         default:
-            break;   
+            break;
     }
 
     xkb_refresh_gui (xkb);
     return TRUE;
 }
-    
+
 static void
 xkb_initialize_menu (t_xkb *xkb)
 {
@@ -403,11 +403,11 @@ xkb_initialize_menu (t_xkb *xkb)
 
 }
 
-void 
-xkb_refresh_gui (t_xkb *xkb) 
+void
+xkb_refresh_gui (t_xkb *xkb)
 {
     /* Part of the image may remain visible after display type change */
-    gtk_widget_queue_draw_area (xkb->btn, 0, 0, 
+    gtk_widget_queue_draw_area (xkb->btn, 0, 0,
             xkb->button_hsize, xkb->button_vsize);
 }
 
