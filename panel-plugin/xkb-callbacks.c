@@ -166,8 +166,8 @@ xkb_plugin_popup_menu (GtkButton *btn,
             gtk_get_current_event_time ());
 }
 
-gboolean
-xkb_plugin_tooltip_image_exposed (GtkWidget *widget, 
+static gboolean
+xkb_plugin_tooltip_image_exposed (GtkWidget *widget,
                                   GdkEventExpose *event,
                                   t_xkb *xkb)
 {
