@@ -192,10 +192,8 @@ xkb_config_initialize_xkb_options (t_xkb_settings *settings)
 }
 
 static void
-xkb_config_free ()
+xkb_config_free (void)
 {
-    gint i;
-
     g_assert (config != NULL);
 
     if (config->group_names) g_free (config->group_names);
@@ -206,8 +204,8 @@ xkb_config_free ()
     g_hash_table_destroy (config->application_map);
 }
 
-void 
-xkb_config_finalize () 
+void
+xkb_config_finalize (void)
 {
     xkb_config_free ();
 
@@ -216,8 +214,8 @@ xkb_config_finalize ()
     xkl_engine_stop_listen (config->engine, XKLL_TRACK_KEYBOARD_STATE);
 }
 
-gint
-xkb_config_get_current_group ()
+static gint
+xkb_config_get_current_group (void)
 {
     XklState* state = xkl_engine_get_current_state (config->engine);
     return state->group;
@@ -239,7 +237,7 @@ xkb_config_set_group (gint group)
 }
 
 gboolean
-xkb_config_next_group ()
+xkb_config_next_group (void)
 {
     xkl_engine_lock_group (config->engine,
             xkl_engine_get_next_group (config->engine));
@@ -422,9 +420,9 @@ xkb_config_window_closed (guint window_id)
 }
 
 
-gint 
-xkb_config_get_group_count () 
-{ 
+gint
+xkb_config_get_group_count (void)
+{
     g_assert (config != NULL);
 
     return config->group_count;
