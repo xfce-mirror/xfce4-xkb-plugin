@@ -157,11 +157,11 @@ xkb_plugin_button_clicked (GtkButton *btn,
 }
 
 void
-xkb_plugin_popup_menu (GtkButton *btn, 
+xkb_plugin_popup_menu (GtkButton *btn,
                        gpointer data)
 {
     t_xkb *xkb = (t_xkb *) data;
-    gtk_menu_popup (GTK_MENU (xkb->popup), 
+    gtk_menu_popup (GTK_MENU (xkb->popup),
             NULL, NULL, NULL, NULL, 0,
             gtk_get_current_event_time ());
 }
