@@ -35,7 +35,8 @@ xkb_util_get_flag_filename (gchar* group_name)
 {
     gchar* filename;
 
-    g_assert (group_name != NULL);
+    if (!group_name)
+        return NULL;
 
     filename = g_strconcat (FLAGSDIR, "/", group_name, ".svg", NULL);
 
@@ -47,7 +48,10 @@ xkb_util_get_layout_string (gchar *group_name, gchar *variant)
 {
     gchar *layout;
 
-    if (strlen (variant) > 0)
+    if (!group_name)
+        return NULL;
+
+    if (variant && strlen (variant) > 0)
     {
         layout = g_strconcat (group_name, " (", variant, ")", NULL);
     }
@@ -69,9 +73,7 @@ xkb_util_normalize_group_name (gchar* group_name)
     gint index_tmp = -1;
 
     if (!group_name)
-    {
         return NULL;
-    }
 
     if (strlen (group_name) <= 3)
     {
