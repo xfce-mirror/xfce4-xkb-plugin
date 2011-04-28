@@ -62,6 +62,12 @@ xkb_util_get_layout_string (gchar *group_name, gchar *variant)
 gchar*
 xkb_util_normalize_group_name (gchar* group_name)
 {
+    gchar *c = group_name;
+    gchar *result;
+    gint cut_length;
+    gint index_of_na = -1;
+    gint index_tmp = -1;
+
     if (!group_name)
     {
         return NULL;
@@ -72,16 +78,13 @@ xkb_util_normalize_group_name (gchar* group_name)
         return g_strdup (group_name);
     }
 
-    gchar *c = group_name;
-    gchar *result;
-    gint cut_length;
-    gint index_of_na = -1;
-
     while (*c)
     {
+        index_tmp++;
+
         if (!((*c >= 'a' && *c <= 'z') || (*c >= 'A' && *c <= 'Z')))
         {
-            index_of_na = (int) c - (int) group_name;
+            index_of_na = index_tmp;
             break;
         }
 
