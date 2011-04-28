@@ -73,8 +73,6 @@ xkb_cairo_draw_flag (cairo_t *cr,
                      gint variant_markers_count,
                      GdkColor fgcolor)
 {
-    g_assert (cr != NULL);
-
     gchar *filename;
     RsvgHandle *handle;
     RsvgDimensionData dim;
@@ -82,6 +80,8 @@ xkb_cairo_draw_flag (cairo_t *cr,
     double xx, yy;
     gint i;
     double layoutx, layouty;
+
+    g_assert (cr != NULL);
 
     filename = xkb_util_get_flag_filename (group_name);
     handle = rsvg_handle_new_from_file (filename, NULL);
@@ -147,8 +147,6 @@ xkb_cairo_draw_label (cairo_t *cr,
                       gint variant_markers_count,
                       GdkColor fgcolor)
 {
-    g_assert (cr != NULL);
-
     gchar *normalized_group_name;
     gchar font_str[80];
     gint pango_width, pango_height;
@@ -159,6 +157,8 @@ xkb_cairo_draw_label (cairo_t *cr,
 
     PangoLayout *layout;
     PangoFontDescription *desc;
+
+    g_assert (cr != NULL);
 
     layout = pango_cairo_create_layout (cr);
     normalized_group_name = xkb_util_normalize_group_name (group_name);
