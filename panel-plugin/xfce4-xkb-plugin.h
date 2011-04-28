@@ -4,7 +4,7 @@
  *
  * Parts of this program comes from the XfKC tool:
  * Copyright (C) 2006 Gauvain Pocentek <gauvainpocentek@gmail.com>
- * 
+ *
  * A part of this file comes from the gnome keyboard capplet (control-center):
  * Copyright (C) 2003 Sergey V. Oudaltsov <svu@users.sourceforge.net>
  *
@@ -36,13 +36,13 @@
 #include <gtk/gtk.h>
 #include <glib.h>
 
-typedef enum 
+typedef enum
 {
     DISPLAY_TYPE_IMAGE = 0,
     DISPLAY_TYPE_TEXT = 1
 } t_display_type;
 
-typedef struct 
+typedef struct
 {
     XfcePanelPlugin *plugin;
 
@@ -65,7 +65,7 @@ typedef struct
     /*  */
     GtkWidget *kbd_model_combo;
     GtkListStore *combo_store;
-    
+
     GtkWidget *layout_tree_view;
     GtkListStore *layout_store;
 
