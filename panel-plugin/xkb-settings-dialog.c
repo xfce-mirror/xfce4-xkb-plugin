@@ -4,7 +4,7 @@
  *
  * Parts of this program comes from the XfKC tool:
  * Copyright (C) 2006 Gauvain Pocentek <gauvainpocentek@gmail.com>
- * 
+ *
  * A part of this file comes from the gnome keyboard capplet (control-center):
  * Copyright (C) 2003 Sergey V. Oudaltsov <svu@users.sourceforge.net>
  *
@@ -108,7 +108,7 @@ xkb_settings_fill_layout_tree_model_with_config (t_xkb *xkb)
 {
     gint layout_nb = 0;
 
-    t_xkb_kbd_config *config = xkb->settings->kbd_config;   
+    t_xkb_kbd_config *config = xkb->settings->kbd_config;
 
     char **layouts = g_strsplit_set (config->layouts, ",", 0);
     char **variants = g_strsplit_set (config->variants, ",", 0);
@@ -142,7 +142,7 @@ xkb_settings_add_toggle_options_to_list (XklConfigRegistry * config_registry,
 
     char *utf_option_name = xci_desc_to_utf8 (config_item);
     gtk_list_store_append (xkb->toggle_options_store, &iter);
-    gtk_list_store_set (xkb->toggle_options_store, &iter, 
+    gtk_list_store_set (xkb->toggle_options_store, &iter,
                       DESC, utf_option_name,
                       NOM, config_item->name, -1);
     g_free (utf_option_name);
@@ -178,7 +178,7 @@ xkb_settings_add_kbd_model_to_list (XklConfigRegistry * config_registry,
 {
     char *utf_model_name = xci_desc_to_utf8 (config_item);
     gtk_list_store_append (xkb->combo_store, &iter);
-    gtk_list_store_set (xkb->combo_store, &iter, 
+    gtk_list_store_set (xkb->combo_store, &iter,
                       DESC, utf_model_name,
                       NOM, config_item->name, -1);
     g_free (utf_model_name);
@@ -218,7 +218,7 @@ xkb_settings_set_toggle_option_combo_default_value (t_xkb *xkb)
             }
         }
     }
-    
+
     g_free (id);
 }
 
@@ -285,7 +285,7 @@ xkb_settings_set_kbd_combo_default_value (t_xkb *xkb)
             }
         }
     }
-    
+
     g_free (id);
 }
 
@@ -295,7 +295,7 @@ xkb_settings_get_group_count (t_xkb *xkb)
     gint count = 1;
 
     model = gtk_tree_view_get_model (GTK_TREE_VIEW (xkb->layout_tree_view));
-    gtk_tree_model_get_iter_first (GTK_TREE_MODEL (model), &iter); 
+    gtk_tree_model_get_iter_first (GTK_TREE_MODEL (model), &iter);
     while (gtk_tree_model_iter_next (GTK_TREE_MODEL (model), &iter))
         count++;
     return count;
@@ -306,9 +306,9 @@ xkb_settings_show_hide_layout_buttons (t_xkb *xkb)
 {
     gint nb = xkb_settings_get_group_count (xkb);
     gint max_nb = xkb_config_get_max_layout_number ();
-    gtk_widget_set_sensitive (xkb->add_layout_btn, 
+    gtk_widget_set_sensitive (xkb->add_layout_btn,
             (nb < max_nb && !xkb->settings->never_modify_config));
-    gtk_widget_set_sensitive (xkb->rm_layout_btn, 
+    gtk_widget_set_sensitive (xkb->rm_layout_btn,
             (nb > 1 && !xkb->settings->never_modify_config));
 }
 
@@ -319,7 +319,7 @@ xkb_settings_edit_layout_btn_show (GtkTreeView *tree_view,
     GtkTreePath *p;
     GtkTreeViewColumn *c;
     gtk_tree_view_get_cursor (GTK_TREE_VIEW (tree_view), &p, &c);
-    gtk_widget_set_sensitive (xkb->edit_layout_btn, 
+    gtk_widget_set_sensitive (xkb->edit_layout_btn,
             (p != NULL && !xkb->settings->never_modify_config));
 }
 
@@ -348,7 +348,7 @@ xkb_settings_edit_layout (GtkWidget *widget, t_xkb *xkb)
     }
     g_free(c);
     xkb_settings_edit_layout_btn_show (GTK_TREE_VIEW (xkb->layout_tree_view), xkb);
-    
+
 }
 
 static void
@@ -373,7 +373,7 @@ xkb_settings_add_layout (GtkWidget *widget, t_xkb *xkb)
     g_free (c);
     xkb_settings_edit_layout_btn_show (GTK_TREE_VIEW (xkb->layout_tree_view), xkb);
 }
-    
+
 static void
 xkb_settings_rm_layout (GtkWidget *widget, t_xkb *xkb)
 {
@@ -448,13 +448,13 @@ xfce_xkb_configure (XfcePanelPlugin *plugin,
 {
     GtkWidget *display_type_optmenu, *group_policy_combo;
     GtkWidget *vbox, *display_type_frame, *group_policy_frame, *bin;
-          
+
 
     GtkCellRenderer *renderer, *renderer2;
     GtkWidget *vbox1, *vbox2, *hbox, *frame;
     XklConfigRegistry *registry;
 
-    xfce_panel_plugin_block_menu (plugin); 
+    xfce_panel_plugin_block_menu (plugin);
 
     registry = xkb_config_get_xkl_registry ();
 
@@ -475,7 +475,7 @@ xfce_xkb_configure (XfcePanelPlugin *plugin,
     xkb->combo_store = gtk_list_store_new (COMBO_NUM, G_TYPE_STRING, G_TYPE_STRING);
     xkb->toggle_options_store = gtk_list_store_new (COMBO_NUM, G_TYPE_STRING, G_TYPE_STRING);
     xkb->compose_key_options_store = gtk_list_store_new (COMBO_NUM, G_TYPE_STRING, G_TYPE_STRING);
-    
+
     vbox1 = gtk_vbox_new (FALSE, 5);
     gtk_container_add (GTK_CONTAINER (vbox), vbox1);
     gtk_widget_show (vbox1);
@@ -490,7 +490,7 @@ xfce_xkb_configure (XfcePanelPlugin *plugin,
     gtk_container_add (GTK_CONTAINER (bin), xkb->kbd_model_combo);
     gtk_cell_layout_pack_start (GTK_CELL_LAYOUT (xkb->kbd_model_combo), renderer, TRUE);
     gtk_cell_layout_add_attribute (GTK_CELL_LAYOUT (xkb->kbd_model_combo), renderer, "text", 0);
-    
+
     xkl_config_registry_foreach_model (registry,
                        (ConfigItemProcessFunc) xkb_settings_add_kbd_model_to_list,
                            xkb);
@@ -503,7 +503,7 @@ xfce_xkb_configure (XfcePanelPlugin *plugin,
     gtk_widget_set_sensitive (GTK_WIDGET (xkb->kbd_model_combo), !xkb->settings->never_modify_config);
     g_object_set (G_OBJECT (xkb->kbd_model_combo), "has-tooltip", TRUE, NULL);
     g_signal_connect (xkb->kbd_model_combo, "query-tooltip", G_CALLBACK (xkb_settings_config_modification_disabled_tooltip), xkb);
-    
+
     /* toggle layout option */
     frame = xfce_gtk_frame_box_new (_("Change layout option:"), &bin);
     gtk_frame_set_shadow_type (GTK_FRAME (frame), GTK_SHADOW_NONE);
@@ -556,47 +556,47 @@ xfce_xkb_configure (XfcePanelPlugin *plugin,
     g_object_set (G_OBJECT (xkb->compose_key_options_combo), "has-tooltip", TRUE, NULL);
     g_signal_connect (xkb->compose_key_options_combo, "query-tooltip", G_CALLBACK (xkb_settings_config_modification_disabled_tooltip), xkb);
 
-    
+
     /* the actual layouts */
     frame = xfce_gtk_frame_box_new (_("Keyboard layouts:"), &bin);
     gtk_frame_set_shadow_type (GTK_FRAME (frame), GTK_SHADOW_NONE);
     gtk_widget_show (frame);
     gtk_box_pack_start (GTK_BOX (vbox), frame, TRUE, TRUE, 0);
-    
+
     hbox = gtk_hbox_new (FALSE, 5);
     gtk_container_add (GTK_CONTAINER (bin), hbox);
     gtk_widget_show (hbox);
-    
+
     // TreeView
     xkb->layout_tree_view = gtk_tree_view_new ();
     gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (xkb->layout_tree_view),
-                                               -1,      
+                                               -1,
                                                _("Default"),
                                                renderer2,
                                                "active", DEFAULT_LAYOUT,
                                                NULL);
-                                               
+
     gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (xkb->layout_tree_view),
-                                               -1,      
+                                               -1,
                                                _("Layout"),
                                                renderer,
                                                "text", LAYOUTS,
                                                NULL);
-                                               
+
     renderer = gtk_cell_renderer_text_new ();
     gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (xkb->layout_tree_view),
-                                               -1,      
+                                               -1,
                                                _("Variant"),
                                                renderer,
                                                "text", VARIANTS,
                                                NULL);
-    
+
     xkb->layout_store = gtk_list_store_new (TREE_NUM, G_TYPE_BOOLEAN, G_TYPE_STRING, G_TYPE_STRING);
     xkb_settings_fill_layout_tree_model_with_config (xkb);
-    
+
     gtk_tree_view_set_model (GTK_TREE_VIEW (xkb->layout_tree_view),
                             GTK_TREE_MODEL (xkb->layout_store));
-    
+
     gtk_box_pack_start (GTK_BOX (hbox), xkb->layout_tree_view, TRUE, TRUE, 0);
     gtk_widget_set_size_request (xkb->layout_tree_view, -1, 112);
     gtk_widget_show (xkb->layout_tree_view);
@@ -679,57 +679,57 @@ xfce_xkb_about (XfcePanelPlugin *plugin)
 {
     GtkWidget *about;
     const gchar* authors[3] = {
-        "Alexander Iliev <sasoiliev@mamul.org>", 
-        "Gauvain Pocentek <gauvainpocentek@gmail.com>", 
+        "Alexander Iliev <sasoiliev@mamul.org>",
+        "Gauvain Pocentek <gauvainpocentek@gmail.com>",
         NULL
     };
 
     about = gtk_about_dialog_new ();
-    gtk_about_dialog_set_name (GTK_ABOUT_DIALOG (about), 
+    gtk_about_dialog_set_name (GTK_ABOUT_DIALOG (about),
             _("Keyboard Layouts Plugin"));
-    gtk_about_dialog_set_logo (GTK_ABOUT_DIALOG (about), 
+    gtk_about_dialog_set_logo (GTK_ABOUT_DIALOG (about),
             NULL);
-    gtk_about_dialog_set_authors (GTK_ABOUT_DIALOG (about), 
+    gtk_about_dialog_set_authors (GTK_ABOUT_DIALOG (about),
             (const gchar**) authors);
-    gtk_about_dialog_set_comments (GTK_ABOUT_DIALOG (about), 
+    gtk_about_dialog_set_comments (GTK_ABOUT_DIALOG (about),
             _("Allows you to configure and use multiple keyboard layouts."));
-    gtk_about_dialog_set_website (GTK_ABOUT_DIALOG (about), 
+    gtk_about_dialog_set_website (GTK_ABOUT_DIALOG (about),
             "http://goodies.xfce.org/");
-    gtk_about_dialog_set_website_label (GTK_ABOUT_DIALOG (about), 
+    gtk_about_dialog_set_website_label (GTK_ABOUT_DIALOG (about),
             _("Other plugins available here"));
     gtk_dialog_run (GTK_DIALOG (about));
-    gtk_widget_destroy (about); 
+    gtk_widget_destroy (about);
 }
 
 static void
 xkb_settings_add_variant_to_available_layouts_tree (XklConfigRegistry * config_registry,
-                                                    XklConfigItem * config_item, 
+                                                    XklConfigItem * config_item,
                                                     GtkTreeStore *treestore)
 {
   char *utf_variant_name = xci_desc_to_utf8 (config_item);
 
   gtk_tree_store_append (treestore, &child, &iter);
-  gtk_tree_store_set (treestore, &child, 
-              AVAIL_LAYOUT_TREE_COL_DESCRIPTION, utf_variant_name, 
+  gtk_tree_store_set (treestore, &child,
+              AVAIL_LAYOUT_TREE_COL_DESCRIPTION, utf_variant_name,
               AVAIL_LAYOUT_TREE_COL_ID, config_item->name, -1);
   g_free (utf_variant_name);
 }
 
 static void
 xkb_settings_add_layout_to_available_layouts_tree (XklConfigRegistry * config_registry,
-                                                   XklConfigItem * config_item, 
+                                                   XklConfigItem * config_item,
                                                    GtkTreeStore *treestore)
 {
   char *utf_layout_name = xci_desc_to_utf8 (config_item);
 
   gtk_tree_store_append (treestore, &iter, NULL);
-  gtk_tree_store_set (treestore, &iter, 
-              AVAIL_LAYOUT_TREE_COL_DESCRIPTION, utf_layout_name, 
+  gtk_tree_store_set (treestore, &iter,
+              AVAIL_LAYOUT_TREE_COL_DESCRIPTION, utf_layout_name,
               AVAIL_LAYOUT_TREE_COL_ID, config_item->name, -1);
   g_free (utf_layout_name);
 
   xkl_config_registry_foreach_layout_variant (config_registry, config_item->name,
-                   (ConfigItemProcessFunc)xkb_settings_add_variant_to_available_layouts_tree, 
+                   (ConfigItemProcessFunc)xkb_settings_add_variant_to_available_layouts_tree,
                                treestore);
 }
 
@@ -757,12 +757,12 @@ xkb_settings_layout_dialog_run ()
     gtk_window_set_icon_name (GTK_WINDOW (dialog), "xfce4-keyboard");
 
     treestore = gtk_tree_store_new(2, G_TYPE_STRING, G_TYPE_STRING);
-    
+
     xkl_config_registry_foreach_layout (registry, (ConfigItemProcessFunc)
             xkb_settings_add_layout_to_available_layouts_tree, treestore);
 
     renderer = gtk_cell_renderer_text_new ();
-    
+
     GtkTreeViewColumn *column = gtk_tree_view_column_new_with_attributes (NULL,
                                     renderer,
                                     "text",
@@ -780,24 +780,24 @@ xkb_settings_layout_dialog_run ()
                                     GTK_POLICY_AUTOMATIC,
                                     GTK_POLICY_AUTOMATIC);
     gtk_widget_show (scrolledw);
-    
+
     gtk_container_add (GTK_CONTAINER (scrolledw), tree_view);
     gtk_widget_show (GTK_WIDGET (tree_view));
-    
+
     gtk_window_set_default_size(GTK_WINDOW (dialog), 400, 400);
     gtk_widget_show (dialog);
 
     int response = gtk_dialog_run (GTK_DIALOG (dialog));
-    
+
     if (response == GTK_RESPONSE_OK)
     {
         selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (tree_view));
         gchar *id;
         gchar *strings[2];
-                
+
         gtk_tree_selection_get_selected (selection, &model, &iter);
         gtk_tree_model_get (model, &iter, AVAIL_LAYOUT_TREE_COL_ID, &id, -1);
-        
+
         path = gtk_tree_model_get_path (model, &iter);
         if (gtk_tree_path_get_depth (path) == 1)
         {
@@ -815,7 +815,7 @@ xkb_settings_layout_dialog_run ()
 
         gtk_widget_destroy (dialog);
         return g_strconcat(strings[0], ",", strings[1], NULL);
-        
+
     }
     gtk_widget_destroy (dialog);
     return NULL;
@@ -824,7 +824,7 @@ xkb_settings_layout_dialog_run ()
 void
 xkb_settings_update_from_ui (t_xkb *xkb)
 {
-    gchar *layouts, *variants, *kbdmodel, *toggle_option, 
+    gchar *layouts, *variants, *kbdmodel, *toggle_option,
           *compose_key_position, *tmp;
     t_xkb_kbd_config *kbd_config = xkb->settings->kbd_config;
     gboolean is_default;
@@ -867,7 +867,7 @@ xkb_settings_update_from_ui (t_xkb *xkb)
         kbd_config->variants = variants;
     else
         kbd_config->variants = "";
-    
+
     i = 1;
     while (gtk_tree_model_iter_next (model, &iter))
     {
