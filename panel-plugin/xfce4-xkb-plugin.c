@@ -161,10 +161,8 @@ static t_xkb *
 xkb_new (XfcePanelPlugin *plugin)
 {
     t_xkb *xkb;
-    gint i;
     gchar *filename;
     WnckScreen *wnck_screen;
-    GtkWidget *menu_item;
 
     xkb = panel_slice_new0 (t_xkb);
     xkb->settings = g_new0 (t_xkb_settings, 1);
