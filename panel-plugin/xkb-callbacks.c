@@ -4,7 +4,7 @@
  *
  * Parts of this program comes from the XfKC tool:
  * Copyright (C) 2006 Gauvain Pocentek <gauvainpocentek@gmail.com>
- * 
+ *
  * A part of this file comes from the gnome keyboard capplet (control-center):
  * Copyright (C) 2003 Sergey V. Oudaltsov <svu@users.sourceforge.net>
  *
@@ -68,8 +68,8 @@ xkb_plugin_window_closed (WnckScreen *screen,
 }
 
 void
-xkb_plugin_button_size_allocated (GtkWidget *button, 
-                                  GtkAllocation *allocation, 
+xkb_plugin_button_size_allocated (GtkWidget *button,
+                                  GtkAllocation *allocation,
                                   t_xkb *xkb)
 {
     xkb->button_hsize = allocation->width;
@@ -77,8 +77,8 @@ xkb_plugin_button_size_allocated (GtkWidget *button,
 }
 
 gboolean
-xkb_plugin_button_entered (GtkWidget *widget, 
-                           GdkEventCrossing *event, 
+xkb_plugin_button_entered (GtkWidget *widget,
+                           GdkEventCrossing *event,
                            t_xkb *xkb)
 {
     xkb->button_state = GTK_STATE_PRELIGHT;
@@ -86,8 +86,8 @@ xkb_plugin_button_entered (GtkWidget *widget,
 }
 
 gboolean
-xkb_plugin_button_left (GtkWidget *widget, 
-                        GdkEventCrossing *event, 
+xkb_plugin_button_left (GtkWidget *widget,
+                        GdkEventCrossing *event,
                         t_xkb *xkb)
 {
     xkb->button_state = GTK_STATE_NORMAL;
@@ -95,8 +95,8 @@ xkb_plugin_button_left (GtkWidget *widget,
 }
 
 gboolean
-xkb_plugin_layout_image_exposed (GtkWidget *widget, 
-                                 GdkEventExpose *event, 
+xkb_plugin_layout_image_exposed (GtkWidget *widget,
+                                 GdkEventExpose *event,
                                  t_xkb *xkb)
 {
     gchar *group_name;
@@ -118,21 +118,21 @@ xkb_plugin_layout_image_exposed (GtkWidget *widget,
     {
         group_name = xkb_config_get_group_name (-1);
 
-        xkb_cairo_draw_flag (cr, group_name, 
+        xkb_cairo_draw_flag (cr, group_name,
                 xfce_panel_plugin_get_size (xkb->plugin),
                 actual_hsize, actual_vsize,
-                xkb->hsize, xkb->vsize, 
+                xkb->hsize, xkb->vsize,
                 xkb_config_variant_index_for_group (-1),
                 fgcolor
         );
     }
     else
     {
-        xkb_cairo_draw_label (cr, group_name, 
+        xkb_cairo_draw_label (cr, group_name,
                 xfce_panel_plugin_get_size (xkb->plugin),
                 actual_hsize, actual_vsize,
                 xkb->hsize, xkb->vsize,
-                xkb_config_variant_index_for_group (-1), 
+                xkb_config_variant_index_for_group (-1),
                 fgcolor
         );
     }
@@ -180,9 +180,9 @@ xkb_plugin_tooltip_image_exposed (GtkWidget *widget,
 
     group_name = xkb_config_get_group_name (-1);
 
-    /* xkb_cairo_draw_flag (cr, group_name, 
+    /* xkb_cairo_draw_flag (cr, group_name,
             xfce_panel_plugin_get_size (xkb->plugin),
-            20, 15, 
+            20, 15,
             20, 15,
             xkb_config_variant_index_for_group (-1)
     ); */
@@ -190,12 +190,12 @@ xkb_plugin_tooltip_image_exposed (GtkWidget *widget,
     cairo_destroy (cr);
 
     return FALSE;
-    
+
 }
-    
+
 gboolean
-xkb_plugin_set_tooltip (GtkWidget *widget, 
-                        gint x, 
+xkb_plugin_set_tooltip (GtkWidget *widget,
+                        gint x,
                         gint y,
                         gboolean keyboard_mode,
                         GtkTooltip *tooltip,
@@ -214,7 +214,7 @@ xkb_plugin_set_tooltip (GtkWidget *widget,
     gtk_widget_show (image);
 
     text = xkb_util_get_layout_string (
-            xkb_config_get_group_name (-1), 
+            xkb_config_get_group_name (-1),
             xkb_config_get_variant (-1)
     );
     label = gtk_label_new (text);
