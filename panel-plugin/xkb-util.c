@@ -33,9 +33,9 @@
 gchar*
 xkb_util_get_flag_filename (gchar* group_name)
 {
-    g_assert (group_name != NULL);
-
     gchar* filename;
+
+    g_assert (group_name != NULL);
 
     filename = g_strconcat (FLAGSDIR, "/", group_name, ".svg", NULL);
 
