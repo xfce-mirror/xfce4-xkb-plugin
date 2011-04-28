@@ -83,6 +83,9 @@ xkb_cairo_draw_flag (cairo_t *cr,
 
     g_assert (cr != NULL);
 
+    if (!group_name)
+        return;
+
     filename = xkb_util_get_flag_filename (group_name);
     handle = rsvg_handle_new_from_file (filename, NULL);
     if (!handle)
