@@ -222,10 +222,14 @@ xkb_config_free (void)
         g_free (config->variants);
     }
 
-    g_hash_table_destroy (config->variant_index_by_group);
+    if (config->variant_index_by_group)
+        g_hash_table_destroy (config->variant_index_by_group);
 
-    g_hash_table_destroy (config->window_map);
-    g_hash_table_destroy (config->application_map);
+    if (config->window_map)
+        g_hash_table_destroy (config->window_map);
+
+    if (config->application_map)
+        g_hash_table_destroy (config->application_map);
 }
 
 void
