@@ -331,13 +331,13 @@ xkb_config_update_settings (t_xkb_settings *settings)
 void
 xkb_config_window_changed (guint new_window_id, guint application_id)
 {
-    g_assert (config != NULL);
-
     gint group;
     gpointer key, value;
     GHashTable *hashtable;
     guint id;
     gint DEBUG_FOUND = 0;
+
+    g_assert (config != NULL);
 
     id = 0;
     hashtable = NULL;
@@ -439,8 +439,7 @@ xkb_config_get_group_name (gint group)
     if (group == -1)
         group = xkb_config_get_current_group ();
 
-    gchar *result = config->group_names[group];
-    return result;
+    return config->group_names[group];
 }
 
 gchar*
@@ -505,11 +504,11 @@ xkb_config_xkl_config_changed (XklEngine *engine)
 gint
 xkb_config_variant_index_for_group (gint group)
 {
-    g_return_val_if_fail (config != NULL, 0);
-
     gpointer presult;
     gint result;
     gchar *key;
+
+    g_return_val_if_fail (config != NULL, 0);
 
     if (group == -1) group = xkb_config_get_current_group ();
 
