@@ -64,12 +64,12 @@ enum enumeration
     NUM
 };
 
-gchar       *xkb_settings_layout_dialog_run     ();
-void         xkb_settings_update_from_ui        (t_xkb *xkb);
+static gchar       *xkb_settings_layout_dialog_run     ();
+static void         xkb_settings_update_from_ui        (t_xkb *xkb);
 
 /**************************************************************/
 
-void
+static void
 on_settings_close (GtkDialog *dialog, gint response, t_xkb *xkb)
 {
     xfce_panel_plugin_unblock_menu (xkb->plugin);
@@ -81,21 +81,21 @@ on_settings_close (GtkDialog *dialog, gint response, t_xkb *xkb)
     gtk_widget_destroy (GTK_WIDGET (dialog));
 }
 
-void 
-on_display_type_changed (GtkComboBox *cb, t_xkb *xkb) 
+static void
+on_display_type_changed (GtkComboBox *cb, t_xkb *xkb)
 {
     xkb->display_type = gtk_combo_box_get_active (cb);
     xkb_refresh_gui (xkb);
 }
 
-void 
-on_group_policy_changed (GtkComboBox *cb, t_xkb *xkb) 
+static void
+on_group_policy_changed (GtkComboBox *cb, t_xkb *xkb)
 {
     xkb->settings->group_policy = gtk_combo_box_get_active (cb);
 }
 
 /* from the gnome control center keyboard applet */
-char *
+static char *
 xci_desc_to_utf8 (XklConfigItem * ci)
 {
     char *sd = g_strstrip (ci->description);
@@ -103,7 +103,7 @@ xci_desc_to_utf8 (XklConfigItem * ci)
 }
 /**/
 
-void
+static void
 xkb_settings_fill_layout_tree_model_with_config (t_xkb *xkb)
 {
     gint layout_nb = 0;
@@ -184,7 +184,7 @@ xkb_settings_add_kbd_model_to_list (XklConfigRegistry * config_registry,
     g_free (utf_model_name);
 }
 
-void
+static void
 xkb_settings_set_toggle_option_combo_default_value (t_xkb *xkb)
 {
     gchar *id;
@@ -222,7 +222,7 @@ xkb_settings_set_toggle_option_combo_default_value (t_xkb *xkb)
     g_free (id);
 }
 
-void
+static void
 xkb_settings_set_compose_key_position_combo_default_value (t_xkb *xkb)
 {
     gchar *id;
@@ -261,7 +261,7 @@ xkb_settings_set_compose_key_position_combo_default_value (t_xkb *xkb)
     g_free (id);
 }
 
-void
+static void
 xkb_settings_set_kbd_combo_default_value (t_xkb *xkb)
 {
     gchar *id;
@@ -422,7 +422,7 @@ xkb_settings_default_layout_toggled (GtkCellRendererToggle *renderer,
     xkb_settings_update_from_ui (xkb);
 }
 
-gboolean
+static gboolean
 xkb_settings_config_modification_disabled_tooltip (GtkWidget *widget,
                                                    gint x, gint y,
                                                    gboolean keyboard_mode,
@@ -733,7 +733,7 @@ xkb_settings_add_layout_to_available_layouts_tree (XklConfigRegistry * config_re
                                treestore);
 }
 
-gchar *
+static gchar *
 xkb_settings_layout_dialog_run ()
 {
     GtkWidget *dialog;
@@ -821,7 +821,7 @@ xkb_settings_layout_dialog_run ()
     return NULL;
 }
 
-void
+static void
 xkb_settings_update_from_ui (t_xkb *xkb)
 {
     gchar *layouts, *variants, *kbdmodel, *toggle_option,
