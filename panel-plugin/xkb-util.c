@@ -62,6 +62,11 @@ xkb_util_get_layout_string (gchar *group_name, gchar *variant)
 gchar*
 xkb_util_normalize_group_name (gchar* group_name)
 {
+    if (!group_name)
+    {
+        return NULL;
+    }
+
     if (strlen (group_name) <= 3)
     {
         return g_strdup (group_name);
