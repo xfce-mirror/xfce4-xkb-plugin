@@ -353,14 +353,14 @@ xkb_calculate_sizes (t_xkb *xkb, GtkOrientation orientation, gint panel_size)
 static void
 xkb_initialize_menu (t_xkb *xkb)
 {
-    if (G_UNLIKELY (xkb == NULL)) return;
-
     gint i;
     RsvgHandle *handle;
     GdkPixbuf *pixbuf, *tmp;
     gchar *imgfilename;
     GtkWidget *image;
     GtkWidget *menu_item;
+
+    if (G_UNLIKELY (xkb == NULL)) return;
 
     xkb->popup = gtk_menu_new ();
     for (i = 0; i < xkb_config_get_group_count (); i++)
