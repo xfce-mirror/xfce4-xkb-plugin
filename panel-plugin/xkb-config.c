@@ -536,7 +536,7 @@ handle_xevent (GdkXEvent * xev, GdkEvent * event)
 }
 
 XklConfigRegistry*
-xkb_config_get_xkl_registry ()
+xkb_config_get_xkl_registry (void)
 {
     XklConfigRegistry *registry;
 
@@ -549,7 +549,7 @@ xkb_config_get_xkl_registry ()
 }
 
 gint
-xkb_config_get_max_layout_number ()
+xkb_config_get_max_layout_number (void)
 {
     if (config == NULL) return 0;
 
