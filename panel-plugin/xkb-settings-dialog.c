@@ -807,8 +807,8 @@ xkb_settings_layout_dialog_run (void)
         gtk_tree_selection_get_selected (selection, &model, &iter);
         gtk_tree_model_get (model, &iter, AVAIL_LAYOUT_TREE_COL_ID, &id, -1);
 
-        path = gtk_tree_model_get_path (model, &iter);
-        if (gtk_tree_path_get_depth (path) == 1)
+        tree_path = gtk_tree_model_get_path (model, &iter);
+        if (gtk_tree_path_get_depth (tree_path) == 1)
         {
             strings[0] = id;
             strings[1] = "";
@@ -816,8 +816,8 @@ xkb_settings_layout_dialog_run (void)
         else
         {
             strings[1] = id;
-            gtk_tree_path_up(path);
-            gtk_tree_model_get_iter(model, &iter, path);
+            gtk_tree_path_up(tree_path);
+            gtk_tree_model_get_iter(model, &iter, tree_path);
             gtk_tree_model_get (model, &iter, AVAIL_LAYOUT_TREE_COL_ID, &id, -1);
             strings[0] = id;
         }
