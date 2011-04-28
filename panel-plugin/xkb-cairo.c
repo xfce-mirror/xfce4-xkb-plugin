@@ -4,7 +4,7 @@
  *
  * Parts of this program comes from the XfKC tool:
  * Copyright (C) 2006 Gauvain Pocentek <gauvainpocentek@gmail.com>
- * 
+ *
  * A part of this file comes from the gnome keyboard capplet (control-center):
  * Copyright (C) 2003 Sergey V. Oudaltsov <svu@users.sourceforge.net>
  *
@@ -37,7 +37,7 @@
 #define xkb_cairo_arc_for_label(cr, x, y, r, a1, a2) xx = x; \
     yy = y; \
     cairo_device_to_user (cr, &xx, &yy); \
-    cairo_arc (cr, xx, yy, r, a1, a2);  
+    cairo_arc (cr, xx, yy, r, a1, a2);
 
 #define xkb_cairo_move_to(cr, x, y) xx = x; \
     yy = y; \
@@ -87,12 +87,12 @@ xkb_cairo_draw_flag (cairo_t *cr,
     handle = rsvg_handle_new_from_file (filename, NULL);
     if (!handle)
     {
-        xkb_cairo_draw_label (cr, group_name, 
+        xkb_cairo_draw_label (cr, group_name,
                 panel_size,
                 actual_width, actual_height,
                 width, height,
                 variant_markers_count,
-                fgcolor); 
+                fgcolor);
         return;
     }
 
@@ -183,9 +183,9 @@ xkb_cairo_draw_label (cairo_t *cr,
         cairo_set_line_cap (cr, CAIRO_LINE_CAP_ROUND);
         cairo_set_line_width (cr, 1);
         radius = (panel_size < 32) ? 1.5 : 2.5;
-        xkb_cairo_arc_for_label (cr, 
-                layoutx + pango_width + 3 + (7 * i), 
-                layouty + pango_height - (pango_height / 5), 
+        xkb_cairo_arc_for_label (cr,
+                layoutx + pango_width + 3 + (7 * i),
+                layouty + pango_height - (pango_height / 5),
                 radius, 0, 2 * G_PI
         );
         cairo_fill (cr);
