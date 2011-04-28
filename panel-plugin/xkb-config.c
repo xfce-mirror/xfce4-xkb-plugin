@@ -4,7 +4,7 @@
  *
  * Parts of this program comes from the XfKC tool:
  * Copyright (C) 2006 Gauvain Pocentek <gauvainpocentek@gmail.com>
- * 
+ *
  * A part of this file comes from the gnome keyboard capplet (control-center):
  * Copyright (C) 2003 Sergey V. Oudaltsov <svu@users.sourceforge.net>
  *
@@ -68,7 +68,7 @@ t_xkb_config *config;
 
 void                xkb_config_state_changed            (XklEngine *engine,
                                                          XklEngineStateChange *change,
-                                                         gint group, 
+                                                         gint group,
                                                          gboolean restore);
 
 void                xkb_config_xkl_config_changed       (XklEngine *engine);
@@ -85,7 +85,7 @@ static void         xkb_config_initialize_xkb_options   (t_xkb_settings *setting
 gboolean
 xkb_config_initialize (t_xkb_settings *settings,
                XkbCallback callback,
-               gpointer callback_data) 
+               gpointer callback_data)
 {
     g_assert (settings != NULL);
 
@@ -111,9 +111,9 @@ xkb_config_initialize (t_xkb_settings *settings,
 
     xkl_engine_start_listen (config->engine, XKLL_TRACK_KEYBOARD_STATE);
 
-    g_signal_connect (config->engine, 
-            "X-state-changed", 
-            G_CALLBACK (xkb_config_state_changed), 
+    g_signal_connect (config->engine,
+            "X-state-changed",
+            G_CALLBACK (xkb_config_state_changed),
             NULL);
     g_signal_connect (config->engine,
             "X-config-changed",
@@ -143,15 +143,15 @@ xkb_config_initialize_xkb_options (t_xkb_settings *settings)
         group++;
         config->group_count++;
     }
-    
+
     xkb_config_free ();
-    
+
     config->window_map = g_hash_table_new (g_direct_hash, NULL);
     config->application_map = g_hash_table_new (g_direct_hash, NULL);
 
     registry = xkl_config_registry_get_instance (config->engine);
     xkl_config_registry_load (registry, FALSE);
-    
+
     config_item = xkl_config_item_new ();
 
     config->group_names = (gchar **) g_new0 (typeof (gchar **), config->group_count);
@@ -169,18 +169,18 @@ xkb_config_initialize_xkb_options (t_xkb_settings *settings)
         {
             g_stpcpy (config_item->name, config->config_rec->variants[i]);
         }
-        config->variants[i] = (config->config_rec->variants[i] == NULL) 
+        config->variants[i] = (config->config_rec->variants[i] == NULL)
             ? g_strdup ("") : g_strdup (config->config_rec->variants[i]);
 
         pval = g_hash_table_lookup (
-                index_variants, 
+                index_variants,
                 config->group_names[i]
         );
         val = (pval != NULL) ? GPOINTER_TO_INT (pval) : 0;
         val++;
         g_hash_table_insert (
-                config->variant_index_by_group, 
-                config->group_names[i], 
+                config->variant_index_by_group,
+                config->group_names[i],
                 GINT_TO_POINTER (val)
         );
         g_hash_table_insert (
@@ -322,7 +322,7 @@ xkb_config_update_settings (t_xkb_settings *settings)
         }
         opt++;
     }
-    
+
     if (activate_settings && !settings->never_modify_config)
         xkl_config_rec_activate (config->config_rec, config->engine);
 
@@ -463,7 +463,7 @@ xkb_config_get_variant (gint group)
 void
 xkb_config_state_changed (XklEngine *engine,
                           XklEngineStateChange *change,
-                          gint group, 
+                          gint group,
                           gboolean restore)
 {
     if (change == GROUP_CHANGED)
@@ -501,7 +501,7 @@ xkb_config_xkl_config_changed (XklEngine *engine)
     config->settings->kbd_config = NULL;
     xkb_config_update_settings (config->settings);
 
-    if (config->callback != NULL) 
+    if (config->callback != NULL)
         config->callback (xkb_config_get_current_group (), TRUE, config->callback_data);
 }
 
@@ -525,7 +525,7 @@ xkb_config_variant_index_for_group (gint group)
     if (presult == NULL) return 0;
 
     result = GPOINTER_TO_INT (presult);
-    result = (result <= 0) ? 0 : result - 1; 
+    result = (result <= 0) ? 0 : result - 1;
     return result;
 }
 
