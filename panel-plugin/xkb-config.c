@@ -135,7 +135,6 @@ xkb_config_initialize_xkb_options (t_xkb_settings *settings)
     gint val;
     gpointer pval;
 
-    XklState *state = xkl_engine_get_current_state (config->engine);
     group = config->config_rec->layouts;
     config->group_count = 0;
     while (*group)
