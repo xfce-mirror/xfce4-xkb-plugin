@@ -391,7 +391,7 @@ xkb_initialize_menu (t_xkb *xkb)
             g_object_unref (G_OBJECT (tmp));
             g_object_unref (G_OBJECT (pixbuf));
 
-            gtk_image_menu_item_set_image (menu_item, image);
+            gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (menu_item), image);
         }
 
         gtk_widget_show (menu_item);
