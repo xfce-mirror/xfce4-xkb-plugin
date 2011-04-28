@@ -135,8 +135,8 @@ xfce_xkb_free_data (XfcePanelPlugin *plugin, t_xkb *xkb)
 
 /* ----------------- xkb plugin stuff -----------------------*/
 
-void
-xkb_state_changed (gint current_group, gboolean config_changed, 
+static void
+xkb_state_changed (gint current_group, gboolean config_changed,
                    gpointer user_data)
 {
     t_xkb *xkb = (t_xkb*) user_data;
@@ -149,7 +149,7 @@ xkb_state_changed (gint current_group, gboolean config_changed,
     }
 }
 
-void
+static void
 xkb_plugin_set_group (GtkMenuItem *item,
               gpointer data)
 {
