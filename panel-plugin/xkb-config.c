@@ -298,9 +298,14 @@ xkb_config_update_settings (t_xkb_settings *settings)
     if (settings->kbd_config == NULL || settings->never_modify_config)
     {
         xkl_config_rec_get_from_server (config->config_rec, config->engine);
-        settings->kbd_config = g_new0 (t_xkb_kbd_config, 1);
+        if (settings->kbd_config == NULL)
+            settings->kbd_config = g_new0 (t_xkb_kbd_config, 1);
+
+        g_free (settings->kbd_config->model);
         settings->kbd_config->model = g_strdup (config->config_rec->model);
+        g_free (settings->kbd_config->layouts);
         settings->kbd_config->layouts = g_strjoinv (",", config->config_rec->layouts);
+        g_free (settings->kbd_config->variants);
         settings->kbd_config->variants = g_strjoinv (",", config->config_rec->variants);
     }
     else
