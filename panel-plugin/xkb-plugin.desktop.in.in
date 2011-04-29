@@ -2,6 +2,6 @@
 Type=X-XFCE-PanelPlugin
 _Name=Keyboard Layouts
 _Comment=Keyboard layouts setup and switch plugin
-Icon=gnome-dev-keyboard
+Icon=preferences-desktop-keyboard
 X-XFCE-Exec=@libexecdir@/xfce4/panel-plugins/xfce4-xkb-plugin
 X-XFCE-Unique=TRUE
