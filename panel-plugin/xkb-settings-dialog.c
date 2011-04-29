@@ -342,6 +342,7 @@ xkb_settings_edit_layout_btn_show (GtkTreeView *tree_view,
     gtk_tree_view_get_cursor (GTK_TREE_VIEW (tree_view), &p, &c);
     gtk_widget_set_sensitive (xkb->edit_layout_btn,
             (p != NULL && !xkb->settings->never_modify_config));
+    gtk_tree_path_free (p);
 }
 
 static void
