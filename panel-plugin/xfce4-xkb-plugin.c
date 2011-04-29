@@ -173,6 +173,7 @@ xkb_new (XfcePanelPlugin *plugin)
     {
         xkb_load_default (xkb);
     }
+    g_free (filename);
 
     xkb->btn = gtk_button_new ();
     gtk_button_set_relief (GTK_BUTTON (xkb->btn), GTK_RELIEF_NONE);
@@ -396,6 +397,8 @@ xkb_initialize_menu (t_xkb *xkb)
             g_object_unref (G_OBJECT (pixbuf));
 
             gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (menu_item), image);
+
+            g_object_unref (handle);
         }
 
         gtk_widget_show (menu_item);
