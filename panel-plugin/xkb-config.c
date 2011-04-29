@@ -147,6 +147,7 @@ xkb_config_initialize_xkb_options (t_xkb_settings *settings)
 
     registry = xkl_config_registry_get_instance (config->engine);
     xkl_config_registry_load (registry, FALSE);
+    g_object_unref (registry);
 
     config_item = xkl_config_item_new ();
 

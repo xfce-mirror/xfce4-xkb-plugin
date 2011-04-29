@@ -715,6 +715,8 @@ xfce_xkb_configure (XfcePanelPlugin *plugin,
 
     g_signal_connect (renderer2, "toggled", G_CALLBACK (xkb_settings_default_layout_toggled), xkb);
 
+    g_object_unref (registry);
+
     gtk_widget_show (settings_dialog);
 }
 
@@ -807,6 +809,7 @@ xkb_settings_layout_dialog_run (void)
 
     xkl_config_registry_foreach_layout (registry, (ConfigItemProcessFunc)
             xkb_settings_add_layout_to_available_layouts_tree, treestore);
+    g_object_unref (registry);
 
     renderer = gtk_cell_renderer_text_new ();
 
