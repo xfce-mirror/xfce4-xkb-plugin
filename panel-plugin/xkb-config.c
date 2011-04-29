@@ -125,12 +125,11 @@ xkb_config_initialize (t_xkb_settings *settings,
 static void
 xkb_config_initialize_xkb_options (t_xkb_settings *settings)
 {
-    gint i;
     XklConfigRegistry *registry;
     XklConfigItem *config_item;
     GHashTable *index_variants;
     gchar **group;
-    gint val;
+    gint val, i;
     gpointer pval;
 
     xkb_config_free ();
@@ -187,6 +186,7 @@ xkb_config_initialize_xkb_options (t_xkb_settings *settings)
         );
     }
     g_hash_table_destroy (index_variants);
+    g_object_unref (config_item);
 }
 
 void
