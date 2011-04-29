@@ -182,6 +182,9 @@ xkb_new (XfcePanelPlugin *plugin)
 
     gtk_widget_show (xkb->btn);
     g_signal_connect (xkb->btn, "clicked", G_CALLBACK (xkb_plugin_button_clicked), xkb);
+    g_signal_connect (xkb->btn, "scroll-event",
+                      G_CALLBACK (xkb_plugin_button_scrolled), NULL);
+
     g_object_set (G_OBJECT (xkb->btn), "has-tooltip", TRUE, NULL);
     g_signal_connect (xkb->btn, "query-tooltip",
             G_CALLBACK (xkb_plugin_set_tooltip), xkb);

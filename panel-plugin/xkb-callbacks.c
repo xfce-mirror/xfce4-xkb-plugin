@@ -154,6 +154,28 @@ xkb_plugin_button_clicked (GtkButton *btn,
     }
 }
 
+gboolean
+xkb_plugin_button_scrolled (GtkWidget *btn,
+                            GdkEventScroll *event,
+                            gpointer data)
+{
+    switch (event->direction)
+    {
+      case GDK_SCROLL_UP:
+      case GDK_SCROLL_RIGHT:
+          xkb_config_next_group ();
+          return TRUE;
+      case GDK_SCROLL_DOWN:
+      case GDK_SCROLL_LEFT:
+          xkb_config_prev_group ();
+          return TRUE;
+      default:
+        return FALSE;
+    }
+
+    return FALSE;
+}
+
 void
 xkb_plugin_popup_menu (GtkButton *btn,
                        gpointer data)

@@ -278,6 +278,15 @@ xkb_config_next_group (void)
 }
 
 gboolean
+xkb_config_prev_group (void)
+{
+    xkl_engine_lock_group (config->engine,
+            xkl_engine_get_prev_group (config->engine));
+
+    return TRUE;
+}
+
+gboolean
 xkb_config_update_settings (t_xkb_settings *settings)
 {
     gboolean activate_settings = FALSE;

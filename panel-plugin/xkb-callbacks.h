@@ -4,7 +4,7 @@
  *
  * Parts of this program comes from the XfKC tool:
  * Copyright (C) 2006 Gauvain Pocentek <gauvainpocentek@gmail.com>
- * 
+ *
  * A part of this file comes from the gnome keyboard capplet (control-center):
  * Copyright (C) 2003 Sergey V. Oudaltsov <svu@users.sourceforge.net>
  *
@@ -64,6 +64,10 @@ void            xkb_plugin_popup_menu           (GtkButton *btn,
                                  gpointer data);
 
 void            xkb_plugin_button_clicked       (GtkButton *btn,
+                                 gpointer data);
+
+gboolean        xkb_plugin_button_scrolled      (GtkWidget *btn,
+                                 GdkEventScroll *event,
                                  gpointer data);
 
 gboolean        xkb_plugin_set_tooltip          (GtkWidget *widget,

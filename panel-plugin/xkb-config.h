@@ -73,6 +73,7 @@ const gchar*      xkb_config_get_group_name               (gint group);
 const gchar*      xkb_config_get_variant                  (gint group);
 gboolean          xkb_config_set_group                    (gint group);
 gboolean          xkb_config_next_group                   (void);
+gboolean          xkb_config_prev_group                   (void);
 gint              xkb_config_variant_index_for_group      (gint group);
 
 void              xkb_config_window_changed               (guint new_window_id,
