@@ -194,6 +194,7 @@ xkb_settings_add_kbd_model_to_list (XklConfigRegistry * config_registry,
 static void
 xkb_settings_set_toggle_option_combo_default_value (t_xkb *xkb)
 {
+    GtkTreeModel *model;
     gchar *id;
 
     t_xkb_kbd_config *config = xkb->settings->kbd_config;
@@ -236,6 +237,7 @@ xkb_settings_set_toggle_option_combo_default_value (t_xkb *xkb)
 static void
 xkb_settings_set_compose_key_position_combo_default_value (t_xkb *xkb)
 {
+    GtkTreeModel *model;
     gchar *id;
 
     t_xkb_kbd_config *config = xkb->settings->kbd_config;
@@ -278,6 +280,7 @@ xkb_settings_set_compose_key_position_combo_default_value (t_xkb *xkb)
 static void
 xkb_settings_set_kbd_combo_default_value (t_xkb *xkb)
 {
+    GtkTreeModel *model;
     gchar *id;
     t_xkb_kbd_config *config = xkb->settings->kbd_config;
 
@@ -309,6 +312,7 @@ xkb_settings_set_kbd_combo_default_value (t_xkb *xkb)
 static gint
 xkb_settings_get_group_count (t_xkb *xkb)
 {
+    GtkTreeModel *model;
     gint count = 1;
 
     model = gtk_tree_view_get_model (GTK_TREE_VIEW (xkb->layout_tree_view));
@@ -343,8 +347,11 @@ xkb_settings_edit_layout_btn_show (GtkTreeView *tree_view,
 static void
 xkb_settings_edit_layout (GtkWidget *widget, t_xkb *xkb)
 {
+    GtkTreeModel *model;
     gchar *c;
     gboolean is_default;
+
+    model = gtk_tree_view_get_model (GTK_TREE_VIEW (xkb->layout_tree_view));
 
     c = xkb_settings_layout_dialog_run ();
     if (c != NULL)
@@ -395,8 +402,10 @@ xkb_settings_add_layout (GtkWidget *widget, t_xkb *xkb)
 static void
 xkb_settings_rm_layout (GtkWidget *widget, t_xkb *xkb)
 {
+    GtkTreeModel *model;
     gboolean is_default;
 
+    model = gtk_tree_view_get_model (GTK_TREE_VIEW (xkb->layout_tree_view));
     selection = gtk_tree_view_get_selection (
                     GTK_TREE_VIEW (xkb->layout_tree_view));
     if (gtk_tree_selection_get_selected (selection, &model, &iter))
@@ -424,6 +433,7 @@ xkb_settings_default_layout_toggled (GtkCellRendererToggle *renderer,
 {
     /* warning, super dumb code - set all layout toggle values to
        false, then set the toggled one to true */
+    GtkTreeModel *model;
 
     model = gtk_tree_view_get_model (GTK_TREE_VIEW (xkb->layout_tree_view));
     gtk_tree_model_get_iter_first (model, &iter);
@@ -812,11 +822,13 @@ xkb_settings_layout_dialog_run (void)
 
     if (response == GTK_RESPONSE_OK)
     {
+        GtkTreeModel *model;
         GtkTreePath *tree_path;
         gchar *id;
         gchar *result;
 
         selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (tree_view));
+        model = gtk_tree_view_get_model (GTK_TREE_VIEW (tree_view));
 
         if (!gtk_tree_selection_get_selected (selection, &model, &iter))
             return NULL;
@@ -862,6 +874,7 @@ xkb_settings_layout_dialog_run (void)
 static void
 xkb_settings_update_from_ui (t_xkb *xkb)
 {
+    GtkTreeModel *model;
     gchar *layouts, *variants, *kbdmodel, *toggle_option,
           *compose_key_position;
     t_xkb_kbd_config *kbd_config = xkb->settings->kbd_config;

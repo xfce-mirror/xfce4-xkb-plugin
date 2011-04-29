@@ -81,7 +81,6 @@ typedef struct
 } t_xkb;
 
 GtkTreeIter iter, child;
-GtkTreeModel *model;
 GtkTreeSelection *selection;
 
 /*
