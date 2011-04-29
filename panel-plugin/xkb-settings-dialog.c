@@ -493,7 +493,6 @@ xfce_xkb_configure (XfcePanelPlugin *plugin,
     GtkWidget *display_type_optmenu, *group_policy_combo;
     GtkWidget *vbox, *display_type_frame, *group_policy_frame, *bin;
 
-
     GtkCellRenderer *renderer, *renderer2;
     GtkWidget *vbox1, *vbox2, *hbox, *frame;
     XklConfigRegistry *registry;
