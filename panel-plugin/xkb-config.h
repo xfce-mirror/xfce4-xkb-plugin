@@ -62,28 +62,28 @@ typedef void        (*XkbCallback)                  (gint current_group,
                                                      gboolean groups_changed,
                                                      gpointer user_data);
 
-gboolean    xkb_config_initialize                   (t_xkb_settings *settings,
-                                                     XkbCallback callback,
-                                                     gpointer data);
-void        xkb_config_finalize                     (void);
-void        kbd_config_free                         (t_xkb_kbd_config *kbd_config);
-gboolean    xkb_config_update_settings              (t_xkb_settings *settings);
-gint        xkb_config_get_group_count              (void);
-gchar*      xkb_config_get_group_name               (gint group);
-gchar*      xkb_config_get_variant                  (gint group);
-gboolean    xkb_config_set_group                    (gint group);
-gboolean    xkb_config_next_group                   (void);
-gint        xkb_config_variant_index_for_group      (gint group);
+gboolean          xkb_config_initialize                   (t_xkb_settings *settings,
+                                                           XkbCallback callback,
+                                                           gpointer data);
+void              xkb_config_finalize                     (void);
+void              kbd_config_free                         (t_xkb_kbd_config *kbd_config);
+gboolean          xkb_config_update_settings              (t_xkb_settings *settings);
+gint              xkb_config_get_group_count              (void);
+const gchar*      xkb_config_get_group_name               (gint group);
+const gchar*      xkb_config_get_variant                  (gint group);
+gboolean          xkb_config_set_group                    (gint group);
+gboolean          xkb_config_next_group                   (void);
+gint              xkb_config_variant_index_for_group      (gint group);
 
-void        xkb_config_window_changed               (guint new_window_id,
-                                                     guint application_id);
-void        xkb_config_application_closed           (guint application_id);
-void        xkb_config_window_closed                (guint window_id);
+void              xkb_config_window_changed               (guint new_window_id,
+                                                           guint application_id);
+void              xkb_config_application_closed           (guint application_id);
+void              xkb_config_window_closed                (guint window_id);
 
 /* TODO: remove this function - xkl structures should not be used outside xkb-config */
 XklConfigRegistry*
-            xkb_config_get_xkl_registry             (void);
-gint        xkb_config_get_max_layout_number        (void);
+                  xkb_config_get_xkl_registry             (void);
+gint              xkb_config_get_max_layout_number        (void);
 
 #ifdef DEBUG
 

@@ -4,7 +4,7 @@
  *
  * Parts of this program comes from the XfKC tool:
  * Copyright (C) 2006 Gauvain Pocentek <gauvainpocentek@gmail.com>
- * 
+ *
  * A part of this file comes from the gnome keyboard capplet (control-center):
  * Copyright (C) 2003 Sergey V. Oudaltsov <svu@users.sourceforge.net>
  *
@@ -30,11 +30,11 @@
 #include <gdk/gdk.h>
 #include <gtk/gtk.h>
 
-gchar*      xkb_util_get_flag_filename      (gchar* group_name);
+gchar*      xkb_util_get_flag_filename      (const gchar* group_name);
 
-gchar*      xkb_util_get_layout_string      (gchar* group_name,
-                                             gchar* variant);
-gchar*      xkb_util_normalize_group_name   (gchar* group_name);
+gchar*      xkb_util_get_layout_string      (const gchar* group_name,
+                                             const gchar* variant);
+gchar*      xkb_util_normalize_group_name   (const gchar* group_name);
 
 #endif
 

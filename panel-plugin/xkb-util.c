@@ -31,7 +31,7 @@
 #include "xkb-config.h" // TODO : REMOVE THIS
 
 gchar*
-xkb_util_get_flag_filename (gchar* group_name)
+xkb_util_get_flag_filename (const gchar* group_name)
 {
     gchar* filename;
 
@@ -44,7 +44,7 @@ xkb_util_get_flag_filename (gchar* group_name)
 }
 
 gchar*
-xkb_util_get_layout_string (gchar *group_name, gchar *variant)
+xkb_util_get_layout_string (const gchar *group_name, const gchar *variant)
 {
     gchar *layout;
 
@@ -64,9 +64,9 @@ xkb_util_get_layout_string (gchar *group_name, gchar *variant)
 }
 
 gchar*
-xkb_util_normalize_group_name (gchar* group_name)
+xkb_util_normalize_group_name (const gchar* group_name)
 {
-    gchar *c = group_name;
+    gchar *c = g_strdup (group_name);
     gchar *result;
     gint cut_length;
     gint index_of_na = -1;
@@ -96,6 +96,8 @@ xkb_util_normalize_group_name (gchar* group_name)
     cut_length = (index_of_na != -1 && index_of_na <= 3) ? index_of_na : 3;
 
     result = g_strndup (group_name, cut_length);
+
+    g_free (c);
 
     return result;
 }

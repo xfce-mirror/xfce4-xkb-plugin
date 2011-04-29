@@ -64,7 +64,7 @@ gint font_sizes[113] = {
 
 void
 xkb_cairo_draw_flag (cairo_t *cr,
-                     gchar *group_name,
+                     const gchar *group_name,
                      gint panel_size,
                      gint actual_width,
                      gint actual_height,
@@ -143,7 +143,7 @@ xkb_cairo_draw_flag (cairo_t *cr,
 
 void
 xkb_cairo_draw_label (cairo_t *cr,
-                      gchar *group_name,
+                      const gchar *group_name,
                       gint panel_size,
                       gint actual_width,
                       gint actual_height,

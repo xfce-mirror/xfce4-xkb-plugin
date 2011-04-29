@@ -99,7 +99,7 @@ xkb_plugin_layout_image_exposed (GtkWidget *widget,
                                  GdkEventExpose *event,
                                  t_xkb *xkb)
 {
-    gchar *group_name;
+    const gchar *group_name;
     cairo_t *cr;
     GtkStyle *style;
     GdkColor fgcolor;
@@ -116,8 +116,6 @@ xkb_plugin_layout_image_exposed (GtkWidget *widget,
 
     if (xkb->display_type == DISPLAY_TYPE_IMAGE)
     {
-        group_name = xkb_config_get_group_name (-1);
-
         xkb_cairo_draw_flag (cr, group_name,
                 xfce_panel_plugin_get_size (xkb->plugin),
                 actual_hsize, actual_vsize,
@@ -171,7 +169,7 @@ xkb_plugin_tooltip_image_exposed (GtkWidget *widget,
                                   GdkEventExpose *event,
                                   t_xkb *xkb)
 {
-    gchar *group_name;
+    const gchar *group_name;
     cairo_t *cr;
     /*GtkStyle *style;*/
     /*GdkColor fgcolor;*/

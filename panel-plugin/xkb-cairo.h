@@ -4,7 +4,7 @@
  *
  * Parts of this program comes from the XfKC tool:
  * Copyright (C) 2006 Gauvain Pocentek <gauvainpocentek@gmail.com>
- * 
+ *
  * A part of this file comes from the gnome keyboard capplet (control-center):
  * Copyright (C) 2003 Sergey V. Oudaltsov <svu@users.sourceforge.net>
  *
@@ -35,7 +35,7 @@
 #include <pango/pangocairo.h>
 
 void        xkb_cairo_draw_flag     (cairo_t *cr,
-                                     gchar *flag_name,
+                                     const gchar *flag_name,
                                      gint panel_size,
                                      gint actual_width,
                                      gint actual_height,
@@ -45,7 +45,7 @@ void        xkb_cairo_draw_flag     (cairo_t *cr,
                                      GdkColor fgcolor);
 
 void        xkb_cairo_draw_label    (cairo_t *cr,
-                                     gchar *group_name,
+                                     const gchar *group_name,
                                      gint panel_size,
                                      gint actual_width,
                                      gint actual_height,

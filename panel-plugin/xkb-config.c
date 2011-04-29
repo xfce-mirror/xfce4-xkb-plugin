@@ -465,7 +465,7 @@ xkb_config_get_group_count (void)
     return config->group_count;
 }
 
-gchar*
+const gchar*
 xkb_config_get_group_name (gint group)
 {
     g_assert (config != NULL);
@@ -479,7 +479,7 @@ xkb_config_get_group_name (gint group)
     return config->group_names[group];
 }
 
-gchar*
+const gchar*
 xkb_config_get_variant (gint group)
 {
     g_assert (config != NULL);
