@@ -812,6 +812,7 @@ xkb_settings_layout_dialog_run (void)
 
     if (response == GTK_RESPONSE_OK)
     {
+        GtkTreePath *tree_path;
         gchar *id;
         gchar *result;
 
@@ -821,7 +822,6 @@ xkb_settings_layout_dialog_run (void)
             return NULL;
         gtk_tree_model_get (model, &iter, AVAIL_LAYOUT_TREE_COL_ID, &id, -1);
 
-        /* TODO: tree_path must be leaked here... */
         tree_path = gtk_tree_model_get_path (model, &iter);
         if (gtk_tree_path_get_depth (tree_path) == 1)
             result = g_strconcat(id, ",", NULL);
@@ -832,12 +832,14 @@ xkb_settings_layout_dialog_run (void)
             if (!gtk_tree_path_up(tree_path))
             {
                 g_free (id);
+                gtk_tree_path_free (tree_path);
                 return NULL;
             }
 
             if (!gtk_tree_model_get_iter(model, &iter, tree_path))
             {
                 g_free (id);
+                gtk_tree_path_free (tree_path);
                 return NULL;
             }
 
@@ -848,6 +850,7 @@ xkb_settings_layout_dialog_run (void)
 
         gtk_widget_destroy (dialog);
         g_free (id);
+        gtk_tree_path_free (tree_path);
 
         return result;
     }
