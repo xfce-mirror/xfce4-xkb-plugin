@@ -238,11 +238,12 @@ xkb_config_finalize (void)
 {
     xkb_config_free ();
 
+    xkl_engine_stop_listen (config->engine, XKLL_TRACK_KEYBOARD_STATE);
+    g_object_unref (config->config_rec);
+
     g_free (config);
 
     gdk_window_remove_filter (NULL, (GdkFilterFunc) handle_xevent, NULL);
-
-    xkl_engine_stop_listen (config->engine, XKLL_TRACK_KEYBOARD_STATE);
 }
 
 static gint
