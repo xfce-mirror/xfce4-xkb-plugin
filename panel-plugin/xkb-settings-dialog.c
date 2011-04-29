@@ -852,7 +852,10 @@ xkb_settings_layout_dialog_run (void)
         model = gtk_tree_view_get_model (GTK_TREE_VIEW (tree_view));
 
         if (!gtk_tree_selection_get_selected (selection, &model, &iter))
+        {
+            gtk_widget_destroy (dialog);
             return NULL;
+        }
         gtk_tree_model_get (model, &iter, AVAIL_LAYOUT_TREE_COL_ID, &id, -1);
 
         tree_path = gtk_tree_model_get_path (model, &iter);
@@ -866,6 +869,7 @@ xkb_settings_layout_dialog_run (void)
             {
                 g_free (id);
                 gtk_tree_path_free (tree_path);
+                gtk_widget_destroy (dialog);
                 return NULL;
             }
 
@@ -873,6 +877,7 @@ xkb_settings_layout_dialog_run (void)
             {
                 g_free (id);
                 gtk_tree_path_free (tree_path);
+                gtk_widget_destroy (dialog);
                 return NULL;
             }
 
