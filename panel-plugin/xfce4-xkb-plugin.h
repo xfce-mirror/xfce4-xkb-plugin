@@ -81,7 +81,6 @@ typedef struct
 } t_xkb;
 
 GtkTreeIter iter, child;
-GtkTreeSelection *selection;
 
 /*
  * NOTE: The t_xkb->button_size field is due to xfce panel 4.4.1

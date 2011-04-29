@@ -356,6 +356,7 @@ xkb_settings_edit_layout (GtkWidget *widget, t_xkb *xkb)
     c = xkb_settings_layout_dialog_run ();
     if (c != NULL)
     {
+        GtkTreeSelection *selection;
         gchar **strings;
 
         selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (xkb->layout_tree_view));
@@ -402,6 +403,7 @@ xkb_settings_add_layout (GtkWidget *widget, t_xkb *xkb)
 static void
 xkb_settings_rm_layout (GtkWidget *widget, t_xkb *xkb)
 {
+    GtkTreeSelection *selection;
     GtkTreeModel *model;
     gboolean is_default;
 
@@ -822,6 +824,7 @@ xkb_settings_layout_dialog_run (void)
 
     if (response == GTK_RESPONSE_OK)
     {
+        GtkTreeSelection *selection;
         GtkTreeModel *model;
         GtkTreePath *tree_path;
         gchar *id;
