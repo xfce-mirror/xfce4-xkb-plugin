@@ -737,6 +737,7 @@ xkb_settings_add_variant_to_available_layouts_tree (XklConfigRegistry * config_r
                                                     XklConfigItem * config_item,
                                                     GtkTreeStore *treestore)
 {
+  GtkTreeIter child;
   char *utf_variant_name = xci_desc_to_utf8 (config_item);
 
   gtk_tree_store_append (treestore, &child, &iter);
