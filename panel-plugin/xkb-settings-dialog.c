@@ -39,6 +39,7 @@
 #include "xkb-settings-dialog.h"
 #include "xkb-util.h"
 
+GtkTreeIter current_iter;
 GtkWidget *settings_dialog;
 GtkWidget *default_layout_menu;
 
@@ -106,6 +107,7 @@ xci_desc_to_utf8 (XklConfigItem * ci)
 static void
 xkb_settings_fill_layout_tree_model_with_config (t_xkb *xkb)
 {
+    GtkTreeIter iter;
     gint layout_nb = 0;
 
     t_xkb_kbd_config *config = xkb->settings->kbd_config;
@@ -133,6 +135,7 @@ xkb_settings_add_toggle_options_to_list (XklConfigRegistry * config_registry,
                                          XklConfigItem * config_item,
                                          t_xkb *xkb)
 {
+    GtkTreeIter iter;
     char *utf_option_name;
 
     /* add a possibility to set no toggle layout combination */
@@ -158,6 +161,7 @@ xkb_settings_add_compose_key_position_options_to_list (XklConfigRegistry * confi
                                                      XklConfigItem * config_item,
                                                      t_xkb *xkb)
 {
+    GtkTreeIter iter;
     char *utf_option_name;
 
     /* add a possibility to set no position for the compose key */
@@ -183,6 +187,7 @@ xkb_settings_add_kbd_model_to_list (XklConfigRegistry * config_registry,
                                     XklConfigItem * config_item,
                                     t_xkb *xkb)
 {
+    GtkTreeIter iter;
     char *utf_model_name = xci_desc_to_utf8 (config_item);
     gtk_list_store_append (xkb->combo_store, &iter);
     gtk_list_store_set (xkb->combo_store, &iter,
@@ -195,6 +200,7 @@ static void
 xkb_settings_set_toggle_option_combo_default_value (t_xkb *xkb)
 {
     GtkTreeModel *model;
+    GtkTreeIter iter;
     gchar *id;
 
     t_xkb_kbd_config *config = xkb->settings->kbd_config;
@@ -238,6 +244,7 @@ static void
 xkb_settings_set_compose_key_position_combo_default_value (t_xkb *xkb)
 {
     GtkTreeModel *model;
+    GtkTreeIter iter;
     gchar *id;
 
     t_xkb_kbd_config *config = xkb->settings->kbd_config;
@@ -281,6 +288,7 @@ static void
 xkb_settings_set_kbd_combo_default_value (t_xkb *xkb)
 {
     GtkTreeModel *model;
+    GtkTreeIter iter;
     gchar *id;
     t_xkb_kbd_config *config = xkb->settings->kbd_config;
 
@@ -313,6 +321,7 @@ static gint
 xkb_settings_get_group_count (t_xkb *xkb)
 {
     GtkTreeModel *model;
+    GtkTreeIter iter;
     gint count = 1;
 
     model = gtk_tree_view_get_model (GTK_TREE_VIEW (xkb->layout_tree_view));
@@ -358,6 +367,7 @@ xkb_settings_edit_layout (GtkWidget *widget, t_xkb *xkb)
     if (c != NULL)
     {
         GtkTreeSelection *selection;
+        GtkTreeIter iter;
         gchar **strings;
 
         selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (xkb->layout_tree_view));
@@ -375,7 +385,6 @@ xkb_settings_edit_layout (GtkWidget *widget, t_xkb *xkb)
     }
     g_free(c);
     xkb_settings_edit_layout_btn_show (GTK_TREE_VIEW (xkb->layout_tree_view), xkb);
-
 }
 
 static void
@@ -385,7 +394,9 @@ xkb_settings_add_layout (GtkWidget *widget, t_xkb *xkb)
     c = xkb_settings_layout_dialog_run();
     if (c != NULL)
     {
+        GtkTreeIter iter;
         gchar **strings;
+
         strings = g_strsplit_set(c, ",", 0);
         gtk_list_store_append (xkb->layout_store, &iter);
         gtk_list_store_set (xkb->layout_store, &iter,
@@ -406,6 +417,7 @@ xkb_settings_rm_layout (GtkWidget *widget, t_xkb *xkb)
 {
     GtkTreeSelection *selection;
     GtkTreeModel *model;
+    GtkTreeIter iter;
     gboolean is_default;
 
     model = gtk_tree_view_get_model (GTK_TREE_VIEW (xkb->layout_tree_view));
@@ -437,6 +449,7 @@ xkb_settings_default_layout_toggled (GtkCellRendererToggle *renderer,
     /* warning, super dumb code - set all layout toggle values to
        false, then set the toggled one to true */
     GtkTreeModel *model;
+    GtkTreeIter iter;
 
     model = gtk_tree_view_get_model (GTK_TREE_VIEW (xkb->layout_tree_view));
     gtk_tree_model_get_iter_first (model, &iter);
@@ -740,7 +753,7 @@ xkb_settings_add_variant_to_available_layouts_tree (XklConfigRegistry * config_r
   GtkTreeIter child;
   char *utf_variant_name = xci_desc_to_utf8 (config_item);
 
-  gtk_tree_store_append (treestore, &child, &iter);
+  gtk_tree_store_append (treestore, &child, &current_iter);
   gtk_tree_store_set (treestore, &child,
               AVAIL_LAYOUT_TREE_COL_DESCRIPTION, utf_variant_name,
               AVAIL_LAYOUT_TREE_COL_ID, config_item->name, -1);
@@ -754,8 +767,8 @@ xkb_settings_add_layout_to_available_layouts_tree (XklConfigRegistry * config_re
 {
   char *utf_layout_name = xci_desc_to_utf8 (config_item);
 
-  gtk_tree_store_append (treestore, &iter, NULL);
-  gtk_tree_store_set (treestore, &iter,
+  gtk_tree_store_append (treestore, &current_iter, NULL);
+  gtk_tree_store_set (treestore, &current_iter,
               AVAIL_LAYOUT_TREE_COL_DESCRIPTION, utf_layout_name,
               AVAIL_LAYOUT_TREE_COL_ID, config_item->name, -1);
   g_free (utf_layout_name);
@@ -829,6 +842,7 @@ xkb_settings_layout_dialog_run (void)
         GtkTreeSelection *selection;
         GtkTreeModel *model;
         GtkTreePath *tree_path;
+        GtkTreeIter iter;
         gchar *id;
         gchar *result;
 
@@ -883,6 +897,7 @@ xkb_settings_update_from_ui (t_xkb *xkb)
     gchar *layouts, *variants, *kbdmodel, *toggle_option,
           *compose_key_position;
     t_xkb_kbd_config *kbd_config = xkb->settings->kbd_config;
+    GtkTreeIter iter;
     gboolean is_default;
     gint i = 0;
 

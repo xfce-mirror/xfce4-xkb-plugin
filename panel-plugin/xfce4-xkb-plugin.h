@@ -80,8 +80,6 @@ typedef struct
     GtkWidget *edit_layout_btn;
 } t_xkb;
 
-GtkTreeIter iter;
-
 /*
  * NOTE: The t_xkb->button_size field is due to xfce panel 4.4.1
  * prior versions, allowing a plugin to resize the whole panel.
