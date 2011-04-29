@@ -325,7 +325,8 @@ xkb_settings_get_group_count (t_xkb *xkb)
     gint count = 1;
 
     model = gtk_tree_view_get_model (GTK_TREE_VIEW (xkb->layout_tree_view));
-    gtk_tree_model_get_iter_first (GTK_TREE_MODEL (model), &iter);
+    if (!gtk_tree_model_get_iter_first (GTK_TREE_MODEL (model), &iter))
+        return 0;
     while (gtk_tree_model_iter_next (GTK_TREE_MODEL (model), &iter))
         count++;
     return count;
@@ -452,18 +453,20 @@ xkb_settings_default_layout_toggled (GtkCellRendererToggle *renderer,
     GtkTreeIter iter;
 
     model = gtk_tree_view_get_model (GTK_TREE_VIEW (xkb->layout_tree_view));
-    gtk_tree_model_get_iter_first (model, &iter);
-    do
+    if (gtk_tree_model_get_iter_first (model, &iter))
     {
-        gtk_list_store_set (GTK_LIST_STORE (model), &iter, DEFAULT_LAYOUT, FALSE, -1);
-    } while (gtk_tree_model_iter_next (model, &iter));
+        do
+        {
+            gtk_list_store_set (GTK_LIST_STORE (model), &iter, DEFAULT_LAYOUT, FALSE, -1);
+        } while (gtk_tree_model_iter_next (model, &iter));
 
 
-    if (gtk_tree_model_get_iter_from_string (model, &iter, path))
-    {
-        gtk_list_store_set (GTK_LIST_STORE (model), &iter, DEFAULT_LAYOUT, TRUE, -1);
+        if (gtk_tree_model_get_iter_from_string (model, &iter, path))
+        {
+            gtk_list_store_set (GTK_LIST_STORE (model), &iter, DEFAULT_LAYOUT, TRUE, -1);
+        }
+        xkb_settings_update_from_ui (xkb);
     }
-    xkb_settings_update_from_ui (xkb);
 }
 
 static gboolean
