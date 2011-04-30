@@ -340,7 +340,7 @@ xkb_config_update_settings (t_xkb_settings *settings)
         if (settings->kbd_config->compose_key_position
                 && strlen (settings->kbd_config->compose_key_position) > 0)
         {
-            gchar *tmp = g_strdup (options);
+            gchar *tmp = options;
             options = g_strconcat (tmp, ",", settings->kbd_config->compose_key_position, NULL);
             g_free (tmp);
         }
