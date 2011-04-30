@@ -366,6 +366,9 @@ xkb_initialize_menu (t_xkb *xkb)
 
     if (G_UNLIKELY (xkb == NULL)) return;
 
+    if (xkb->popup)
+        gtk_widget_destroy (xkb->popup);
+
     xkb->popup = gtk_menu_new ();
     for (i = 0; i < xkb_config_get_group_count (); i++)
     {
