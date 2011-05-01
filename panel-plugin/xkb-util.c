@@ -66,7 +66,7 @@ xkb_util_get_layout_string (const gchar *group_name, const gchar *variant)
 gchar*
 xkb_util_normalize_group_name (const gchar* group_name)
 {
-    gchar *c = g_strdup (group_name);
+    gchar *c;
     gchar *result;
     gint cut_length;
     gint index_of_na = -1;
@@ -76,9 +76,9 @@ xkb_util_normalize_group_name (const gchar* group_name)
         return NULL;
 
     if (strlen (group_name) <= 3)
-    {
         return g_strdup (group_name);
-    }
+
+    c = g_strdup (group_name);
 
     while (*c)
     {
