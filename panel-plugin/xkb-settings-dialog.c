@@ -969,8 +969,7 @@ xkb_settings_update_from_ui (t_xkb *xkb)
 
             tmp = g_strconcat(kbd_config->layouts, ",", layouts, NULL);
             g_free (kbd_config->layouts);
-            kbd_config->layouts = g_strdup (tmp);
-            g_free (tmp);
+            kbd_config->layouts = tmp;
             g_free (layouts);
 
             if (variants != NULL)
@@ -979,8 +978,7 @@ xkb_settings_update_from_ui (t_xkb *xkb)
                 tmp = g_strconcat(kbd_config->variants, ",", NULL);
 
             g_free (kbd_config->variants);
-            kbd_config->variants = g_strdup (tmp);
-            g_free (tmp);
+            kbd_config->variants = tmp;
             g_free (variants);
         }
     }
