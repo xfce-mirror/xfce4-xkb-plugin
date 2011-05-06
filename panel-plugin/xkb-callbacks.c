@@ -186,33 +186,6 @@ xkb_plugin_popup_menu (GtkButton *btn,
             gtk_get_current_event_time ());
 }
 
-static gboolean
-xkb_plugin_tooltip_image_exposed (GtkWidget *widget,
-                                  GdkEventExpose *event,
-                                  t_xkb *xkb)
-{
-    const gchar *group_name;
-    cairo_t *cr;
-    /*GtkStyle *style;*/
-    /*GdkColor fgcolor;*/
-
-    cr = gdk_cairo_create ((GTK_WIDGET (widget))->window);
-
-    group_name = xkb_config_get_group_name (-1);
-
-    /* xkb_cairo_draw_flag (cr, group_name,
-            xfce_panel_plugin_get_size (xkb->plugin),
-            20, 15,
-            20, 15,
-            xkb_config_variant_index_for_group (-1)
-    ); */
-
-    cairo_destroy (cr);
-
-    return FALSE;
-
-}
-
 gboolean
 xkb_plugin_set_tooltip (GtkWidget *widget,
                         gint x,
@@ -221,28 +194,33 @@ xkb_plugin_set_tooltip (GtkWidget *widget,
                         GtkTooltip *tooltip,
                         t_xkb *xkb)
 {
-    GtkWidget *image, *label, *hbox;
-    gchar *text;
+    RsvgHandle *handle;
+    GdkPixbuf  *pixbuf, *tmp;
+    gchar      *imgfilename;
+    gchar      *text;
 
-    hbox = gtk_hbox_new (FALSE, 2);
-    gtk_widget_show (hbox);
+    imgfilename = xkb_util_get_flag_filename (xkb_config_get_group_name (-1));
+    handle = rsvg_handle_new_from_file (imgfilename, NULL);
+    g_free (imgfilename);
 
-    image = gtk_image_new ();
-    gtk_container_add (GTK_CONTAINER (hbox), image);
-    g_signal_connect (G_OBJECT (image), "expose-event",
-            G_CALLBACK (xkb_plugin_tooltip_image_exposed), xkb);
-    gtk_widget_show (image);
+    if (handle)
+    {
+        tmp = rsvg_handle_get_pixbuf (handle);
+        pixbuf = gdk_pixbuf_scale_simple (tmp, 24, 24, GDK_INTERP_BILINEAR);
+        gtk_tooltip_set_icon (tooltip, pixbuf);
 
-    text = xkb_util_get_layout_string (
-            xkb_config_get_group_name (-1),
-            xkb_config_get_variant (-1)
-    );
-    label = gtk_label_new (text);
+        g_object_unref (pixbuf);
+        g_object_unref (tmp);
+        g_object_unref (handle);
+    }
+    else
+        gtk_tooltip_set_icon (tooltip, NULL);
+
+    text = xkb_util_get_layout_string (xkb_config_get_group_name (-1),
+                                       xkb_config_get_variant (-1));
+
+    gtk_tooltip_set_text (tooltip, text);
     g_free (text);
-    gtk_container_add (GTK_CONTAINER (hbox), label);
-    gtk_widget_show (label);
-
-    gtk_tooltip_set_custom (tooltip, GTK_WIDGET (hbox));
 
     return TRUE;
 }
