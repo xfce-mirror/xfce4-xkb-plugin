@@ -248,9 +248,8 @@ xfce_xkb_save_config (XfcePanelPlugin *plugin, t_xkb *xkb)
 
     filename = xfce_panel_plugin_save_location (plugin, TRUE);
     if (!filename)
-    {
         return;
-    }
+
 
     rcfile = xfce_rc_simple_open (filename, FALSE);
     if (!rcfile)
