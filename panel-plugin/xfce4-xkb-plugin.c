@@ -254,6 +254,7 @@ xfce_xkb_save_config (XfcePanelPlugin *plugin, t_xkb *xkb)
     rcfile = xfce_rc_simple_open (filename, FALSE);
     if (!rcfile)
     {
+        g_free (filename);
         return;
     }
 
