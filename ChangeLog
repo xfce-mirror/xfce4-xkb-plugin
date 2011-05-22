@@ -1,3 +1,11 @@
+2011-05-23 00:34  winterheart
+	* New version 0.5.4.1
+	* New translation strings (#7516, Jérôme Guelfucci)
+	* Code cleanup (Jérôme Guelfucci)
+	* Fixing memory leaks (#7363, Jérôme Guelfucci)
+	* Scrolling the plugin button cycle through layouts (#6533, Jérôme
+	Guelfucci)
+
 2011-04-18 00:59  winterheart
 
 	* panel-plugin/xkb-settings-dialog.c: Remove unnedeed g_strdup as 
