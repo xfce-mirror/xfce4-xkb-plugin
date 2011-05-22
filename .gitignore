@@ -2,3 +2,6 @@ Makefile
 po/*.gmo
 .deps
 *.o
+*.tar.*
+config.*
+configure*
