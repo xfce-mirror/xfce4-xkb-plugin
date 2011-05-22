@@ -8,15 +8,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-xkb-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-10-14 18:31-0400\n"
+"POT-Creation-Date: 2011-05-23 00:56+0600\n"
 "PO-Revision-Date: 2008-10-14 18:35-0500\n"
 "Last-Translator: Og Maciel <ogmaciel@gnome.org>\n"
 "Language-Team: Brazilian Portuguese <ldp-br@bazar2.conectiva.com.br>\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/xkb-settings-dialog.c:361
+#: ../panel-plugin/xkb-settings-dialog.c:482
 msgid ""
 "XKB configuration modifications are\n"
 "disabled from the config file.\n"
@@ -28,65 +29,85 @@ msgstr ""
 "\n"
 "Veja o arquivo README para mais informação."
 
-#: ../panel-plugin/xkb-settings-dialog.c:387
+#: ../panel-plugin/xkb-settings-dialog.c:507
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
 msgid "Keyboard Layouts"
 msgstr "Disposições de teclado"
 
-#: ../panel-plugin/xkb-settings-dialog.c:408
+#: ../panel-plugin/xkb-settings-dialog.c:529
 msgid "Keyboard model:"
 msgstr "Modelo do teclado:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:432
+#. toggle layout option
+#: ../panel-plugin/xkb-settings-dialog.c:554
 msgid "Change layout option:"
 msgstr "Alterar opção de disposição:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:456
+#. compose key position option
+#: ../panel-plugin/xkb-settings-dialog.c:580
+msgid "Compose key position:"
+msgstr ""
+
+#. the actual layouts
+#: ../panel-plugin/xkb-settings-dialog.c:607
 msgid "Keyboard layouts:"
 msgstr "Disposições de teclado:"
 
+#: ../panel-plugin/xkb-settings-dialog.c:620
+msgid "Default"
+msgstr ""
+
+#: ../panel-plugin/xkb-settings-dialog.c:627
+#, fuzzy
+msgid "Layout"
+msgstr "Adicionar disposição"
+
+#: ../panel-plugin/xkb-settings-dialog.c:635
+msgid "Variant"
+msgstr ""
+
 #. ***
-#: ../panel-plugin/xkb-settings-dialog.c:528
+#: ../panel-plugin/xkb-settings-dialog.c:679
 msgid "Show layout as:"
 msgstr "Mostrar disposição como:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:533
+#: ../panel-plugin/xkb-settings-dialog.c:684
 msgid "image"
 msgstr "imagem"
 
-#: ../panel-plugin/xkb-settings-dialog.c:534
+#: ../panel-plugin/xkb-settings-dialog.c:685
 msgid "text"
 msgstr "texto"
 
-#: ../panel-plugin/xkb-settings-dialog.c:538
+#: ../panel-plugin/xkb-settings-dialog.c:689
 msgid "Manage layout:"
 msgstr "Gerenciar disposição:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:543
+#: ../panel-plugin/xkb-settings-dialog.c:694
 msgid "globally"
 msgstr "globalmente"
 
-#: ../panel-plugin/xkb-settings-dialog.c:544
+#: ../panel-plugin/xkb-settings-dialog.c:695
 msgid "per window"
 msgstr "por janela"
 
-#: ../panel-plugin/xkb-settings-dialog.c:545
+#: ../panel-plugin/xkb-settings-dialog.c:696
 msgid "per application"
 msgstr "por aplicação"
 
-#: ../panel-plugin/xkb-settings-dialog.c:584
+#: ../panel-plugin/xkb-settings-dialog.c:737
 msgid "Keyboard Layouts Plugin"
 msgstr "Plug-in de disposições de teclado"
 
-#: ../panel-plugin/xkb-settings-dialog.c:590
+#: ../panel-plugin/xkb-settings-dialog.c:743
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "Permite configurar e usar múltiplas disposições de teclado."
 
-#: ../panel-plugin/xkb-settings-dialog.c:594
+#: ../panel-plugin/xkb-settings-dialog.c:747
 msgid "Other plugins available here"
 msgstr "Outros plug-ins disponíveis aqui"
 
-#: ../panel-plugin/xkb-settings-dialog.c:643
+#: ../panel-plugin/xkb-settings-dialog.c:799
 msgid "Add layout"
 msgstr "Adicionar disposição"
 
@@ -100,10 +121,12 @@ msgstr "Plug-in configurador e alternador de disposições de teclado"
 #~ msgstr ""
 #~ "Permite mudar a disposição do teclado e\n"
 #~ "exibe a disposição selecionada atual."
+
 #~ msgid "Configure Keyboard Layout Switcher"
 #~ msgstr "Configurar o Alternador de Disposição de Teclado"
+
 #~ msgid "_Remember layout for each application"
 #~ msgstr "Lembra_r disposição para cada aplicação"
+
 #~ msgid "Button to switch the X keyboard layout"
 #~ msgstr "Botão para alternar a disposição do teclado do X"
-

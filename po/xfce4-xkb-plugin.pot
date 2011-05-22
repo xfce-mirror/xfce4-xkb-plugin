@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-04-18 01:06+0600\n"
+"POT-Creation-Date: 2011-05-23 00:56+0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/xkb-settings-dialog.c:435
+#: ../panel-plugin/xkb-settings-dialog.c:482
 msgid ""
 "XKB configuration modifications are\n"
 "disabled from the config file.\n"
@@ -25,72 +25,84 @@ msgid ""
 "See the README file for more information."
 msgstr ""
 
-#: ../panel-plugin/xkb-settings-dialog.c:461
+#: ../panel-plugin/xkb-settings-dialog.c:507
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
 msgid "Keyboard Layouts"
 msgstr ""
 
-#: ../panel-plugin/xkb-settings-dialog.c:483
+#: ../panel-plugin/xkb-settings-dialog.c:529
 msgid "Keyboard model:"
 msgstr ""
 
 #. toggle layout option
-#: ../panel-plugin/xkb-settings-dialog.c:508
+#: ../panel-plugin/xkb-settings-dialog.c:554
 msgid "Change layout option:"
 msgstr ""
 
 #. compose key position option
-#: ../panel-plugin/xkb-settings-dialog.c:534
+#: ../panel-plugin/xkb-settings-dialog.c:580
 msgid "Compose key position:"
 msgstr ""
 
 #. the actual layouts
-#: ../panel-plugin/xkb-settings-dialog.c:561
+#: ../panel-plugin/xkb-settings-dialog.c:607
 msgid "Keyboard layouts:"
 msgstr ""
 
+#: ../panel-plugin/xkb-settings-dialog.c:620
+msgid "Default"
+msgstr ""
+
+#: ../panel-plugin/xkb-settings-dialog.c:627
+msgid "Layout"
+msgstr ""
+
+#: ../panel-plugin/xkb-settings-dialog.c:635
+msgid "Variant"
+msgstr ""
+
 #. ***
-#: ../panel-plugin/xkb-settings-dialog.c:633
+#: ../panel-plugin/xkb-settings-dialog.c:679
 msgid "Show layout as:"
 msgstr ""
 
-#: ../panel-plugin/xkb-settings-dialog.c:638
+#: ../panel-plugin/xkb-settings-dialog.c:684
 msgid "image"
 msgstr ""
 
-#: ../panel-plugin/xkb-settings-dialog.c:639
+#: ../panel-plugin/xkb-settings-dialog.c:685
 msgid "text"
 msgstr ""
 
-#: ../panel-plugin/xkb-settings-dialog.c:643
+#: ../panel-plugin/xkb-settings-dialog.c:689
 msgid "Manage layout:"
 msgstr ""
 
-#: ../panel-plugin/xkb-settings-dialog.c:648
+#: ../panel-plugin/xkb-settings-dialog.c:694
 msgid "globally"
 msgstr ""
 
-#: ../panel-plugin/xkb-settings-dialog.c:649
+#: ../panel-plugin/xkb-settings-dialog.c:695
 msgid "per window"
 msgstr ""
 
-#: ../panel-plugin/xkb-settings-dialog.c:650
+#: ../panel-plugin/xkb-settings-dialog.c:696
 msgid "per application"
 msgstr ""
 
-#: ../panel-plugin/xkb-settings-dialog.c:689
+#: ../panel-plugin/xkb-settings-dialog.c:737
 msgid "Keyboard Layouts Plugin"
 msgstr ""
 
-#: ../panel-plugin/xkb-settings-dialog.c:695
+#: ../panel-plugin/xkb-settings-dialog.c:743
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr ""
 
-#: ../panel-plugin/xkb-settings-dialog.c:699
+#: ../panel-plugin/xkb-settings-dialog.c:747
 msgid "Other plugins available here"
 msgstr ""
 
-#: ../panel-plugin/xkb-settings-dialog.c:748
+#: ../panel-plugin/xkb-settings-dialog.c:799
 msgid "Add layout"
 msgstr ""
 

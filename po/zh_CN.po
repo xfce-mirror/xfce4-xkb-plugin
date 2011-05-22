@@ -7,15 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce 4-xkb-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-01-28 20:43+0200\n"
+"POT-Creation-Date: 2011-05-23 00:56+0600\n"
 "PO-Revision-Date: 2009-11-09 19:49+0800\n"
 "Last-Translator: Hunt Xu <huntxu@live.cn>\n"
 "Language-Team: Chinese (Simplified) <xfce-i18n@xfce.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/xkb-settings-dialog.c:408
+#: ../panel-plugin/xkb-settings-dialog.c:482
 msgid ""
 "XKB configuration modifications are\n"
 "disabled from the config file.\n"
@@ -26,72 +27,85 @@ msgstr ""
 "\n"
 "查看 README 文件以获取详细信息。"
 
-#: ../panel-plugin/xkb-settings-dialog.c:434
+#: ../panel-plugin/xkb-settings-dialog.c:507
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
 msgid "Keyboard Layouts"
 msgstr "键盘布局"
 
-#: ../panel-plugin/xkb-settings-dialog.c:456
+#: ../panel-plugin/xkb-settings-dialog.c:529
 msgid "Keyboard model:"
 msgstr "键盘类型："
 
 #. toggle layout option
-#: ../panel-plugin/xkb-settings-dialog.c:481
+#: ../panel-plugin/xkb-settings-dialog.c:554
 msgid "Change layout option:"
 msgstr "改变布局选项："
 
 #. compose key position option
-#: ../panel-plugin/xkb-settings-dialog.c:506
+#: ../panel-plugin/xkb-settings-dialog.c:580
 msgid "Compose key position:"
 msgstr "组合键位置:"
 
 #. the actual layouts
-#: ../panel-plugin/xkb-settings-dialog.c:533
+#: ../panel-plugin/xkb-settings-dialog.c:607
 msgid "Keyboard layouts:"
 msgstr "键盘布局："
 
+#: ../panel-plugin/xkb-settings-dialog.c:620
+msgid "Default"
+msgstr ""
+
+#: ../panel-plugin/xkb-settings-dialog.c:627
+#, fuzzy
+msgid "Layout"
+msgstr "添加布局"
+
+#: ../panel-plugin/xkb-settings-dialog.c:635
+msgid "Variant"
+msgstr ""
+
 #. ***
-#: ../panel-plugin/xkb-settings-dialog.c:605
+#: ../panel-plugin/xkb-settings-dialog.c:679
 msgid "Show layout as:"
 msgstr "以...显示布局："
 
-#: ../panel-plugin/xkb-settings-dialog.c:610
+#: ../panel-plugin/xkb-settings-dialog.c:684
 msgid "image"
 msgstr "图像"
 
-#: ../panel-plugin/xkb-settings-dialog.c:611
+#: ../panel-plugin/xkb-settings-dialog.c:685
 msgid "text"
 msgstr "文本"
 
-#: ../panel-plugin/xkb-settings-dialog.c:615
+#: ../panel-plugin/xkb-settings-dialog.c:689
 msgid "Manage layout:"
 msgstr "管理布局"
 
-#: ../panel-plugin/xkb-settings-dialog.c:620
+#: ../panel-plugin/xkb-settings-dialog.c:694
 msgid "globally"
 msgstr "全局"
 
-#: ../panel-plugin/xkb-settings-dialog.c:621
+#: ../panel-plugin/xkb-settings-dialog.c:695
 msgid "per window"
 msgstr "每个窗口"
 
-#: ../panel-plugin/xkb-settings-dialog.c:622
+#: ../panel-plugin/xkb-settings-dialog.c:696
 msgid "per application"
 msgstr "每个程序"
 
-#: ../panel-plugin/xkb-settings-dialog.c:661
+#: ../panel-plugin/xkb-settings-dialog.c:737
 msgid "Keyboard Layouts Plugin"
 msgstr "键盘布局插件"
 
-#: ../panel-plugin/xkb-settings-dialog.c:667
+#: ../panel-plugin/xkb-settings-dialog.c:743
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "允许您配置并使用多种键盘布局"
 
-#: ../panel-plugin/xkb-settings-dialog.c:671
+#: ../panel-plugin/xkb-settings-dialog.c:747
 msgid "Other plugins available here"
 msgstr "在此处可用的其他插件"
 
-#: ../panel-plugin/xkb-settings-dialog.c:720
+#: ../panel-plugin/xkb-settings-dialog.c:799
 msgid "Add layout"
 msgstr "添加布局"
 
