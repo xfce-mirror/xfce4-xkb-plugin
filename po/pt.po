@@ -57,9 +57,8 @@ msgid "Default"
 msgstr "Omissões"
 
 #: ../panel-plugin/xkb-settings-dialog.c:627
-#, fuzzy
 msgid "Layout"
-msgstr "Adicionar disposição"
+msgstr "Disposição"
 
 #: ../panel-plugin/xkb-settings-dialog.c:635
 msgid "Variant"
