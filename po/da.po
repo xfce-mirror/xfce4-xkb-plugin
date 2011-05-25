@@ -64,7 +64,6 @@ msgid "Layout"
 msgstr "Layout"
 
 #: ../panel-plugin/xkb-settings-dialog.c:635
-#, fuzzy
 msgid "Variant"
 msgstr "Variant"
 
