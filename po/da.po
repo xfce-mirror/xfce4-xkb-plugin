@@ -11,13 +11,13 @@ msgstr ""
 "PO-Revision-Date: 2009-08-22 17:17+0100\n"
 "Last-Translator: Per Kongstad <p_kongstad@op.pl>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
-"Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: da\n"
 "X-Poedit-Language: Danish\n"
-"X-Poedit-Country: DENMARK\n"
 "X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Country: DENMARK\n"
 
 #: ../panel-plugin/xkb-settings-dialog.c:482
 msgid ""
@@ -57,16 +57,16 @@ msgstr "Tastaturlayouts:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:620
 msgid "Default"
-msgstr ""
+msgstr "Standard"
 
 #: ../panel-plugin/xkb-settings-dialog.c:627
-#, fuzzy
 msgid "Layout"
-msgstr "Tilføj layout"
+msgstr "Layout"
 
 #: ../panel-plugin/xkb-settings-dialog.c:635
+#, fuzzy
 msgid "Variant"
-msgstr ""
+msgstr "Variant"
 
 #. ***
 #: ../panel-plugin/xkb-settings-dialog.c:679
