@@ -1,7 +1,7 @@
 # Ukrainian translation of xfce4-xkb-plugin.
 # Copyright (C) 2007 Dmitry Nikitin.
 # This file is distributed under the same license as the xfce4-xkb-plugin package.
-#
+# 
 # Dmitry Nikitin <luckas_fb@mail.ru>, 2007.
 msgid ""
 msgstr ""
@@ -11,12 +11,11 @@ msgstr ""
 "PO-Revision-Date: 2009-02-24 20:05+0200\n"
 "Last-Translator: Dmitry Nikitin <luckas_fb@mail.ru>\n"
 "Language-Team: Ukrainian <xfce-i18n@xfce.org>\n"
-"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: uk\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: KBabel 1.11.4\n"
 
 #: ../panel-plugin/xkb-settings-dialog.c:482
@@ -57,16 +56,15 @@ msgstr "Розкладки клавіатури:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:620
 msgid "Default"
-msgstr ""
+msgstr "По замовчуванню"
 
 #: ../panel-plugin/xkb-settings-dialog.c:627
-#, fuzzy
 msgid "Layout"
-msgstr "Додати розкладку"
+msgstr "Розкладка"
 
 #: ../panel-plugin/xkb-settings-dialog.c:635
 msgid "Variant"
-msgstr ""
+msgstr "Варіант"
 
 #. ***
 #: ../panel-plugin/xkb-settings-dialog.c:679
@@ -103,8 +101,7 @@ msgstr "Розширення - Розкладки клавіатури"
 
 #: ../panel-plugin/xkb-settings-dialog.c:743
 msgid "Allows you to configure and use multiple keyboard layouts."
-msgstr ""
-"Дозволяє Вам налаштувати і використовувати кілька розкладок клавіатури."
+msgstr "Дозволяє Вам налаштувати і використовувати кілька розкладок клавіатури."
 
 #: ../panel-plugin/xkb-settings-dialog.c:747
 msgid "Other plugins available here"
