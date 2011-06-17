@@ -100,7 +100,7 @@ msgstr "Prepínač rozloženia klávesnice"
 
 #: ../panel-plugin/xkb-settings-dialog.c:743
 msgid "Allows you to configure and use multiple keyboard layouts."
-msgstr "Umožňuje vám konfigurovať a používať viac rozložení klávesnice."
+msgstr "Umožňuje konfigurovať a používať viac rozložení klávesnice."
 
 #: ../panel-plugin/xkb-settings-dialog.c:747
 msgid "Other plugins available here"
@@ -113,4 +113,3 @@ msgstr "Pridať rozloženie"
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
 msgid "Keyboard layouts setup and switch plugin"
 msgstr "Nastavuje a prepína rozloženie klávesnice"
-
