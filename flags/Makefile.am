@@ -6,12 +6,12 @@ flags_DATA = ae.svg \
 			ar.svg \
 			at.svg \
 			az.svg \
+			ba.svg \
 			ben.svg \
 			be.svg \
 			bg.svg \
 			bh.svg \
 			br.svg \
-			bs.svg \
 			by.svg \
 			ca.svg \
 			ch.svg \
