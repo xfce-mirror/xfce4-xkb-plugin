@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: trunk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-01-28 20:43+0200\n"
+"POT-Creation-Date: 2011-05-23 00:56+0600\n"
 "PO-Revision-Date: 2009-08-16 13:12+0600\n"
 "Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>\n"
 "Language-Team: Kazakh <kk_KZ@googlegroups.com>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 
-#: ../panel-plugin/xkb-settings-dialog.c:408
+#: ../panel-plugin/xkb-settings-dialog.c:482
 msgid ""
 "XKB configuration modifications are\n"
 "disabled from the config file.\n"
@@ -28,72 +28,84 @@ msgstr ""
 "\n"
 "Көбірек білу үшін README файлын оқыңыз."
 
-#: ../panel-plugin/xkb-settings-dialog.c:434
+#: ../panel-plugin/xkb-settings-dialog.c:507
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
 msgid "Keyboard Layouts"
 msgstr "Keyboard Layouts"
 
-#: ../panel-plugin/xkb-settings-dialog.c:456
+#: ../panel-plugin/xkb-settings-dialog.c:529
 msgid "Keyboard model:"
 msgstr "Пернетақта түрі:"
 
 #. toggle layout option
-#: ../panel-plugin/xkb-settings-dialog.c:481
+#: ../panel-plugin/xkb-settings-dialog.c:554
 msgid "Change layout option:"
 msgstr "Жайманы ауыстыру пернелері:"
 
 #. compose key position option
-#: ../panel-plugin/xkb-settings-dialog.c:506
+#: ../panel-plugin/xkb-settings-dialog.c:580
 msgid "Compose key position:"
 msgstr "Уақытша ауыстыру пернесі:"
 
 #. the actual layouts
-#: ../panel-plugin/xkb-settings-dialog.c:533
+#: ../panel-plugin/xkb-settings-dialog.c:607
 msgid "Keyboard layouts:"
 msgstr "Пернетақта жаймалары:"
 
+#: ../panel-plugin/xkb-settings-dialog.c:620
+msgid "Default"
+msgstr "Бастапқы"
+
+#: ../panel-plugin/xkb-settings-dialog.c:627
+msgid "Layout"
+msgstr "Жайма"
+
+#: ../panel-plugin/xkb-settings-dialog.c:635
+msgid "Variant"
+msgstr "Нұсқасы"
+
 #. ***
-#: ../panel-plugin/xkb-settings-dialog.c:605
+#: ../panel-plugin/xkb-settings-dialog.c:679
 msgid "Show layout as:"
 msgstr "Жайманы қалайша көрсету:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:610
+#: ../panel-plugin/xkb-settings-dialog.c:684
 msgid "image"
 msgstr "сурет"
 
-#: ../panel-plugin/xkb-settings-dialog.c:611
+#: ../panel-plugin/xkb-settings-dialog.c:685
 msgid "text"
 msgstr "мәтін"
 
-#: ../panel-plugin/xkb-settings-dialog.c:615
+#: ../panel-plugin/xkb-settings-dialog.c:689
 msgid "Manage layout:"
 msgstr "Жайманы орнату:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:620
+#: ../panel-plugin/xkb-settings-dialog.c:694
 msgid "globally"
 msgstr "глобалды"
 
-#: ../panel-plugin/xkb-settings-dialog.c:621
+#: ../panel-plugin/xkb-settings-dialog.c:695
 msgid "per window"
 msgstr "әр терезе үшін"
 
-#: ../panel-plugin/xkb-settings-dialog.c:622
+#: ../panel-plugin/xkb-settings-dialog.c:696
 msgid "per application"
 msgstr "әр қолданба үшін"
 
-#: ../panel-plugin/xkb-settings-dialog.c:661
+#: ../panel-plugin/xkb-settings-dialog.c:737
 msgid "Keyboard Layouts Plugin"
 msgstr "Пернетақта жаймалары плагині"
 
-#: ../panel-plugin/xkb-settings-dialog.c:667
+#: ../panel-plugin/xkb-settings-dialog.c:743
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "Сізге көптеген пернетақта жаймаларын баптау мен қолдануға көмектеседі."
 
-#: ../panel-plugin/xkb-settings-dialog.c:671
+#: ../panel-plugin/xkb-settings-dialog.c:747
 msgid "Other plugins available here"
 msgstr "Басқа плагиндер осында бар"
 
-#: ../panel-plugin/xkb-settings-dialog.c:720
+#: ../panel-plugin/xkb-settings-dialog.c:799
 msgid "Add layout"
 msgstr "Жайманы қосу"
 
