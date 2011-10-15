@@ -1,3 +1,8 @@
+2011-10-15 18:54  winterheart
+	* New version 0.5.4.2
+	* Removing LINGUAS file (#8034)
+	* Translations update
+
 2011-07-02 19:23  winterheart
 	* Bosnian flag renamed from bs to ba (#7744)
 
