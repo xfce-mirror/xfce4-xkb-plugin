@@ -1,7 +1,12 @@
+autom4te.cache
 Makefile
+Makefile.in
 po/*.gmo
 .deps
 *.o
 *.tar.*
 config.*
 configure*
+m4/*.m4
+*.m4
+*.in
