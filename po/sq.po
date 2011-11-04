@@ -6,15 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-xkb-plugin v0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-09-10 21:29+0200\n"
+"POT-Creation-Date: 2011-11-04 21:50+0600\n"
 "PO-Revision-Date: 2008-11-04 23:37+0200\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: Albanian <translation-team-sq@lists.sourceforge.net>\n"
+"Language: sq\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/xkb-settings-dialog.c:361
+#: ../panel-plugin/xkb-settings-dialog.c:489
 msgid ""
 "XKB configuration modifications are\n"
 "disabled from the config file.\n"
@@ -26,69 +27,105 @@ msgstr ""
 "\n"
 "Për më tepër të dhëna shihni kartelën README."
 
-#: ../panel-plugin/xkb-settings-dialog.c:387
+#: ../panel-plugin/xkb-settings-dialog.c:515
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
 msgid "Keyboard Layouts"
 msgstr "Skema Tastiere"
 
-#: ../panel-plugin/xkb-settings-dialog.c:408
+#: ../panel-plugin/xkb-settings-dialog.c:537
 msgid "Keyboard model:"
 msgstr "Model tastiere:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:432
+#. toggle layout option
+#: ../panel-plugin/xkb-settings-dialog.c:562
 msgid "Change layout option:"
 msgstr "Ndryshoni mundësi skemash:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:456
+#. compose key position option
+#: ../panel-plugin/xkb-settings-dialog.c:588
+msgid "Compose key position:"
+msgstr ""
+
+#. the actual layouts
+#: ../panel-plugin/xkb-settings-dialog.c:615
 msgid "Keyboard layouts:"
 msgstr "Skema tastierash:"
 
+#: ../panel-plugin/xkb-settings-dialog.c:628
+msgid "Default"
+msgstr ""
+
+#: ../panel-plugin/xkb-settings-dialog.c:635
+#, fuzzy
+msgid "Layout"
+msgstr "Shtoni skeme"
+
+#: ../panel-plugin/xkb-settings-dialog.c:643
+msgid "Variant"
+msgstr ""
+
 #. ***
-#: ../panel-plugin/xkb-settings-dialog.c:528
+#: ../panel-plugin/xkb-settings-dialog.c:687
 msgid "Show layout as:"
 msgstr "Shfaq skemë si:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:533
+#: ../panel-plugin/xkb-settings-dialog.c:692
 msgid "image"
 msgstr "pamje"
 
-#: ../panel-plugin/xkb-settings-dialog.c:534
+#: ../panel-plugin/xkb-settings-dialog.c:693
 msgid "text"
 msgstr "tekst"
 
-#: ../panel-plugin/xkb-settings-dialog.c:538
+#. text size option
+#: ../panel-plugin/xkb-settings-dialog.c:698
+msgid "Text size:"
+msgstr ""
+
+#: ../panel-plugin/xkb-settings-dialog.c:703
+msgid "small"
+msgstr ""
+
+#: ../panel-plugin/xkb-settings-dialog.c:704
+msgid "medium"
+msgstr ""
+
+#: ../panel-plugin/xkb-settings-dialog.c:705
+msgid "large"
+msgstr ""
+
+#: ../panel-plugin/xkb-settings-dialog.c:709
 msgid "Manage layout:"
 msgstr "Administroni stil:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:543
+#: ../panel-plugin/xkb-settings-dialog.c:714
 msgid "globally"
 msgstr "globalisht"
 
-#: ../panel-plugin/xkb-settings-dialog.c:544
+#: ../panel-plugin/xkb-settings-dialog.c:715
 msgid "per window"
 msgstr "për dritare"
 
-#: ../panel-plugin/xkb-settings-dialog.c:545
+#: ../panel-plugin/xkb-settings-dialog.c:716
 msgid "per application"
 msgstr "për zbatim"
 
-#: ../panel-plugin/xkb-settings-dialog.c:584
+#: ../panel-plugin/xkb-settings-dialog.c:758
 msgid "Keyboard Layouts Plugin"
 msgstr "Shtojcë Skemash Tastiere"
 
-#: ../panel-plugin/xkb-settings-dialog.c:590
+#: ../panel-plugin/xkb-settings-dialog.c:764
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "Ju lejon të formësoni dhe përdorni shumë skema tastiere njëherësh."
 
-#: ../panel-plugin/xkb-settings-dialog.c:594
+#: ../panel-plugin/xkb-settings-dialog.c:768
 msgid "Other plugins available here"
 msgstr "Të tjera shtojca të passhme prej këtej"
 
-#: ../panel-plugin/xkb-settings-dialog.c:643
+#: ../panel-plugin/xkb-settings-dialog.c:820
 msgid "Add layout"
 msgstr "Shtoni skeme"
 
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
 msgid "Keyboard layouts setup and switch plugin"
 msgstr "Shtojcë rregullimi dhe këmbimi skemash tastiere"
-

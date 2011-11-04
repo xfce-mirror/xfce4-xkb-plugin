@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4 xkb plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-23 00:56+0600\n"
+"POT-Creation-Date: 2011-11-04 21:50+0600\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Samed Beyribey <ras0ir@eventualis.org>\n"
 "Language-Team: Xfce-TR <xfce-tr@googlegroups.com>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Country: TURKEY\n"
 
-#: ../panel-plugin/xkb-settings-dialog.c:482
+#: ../panel-plugin/xkb-settings-dialog.c:489
 msgid ""
 "XKB configuration modifications are\n"
 "disabled from the config file.\n"
@@ -24,85 +24,102 @@ msgstr ""
 "\n"
 "Daha fazla bilgi için README dosyasını inceleyebilirsiniz."
 
-#: ../panel-plugin/xkb-settings-dialog.c:507
+#: ../panel-plugin/xkb-settings-dialog.c:515
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
 msgid "Keyboard Layouts"
 msgstr "Klavye Yerleşimleri"
 
-#: ../panel-plugin/xkb-settings-dialog.c:529
+#: ../panel-plugin/xkb-settings-dialog.c:537
 msgid "Keyboard model:"
 msgstr "Klavye modeli:"
 
 #. toggle layout option
-#: ../panel-plugin/xkb-settings-dialog.c:554
+#: ../panel-plugin/xkb-settings-dialog.c:562
 msgid "Change layout option:"
 msgstr "Yerleşim seçeneğini değiştir:"
 
 #. compose key position option
-#: ../panel-plugin/xkb-settings-dialog.c:580
+#: ../panel-plugin/xkb-settings-dialog.c:588
 msgid "Compose key position:"
 msgstr ""
 
 #. the actual layouts
-#: ../panel-plugin/xkb-settings-dialog.c:607
+#: ../panel-plugin/xkb-settings-dialog.c:615
 msgid "Keyboard layouts:"
 msgstr "Klavye yerleşimleri:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:620
+#: ../panel-plugin/xkb-settings-dialog.c:628
 msgid "Default"
 msgstr ""
 
-#: ../panel-plugin/xkb-settings-dialog.c:627
+#: ../panel-plugin/xkb-settings-dialog.c:635
 #, fuzzy
 msgid "Layout"
 msgstr "Yerleşim ekle"
 
-#: ../panel-plugin/xkb-settings-dialog.c:635
+#: ../panel-plugin/xkb-settings-dialog.c:643
 msgid "Variant"
 msgstr ""
 
 #. ***
-#: ../panel-plugin/xkb-settings-dialog.c:679
+#: ../panel-plugin/xkb-settings-dialog.c:687
 msgid "Show layout as:"
 msgstr "Yerleşimi şu şekilde göster:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:684
+#: ../panel-plugin/xkb-settings-dialog.c:692
 msgid "image"
 msgstr "resim"
 
-#: ../panel-plugin/xkb-settings-dialog.c:685
+#: ../panel-plugin/xkb-settings-dialog.c:693
 msgid "text"
 msgstr "yazı"
 
-#: ../panel-plugin/xkb-settings-dialog.c:689
+#. text size option
+#: ../panel-plugin/xkb-settings-dialog.c:698
+msgid "Text size:"
+msgstr ""
+
+#: ../panel-plugin/xkb-settings-dialog.c:703
+msgid "small"
+msgstr ""
+
+#: ../panel-plugin/xkb-settings-dialog.c:704
+msgid "medium"
+msgstr ""
+
+#: ../panel-plugin/xkb-settings-dialog.c:705
+msgid "large"
+msgstr ""
+
+#: ../panel-plugin/xkb-settings-dialog.c:709
 msgid "Manage layout:"
 msgstr "Yerleşimi yönet:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:694
+#: ../panel-plugin/xkb-settings-dialog.c:714
 msgid "globally"
 msgstr "genel olarak"
 
-#: ../panel-plugin/xkb-settings-dialog.c:695
+#: ../panel-plugin/xkb-settings-dialog.c:715
 msgid "per window"
 msgstr "pencere için"
 
-#: ../panel-plugin/xkb-settings-dialog.c:696
+#: ../panel-plugin/xkb-settings-dialog.c:716
 msgid "per application"
 msgstr "uygulama için"
 
-#: ../panel-plugin/xkb-settings-dialog.c:737
+#: ../panel-plugin/xkb-settings-dialog.c:758
 msgid "Keyboard Layouts Plugin"
 msgstr "Klavye Yerleşimleri Eklentisi"
 
-#: ../panel-plugin/xkb-settings-dialog.c:743
+#: ../panel-plugin/xkb-settings-dialog.c:764
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "Birden fazla klavye yerleşimi kullanmanızı ve yapılandırmanızı sağlar."
 
-#: ../panel-plugin/xkb-settings-dialog.c:747
+#: ../panel-plugin/xkb-settings-dialog.c:768
 msgid "Other plugins available here"
 msgstr "Diğer eklentilere ulaşmak için"
 
-#: ../panel-plugin/xkb-settings-dialog.c:799
+#: ../panel-plugin/xkb-settings-dialog.c:820
 msgid "Add layout"
 msgstr "Yerleşim ekle"
 

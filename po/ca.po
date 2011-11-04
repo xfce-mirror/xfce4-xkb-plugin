@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-xkb-plugin 0.4.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-23 00:56+0600\n"
+"POT-Creation-Date: 2011-11-04 21:50+0600\n"
 "PO-Revision-Date: 2009-09-05 16:09+0100\n"
 "Last-Translator: Carles Muñoz Gorriz <carlesmu@internautas.org>\n"
 "Language-Team: Catalan\n"
@@ -20,7 +20,7 @@ msgstr ""
 "X-Poedit-Language: Catalan\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: ../panel-plugin/xkb-settings-dialog.c:482
+#: ../panel-plugin/xkb-settings-dialog.c:489
 msgid ""
 "XKB configuration modifications are\n"
 "disabled from the config file.\n"
@@ -32,85 +32,102 @@ msgstr ""
 "\n"
 "Mireu el fitxer README per més informació."
 
-#: ../panel-plugin/xkb-settings-dialog.c:507
+#: ../panel-plugin/xkb-settings-dialog.c:515
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
 msgid "Keyboard Layouts"
 msgstr "Tipus de teclat"
 
-#: ../panel-plugin/xkb-settings-dialog.c:529
+#: ../panel-plugin/xkb-settings-dialog.c:537
 msgid "Keyboard model:"
 msgstr "Model de teclat:"
 
 #. toggle layout option
-#: ../panel-plugin/xkb-settings-dialog.c:554
+#: ../panel-plugin/xkb-settings-dialog.c:562
 msgid "Change layout option:"
 msgstr "Canvia les opcions del tipus:"
 
 #. compose key position option
-#: ../panel-plugin/xkb-settings-dialog.c:580
+#: ../panel-plugin/xkb-settings-dialog.c:588
 msgid "Compose key position:"
 msgstr "Posició de la tecla «Compose»:"
 
 #. the actual layouts
-#: ../panel-plugin/xkb-settings-dialog.c:607
+#: ../panel-plugin/xkb-settings-dialog.c:615
 msgid "Keyboard layouts:"
 msgstr "Tipus de teclat:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:620
+#: ../panel-plugin/xkb-settings-dialog.c:628
 msgid "Default"
 msgstr ""
 
-#: ../panel-plugin/xkb-settings-dialog.c:627
+#: ../panel-plugin/xkb-settings-dialog.c:635
 #, fuzzy
 msgid "Layout"
 msgstr "Afegeix tipus"
 
-#: ../panel-plugin/xkb-settings-dialog.c:635
+#: ../panel-plugin/xkb-settings-dialog.c:643
 msgid "Variant"
 msgstr ""
 
 #. ***
-#: ../panel-plugin/xkb-settings-dialog.c:679
+#: ../panel-plugin/xkb-settings-dialog.c:687
 msgid "Show layout as:"
 msgstr "Mostra el tipus com:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:684
+#: ../panel-plugin/xkb-settings-dialog.c:692
 msgid "image"
 msgstr "imatge"
 
-#: ../panel-plugin/xkb-settings-dialog.c:685
+#: ../panel-plugin/xkb-settings-dialog.c:693
 msgid "text"
 msgstr "text"
 
-#: ../panel-plugin/xkb-settings-dialog.c:689
+#. text size option
+#: ../panel-plugin/xkb-settings-dialog.c:698
+msgid "Text size:"
+msgstr ""
+
+#: ../panel-plugin/xkb-settings-dialog.c:703
+msgid "small"
+msgstr ""
+
+#: ../panel-plugin/xkb-settings-dialog.c:704
+msgid "medium"
+msgstr ""
+
+#: ../panel-plugin/xkb-settings-dialog.c:705
+msgid "large"
+msgstr ""
+
+#: ../panel-plugin/xkb-settings-dialog.c:709
 msgid "Manage layout:"
 msgstr "Gestiona el tipus:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:694
+#: ../panel-plugin/xkb-settings-dialog.c:714
 msgid "globally"
 msgstr "globalment"
 
-#: ../panel-plugin/xkb-settings-dialog.c:695
+#: ../panel-plugin/xkb-settings-dialog.c:715
 msgid "per window"
 msgstr "per finestra"
 
-#: ../panel-plugin/xkb-settings-dialog.c:696
+#: ../panel-plugin/xkb-settings-dialog.c:716
 msgid "per application"
 msgstr "per aplicació"
 
-#: ../panel-plugin/xkb-settings-dialog.c:737
+#: ../panel-plugin/xkb-settings-dialog.c:758
 msgid "Keyboard Layouts Plugin"
 msgstr "Connector de tipus de teclat"
 
-#: ../panel-plugin/xkb-settings-dialog.c:743
+#: ../panel-plugin/xkb-settings-dialog.c:764
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "Us permet configurar i emprar diversos tipus de teclat."
 
-#: ../panel-plugin/xkb-settings-dialog.c:747
+#: ../panel-plugin/xkb-settings-dialog.c:768
 msgid "Other plugins available here"
 msgstr "Altres connectors disponibles"
 
-#: ../panel-plugin/xkb-settings-dialog.c:799
+#: ../panel-plugin/xkb-settings-dialog.c:820
 msgid "Add layout"
 msgstr "Afegeix tipus"
 
