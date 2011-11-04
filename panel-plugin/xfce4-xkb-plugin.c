@@ -261,6 +261,7 @@ xfce_xkb_save_config (XfcePanelPlugin *plugin, t_xkb *xkb)
     xfce_rc_set_group (rcfile, NULL);
 
     xfce_rc_write_int_entry (rcfile, "display_type", xkb->display_type);
+    xfce_rc_write_int_entry (rcfile, "display_textsize", xkb->display_textsize);
     xfce_rc_write_int_entry (rcfile, "group_policy", xkb->settings->group_policy);
     xfce_rc_write_int_entry (rcfile, "default_group", xkb->settings->default_group);
     xfce_rc_write_bool_entry (rcfile, "never_modify_config", xkb->settings->never_modify_config);
@@ -293,6 +294,7 @@ xkb_load_config (t_xkb *xkb, const gchar *filename)
         xfce_rc_set_group (rcfile, NULL);
 
         xkb->display_type = xfce_rc_read_int_entry (rcfile, "display_type", DISPLAY_TYPE_IMAGE);
+        xkb->display_textsize = xfce_rc_read_int_entry (rcfile, "display_textsize", DISPLAY_TEXTSIZE_SMALL);
         xkb->settings->group_policy = xfce_rc_read_int_entry (rcfile, "group_policy", GROUP_POLICY_PER_APPLICATION);
 
         if (xkb->settings->group_policy != GROUP_POLICY_GLOBAL)
@@ -324,6 +326,7 @@ static void
 xkb_load_default (t_xkb *xkb)
 {
     xkb->display_type = DISPLAY_TYPE_IMAGE;
+    xkb->display_textsize = DISPLAY_TEXTSIZE_SMALL;
     xkb->settings->group_policy = GROUP_POLICY_PER_APPLICATION;
     xkb->settings->default_group = 0;
     xkb->settings->kbd_config = NULL;

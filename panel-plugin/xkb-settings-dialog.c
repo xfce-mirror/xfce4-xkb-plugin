@@ -90,6 +90,13 @@ on_display_type_changed (GtkComboBox *cb, t_xkb *xkb)
 }
 
 static void
+on_display_textsize_changed (GtkComboBox *cb, t_xkb *xkb)
+{
+    xkb->display_textsize = gtk_combo_box_get_active (cb);
+    xkb_refresh_gui (xkb);
+}
+
+static void
 on_group_policy_changed (GtkComboBox *cb, t_xkb *xkb)
 {
     xkb->settings->group_policy = gtk_combo_box_get_active (cb);
@@ -495,6 +502,7 @@ xfce_xkb_configure (XfcePanelPlugin *plugin,
 {
     GtkWidget *display_type_optmenu, *group_policy_combo;
     GtkWidget *vbox, *display_type_frame, *group_policy_frame, *bin;
+    GtkWidget *display_textsize_frame, *display_textsize_optmenu;
 
     GtkCellRenderer *renderer, *renderer2;
     GtkWidget *vbox1, *vbox2, *hbox, *frame;
@@ -686,6 +694,18 @@ xfce_xkb_configure (XfcePanelPlugin *plugin,
     gtk_widget_set_size_request (display_type_optmenu, 230, -1);
     gtk_container_add (GTK_CONTAINER (bin), display_type_optmenu);
 
+    /* text size option */
+    display_textsize_frame = xfce_gtk_frame_box_new (_("Text size:"), &bin);
+    gtk_widget_show (display_textsize_frame);
+    gtk_box_pack_start (GTK_BOX (vbox), display_textsize_frame, TRUE, TRUE, 2);
+
+    display_textsize_optmenu = gtk_combo_box_new_text ();
+    gtk_combo_box_append_text (GTK_COMBO_BOX (display_textsize_optmenu), _("small"));
+    gtk_combo_box_append_text (GTK_COMBO_BOX (display_textsize_optmenu), _("medium"));
+    gtk_combo_box_append_text (GTK_COMBO_BOX (display_textsize_optmenu), _("large"));
+    gtk_widget_set_size_request (display_textsize_optmenu, 230, -1);
+    gtk_container_add (GTK_CONTAINER (bin), display_textsize_optmenu);
+
     group_policy_frame = xfce_gtk_frame_box_new (_("Manage layout:"), &bin);
     gtk_widget_show (group_policy_frame);
     gtk_box_pack_start (GTK_BOX (vbox), group_policy_frame, TRUE, TRUE, 2);
@@ -704,11 +724,12 @@ xfce_xkb_configure (XfcePanelPlugin *plugin,
             G_CALLBACK (on_settings_close), xkb);
 
     gtk_combo_box_set_active (GTK_COMBO_BOX (display_type_optmenu), xkb->display_type);
-
+    gtk_combo_box_set_active (GTK_COMBO_BOX (display_textsize_optmenu), xkb->display_textsize);
     gtk_combo_box_set_active (GTK_COMBO_BOX (group_policy_combo), xkb->settings->group_policy);
 
     g_signal_connect (display_type_optmenu, "changed", G_CALLBACK (on_display_type_changed), xkb);
     g_signal_connect (group_policy_combo, "changed", G_CALLBACK (on_group_policy_changed), xkb);
+    g_signal_connect (display_textsize_optmenu, "changed", G_CALLBACK (on_display_textsize_changed), xkb);
 
     g_signal_connect (xkb->add_layout_btn, "clicked", G_CALLBACK (xkb_settings_add_layout), xkb);
     g_signal_connect (xkb->rm_layout_btn, "clicked", G_CALLBACK (xkb_settings_rm_layout), xkb);

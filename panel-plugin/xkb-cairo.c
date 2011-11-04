@@ -25,6 +25,7 @@
 
 #include "xkb-cairo.h"
 #include "xkb-util.h"
+#include "xfce4-xkb-plugin.h"
 
 #define XKB_PREFERRED_FONT "Courier New, Courier 10 Pitch, Monospace Bold %d"
 
@@ -44,23 +45,6 @@
     cairo_device_to_user (cr, &xx, &yy); \
     cairo_move_to (cr, xx, yy);
 
-gint font_sizes[113] = {
-    6,        6,        6,        6,        6,        6,        6,        6,
-    7,        7,        8,        8,        8,        8,        8,        8,
-    10,       10,       10,       10,       12,       12,       14,       14,
-    14,       14,       14,       14,       16,       16,       16,       16,
-    18,       18,       18,       18,       20,       20,       20,       20,
-    20,       20,       22,       22,       22,       22,       24,       24,
-    24,       24,       26,       26,       26,       26,       28,       28,
-    28,       28,       30,       30,       30,       30,       30,       30,
-    32,       32,       32,       32,       34,       34,       34,       34,
-    34,       34,       36,       36,       36,       36,       36,       36,
-    38,       38,       38,       38,       38,       38,       38,       38,
-    40,       40,       40,       40,       40,       40,       42,       42,
-    42,       42,       42,       42,       44,       44,       44,       44,
-    44,       44,       46,       46,       46,       46,       46,       46,
-    48
-};
 
 void
 xkb_cairo_draw_flag (cairo_t *cr,
@@ -97,6 +81,7 @@ xkb_cairo_draw_flag (cairo_t *cr,
                 actual_width, actual_height,
                 width, height,
                 variant_markers_count,
+                DISPLAY_TEXTSIZE_SMALL,     // not used for flag layout
                 fgcolor);
         return;
     }
@@ -150,6 +135,7 @@ xkb_cairo_draw_label (cairo_t *cr,
                       gint width,
                       gint height,
                       gint variant_markers_count,
+                      gint textsize,
                       GdkColor fgcolor)
 {
     gchar *normalized_group_name;
@@ -175,7 +161,19 @@ xkb_cairo_draw_label (cairo_t *cr,
     }
 
     pango_layout_set_text (layout, normalized_group_name, -1);
-    g_sprintf (font_str, XKB_PREFERRED_FONT, font_sizes[panel_size - 16]);
+    switch (textsize){
+        case DISPLAY_TEXTSIZE_SMALL:
+        default:    /* catch misconfiguration */
+            g_sprintf (font_str, XKB_PREFERRED_FONT, (int)(0.375 * panel_size) );
+            break;
+        case DISPLAY_TEXTSIZE_MEDIUM:
+            g_sprintf (font_str, XKB_PREFERRED_FONT, (int)(0.600 * panel_size) );
+            break;
+        case DISPLAY_TEXTSIZE_LARGE:
+            g_sprintf (font_str, XKB_PREFERRED_FONT, (int)(0.900 * panel_size) );
+            break;
+    }
+
     desc = pango_font_description_from_string (font_str);
     pango_layout_set_font_description (layout, desc);
     pango_font_description_free (desc);

@@ -42,6 +42,13 @@ typedef enum
     DISPLAY_TYPE_TEXT = 1
 } t_display_type;
 
+typedef enum
+{
+    DISPLAY_TEXTSIZE_SMALL = 0,
+    DISPLAY_TEXTSIZE_MEDIUM = 1,
+    DISPLAY_TEXTSIZE_LARGE = 2
+} t_display_textsize;
+
 typedef struct
 {
     XfcePanelPlugin *plugin;
@@ -53,6 +60,7 @@ typedef struct
     gint button_vsize;            /* read allocated button size - see below */
 
     t_display_type display_type;  /* display layout as image ot text */
+    t_display_textsize display_textsize; /* text size for text layout */
     t_xkb_settings *settings;     /* per-app setting and default group */
 
     gint button_state;            /* gtk state of the button */

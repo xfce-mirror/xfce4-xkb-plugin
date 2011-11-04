@@ -131,6 +131,7 @@ xkb_plugin_layout_image_exposed (GtkWidget *widget,
                 actual_hsize, actual_vsize,
                 xkb->hsize, xkb->vsize,
                 xkb_config_variant_index_for_group (-1),
+                xkb->display_textsize,
                 fgcolor
         );
     }
