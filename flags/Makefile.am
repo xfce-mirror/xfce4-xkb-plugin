@@ -43,6 +43,7 @@ flags_DATA = ae.svg \
 			it.svg \
 			jo.svg \
 			jp.svg \
+			kh.svg \
 			km.svg \
 			kp.svg \
 			kr.svg \
