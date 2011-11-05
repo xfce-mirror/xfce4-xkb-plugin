@@ -1,7 +1,7 @@
 # Ukrainian translation of xfce4-xkb-plugin.
 # Copyright (C) 2007 Dmitry Nikitin.
 # This file is distributed under the same license as the xfce4-xkb-plugin package.
-#
+# 
 # Dmitry Nikitin <luckas_fb@mail.ru>, 2007.
 msgid ""
 msgstr ""
@@ -11,12 +11,11 @@ msgstr ""
 "PO-Revision-Date: 2009-02-24 20:05+0200\n"
 "Last-Translator: Dmitry Nikitin <luckas_fb@mail.ru>\n"
 "Language-Team: Ukrainian <xfce-i18n@xfce.org>\n"
-"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: uk\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: KBabel 1.11.4\n"
 
 #: ../panel-plugin/xkb-settings-dialog.c:489
@@ -83,19 +82,19 @@ msgstr "текст"
 #. text size option
 #: ../panel-plugin/xkb-settings-dialog.c:698
 msgid "Text size:"
-msgstr ""
+msgstr "Розмір тексту:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:703
 msgid "small"
-msgstr ""
+msgstr "малий"
 
 #: ../panel-plugin/xkb-settings-dialog.c:704
 msgid "medium"
-msgstr ""
+msgstr "середній"
 
 #: ../panel-plugin/xkb-settings-dialog.c:705
 msgid "large"
-msgstr ""
+msgstr "великий"
 
 #: ../panel-plugin/xkb-settings-dialog.c:709
 msgid "Manage layout:"
