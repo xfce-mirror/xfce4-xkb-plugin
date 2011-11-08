@@ -1,6 +1,6 @@
 # Chinese translations for xfce package.
 # Copyright (C) 2008 THE xfce'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the xfce package.
+# This file is distributed under the same license as the xfce4-xkb-plugin.
 # Hunt Xu <huntxu@live.cn>, 2008, 2009.
 # Chipong Luo <chipong_l@yahoo.com>, 2011.
 msgid ""
