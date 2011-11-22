@@ -2,7 +2,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Nuno Miguel <nunis@netcabo.pt>, 2007.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-xkb-plugin\n"
@@ -11,10 +11,10 @@ msgstr ""
 "PO-Revision-Date: 2009-09-04 18:16+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
 
 #: ../panel-plugin/xkb-settings-dialog.c:489
 msgid ""
@@ -80,19 +80,19 @@ msgstr "texto"
 #. text size option
 #: ../panel-plugin/xkb-settings-dialog.c:698
 msgid "Text size:"
-msgstr ""
+msgstr "Tamanho do texto:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:703
 msgid "small"
-msgstr ""
+msgstr "pequeno"
 
 #: ../panel-plugin/xkb-settings-dialog.c:704
 msgid "medium"
-msgstr ""
+msgstr "médio"
 
 #: ../panel-plugin/xkb-settings-dialog.c:705
 msgid "large"
-msgstr ""
+msgstr "grande"
 
 #: ../panel-plugin/xkb-settings-dialog.c:709
 msgid "Manage layout:"
