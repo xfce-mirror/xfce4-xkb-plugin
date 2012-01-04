@@ -4,7 +4,7 @@
 # xfce4-xkb-plugin package.
 # Frank Lanitz <frank@frank.uvena.de>, 2006.
 # Fabian Nowak <timystery@arcor.de>, 2007, 2008.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-xkb-plugin 0.4.1\n"
@@ -13,10 +13,10 @@ msgstr ""
 "PO-Revision-Date: 2008-11-03 22:21+0100\n"
 "Last-Translator: Fabian Nowak <timystery@arcor.de>\n"
 "Language-Team: <frank@frank.uvena.de>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
 "X-Poedit-Language: German\n"
 "X-Poedit-Country: GERMANY\n"
 
@@ -57,17 +57,19 @@ msgid "Keyboard layouts:"
 msgstr "Tastaturbelegungen:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:628
+#, fuzzy
 msgid "Default"
-msgstr ""
+msgstr "Vorgabe"
 
 #: ../panel-plugin/xkb-settings-dialog.c:635
 #, fuzzy
 msgid "Layout"
-msgstr "Tastaturbelegung hinzufügen"
+msgstr "Tastaturbelegung"
 
 #: ../panel-plugin/xkb-settings-dialog.c:643
+#, fuzzy
 msgid "Variant"
-msgstr ""
+msgstr "Variante"
 
 #. ***
 #: ../panel-plugin/xkb-settings-dialog.c:687
@@ -84,20 +86,24 @@ msgstr "Text"
 
 #. text size option
 #: ../panel-plugin/xkb-settings-dialog.c:698
+#, fuzzy
 msgid "Text size:"
-msgstr ""
+msgstr "Textgröße:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:703
+#, fuzzy
 msgid "small"
-msgstr ""
+msgstr "klein"
 
 #: ../panel-plugin/xkb-settings-dialog.c:704
+#, fuzzy
 msgid "medium"
-msgstr ""
+msgstr "mittel"
 
 #: ../panel-plugin/xkb-settings-dialog.c:705
+#, fuzzy
 msgid "large"
-msgstr ""
+msgstr "groß"
 
 #: ../panel-plugin/xkb-settings-dialog.c:709
 msgid "Manage layout:"
