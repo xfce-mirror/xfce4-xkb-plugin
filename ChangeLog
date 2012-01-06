@@ -1,5 +1,9 @@
+2012-01-07 04:18  winterheart
+	* New version 0.5.4.3
+	* Fix error with incorrect handling variants (bug #8255 by Ivan Romanov)
+
 2011-11-04 20:42  winterheart
-	* Text size on icon is noew adjustable (bug #6703 by Rinat)
+	* Text size on icon is now adjustable (bug #6703 by Rinat)
 	* New flag: Cambodia (request from Janne Snabb)
 
 2011-10-15 18:54  winterheart

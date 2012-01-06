@@ -314,8 +314,27 @@ xkb_config_update_settings (t_xkb_settings *settings)
         settings->kbd_config->model = g_strdup (config->config_rec->model);
         g_free (settings->kbd_config->layouts);
         settings->kbd_config->layouts = g_strjoinv (",", config->config_rec->layouts);
+
+        /* XklConfigRec uses for NULL for empty variant instead of "".
+         * So if has skipped variants we can't get proper settings->kbd_config->variants.
+         * So I use this hack to get proper kbd_config->variants */
+        gchar *tmp1 = g_strdup("");
+        gchar *tmp2 = NULL;
+        int i;
+        for (i = 0; config->config_rec->layouts[i]; i++)
+        {
+            tmp2 = g_strconcat (tmp1, config->config_rec->variants[i] ? config->config_rec->variants[i] : "", NULL);
+            g_free(tmp1);
+            tmp1 = tmp2;
+            if (config->config_rec->layouts[i + 1])
+            {
+                tmp2 = g_strconcat (tmp1, ",", NULL);
+                g_free(tmp1);
+                tmp1 = tmp2;
+            }
+        }
         g_free (settings->kbd_config->variants);
-        settings->kbd_config->variants = g_strjoinv (",", config->config_rec->variants);
+        settings->kbd_config->variants = tmp2;
     }
     else
     {

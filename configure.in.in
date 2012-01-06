@@ -19,7 +19,7 @@ m4_define([xkb_version], [xkb_version_major().xkb_version_minor().xkb_version_mi
 dnl ***************************
 dnl *** Initialize autoconf ***
 dnl ***************************
-AC_COPYRIGHT([Copyright (c) 2006-2011
+AC_COPYRIGHT([Copyright (c) 2006-2012
         The Xfce development team. All rights reserved.])
 AC_INIT([xfce4-xkb-plugin], [xkb_version], [http://bugzilla.xfce.org/], [xfce4-xkb-plugin])
 AC_PREREQ([2.50])
