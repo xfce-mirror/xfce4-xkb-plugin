@@ -2,14 +2,14 @@
 # Copyright (C) 2004-2007 Alexander Iliev.
 # This file is distributed under the same license as the xfce4-xkb-plugin package.
 # Pau Ruŀlan Ferragut <paurullan@bulma.net>, 2006.
-# Carles Muñoz Gorriz <carlesmu@internautas.org>, 2007-2009.
+# Carles Muñoz Gorriz <carlesmu@internautas.org>, 2007-2009, 2012.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-xkb-plugin 0.4.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-11-04 21:50+0600\n"
-"PO-Revision-Date: 2009-09-05 16:09+0100\n"
+"PO-Revision-Date: 2012-01-15 19:52+0100\n"
 "Last-Translator: Carles Muñoz Gorriz <carlesmu@internautas.org>\n"
 "Language-Team: Catalan\n"
 "Language: \n"
@@ -58,16 +58,15 @@ msgstr "Tipus de teclat:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:628
 msgid "Default"
-msgstr ""
+msgstr "Per defecte"
 
 #: ../panel-plugin/xkb-settings-dialog.c:635
-#, fuzzy
 msgid "Layout"
-msgstr "Afegeix tipus"
+msgstr "Tipus"
 
 #: ../panel-plugin/xkb-settings-dialog.c:643
 msgid "Variant"
-msgstr ""
+msgstr "Variant"
 
 #. ***
 #: ../panel-plugin/xkb-settings-dialog.c:687
@@ -85,19 +84,19 @@ msgstr "text"
 #. text size option
 #: ../panel-plugin/xkb-settings-dialog.c:698
 msgid "Text size:"
-msgstr ""
+msgstr "Mida del text:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:703
 msgid "small"
-msgstr ""
+msgstr "petit"
 
 #: ../panel-plugin/xkb-settings-dialog.c:704
 msgid "medium"
-msgstr ""
+msgstr "mitjà"
 
 #: ../panel-plugin/xkb-settings-dialog.c:705
 msgid "large"
-msgstr ""
+msgstr "gran"
 
 #: ../panel-plugin/xkb-settings-dialog.c:709
 msgid "Manage layout:"
