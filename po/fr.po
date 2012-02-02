@@ -2,7 +2,7 @@
 # Copyright (C) 2008 Alexander Iliev <sasoiliev@mamul.org>
 # This file is distributed under the same license as the xfce4-rss-plugin package.
 # Maximilian Schleiss <maximilian@xfce.org>, 2006-2009.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-xkb-plugin\n"
@@ -11,10 +11,10 @@ msgstr ""
 "PO-Revision-Date: 2010-04-11 12:03+0200\n"
 "Last-Translator: Maximilian Schleiss <maximilian@xfce.org>\n"
 "Language-Team: French <xfce-i18n@xfce.org>\n"
-"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
 
 #: ../panel-plugin/xkb-settings-dialog.c:489
 msgid ""
@@ -55,16 +55,15 @@ msgstr "Dispositions de clavier :"
 
 #: ../panel-plugin/xkb-settings-dialog.c:628
 msgid "Default"
-msgstr ""
+msgstr "Défaut"
 
 #: ../panel-plugin/xkb-settings-dialog.c:635
-#, fuzzy
 msgid "Layout"
-msgstr "Ajouter disposition"
+msgstr "Disposition"
 
 #: ../panel-plugin/xkb-settings-dialog.c:643
 msgid "Variant"
-msgstr ""
+msgstr "Variante"
 
 #. ***
 #: ../panel-plugin/xkb-settings-dialog.c:687
@@ -82,19 +81,19 @@ msgstr "texte"
 #. text size option
 #: ../panel-plugin/xkb-settings-dialog.c:698
 msgid "Text size:"
-msgstr ""
+msgstr "Taille du texte :"
 
 #: ../panel-plugin/xkb-settings-dialog.c:703
 msgid "small"
-msgstr ""
+msgstr "petit"
 
 #: ../panel-plugin/xkb-settings-dialog.c:704
 msgid "medium"
-msgstr ""
+msgstr "moyen"
 
 #: ../panel-plugin/xkb-settings-dialog.c:705
 msgid "large"
-msgstr ""
+msgstr "grand"
 
 #: ../panel-plugin/xkb-settings-dialog.c:709
 msgid "Manage layout:"
