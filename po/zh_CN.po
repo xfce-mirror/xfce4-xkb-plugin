@@ -3,7 +3,7 @@
 # This file is distributed under the same license as
 # the xfce4-xkb-plugin package.
 # Hunt Xu <huntxu@live.cn>, 2008, 2009.
-# Chipong Luo <chipong_l@yahoo.com>, 2011.
+# Chipong Luo <chipong.luo@yahoo.com>, 2011, 2012.
 #
 msgid ""
 msgstr ""
@@ -11,7 +11,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-11-04 21:50+0600\n"
 "PO-Revision-Date: 2009-11-09 19:49+0800\n"
-"Last-Translator: Chipong Luo <chipong_l@yahoo.com>\n"
+"Last-Translator: Chipong Luo <chipong.luo@yahoo.com>\n"
 "Language-Team: Chinese (Simplified) <xfce-i18n@xfce.org>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
@@ -27,7 +27,7 @@ msgid ""
 msgstr ""
 "已在配置文件中禁用了 XKB 配置修改。\n"
 "\n"
-"参看 README 文件以获取详情。"
+"参看 README 文件获取更多信息。"
 
 #: ../panel-plugin/xkb-settings-dialog.c:515
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
@@ -76,12 +76,12 @@ msgstr "图片"
 
 #: ../panel-plugin/xkb-settings-dialog.c:693
 msgid "text"
-msgstr "文本"
+msgstr "文字"
 
 #. text size option
 #: ../panel-plugin/xkb-settings-dialog.c:698
 msgid "Text size:"
-msgstr "文本大小："
+msgstr "文字大小："
 
 #: ../panel-plugin/xkb-settings-dialog.c:703
 msgid "small"
@@ -117,7 +117,7 @@ msgstr "键盘布局插件"
 
 #: ../panel-plugin/xkb-settings-dialog.c:764
 msgid "Allows you to configure and use multiple keyboard layouts."
-msgstr "让您配置并使用多种键盘布局"
+msgstr "让您配置并使用多种键盘布局。"
 
 #: ../panel-plugin/xkb-settings-dialog.c:768
 msgid "Other plugins available here"
@@ -129,4 +129,4 @@ msgstr "添加布局"
 
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
 msgid "Keyboard layouts setup and switch plugin"
-msgstr "键盘布局设置与切换插件"
+msgstr "键盘布局设置和切换插件"
