@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: xkb\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-11-04 21:50+0600\n"
-"PO-Revision-Date: 2012-02-16 11:33+0200\n"
+"PO-Revision-Date: 2012-02-16 11:41+0200\n"
 "Last-Translator: Algimantas Margevičius <margevicius.algimantas@gmail.com>\n"
 "Language-Team: Lietuvių <>\n"
 "Language: \n"
@@ -99,7 +99,7 @@ msgstr "didelis"
 
 #: ../panel-plugin/xkb-settings-dialog.c:709
 msgid "Manage layout:"
-msgstr "Tvarkyti išdėstymą:"
+msgstr "Išdėstymą taikyti:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:714
 msgid "globally"
