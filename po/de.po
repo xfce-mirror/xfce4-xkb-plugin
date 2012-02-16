@@ -57,7 +57,6 @@ msgid "Keyboard layouts:"
 msgstr "Tastaturbelegungen:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:628
-#, fuzzy
 msgid "Default"
 msgstr "Vorgabe"
 
@@ -86,22 +85,18 @@ msgstr "Text"
 
 #. text size option
 #: ../panel-plugin/xkb-settings-dialog.c:698
-#, fuzzy
 msgid "Text size:"
 msgstr "Textgröße:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:703
-#, fuzzy
 msgid "small"
 msgstr "klein"
 
 #: ../panel-plugin/xkb-settings-dialog.c:704
-#, fuzzy
 msgid "medium"
 msgstr "mittel"
 
 #: ../panel-plugin/xkb-settings-dialog.c:705
-#, fuzzy
 msgid "large"
 msgstr "groß"
 
