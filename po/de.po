@@ -61,12 +61,10 @@ msgid "Default"
 msgstr "Vorgabe"
 
 #: ../panel-plugin/xkb-settings-dialog.c:635
-#, fuzzy
 msgid "Layout"
 msgstr "Tastaturbelegung"
 
 #: ../panel-plugin/xkb-settings-dialog.c:643
-#, fuzzy
 msgid "Variant"
 msgstr "Variante"
 
