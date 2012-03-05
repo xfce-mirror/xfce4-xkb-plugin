@@ -75,7 +75,7 @@ msgstr "다음 방식으로 배치 보이기:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:692
 msgid "image"
-msgstr "이미지"
+msgstr "그림"
 
 #: ../panel-plugin/xkb-settings-dialog.c:693
 msgid "text"
