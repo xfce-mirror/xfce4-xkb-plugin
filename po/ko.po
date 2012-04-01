@@ -71,7 +71,7 @@ msgstr "변형"
 #. ***
 #: ../panel-plugin/xkb-settings-dialog.c:687
 msgid "Show layout as:"
-msgstr "다음 방식으로 배치 보이기:"
+msgstr "다음 방식으로 배치 보기:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:692
 msgid "image"
