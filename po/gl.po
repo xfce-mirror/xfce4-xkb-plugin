@@ -1,12 +1,12 @@
 # Galician translation of xfce4-xkb-plugin
 # Copyright (C) 2008-2009 Leandro Regueiro
 # This file is distributed under the same license as the xfce4-xkb-plugin package.
-#
+# 
 # Leandro Regueiro <leandro.regueiro@gmail.com>, 2006, 2008, 2009.
-#
+# 
 # Proxecto Trasno - Adaptación do software libre á lingua galega:  Se desexas
 # colaborar connosco, podes atopar máis información en <http://trasno.net>
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-xkb-plugin\n"
@@ -15,10 +15,10 @@ msgstr ""
 "PO-Revision-Date: 2010-01-08 13:07+0100\n"
 "Last-Translator: Leandro Regueiro <leandro.regueiro@gmail.com>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
-"Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: gl\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
 #: ../panel-plugin/xkb-settings-dialog.c:489
@@ -62,9 +62,8 @@ msgid "Default"
 msgstr ""
 
 #: ../panel-plugin/xkb-settings-dialog.c:635
-#, fuzzy
 msgid "Layout"
-msgstr "Engadir disposición"
+msgstr "Disposición"
 
 #: ../panel-plugin/xkb-settings-dialog.c:643
 msgid "Variant"
@@ -86,19 +85,19 @@ msgstr "texto"
 #. text size option
 #: ../panel-plugin/xkb-settings-dialog.c:698
 msgid "Text size:"
-msgstr ""
+msgstr "Tamaño do texto:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:703
 msgid "small"
-msgstr ""
+msgstr "pequeno"
 
 #: ../panel-plugin/xkb-settings-dialog.c:704
 msgid "medium"
-msgstr ""
+msgstr "mediano"
 
 #: ../panel-plugin/xkb-settings-dialog.c:705
 msgid "large"
-msgstr ""
+msgstr "grande"
 
 #: ../panel-plugin/xkb-settings-dialog.c:709
 msgid "Manage layout:"
