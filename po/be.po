@@ -31,7 +31,7 @@ msgstr ""
 #: ../panel-plugin/xkb-settings-dialog.c:515
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
 msgid "Keyboard Layouts"
-msgstr "Раскладакі клявіятуры"
+msgstr "Раскладкі клявіятуры"
 
 #: ../panel-plugin/xkb-settings-dialog.c:537
 msgid "Keyboard model:"
