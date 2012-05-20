@@ -2,20 +2,21 @@
 # Copyright (C) 2004-2006 Alexander Iliev.
 # This file is distributed under the same license as the xfce4-xkb-plugin package.
 # Stavros Giannouris <stavrosg@serverhive.com>, 2006.
+# Efstathios Iosifidis <iosifidis@opensuse.org>, 2012.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-xkb-plugin 0.4.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-11-04 21:50+0600\n"
-"PO-Revision-Date: 2009-06-20 15:31-0800\n"
-"Last-Translator: Evaggelos Balaskas <ebalaskas@ebalaskas.gr>\n"
-"Language-Team: Greek <nls@tux.hellug.gr>\n"
+"PO-Revision-Date: 2012-05-20 04:18+0300\n"
+"Last-Translator: Efstathios Iosifidis <iosifidis@opensuse.org>\n"
+"Language-Team: Ελληνικά, Σύγχρονα <opensuse-translation-el@opensuse.org>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Content-Transfer-Encoding: 8bits\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
 #: ../panel-plugin/xkb-settings-dialog.c:489
 msgid ""
@@ -54,17 +55,14 @@ msgid "Keyboard layouts:"
 msgstr "Διατάξεις πληκτρολογίου:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:628
-#, fuzzy
 msgid "Default"
 msgstr "Προεπιλογή"
 
 #: ../panel-plugin/xkb-settings-dialog.c:635
-#, fuzzy
 msgid "Layout"
 msgstr "Διάταξη"
 
 #: ../panel-plugin/xkb-settings-dialog.c:643
-#, fuzzy
 msgid "Variant"
 msgstr "Παραλλαγή"
 
@@ -84,19 +82,19 @@ msgstr "κείμενο"
 #. text size option
 #: ../panel-plugin/xkb-settings-dialog.c:698
 msgid "Text size:"
-msgstr ""
+msgstr "Μέγεθος κειμένου:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:703
 msgid "small"
-msgstr ""
+msgstr "μικρό"
 
 #: ../panel-plugin/xkb-settings-dialog.c:704
 msgid "medium"
-msgstr ""
+msgstr "μεσαίο"
 
 #: ../panel-plugin/xkb-settings-dialog.c:705
 msgid "large"
-msgstr ""
+msgstr "μεγάλο"
 
 #: ../panel-plugin/xkb-settings-dialog.c:709
 msgid "Manage layout:"
