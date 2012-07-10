@@ -77,7 +77,6 @@ static GdkFilterReturn
                     handle_xevent                       (GdkXEvent * xev,
                                                          GdkEvent * event);
 
-void                xkb_config_update_configuration     (t_xkb_settings *settings);
 static void         xkb_config_free                     ();
 static void         xkb_config_initialize_xkb_options   (t_xkb_settings *settings);
 
@@ -126,8 +125,6 @@ xkb_config_initialize (t_xkb_settings *settings,
 static void
 xkb_config_initialize_xkb_options (t_xkb_settings *settings)
 {
-    XklConfigRegistry *registry;
-    XklConfigItem *config_item;
     GHashTable *index_variants;
     gchar **group;
     gint val, i;
@@ -146,12 +143,6 @@ xkb_config_initialize_xkb_options (t_xkb_settings *settings)
     config->window_map = g_hash_table_new (g_direct_hash, NULL);
     config->application_map = g_hash_table_new (g_direct_hash, NULL);
 
-    registry = xkl_config_registry_get_instance (config->engine);
-    xkl_config_registry_load (registry, FALSE);
-    g_object_unref (registry);
-
-    config_item = xkl_config_item_new ();
-
     config->group_names = (gchar **) g_new0 (typeof (gchar **), config->group_count);
     config->variants = (gchar **) g_new0 (typeof (gchar **), config->group_count);
     config->variant_index_by_group = g_hash_table_new (NULL, NULL);
@@ -160,13 +151,8 @@ xkb_config_initialize_xkb_options (t_xkb_settings *settings)
     for (i = 0; i < config->group_count; i++)
     {
 
-        g_stpcpy (config_item->name, config->config_rec->layouts[i]);
         config->group_names[i] = g_strdup (config->config_rec->layouts[i]);
 
-        if (config->config_rec->variants[i] != NULL)
-        {
-            g_stpcpy (config_item->name, config->config_rec->variants[i]);
-        }
         config->variants[i] = (config->config_rec->variants[i] == NULL)
             ? g_strdup ("") : g_strdup (config->config_rec->variants[i]);
 
@@ -178,7 +164,7 @@ xkb_config_initialize_xkb_options (t_xkb_settings *settings)
         val++;
         g_hash_table_insert (
                 config->variant_index_by_group,
-                config->group_names[i],
+                GINT_TO_POINTER (i),
                 GINT_TO_POINTER (val)
         );
         g_hash_table_insert (
@@ -188,7 +174,6 @@ xkb_config_initialize_xkb_options (t_xkb_settings *settings)
         );
     }
     g_hash_table_destroy (index_variants);
-    g_object_unref (config_item);
 }
 
 void
@@ -408,7 +393,6 @@ xkb_config_window_changed (guint new_window_id, guint application_id)
     gpointer key, value;
     GHashTable *hashtable;
     guint id;
-    gint DEBUG_FOUND = 0;
 
     g_assert (config != NULL);
 
@@ -438,7 +422,6 @@ xkb_config_window_changed (guint new_window_id, guint application_id)
     if (g_hash_table_lookup_extended (hashtable, GINT_TO_POINTER (id), &key, &value))
     {
         group = GPOINTER_TO_INT (value);
-        DEBUG_FOUND = 1;
     }
 
     g_hash_table_insert (
@@ -579,17 +562,14 @@ xkb_config_variant_index_for_group (gint group)
 {
     gpointer presult;
     gint result;
-    gchar *key;
 
     g_return_val_if_fail (config != NULL, 0);
 
     if (group == -1) group = xkb_config_get_current_group ();
 
-    key = config->group_names[group];
-
     presult = g_hash_table_lookup (
             config->variant_index_by_group,
-            key
+            GINT_TO_POINTER (group)
     );
     if (presult == NULL) return 0;
 
