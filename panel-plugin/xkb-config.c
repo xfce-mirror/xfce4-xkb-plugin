@@ -64,16 +64,17 @@ typedef struct
     XklConfigRec         *config_rec;
 } t_xkb_config;
 
-t_xkb_config *config;
+static t_xkb_config *config;
 
-void                xkb_config_state_changed            (XklEngine *engine,
+static void         xkb_config_state_changed            (XklEngine *engine,
                                                          XklEngineStateChange *change,
                                                          gint group,
                                                          gboolean restore);
 
-void                xkb_config_xkl_config_changed       (XklEngine *engine);
+static void         xkb_config_xkl_config_changed       (XklEngine *engine);
 
-GdkFilterReturn     handle_xevent                       (GdkXEvent * xev,
+static GdkFilterReturn
+                    handle_xevent                       (GdkXEvent * xev,
                                                          GdkEvent * event);
 
 void                xkb_config_update_configuration     (t_xkb_settings *settings);
