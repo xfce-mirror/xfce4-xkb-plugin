@@ -68,12 +68,14 @@ typedef struct
 t_xkb_config *config;
 gboolean ignore_xkl_config_change = FALSE;
 
-void                xkb_config_state_changed            (XklEngine *engine,
-                                                         XklEngineStateChange *change,
+static void         xkb_config_state_changed            (XklEngine *engine,
+                                                         XklEngineStateChange change,
                                                          gint group,
-                                                         gboolean restore);
+                                                         gboolean restore,
+                                                         gpointer user_data);
 
-void                xkb_config_xkl_config_changed       (XklEngine *engine);
+static void         xkb_config_xkl_config_changed       (XklEngine *engine,
+                                                         gpointer user_data);
 
 GdkFilterReturn     handle_xevent                       (GdkXEvent * xev,
                                                          GdkEvent * event);
@@ -542,9 +544,10 @@ xkb_config_get_variant (gint group)
 
 void
 xkb_config_state_changed (XklEngine *engine,
-                          XklEngineStateChange *change,
+                          XklEngineStateChange change,
                           gint group,
-                          gboolean restore)
+                          gboolean restore,
+                          gpointer user_data)
 {
     if (change == GROUP_CHANGED)
     {
@@ -575,7 +578,7 @@ xkb_config_state_changed (XklEngine *engine,
 }
 
 void
-xkb_config_xkl_config_changed (XklEngine *engine)
+xkb_config_xkl_config_changed (XklEngine *engine, gpointer user_data)
 {
     TRACE ("ignore_xkl_config_change: %d ", ignore_xkl_config_change);
 
