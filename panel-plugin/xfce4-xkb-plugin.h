@@ -69,23 +69,6 @@ typedef struct
     GtkWidget *btn;
     GtkWidget *layout_image;
     GtkWidget *popup;
-
-    /*  */
-    GtkWidget *kbd_model_combo;
-    GtkListStore *combo_store;
-
-    GtkWidget *layout_tree_view;
-    GtkListStore *layout_store;
-
-    GtkWidget *toggle_options_combo;
-    GtkListStore *toggle_options_store;
-
-    GtkWidget *compose_key_options_combo;
-    GtkListStore *compose_key_options_store;
-
-    GtkWidget *add_layout_btn;
-    GtkWidget *rm_layout_btn;
-    GtkWidget *edit_layout_btn;
 } t_xkb;
 
 /*

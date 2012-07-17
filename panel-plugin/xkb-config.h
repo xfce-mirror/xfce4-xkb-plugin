@@ -43,19 +43,7 @@ typedef enum
 
 typedef struct
 {
-    gchar*          model;
-    gchar*          layouts;
-    gchar*          variants;
-    gchar*          toggle_option;
-    gchar*          compose_key_position;
-} t_xkb_kbd_config;
-
-typedef struct
-{
     t_group_policy      group_policy;
-    gint                default_group;
-    gboolean            never_modify_config;
-    t_xkb_kbd_config*   kbd_config;
 } t_xkb_settings;
 
 typedef void        (*XkbCallback)                  (gint current_group,
@@ -66,7 +54,6 @@ gboolean          xkb_config_initialize                   (t_xkb_settings *setti
                                                            XkbCallback callback,
                                                            gpointer data);
 void              xkb_config_finalize                     (void);
-void              kbd_config_free                         (t_xkb_kbd_config *kbd_config);
 gboolean          xkb_config_update_settings              (t_xkb_settings *settings);
 gint              xkb_config_get_group_count              (void);
 const gchar*      xkb_config_get_group_name               (gint group);

@@ -225,9 +225,6 @@ xkb_free (t_xkb *xkb)
 {
     xkb_config_finalize ();
 
-    if (xkb->settings->kbd_config)
-        kbd_config_free (xkb->settings->kbd_config);
-
     g_free (xkb->settings);
 
     gtk_widget_destroy (xkb->layout_image);
@@ -263,23 +260,6 @@ xfce_xkb_save_config (XfcePanelPlugin *plugin, t_xkb *xkb)
     xfce_rc_write_int_entry (rcfile, "display_type", xkb->display_type);
     xfce_rc_write_int_entry (rcfile, "display_textsize", xkb->display_textsize);
     xfce_rc_write_int_entry (rcfile, "group_policy", xkb->settings->group_policy);
-    xfce_rc_write_int_entry (rcfile, "default_group", xkb->settings->default_group);
-    xfce_rc_write_bool_entry (rcfile, "never_modify_config", xkb->settings->never_modify_config);
-
-    if (xkb->settings->kbd_config != NULL)
-    {
-        xfce_rc_write_entry (rcfile, "model", xkb->settings->kbd_config->model);
-        xfce_rc_write_entry (rcfile, "layouts", xkb->settings->kbd_config->layouts);
-        xfce_rc_write_entry (rcfile, "variants", xkb->settings->kbd_config->variants);
-
-        if (xkb->settings->kbd_config->toggle_option == NULL)
-            xfce_rc_write_entry (rcfile, "toggle_option", "");
-        else xfce_rc_write_entry (rcfile, "toggle_option", xkb->settings->kbd_config->toggle_option);
-
-        if (xkb->settings->kbd_config->compose_key_position == NULL)
-            xfce_rc_write_entry (rcfile, "compose_key_position", "");
-        else xfce_rc_write_entry (rcfile, "compose_key_position", xkb->settings->kbd_config->compose_key_position);
-    }
 
     xfce_rc_close (rcfile);
     g_free (filename);
@@ -297,23 +277,6 @@ xkb_load_config (t_xkb *xkb, const gchar *filename)
         xkb->display_textsize = xfce_rc_read_int_entry (rcfile, "display_textsize", DISPLAY_TEXTSIZE_SMALL);
         xkb->settings->group_policy = xfce_rc_read_int_entry (rcfile, "group_policy", GROUP_POLICY_PER_APPLICATION);
 
-        if (xkb->settings->group_policy != GROUP_POLICY_GLOBAL)
-        {
-            xkb->settings->default_group = xfce_rc_read_int_entry (rcfile, "default_group", 0);
-        }
-
-        xkb->settings->never_modify_config = xfce_rc_read_bool_entry (rcfile, "never_modify_config", FALSE);
-
-        if (xkb->settings->kbd_config == NULL)
-        {
-            xkb->settings->kbd_config = g_new0 (t_xkb_kbd_config, 1);
-        }
-        xkb->settings->kbd_config->model = g_strdup (xfce_rc_read_entry (rcfile, "model", NULL));
-        xkb->settings->kbd_config->layouts = g_strdup (xfce_rc_read_entry (rcfile, "layouts", NULL));
-        xkb->settings->kbd_config->variants = g_strdup (xfce_rc_read_entry (rcfile, "variants", NULL));
-        xkb->settings->kbd_config->toggle_option = g_strdup (xfce_rc_read_entry (rcfile, "toggle_option", NULL));
-        xkb->settings->kbd_config->compose_key_position = g_strdup (xfce_rc_read_entry (rcfile, "compose_key_position", NULL));
-
         xfce_rc_close (rcfile);
 
         return TRUE;
@@ -328,8 +291,6 @@ xkb_load_default (t_xkb *xkb)
     xkb->display_type = DISPLAY_TYPE_IMAGE;
     xkb->display_textsize = DISPLAY_TEXTSIZE_SMALL;
     xkb->settings->group_policy = GROUP_POLICY_PER_APPLICATION;
-    xkb->settings->default_group = 0;
-    xkb->settings->kbd_config = NULL;
 }
 
 static gboolean
@@ -360,7 +321,7 @@ xkb_calculate_sizes (t_xkb *xkb, GtkOrientation orientation, gint panel_size)
 static void
 xkb_initialize_menu (t_xkb *xkb)
 {
-    gint i;
+    gint i, group_count;
     RsvgHandle *handle;
     GdkPixbuf *pixbuf, *tmp;
     gchar *imgfilename;
@@ -373,7 +334,8 @@ xkb_initialize_menu (t_xkb *xkb)
         gtk_widget_destroy (xkb->popup);
 
     xkb->popup = gtk_menu_new ();
-    for (i = 0; i < xkb_config_get_group_count (); i++)
+    group_count = xkb_config_get_group_count ();
+    for (i = 0; i < group_count; i++)
     {
         gchar *layout_string;
 
@@ -407,6 +369,7 @@ xkb_initialize_menu (t_xkb *xkb)
 
             gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (menu_item), image);
 
+            rsvg_handle_close (handle, NULL);
             g_object_unref (handle);
         }
 

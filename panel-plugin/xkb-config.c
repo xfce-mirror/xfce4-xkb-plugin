@@ -41,7 +41,7 @@
 
 typedef struct
 {
-    XklEngine*            engine;
+    XklEngine            *engine;
 
     gchar               **group_names;
     gchar               **variants;
@@ -59,9 +59,6 @@ typedef struct
 
     XkbCallback           callback;
     gpointer              callback_data;
-
-
-    XklConfigRec         *config_rec;
 } t_xkb_config;
 
 static t_xkb_config *config;
@@ -78,7 +75,7 @@ static GdkFilterReturn
                                                          GdkEvent * event);
 
 static void         xkb_config_free                     ();
-static void         xkb_config_initialize_xkb_options   (t_xkb_settings *settings);
+static void         xkb_config_initialize_xkb_options   (const XklConfigRec *config_rec);
 
 /* ---------------------- implementation ------------------------- */
 
@@ -123,7 +120,7 @@ xkb_config_initialize (t_xkb_settings *settings,
 }
 
 static void
-xkb_config_initialize_xkb_options (t_xkb_settings *settings)
+xkb_config_initialize_xkb_options (const XklConfigRec *config_rec)
 {
     GHashTable *index_variants;
     gchar **group;
@@ -132,7 +129,7 @@ xkb_config_initialize_xkb_options (t_xkb_settings *settings)
 
     xkb_config_free ();
 
-    group = config->config_rec->layouts;
+    group = config_rec->layouts;
     config->group_count = 0;
     while (*group)
     {
@@ -151,10 +148,10 @@ xkb_config_initialize_xkb_options (t_xkb_settings *settings)
     for (i = 0; i < config->group_count; i++)
     {
 
-        config->group_names[i] = g_strdup (config->config_rec->layouts[i]);
+        config->group_names[i] = g_strdup (config_rec->layouts[i]);
 
-        config->variants[i] = (config->config_rec->variants[i] == NULL)
-            ? g_strdup ("") : g_strdup (config->config_rec->variants[i]);
+        config->variants[i] = (config_rec->variants[i] == NULL)
+            ? g_strdup ("") : g_strdup (config_rec->variants[i]);
 
         pval = g_hash_table_lookup (
                 index_variants,
@@ -174,18 +171,6 @@ xkb_config_initialize_xkb_options (t_xkb_settings *settings)
         );
     }
     g_hash_table_destroy (index_variants);
-}
-
-void
-kbd_config_free (t_xkb_kbd_config *kbd_config)
-{
-    g_free (kbd_config->model);
-    g_free (kbd_config->layouts);
-    g_free (kbd_config->variants);
-    g_free (kbd_config->toggle_option);
-    g_free (kbd_config->compose_key_position);
-
-    g_free (kbd_config);
 }
 
 static void
@@ -222,11 +207,10 @@ xkb_config_free (void)
 void
 xkb_config_finalize (void)
 {
-    xkb_config_free ();
-
     xkl_engine_stop_listen (config->engine, XKLL_TRACK_KEYBOARD_STATE);
-    g_object_unref (config->config_rec);
+    g_object_unref (config->engine);
 
+    xkb_config_free ();
     g_free (config);
 
     gdk_window_remove_filter (NULL, (GdkFilterFunc) handle_xevent, NULL);
@@ -275,113 +259,20 @@ xkb_config_prev_group (void)
 gboolean
 xkb_config_update_settings (t_xkb_settings *settings)
 {
-    gboolean activate_settings = FALSE;
-
-    gchar **opt;
-    gchar **prefix;
+    XklConfigRec *config_rec;
 
     g_assert (config != NULL);
     g_assert (settings != NULL);
 
     config->settings = settings;
 
-    if (config->config_rec == NULL)
-    {
-        config->config_rec = xkl_config_rec_new ();
-    }
+    config_rec = xkl_config_rec_new ();
+    xkl_config_rec_get_from_server (config_rec, config->engine);
 
-    if (settings->kbd_config == NULL || settings->never_modify_config)
-    {
-        xkl_config_rec_get_from_server (config->config_rec, config->engine);
-        if (settings->kbd_config == NULL)
-            settings->kbd_config = g_new0 (t_xkb_kbd_config, 1);
+    xkb_config_initialize_xkb_options (config_rec);
 
-        g_free (settings->kbd_config->model);
-        settings->kbd_config->model = g_strdup (config->config_rec->model);
-        g_free (settings->kbd_config->layouts);
-        settings->kbd_config->layouts = g_strjoinv (",", config->config_rec->layouts);
-
-        /* XklConfigRec uses for NULL for empty variant instead of "".
-         * So if has skipped variants we can't get proper settings->kbd_config->variants.
-         * So I use this hack to get proper kbd_config->variants */
-        gchar *tmp1 = g_strdup("");
-        gchar *tmp2 = NULL;
-        int i;
-        for (i = 0; config->config_rec->layouts[i]; i++)
-        {
-            tmp2 = g_strconcat (tmp1, config->config_rec->variants[i] ? config->config_rec->variants[i] : "", NULL);
-            g_free(tmp1);
-            tmp1 = tmp2;
-            if (config->config_rec->layouts[i + 1])
-            {
-                tmp2 = g_strconcat (tmp1, ",", NULL);
-                g_free(tmp1);
-                tmp1 = tmp2;
-            }
-        }
-        g_free (settings->kbd_config->variants);
-        settings->kbd_config->variants = tmp2;
-    }
-    else
-    {
-        gchar *options;
-
-        activate_settings = TRUE;
-
-        g_free (config->config_rec->model);
-        config->config_rec->model = g_strdup (settings->kbd_config->model);
-
-        g_strfreev (config->config_rec->layouts);
-        config->config_rec->layouts = g_strsplit_set (settings->kbd_config->layouts, ",", 0);
-
-        g_strfreev (config->config_rec->variants);
-        config->config_rec->variants = g_strsplit_set (settings->kbd_config->variants, ",", 0);
-
-        if (settings->kbd_config->toggle_option
-                && strlen (settings->kbd_config->toggle_option) > 0)
-            options = g_strdup (settings->kbd_config->toggle_option);
-        else options = g_strdup ("");
-
-        if (settings->kbd_config->compose_key_position
-                && strlen (settings->kbd_config->compose_key_position) > 0)
-        {
-            gchar *tmp = options;
-            options = g_strconcat (tmp, ",", settings->kbd_config->compose_key_position, NULL);
-            g_free (tmp);
-        }
-
-        g_strfreev (config->config_rec->options);
-        config->config_rec->options = g_strsplit_set (options, ",", 0);
-        g_free (options);
-    }
-
-    /* select the first "grp" option and use it (should be fixed to support more options) */
-    g_free (settings->kbd_config->toggle_option);
-    settings->kbd_config->toggle_option = NULL;
-    g_free (settings->kbd_config->compose_key_position);
-    settings->kbd_config->compose_key_position = NULL;
-    opt = config->config_rec->options;
-    while (opt && *opt)
-    {
-        prefix = g_strsplit(*opt, ":", 2);
-        if (settings->kbd_config->toggle_option == NULL
-                && prefix && *prefix && strcmp(*prefix, "grp") == 0)
-        {
-            settings->kbd_config->toggle_option = g_strdup (*opt);
-        }
-        else if (prefix && *prefix && strcmp(*prefix, "compose") == 0)
-        {
-            settings->kbd_config->compose_key_position = g_strdup (*opt);
-        }
-
-        g_strfreev (prefix);
-        opt++;
-    }
-
-    if (activate_settings && !settings->never_modify_config)
-        xkl_config_rec_activate (config->config_rec, config->engine);
-
-    xkb_config_initialize_xkb_options (settings);
+    xkl_config_rec_reset (config_rec);
+    g_object_unref (config_rec);
 
     return TRUE;
 }
@@ -417,7 +308,7 @@ xkb_config_window_changed (guint new_window_id, guint application_id)
             break;
     }
 
-    group = config->settings->default_group;
+    group = 0;
 
     if (g_hash_table_lookup_extended (hashtable, GINT_TO_POINTER (id), &key, &value))
     {
@@ -549,8 +440,6 @@ xkb_config_state_changed (XklEngine *engine,
 void
 xkb_config_xkl_config_changed (XklEngine *engine)
 {
-    kbd_config_free (config->settings->kbd_config);
-    config->settings->kbd_config = NULL;
     xkb_config_update_settings (config->settings);
 
     if (config->callback != NULL)
