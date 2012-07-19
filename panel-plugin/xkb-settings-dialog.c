@@ -747,7 +747,7 @@ void
 xfce_xkb_about (XfcePanelPlugin *plugin)
 {
     GtkWidget *about;
-    const gchar* authors[3] = {
+    const gchar* authors[] = {
         "Alexander Iliev <sasoiliev@mamul.org>",
         "Gauvain Pocentek <gauvainpocentek@gmail.com>",
         NULL
@@ -756,8 +756,12 @@ xfce_xkb_about (XfcePanelPlugin *plugin)
     about = gtk_about_dialog_new ();
     gtk_about_dialog_set_name (GTK_ABOUT_DIALOG (about),
             _("Keyboard Layouts Plugin"));
+    gtk_about_dialog_set_version (GTK_ABOUT_DIALOG (about),
+            PACKAGE_VERSION);
     gtk_about_dialog_set_logo (GTK_ABOUT_DIALOG (about),
             NULL);
+    gtk_about_dialog_set_license (GTK_ABOUT_DIALOG (about),
+            xfce_get_license_text (XFCE_LICENSE_TEXT_GPL));
     gtk_about_dialog_set_authors (GTK_ABOUT_DIALOG (about),
             (const gchar**) authors);
     gtk_about_dialog_set_comments (GTK_ABOUT_DIALOG (about),
