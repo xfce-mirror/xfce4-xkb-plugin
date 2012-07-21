@@ -61,7 +61,7 @@ typedef struct
 
     t_display_type display_type;  /* display layout as image ot text */
     t_display_textsize display_textsize; /* text size for text layout */
-    t_xkb_settings *settings;     /* per-app setting and default group */
+    t_group_policy group_policy;     /* per-app/window/global policy */
 
     gint button_state;            /* gtk state of the button */
 

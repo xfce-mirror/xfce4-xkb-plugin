@@ -65,7 +65,6 @@ enum enumeration
     NUM
 };
 
-static void         xkb_settings_update_from_ui        (t_xkb *xkb);
 
 /**************************************************************/
 
@@ -73,8 +72,6 @@ static void
 on_settings_close (GtkDialog *dialog, gint response, t_xkb *xkb)
 {
     xfce_panel_plugin_unblock_menu (xkb->plugin);
-
-    xkb_settings_update_from_ui (xkb);
 
     xfce_xkb_save_config (xkb->plugin, xkb);
 
@@ -98,7 +95,8 @@ on_display_textsize_changed (GtkComboBox *cb, t_xkb *xkb)
 static void
 on_group_policy_changed (GtkComboBox *cb, t_xkb *xkb)
 {
-    xkb->settings->group_policy = gtk_combo_box_get_active (cb);
+    xkb->group_policy = gtk_combo_box_get_active (cb);
+    xkb_config_set_group_policy (xkb->group_policy);
 }
 
 void
@@ -162,7 +160,7 @@ xfce_xkb_configure (XfcePanelPlugin *plugin,
 
     gtk_combo_box_set_active (GTK_COMBO_BOX (display_type_optmenu), xkb->display_type);
     gtk_combo_box_set_active (GTK_COMBO_BOX (display_textsize_optmenu), xkb->display_textsize);
-    gtk_combo_box_set_active (GTK_COMBO_BOX (group_policy_combo), xkb->settings->group_policy);
+    gtk_combo_box_set_active (GTK_COMBO_BOX (group_policy_combo), xkb->group_policy);
 
     g_signal_connect (display_type_optmenu, "changed", G_CALLBACK (on_display_type_changed), xkb);
     g_signal_connect (group_policy_combo, "changed", G_CALLBACK (on_group_policy_changed), xkb);
@@ -201,11 +199,3 @@ xfce_xkb_about (XfcePanelPlugin *plugin)
     gtk_dialog_run (GTK_DIALOG (about));
     gtk_widget_destroy (about);
 }
-
-static void
-xkb_settings_update_from_ui (t_xkb *xkb)
-{
-    xkb_config_update_settings (xkb->settings);
-    xkb_refresh_gui (xkb);
-}
-

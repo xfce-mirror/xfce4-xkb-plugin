@@ -27,6 +27,9 @@
 #include "xkb-cairo.h"
 #include "xkb-util.h"
 
+static void xkb_plugin_popup_menu (GtkButton *btn,
+                                   gpointer data);
+
 void
 xkb_plugin_active_window_changed (WnckScreen *screen,
                                   WnckWindow *previously_active_window,
@@ -177,7 +180,7 @@ xkb_plugin_button_scrolled (GtkWidget *btn,
     return FALSE;
 }
 
-void
+static void
 xkb_plugin_popup_menu (GtkButton *btn,
                        gpointer data)
 {

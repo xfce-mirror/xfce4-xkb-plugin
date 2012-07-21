@@ -41,20 +41,15 @@ typedef enum
     GROUP_POLICY_PER_APPLICATION    = 2
 } t_group_policy;
 
-typedef struct
-{
-    t_group_policy      group_policy;
-} t_xkb_settings;
-
 typedef void        (*XkbCallback)                  (gint current_group,
                                                      gboolean groups_changed,
                                                      gpointer user_data);
 
-gboolean          xkb_config_initialize                   (t_xkb_settings *settings,
+gboolean          xkb_config_initialize                   (t_group_policy group_policy,
                                                            XkbCallback callback,
                                                            gpointer data);
 void              xkb_config_finalize                     (void);
-gboolean          xkb_config_update_settings              (t_xkb_settings *settings);
+void              xkb_config_set_group_policy             (t_group_policy group_policy);
 gint              xkb_config_get_group_count              (void);
 const gchar*      xkb_config_get_group_name               (gint group);
 const gchar*      xkb_config_get_variant                  (gint group);

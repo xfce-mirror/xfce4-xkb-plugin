@@ -60,9 +60,6 @@ void            xkb_plugin_window_closed        (WnckScreen *screen,
                                  WnckWindow *window,
                                  t_xkb *xkb);
 
-void            xkb_plugin_popup_menu           (GtkButton *btn,
-                                 gpointer data);
-
 void            xkb_plugin_button_clicked       (GtkButton *btn,
                                  gpointer data);
 

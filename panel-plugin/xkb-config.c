@@ -45,7 +45,7 @@ typedef struct
 
     gchar               **group_names;
     gchar               **variants;
-    t_xkb_settings       *settings;
+    t_group_policy        group_policy;
     GHashTable           *variant_index_by_group;
 
 
@@ -63,7 +63,7 @@ typedef struct
 
 static t_xkb_config *config;
 
-static void         xkb_config_state_changed            (XklEngine *engine,
+static void         xkb_config_xkl_state_changed        (XklEngine *engine,
                                                          XklEngineStateChange change,
                                                          gint group,
                                                          gboolean restore,
@@ -77,20 +77,19 @@ static GdkFilterReturn
                                                          GdkEvent * event);
 
 static void         xkb_config_free                     ();
+static void         xkb_config_update_from_xkl          ();
 static void         xkb_config_initialize_xkb_options   (const XklConfigRec *config_rec);
 
 /* ---------------------- implementation ------------------------- */
 
 gboolean
-xkb_config_initialize (t_xkb_settings *settings,
+xkb_config_initialize (t_group_policy group_policy,
                XkbCallback callback,
                gpointer callback_data)
 {
-    g_assert (settings != NULL);
-
     config = g_new0 (t_xkb_config, 1);
 
-    config->settings = settings;
+    config->group_policy = group_policy;
 
     config->callback = callback;
     config->callback_data = callback_data;
@@ -102,7 +101,7 @@ xkb_config_initialize (t_xkb_settings *settings,
         return FALSE;
     }
 
-    xkb_config_update_settings (settings);
+    xkb_config_update_from_xkl ();
 
     xkl_engine_set_group_per_toplevel_window (config->engine, FALSE);
 
@@ -110,7 +109,7 @@ xkb_config_initialize (t_xkb_settings *settings,
 
     g_signal_connect (config->engine,
             "X-state-changed",
-            G_CALLBACK (xkb_config_state_changed),
+            G_CALLBACK (xkb_config_xkl_state_changed),
             NULL);
     g_signal_connect (config->engine,
             "X-config-changed",
@@ -258,25 +257,26 @@ xkb_config_prev_group (void)
     return TRUE;
 }
 
-gboolean
-xkb_config_update_settings (t_xkb_settings *settings)
+void
+xkb_config_set_group_policy (t_group_policy group_policy)
+{
+    config->group_policy = group_policy;
+}
+
+static void
+xkb_config_update_from_xkl (void)
 {
     XklConfigRec *config_rec;
 
-    g_assert (config != NULL);
-    g_assert (settings != NULL);
 
-    config->settings = settings;
+    g_assert (config != NULL);
 
     config_rec = xkl_config_rec_new ();
     xkl_config_rec_get_from_server (config_rec, config->engine);
 
     xkb_config_initialize_xkb_options (config_rec);
 
-    xkl_config_rec_reset (config_rec);
     g_object_unref (config_rec);
-
-    return TRUE;
 }
 
 void
@@ -292,7 +292,7 @@ xkb_config_window_changed (guint new_window_id, guint application_id)
     id = 0;
     hashtable = NULL;
 
-    switch (config->settings->group_policy)
+    switch (config->group_policy)
     {
         case GROUP_POLICY_GLOBAL:
             return;
@@ -316,12 +316,12 @@ xkb_config_window_changed (guint new_window_id, guint application_id)
     {
         group = GPOINTER_TO_INT (value);
     }
-
-    g_hash_table_insert (
-            hashtable,
-            GINT_TO_POINTER (id),
-            GINT_TO_POINTER (group)
-    );
+    else
+    {
+        g_hash_table_insert (hashtable,
+                             GINT_TO_POINTER (id),
+                             GINT_TO_POINTER (group));
+    }
 
     xkb_config_set_group (group);
 }
@@ -331,7 +331,7 @@ xkb_config_application_closed (guint application_id)
 {
     g_assert (config != NULL);
 
-    switch (config->settings->group_policy)
+    switch (config->group_policy)
     {
         case GROUP_POLICY_GLOBAL:
         case GROUP_POLICY_PER_WINDOW:
@@ -352,7 +352,7 @@ xkb_config_window_closed (guint window_id)
 {
     g_assert (config != NULL);
 
-    switch (config->settings->group_policy)
+    switch (config->group_policy)
     {
         case GROUP_POLICY_GLOBAL:
         case GROUP_POLICY_PER_APPLICATION:
@@ -406,15 +406,15 @@ xkb_config_get_variant (gint group)
 }
 
 void
-xkb_config_state_changed (XklEngine *engine,
-                          XklEngineStateChange change,
-                          gint group,
-                          gboolean restore,
-                          gpointer user_data)
+xkb_config_xkl_state_changed (XklEngine *engine,
+                              XklEngineStateChange change,
+                              gint group,
+                              gboolean restore,
+                              gpointer user_data)
 {
     if (change == GROUP_CHANGED)
     {
-        switch (config->settings->group_policy)
+        switch (config->group_policy)
         {
             case GROUP_POLICY_GLOBAL:
                 break;
@@ -443,7 +443,7 @@ xkb_config_state_changed (XklEngine *engine,
 void
 xkb_config_xkl_config_changed (XklEngine *engine, gpointer user_data)
 {
-    xkb_config_update_settings (config->settings);
+    xkb_config_update_from_xkl ();
 
     if (config->callback != NULL)
         config->callback (xkb_config_get_current_group (), TRUE, config->callback_data);

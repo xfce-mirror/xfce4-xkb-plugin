@@ -75,7 +75,7 @@ static gboolean     xkb_load_config                     (t_xkb *xkb,
 
 static void         xkb_load_default                    (t_xkb *xkb);
 
-static void         xkb_initialize_menu                 (t_xkb *xkb);
+static void         xkb_initialize_popup_menu           (t_xkb *xkb);
 
 
 /* ================================================================== *
@@ -145,7 +145,7 @@ xkb_state_changed (gint current_group, gboolean config_changed,
 
     if (config_changed)
     {
-        xkb_initialize_menu (xkb);
+        xkb_initialize_popup_menu (xkb);
     }
 }
 
@@ -165,7 +165,6 @@ xkb_new (XfcePanelPlugin *plugin)
     WnckScreen *wnck_screen;
 
     xkb = panel_slice_new0 (t_xkb);
-    xkb->settings = g_new0 (t_xkb_settings, 1);
     xkb->plugin = plugin;
 
     filename = xfce_panel_plugin_save_location (plugin, TRUE);
@@ -202,11 +201,11 @@ xkb_new (XfcePanelPlugin *plugin)
             G_CALLBACK (xkb_plugin_layout_image_exposed), xkb);
     gtk_widget_show (GTK_WIDGET (xkb->layout_image));
 
-    if (xkb_config_initialize (xkb->settings, xkb_state_changed, xkb))
+    if (xkb_config_initialize (xkb->group_policy, xkb_state_changed, xkb))
     {
         xkb_refresh_gui (xkb);
 
-        xkb_initialize_menu (xkb);
+        xkb_initialize_popup_menu (xkb);
     }
 
     wnck_screen = wnck_screen_get_default ();
@@ -225,8 +224,6 @@ xkb_free (t_xkb *xkb)
 {
     xkb_config_finalize ();
 
-    g_free (xkb->settings);
-
     gtk_widget_destroy (xkb->layout_image);
     gtk_widget_destroy (xkb->btn);
     gtk_widget_destroy (xkb->popup);
@@ -240,8 +237,6 @@ xfce_xkb_save_config (XfcePanelPlugin *plugin, t_xkb *xkb)
     gchar* filename;
     XfceRc* rcfile;
 
-    xkb_config_update_settings (xkb->settings);
-    xkb_initialize_menu (xkb);
 
     filename = xfce_panel_plugin_save_location (plugin, TRUE);
     if (!filename)
@@ -259,7 +254,7 @@ xfce_xkb_save_config (XfcePanelPlugin *plugin, t_xkb *xkb)
 
     xfce_rc_write_int_entry (rcfile, "display_type", xkb->display_type);
     xfce_rc_write_int_entry (rcfile, "display_textsize", xkb->display_textsize);
-    xfce_rc_write_int_entry (rcfile, "group_policy", xkb->settings->group_policy);
+    xfce_rc_write_int_entry (rcfile, "group_policy", xkb->group_policy);
 
     xfce_rc_close (rcfile);
     g_free (filename);
@@ -275,7 +270,7 @@ xkb_load_config (t_xkb *xkb, const gchar *filename)
 
         xkb->display_type = xfce_rc_read_int_entry (rcfile, "display_type", DISPLAY_TYPE_IMAGE);
         xkb->display_textsize = xfce_rc_read_int_entry (rcfile, "display_textsize", DISPLAY_TEXTSIZE_SMALL);
-        xkb->settings->group_policy = xfce_rc_read_int_entry (rcfile, "group_policy", GROUP_POLICY_PER_APPLICATION);
+        xkb->group_policy = xfce_rc_read_int_entry (rcfile, "group_policy", GROUP_POLICY_PER_APPLICATION);
 
         xfce_rc_close (rcfile);
 
@@ -290,7 +285,7 @@ xkb_load_default (t_xkb *xkb)
 {
     xkb->display_type = DISPLAY_TYPE_IMAGE;
     xkb->display_textsize = DISPLAY_TEXTSIZE_SMALL;
-    xkb->settings->group_policy = GROUP_POLICY_PER_APPLICATION;
+    xkb->group_policy = GROUP_POLICY_PER_APPLICATION;
 }
 
 static gboolean
@@ -319,7 +314,7 @@ xkb_calculate_sizes (t_xkb *xkb, GtkOrientation orientation, gint panel_size)
 }
 
 static void
-xkb_initialize_menu (t_xkb *xkb)
+xkb_initialize_popup_menu (t_xkb *xkb)
 {
     gint i, group_count;
     RsvgHandle *handle;
@@ -377,7 +372,6 @@ xkb_initialize_menu (t_xkb *xkb)
 
         gtk_menu_shell_append (GTK_MENU_SHELL (xkb->popup), menu_item);
     }
-
 }
 
 void
