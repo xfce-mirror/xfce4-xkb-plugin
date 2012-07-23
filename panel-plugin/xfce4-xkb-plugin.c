@@ -167,7 +167,7 @@ xkb_new (XfcePanelPlugin *plugin)
     xkb = panel_slice_new0 (t_xkb);
     xkb->plugin = plugin;
 
-    filename = xfce_panel_plugin_save_location (plugin, TRUE);
+    filename = xfce_panel_plugin_lookup_rc_file (plugin);
     if ((!filename) || (!xkb_load_config (xkb, filename)))
     {
         xkb_load_default (xkb);
