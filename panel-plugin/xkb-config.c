@@ -570,7 +570,10 @@ xkb_config_xkl_config_changed (XklEngine *engine)
     xkb_config_update_settings (config->settings);
 
     if (config->callback != NULL)
-        config->callback (xkb_config_get_current_group (), TRUE, config->callback_data);
+    {
+        xkb_config_set_group (0);
+        config->callback (0, TRUE, config->callback_data);
+    }
 }
 
 gint
