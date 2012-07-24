@@ -75,7 +75,9 @@ static gboolean     xkb_load_config                     (t_xkb *xkb,
 
 static void         xkb_load_default                    (t_xkb *xkb);
 
-static void         xkb_initialize_popup_menu           (t_xkb *xkb);
+static void         xkb_populate_popup_menu             (t_xkb *xkb);
+
+static void         xkb_destroy_popup_menu              (t_xkb *xkb);
 
 static void         xfce_xkb_configure_layout           (GtkWidget *widget,
                                                          gpointer user_data);
@@ -175,7 +177,7 @@ xkb_state_changed (gint current_group, gboolean config_changed,
 
     if (config_changed)
     {
-        xkb_initialize_popup_menu (xkb);
+        xkb_populate_popup_menu (xkb);
     }
 }
 
@@ -234,8 +236,7 @@ xkb_new (XfcePanelPlugin *plugin)
     if (xkb_config_initialize (xkb->group_policy, xkb_state_changed, xkb))
     {
         xkb_refresh_gui (xkb);
-
-        xkb_initialize_popup_menu (xkb);
+        xkb_populate_popup_menu (xkb);
     }
 
     wnck_screen = wnck_screen_get_default ();
@@ -256,7 +257,7 @@ xkb_free (t_xkb *xkb)
 
     gtk_widget_destroy (xkb->layout_image);
     gtk_widget_destroy (xkb->btn);
-    gtk_widget_destroy (xkb->popup);
+    xkb_destroy_popup_menu (xkb);
 
     panel_slice_free (t_xkb, xkb);
 }
@@ -344,7 +345,19 @@ xkb_calculate_sizes (t_xkb *xkb, GtkOrientation orientation, gint panel_size)
 }
 
 static void
-xkb_initialize_popup_menu (t_xkb *xkb)
+xkb_destroy_popup_menu (t_xkb *xkb)
+{
+    if (xkb->popup)
+    {
+        gtk_widget_destroy (xkb->popup);
+        g_object_ref_sink (xkb->popup);
+        g_object_unref (xkb->popup);
+        xkb->popup = NULL;
+    }
+}
+
+static void
+xkb_populate_popup_menu (t_xkb *xkb)
 {
     gint i, group_count;
     RsvgHandle *handle;
@@ -355,10 +368,9 @@ xkb_initialize_popup_menu (t_xkb *xkb)
 
     if (G_UNLIKELY (xkb == NULL)) return;
 
-    if (xkb->popup)
-        gtk_widget_destroy (xkb->popup);
-
+    xkb_destroy_popup_menu (xkb);
     xkb->popup = gtk_menu_new ();
+
     group_count = xkb_config_get_group_count ();
     for (i = 0; i < group_count; i++)
     {
