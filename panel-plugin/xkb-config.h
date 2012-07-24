@@ -32,6 +32,7 @@
 
 #include <glib.h>
 #include <glib/gstdio.h>
+#include <gdk/gdk.h>
 #include <libxklavier/xklavier.h>
 
 typedef enum
@@ -62,6 +63,9 @@ void              xkb_config_window_changed               (guint new_window_id,
                                                            guint application_id);
 void              xkb_config_application_closed           (guint application_id);
 void              xkb_config_window_closed                (guint window_id);
+GdkPixbuf*        xkb_config_get_tooltip_pixbuf           (gint group);
+gchar*            xkb_config_get_pretty_layout_name       (gint group);
+gint              xkb_config_get_current_group            (void);
 
 /* TODO: remove this function - xkl structures should not be used outside xkb-config */
 XklConfigRegistry*

@@ -24,6 +24,7 @@
  */
 
 #include "xkb-config.h"
+#include "xkb-util.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -34,6 +35,7 @@
 #include <glib.h>
 #include <gtk/gtk.h>
 #include <gdk/gdkx.h>
+#include <librsvg/rsvg.h>
 
 #ifndef DEBUG
 #define G_DISABLE_ASSERT
@@ -41,13 +43,20 @@
 
 typedef struct
 {
+    gchar      *group_name;
+    gchar      *variant;
+    gchar      *pretty_layout_name;
+    GdkPixbuf  *tooltip_pixbuf;
+} t_group_data;
+
+typedef struct
+{
     XklEngine            *engine;
 
-    gchar               **group_names;
-    gchar               **variants;
+    t_group_data         *group_data;
+
     t_group_policy        group_policy;
     GHashTable           *variant_index_by_group;
-
 
     GHashTable           *application_map;
     GHashTable           *window_map;
@@ -56,6 +65,7 @@ typedef struct
     guint                 current_application_id;
 
     gint                  group_count;
+    gint                  current_group;
 
     XkbCallback           callback;
     gpointer              callback_data;
@@ -127,6 +137,7 @@ xkb_config_initialize_xkb_options (const XklConfigRec *config_rec)
     gchar **group;
     gint val, i;
     gpointer pval;
+    gchar *imgfilename;
 
     xkb_config_free ();
 
@@ -140,23 +151,24 @@ xkb_config_initialize_xkb_options (const XklConfigRec *config_rec)
 
     config->window_map = g_hash_table_new (g_direct_hash, NULL);
     config->application_map = g_hash_table_new (g_direct_hash, NULL);
-
-    config->group_names = (gchar **) g_new0 (typeof (gchar **), config->group_count);
-    config->variants = (gchar **) g_new0 (typeof (gchar **), config->group_count);
+    config->group_data = (t_group_data *) g_new0 (typeof (t_group_data),
+                                                  config->group_count);
     config->variant_index_by_group = g_hash_table_new (NULL, NULL);
     index_variants = g_hash_table_new (g_str_hash, g_str_equal);
 
     for (i = 0; i < config->group_count; i++)
     {
+        t_group_data *group_data = &config->group_data[i];
+        RsvgHandle *handle;
 
-        config->group_names[i] = g_strdup (config_rec->layouts[i]);
+        group_data->group_name = g_strdup (config_rec->layouts[i]);
 
-        config->variants[i] = (config_rec->variants[i] == NULL)
+        group_data->variant = (config_rec->variants[i] == NULL)
             ? g_strdup ("") : g_strdup (config_rec->variants[i]);
 
         pval = g_hash_table_lookup (
                 index_variants,
-                config->group_names[i]
+                group_data->group_name
         );
         val = (pval != NULL) ? GPOINTER_TO_INT (pval) : 0;
         val++;
@@ -167,9 +179,26 @@ xkb_config_initialize_xkb_options (const XklConfigRec *config_rec)
         );
         g_hash_table_insert (
                 index_variants,
-                config->group_names[i],
+                group_data->group_name,
                 GINT_TO_POINTER (val)
         );
+
+        imgfilename = xkb_util_get_flag_filename (group_data->group_name);
+        handle = rsvg_handle_new_from_file (imgfilename, NULL);
+        if (handle)
+        {
+            GdkPixbuf *tmp = rsvg_handle_get_pixbuf (handle);
+            group_data->tooltip_pixbuf =
+                gdk_pixbuf_scale_simple (tmp, 24, 24, GDK_INTERP_BILINEAR);
+            g_object_unref (tmp);
+            rsvg_handle_close (handle, NULL);
+            g_object_unref (handle);
+        }
+        g_free (imgfilename);
+
+        group_data->pretty_layout_name =
+            xkb_util_get_layout_string (group_data->group_name,
+                                        group_data->variant);
     }
     g_hash_table_destroy (index_variants);
 }
@@ -181,20 +210,6 @@ xkb_config_free (void)
 
     g_assert (config != NULL);
 
-    if (config->group_names)
-    {
-        for (i = 0; i < config->group_count; i++)
-            g_free (config->group_names[i]);
-        g_free (config->group_names);
-    }
-
-    if (config->variants)
-    {
-        for (i = 0; i < config->group_count; i++)
-            g_free (config->variants[i]);
-        g_free (config->variants);
-    }
-
     if (config->variant_index_by_group)
         g_hash_table_destroy (config->variant_index_by_group);
 
@@ -203,6 +218,22 @@ xkb_config_free (void)
 
     if (config->application_map)
         g_hash_table_destroy (config->application_map);
+
+    if (config->group_data)
+    {
+        for (i = 0; i < config->group_count; i++)
+        {
+            t_group_data *group_data = &config->group_data[i];
+            g_free (group_data->group_name);
+            g_free (group_data->variant);
+            g_free (group_data->pretty_layout_name);
+            if (group_data->tooltip_pixbuf)
+            {
+                g_object_unref (group_data->tooltip_pixbuf);
+            }
+        }
+        g_free (config->group_data);
+    }
 }
 
 void
@@ -217,11 +248,10 @@ xkb_config_finalize (void)
     gdk_window_remove_filter (NULL, (GdkFilterFunc) handle_xevent, NULL);
 }
 
-static gint
+gint
 xkb_config_get_current_group (void)
 {
-    XklState* state = xkl_engine_get_current_state (config->engine);
-    return state->group;
+    return config->current_group;
 }
 
 gboolean
@@ -235,6 +265,7 @@ xkb_config_set_group (gint group)
     }
 
     xkl_engine_lock_group (config->engine, group);
+    config->current_group = group;
 
     return TRUE;
 }
@@ -388,7 +419,7 @@ xkb_config_get_group_name (gint group)
     if (group == -1)
         group = xkb_config_get_current_group ();
 
-    return config->group_names[group];
+    return config->group_data[group].group_name;
 }
 
 const gchar*
@@ -402,7 +433,7 @@ xkb_config_get_variant (gint group)
     if (group == -1)
         group = xkb_config_get_current_group ();
 
-    return config->variants[group];
+    return config->group_data[group].variant;
 }
 
 void
@@ -414,6 +445,8 @@ xkb_config_xkl_state_changed (XklEngine *engine,
 {
     if (change == GROUP_CHANGED)
     {
+        config->current_group = group;
+
         switch (config->group_policy)
         {
             case GROUP_POLICY_GLOBAL:
@@ -496,3 +529,14 @@ xkb_config_get_xkl_registry (void)
     return registry;
 }
 
+GdkPixbuf*
+xkb_config_get_tooltip_pixbuf (gint group)
+{
+    return config->group_data[group].tooltip_pixbuf;
+}
+
+gchar*
+xkb_config_get_pretty_layout_name (gint group)
+{
+    return config->group_data[group].pretty_layout_name;
+}

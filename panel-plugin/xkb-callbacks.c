@@ -198,33 +198,12 @@ xkb_plugin_set_tooltip (GtkWidget *widget,
                         GtkTooltip *tooltip,
                         t_xkb *xkb)
 {
-    RsvgHandle *handle;
-    GdkPixbuf  *pixbuf, *tmp;
-    gchar      *imgfilename;
-    gchar      *text;
+    gint       group       = xkb_config_get_current_group ();
+    GdkPixbuf *pixbuf      = xkb_config_get_tooltip_pixbuf (group);
+    gchar     *layout_name = xkb_config_get_pretty_layout_name (group);
 
-    imgfilename = xkb_util_get_flag_filename (xkb_config_get_group_name (-1));
-    handle = rsvg_handle_new_from_file (imgfilename, NULL);
-    g_free (imgfilename);
-
-    if (handle)
-    {
-        tmp = rsvg_handle_get_pixbuf (handle);
-        pixbuf = gdk_pixbuf_scale_simple (tmp, 24, 24, GDK_INTERP_BILINEAR);
-        gtk_tooltip_set_icon (tooltip, pixbuf);
-
-        g_object_unref (pixbuf);
-        g_object_unref (tmp);
-        g_object_unref (handle);
-    }
-    else
-        gtk_tooltip_set_icon (tooltip, NULL);
-
-    text = xkb_util_get_layout_string (xkb_config_get_group_name (-1),
-                                       xkb_config_get_variant (-1));
-
-    gtk_tooltip_set_text (tooltip, text);
-    g_free (text);
+    gtk_tooltip_set_icon (tooltip, pixbuf);
+    gtk_tooltip_set_text (tooltip, layout_name);
 
     return TRUE;
 }
