@@ -77,6 +77,9 @@ static void         xkb_load_default                    (t_xkb *xkb);
 
 static void         xkb_initialize_popup_menu           (t_xkb *xkb);
 
+static void         xfce_xkb_configure_layout           (GtkWidget *widget,
+                                                         gpointer user_data);
+
 
 /* ================================================================== *
  *                        Implementation                              *
@@ -87,7 +90,13 @@ XFCE_PANEL_PLUGIN_REGISTER_EXTERNAL (xfce_xkb_construct);
 static void
 xfce_xkb_construct (XfcePanelPlugin *plugin)
 {
+    GtkWidget *configure_layouts;
+    GtkIconTheme *theme;
+    GtkWidget *image;
+    GdkPixbuf *pixbuf;
+
     t_xkb *xkb = xkb_new (plugin);
+
     xfce_textdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");
 
     g_signal_connect (plugin, "orientation-changed",
@@ -110,6 +119,27 @@ xfce_xkb_construct (XfcePanelPlugin *plugin)
     g_signal_connect (plugin, "about",
             G_CALLBACK (xfce_xkb_about), xkb);
 
+    configure_layouts =
+        gtk_image_menu_item_new_with_label (_("Keyboard settings"));
+
+    theme = gtk_icon_theme_get_for_screen (gdk_screen_get_default());
+    pixbuf = gtk_icon_theme_load_icon (theme, "preferences-desktop-keyboard",
+                                       GTK_ICON_SIZE_MENU, 0, NULL);
+    if (pixbuf != NULL)
+    {
+        image = gtk_image_new ();
+        gtk_image_set_from_pixbuf (GTK_IMAGE (image), pixbuf);
+        gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (configure_layouts),
+                                       image);
+        g_object_unref (pixbuf);
+    }
+
+    gtk_widget_show (configure_layouts);
+    xfce_panel_plugin_menu_insert_item (plugin,
+                                        GTK_MENU_ITEM (configure_layouts));
+
+    g_signal_connect (G_OBJECT (configure_layouts), "activate",
+                      G_CALLBACK (xfce_xkb_configure_layout), NULL);
 }
 
 static void
@@ -382,3 +412,16 @@ xkb_refresh_gui (t_xkb *xkb)
             xkb->button_hsize, xkb->button_vsize);
 }
 
+static void
+xfce_xkb_configure_layout (GtkWidget *widget,
+                           gpointer user_data)
+{
+    gchar *desktop_file = xfce_resource_lookup (XFCE_RESOURCE_DATA,
+                                 "applications/xfce-keyboard-settings.desktop");
+    gchar command[1024];
+    snprintf (command, sizeof (command), "exo-open %s", desktop_file);
+    command[sizeof (command) - 1] = '\0';
+    xfce_spawn_command_line_on_screen (gdk_screen_get_default (),
+                                       command, False, True, NULL);
+    g_free (desktop_file);
+}
