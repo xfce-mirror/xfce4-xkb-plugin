@@ -496,11 +496,3 @@ xkb_config_get_xkl_registry (void)
     return registry;
 }
 
-gint
-xkb_config_get_max_layout_number (void)
-{
-    if (config == NULL) return 0;
-
-    return xkl_engine_get_max_num_groups (config->engine);
-}
-

@@ -66,7 +66,6 @@ void              xkb_config_window_closed                (guint window_id);
 /* TODO: remove this function - xkl structures should not be used outside xkb-config */
 XklConfigRegistry*
                   xkb_config_get_xkl_registry             (void);
-gint              xkb_config_get_max_layout_number        (void);
 
 #ifdef DEBUG
 
