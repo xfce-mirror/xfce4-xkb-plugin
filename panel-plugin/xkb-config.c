@@ -130,6 +130,54 @@ xkb_config_initialize (t_group_policy group_policy,
     return TRUE;
 }
 
+static gchar *
+xkb_config_xkb_description (XklConfigItem *config_item)
+{
+  gchar *ci_description;
+  gchar *description;
+
+  ci_description = g_strstrip (config_item->description);
+
+  if (ci_description[0] == 0)
+    description = g_strdup (config_item->name);
+  else
+    description = g_locale_to_utf8 (ci_description, -1, NULL, NULL, NULL);
+
+  return description;
+}
+
+static gchar*
+xkb_config_create_pretty_layout_name (XklConfigRegistry *registry,
+                                      XklConfigItem *config_item,
+                                      gchar *layout_name,
+                                      gchar *layout_variant)
+{
+    gchar *pretty_layout_name;
+
+    g_snprintf (config_item->name, sizeof (config_item->name),
+                "%s", layout_variant);
+    if (xkl_config_registry_find_variant (registry, layout_name, config_item))
+    {
+        pretty_layout_name = xkb_config_xkb_description (config_item);
+    }
+    else
+    {
+        g_snprintf (config_item->name, sizeof (config_item->name),
+                    "%s", layout_name);
+        if (xkl_config_registry_find_layout (registry, config_item))
+        {
+            pretty_layout_name = xkb_config_xkb_description (config_item);
+        }
+        else
+        {
+            pretty_layout_name = xkb_util_get_layout_string (layout_name,
+                                                             layout_variant);
+        }
+    }
+
+    return pretty_layout_name;
+}
+
 static void
 xkb_config_initialize_xkb_options (const XklConfigRec *config_rec)
 {
@@ -138,6 +186,8 @@ xkb_config_initialize_xkb_options (const XklConfigRec *config_rec)
     gint val, i;
     gpointer pval;
     gchar *imgfilename;
+    XklConfigRegistry *registry;
+    XklConfigItem *config_item;
 
     xkb_config_free ();
 
@@ -155,6 +205,10 @@ xkb_config_initialize_xkb_options (const XklConfigRec *config_rec)
                                                   config->group_count);
     config->variant_index_by_group = g_hash_table_new (NULL, NULL);
     index_variants = g_hash_table_new (g_str_hash, g_str_equal);
+
+    registry = xkl_config_registry_get_instance (config->engine);
+    xkl_config_registry_load (registry, FALSE);
+    config_item = xkl_config_item_new ();
 
     for (i = 0; i < config->group_count; i++)
     {
@@ -197,9 +251,12 @@ xkb_config_initialize_xkb_options (const XklConfigRec *config_rec)
         g_free (imgfilename);
 
         group_data->pretty_layout_name =
-            xkb_util_get_layout_string (group_data->group_name,
-                                        group_data->variant);
+            xkb_config_create_pretty_layout_name (registry, config_item,
+                                                  group_data->group_name,
+                                                  group_data->variant);
     }
+    g_object_unref (config_item);
+    g_object_unref (registry);
     g_hash_table_destroy (index_variants);
 }
 
