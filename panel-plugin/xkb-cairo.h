@@ -42,6 +42,7 @@ void        xkb_cairo_draw_flag     (cairo_t *cr,
                                      gint width,
                                      gint height,
                                      gint variant_markers_count,
+                                     gint textsize,
                                      GdkColor fgcolor);
 
 void        xkb_cairo_draw_label    (cairo_t *cr,

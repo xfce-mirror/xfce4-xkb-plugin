@@ -55,6 +55,7 @@ xkb_cairo_draw_flag (cairo_t *cr,
                      gint width,
                      gint height,
                      gint variant_markers_count,
+                     gint textsize,
                      GdkColor fgcolor)
 {
     gchar *filename;
@@ -81,7 +82,7 @@ xkb_cairo_draw_flag (cairo_t *cr,
                 actual_width, actual_height,
                 width, height,
                 variant_markers_count,
-                DISPLAY_TEXTSIZE_SMALL,     // not used for flag layout
+                textsize,
                 fgcolor);
         return;
     }
