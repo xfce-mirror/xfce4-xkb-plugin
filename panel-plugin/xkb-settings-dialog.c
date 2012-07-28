@@ -176,6 +176,7 @@ xfce_xkb_about (XfcePanelPlugin *plugin)
     const gchar* authors[] = {
         "Alexander Iliev <sasoiliev@mamul.org>",
         "Gauvain Pocentek <gauvainpocentek@gmail.com>",
+        "Igor Slepchin <igor.slepchin@gmail.com>",
         NULL
     };
 
