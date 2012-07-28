@@ -159,6 +159,7 @@ xkb_cairo_draw_label (cairo_t *cr,
     {
         g_object_unref (layout);
         g_free (normalized_group_name);
+        return;
     }
 
     pango_layout_set_text (layout, normalized_group_name, -1);
