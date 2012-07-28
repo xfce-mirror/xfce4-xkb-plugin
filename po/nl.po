@@ -3,134 +3,127 @@
 # This file is distributed under the same license as the
 # xfce4-xkb-plugin package.
 # Pjotr, 2011.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-xkb-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-04 21:50+0600\n"
+"POT-Creation-Date: 2012-07-27 22:05-0400\n"
 "PO-Revision-Date: 2011-06-15 11:34+0200\n"
 "Last-Translator: Pjotr\n"
 "Language-Team: Dutch (Flemish)\n"
+"Language: nl (Dutch)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nl (Dutch)\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../panel-plugin/xkb-settings-dialog.c:489
-msgid ""
-"XKB configuration modifications are\n"
-"disabled from the config file.\n"
-"\n"
-"See the README file for more information."
-msgstr ""
-"Aanpassingen van XKB-configuratie zijn\n"
-"uitgeschakeld vanuit het configuratie-\n"
-"bestand.\n"
-"Zie het LEESMIJ(README)-bestand voor\n"
-"meer informatie."
-
-#: ../panel-plugin/xkb-settings-dialog.c:515
+#: ../panel-plugin/xkb-settings-dialog.c:112
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
 msgid "Keyboard Layouts"
 msgstr "Toetsenbordindelingen"
 
-#: ../panel-plugin/xkb-settings-dialog.c:537
-msgid "Keyboard model:"
-msgstr "Toetsenbordmodel:"
-
-#. toggle layout option
-#: ../panel-plugin/xkb-settings-dialog.c:562
-msgid "Change layout option:"
-msgstr "Verander indelingsoptie:"
-
-#. compose key position option
-#: ../panel-plugin/xkb-settings-dialog.c:588
-msgid "Compose key position:"
-msgstr "Positie van Samensteltoets:"
-
-#. the actual layouts
-#: ../panel-plugin/xkb-settings-dialog.c:615
-msgid "Keyboard layouts:"
-msgstr "Toetsenbordindelingen:"
-
-#: ../panel-plugin/xkb-settings-dialog.c:628
-msgid "Default"
-msgstr "Standaard"
-
-#: ../panel-plugin/xkb-settings-dialog.c:635
-msgid "Layout"
-msgstr "Indeling"
-
-#: ../panel-plugin/xkb-settings-dialog.c:643
-msgid "Variant"
-msgstr "Variant"
-
 #. ***
-#: ../panel-plugin/xkb-settings-dialog.c:687
+#: ../panel-plugin/xkb-settings-dialog.c:122
 msgid "Show layout as:"
 msgstr "Toon indeling als:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:692
+#: ../panel-plugin/xkb-settings-dialog.c:127
 msgid "image"
 msgstr "afbeelding"
 
-#: ../panel-plugin/xkb-settings-dialog.c:693
+#: ../panel-plugin/xkb-settings-dialog.c:128
 msgid "text"
 msgstr "tekst"
 
 #. text size option
-#: ../panel-plugin/xkb-settings-dialog.c:698
+#: ../panel-plugin/xkb-settings-dialog.c:133
 msgid "Text size:"
 msgstr "Tekstgrootte:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:703
+#: ../panel-plugin/xkb-settings-dialog.c:138
 msgid "small"
 msgstr "klein"
 
-#: ../panel-plugin/xkb-settings-dialog.c:704
+#: ../panel-plugin/xkb-settings-dialog.c:139
 msgid "medium"
 msgstr "gemiddeld"
 
-#: ../panel-plugin/xkb-settings-dialog.c:705
+#: ../panel-plugin/xkb-settings-dialog.c:140
 msgid "large"
 msgstr "groot"
 
-#: ../panel-plugin/xkb-settings-dialog.c:709
+#: ../panel-plugin/xkb-settings-dialog.c:144
 msgid "Manage layout:"
 msgstr "Indeling beheren:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:714
+#: ../panel-plugin/xkb-settings-dialog.c:149
 msgid "globally"
 msgstr "systeembreed"
 
-#: ../panel-plugin/xkb-settings-dialog.c:715
+#: ../panel-plugin/xkb-settings-dialog.c:150
 msgid "per window"
 msgstr "per venster"
 
-#: ../panel-plugin/xkb-settings-dialog.c:716
+#: ../panel-plugin/xkb-settings-dialog.c:151
 msgid "per application"
 msgstr "per toepassing"
 
-#: ../panel-plugin/xkb-settings-dialog.c:758
+#: ../panel-plugin/xkb-settings-dialog.c:185
 msgid "Keyboard Layouts Plugin"
 msgstr "Toetsenbordindelingen-plugin"
 
-#: ../panel-plugin/xkb-settings-dialog.c:764
+#: ../panel-plugin/xkb-settings-dialog.c:195
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr ""
 "Stelt u in staat om meerdere toetsenbordindelingen in te stellen en te "
 "gebruiken."
 
-#: ../panel-plugin/xkb-settings-dialog.c:768
+#: ../panel-plugin/xkb-settings-dialog.c:199
 msgid "Other plugins available here"
 msgstr "Andere plugins zijn hier beschikbaar"
 
-#: ../panel-plugin/xkb-settings-dialog.c:820
-msgid "Add layout"
-msgstr "Voeg indeling toe"
+#: ../panel-plugin/xfce4-xkb-plugin.c:125
+#, fuzzy
+msgid "Keyboard settings"
+msgstr "Toetsenbordindelingen"
 
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
 msgid "Keyboard layouts setup and switch plugin"
 msgstr "Plugin voor het instellen en veranderen van toetsenbordindelingen"
+
+#~ msgid ""
+#~ "XKB configuration modifications are\n"
+#~ "disabled from the config file.\n"
+#~ "\n"
+#~ "See the README file for more information."
+#~ msgstr ""
+#~ "Aanpassingen van XKB-configuratie zijn\n"
+#~ "uitgeschakeld vanuit het configuratie-\n"
+#~ "bestand.\n"
+#~ "Zie het LEESMIJ(README)-bestand voor\n"
+#~ "meer informatie."
+
+#~ msgid "Keyboard model:"
+#~ msgstr "Toetsenbordmodel:"
+
+#~ msgid "Change layout option:"
+#~ msgstr "Verander indelingsoptie:"
+
+#~ msgid "Compose key position:"
+#~ msgstr "Positie van Samensteltoets:"
+
+#~ msgid "Keyboard layouts:"
+#~ msgstr "Toetsenbordindelingen:"
+
+#~ msgid "Default"
+#~ msgstr "Standaard"
+
+#~ msgid "Layout"
+#~ msgstr "Indeling"
+
+#~ msgid "Variant"
+#~ msgstr "Variant"
+
+#~ msgid "Add layout"
+#~ msgstr "Voeg indeling toe"

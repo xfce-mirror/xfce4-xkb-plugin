@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xkb\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-04 21:50+0600\n"
+"POT-Creation-Date: 2012-07-27 22:05-0400\n"
 "PO-Revision-Date: 2012-02-16 11:41+0200\n"
 "Last-Translator: Algimantas Margevičius <margevicius.algimantas@gmail.com>\n"
 "Language-Team: Lietuvių <>\n"
@@ -19,116 +19,109 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
 "%100<10 || n%100>=20) ? 1 : 2)\n"
 
-#: ../panel-plugin/xkb-settings-dialog.c:489
-msgid ""
-"XKB configuration modifications are\n"
-"disabled from the config file.\n"
-"\n"
-"See the README file for more information."
-msgstr ""
-"XKB konfigūracijos išjungtos\n"
-"naudojant konfigūracijos failą.\n"
-"\n"
-"Peržiūrėkite README failą detalesnei informacijai."
-
-#: ../panel-plugin/xkb-settings-dialog.c:515
+#: ../panel-plugin/xkb-settings-dialog.c:112
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
 msgid "Keyboard Layouts"
 msgstr "Klaviatūros išdėstymai"
 
-#: ../panel-plugin/xkb-settings-dialog.c:537
-msgid "Keyboard model:"
-msgstr "Klaviatūros modelis:"
-
-#. toggle layout option
-#: ../panel-plugin/xkb-settings-dialog.c:562
-msgid "Change layout option:"
-msgstr "Keisti išdėstymo būdą:"
-
-#. compose key position option
-#: ../panel-plugin/xkb-settings-dialog.c:588
-msgid "Compose key position:"
-msgstr "Komponavimo klavišo pozicija:"
-
-#. the actual layouts
-#: ../panel-plugin/xkb-settings-dialog.c:615
-msgid "Keyboard layouts:"
-msgstr "Klaviatūros išdėstymai:"
-
-#: ../panel-plugin/xkb-settings-dialog.c:628
-msgid "Default"
-msgstr "Numatytasis"
-
-#: ../panel-plugin/xkb-settings-dialog.c:635
-msgid "Layout"
-msgstr "Išdėstymas"
-
-#: ../panel-plugin/xkb-settings-dialog.c:643
-msgid "Variant"
-msgstr "Variantas"
-
 #. ***
-#: ../panel-plugin/xkb-settings-dialog.c:687
+#: ../panel-plugin/xkb-settings-dialog.c:122
 msgid "Show layout as:"
 msgstr "Rodyti išdėstymą kaip:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:692
+#: ../panel-plugin/xkb-settings-dialog.c:127
 msgid "image"
 msgstr "paveikslėlį"
 
-#: ../panel-plugin/xkb-settings-dialog.c:693
+#: ../panel-plugin/xkb-settings-dialog.c:128
 msgid "text"
 msgstr "tekstą"
 
 #. text size option
-#: ../panel-plugin/xkb-settings-dialog.c:698
+#: ../panel-plugin/xkb-settings-dialog.c:133
 msgid "Text size:"
 msgstr "Teksto dydis:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:703
+#: ../panel-plugin/xkb-settings-dialog.c:138
 msgid "small"
 msgstr "mažas"
 
-#: ../panel-plugin/xkb-settings-dialog.c:704
+#: ../panel-plugin/xkb-settings-dialog.c:139
 msgid "medium"
 msgstr "vidutinis"
 
-#: ../panel-plugin/xkb-settings-dialog.c:705
+#: ../panel-plugin/xkb-settings-dialog.c:140
 msgid "large"
 msgstr "didelis"
 
-#: ../panel-plugin/xkb-settings-dialog.c:709
+#: ../panel-plugin/xkb-settings-dialog.c:144
 msgid "Manage layout:"
 msgstr "Išdėstymą taikyti:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:714
+#: ../panel-plugin/xkb-settings-dialog.c:149
 msgid "globally"
 msgstr "bendrai"
 
-#: ../panel-plugin/xkb-settings-dialog.c:715
+#: ../panel-plugin/xkb-settings-dialog.c:150
 msgid "per window"
 msgstr "langui"
 
-#: ../panel-plugin/xkb-settings-dialog.c:716
+#: ../panel-plugin/xkb-settings-dialog.c:151
 msgid "per application"
 msgstr "programai"
 
-#: ../panel-plugin/xkb-settings-dialog.c:758
+#: ../panel-plugin/xkb-settings-dialog.c:185
 msgid "Keyboard Layouts Plugin"
 msgstr "Klaviatūros išdėstymų įskiepis"
 
-#: ../panel-plugin/xkb-settings-dialog.c:764
+#: ../panel-plugin/xkb-settings-dialog.c:195
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "Leidžia konfigūruoti ir naudoti kelis klaviatūros išdėstymus."
 
-#: ../panel-plugin/xkb-settings-dialog.c:768
+#: ../panel-plugin/xkb-settings-dialog.c:199
 msgid "Other plugins available here"
 msgstr "Kiti įskiepiai prieinami čia"
 
-#: ../panel-plugin/xkb-settings-dialog.c:820
-msgid "Add layout"
-msgstr "Pridėti išdėstymą"
+#: ../panel-plugin/xfce4-xkb-plugin.c:125
+#, fuzzy
+msgid "Keyboard settings"
+msgstr "Klaviatūros išdėstymai"
 
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
 msgid "Keyboard layouts setup and switch plugin"
 msgstr "Klaviatūros išdėstymų nustatymo ir perjungimo įskiepis"
+
+#~ msgid ""
+#~ "XKB configuration modifications are\n"
+#~ "disabled from the config file.\n"
+#~ "\n"
+#~ "See the README file for more information."
+#~ msgstr ""
+#~ "XKB konfigūracijos išjungtos\n"
+#~ "naudojant konfigūracijos failą.\n"
+#~ "\n"
+#~ "Peržiūrėkite README failą detalesnei informacijai."
+
+#~ msgid "Keyboard model:"
+#~ msgstr "Klaviatūros modelis:"
+
+#~ msgid "Change layout option:"
+#~ msgstr "Keisti išdėstymo būdą:"
+
+#~ msgid "Compose key position:"
+#~ msgstr "Komponavimo klavišo pozicija:"
+
+#~ msgid "Keyboard layouts:"
+#~ msgstr "Klaviatūros išdėstymai:"
+
+#~ msgid "Default"
+#~ msgstr "Numatytasis"
+
+#~ msgid "Layout"
+#~ msgstr "Išdėstymas"
+
+#~ msgid "Variant"
+#~ msgstr "Variantas"
+
+#~ msgid "Add layout"
+#~ msgstr "Pridėti išdėstymą"

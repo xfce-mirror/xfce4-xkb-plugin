@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-xkb-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-04 21:50+0600\n"
+"POT-Creation-Date: 2012-07-27 22:05-0400\n"
 "PO-Revision-Date: 2009-07-13 19:55+0100\n"
 "Last-Translator: Marcos Antonio Alvarez Costales <marcoscostales@gmail.com>\n"
 "Language-Team: Asturian <alministradores@softastur.org>\n"
@@ -12,117 +12,104 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../panel-plugin/xkb-settings-dialog.c:489
-msgid ""
-"XKB configuration modifications are\n"
-"disabled from the config file.\n"
-"\n"
-"See the README file for more information."
-msgstr ""
-"La modificación de configuración de XKB ta\n"
-"desactivada nel ficheru de configuración.\n"
-"\n"
-"Llea'l ficheru README pa más información."
-
-#: ../panel-plugin/xkb-settings-dialog.c:515
+#: ../panel-plugin/xkb-settings-dialog.c:112
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
 msgid "Keyboard Layouts"
 msgstr "Distribuciones de tecláu"
 
-#: ../panel-plugin/xkb-settings-dialog.c:537
-msgid "Keyboard model:"
-msgstr "Modelu tecláu:"
-
-#. toggle layout option
-#: ../panel-plugin/xkb-settings-dialog.c:562
-msgid "Change layout option:"
-msgstr "Camudar opción de distribución:"
-
-#. compose key position option
-#: ../panel-plugin/xkb-settings-dialog.c:588
-msgid "Compose key position:"
-msgstr "Definir sitiu de tecla:"
-
-#. the actual layouts
-#: ../panel-plugin/xkb-settings-dialog.c:615
-msgid "Keyboard layouts:"
-msgstr "Distribuciones de tecláu:"
-
-#: ../panel-plugin/xkb-settings-dialog.c:628
-msgid "Default"
-msgstr ""
-
-#: ../panel-plugin/xkb-settings-dialog.c:635
-#, fuzzy
-msgid "Layout"
-msgstr "Amestar distribución"
-
-#: ../panel-plugin/xkb-settings-dialog.c:643
-msgid "Variant"
-msgstr ""
-
 #. ***
-#: ../panel-plugin/xkb-settings-dialog.c:687
+#: ../panel-plugin/xkb-settings-dialog.c:122
 msgid "Show layout as:"
 msgstr "Amosar distribución como:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:692
+#: ../panel-plugin/xkb-settings-dialog.c:127
 msgid "image"
 msgstr "imaxen"
 
-#: ../panel-plugin/xkb-settings-dialog.c:693
+#: ../panel-plugin/xkb-settings-dialog.c:128
 msgid "text"
 msgstr "testu"
 
 #. text size option
-#: ../panel-plugin/xkb-settings-dialog.c:698
+#: ../panel-plugin/xkb-settings-dialog.c:133
 msgid "Text size:"
 msgstr ""
 
-#: ../panel-plugin/xkb-settings-dialog.c:703
+#: ../panel-plugin/xkb-settings-dialog.c:138
 msgid "small"
 msgstr ""
 
-#: ../panel-plugin/xkb-settings-dialog.c:704
+#: ../panel-plugin/xkb-settings-dialog.c:139
 msgid "medium"
 msgstr ""
 
-#: ../panel-plugin/xkb-settings-dialog.c:705
+#: ../panel-plugin/xkb-settings-dialog.c:140
 msgid "large"
 msgstr ""
 
-#: ../panel-plugin/xkb-settings-dialog.c:709
+#: ../panel-plugin/xkb-settings-dialog.c:144
 msgid "Manage layout:"
 msgstr "Alministrar distribución:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:714
+#: ../panel-plugin/xkb-settings-dialog.c:149
 msgid "globally"
 msgstr "globalmente"
 
-#: ../panel-plugin/xkb-settings-dialog.c:715
+#: ../panel-plugin/xkb-settings-dialog.c:150
 msgid "per window"
 msgstr "per ventana"
 
-#: ../panel-plugin/xkb-settings-dialog.c:716
+#: ../panel-plugin/xkb-settings-dialog.c:151
 msgid "per application"
 msgstr "per aplicación"
 
-#: ../panel-plugin/xkb-settings-dialog.c:758
+#: ../panel-plugin/xkb-settings-dialog.c:185
 msgid "Keyboard Layouts Plugin"
 msgstr "Complementu de distribuciones de tecláu"
 
-#: ../panel-plugin/xkb-settings-dialog.c:764
+#: ../panel-plugin/xkb-settings-dialog.c:195
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "Permite-y configurar y usar delles distribuciones de tecláu."
 
-#: ../panel-plugin/xkb-settings-dialog.c:768
+#: ../panel-plugin/xkb-settings-dialog.c:199
 msgid "Other plugins available here"
 msgstr "Otros complementos disponibles equí"
 
-#: ../panel-plugin/xkb-settings-dialog.c:820
-msgid "Add layout"
-msgstr "Amestar distribución"
+#: ../panel-plugin/xfce4-xkb-plugin.c:125
+#, fuzzy
+msgid "Keyboard settings"
+msgstr "Distribuciones de tecláu"
 
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
 msgid "Keyboard layouts setup and switch plugin"
 msgstr "Complementu de configuración y seleición de distribuciones de tecláu"
+
+#~ msgid ""
+#~ "XKB configuration modifications are\n"
+#~ "disabled from the config file.\n"
+#~ "\n"
+#~ "See the README file for more information."
+#~ msgstr ""
+#~ "La modificación de configuración de XKB ta\n"
+#~ "desactivada nel ficheru de configuración.\n"
+#~ "\n"
+#~ "Llea'l ficheru README pa más información."
+
+#~ msgid "Keyboard model:"
+#~ msgstr "Modelu tecláu:"
+
+#~ msgid "Change layout option:"
+#~ msgstr "Camudar opción de distribución:"
+
+#~ msgid "Compose key position:"
+#~ msgstr "Definir sitiu de tecla:"
+
+#~ msgid "Keyboard layouts:"
+#~ msgstr "Distribuciones de tecláu:"
+
+#, fuzzy
+#~ msgid "Layout"
+#~ msgstr "Amestar distribución"
+
+#~ msgid "Add layout"
+#~ msgstr "Amestar distribución"

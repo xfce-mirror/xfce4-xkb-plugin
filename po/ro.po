@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-xkb-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-04 21:50+0600\n"
+"POT-Creation-Date: 2012-07-27 22:05-0400\n"
 "PO-Revision-Date: 2009-03-01 18:37+0200\n"
 "Last-Translator: Igor Știrbu <igor.stirbu@gmail.com>\n"
 "Language-Team: Romanian <debian-l10n-romanian@lists.debian.org>\n"
@@ -16,118 +16,105 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/xkb-settings-dialog.c:489
-msgid ""
-"XKB configuration modifications are\n"
-"disabled from the config file.\n"
-"\n"
-"See the README file for more information."
-msgstr ""
-"Modificările opțiunilor XKB sunt \n"
-"dezactivate din fișierul de configurare.\n"
-"\n"
-"A se vedea fișierul README pentru detalii."
-
-#: ../panel-plugin/xkb-settings-dialog.c:515
+#: ../panel-plugin/xkb-settings-dialog.c:112
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
 msgid "Keyboard Layouts"
 msgstr "Aranjamente de tastatură"
 
-#: ../panel-plugin/xkb-settings-dialog.c:537
-msgid "Keyboard model:"
-msgstr "Model tastatură:"
-
-#. toggle layout option
-#: ../panel-plugin/xkb-settings-dialog.c:562
-msgid "Change layout option:"
-msgstr "Schimbare aranjament:"
-
-#. compose key position option
-#: ../panel-plugin/xkb-settings-dialog.c:588
-msgid "Compose key position:"
-msgstr "Poziție tasta «Compose»:"
-
-#. the actual layouts
-#: ../panel-plugin/xkb-settings-dialog.c:615
-msgid "Keyboard layouts:"
-msgstr "Aranjamente de tastatură:"
-
-#: ../panel-plugin/xkb-settings-dialog.c:628
-msgid "Default"
-msgstr ""
-
-#: ../panel-plugin/xkb-settings-dialog.c:635
-#, fuzzy
-msgid "Layout"
-msgstr "Adaugă un aranjament"
-
-#: ../panel-plugin/xkb-settings-dialog.c:643
-msgid "Variant"
-msgstr ""
-
 #. ***
-#: ../panel-plugin/xkb-settings-dialog.c:687
+#: ../panel-plugin/xkb-settings-dialog.c:122
 msgid "Show layout as:"
 msgstr "Arată aranjamentul ca:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:692
+#: ../panel-plugin/xkb-settings-dialog.c:127
 msgid "image"
 msgstr "imagine"
 
-#: ../panel-plugin/xkb-settings-dialog.c:693
+#: ../panel-plugin/xkb-settings-dialog.c:128
 msgid "text"
 msgstr "text"
 
 #. text size option
-#: ../panel-plugin/xkb-settings-dialog.c:698
+#: ../panel-plugin/xkb-settings-dialog.c:133
 msgid "Text size:"
 msgstr ""
 
-#: ../panel-plugin/xkb-settings-dialog.c:703
+#: ../panel-plugin/xkb-settings-dialog.c:138
 msgid "small"
 msgstr ""
 
-#: ../panel-plugin/xkb-settings-dialog.c:704
+#: ../panel-plugin/xkb-settings-dialog.c:139
 msgid "medium"
 msgstr ""
 
-#: ../panel-plugin/xkb-settings-dialog.c:705
+#: ../panel-plugin/xkb-settings-dialog.c:140
 msgid "large"
 msgstr ""
 
-#: ../panel-plugin/xkb-settings-dialog.c:709
+#: ../panel-plugin/xkb-settings-dialog.c:144
 msgid "Manage layout:"
 msgstr "Gestionare aranjamente:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:714
+#: ../panel-plugin/xkb-settings-dialog.c:149
 msgid "globally"
 msgstr "global"
 
-#: ../panel-plugin/xkb-settings-dialog.c:715
+#: ../panel-plugin/xkb-settings-dialog.c:150
 msgid "per window"
 msgstr "per fereastră"
 
-#: ../panel-plugin/xkb-settings-dialog.c:716
+#: ../panel-plugin/xkb-settings-dialog.c:151
 msgid "per application"
 msgstr "per aplicație"
 
-#: ../panel-plugin/xkb-settings-dialog.c:758
+#: ../panel-plugin/xkb-settings-dialog.c:185
 msgid "Keyboard Layouts Plugin"
 msgstr "Modul pentru aranjamente de tastatură"
 
-#: ../panel-plugin/xkb-settings-dialog.c:764
+#: ../panel-plugin/xkb-settings-dialog.c:195
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr ""
 "Permite configurarea și utilizarea mai multor aranjamente de tastatură."
 
-#: ../panel-plugin/xkb-settings-dialog.c:768
+#: ../panel-plugin/xkb-settings-dialog.c:199
 msgid "Other plugins available here"
 msgstr "Alte module disponibile aici"
 
-#: ../panel-plugin/xkb-settings-dialog.c:820
-msgid "Add layout"
-msgstr "Adaugă un aranjament"
+#: ../panel-plugin/xfce4-xkb-plugin.c:125
+#, fuzzy
+msgid "Keyboard settings"
+msgstr "Aranjamente de tastatură"
 
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
 msgid "Keyboard layouts setup and switch plugin"
 msgstr "Modul pentru opțiunile aranjamentelor de tastatură"
+
+#~ msgid ""
+#~ "XKB configuration modifications are\n"
+#~ "disabled from the config file.\n"
+#~ "\n"
+#~ "See the README file for more information."
+#~ msgstr ""
+#~ "Modificările opțiunilor XKB sunt \n"
+#~ "dezactivate din fișierul de configurare.\n"
+#~ "\n"
+#~ "A se vedea fișierul README pentru detalii."
+
+#~ msgid "Keyboard model:"
+#~ msgstr "Model tastatură:"
+
+#~ msgid "Change layout option:"
+#~ msgstr "Schimbare aranjament:"
+
+#~ msgid "Compose key position:"
+#~ msgstr "Poziție tasta «Compose»:"
+
+#~ msgid "Keyboard layouts:"
+#~ msgstr "Aranjamente de tastatură:"
+
+#, fuzzy
+#~ msgid "Layout"
+#~ msgstr "Adaugă un aranjament"
+
+#~ msgid "Add layout"
+#~ msgstr "Adaugă un aranjament"
