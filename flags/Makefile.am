@@ -48,6 +48,7 @@ flags_DATA = ae.svg \
 			kp.svg \
 			kr.svg \
 			kw.svg \
+			kz.svg \
 			la.svg \
 			lb.svg \
 			lt.svg \
