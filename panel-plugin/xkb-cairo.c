@@ -92,39 +92,34 @@ xkb_cairo_draw_flag (cairo_t *cr,
     scalex = (double) (width - 4) / dim.width;
     scaley = (double) (height - 4) / dim.height;
 
-    if (handle)
+    layoutx = (actual_width - width) / 2 + 2;
+    layouty = (actual_height - height) / 2 + 2;
+    cairo_translate (cr, layoutx, layouty);
+
+    cairo_save (cr);
+
+    cairo_scale (cr, scalex, scaley);
+    rsvg_handle_render_cairo (handle, cr);
+
+    cairo_restore (cr);
+
+    /* draw variant_markers_count circles */
+    for (i = 0; i < variant_markers_count; i++)
     {
-        layoutx = (actual_width - width) / 2 + 2;
-        layouty = (actual_height - height) / 2 + 2;
-        cairo_translate (cr, layoutx, layouty);
+        cairo_set_source_rgb (cr, 0, 0, 0);
 
-        //cairo_translate (cr, 2, 2);
+        cairo_set_line_cap (cr, CAIRO_LINE_CAP_ROUND);
+        cairo_set_line_width (cr, 1);
 
-        cairo_save (cr);
+        xkb_cairo_arc_for_flag (cr, -(7 * i) + 4, 4, 2.5, 0, 2 * G_PI);
 
-        cairo_scale (cr, scalex, scaley);
-        rsvg_handle_render_cairo (handle, cr);
-
-        cairo_restore (cr);
-
-        /* draw variant_markers_count circles */
-        for (i = 0; i < variant_markers_count; i++)
-        {
-            cairo_set_source_rgb (cr, 0, 0, 0);
-
-            cairo_set_line_cap (cr, CAIRO_LINE_CAP_ROUND);
-            cairo_set_line_width (cr, 1);
-
-            xkb_cairo_arc_for_flag (cr, -(7 * i) + 4, 4, 2.5, 0, 2 * G_PI);
-
-            cairo_set_source_rgb (cr, 0, 0, 0);
-            cairo_fill_preserve (cr);
-            cairo_set_source_rgb (cr, 1, 1, 1);
-            cairo_stroke (cr);
-        }
-
-        g_object_unref (handle);
+        cairo_set_source_rgb (cr, 0, 0, 0);
+        cairo_fill_preserve (cr);
+        cairo_set_source_rgb (cr, 1, 1, 1);
+        cairo_stroke (cr);
     }
+
+    g_object_unref (handle);
 }
 
 void
