@@ -420,8 +420,16 @@ xkb_initialize_menu (t_xkb *xkb)
 void
 xkb_refresh_gui (t_xkb *xkb)
 {
+    GdkDisplay * display;
+
     /* Part of the image may remain visible after display type change */
     gtk_widget_queue_draw_area (xkb->btn, 0, 0,
             xkb->button_hsize, xkb->button_vsize);
+
+    display = gdk_display_get_default();
+    if (display)
+    {
+        gtk_tooltip_trigger_tooltip_query(display);
+    }
 }
 
