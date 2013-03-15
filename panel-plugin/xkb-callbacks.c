@@ -77,6 +77,9 @@ xkb_plugin_button_size_allocated (GtkWidget *button,
 {
     xkb->button_hsize = allocation->width;
     xkb->button_vsize = allocation->height;
+
+    DBG ("size_allocated: h/v (%p: %d/%d)",
+         xkb, xkb->button_hsize, xkb->button_vsize);
 }
 
 gboolean
@@ -106,23 +109,33 @@ xkb_plugin_layout_image_exposed (GtkWidget *widget,
     cairo_t *cr;
     GtkStyle *style;
     GdkColor fgcolor;
-    gint actual_hsize, actual_vsize;
+    gint actual_hsize, actual_vsize, panel_size;
+    gint vsize;
 
     actual_hsize = (xkb->button_hsize > xkb->hsize) ? xkb->button_hsize : xkb->hsize;
     actual_vsize = (xkb->button_vsize > xkb->vsize) ? xkb->button_vsize : xkb->vsize;
 
-    cr = gdk_cairo_create ((GTK_WIDGET (xkb->layout_image))->window);
+    vsize = MIN (xkb->vsize, (int) (xkb->hsize * 0.75));
+
+    panel_size   = xfce_panel_plugin_get_size (xkb->plugin);
+    panel_size  /= xfce_panel_plugin_get_nrows (xkb->plugin);
 
     style = gtk_widget_get_style (GTK_WIDGET (xkb->btn));
     fgcolor = style->fg[xkb->button_state];
     group_name = xkb_config_get_group_name (-1);
 
+    DBG ("img_exposed: actual h/v (%d/%d), xkb h/v (%d/%d), panel sz (%d)",
+         actual_hsize, actual_vsize,
+         xkb->hsize, xkb->vsize, panel_size);
+
+    cr = gdk_cairo_create ((GTK_WIDGET (xkb->layout_image))->window);
+
     if (xkb->display_type == DISPLAY_TYPE_IMAGE)
     {
         xkb_cairo_draw_flag (cr, group_name,
-                xfce_panel_plugin_get_size (xkb->plugin),
+                panel_size,
                 actual_hsize, actual_vsize,
-                xkb->hsize, xkb->vsize,
+                xkb->hsize, vsize,
                 xkb_config_variant_index_for_group (-1),
                 xkb->display_textsize,
                 fgcolor
@@ -131,9 +144,9 @@ xkb_plugin_layout_image_exposed (GtkWidget *widget,
     else
     {
         xkb_cairo_draw_label (cr, group_name,
-                xfce_panel_plugin_get_size (xkb->plugin),
+                panel_size,
                 actual_hsize, actual_vsize,
-                xkb->hsize, xkb->vsize,
+                xkb->hsize, vsize,
                 xkb_config_variant_index_for_group (-1),
                 xkb->display_textsize,
                 fgcolor
