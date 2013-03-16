@@ -1,22 +1,22 @@
-# SOME DESCRIPTIVE TITLE.
+# Translation of xfce4-xkb-plugin to Russian
+#
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# This file is distributed under the same license as the xfce4-xkb-plugin package.
+#
+# Artem Zolochevskiy <artem.zolochevskiy@gmail.com>, 2011.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-xkb-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-27 22:05-0400\n"
-"PO-Revision-Date: 2011-06-16 14:54+0300\n"
-"Last-Translator: Artem Zolochevskiy <artem.zolochevskiy@gmail.com>\n"
+"POT-Creation-Date: 2013-03-17 00:09+0400\n"
+"PO-Revision-Date: 2013-03-17 00:11+0400\n"
+"Last-Translator: Sergey Alyoshin <alyoshin.s@gmail.com>\n"
 "Language-Team: Russian <xfce-i18n-ru@xfce.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Russian\n"
-"X-Poedit-Country: RUSSIAN FEDERATION\n"
 
 #: ../panel-plugin/xkb-settings-dialog.c:112
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
@@ -43,15 +43,15 @@ msgstr "Размер индикатора:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:138
 msgid "small"
-msgstr "Мелкий"
+msgstr "мелкий"
 
 #: ../panel-plugin/xkb-settings-dialog.c:139
 msgid "medium"
-msgstr "Средний"
+msgstr "средний"
 
 #: ../panel-plugin/xkb-settings-dialog.c:140
 msgid "large"
-msgstr "Крупный"
+msgstr "крупный"
 
 #: ../panel-plugin/xkb-settings-dialog.c:144
 msgid "Manage layout:"
@@ -82,9 +82,8 @@ msgid "Other plugins available here"
 msgstr "Другие расширения доступны здесь"
 
 #: ../panel-plugin/xfce4-xkb-plugin.c:125
-#, fuzzy
 msgid "Keyboard settings"
-msgstr "Раскладки клавиатуры"
+msgstr "Настройки клавиатуры"
 
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
 msgid "Keyboard layouts setup and switch plugin"
