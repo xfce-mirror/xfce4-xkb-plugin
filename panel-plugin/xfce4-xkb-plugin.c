@@ -303,7 +303,7 @@ xkb_load_config (t_xkb *xkb, const gchar *filename)
         xfce_rc_set_group (rcfile, NULL);
 
         xkb->display_type = xfce_rc_read_int_entry (rcfile, "display_type", DISPLAY_TYPE_IMAGE);
-        xkb->display_textsize = xfce_rc_read_int_entry (rcfile, "display_textsize", DISPLAY_TEXTSIZE_SMALL);
+        xkb->display_textsize = xfce_rc_read_int_entry (rcfile, "display_textsize", DISPLAY_TEXTSIZE_LARGE);
         xkb->group_policy = xfce_rc_read_int_entry (rcfile, "group_policy", GROUP_POLICY_PER_APPLICATION);
 
         xfce_rc_close (rcfile);
@@ -318,7 +318,7 @@ static void
 xkb_load_default (t_xkb *xkb)
 {
     xkb->display_type = DISPLAY_TYPE_IMAGE;
-    xkb->display_textsize = DISPLAY_TEXTSIZE_SMALL;
+    xkb->display_textsize = DISPLAY_TEXTSIZE_LARGE;
     xkb->group_policy = GROUP_POLICY_PER_APPLICATION;
 }
 

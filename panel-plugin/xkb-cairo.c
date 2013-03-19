@@ -27,7 +27,7 @@
 #include "xkb-util.h"
 #include "xfce4-xkb-plugin.h"
 
-#define XKB_PREFERRED_FONT "Courier New, Courier 10 Pitch, Monospace Bold %dpx"
+#define XKB_PREFERRED_FONT "Courier New, Courier 10 Pitch, Monospace Bold"
 
 #define xkb_cairo_arc_for_flag(cr, x, y, r, a1, a2) \
     xx = layoutx + width - 12 + x; \
@@ -126,28 +126,30 @@ xkb_cairo_draw_flag (cairo_t *cr,
 void
 xkb_cairo_draw_label (cairo_t *cr,
                       const gchar *group_name,
-                      gint panel_size,
-                      gint actual_width,
-                      gint actual_height,
-                      gint width,
-                      gint height,
-                      gint variant_markers_count,
-                      gint textsize,
-                      GdkColor fgcolor)
+                      const gint panel_size,
+                      const gint actual_width,
+                      const gint actual_height,
+                      const gint width,
+                      const gint height,
+                      const gint variant_markers_count,
+                      const gint textsize,
+                      const GdkColor fgcolor)
 {
     gchar *normalized_group_name;
-    /* gchar font_str[80]; */
     gint pango_width, pango_height;
-    double layoutx, layouty;
+    double layoutx, layouty, text_width, text_height;
     double xx, yy;
     double scalex, scaley;
     gint i;
-    double radius;
+    double radius, diameter;
 
     PangoLayout *layout;
     PangoFontDescription *desc;
 
     g_assert (cr != NULL);
+
+    DBG ("actual width/height: %d/%d; markers: %d",
+         actual_width, actual_height, variant_markers_count);
 
     layout = pango_cairo_create_layout (cr);
     normalized_group_name = xkb_util_normalize_group_name (group_name);
@@ -161,63 +163,53 @@ xkb_cairo_draw_label (cairo_t *cr,
     }
 
     pango_layout_set_text (layout, normalized_group_name, -1);
-    /* switch (textsize){ */
-    /*     case DISPLAY_TEXTSIZE_SMALL: */
-    /*     default:    /\* catch misconfiguration *\/ */
-    /*         g_sprintf (font_str, XKB_PREFERRED_FONT, (int)(0.475 * panel_size) ); */
-    /*         break; */
-    /*     case DISPLAY_TEXTSIZE_MEDIUM: */
-    /*         g_sprintf (font_str, XKB_PREFERRED_FONT, (int)(0.700 * panel_size) ); */
-    /*         break; */
-    /*     case DISPLAY_TEXTSIZE_LARGE: */
-    /*         g_sprintf (font_str, XKB_PREFERRED_FONT, (int)(1.000 * panel_size) ); */
-    /*         break; */
-    /* } */
 
-    /* DBG ("font: %s", font_str); */
-
-    //    desc = pango_font_description_from_string (font_str);
-    desc = pango_font_description_from_string( "Courier New, Courier 10 Pitch, Monospace Bold" );
+    desc = pango_font_description_from_string ( XKB_PREFERRED_FONT );
     pango_layout_set_font_description (layout, desc);
     pango_font_description_free (desc);
 
     gdk_cairo_set_source_color (cr, &fgcolor);
     pango_layout_get_pixel_size (layout, &pango_width, &pango_height);
-
-    /* layoutx = (int) (actual_width - (pango_width + variant_markers_count * 7)) / 2; */
-    /* layouty = (int) (actual_height - pango_height) / 2; */
-
-    /* layoutx = layouty = 0; */
-
-
-    scalex =  (float)actual_width / (pango_width + variant_markers_count * 7);
-    scaley = (float)actual_height / pango_height;
+    DBG ("pango_width/height: %d/%d", pango_width, pango_height);
 
     switch (textsize){
         case DISPLAY_TEXTSIZE_SMALL:
         default:    /* catch misconfiguration */
-            scalex *= 0.475;
-            scaley *= 0.475;
-            /* g_sprintf (font_str, XKB_PREFERRED_FONT, (int)(0.475 * panel_size) ); */
+            scalex = scaley = 0.475;
             break;
         case DISPLAY_TEXTSIZE_MEDIUM:
-            scalex *= 0.7;
-            scaley *= 0.7;
-            /* g_sprintf (font_str, XKB_PREFERRED_FONT, (int)(0.700 * panel_size) ); */
+            scalex = scaley = 0.7;
             break;
         case DISPLAY_TEXTSIZE_LARGE:
-            /* g_sprintf (font_str, XKB_PREFERRED_FONT, (int)(1.000 * panel_size) ); */
+            scalex = scaley = 1;
             break;
     }
 
+    DBG ("txt size scale x/y: %.2f/%.2f", scalex, scaley);
 
-    pango_width *= scalex;
-    pango_height *= scaley;
-    radius = (pango_height < 32) ? 1.5 : 2.5;
-    layoutx = (actual_width - (pango_width + variant_markers_count * 2*radius)) / 2;
-    layouty = (actual_height - pango_height) / 2;
+    text_height = actual_height * scaley;
+    scaley = text_height / pango_height;
+    radius = (text_height < 32) ? 1.2 : 2.5;
+    diameter = 2 * radius;
 
-    DBG ("scaled pango_width/height: %d/%d", pango_width, pango_height);
+    text_width  = actual_width * scalex;
+    if (actual_width - text_width < 3 + variant_markers_count * diameter)
+    {
+        text_width = actual_width - 3 - (variant_markers_count) * diameter;
+    }
+    else if (textsize == DISPLAY_TEXTSIZE_LARGE)
+    {
+        text_width -= 3;
+    }
+
+    scalex =  text_width/pango_width;
+
+    layoutx = (actual_width -
+               (text_width + (variant_markers_count ? 3:0) +
+                variant_markers_count * diameter)) / 2;
+    layouty = (actual_height - text_height) / 2;
+
+    DBG ("text_width/height: %.2f/%.2f", text_width, text_height);
     DBG ("layout x/y: %.2f/%.2f scale x/y: %.2f/%.2f, radius: %.2f",
          layoutx, layouty, scalex, scaley, radius);
 
@@ -227,17 +219,13 @@ xkb_cairo_draw_label (cairo_t *cr,
     pango_cairo_show_layout (cr, layout);
     cairo_restore (cr);
 
-    /* cairo_scale (cr, 1/scalex, 1/scaley); */
     for (i = 0; i < variant_markers_count; i++)
     {
         cairo_set_line_cap (cr, CAIRO_LINE_CAP_ROUND);
         cairo_set_line_width (cr, 1);
-        /* radius = (panel_size < 32) ? 1.5 : 2.5; */
-        /* if (scalex < 1.0) */
-        /*     radius *= scalex; */
         xkb_cairo_arc_for_label (cr,
-                layoutx + pango_width + 3 + (2*radius * i),
-                layouty + pango_height - (pango_height / 5),
+                layoutx + text_width + 3 + (diameter * i),
+                layouty + text_height - (text_height / 5),
                 radius, 0, 2 * G_PI
         );
         cairo_fill (cr);
