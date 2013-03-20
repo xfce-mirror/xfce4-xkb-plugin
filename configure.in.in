@@ -76,19 +76,6 @@ XDT_CHECK_PACKAGE([LIBXKLAVIER], [libxklavier], [5.0])
 XDT_CHECK_PACKAGE([LIBRSVG], [librsvg-2.0], [2.18])
 XDT_CHECK_PACKAGE([LIBWNCK], [libwnck-1.0], [2.12])
 
-dnl AC_ARG_ENABLE([debug],
-dnl	AC_HELP_STRING([--enable-plugin-debug],
-dnl		[Enable debug messages output (default=disabled)]),
-dnl	[ac_cv_enable_dummy_scripts=$enableval],
-dnl	[ac_cv_enable_dummy_scripts=no])
-dnl if test "x$ac_cv_enable_dummy_scripts" = "xno"; then
-dnl	XKB_DEBUG=""
-dnl else
-dnl	XKB_DEBUG="-DXKB_DEBUG"
-dnl fi
-dnl AC_SUBST(XKB_DEBUG)
-
-
 dnl ***********************************
 dnl *** Check for debugging support ***
 dnl ***********************************
@@ -100,3 +87,12 @@ flags/Makefile
 Makefile
 po/Makefile.in
 ])
+
+dnl ***************************
+dnl *** Print configuration ***
+dnl ***************************
+echo
+echo "Build Configuration:"
+echo
+echo "* Debug Support:    $enable_debug"
+echo
