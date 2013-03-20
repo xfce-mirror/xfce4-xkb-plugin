@@ -243,7 +243,7 @@ xkb_config_initialize_xkb_options (const XklConfigRec *config_rec)
         {
             GdkPixbuf *tmp = rsvg_handle_get_pixbuf (handle);
             group_data->tooltip_pixbuf =
-                gdk_pixbuf_scale_simple (tmp, 24, 24, GDK_INTERP_BILINEAR);
+                gdk_pixbuf_scale_simple (tmp, 30, 22, GDK_INTERP_BILINEAR);
             g_object_unref (tmp);
             rsvg_handle_close (handle, NULL);
             g_object_unref (handle);
