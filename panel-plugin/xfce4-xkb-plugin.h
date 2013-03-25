@@ -36,6 +36,13 @@
 #include <gtk/gtk.h>
 #include <glib.h>
 
+/* check for new Xfce 4.10 panel features */
+#ifdef LIBXFCE4PANEL_CHECK_VERSION
+#if LIBXFCE4PANEL_CHECK_VERSION (4,9,0)
+#define HAS_PANEL_49
+#endif
+#endif
+
 typedef enum
 {
     DISPLAY_TYPE_IMAGE = 0,

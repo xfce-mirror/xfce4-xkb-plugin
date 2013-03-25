@@ -90,7 +90,9 @@ xfce_xkb_construct (XfcePanelPlugin *plugin)
     t_xkb *xkb = xkb_new (plugin);
     xfce_textdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");
 
+#ifdef HAS_PANEL_49
     xfce_panel_plugin_set_small (plugin, TRUE);
+#endif
 
     g_signal_connect (plugin, "orientation-changed",
             G_CALLBACK (xfce_xkb_orientation_changed), xkb);
@@ -338,10 +340,12 @@ xkb_load_default (t_xkb *xkb)
 static gboolean
 xkb_calculate_sizes (t_xkb *xkb, GtkOrientation orientation, gint panel_size)
 {
-    guint nrows;
+    guint nrows = 1;
 
+#ifdef HAS_PANEL_49
     nrows       = xfce_panel_plugin_get_nrows (xkb->plugin);
     panel_size /= nrows;
+#endif
     TRACE ("calculate_sizes(%p: %d,%d)", xkb, panel_size, nrows);
 
     switch (orientation)

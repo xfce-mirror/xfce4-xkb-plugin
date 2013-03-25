@@ -115,7 +115,9 @@ xkb_plugin_layout_image_exposed (GtkWidget *widget,
     vsize = MIN (xkb->vsize, (int) (xkb->hsize * 0.75));
 
     panel_size   = xfce_panel_plugin_get_size (xkb->plugin);
+#ifdef HAS_PANEL_49
     panel_size  /= xfce_panel_plugin_get_nrows (xkb->plugin);
+#endif
 
     style = gtk_widget_get_style (GTK_WIDGET (xkb->btn));
     fgcolor = style->fg[xkb->button_state];
