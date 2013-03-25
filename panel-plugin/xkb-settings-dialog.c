@@ -304,7 +304,7 @@ xkb_settings_set_kbd_combo_default_value (t_xkb *xkb)
         return;
 
     gtk_tree_model_get (model, &iter, NOM, &id, -1);
-    if (strcmp (id, config->model) == 0 )
+    if (config->model && strcmp (id, config->model) == 0 )
         gtk_combo_box_set_active_iter (GTK_COMBO_BOX (xkb->kbd_model_combo), &iter);
     else
     {
@@ -313,7 +313,7 @@ xkb_settings_set_kbd_combo_default_value (t_xkb *xkb)
             g_free (id);
             gtk_tree_model_get (model, &iter, NOM, &id, -1);
 
-            if (strcmp (id, config->model) == 0)
+            if (config->model && strcmp (id, config->model) == 0)
             {
                 gtk_combo_box_set_active_iter (GTK_COMBO_BOX (xkb->kbd_model_combo), &iter);
                 break;
