@@ -90,6 +90,8 @@ xfce_xkb_construct (XfcePanelPlugin *plugin)
     t_xkb *xkb = xkb_new (plugin);
     xfce_textdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");
 
+    xfce_panel_plugin_set_small (plugin, TRUE);
+
     g_signal_connect (plugin, "orientation-changed",
             G_CALLBACK (xfce_xkb_orientation_changed), xkb);
 
@@ -179,6 +181,7 @@ xkb_new (XfcePanelPlugin *plugin)
     gtk_button_set_relief (GTK_BUTTON (xkb->btn), GTK_RELIEF_NONE);
     gtk_container_add (GTK_CONTAINER (xkb->plugin), xkb->btn);
     xfce_panel_plugin_add_action_widget (xkb->plugin, xkb->btn);
+    xkb->button_state = GTK_STATE_NORMAL;
 
     gtk_widget_show (xkb->btn);
     g_signal_connect (xkb->btn, "clicked", G_CALLBACK (xkb_plugin_button_clicked), xkb);
@@ -335,23 +338,45 @@ xkb_load_default (t_xkb *xkb)
 static gboolean
 xkb_calculate_sizes (t_xkb *xkb, GtkOrientation orientation, gint panel_size)
 {
+    guint nrows;
+
+    nrows       = xfce_panel_plugin_get_nrows (xkb->plugin);
+    panel_size /= nrows;
+    TRACE ("calculate_sizes(%p: %d,%d)", xkb, panel_size, nrows);
 
     switch (orientation)
     {
         case GTK_ORIENTATION_HORIZONTAL:
             xkb->vsize = panel_size;
-            xkb->hsize = (int) (1.33 * panel_size);
+            if (nrows > 1)
+            {
+                xkb->hsize = xkb->vsize;
+            }
+            else
+            {
+                xkb->hsize = (int) (1.33 * panel_size);
+            }
+
             gtk_widget_set_size_request (xkb->btn, xkb->hsize, xkb->vsize);
             break;
         case GTK_ORIENTATION_VERTICAL:
             xkb->hsize = panel_size;
-            xkb->vsize = (int) (0.75 * panel_size);
+            if (nrows > 1)
+            {
+                xkb->vsize = xkb->hsize;
+            }
+            else
+            {
+                xkb->vsize = (int) (0.75 * panel_size);
+            }
             if (xkb->vsize < 10) xkb->vsize = 10;
             gtk_widget_set_size_request (xkb->btn, xkb->hsize, xkb->vsize);
             break;
         default:
             break;
     }
+
+    DBG ("size requested: h/v (%p: %d/%d)", xkb, xkb->hsize, xkb->vsize);
 
     xkb_refresh_gui (xkb);
     return TRUE;

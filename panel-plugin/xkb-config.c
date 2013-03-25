@@ -293,6 +293,8 @@ xkb_config_update_settings (t_xkb_settings *settings)
 
     gchar **opt;
     gchar **prefix;
+    gchar *tmp1, *tmp2;
+    int i;
 
     g_assert (config != NULL);
     g_assert (settings != NULL);
@@ -318,9 +320,8 @@ xkb_config_update_settings (t_xkb_settings *settings)
         /* XklConfigRec uses for NULL for empty variant instead of "".
          * So if has skipped variants we can't get proper settings->kbd_config->variants.
          * So I use this hack to get proper kbd_config->variants */
-        gchar *tmp1 = g_strdup("");
-        gchar *tmp2 = NULL;
-        int i;
+        tmp1 = g_strdup("");
+        tmp2 = NULL;
         for (i = 0; config->config_rec->layouts[i]; i++)
         {
             tmp2 = g_strconcat (tmp1, config->config_rec->variants[i] ? config->config_rec->variants[i] : "", NULL);
@@ -407,7 +408,6 @@ xkb_config_window_changed (guint new_window_id, guint application_id)
     gpointer key, value;
     GHashTable *hashtable;
     guint id;
-    gint DEBUG_FOUND = 0;
 
     g_assert (config != NULL);
 
@@ -437,7 +437,6 @@ xkb_config_window_changed (guint new_window_id, guint application_id)
     if (g_hash_table_lookup_extended (hashtable, GINT_TO_POINTER (id), &key, &value))
     {
         group = GPOINTER_TO_INT (value);
-        DEBUG_FOUND = 1;
     }
 
     g_hash_table_insert (

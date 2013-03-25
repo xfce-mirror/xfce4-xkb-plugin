@@ -119,6 +119,7 @@ xkb_cairo_draw_flag (cairo_t *cr,
         cairo_stroke (cr);
     }
 
+    rsvg_handle_close (handle, NULL);
     g_object_unref (handle);
 }
 
@@ -150,7 +151,8 @@ xkb_cairo_draw_label (cairo_t *cr,
     layout = pango_cairo_create_layout (cr);
     normalized_group_name = xkb_util_normalize_group_name (group_name);
 
-    if (!g_utf8_validate (normalized_group_name, -1, NULL))
+    if (!normalized_group_name ||
+        !g_utf8_validate (normalized_group_name, -1, NULL))
     {
         g_object_unref (layout);
         g_free (normalized_group_name);
