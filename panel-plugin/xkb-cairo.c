@@ -27,6 +27,10 @@
 #include "xkb-util.h"
 #include "xfce4-xkb-plugin.h"
 
+#ifndef HAVE_LIBRSVG_2_36_2
+#include <librsvg/rsvg-cairo.h>
+#endif
+
 #define XKB_PREFERRED_FONT "Courier New, Courier 10 Pitch, Monospace Bold"
 
 #define xkb_cairo_arc_for_flag(cr, x, y, r, a1, a2) \

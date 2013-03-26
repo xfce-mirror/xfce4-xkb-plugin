@@ -75,6 +75,8 @@ XDT_CHECK_PACKAGE([LIBXFCE4UI], [libxfce4ui-1], [4.8.0])
 XDT_CHECK_PACKAGE([LIBXFCE4PANEL], [libxfce4panel-1.0], [4.8.0])
 XDT_CHECK_PACKAGE([LIBXKLAVIER], [libxklavier], [5.0])
 XDT_CHECK_PACKAGE([LIBRSVG], [librsvg-2.0], [2.18])
+dnl check librsvg version to see if including headers other than rsvg.h is deprecated
+XDT_CHECK_OPTIONAL_PACKAGE([LIBRSVG_2_36_2], [librsvg-2.0], [2.36.2], [librsvg_2.36.2], [deprecated includes of librsvg header files (always leave enabled)], yes)
 XDT_CHECK_PACKAGE([LIBWNCK], [libwnck-1.0], [2.12])
 
 dnl ***********************************
