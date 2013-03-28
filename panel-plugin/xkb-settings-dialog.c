@@ -439,7 +439,7 @@ xkb_settings_rm_layout (GtkWidget *widget, t_xkb *xkb)
         {
             if (gtk_tree_model_get_iter_first (GTK_TREE_MODEL (model), &iter))
             {
-                gtk_list_store_set (GTK_LIST_STORE (model), &iter, DEFAULT_LAYOUT, TRUE);
+                gtk_list_store_set (GTK_LIST_STORE (model), &iter, DEFAULT_LAYOUT, TRUE, -1);
             }
         }
         gtk_widget_set_sensitive (xkb->add_layout_btn, TRUE);
