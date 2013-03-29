@@ -96,7 +96,7 @@ msgstr "veliki"
 
 #: ../panel-plugin/xkb-settings-dialog.c:709
 msgid "Manage layout:"
-msgstr "Upravljajte raporedom"
+msgstr "Upravljajte raporedom:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:714
 msgid "globally"
