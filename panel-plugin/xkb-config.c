@@ -23,6 +23,7 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
+#include "xfce4-xkb-plugin.h"
 #include "xkb-config.h"
 
 #include <stdio.h>
@@ -65,6 +66,7 @@ typedef struct
 } t_xkb_config;
 
 t_xkb_config *config;
+gboolean ignore_xkl_config_change = FALSE;
 
 void                xkb_config_state_changed            (XklEngine *engine,
                                                          XklEngineStateChange *change,
@@ -394,7 +396,11 @@ xkb_config_update_settings (t_xkb_settings *settings)
     }
 
     if (activate_settings && !settings->never_modify_config)
+    {
+        ignore_xkl_config_change = TRUE;
         xkl_config_rec_activate (config->config_rec, config->engine);
+        ignore_xkl_config_change = FALSE;
+    }
 
     xkb_config_initialize_xkb_options (settings);
 
@@ -564,6 +570,10 @@ xkb_config_state_changed (XklEngine *engine,
 void
 xkb_config_xkl_config_changed (XklEngine *engine)
 {
+    TRACE ("ignore_xkl_config_change: %d ", ignore_xkl_config_change);
+
+    if (ignore_xkl_config_change) return;
+
     kbd_config_free (config->settings->kbd_config);
     config->settings->kbd_config = NULL;
     xkb_config_update_settings (config->settings);
