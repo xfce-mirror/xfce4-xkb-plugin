@@ -346,7 +346,7 @@ xkb_config_update_settings (t_xkb_settings *settings)
         activate_settings = TRUE;
 
         g_free (config->config_rec->model);
-        config->config_rec->model = g_strdup (settings->kbd_config->model);
+        config->config_rec->model = g_strdup (settings->kbd_config->model ? settings->kbd_config->model : "");
 
         g_strfreev (config->config_rec->layouts);
         config->config_rec->layouts = g_strsplit_set (settings->kbd_config->layouts, ",", 0);
