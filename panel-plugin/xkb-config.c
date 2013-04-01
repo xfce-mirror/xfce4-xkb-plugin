@@ -406,6 +406,8 @@ xkb_config_update_settings (t_xkb_settings *settings)
         if (!xkl_config_rec_activate (config->config_rec, config->engine))
         {
             DBG ("ERROR: can't activate xkl config: [%s]", xkl_get_last_error());
+            XKB_DEBUG_CONFIG_REC (config->config_rec, "activated");
+            return FALSE;
             // FIXME: we should probably try to reload from xkl config here
         }
         ignore_xkl_config_change = FALSE;

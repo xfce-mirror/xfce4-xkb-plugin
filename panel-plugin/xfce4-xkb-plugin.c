@@ -172,12 +172,7 @@ xkb_new (XfcePanelPlugin *plugin)
     xkb->settings = g_new0 (t_xkb_settings, 1);
     xkb->plugin = plugin;
 
-    filename = xfce_panel_plugin_lookup_rc_file (plugin);
-    if ((!filename) || (!xkb_load_config (xkb, filename)))
-    {
-        xkb_load_default (xkb);
-    }
-    g_free (filename);
+    xkb_load_default (xkb);
 
     xkb->btn = gtk_button_new ();
     gtk_button_set_relief (GTK_BUTTON (xkb->btn), GTK_RELIEF_NONE);
@@ -213,6 +208,15 @@ xkb_new (XfcePanelPlugin *plugin)
 
         xkb_initialize_menu (xkb);
     }
+
+    filename = xfce_panel_plugin_lookup_rc_file (plugin);
+    if (xkb_load_config (xkb, filename))
+    {
+        xkb_config_update_settings (xkb->settings);
+    }
+    g_free (filename);
+
+
 
     wnck_screen = wnck_screen_get_default ();
     g_signal_connect (G_OBJECT (wnck_screen), "active-window-changed",
@@ -294,6 +298,9 @@ static gboolean
 xkb_load_config (t_xkb *xkb, const gchar *filename)
 {
     XfceRc* rcfile;
+
+    TRACE ("rc filename: %s", filename);
+
     if ((rcfile = xfce_rc_simple_open (filename, TRUE)))
     {
         xfce_rc_set_group (rcfile, NULL);
@@ -309,15 +316,12 @@ xkb_load_config (t_xkb *xkb, const gchar *filename)
 
         xkb->settings->never_modify_config = xfce_rc_read_bool_entry (rcfile, "never_modify_config", FALSE);
 
-        if (xkb->settings->kbd_config == NULL)
-        {
-            xkb->settings->kbd_config = g_new0 (t_xkb_kbd_config, 1);
-        }
-        xkb->settings->kbd_config->model = g_strdup (xfce_rc_read_entry (rcfile, "model", NULL));
-        xkb->settings->kbd_config->layouts = g_strdup (xfce_rc_read_entry (rcfile, "layouts", NULL));
-        xkb->settings->kbd_config->variants = g_strdup (xfce_rc_read_entry (rcfile, "variants", NULL));
-        xkb->settings->kbd_config->toggle_option = g_strdup (xfce_rc_read_entry (rcfile, "toggle_option", NULL));
-        xkb->settings->kbd_config->compose_key_position = g_strdup (xfce_rc_read_entry (rcfile, "compose_key_position", NULL));
+        g_assert (xkb->settings->kbd_config != NULL);
+        xkb->settings->kbd_config->model = g_strdup (xfce_rc_read_entry (rcfile, "model", xkb->settings->kbd_config->model));
+        xkb->settings->kbd_config->layouts = g_strdup (xfce_rc_read_entry (rcfile, "layouts", xkb->settings->kbd_config->layouts));
+        xkb->settings->kbd_config->variants = g_strdup (xfce_rc_read_entry (rcfile, "variants", xkb->settings->kbd_config->variants));
+        xkb->settings->kbd_config->toggle_option = g_strdup (xfce_rc_read_entry (rcfile, "toggle_option", xkb->settings->kbd_config->toggle_option));
+        xkb->settings->kbd_config->compose_key_position = g_strdup (xfce_rc_read_entry (rcfile, "compose_key_position", xkb->settings->kbd_config->compose_key_position));
 
         xfce_rc_close (rcfile);
 
