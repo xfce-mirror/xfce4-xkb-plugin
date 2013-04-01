@@ -310,7 +310,10 @@ xkb_config_update_settings (t_xkb_settings *settings)
 
     if (settings->kbd_config == NULL || settings->never_modify_config)
     {
-        xkl_config_rec_get_from_server (config->config_rec, config->engine);
+        if (!xkl_config_rec_get_from_server (config->config_rec, config->engine))
+        {
+            DBG ("ERROR: can't get xkl config: [%s]", xkl_get_last_error());
+        }
         if (settings->kbd_config == NULL)
             settings->kbd_config = g_new0 (t_xkb_kbd_config, 1);
 
@@ -398,7 +401,11 @@ xkb_config_update_settings (t_xkb_settings *settings)
     if (activate_settings && !settings->never_modify_config)
     {
         ignore_xkl_config_change = TRUE;
-        xkl_config_rec_activate (config->config_rec, config->engine);
+        if (!xkl_config_rec_activate (config->config_rec, config->engine))
+        {
+            DBG ("ERROR: can't activate xkl config: [%s]", xkl_get_last_error());
+            // FIXME: we should probably try to reload from xkl config here
+        }
         ignore_xkl_config_change = FALSE;
     }
 
