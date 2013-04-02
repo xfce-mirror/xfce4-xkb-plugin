@@ -65,8 +65,8 @@ typedef struct
     XklConfigRec         *config_rec;
 } t_xkb_config;
 
-t_xkb_config *config;
-gboolean ignore_xkl_config_change = FALSE;
+static t_xkb_config *config;
+static gboolean ignore_xkl_config_change = FALSE;
 
 static void         xkb_config_state_changed            (XklEngine *engine,
                                                          XklEngineStateChange change,
@@ -77,7 +77,7 @@ static void         xkb_config_state_changed            (XklEngine *engine,
 static void         xkb_config_xkl_config_changed       (XklEngine *engine,
                                                          gpointer user_data);
 
-GdkFilterReturn     handle_xevent                       (GdkXEvent * xev,
+static GdkFilterReturn  handle_xevent                   (GdkXEvent * xev,
                                                          GdkEvent * event);
 
 static void         xkb_config_free                     ();

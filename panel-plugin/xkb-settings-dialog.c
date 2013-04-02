@@ -39,8 +39,8 @@
 #include "xkb-settings-dialog.h"
 #include "xkb-util.h"
 
-GtkTreeIter current_iter;
-GtkWidget *settings_dialog;
+static GtkTreeIter current_iter;
+static GtkWidget *settings_dialog;
 
 enum combo_enum
 {
