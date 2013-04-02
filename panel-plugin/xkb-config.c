@@ -76,6 +76,8 @@ static void         xkb_config_state_changed            (XklEngine *engine,
 
 static void         xkb_config_xkl_config_changed       (XklEngine *engine,
                                                          gpointer user_data);
+void                xkb_config_reset_xkl_config         (XklEngine *engine,
+                                                         gpointer   user_data);
 
 static GdkFilterReturn  handle_xevent                   (GdkXEvent * xev,
                                                          GdkEvent * event);
@@ -120,6 +122,10 @@ xkb_config_initialize (t_xkb_settings *settings,
     g_signal_connect (config->engine,
             "X-config-changed",
             G_CALLBACK (xkb_config_xkl_config_changed),
+            NULL);
+    g_signal_connect (config->engine,
+            "X-new-device",
+            G_CALLBACK (xkb_config_reset_xkl_config),
             NULL);
     gdk_window_add_filter (NULL, (GdkFilterFunc) handle_xevent, NULL);
 
@@ -591,6 +597,15 @@ xkb_config_xkl_config_changed (XklEngine *engine, gpointer user_data)
         xkb_config_set_group (0);
         config->callback (0, TRUE, config->callback_data);
     }
+}
+
+void
+xkb_config_reset_xkl_config (XklEngine *engine,
+                             gpointer   user_data)
+{
+    TRACE ("X-new-device: %d", config->settings->never_modify_config);
+    if (!config->settings->never_modify_config)
+        xkb_config_activate_xkl_record ();
 }
 
 gint
