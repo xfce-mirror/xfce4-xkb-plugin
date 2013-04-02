@@ -82,6 +82,7 @@ static GdkFilterReturn  handle_xevent                   (GdkXEvent * xev,
 
 static void         xkb_config_free                     ();
 static void         xkb_config_initialize_xkb_options   (t_xkb_settings *settings);
+static gboolean     xkb_config_activate_xkl_record      ();
 
 /* ---------------------- implementation ------------------------- */
 
@@ -401,15 +402,11 @@ xkb_config_update_settings (t_xkb_settings *settings)
 
     if (activate_settings && !settings->never_modify_config)
     {
-        ignore_xkl_config_change = TRUE;
-        if (!xkl_config_rec_activate (config->config_rec, config->engine))
+        if (!xkb_config_activate_xkl_record ())
         {
-            DBG ("ERROR: can't activate xkl config: [%s]", xkl_get_last_error());
-            XKB_DEBUG_CONFIG_REC (config->config_rec, "activated");
-            return FALSE;
             // FIXME: we should probably try to reload from xkl config here
+            return FALSE;
         }
-        ignore_xkl_config_change = FALSE;
     }
 
     xkb_config_initialize_xkb_options (settings);
@@ -651,3 +648,26 @@ xkb_config_get_max_layout_number (void)
     return xkl_engine_get_max_num_groups (config->engine);
 }
 
+gboolean
+xkb_config_activate_xkl_record (void)
+{
+    gboolean rc;
+
+    if (config->config_rec->model == NULL)
+    {
+        config->config_rec->model = g_strdup ("");
+    }
+
+    XKB_DEBUG_CONFIG_REC (config->config_rec, "activate");
+
+    ignore_xkl_config_change = TRUE;
+    rc = xkl_config_rec_activate (config->config_rec, config->engine);
+    ignore_xkl_config_change = FALSE;
+
+    if (!rc)
+    {
+        DBG ("ERROR: can't activate xkl config: [%s]", xkl_get_last_error());
+    }
+
+    return rc;
+}
