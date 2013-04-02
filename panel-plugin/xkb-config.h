@@ -91,30 +91,32 @@ gint              xkb_config_get_max_layout_number        (void);
 #define XKB_DEBUG(...) \
     do { g_fprintf (stderr, "[[ XFCE XKB PLUGIN ]]: "__VA_ARGS__); g_fprintf (stderr, "\n"); } while (0)
 
-#define XKB_DEBUG_KBD(kbd, msg) g_printf("DUMPING KEYBOARD SETTINGS [[[%s]]] {%d}: ", msg, kbd);\
+#define XKB_DEBUG_KBD(kbd, msg) g_printf("DUMPING KEYBOARD SETTINGS [[[%s]]] {%p}: ", msg, kbd);\
     if (kbd) { \
         g_printf ("\n\
-          model: %s [%d]\n\
-          layouts: %s [%d]\n\
-          variants: %s [%d]\n\
-          options: %s [%d]\n", \
+          model: %s [%p]\n\
+          layouts: %s [%p]\n\
+          variants: %s [%p]\n\
+          toggle: %s [%p]\n\
+          compose_key: %s [%p]\n", \
                 kbd->model, kbd->model, \
                 kbd->layouts, kbd->layouts, \
                 kbd->variants, kbd->variants, \
-                kbd->options, kbd->options); \
+                kbd->toggle_option, kbd->toggle_option,   \
+                kbd->compose_key_position, kbd->compose_key_position); \
     } else { \
         g_printf("NULL\n"); \
     }
 
-#define XKB_DEBUG_CONFIG_REC(crec, msg) g_printf("DUMPING CONFIG REC [[[%s]]] {%d}: ", msg, (int) crec);\
+#define XKB_DEBUG_CONFIG_REC(crec, msg) g_printf("DUMPING CONFIG REC [[[%s]]] {%p}: ", msg, crec);\
     if (crec) { \
         g_printf ("\n\
-            model: %s [%d]\n\
-            layouts: %s [%d]\n\
-            variants: %s [%d]\n", \
-                crec->model, (int) crec->model, \
-                g_strjoinv (",", crec->layouts), (int) crec->layouts, \
-                g_strjoinv (",", crec->variants), (int) crec->variants); \
+            model: %s [%p]\n\
+            layouts: %s [%p]\n\
+            variants: %s [%p]\n", \
+                crec->model, crec->model, \
+                g_strjoinv (",", crec->layouts), crec->layouts, \
+                g_strjoinv (",", crec->variants), crec->variants); \
     } else { \
         g_printf ("NULL\n"); \
     }
