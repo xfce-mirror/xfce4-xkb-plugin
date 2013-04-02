@@ -80,7 +80,6 @@ static void         xkb_config_xkl_config_changed       (XklEngine *engine,
 GdkFilterReturn     handle_xevent                       (GdkXEvent * xev,
                                                          GdkEvent * event);
 
-void                xkb_config_update_configuration     (t_xkb_settings *settings);
 static void         xkb_config_free                     ();
 static void         xkb_config_initialize_xkb_options   (t_xkb_settings *settings);
 

@@ -41,7 +41,6 @@
 
 GtkTreeIter current_iter;
 GtkWidget *settings_dialog;
-GtkWidget *default_layout_menu;
 
 enum combo_enum
 {
