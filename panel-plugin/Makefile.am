@@ -28,10 +28,11 @@ xfce4_xkb_plugin_CFLAGS =								\
 	@LIBXKLAVIER_CFLAGS@								\
 	@LIBRSVG_CFLAGS@								\
 	@LIBWNCK_CFLAGS@								\
+	@GARCON_CFLAGS@								\
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"						\
 	-DFLAGSDIR=\"$(datadir)/xfce4/xkb/flags\"					\
 	-DWNCK_I_KNOW_THIS_IS_UNSTABLE
-	
+
 
 xfce4_xkb_plugin_LDADD = 								\
 	@LIBXFCE4PANEL_LIBS@								\
@@ -40,6 +41,7 @@ xfce4_xkb_plugin_LDADD = 								\
 	@LIBXFCE4UTIL_LIBS@								\
 	@LIBXKLAVIER_LIBS@								\
 	@LIBWNCK_LIBS@									\
+	@GARCON_LIBS@									\
 	@LIBRSVG_LIBS@
 
 #
