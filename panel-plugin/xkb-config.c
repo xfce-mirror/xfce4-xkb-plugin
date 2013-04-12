@@ -303,7 +303,6 @@ xkb_config_update_settings (t_xkb_settings *settings)
 
     gchar **opt;
     gchar **prefix;
-    gchar *tmp1, *tmp2;
     int i;
 
     g_assert (config != NULL);
@@ -322,6 +321,20 @@ xkb_config_update_settings (t_xkb_settings *settings)
         {
             DBG ("ERROR: can't get xkl config: [%s]", xkl_get_last_error());
         }
+
+        /* XklConfigRec uses for NULL for empty variant instead of "".
+           So if has skipped variants we can't get proper settings->kbd_config->variants.
+           xkl will also get confused if we try to activate() any config_rec
+           that has NULLs for empty variants.
+           Hence, we'll replace NULL variants with ""
+        */
+        for (i = 0; config->config_rec->layouts[i]; i++)
+        {
+            if (!config->config_rec->variants[i])
+                config->config_rec->variants[i] = g_strdup ("");
+        }
+
+        XKB_DEBUG_CONFIG_REC (config->config_rec, "retrieved");
         if (settings->kbd_config == NULL)
             settings->kbd_config = g_new0 (t_xkb_kbd_config, 1);
 
@@ -329,26 +342,8 @@ xkb_config_update_settings (t_xkb_settings *settings)
         settings->kbd_config->model = g_strdup (config->config_rec->model);
         g_free (settings->kbd_config->layouts);
         settings->kbd_config->layouts = g_strjoinv (",", config->config_rec->layouts);
-
-        /* XklConfigRec uses for NULL for empty variant instead of "".
-         * So if has skipped variants we can't get proper settings->kbd_config->variants.
-         * So I use this hack to get proper kbd_config->variants */
-        tmp1 = g_strdup("");
-        tmp2 = NULL;
-        for (i = 0; config->config_rec->layouts[i]; i++)
-        {
-            tmp2 = g_strconcat (tmp1, config->config_rec->variants[i] ? config->config_rec->variants[i] : "", NULL);
-            g_free(tmp1);
-            tmp1 = tmp2;
-            if (config->config_rec->layouts[i + 1])
-            {
-                tmp2 = g_strconcat (tmp1, ",", NULL);
-                g_free(tmp1);
-                tmp1 = tmp2;
-            }
-        }
         g_free (settings->kbd_config->variants);
-        settings->kbd_config->variants = tmp2;
+        settings->kbd_config->variants = g_strjoinv (",", config->config_rec->variants);
     }
     else
     {
