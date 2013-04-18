@@ -110,13 +110,17 @@ gint              xkb_config_get_max_layout_number        (void);
 
 #define XKB_DEBUG_CONFIG_REC(crec, msg) g_printf("DUMPING CONFIG REC [[[%s]]] {%p}: ", msg, crec);\
     if (crec) { \
+        gchar *layouts = g_strjoinv (",", crec->layouts); \
+        gchar *variants = g_strjoinv (",", crec->variants); \
         g_printf ("\n\
             model: %s [%p]\n\
             layouts: %s [%p]\n\
             variants: %s [%p]\n", \
                 crec->model, crec->model, \
-                g_strjoinv (",", crec->layouts), crec->layouts, \
-                g_strjoinv (",", crec->variants), crec->variants); \
+                layouts, crec->layouts, \
+                variants, crec->variants); \
+        g_free (layouts); \
+        g_free (variants); \
     } else { \
         g_printf ("NULL\n"); \
     }
