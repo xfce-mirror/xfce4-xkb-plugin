@@ -301,7 +301,7 @@ xkb_load_config (t_xkb *xkb, const gchar *filename)
 
     TRACE ("rc filename: %s", filename);
 
-    if ((rcfile = xfce_rc_simple_open (filename, TRUE)))
+    if (filename && (rcfile = xfce_rc_simple_open (filename, TRUE)))
     {
         xfce_rc_set_group (rcfile, NULL);
 
