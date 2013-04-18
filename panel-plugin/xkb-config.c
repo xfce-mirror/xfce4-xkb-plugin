@@ -317,6 +317,7 @@ xkb_config_update_settings (t_xkb_settings *settings)
 
     if (settings->kbd_config == NULL || settings->never_modify_config)
     {
+        xkl_config_rec_reset (config->config_rec);
         if (!xkl_config_rec_get_from_server (config->config_rec, config->engine))
         {
             DBG ("ERROR: can't get xkl config: [%s]", xkl_get_last_error());
