@@ -1,3 +1,12 @@
+2013-05-13 16:36
+        * New version 0.5.5
+        * Several crashes fixed
+        * Text labels are scaled to the size of text area
+        * Kazakh flag added
+        * Panel 4.10 compatibility
+        * Reset xkb config when new keyboard is detected
+          (configs should no longer be lost, or at least not as often as before)
+
 2012-01-07 04:18  winterheart
 	* New version 0.5.4.3
 	* Fix error with incorrect handling variants (bug #8255 by Ivan Romanov)
