@@ -1,3 +1,22 @@
+2013-05-20 17:29
+    * New version 0.7.0 - to be used with xfce4-settings 4.11 or later;
+      do *not* use this version with XFCE 4.8 or 4.10, it won't work!
+    * This is a fairly major rework - keyboard layouts are now configured
+      through xfce4-keyboard-settings and managed by xfsettingsd;
+      xkb-plugin only manages per window/application layout prefs
+      and just acts as a layout indicator otherwise
+    * Many crashes/leaks fixed
+    * More descriptive layout/variant names in tooltips/popup menus
+    * xfce 4.10 panel compatibility
+    * Text labels are scaled to the size of text area
+    * Kazakh flag added
+    * Panel 4.10 compatibility
+    * Layout configs should no longer be lost (this is really handled
+      by the code moved to xfce4-settings though)
+    * XKB settings not managed by XFCE should no longer be overwritten
+      (again, this is really handled by xfce4-settings now)
+    * New dependency on garcon (used to launch xfce4-keyboard-settings)
+
 2012-01-07 04:18  winterheart
 	* New version 0.5.4.3
 	* Fix error with incorrect handling variants (bug #8255 by Ivan Romanov)
