@@ -353,12 +353,14 @@ static void
 xkb_settings_edit_layout_btn_show (GtkTreeView *tree_view,
                                    t_xkb *xkb)
 {
-    GtkTreePath *p;
-    GtkTreeViewColumn *c;
-    gtk_tree_view_get_cursor (GTK_TREE_VIEW (tree_view), &p, &c);
+    GtkTreeSelection *selection;
+    gboolean selected;
+
+    selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (xkb->layout_tree_view));
+    selected = gtk_tree_selection_get_selected (selection, NULL, NULL);
+
     gtk_widget_set_sensitive (xkb->edit_layout_btn,
-            (p != NULL && !xkb->settings->never_modify_config));
-    gtk_tree_path_free (p);
+                              selected && !xkb->settings->never_modify_config);
 }
 
 static void
@@ -508,6 +510,7 @@ xfce_xkb_configure (XfcePanelPlugin *plugin,
     GtkCellRenderer *renderer, *renderer2;
     GtkWidget *vbox1, *vbox2, *hbox, *frame;
     XklConfigRegistry *registry;
+    GtkTreeSelection *selection;
 
     xfce_panel_plugin_block_menu (plugin);
 
@@ -735,7 +738,8 @@ xfce_xkb_configure (XfcePanelPlugin *plugin,
     g_signal_connect (xkb->add_layout_btn, "clicked", G_CALLBACK (xkb_settings_add_layout), xkb);
     g_signal_connect (xkb->rm_layout_btn, "clicked", G_CALLBACK (xkb_settings_rm_layout), xkb);
     g_signal_connect (xkb->edit_layout_btn, "clicked",  G_CALLBACK (xkb_settings_edit_layout), xkb);
-    g_signal_connect (xkb->layout_tree_view, "cursor-changed", G_CALLBACK (xkb_settings_edit_layout_btn_show), xkb);
+    selection = gtk_tree_view_get_selection (xkb->layout_tree_view);
+    g_signal_connect (selection, "changed", G_CALLBACK (xkb_settings_edit_layout_btn_show), xkb);
 
     g_signal_connect (renderer2, "toggled", G_CALLBACK (xkb_settings_default_layout_toggled), xkb);
 
