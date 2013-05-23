@@ -380,14 +380,16 @@ xkb_settings_edit_layout (GtkWidget *widget, t_xkb *xkb)
         selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (xkb->layout_tree_view));
         strings = g_strsplit_set(c, ",", 0);
 
-        gtk_tree_selection_get_selected (selection, &model, &iter);
-        gtk_tree_model_get (model, &iter, DEFAULT_LAYOUT, &is_default, -1);
-        gtk_list_store_set (xkb->layout_store, &iter,
-                            DEFAULT_LAYOUT, is_default,
-                            LAYOUTS, strings[0],
-                            VARIANTS, strings[1],
-                            -1);
-        xkb_settings_update_from_ui (xkb);
+        if (gtk_tree_selection_get_selected (selection, &model, &iter))
+        {
+            gtk_tree_model_get (model, &iter, DEFAULT_LAYOUT, &is_default, -1);
+            gtk_list_store_set (xkb->layout_store, &iter,
+                                DEFAULT_LAYOUT, is_default,
+                                LAYOUTS, strings[0],
+                                VARIANTS, strings[1],
+                                -1);
+            xkb_settings_update_from_ui (xkb);
+        }
         g_strfreev (strings);
     }
     g_free(c);
