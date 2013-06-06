@@ -738,7 +738,7 @@ xfce_xkb_configure (XfcePanelPlugin *plugin,
     g_signal_connect (xkb->add_layout_btn, "clicked", G_CALLBACK (xkb_settings_add_layout), xkb);
     g_signal_connect (xkb->rm_layout_btn, "clicked", G_CALLBACK (xkb_settings_rm_layout), xkb);
     g_signal_connect (xkb->edit_layout_btn, "clicked",  G_CALLBACK (xkb_settings_edit_layout), xkb);
-    selection = gtk_tree_view_get_selection (xkb->layout_tree_view);
+    selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (xkb->layout_tree_view));
     g_signal_connect (selection, "changed", G_CALLBACK (xkb_settings_edit_layout_btn_show), xkb);
 
     g_signal_connect (renderer2, "toggled", G_CALLBACK (xkb_settings_default_layout_toggled), xkb);
