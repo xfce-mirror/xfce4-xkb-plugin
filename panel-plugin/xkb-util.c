@@ -81,7 +81,7 @@ xkb_util_normalize_group_name (const gchar* group_name)
     {
         if (!((*c >= 'a' && *c <= 'z') || (*c >= 'A' && *c <= 'Z')))
         {
-            index_of_na = group_name - c;
+            index_of_na = c - group_name;
             break;
         }
     }
