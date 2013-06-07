@@ -252,8 +252,7 @@ xfce_xkb_save_config (XfcePanelPlugin *plugin, t_xkb *xkb)
     gchar* filename;
     XfceRc* rcfile;
 
-    xkb_config_update_settings (xkb->settings);
-    xkb_initialize_menu (xkb);
+    TRACE (" ");
 
     filename = xfce_panel_plugin_save_location (plugin, TRUE);
     if (!filename)
@@ -399,6 +398,8 @@ xkb_initialize_menu (t_xkb *xkb)
     gchar *imgfilename;
     GtkWidget *image;
     GtkWidget *menu_item;
+
+    TRACE (" ");
 
     if (G_UNLIKELY (xkb == NULL)) return;
 
