@@ -223,7 +223,7 @@ xkb_plugin_set_tooltip (GtkWidget *widget,
     if (handle)
     {
         tmp = rsvg_handle_get_pixbuf (handle);
-        pixbuf = gdk_pixbuf_scale_simple (tmp, 24, 24, GDK_INTERP_BILINEAR);
+        pixbuf = gdk_pixbuf_scale_simple (tmp, 30, 22, GDK_INTERP_BILINEAR);
         gtk_tooltip_set_icon (tooltip, pixbuf);
 
         g_object_unref (pixbuf);
