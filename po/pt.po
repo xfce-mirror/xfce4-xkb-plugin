@@ -7,19 +7,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-xkb-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-04 21:50+0600\n"
+"POT-Creation-Date: 2013-06-17 14:38-0400\n"
 "PO-Revision-Date: 2012-01-09 16:22-0000\n"
 "Last-Translator: Sérgio Marques <smarquespt@gmail.com>\n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: \n"
 "Plural-Forms: nplurals=2; plural=(n > 1)\n"
 "X-Poedit-Language: Portuguese\n"
 "X-Poedit-Country: PORTUGAL\n"
 
-#: ../panel-plugin/xkb-settings-dialog.c:489
+#: ../panel-plugin/xkb-settings-dialog.c:498
 msgid ""
 "XKB configuration modifications are\n"
 "disabled from the config file.\n"
@@ -31,105 +31,109 @@ msgstr ""
 "\n"
 "Veja o ficheiro README para mais informações."
 
-#: ../panel-plugin/xkb-settings-dialog.c:515
+#: ../panel-plugin/xkb-settings-dialog.c:525
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
 msgid "Keyboard Layouts"
 msgstr "Esquemas de teclado"
 
-#: ../panel-plugin/xkb-settings-dialog.c:537
+#: ../panel-plugin/xkb-settings-dialog.c:547
 msgid "Keyboard model:"
 msgstr "Modelo do teclado:"
 
 #. toggle layout option
-#: ../panel-plugin/xkb-settings-dialog.c:562
+#: ../panel-plugin/xkb-settings-dialog.c:572
 msgid "Change layout option:"
 msgstr "Alterar esquema:"
 
 #. compose key position option
-#: ../panel-plugin/xkb-settings-dialog.c:588
+#: ../panel-plugin/xkb-settings-dialog.c:598
 msgid "Compose key position:"
 msgstr "Definir posição de tecla:"
 
 #. the actual layouts
-#: ../panel-plugin/xkb-settings-dialog.c:615
+#: ../panel-plugin/xkb-settings-dialog.c:625
 msgid "Keyboard layouts:"
 msgstr "Esquemas de teclado:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:628
+#: ../panel-plugin/xkb-settings-dialog.c:638
 msgid "Default"
 msgstr "Omissões"
 
-#: ../panel-plugin/xkb-settings-dialog.c:635
+#: ../panel-plugin/xkb-settings-dialog.c:645
 msgid "Layout"
 msgstr "Esquema"
 
-#: ../panel-plugin/xkb-settings-dialog.c:643
+#: ../panel-plugin/xkb-settings-dialog.c:653
 msgid "Variant"
 msgstr "Variante"
 
 #. ***
-#: ../panel-plugin/xkb-settings-dialog.c:687
+#: ../panel-plugin/xkb-settings-dialog.c:697
 msgid "Show layout as:"
 msgstr "Mostrar esquema como:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:692
+#: ../panel-plugin/xkb-settings-dialog.c:702
 msgid "image"
 msgstr "imagem"
 
-#: ../panel-plugin/xkb-settings-dialog.c:693
+#: ../panel-plugin/xkb-settings-dialog.c:703
 msgid "text"
 msgstr "texto"
 
 #. text size option
-#: ../panel-plugin/xkb-settings-dialog.c:698
+#: ../panel-plugin/xkb-settings-dialog.c:708
 msgid "Text size:"
 msgstr "Tamanho do texto:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:703
+#: ../panel-plugin/xkb-settings-dialog.c:713
 msgid "small"
 msgstr "pequeno"
 
-#: ../panel-plugin/xkb-settings-dialog.c:704
+#: ../panel-plugin/xkb-settings-dialog.c:714
 msgid "medium"
 msgstr "médio"
 
-#: ../panel-plugin/xkb-settings-dialog.c:705
+#: ../panel-plugin/xkb-settings-dialog.c:715
 msgid "large"
 msgstr "grande"
 
-#: ../panel-plugin/xkb-settings-dialog.c:709
+#: ../panel-plugin/xkb-settings-dialog.c:719
 msgid "Manage layout:"
 msgstr "Gerir esquema:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:714
+#: ../panel-plugin/xkb-settings-dialog.c:724
 msgid "globally"
 msgstr "globalmente"
 
-#: ../panel-plugin/xkb-settings-dialog.c:715
+#: ../panel-plugin/xkb-settings-dialog.c:725
 msgid "per window"
 msgstr "por janela"
 
-#: ../panel-plugin/xkb-settings-dialog.c:716
+#: ../panel-plugin/xkb-settings-dialog.c:726
 msgid "per application"
 msgstr "por aplicação"
 
-#: ../panel-plugin/xkb-settings-dialog.c:758
+#: ../panel-plugin/xkb-settings-dialog.c:770
 msgid "Keyboard Layouts Plugin"
 msgstr "\"Plug-in\" de esquema de teclado"
 
-#: ../panel-plugin/xkb-settings-dialog.c:764
+#: ../panel-plugin/xkb-settings-dialog.c:780
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "Permite-lhe configurar e utilizar diversos esquemas de teclado."
 
-#: ../panel-plugin/xkb-settings-dialog.c:768
+#: ../panel-plugin/xkb-settings-dialog.c:784
 msgid "Other plugins available here"
 msgstr "Outros \"plug-ins\" aqui"
 
-#: ../panel-plugin/xkb-settings-dialog.c:820
+#: ../panel-plugin/xkb-settings-dialog.c:836
 msgid "Add layout"
+msgstr "Adicionar esquema"
+
+#: ../panel-plugin/xkb-settings-dialog.c:837
+#, fuzzy
+msgid "Edit layout"
 msgstr "Adicionar esquema"
 
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
 msgid "Keyboard layouts setup and switch plugin"
 msgstr "\"Plug-in\" de configuração do esquema do teclado"
-

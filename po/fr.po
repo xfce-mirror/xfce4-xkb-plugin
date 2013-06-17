@@ -2,21 +2,21 @@
 # Copyright (C) 2008 Alexander Iliev <sasoiliev@mamul.org>
 # This file is distributed under the same license as the xfce4-rss-plugin package.
 # Maximilian Schleiss <maximilian@xfce.org>, 2006-2009.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-xkb-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-04 21:50+0600\n"
+"POT-Creation-Date: 2013-06-17 14:38-0400\n"
 "PO-Revision-Date: 2010-04-11 12:03+0200\n"
 "Last-Translator: Maximilian Schleiss <maximilian@xfce.org>\n"
 "Language-Team: French <xfce-i18n@xfce.org>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 
-#: ../panel-plugin/xkb-settings-dialog.c:489
+#: ../panel-plugin/xkb-settings-dialog.c:498
 msgid ""
 "XKB configuration modifications are\n"
 "disabled from the config file.\n"
@@ -29,102 +29,107 @@ msgstr ""
 "Veuillez consulter le fichier README pour\n"
 "de plus amples informations."
 
-#: ../panel-plugin/xkb-settings-dialog.c:515
+#: ../panel-plugin/xkb-settings-dialog.c:525
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
 msgid "Keyboard Layouts"
 msgstr "Dispositions de clavier"
 
-#: ../panel-plugin/xkb-settings-dialog.c:537
+#: ../panel-plugin/xkb-settings-dialog.c:547
 msgid "Keyboard model:"
 msgstr "Type de clavier :"
 
 #. toggle layout option
-#: ../panel-plugin/xkb-settings-dialog.c:562
+#: ../panel-plugin/xkb-settings-dialog.c:572
 msgid "Change layout option:"
 msgstr "Changer la disposition :"
 
 #. compose key position option
-#: ../panel-plugin/xkb-settings-dialog.c:588
+#: ../panel-plugin/xkb-settings-dialog.c:598
 msgid "Compose key position:"
 msgstr "Position de la touche compose :"
 
 #. the actual layouts
-#: ../panel-plugin/xkb-settings-dialog.c:615
+#: ../panel-plugin/xkb-settings-dialog.c:625
 msgid "Keyboard layouts:"
 msgstr "Dispositions de clavier :"
 
-#: ../panel-plugin/xkb-settings-dialog.c:628
+#: ../panel-plugin/xkb-settings-dialog.c:638
 msgid "Default"
 msgstr "Défaut"
 
-#: ../panel-plugin/xkb-settings-dialog.c:635
+#: ../panel-plugin/xkb-settings-dialog.c:645
 msgid "Layout"
 msgstr "Disposition"
 
-#: ../panel-plugin/xkb-settings-dialog.c:643
+#: ../panel-plugin/xkb-settings-dialog.c:653
 msgid "Variant"
 msgstr "Variante"
 
 #. ***
-#: ../panel-plugin/xkb-settings-dialog.c:687
+#: ../panel-plugin/xkb-settings-dialog.c:697
 msgid "Show layout as:"
 msgstr "Afficher la disposition en tant que :"
 
-#: ../panel-plugin/xkb-settings-dialog.c:692
+#: ../panel-plugin/xkb-settings-dialog.c:702
 msgid "image"
 msgstr "image"
 
-#: ../panel-plugin/xkb-settings-dialog.c:693
+#: ../panel-plugin/xkb-settings-dialog.c:703
 msgid "text"
 msgstr "texte"
 
 #. text size option
-#: ../panel-plugin/xkb-settings-dialog.c:698
+#: ../panel-plugin/xkb-settings-dialog.c:708
 msgid "Text size:"
 msgstr "Taille du texte :"
 
-#: ../panel-plugin/xkb-settings-dialog.c:703
+#: ../panel-plugin/xkb-settings-dialog.c:713
 msgid "small"
 msgstr "petit"
 
-#: ../panel-plugin/xkb-settings-dialog.c:704
+#: ../panel-plugin/xkb-settings-dialog.c:714
 msgid "medium"
 msgstr "moyen"
 
-#: ../panel-plugin/xkb-settings-dialog.c:705
+#: ../panel-plugin/xkb-settings-dialog.c:715
 msgid "large"
 msgstr "grand"
 
-#: ../panel-plugin/xkb-settings-dialog.c:709
+#: ../panel-plugin/xkb-settings-dialog.c:719
 msgid "Manage layout:"
 msgstr "Gérer la disposition :"
 
-#: ../panel-plugin/xkb-settings-dialog.c:714
+#: ../panel-plugin/xkb-settings-dialog.c:724
 msgid "globally"
 msgstr "globalement"
 
-#: ../panel-plugin/xkb-settings-dialog.c:715
+#: ../panel-plugin/xkb-settings-dialog.c:725
 msgid "per window"
 msgstr "par fenêtre"
 
-#: ../panel-plugin/xkb-settings-dialog.c:716
+#: ../panel-plugin/xkb-settings-dialog.c:726
 msgid "per application"
 msgstr "par application"
 
-#: ../panel-plugin/xkb-settings-dialog.c:758
+#: ../panel-plugin/xkb-settings-dialog.c:770
 msgid "Keyboard Layouts Plugin"
 msgstr "Greffon de disposition de clavier"
 
-#: ../panel-plugin/xkb-settings-dialog.c:764
+#: ../panel-plugin/xkb-settings-dialog.c:780
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "Permet l'utilisation de plusieurs dispositions de clavier."
 
-#: ../panel-plugin/xkb-settings-dialog.c:768
+#: ../panel-plugin/xkb-settings-dialog.c:784
 msgid "Other plugins available here"
 msgstr "Autres greffons disponibles ici"
 
-#: ../panel-plugin/xkb-settings-dialog.c:820
+#: ../panel-plugin/xkb-settings-dialog.c:836
 msgid "Add layout"
+msgstr "Ajouter disposition"
+
+#: ../panel-plugin/xkb-settings-dialog.c:837
+#, fuzzy
+msgid "Edit layout"
 msgstr "Ajouter disposition"
 
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:2

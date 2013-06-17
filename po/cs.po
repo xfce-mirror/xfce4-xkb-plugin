@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-xkb-plugin 0.4.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-04 21:50+0600\n"
+"POT-Creation-Date: 2013-06-17 14:38-0400\n"
 "PO-Revision-Date: 2012-01-08 16:29+0100\n"
 "Last-Translator: Michal Várady <miko.vaji@gmail.com>\n"
 "Language-Team: Czech <translation-team-cs@lists.sourceforge.net>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
-#: ../panel-plugin/xkb-settings-dialog.c:489
+#: ../panel-plugin/xkb-settings-dialog.c:498
 msgid ""
 "XKB configuration modifications are\n"
 "disabled from the config file.\n"
@@ -29,102 +29,107 @@ msgstr ""
 "\n"
 "Více informací naleznete v souboru README (v angličtině)."
 
-#: ../panel-plugin/xkb-settings-dialog.c:515
+#: ../panel-plugin/xkb-settings-dialog.c:525
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
 msgid "Keyboard Layouts"
 msgstr "Rozložení klávesnice"
 
-#: ../panel-plugin/xkb-settings-dialog.c:537
+#: ../panel-plugin/xkb-settings-dialog.c:547
 msgid "Keyboard model:"
 msgstr "Model klávesnice:"
 
 #. toggle layout option
-#: ../panel-plugin/xkb-settings-dialog.c:562
+#: ../panel-plugin/xkb-settings-dialog.c:572
 msgid "Change layout option:"
 msgstr "Volba změny rozložení:"
 
 #. compose key position option
-#: ../panel-plugin/xkb-settings-dialog.c:588
+#: ../panel-plugin/xkb-settings-dialog.c:598
 msgid "Compose key position:"
 msgstr "Složení pozice klávesy:"
 
 #. the actual layouts
-#: ../panel-plugin/xkb-settings-dialog.c:615
+#: ../panel-plugin/xkb-settings-dialog.c:625
 msgid "Keyboard layouts:"
 msgstr "Rozložení klávesnice:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:628
+#: ../panel-plugin/xkb-settings-dialog.c:638
 msgid "Default"
 msgstr "Výchozí"
 
-#: ../panel-plugin/xkb-settings-dialog.c:635
+#: ../panel-plugin/xkb-settings-dialog.c:645
 msgid "Layout"
 msgstr "Rozložení"
 
-#: ../panel-plugin/xkb-settings-dialog.c:643
+#: ../panel-plugin/xkb-settings-dialog.c:653
 msgid "Variant"
 msgstr "Varianta"
 
 #. ***
-#: ../panel-plugin/xkb-settings-dialog.c:687
+#: ../panel-plugin/xkb-settings-dialog.c:697
 msgid "Show layout as:"
 msgstr "Zobrazit rozložení jako:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:692
+#: ../panel-plugin/xkb-settings-dialog.c:702
 msgid "image"
 msgstr "obrázek"
 
-#: ../panel-plugin/xkb-settings-dialog.c:693
+#: ../panel-plugin/xkb-settings-dialog.c:703
 msgid "text"
 msgstr "text"
 
 #. text size option
-#: ../panel-plugin/xkb-settings-dialog.c:698
+#: ../panel-plugin/xkb-settings-dialog.c:708
 msgid "Text size:"
 msgstr "Velikost textu:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:703
+#: ../panel-plugin/xkb-settings-dialog.c:713
 msgid "small"
 msgstr "malý"
 
-#: ../panel-plugin/xkb-settings-dialog.c:704
+#: ../panel-plugin/xkb-settings-dialog.c:714
 msgid "medium"
 msgstr "střední"
 
-#: ../panel-plugin/xkb-settings-dialog.c:705
+#: ../panel-plugin/xkb-settings-dialog.c:715
 msgid "large"
 msgstr "velký"
 
-#: ../panel-plugin/xkb-settings-dialog.c:709
+#: ../panel-plugin/xkb-settings-dialog.c:719
 msgid "Manage layout:"
 msgstr "Spravovat rozložení:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:714
+#: ../panel-plugin/xkb-settings-dialog.c:724
 msgid "globally"
 msgstr "globálně"
 
-#: ../panel-plugin/xkb-settings-dialog.c:715
+#: ../panel-plugin/xkb-settings-dialog.c:725
 msgid "per window"
 msgstr "pro jednotlivá okna"
 
-#: ../panel-plugin/xkb-settings-dialog.c:716
+#: ../panel-plugin/xkb-settings-dialog.c:726
 msgid "per application"
 msgstr "pro jednotlivé aplikace"
 
-#: ../panel-plugin/xkb-settings-dialog.c:758
+#: ../panel-plugin/xkb-settings-dialog.c:770
 msgid "Keyboard Layouts Plugin"
 msgstr "Přepínač rozložení klávesnice"
 
-#: ../panel-plugin/xkb-settings-dialog.c:764
+#: ../panel-plugin/xkb-settings-dialog.c:780
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "Umožňuje konfigurovat a používat více rozložení klávesnic."
 
-#: ../panel-plugin/xkb-settings-dialog.c:768
+#: ../panel-plugin/xkb-settings-dialog.c:784
 msgid "Other plugins available here"
 msgstr "Další zásuvné moduly jsou dostupné zde"
 
-#: ../panel-plugin/xkb-settings-dialog.c:820
+#: ../panel-plugin/xkb-settings-dialog.c:836
 msgid "Add layout"
+msgstr "Přidat rozložení"
+
+#: ../panel-plugin/xkb-settings-dialog.c:837
+#, fuzzy
+msgid "Edit layout"
 msgstr "Přidat rozložení"
 
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:2

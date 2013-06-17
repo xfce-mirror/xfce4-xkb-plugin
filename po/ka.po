@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-xkb-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-04 21:50+0600\n"
+"POT-Creation-Date: 2013-06-17 14:38-0400\n"
 "PO-Revision-Date: 2012-02-16 22:34+0400\n"
 "Last-Translator: Beqa Arabuli <arabulibeqa@gmail.com>\n"
 "Language-Team: Georgian <arabulibeqa@gmail.com>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Poedit-Language: Georgian\n"
 "X-Poedit-Country: GEORGIA\n"
 
-#: ../panel-plugin/xkb-settings-dialog.c:489
+#: ../panel-plugin/xkb-settings-dialog.c:498
 msgid ""
 "XKB configuration modifications are\n"
 "disabled from the config file.\n"
@@ -30,105 +30,111 @@ msgstr ""
 "\n"
 "მეტი ინფორმაციისთვის წაიკითხეთ README ფაილი."
 
-#: ../panel-plugin/xkb-settings-dialog.c:515
+#: ../panel-plugin/xkb-settings-dialog.c:525
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
 msgid "Keyboard Layouts"
 msgstr "ლავიატურის განლაგებები"
 
-#: ../panel-plugin/xkb-settings-dialog.c:537
+#: ../panel-plugin/xkb-settings-dialog.c:547
 msgid "Keyboard model:"
 msgstr "კლავიატურის მოდელი:"
 
 #. toggle layout option
-#: ../panel-plugin/xkb-settings-dialog.c:562
+#: ../panel-plugin/xkb-settings-dialog.c:572
 msgid "Change layout option:"
 msgstr "განლაგების შესაცვლელი კლავიშები"
 
 #. compose key position option
-#: ../panel-plugin/xkb-settings-dialog.c:588
+#: ../panel-plugin/xkb-settings-dialog.c:598
 msgid "Compose key position:"
 msgstr "Compose ღილაკის მდებარეობა:"
 
 #. the actual layouts
-#: ../panel-plugin/xkb-settings-dialog.c:615
+#: ../panel-plugin/xkb-settings-dialog.c:625
 msgid "Keyboard layouts:"
 msgstr "კლავიატურის განლაგებები"
 
-#: ../panel-plugin/xkb-settings-dialog.c:628
+#: ../panel-plugin/xkb-settings-dialog.c:638
 msgid "Default"
 msgstr "ნაგულისხმევი"
 
-#: ../panel-plugin/xkb-settings-dialog.c:635
+#: ../panel-plugin/xkb-settings-dialog.c:645
 msgid "Layout"
 msgstr "განლაგება"
 
-#: ../panel-plugin/xkb-settings-dialog.c:643
+#: ../panel-plugin/xkb-settings-dialog.c:653
 msgid "Variant"
 msgstr "ვარიანტი"
 
 #. ***
-#: ../panel-plugin/xkb-settings-dialog.c:687
+#: ../panel-plugin/xkb-settings-dialog.c:697
 msgid "Show layout as:"
 msgstr "განლაგების ჩვენება"
 
-#: ../panel-plugin/xkb-settings-dialog.c:692
+#: ../panel-plugin/xkb-settings-dialog.c:702
 msgid "image"
 msgstr "სურათით"
 
-#: ../panel-plugin/xkb-settings-dialog.c:693
+#: ../panel-plugin/xkb-settings-dialog.c:703
 msgid "text"
 msgstr "ტექსტით"
 
 #. text size option
-#: ../panel-plugin/xkb-settings-dialog.c:698
+#: ../panel-plugin/xkb-settings-dialog.c:708
 msgid "Text size:"
 msgstr "ტექსტის ზომა:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:703
+#: ../panel-plugin/xkb-settings-dialog.c:713
 msgid "small"
 msgstr "პატარა"
 
-#: ../panel-plugin/xkb-settings-dialog.c:704
+#: ../panel-plugin/xkb-settings-dialog.c:714
 msgid "medium"
 msgstr "საშუალო"
 
-#: ../panel-plugin/xkb-settings-dialog.c:705
+#: ../panel-plugin/xkb-settings-dialog.c:715
 msgid "large"
 msgstr "დიდი"
 
-#: ../panel-plugin/xkb-settings-dialog.c:709
+#: ../panel-plugin/xkb-settings-dialog.c:719
 msgid "Manage layout:"
 msgstr "განლაგების მართვა:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:714
+#: ../panel-plugin/xkb-settings-dialog.c:724
 msgid "globally"
 msgstr "გლობალურად"
 
-#: ../panel-plugin/xkb-settings-dialog.c:715
+#: ../panel-plugin/xkb-settings-dialog.c:725
 msgid "per window"
 msgstr "თითო ფანჯრისთვის"
 
-#: ../panel-plugin/xkb-settings-dialog.c:716
+#: ../panel-plugin/xkb-settings-dialog.c:726
 msgid "per application"
 msgstr "თითო პროგრამისთვის"
 
-#: ../panel-plugin/xkb-settings-dialog.c:758
+#: ../panel-plugin/xkb-settings-dialog.c:770
 msgid "Keyboard Layouts Plugin"
 msgstr "კლავიატურის განლაგებების მოდული"
 
-#: ../panel-plugin/xkb-settings-dialog.c:764
+#: ../panel-plugin/xkb-settings-dialog.c:780
 msgid "Allows you to configure and use multiple keyboard layouts."
-msgstr "საშუალებას გაძლევთ რომ გამართოთ და მარტივად გამოიყენოთ კლავიატურის განლაგებები."
+msgstr ""
+"საშუალებას გაძლევთ რომ გამართოთ და მარტივად გამოიყენოთ კლავიატურის "
+"განლაგებები."
 
-#: ../panel-plugin/xkb-settings-dialog.c:768
+#: ../panel-plugin/xkb-settings-dialog.c:784
 msgid "Other plugins available here"
 msgstr "სხვა ხელმისაწვდომი მოდულები"
 
-#: ../panel-plugin/xkb-settings-dialog.c:820
+#: ../panel-plugin/xkb-settings-dialog.c:836
 msgid "Add layout"
+msgstr "განლაგების დამატება"
+
+#: ../panel-plugin/xkb-settings-dialog.c:837
+#, fuzzy
+msgid "Edit layout"
 msgstr "განლაგების დამატება"
 
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
 msgid "Keyboard layouts setup and switch plugin"
 msgstr "კლავიატურის განლაგების დაყენების და გადართვის მოდული"
-
