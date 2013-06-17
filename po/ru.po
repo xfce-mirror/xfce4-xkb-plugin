@@ -129,9 +129,8 @@ msgid "Add layout"
 msgstr "Добавить раскладку"
 
 #: ../panel-plugin/xkb-settings-dialog.c:837
-#, fuzzy
 msgid "Edit layout"
-msgstr "Добавить раскладку"
+msgstr "Изменить раскладку"
 
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
 msgid "Keyboard layouts setup and switch plugin"
