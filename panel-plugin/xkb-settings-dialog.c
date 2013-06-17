@@ -112,7 +112,7 @@ static char *
 xci_desc_to_utf8 (XklConfigItem * ci)
 {
     char *sd = g_strstrip (ci->description);
-    return sd[0] == 0 ? g_strdup (ci->name) : g_strdup(sd);
+    return sd[0] == 0 ? g_strdup (ci->name) : g_strdup (sd);
 }
 /**/
 
@@ -236,7 +236,7 @@ xkb_settings_set_toggle_option_combo_default_value (t_xkb *xkb)
     }
     else
     {
-        while (gtk_tree_model_iter_next(model, &iter))
+        while (gtk_tree_model_iter_next (model, &iter))
         {
             g_free (id);
             gtk_tree_model_get (model, &iter, NOM, &id, -1);
@@ -313,7 +313,7 @@ xkb_settings_set_kbd_combo_default_value (t_xkb *xkb)
         gtk_combo_box_set_active_iter (GTK_COMBO_BOX (xkb->kbd_model_combo), &iter);
     else
     {
-        while (gtk_tree_model_iter_next(model, &iter))
+        while (gtk_tree_model_iter_next (model, &iter))
         {
             g_free (id);
             gtk_tree_model_get (model, &iter, NOM, &id, -1);
@@ -386,7 +386,7 @@ xkb_settings_edit_layout (GtkWidget *widget, t_xkb *xkb)
         gchar **strings;
 
         selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (xkb->layout_tree_view));
-        strings = g_strsplit_set(c, ",", 0);
+        strings = g_strsplit_set (c, ",", 0);
 
         if (gtk_tree_selection_get_selected (selection, &model, &iter))
         {
@@ -400,7 +400,7 @@ xkb_settings_edit_layout (GtkWidget *widget, t_xkb *xkb)
         }
         g_strfreev (strings);
     }
-    g_free(c);
+    g_free (c);
     xkb_settings_edit_layout_btn_show (GTK_TREE_VIEW (xkb->layout_tree_view), xkb);
 }
 
@@ -414,7 +414,7 @@ xkb_settings_add_layout (GtkWidget *widget, t_xkb *xkb)
         GtkTreeIter iter;
         gchar **strings;
 
-        strings = g_strsplit_set(c, ",", 0);
+        strings = g_strsplit_set (c, ",", 0);
         gtk_list_store_append (xkb->layout_store, &iter);
         gtk_list_store_set (xkb->layout_store, &iter,
                         DEFAULT_LAYOUT, FALSE,
@@ -845,7 +845,7 @@ xkb_settings_layout_dialog_run (enum change_layout action)
 
     gtk_window_set_icon_name (GTK_WINDOW (dialog), "xfce4-keyboard");
 
-    treestore = gtk_tree_store_new(2, G_TYPE_STRING, G_TYPE_STRING);
+    treestore = gtk_tree_store_new (2, G_TYPE_STRING, G_TYPE_STRING);
 
     xkl_config_registry_foreach_layout (registry, (ConfigItemProcessFunc)
             xkb_settings_add_layout_to_available_layouts_tree, treestore);
@@ -875,7 +875,7 @@ xkb_settings_layout_dialog_run (enum change_layout action)
     gtk_container_add (GTK_CONTAINER (scrolledw), tree_view);
     gtk_widget_show (GTK_WIDGET (tree_view));
 
-    gtk_window_set_default_size(GTK_WINDOW (dialog), 400, 400);
+    gtk_window_set_default_size (GTK_WINDOW (dialog), 400, 400);
     gtk_widget_show (dialog);
 
     response = gtk_dialog_run (GTK_DIALOG (dialog));
@@ -901,12 +901,12 @@ xkb_settings_layout_dialog_run (enum change_layout action)
 
         tree_path = gtk_tree_model_get_path (model, &iter);
         if (gtk_tree_path_get_depth (tree_path) == 1)
-            result = g_strconcat(id, ",", NULL);
+            result = g_strconcat (id, ",", NULL);
         else
         {
             gchar *tmp;
 
-            if (!gtk_tree_path_up(tree_path))
+            if (!gtk_tree_path_up (tree_path))
             {
                 g_free (id);
                 gtk_tree_path_free (tree_path);
@@ -914,7 +914,7 @@ xkb_settings_layout_dialog_run (enum change_layout action)
                 return NULL;
             }
 
-            if (!gtk_tree_model_get_iter(model, &iter, tree_path))
+            if (!gtk_tree_model_get_iter (model, &iter, tree_path))
             {
                 g_free (id);
                 gtk_tree_path_free (tree_path);
@@ -1005,15 +1005,15 @@ xkb_settings_update_from_ui (t_xkb *xkb)
             if (is_default) xkb->settings->default_group = i;
             i++;
 
-            tmp = g_strconcat(kbd_config->layouts, ",", layouts, NULL);
+            tmp = g_strconcat (kbd_config->layouts, ",", layouts, NULL);
             g_free (kbd_config->layouts);
             kbd_config->layouts = tmp;
             g_free (layouts);
 
             if (variants != NULL)
-                tmp = g_strconcat(kbd_config->variants, ",", variants, NULL);
+                tmp = g_strconcat (kbd_config->variants, ",", variants, NULL);
             else
-                tmp = g_strconcat(kbd_config->variants, ",", NULL);
+                tmp = g_strconcat (kbd_config->variants, ",", NULL);
 
             g_free (kbd_config->variants);
             kbd_config->variants = tmp;

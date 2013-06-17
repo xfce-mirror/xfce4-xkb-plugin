@@ -334,7 +334,7 @@ xkb_config_update_settings (t_xkb_settings *settings)
         xkl_config_rec_reset (config->config_rec);
         if (!xkl_config_rec_get_from_server (config->config_rec, config->engine))
         {
-            DBG ("ERROR: can't get xkl config: [%s]", xkl_get_last_error());
+            DBG ("ERROR: can't get xkl config: [%s]", xkl_get_last_error ());
         }
 
         /* XklConfigRec uses for NULL for empty variant instead of "".
@@ -662,7 +662,7 @@ xkb_config_activate_xkl_record (void)
 
     if (!rc)
     {
-        DBG ("ERROR: can't activate xkl config: [%s]", xkl_get_last_error());
+        DBG ("ERROR: can't activate xkl config: [%s]", xkl_get_last_error ());
     }
 
     return rc;

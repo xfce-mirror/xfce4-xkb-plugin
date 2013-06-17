@@ -460,10 +460,10 @@ xkb_refresh_gui (t_xkb *xkb)
     gtk_widget_queue_draw_area (xkb->btn, 0, 0,
             xkb->button_hsize, xkb->button_vsize);
 
-    display = gdk_display_get_default();
+    display = gdk_display_get_default ();
     if (display)
     {
-        gtk_tooltip_trigger_tooltip_query(display);
+        gtk_tooltip_trigger_tooltip_query (display);
     }
 }
 
