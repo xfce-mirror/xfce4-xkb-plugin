@@ -260,12 +260,15 @@ static gint
 xkb_config_get_current_group (void)
 {
     XklState* state = xkl_engine_get_current_state (config->engine);
-    g_assert(state->group >= 0 && state->group < config->group_count);
 
     if (G_LIKELY (state->group >= 0 && state->group < config->group_count))
         return state->group;
     else
+    {
+        g_warning ("Invalid group number: %d; group_count=%d",
+                   state->group, config->group_count);
         return 0;
+    }
 }
 
 gboolean
