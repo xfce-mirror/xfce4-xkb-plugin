@@ -112,15 +112,19 @@ gint              xkb_config_get_max_layout_number        (void);
     if (crec) { \
         gchar *layouts = g_strjoinv (",", crec->layouts); \
         gchar *variants = g_strjoinv (",", crec->variants); \
+        gchar *options = g_strjoinv (",", crec->options); \
         g_printf ("\n\
             model: %s [%p]\n\
             layouts: %s [%p]\n\
-            variants: %s [%p]\n", \
+            variants: %s [%p]\n,\
+            options: %s [%p]\n", \
                 crec->model, crec->model, \
                 layouts, crec->layouts, \
-                variants, crec->variants); \
+                variants, crec->variants, \
+                options, crec->options); \
         g_free (layouts); \
         g_free (variants); \
+        g_free (options); \
     } else { \
         g_printf ("NULL\n"); \
     }
