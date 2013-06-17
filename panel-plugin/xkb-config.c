@@ -86,6 +86,14 @@ static void         xkb_config_free                     ();
 static void         xkb_config_initialize_xkb_options   (t_xkb_settings *settings);
 static gboolean     xkb_config_activate_xkl_record      ();
 
+static gchar*       xkb_config_xkl_get_option           (gchar **options,
+                                                         const gchar *option_name,
+                                                         gchar **other_options);
+static void         xkb_config_xkl_set_option           (const gchar *xkb_option_name,
+                                                         const gchar *xfconf_option_name);
+
+
+
 /* ---------------------- implementation ------------------------- */
 
 gboolean
@@ -308,9 +316,6 @@ gboolean
 xkb_config_update_settings (t_xkb_settings *settings)
 {
     gboolean activate_settings = FALSE;
-
-    gchar **opt;
-    gchar **prefix;
     int i;
 
     g_assert (config != NULL);
@@ -325,6 +330,7 @@ xkb_config_update_settings (t_xkb_settings *settings)
 
     if (settings->kbd_config == NULL || settings->never_modify_config)
     {
+        /* Update plugin's settings from XKL */
         xkl_config_rec_reset (config->config_rec);
         if (!xkl_config_rec_get_from_server (config->config_rec, config->engine))
         {
@@ -356,8 +362,6 @@ xkb_config_update_settings (t_xkb_settings *settings)
     }
     else
     {
-        gchar *options;
-
         activate_settings = TRUE;
 
         g_free (config->config_rec->model);
@@ -369,46 +373,19 @@ xkb_config_update_settings (t_xkb_settings *settings)
         g_strfreev (config->config_rec->variants);
         config->config_rec->variants = g_strsplit_set (settings->kbd_config->variants, ",", 0);
 
-        if (settings->kbd_config->toggle_option
-                && strlen (settings->kbd_config->toggle_option) > 0)
-            options = g_strdup (settings->kbd_config->toggle_option);
-        else options = g_strdup ("");
-
-        if (settings->kbd_config->compose_key_position
-                && strlen (settings->kbd_config->compose_key_position) > 0)
-        {
-            gchar *tmp = options;
-            options = g_strconcat (tmp, ",", settings->kbd_config->compose_key_position, NULL);
-            g_free (tmp);
-        }
-
-        g_strfreev (config->config_rec->options);
-        config->config_rec->options = g_strsplit_set (options, ",", 0);
-        g_free (options);
+        xkb_config_xkl_set_option ("grp:", settings->kbd_config->toggle_option);
+        xkb_config_xkl_set_option ("compose:", settings->kbd_config->compose_key_position);
     }
 
     /* select the first "grp" option and use it (should be fixed to support more options) */
     g_free (settings->kbd_config->toggle_option);
-    settings->kbd_config->toggle_option = NULL;
     g_free (settings->kbd_config->compose_key_position);
-    settings->kbd_config->compose_key_position = NULL;
-    opt = config->config_rec->options;
-    while (opt && *opt)
-    {
-        prefix = g_strsplit(*opt, ":", 2);
-        if (settings->kbd_config->toggle_option == NULL
-                && prefix && *prefix && strcmp(*prefix, "grp") == 0)
-        {
-            settings->kbd_config->toggle_option = g_strdup (*opt);
-        }
-        else if (prefix && *prefix && strcmp(*prefix, "compose") == 0)
-        {
-            settings->kbd_config->compose_key_position = g_strdup (*opt);
-        }
-
-        g_strfreev (prefix);
-        opt++;
-    }
+    settings->kbd_config->toggle_option =
+        g_strdup (xkb_config_xkl_get_option (config->config_rec->options,
+                                             "grp:", NULL));
+    settings->kbd_config->compose_key_position =
+        g_strdup (xkb_config_xkl_get_option (config->config_rec->options,
+                                             "compose:", NULL));
 
     if (activate_settings && !settings->never_modify_config)
     {
@@ -689,4 +666,86 @@ xkb_config_activate_xkl_record (void)
     }
 
     return rc;
+}
+
+/**
+ * @options - Xkl config options (array of strings terminated in NULL)
+ * @option_name the name of the xkb option to look for (e.g., "grp:")
+ * @_other_options if not NULL, will be set to the input option string
+ *                 excluding @option_name. Needs to be freed with g_free().
+ * @return the string in @options array corresponding to @option_name,
+ *         or NULL if not found
+ */
+static gchar*
+xkb_config_xkl_get_option (gchar **options,
+                           const gchar *option_name,
+                           gchar **_other_options)
+{
+    gchar **iter;
+    gchar  *option_value  = NULL;
+    gchar  *other_options = NULL;
+
+    for (iter = options; iter && *iter; iter++)
+    {
+        if (g_str_has_prefix (*iter, option_name))
+        {
+            option_value = *iter;
+        }
+        else if (_other_options)
+        {
+            gchar *tmp = other_options;
+            if (other_options)
+            {
+                other_options = g_strconcat (other_options, ",", *iter, NULL);
+            }
+            else
+            {
+                other_options = g_strdup (*iter);
+            }
+            g_free (tmp);
+        }
+    }
+
+    if (_other_options)
+        *_other_options = other_options;
+    return option_value;
+}
+
+static void
+xkb_config_xkl_set_option (const gchar *xkl_option_name,
+                           const gchar *option_value)
+{
+    gchar *xkl_option_value;
+    gchar *other_options;
+
+    xkl_option_value = xkb_config_xkl_get_option (config->config_rec->options,
+                                                  xkl_option_name,
+                                                  &other_options);
+
+    if (g_strcmp0 (option_value, xkl_option_value) != 0)
+    {
+        gchar *options_string;
+        if (other_options == NULL)
+        {
+            options_string = g_strdup (option_value);
+        }
+        else
+        {
+            if (option_value && strlen (option_value) != 0)
+            {
+                options_string = g_strconcat (option_value, ",", other_options, NULL);
+            }
+            else
+            {
+                options_string = strdup (other_options);
+            }
+        }
+
+        g_strfreev (config->config_rec->options);
+        config->config_rec->options = g_strsplit (options_string, ",", 0);
+
+        g_free (options_string);
+    }
+
+    g_free (other_options);
 }
