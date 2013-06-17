@@ -64,7 +64,13 @@ enum enumeration
     NUM
 };
 
-static gchar       *xkb_settings_layout_dialog_run     ();
+enum change_layout
+{
+    ADD_LAYOUT,
+    EDIT_LAYOUT
+};
+
+static gchar       *xkb_settings_layout_dialog_run     (enum change_layout action);
 static void         xkb_settings_update_from_ui        (t_xkb *xkb);
 
 /**************************************************************/
@@ -372,7 +378,7 @@ xkb_settings_edit_layout (GtkWidget *widget, t_xkb *xkb)
 
     model = gtk_tree_view_get_model (GTK_TREE_VIEW (xkb->layout_tree_view));
 
-    c = xkb_settings_layout_dialog_run ();
+    c = xkb_settings_layout_dialog_run (EDIT_LAYOUT);
     if (c != NULL)
     {
         GtkTreeSelection *selection;
@@ -402,7 +408,7 @@ static void
 xkb_settings_add_layout (GtkWidget *widget, t_xkb *xkb)
 {
     gchar *c;
-    c = xkb_settings_layout_dialog_run();
+    c = xkb_settings_layout_dialog_run (ADD_LAYOUT);
     if (c != NULL)
     {
         GtkTreeIter iter;
@@ -814,7 +820,7 @@ xkb_settings_add_layout_to_available_layouts_tree (XklConfigRegistry * config_re
 }
 
 static gchar *
-xkb_settings_layout_dialog_run (void)
+xkb_settings_layout_dialog_run (enum change_layout action)
 {
     GtkWidget *dialog;
     GtkTreeStore *treestore;
@@ -827,7 +833,8 @@ xkb_settings_layout_dialog_run (void)
 
     registry = xkb_config_get_xkl_registry ();
 
-    dialog = xfce_titled_dialog_new_with_buttons(_("Add layout"),
+    dialog = xfce_titled_dialog_new_with_buttons (action == ADD_LAYOUT ? _("Add layout") :
+                                                  _("Edit layout"),
                             GTK_WINDOW (settings_dialog),
                             GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
                             GTK_STOCK_CANCEL,
