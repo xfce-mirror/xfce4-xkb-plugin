@@ -12,10 +12,10 @@ dnl *** Version information ***
 dnl ***************************
 m4_define([xkb_version_major], [0])
 m4_define([xkb_version_minor], [5])
-m4_define([xkb_version_micro], [5])
+m4_define([xkb_version_micro], [6])
 m4_define([xkb_version_nano], [])
 m4_define([xkb_version_build], [@REVISION@])
-m4_define([xkb_version_tag], [git])
+m4_define([xkb_version_tag], [])
 m4_define([xkb_version], [xkb_version_major().xkb_version_minor().xkb_version_micro()ifelse(xkb_version_nano(), [], [], [.xkb_version_nano()])ifelse(xkb_version_tag(), [git], [xkb_version_tag()-xkb_version_build()], [xkb_version_tag()])])
 
 dnl ***************************

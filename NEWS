@@ -1,3 +1,15 @@
+2013-06-19 16:30
+        * New version 0.5.6
+        * Don't do anything fancy on panel's save signal
+          (bug 10152, aka "xkb plugin changes layout randomly")
+        * Check that current group number is sensible (bug 10128)
+        * Fix crash in xkb_util_normalize_group_name (bug 10156)
+        * Window title reflects if layout is added/edited (bug 10180)
+        * Don't overwrite XKB options we don't control (bug 6370)
+        * Disable Edit layout button if no layout is selected
+        * Fix compiler warning
+        * Use nicer looking flag dimensions in tooltips
+
 2013-05-13 16:36
         * New version 0.5.5
         * Several crashes fixed
