@@ -1,20 +1,22 @@
-# Italian translation of the xfce4-rss-plugin package.
-# Copyright (C) 2006 Adriano Winter Bess <adriano@xfce.org>
-# This file is distributed under the same license as the xfce4-rss-plugin package.
-# Cristian Marchi <cri.penta@gmail.com>, 2009
-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# cri <cri.penta@gmail.com>, 2009,2013
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.5.2\n"
+"Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-27 22:05-0400\n"
-"PO-Revision-Date: 2010-04-24 08:58+0100\n"
-"Last-Translator: Cristian Marchi <cri.penta@gmail.com>\n"
-"Language-Team: Italian <xfce-it-translators@googlegroups.com>\n"
-"Language: it\n"
+"POT-Creation-Date: 2013-07-03 21:34+0200\n"
+"PO-Revision-Date: 2013-07-13 10:10+0000\n"
+"Last-Translator: cri <cri.penta@gmail.com>\n"
+"Language-Team: Italian (http://www.transifex.com/projects/p/xfce/language/it/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: it\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../panel-plugin/xkb-settings-dialog.c:112
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
@@ -73,56 +75,16 @@ msgstr "Plugin per la disposizione della tastiera"
 
 #: ../panel-plugin/xkb-settings-dialog.c:195
 msgid "Allows you to configure and use multiple keyboard layouts."
-msgstr ""
-"Permette di configurare e utilizzare diverse disposizioni della tastiera"
+msgstr "Permette di configurare e utilizzare diverse disposizioni della tastiera"
 
 #: ../panel-plugin/xkb-settings-dialog.c:199
 msgid "Other plugins available here"
 msgstr "Altri plugin sono disponibili qui"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:125
-#, fuzzy
+#: ../panel-plugin/xfce4-xkb-plugin.c:128
 msgid "Keyboard settings"
-msgstr "Disposizione della tastiera"
+msgstr "Impostazioni della tastiera"
 
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
 msgid "Keyboard layouts setup and switch plugin"
 msgstr "Impostazione della disposizione tastiera e plugin di scelta"
-
-# GLOSSARIO
-# layout = mappatura
-#~ msgid ""
-#~ "XKB configuration modifications are\n"
-#~ "disabled from the config file.\n"
-#~ "\n"
-#~ "See the README file for more information."
-#~ msgstr ""
-#~ "Le modifiche alla configurazione di XKB\n"
-#~ "sono disabilitate dal file di configurazione.\n"
-#~ "\n"
-#~ "Consultare il file README per maggiori\n"
-#~ "informazioni"
-
-#~ msgid "Keyboard model:"
-#~ msgstr "Modello di tastiera:"
-
-#~ msgid "Change layout option:"
-#~ msgstr "Modifica le opzioni di disposizione:"
-
-#~ msgid "Compose key position:"
-#~ msgstr "Posizione del tasto di composizione:"
-
-#~ msgid "Keyboard layouts:"
-#~ msgstr "Disposizione della tastiera:"
-
-#~ msgid "Default"
-#~ msgstr "Predefinito"
-
-#~ msgid "Layout"
-#~ msgstr "Disposizione"
-
-#~ msgid "Variant"
-#~ msgstr "Variante"
-
-#~ msgid "Add layout"
-#~ msgstr "Aggiungi disposizione"
