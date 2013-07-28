@@ -1,23 +1,23 @@
-# Ukrainian translation of xfce4-xkb-plugin.
-# Copyright (C) 2007 Dmitry Nikitin.
-# This file is distributed under the same license as the xfce4-xkb-plugin package.
-#
-# Dmitry Nikitin <luckas_fb@mail.ru>, 2007.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Dmitry Nikitin <luckas_fb@mail.ru>, 2007
+# Yarema aka Knedlyk <yupadmin@gmail.com>, 2013
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-xkb-plugin\n"
+"Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-27 22:05-0400\n"
-"PO-Revision-Date: 2009-02-24 20:05+0200\n"
-"Last-Translator: Dmitry Nikitin <luckas_fb@mail.ru>\n"
-"Language-Team: Ukrainian <xfce-i18n@xfce.org>\n"
-"Language: uk\n"
+"POT-Creation-Date: 2013-07-03 21:34+0200\n"
+"PO-Revision-Date: 2013-07-27 22:34+0000\n"
+"Last-Translator: Yarema aka Knedlyk <yupadmin@gmail.com>\n"
+"Language-Team: Ukrainian (http://www.transifex.com/projects/p/xfce/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: KBabel 1.11.4\n"
+"Language: uk\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../panel-plugin/xkb-settings-dialog.c:112
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
@@ -76,53 +76,16 @@ msgstr "Розширення - Розкладки клавіатури"
 
 #: ../panel-plugin/xkb-settings-dialog.c:195
 msgid "Allows you to configure and use multiple keyboard layouts."
-msgstr ""
-"Дозволяє Вам налаштувати і використовувати кілька розкладок клавіатури."
+msgstr "Дозволяє Вам налаштувати і використовувати кілька розкладок клавіатури."
 
 #: ../panel-plugin/xkb-settings-dialog.c:199
 msgid "Other plugins available here"
 msgstr "Інші доповнення доступні тут"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:125
-#, fuzzy
+#: ../panel-plugin/xfce4-xkb-plugin.c:128
 msgid "Keyboard settings"
-msgstr "Розкладки клавіатури"
+msgstr "Налаштування клавіатури"
 
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
 msgid "Keyboard layouts setup and switch plugin"
 msgstr "Розширення для налаштування розкладок клавіатури та їх перемикання"
-
-#~ msgid ""
-#~ "XKB configuration modifications are\n"
-#~ "disabled from the config file.\n"
-#~ "\n"
-#~ "See the README file for more information."
-#~ msgstr ""
-#~ "Конфігурацію модифікаторів XKB\n"
-#~ "вимкнуто в конфігураційному файлі.\n"
-#~ "\n"
-#~ "Детальнішу інформацію дивись в файлі README."
-
-#~ msgid "Keyboard model:"
-#~ msgstr "Модель клавіатури:"
-
-#~ msgid "Change layout option:"
-#~ msgstr "Виберіть опції розкладки:"
-
-#~ msgid "Compose key position:"
-#~ msgstr "Позиція клавіші Compose:"
-
-#~ msgid "Keyboard layouts:"
-#~ msgstr "Розкладки клавіатури:"
-
-#~ msgid "Default"
-#~ msgstr "По замовчуванню"
-
-#~ msgid "Layout"
-#~ msgstr "Розкладка"
-
-#~ msgid "Variant"
-#~ msgstr "Варіант"
-
-#~ msgid "Add layout"
-#~ msgstr "Додати розкладку"
