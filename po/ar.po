@@ -1,131 +1,90 @@
-# محمد الحرقان <malham1@gmail.com>, 2012.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# ahmadzxc <ahmad.almomani5@gmail.com>, 2013
+# محمد الحرقان <malham1@gmail.com>, 2012
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-xkb-plugin\n"
+"Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-04 21:50+0600\n"
-"PO-Revision-Date: 2012-11-19 06:02+0300\n"
-"Last-Translator: محمد الحرقان <malham1@gmail.com>\n"
-"Language-Team: http://www.vertaal.com.ar/files/factory/ar/list/\n"
-"Language: ar\n"
+"POT-Creation-Date: 2013-07-03 21:34+0200\n"
+"PO-Revision-Date: 2013-07-29 13:01+0000\n"
+"Last-Translator: ahmadzxc <ahmad.almomani5@gmail.com>\n"
+"Language-Team: Arabic (http://www.transifex.com/projects/p/xfce/language/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
-"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Virtaal 0.7.1\n"
-"X-Poedit-Language: Arabic\n"
-"X-Poedit-Country: Morocco\n"
+"Language: ar\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
-#: ../panel-plugin/xkb-settings-dialog.c:489
-msgid ""
-"XKB configuration modifications are\n"
-"disabled from the config file.\n"
-"\n"
-"See the README file for more information."
-msgstr ""
-"XKB ضبط التحريرات\n"
-"مُعطل من ملف الإعداد.\n"
-"\n"
-"شاهد ملف README للمزيد من المعلومات."
-
-#: ../panel-plugin/xkb-settings-dialog.c:515
+#: ../panel-plugin/xkb-settings-dialog.c:112
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
 msgid "Keyboard Layouts"
 msgstr "تخطيطات لوحة المفاتيح"
 
-#: ../panel-plugin/xkb-settings-dialog.c:537
-msgid "Keyboard model:"
-msgstr "نموذج لوحة المفاتيح:"
-
-#. toggle layout option
-#: ../panel-plugin/xkb-settings-dialog.c:562
-msgid "Change layout option:"
-msgstr "تغيير خيارات التخطيط:"
-
-#. compose key position option
-#: ../panel-plugin/xkb-settings-dialog.c:588
-msgid "Compose key position:"
-msgstr "تخصيص موقع المفتاح:"
-
-#. the actual layouts
-#: ../panel-plugin/xkb-settings-dialog.c:615
-msgid "Keyboard layouts:"
-msgstr "تخطيطات لوحة المفاتيح:"
-
-#: ../panel-plugin/xkb-settings-dialog.c:628
-msgid "Default"
-msgstr "إفتراضي"
-
-#: ../panel-plugin/xkb-settings-dialog.c:635
-msgid "Layout"
-msgstr "تخطيط"
-
-#: ../panel-plugin/xkb-settings-dialog.c:643
-msgid "Variant"
-msgstr "متغير"
-
 #. ***
-#: ../panel-plugin/xkb-settings-dialog.c:687
+#: ../panel-plugin/xkb-settings-dialog.c:122
 msgid "Show layout as:"
 msgstr "أظهر التخطيط كـ:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:692
+#: ../panel-plugin/xkb-settings-dialog.c:127
 msgid "image"
 msgstr "صورة"
 
-#: ../panel-plugin/xkb-settings-dialog.c:693
+#: ../panel-plugin/xkb-settings-dialog.c:128
 msgid "text"
 msgstr "نص"
 
 #. text size option
-#: ../panel-plugin/xkb-settings-dialog.c:698
+#: ../panel-plugin/xkb-settings-dialog.c:133
 msgid "Text size:"
 msgstr "حجم النص:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:703
+#: ../panel-plugin/xkb-settings-dialog.c:138
 msgid "small"
 msgstr "صغير"
 
-#: ../panel-plugin/xkb-settings-dialog.c:704
+#: ../panel-plugin/xkb-settings-dialog.c:139
 msgid "medium"
 msgstr "متوسط"
 
-#: ../panel-plugin/xkb-settings-dialog.c:705
+#: ../panel-plugin/xkb-settings-dialog.c:140
 msgid "large"
 msgstr "كبير"
 
-#: ../panel-plugin/xkb-settings-dialog.c:709
+#: ../panel-plugin/xkb-settings-dialog.c:144
 msgid "Manage layout:"
 msgstr "إدارة التخطيطات:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:714
+#: ../panel-plugin/xkb-settings-dialog.c:149
 msgid "globally"
 msgstr "للكل"
 
-#: ../panel-plugin/xkb-settings-dialog.c:715
+#: ../panel-plugin/xkb-settings-dialog.c:150
 msgid "per window"
 msgstr "حسب النوافذ"
 
-#: ../panel-plugin/xkb-settings-dialog.c:716
+#: ../panel-plugin/xkb-settings-dialog.c:151
 msgid "per application"
 msgstr "حسب التطبيق"
 
-#: ../panel-plugin/xkb-settings-dialog.c:758
+#: ../panel-plugin/xkb-settings-dialog.c:185
 msgid "Keyboard Layouts Plugin"
 msgstr "إضافة تخطيطات لوحة المفاتيح"
 
-#: ../panel-plugin/xkb-settings-dialog.c:764
+#: ../panel-plugin/xkb-settings-dialog.c:195
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "تسمح لك بضبط و إستعمال عدة تخطيطات لوحة المفاتيح."
 
-#: ../panel-plugin/xkb-settings-dialog.c:768
+#: ../panel-plugin/xkb-settings-dialog.c:199
 msgid "Other plugins available here"
 msgstr "إضافات أخرى متوفرة هنا"
 
-#: ../panel-plugin/xkb-settings-dialog.c:820
-msgid "Add layout"
-msgstr "أضف تخطيط"
+#: ../panel-plugin/xfce4-xkb-plugin.c:128
+msgid "Keyboard settings"
+msgstr "اعدادات لوحة المفاتيح"
 
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
 msgid "Keyboard layouts setup and switch plugin"
