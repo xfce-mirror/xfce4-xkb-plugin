@@ -1,20 +1,21 @@
-# Czech translations for xfce4-xkb-plugin package.
-# Copyright (C) 2006 THE xfce4-xkb-plugin'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the xfce4-xkb-plugin package.
-# Michal Várady <miko.vaji@gmail.com>, 2006-2012.
-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Alois Nešpor <info@aloisnespor.info>, 2013
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-xkb-plugin 0.4.1\n"
+"Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-27 22:05-0400\n"
-"PO-Revision-Date: 2012-01-08 16:29+0100\n"
-"Last-Translator: Michal Várady <miko.vaji@gmail.com>\n"
-"Language-Team: Czech <translation-team-cs@lists.sourceforge.net>\n"
-"Language: cs\n"
+"POT-Creation-Date: 2013-07-03 21:34+0200\n"
+"PO-Revision-Date: 2013-08-12 08:25+0000\n"
+"Last-Translator: Alois Nešpor <info@aloisnespor.info>\n"
+"Language-Team: Czech (http://www.transifex.com/projects/p/xfce/language/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #: ../panel-plugin/xkb-settings-dialog.c:112
@@ -80,67 +81,10 @@ msgstr "Umožňuje konfigurovat a používat více rozložení klávesnic."
 msgid "Other plugins available here"
 msgstr "Další zásuvné moduly jsou dostupné zde"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:125
-#, fuzzy
+#: ../panel-plugin/xfce4-xkb-plugin.c:128
 msgid "Keyboard settings"
-msgstr "Rozložení klávesnice"
+msgstr "Nastavení klávesnice"
 
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
 msgid "Keyboard layouts setup and switch plugin"
 msgstr "Nastavuje a přepíná rozložení klávesnice"
-
-#~ msgid ""
-#~ "XKB configuration modifications are\n"
-#~ "disabled from the config file.\n"
-#~ "\n"
-#~ "See the README file for more information."
-#~ msgstr ""
-#~ "Změny konfigurace XKB jsou zakázány\n"
-#~ "souborem konfigurace.\n"
-#~ "\n"
-#~ "Více informací naleznete v souboru README (v angličtině)."
-
-#~ msgid "Keyboard model:"
-#~ msgstr "Model klávesnice:"
-
-#~ msgid "Change layout option:"
-#~ msgstr "Volba změny rozložení:"
-
-#~ msgid "Compose key position:"
-#~ msgstr "Složení pozice klávesy:"
-
-#~ msgid "Keyboard layouts:"
-#~ msgstr "Rozložení klávesnice:"
-
-#~ msgid "Default"
-#~ msgstr "Výchozí"
-
-#~ msgid "Layout"
-#~ msgstr "Rozložení"
-
-#~ msgid "Variant"
-#~ msgstr "Varianta"
-
-#~ msgid "Add layout"
-#~ msgstr "Přidat rozložení"
-
-#~ msgid ""
-#~ "Allows you to switch the keyboard layout and\n"
-#~ "displays the currently selected layout."
-#~ msgstr ""
-#~ "Umožňuje Vám přepnout rozložení klávesnice\n"
-#~ "a zobrazuje aktuálně používané rozložení."
-
-#~ msgid "Configure Keyboard Layout Switcher"
-#~ msgstr "Konfigurovat přepínač rozvržení klávesnice"
-
-#~ msgid "_Remember layout for each application"
-#~ msgstr "_Pamatovat si rozvržení pro každou aplikaci zvlášť"
-
-#~ msgid "Button to switch the X keyboard layout"
-#~ msgstr "Tlačítko pro přepínání rozložení klávesnice"
-
-#~ msgid ""
-#~ "Displays the current keyboard layout and switches the layout when clicked"
-#~ msgstr ""
-#~ "Zobrazuje aktuální rozložení klávesnice a přepíná rozvržení při kliknutí"
