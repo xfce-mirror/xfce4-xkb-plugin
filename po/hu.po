@@ -1,22 +1,23 @@
-# Hungarian translation of xfce4-xkb-plugin
-# Copyright 2009. Free Software Foundation, Inc.
-# This file is distributed under the same license as the xfce4-xkb-plugin package.
-#
-# Gabor Kelemen <kelemeng at gnome dot hu>, 2009.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Nucleo <nucleo@indamail.hu>, 2013
+# Gabor Kelemen <kelemeng at gnome dot hu>, 2009
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-xkb-plugin\n"
+"Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-27 22:05-0400\n"
-"PO-Revision-Date: 2009-07-25 10:54+0200\n"
-"Last-Translator: Gabor Kelemen <kelemeng at gnome dot hu>\n"
-"Language-Team: Hungarian <gnome at gnome dot hu>\n"
-"Language: \n"
+"POT-Creation-Date: 2013-07-03 21:34+0200\n"
+"PO-Revision-Date: 2013-09-15 00:02+0000\n"
+"Last-Translator: Nucleo <nucleo@indamail.hu>\n"
+"Language-Team: Hungarian (http://www.transifex.com/projects/p/xfce/language/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: hu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: KBabel 1.11.4\n"
 
 #: ../panel-plugin/xkb-settings-dialog.c:112
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
@@ -81,46 +82,10 @@ msgstr "Lehetővé teszi több billentyűzetkiosztás beállítását és haszn�
 msgid "Other plugins available here"
 msgstr "További elérhető bővítmények"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:125
-#, fuzzy
+#: ../panel-plugin/xfce4-xkb-plugin.c:128
 msgid "Keyboard settings"
-msgstr "Billentyűzetkiosztások"
+msgstr "Billentyűzet beállítások"
 
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
 msgid "Keyboard layouts setup and switch plugin"
 msgstr "Billentyűzetkiosztás-beállító és -váltó bővítmény"
-
-#~ msgid ""
-#~ "XKB configuration modifications are\n"
-#~ "disabled from the config file.\n"
-#~ "\n"
-#~ "See the README file for more information."
-#~ msgstr ""
-#~ "Az XKB beállításainak módosítása\n"
-#~ "a beállítófájlban le van tiltva.\n"
-#~ "\n"
-#~ "További információkért lásd a README fájlt."
-
-#~ msgid "Keyboard model:"
-#~ msgstr "Billentyűzet típusa:"
-
-#~ msgid "Change layout option:"
-#~ msgstr "Kiosztás beállításának módosítása:"
-
-#~ msgid "Compose key position:"
-#~ msgstr "Kombináló billentyű pozíciója:"
-
-#~ msgid "Keyboard layouts:"
-#~ msgstr "Billentyűzetkiosztások:"
-
-#~ msgid "Default"
-#~ msgstr "Alapértelmezett"
-
-#~ msgid "Layout"
-#~ msgstr "Kiosztás"
-
-#~ msgid "Variant"
-#~ msgstr "Változat"
-
-#~ msgid "Add layout"
-#~ msgstr "Kiosztás hozzáadása"
