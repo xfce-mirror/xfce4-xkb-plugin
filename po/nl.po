@@ -1,21 +1,20 @@
-# Dutch translation of the xfce4-xkb-plugin package.
-# Copyright (C) The Xfce development team.
-# This file is distributed under the same license as the
-# xfce4-xkb-plugin package.
-# Pjotr <pjotrvertaalt@gmail.com> , 2011 - 2013.
-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-xkb-plugin\n"
+"Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-27 22:05-0400\n"
-"PO-Revision-Date: 2011-06-15 11:34+0200\n"
-"Last-Translator: Pjotr pjotrvertaalt@gmail.com\n"
-"Language-Team: Dutch (Flemish)\n"
-"Language: nl (Dutch)\n"
+"POT-Creation-Date: 2013-07-03 21:34+0200\n"
+"PO-Revision-Date: 2013-09-19 14:59+0000\n"
+"Last-Translator: Pjotr123 <pjotrvertaalt@gmail.com>\n"
+"Language-Team: Dutch (http://www.transifex.com/projects/p/xfce/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../panel-plugin/xkb-settings-dialog.c:112
@@ -75,54 +74,16 @@ msgstr "Toetsenbordindelingen-invoegtoepassing"
 
 #: ../panel-plugin/xkb-settings-dialog.c:195
 msgid "Allows you to configure and use multiple keyboard layouts."
-msgstr ""
-"Stelt u in staat om meerdere toetsenbordindelingen in te stellen en te "
-"gebruiken."
+msgstr "Stelt u in staat om meerdere toetsenbordindelingen in te stellen en te gebruiken."
 
 #: ../panel-plugin/xkb-settings-dialog.c:199
 msgid "Other plugins available here"
 msgstr "Andere invoegtoepassingen zijn hier beschikbaar"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:125
+#: ../panel-plugin/xfce4-xkb-plugin.c:128
 msgid "Keyboard settings"
 msgstr "Toetsenbordindelingen"
 
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
 msgid "Keyboard layouts setup and switch plugin"
 msgstr "Invoegtoepassing voor het instellen en veranderen van toetsenbordindelingen"
-
-#~ msgid ""
-#~ "XKB configuration modifications are\n"
-#~ "disabled from the config file.\n"
-#~ "\n"
-#~ "See the README file for more information."
-#~ msgstr ""
-#~ "Aanpassingen van XKB-configuratie zijn\n"
-#~ "uitgeschakeld vanuit het configuratie-\n"
-#~ "bestand.\n"
-#~ "Zie het LEESMIJ(README)-bestand voor\n"
-#~ "meer informatie."
-
-#~ msgid "Keyboard model:"
-#~ msgstr "Toetsenbordmodel:"
-
-#~ msgid "Change layout option:"
-#~ msgstr "Verander indelingsoptie:"
-
-#~ msgid "Compose key position:"
-#~ msgstr "Positie van Samensteltoets:"
-
-#~ msgid "Keyboard layouts:"
-#~ msgstr "Toetsenbordindelingen:"
-
-#~ msgid "Default"
-#~ msgstr "Standaard"
-
-#~ msgid "Layout"
-#~ msgstr "Indeling"
-
-#~ msgid "Variant"
-#~ msgstr "Variant"
-
-#~ msgid "Add layout"
-#~ msgstr "Voeg indeling toe"
