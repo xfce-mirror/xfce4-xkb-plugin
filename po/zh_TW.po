@@ -1,20 +1,23 @@
-# Tradictional Chinese translation for xfce4-xkb-plugin
-# Copyright (C) 2006 Alexander Iliev
-# This file is distributed under the same license as the xfce4-xkb-plugin
-# Cosmo Chene <cosmolax@gmail.com>, 2006.
-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Cosmo Chene <cosmolax@gmail.com>, 2006
+# Walter Cheuk <wwycheuk@gmail.com>, 2013
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-xkb-plugin 0.4.1\n"
+"Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-27 22:05-0400\n"
-"PO-Revision-Date: 2012-01-15 11:58+0800\n"
-"Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
-"Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>\n"
-"Language: zh_TW\n"
+"POT-Creation-Date: 2013-07-03 21:34+0200\n"
+"PO-Revision-Date: 2013-10-12 14:17+0000\n"
+"Last-Translator: Walter Cheuk <wwycheuk@gmail.com>\n"
+"Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/xfce/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: zh_TW\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../panel-plugin/xkb-settings-dialog.c:112
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
@@ -79,63 +82,10 @@ msgstr "讓您設定並使用多種鍵盤配置。"
 msgid "Other plugins available here"
 msgstr "其他可用的插件"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:125
-#, fuzzy
+#: ../panel-plugin/xfce4-xkb-plugin.c:128
 msgid "Keyboard settings"
-msgstr "鍵盤配置"
+msgstr "鍵盤設定"
 
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
 msgid "Keyboard layouts setup and switch plugin"
 msgstr "鍵盤配置設置與切換插件"
-
-#~ msgid ""
-#~ "XKB configuration modifications are\n"
-#~ "disabled from the config file.\n"
-#~ "\n"
-#~ "See the README file for more information."
-#~ msgstr ""
-#~ "XKB 組態與修改\n"
-#~ "被組態檔停用。\n"
-#~ "\n"
-#~ "請見 README 檔案瞭解更多資訊。"
-
-#~ msgid "Keyboard model:"
-#~ msgstr "鍵盤型號："
-
-#~ msgid "Change layout option:"
-#~ msgstr "變更鍵盤選項："
-
-#~ msgid "Compose key position:"
-#~ msgstr "編輯按鍵位置："
-
-#~ msgid "Keyboard layouts:"
-#~ msgstr "鍵盤配置："
-
-#~ msgid "Default"
-#~ msgstr "預設"
-
-#~ msgid "Layout"
-#~ msgstr "配置"
-
-#~ msgid "Variant"
-#~ msgstr "變異"
-
-#~ msgid "Add layout"
-#~ msgstr "新增配置"
-
-#~ msgid ""
-#~ "Allows you to switch the keyboard layout and\n"
-#~ "displays the currently selected layout."
-#~ msgstr ""
-#~ "讓您能夠切換別的鍵盤對應方式以及\n"
-#~ "顯示目前所用的鍵盤類別."
-
-#~ msgid "Configure Keyboard Layout Switcher"
-#~ msgstr "設定切換鍵盤對應"
-
-#~ msgid "_Remember layout for each application"
-#~ msgstr "記住每個程式的設定(_R)"
-
-#~ msgid ""
-#~ "Displays the current keyboard layout and switches the layout when clicked"
-#~ msgstr "顯示目前使用的鍵盤類型，並讓您用滑鼠點選切換想用的鍵盤對應方式"
