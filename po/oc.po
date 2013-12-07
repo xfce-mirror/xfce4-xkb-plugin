@@ -1,0 +1,90 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Cedric31 <cvalmary@yahoo.fr>, 2013
+msgid ""
+msgstr ""
+"Project-Id-Version: Xfce Panel Plugins\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-07-03 21:34+0200\n"
+"PO-Revision-Date: 2013-12-07 10:54+0000\n"
+"Last-Translator: Cedric31 <cvalmary@yahoo.fr>\n"
+"Language-Team: Occitan (post 1500) (http://www.transifex.com/projects/p/xfce/language/oc/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: oc\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: ../panel-plugin/xkb-settings-dialog.c:112
+#: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
+msgid "Keyboard Layouts"
+msgstr "Disposicions del clavièr"
+
+#. ***
+#: ../panel-plugin/xkb-settings-dialog.c:122
+msgid "Show layout as:"
+msgstr "Afichar la disposicion en tant que :"
+
+#: ../panel-plugin/xkb-settings-dialog.c:127
+msgid "image"
+msgstr "imatge"
+
+#: ../panel-plugin/xkb-settings-dialog.c:128
+msgid "text"
+msgstr "tèxte"
+
+#. text size option
+#: ../panel-plugin/xkb-settings-dialog.c:133
+msgid "Text size:"
+msgstr "Talha del tèxte :"
+
+#: ../panel-plugin/xkb-settings-dialog.c:138
+msgid "small"
+msgstr "pichon"
+
+#: ../panel-plugin/xkb-settings-dialog.c:139
+msgid "medium"
+msgstr "mejan"
+
+#: ../panel-plugin/xkb-settings-dialog.c:140
+msgid "large"
+msgstr "grand"
+
+#: ../panel-plugin/xkb-settings-dialog.c:144
+msgid "Manage layout:"
+msgstr "Gerir la disposicion :"
+
+#: ../panel-plugin/xkb-settings-dialog.c:149
+msgid "globally"
+msgstr "globalament"
+
+#: ../panel-plugin/xkb-settings-dialog.c:150
+msgid "per window"
+msgstr "per fenèstra"
+
+#: ../panel-plugin/xkb-settings-dialog.c:151
+msgid "per application"
+msgstr "per aplicacion"
+
+#: ../panel-plugin/xkb-settings-dialog.c:185
+msgid "Keyboard Layouts Plugin"
+msgstr "Empeuton de disposicion del clavièr"
+
+#: ../panel-plugin/xkb-settings-dialog.c:195
+msgid "Allows you to configure and use multiple keyboard layouts."
+msgstr "Permet l'utilizacion de mantuna disposicions del clavièr."
+
+#: ../panel-plugin/xkb-settings-dialog.c:199
+msgid "Other plugins available here"
+msgstr "Autres empeutons disponibles aicí"
+
+#: ../panel-plugin/xfce4-xkb-plugin.c:128
+msgid "Keyboard settings"
+msgstr "Paramètres del clavièr"
+
+#: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
+msgid "Keyboard layouts setup and switch plugin"
+msgstr "Empeuton de disposicion del clavièr e de son cambiament"
