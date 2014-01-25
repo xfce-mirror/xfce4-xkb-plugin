@@ -1,24 +1,24 @@
-# German translations for xfce4-xkb-plugin package.
-# Copyright (C) 2004-2007 Benedikt Meurer, Alexander Iliev.
-# This file is distributed under the same license as the
-# xfce4-xkb-plugin package.
-# Frank Lanitz <frank@frank.uvena.de>, 2006.
-# Fabian Nowak <timystery@arcor.de>, 2007, 2008.
-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Fabian Nowak <timystery@arcor.de>, 2007-2008
+# Frank Lanitz <frank@frank.uvena.de>, 2006
+# to_ba, 2014
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-xkb-plugin 0.4.1\n"
+"Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-27 22:05-0400\n"
-"PO-Revision-Date: 2008-11-03 22:21+0100\n"
-"Last-Translator: Fabian Nowak <timystery@arcor.de>\n"
-"Language-Team: <frank@frank.uvena.de>\n"
-"Language: \n"
+"POT-Creation-Date: 2013-07-03 21:34+0200\n"
+"PO-Revision-Date: 2014-01-25 16:21+0000\n"
+"Last-Translator: to_ba\n"
+"Language-Team: German (http://www.transifex.com/projects/p/xfce/language/de/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: German\n"
-"X-Poedit-Country: GERMANY\n"
+"Language: de\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../panel-plugin/xkb-settings-dialog.c:112
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
@@ -28,7 +28,7 @@ msgstr "Tastaturbelegung"
 #. ***
 #: ../panel-plugin/xkb-settings-dialog.c:122
 msgid "Show layout as:"
-msgstr "Zeige Belegung an als:"
+msgstr "Belegung anzeigen als:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:127
 msgid "image"
@@ -73,79 +73,20 @@ msgstr "pro Anwendung"
 
 #: ../panel-plugin/xkb-settings-dialog.c:185
 msgid "Keyboard Layouts Plugin"
-msgstr "Tastaturbelegungs-Plugin"
+msgstr "Tastaturbelegungserweiterung"
 
 #: ../panel-plugin/xkb-settings-dialog.c:195
 msgid "Allows you to configure and use multiple keyboard layouts."
-msgstr ""
-"Ermöglicht das Einstellen und Verwenden verschiedener Tastaturbelegungen."
+msgstr "Ermöglicht das Einstellen und Verwenden verschiedener Tastaturbelegungen."
 
 #: ../panel-plugin/xkb-settings-dialog.c:199
 msgid "Other plugins available here"
-msgstr "Weitere Plugins kann man hier finden"
+msgstr "Weitere Erweiterungen sind hier verfügbar"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:125
-#, fuzzy
+#: ../panel-plugin/xfce4-xkb-plugin.c:128
 msgid "Keyboard settings"
-msgstr "Tastaturbelegung"
+msgstr "Tastatureinstellungen"
 
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
 msgid "Keyboard layouts setup and switch plugin"
-msgstr "Plugin zum Einstellen und Umschalten der Tastaturbelegung"
-
-#~ msgid ""
-#~ "XKB configuration modifications are\n"
-#~ "disabled from the config file.\n"
-#~ "\n"
-#~ "See the README file for more information."
-#~ msgstr ""
-#~ "Veränderungen an der XKB-Konfiguration\n"
-#~ "sind in der Einstellungsdatei abgeschaltet.\n"
-#~ "\n"
-#~ "Lesen Sie die Datei »README« für weitere Informationen."
-
-#~ msgid "Keyboard model:"
-#~ msgstr "Tastaturmodell:"
-
-#~ msgid "Change layout option:"
-#~ msgstr "Belegung ändern:"
-
-#~ msgid "Compose key position:"
-#~ msgstr "Position der Compose-Taste:"
-
-#~ msgid "Keyboard layouts:"
-#~ msgstr "Tastaturbelegungen:"
-
-#~ msgid "Default"
-#~ msgstr "Vorgabe"
-
-#~ msgid "Layout"
-#~ msgstr "Tastaturbelegung"
-
-#~ msgid "Variant"
-#~ msgstr "Variante"
-
-#~ msgid "Add layout"
-#~ msgstr "Tastaturbelegung hinzufügen"
-
-#~ msgid ""
-#~ "Allows you to switch the keyboard layout and\n"
-#~ "displays the currently selected layout."
-#~ msgstr ""
-#~ "Bietet die Möglichkeit, das Tastaturlayout zu wechseln, und zeigt das im "
-#~ "Moment aktive Layout an. "
-
-#~ msgid "Configure Keyboard Layout Switcher"
-#~ msgstr "Einstellungen für das Tastaturlayout-Plugin"
-
-#~ msgid "_Remember layout for each application"
-#~ msgstr "_Benutze Anordnung für alle Anwendungen"
-
-#~ msgid "Button to switch the X keyboard layout"
-#~ msgstr "Knopf, um die Anordnung der X-Tastatur zu ändern"
-
-#~ msgid ""
-#~ "Displays the current keyboard layout and switches the layout when clicked"
-#~ msgstr ""
-#~ "Zeigt das aktuelle Tastaturlayout an und erlaubt es, durch einen Klick "
-#~ "das Layout zu wechseln. "
+msgstr "Erweiterung zum Einstellen und Umschalten der Tastaturbelegung"
