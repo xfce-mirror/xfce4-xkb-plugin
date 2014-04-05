@@ -1,20 +1,22 @@
-# Swedish translation for xfce4-xkb-plugin.
-# Copyright (C) 2008, 2009 Free Software Foundation, Inc.
-# This file is distributed under the same license as the xfce4-xkb-plugin package.
-# Daniel Nylander <po@danielnylander.se>, 2008, 2009.
-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Daniel Nylander <po@danielnylander.se>, 2008-2009
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-xkb-plugin\n"
+"Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-27 22:05-0400\n"
-"PO-Revision-Date: 2009-02-09 00:52+0100\n"
-"Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
-"Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
-"Language: sv\n"
+"POT-Creation-Date: 2013-07-03 21:34+0200\n"
+"PO-Revision-Date: 2014-04-05 09:37+0000\n"
+"Last-Translator: PavelNicklasson <pavelnicklasson@bahnhof.se>\n"
+"Language-Team: Swedish (http://www.transifex.com/projects/p/xfce/language/sv/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: sv\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../panel-plugin/xkb-settings-dialog.c:112
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
@@ -37,19 +39,19 @@ msgstr "text"
 #. text size option
 #: ../panel-plugin/xkb-settings-dialog.c:133
 msgid "Text size:"
-msgstr ""
+msgstr "Textstorlek:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:138
 msgid "small"
-msgstr ""
+msgstr "liten"
 
 #: ../panel-plugin/xkb-settings-dialog.c:139
 msgid "medium"
-msgstr ""
+msgstr "medium"
 
 #: ../panel-plugin/xkb-settings-dialog.c:140
 msgid "large"
-msgstr ""
+msgstr "stor"
 
 #: ../panel-plugin/xkb-settings-dialog.c:144
 msgid "Manage layout:"
@@ -79,41 +81,10 @@ msgstr "Låter dig konfigurera och använda flera olika tangentbordslayouter."
 msgid "Other plugins available here"
 msgstr "Andra insticksmoduler tillgängliga här"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:125
-#, fuzzy
+#: ../panel-plugin/xfce4-xkb-plugin.c:128
 msgid "Keyboard settings"
-msgstr "Tangentbordslayouter"
+msgstr "Tangentbordsinställningar"
 
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
 msgid "Keyboard layouts setup and switch plugin"
 msgstr "Insticksmodul för konfigurering och växling av tangentbordslayouter"
-
-#~ msgid ""
-#~ "XKB configuration modifications are\n"
-#~ "disabled from the config file.\n"
-#~ "\n"
-#~ "See the README file for more information."
-#~ msgstr ""
-#~ "XKB-konfigurationsändringar är\n"
-#~ "inaktiverade från konfigurationsfilen.\n"
-#~ "\n"
-#~ "Se filen README för mer information."
-
-#~ msgid "Keyboard model:"
-#~ msgstr "Tangentbordsmodell:"
-
-#~ msgid "Change layout option:"
-#~ msgstr "Ändra layoutalternativ:"
-
-#~ msgid "Compose key position:"
-#~ msgstr "Position för Compose-tangent:"
-
-#~ msgid "Keyboard layouts:"
-#~ msgstr "Tangentbordslayouter:"
-
-#, fuzzy
-#~ msgid "Layout"
-#~ msgstr "Lägg till layout"
-
-#~ msgid "Add layout"
-#~ msgstr "Lägg till layout"
