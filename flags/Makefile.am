@@ -25,6 +25,7 @@ flags_DATA = ae.svg \
 			dz.svg \
 			ee.svg \
 			eg.svg \
+			el.svg \
 			epo.svg \
 			es.svg \
 			fi.svg \
