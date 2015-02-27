@@ -1,3 +1,10 @@
+2015-02-27 18:29
+    * New version 0.7.1 - to be used with xfce4-settings 4.11 or later;
+      do *not* use this version with XFCE 4.8 or 4.10, it won't work!
+    * Many translation updates
+    * Fix crash in xkb_util_normalize_group_name
+    * Add Montenegrin flag; add el.svg as a synonym for gr.svg
+
 2013-05-20 17:29
     * New version 0.7.0 - to be used with xfce4-settings 4.11 or later;
       do *not* use this version with XFCE 4.8 or 4.10, it won't work!
