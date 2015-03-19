@@ -1,22 +1,24 @@
-# Greek translations for xfce4-xkb-plugin package.
-# Copyright (C) 2004-2006 Alexander Iliev.
-# This file is distributed under the same license as the xfce4-xkb-plugin package.
-# Stavros Giannouris <stavrosg@serverhive.com>, 2006.
-# Efstathios Iosifidis <iosifidis@opensuse.org>, 2012.
-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Efstathios Iosifidis <iefstathios@gmail.com>, 2015
+# Efstathios Iosifidis <iosifidis@opensuse.org>, 2012
+# Stavros Giannouris <stavrosg@serverhive.com>, 2006
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-xkb-plugin 0.4.1\n"
+"Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-27 22:05-0400\n"
-"PO-Revision-Date: 2012-05-20 04:18+0300\n"
-"Last-Translator: Efstathios Iosifidis <iosifidis@opensuse.org>\n"
-"Language-Team: Ελληνικά, Σύγχρονα <opensuse-translation-el@opensuse.org>\n"
-"Language: el\n"
+"POT-Creation-Date: 2013-07-03 21:34+0200\n"
+"PO-Revision-Date: 2015-03-19 09:25+0000\n"
+"Last-Translator: Efstathios Iosifidis <iefstathios@gmail.com>\n"
+"Language-Team: Greek (http://www.transifex.com/projects/p/xfce-panel-plugins/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bits\n"
-"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: el\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../panel-plugin/xkb-settings-dialog.c:112
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
@@ -75,73 +77,16 @@ msgstr "Άρθρωμα διάταξης πληκτρολογίου"
 
 #: ../panel-plugin/xkb-settings-dialog.c:195
 msgid "Allows you to configure and use multiple keyboard layouts."
-msgstr ""
-"Σας επιτρέπει να ρυθμίσετε και να χρησιμοποιήσετε πολλαπλές διατάξεις του "
-"πληκτρολογίου"
+msgstr "Σας επιτρέπει να ρυθμίσετε και να χρησιμοποιήσετε πολλαπλές διατάξεις του πληκτρολογίου"
 
 #: ../panel-plugin/xkb-settings-dialog.c:199
 msgid "Other plugins available here"
 msgstr "Άλλα διαθέσιμα πρόσθετα"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:125
-#, fuzzy
+#: ../panel-plugin/xfce4-xkb-plugin.c:128
 msgid "Keyboard settings"
-msgstr "Διατάξεις πληκτρολογίου"
+msgstr "Ρυθμίσεις πληκτρολογίου"
 
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
 msgid "Keyboard layouts setup and switch plugin"
 msgstr "Άρθρωμα εναλλαγής και ρύθμισης των διατάξεων πληκτρολογίου"
-
-#~ msgid ""
-#~ "XKB configuration modifications are\n"
-#~ "disabled from the config file.\n"
-#~ "\n"
-#~ "See the README file for more information."
-#~ msgstr ""
-#~ "Οι τροποποιήσεις των ρυθμίσεων του xkb είναι\n"
-#~ "απενεργοποιημένες από το αρχείο ρυθμίσεων.\n"
-#~ "\n"
-#~ "Δείτε το αρχείο README για περισσότερες πληροφορίες."
-
-#~ msgid "Keyboard model:"
-#~ msgstr "Μοντέλο πληκτρολογίου:"
-
-#~ msgid "Change layout option:"
-#~ msgstr "Συνδυασμός αλλαγής διάταξης:"
-
-#~ msgid "Compose key position:"
-#~ msgstr "Πλήκτρο σύνθεσης:"
-
-#~ msgid "Keyboard layouts:"
-#~ msgstr "Διατάξεις πληκτρολογίου:"
-
-#~ msgid "Default"
-#~ msgstr "Προεπιλογή"
-
-#~ msgid "Layout"
-#~ msgstr "Διάταξη"
-
-#~ msgid "Variant"
-#~ msgstr "Παραλλαγή"
-
-#~ msgid "Add layout"
-#~ msgstr "Προσθήκη διάταξης"
-
-#~ msgid ""
-#~ "Allows you to switch the keyboard layout and\n"
-#~ "displays the currently selected layout."
-#~ msgstr ""
-#~ "Επιτρέπει την εναλλαγή της διάταξης πληκτρολογίου\n"
-#~ "και εμφανίζει την τρέχουσα διάταξη."
-
-#~ msgid "Configure Keyboard Layout Switcher"
-#~ msgstr "Ρύθμιση εναλλάκτη διάταξης πληκτρολογίου"
-
-#~ msgid "_Remember layout for each application"
-#~ msgstr "_Καταγραφή διάταξης ανά εφαρμογή"
-
-#~ msgid ""
-#~ "Displays the current keyboard layout and switches the layout when clicked"
-#~ msgstr ""
-#~ "Εμφανίζει την τρέχουσα διάταξη πληκτρολογίου και την αλλάζει όταν κάνετε "
-#~ "κλικ επάνω"
