@@ -86,9 +86,16 @@ on_display_type_changed (GtkComboBox *cb, t_xkb *xkb)
 }
 
 static void
-on_display_textsize_changed (GtkComboBox *cb, t_xkb *xkb)
+on_display_textsize_changed (GtkHScale *scale, t_xkb *xkb)
 {
-    xkb->display_textsize = gtk_combo_box_get_active (cb);
+    xkb->display_text_scale = gtk_range_get_value (GTK_RANGE (scale));
+    xkb_refresh_gui (xkb);
+}
+
+static void
+on_display_imgsize_changed (GtkHScale *scale, t_xkb *xkb)
+{
+    xkb->display_img_scale = gtk_range_get_value (GTK_RANGE (scale));
     xkb_refresh_gui (xkb);
 }
 
@@ -105,7 +112,8 @@ xfce_xkb_configure (XfcePanelPlugin *plugin,
 {
     GtkWidget *display_type_optmenu, *group_policy_combo;
     GtkWidget *vbox, *display_type_frame, *group_policy_frame, *bin;
-    GtkWidget *display_textsize_frame, *display_textsize_optmenu;
+    GtkWidget *display_textsize_frame, *display_textsize_scale;
+    GtkWidget *display_imgsize_frame, *display_imgsize_scale;
 
     xfce_panel_plugin_block_menu (plugin);
 
@@ -134,12 +142,22 @@ xfce_xkb_configure (XfcePanelPlugin *plugin,
     gtk_widget_show (display_textsize_frame);
     gtk_box_pack_start (GTK_BOX (vbox), display_textsize_frame, TRUE, TRUE, 2);
 
-    display_textsize_optmenu = gtk_combo_box_new_text ();
-    gtk_combo_box_append_text (GTK_COMBO_BOX (display_textsize_optmenu), _("small"));
-    gtk_combo_box_append_text (GTK_COMBO_BOX (display_textsize_optmenu), _("medium"));
-    gtk_combo_box_append_text (GTK_COMBO_BOX (display_textsize_optmenu), _("large"));
-    gtk_widget_set_size_request (display_textsize_optmenu, 230, -1);
-    gtk_container_add (GTK_CONTAINER (bin), display_textsize_optmenu);
+    display_textsize_scale = gtk_hscale_new_with_range (0, 100, 1);
+    gtk_range_set_update_policy (GTK_RANGE (display_textsize_scale), GTK_UPDATE_CONTINUOUS);
+    gtk_scale_set_value_pos (GTK_SCALE (display_textsize_scale), GTK_POS_RIGHT);
+    gtk_widget_set_size_request (display_textsize_scale, 230, -1);
+    gtk_container_add (GTK_CONTAINER (bin), display_textsize_scale);
+
+    /* image size option */
+    display_imgsize_frame = xfce_gtk_frame_box_new (_("Image size:"), &bin);
+    gtk_widget_show (display_imgsize_frame);
+    gtk_box_pack_start (GTK_BOX (vbox), display_imgsize_frame, TRUE, TRUE, 2);
+
+    display_imgsize_scale = gtk_hscale_new_with_range (0, 100, 1);
+    gtk_range_set_update_policy (GTK_RANGE (display_imgsize_scale), GTK_UPDATE_CONTINUOUS);
+    gtk_scale_set_value_pos (GTK_SCALE (display_imgsize_scale), GTK_POS_RIGHT);
+    gtk_widget_set_size_request (display_imgsize_scale, 230, -1);
+    gtk_container_add (GTK_CONTAINER (bin), display_imgsize_scale);
 
     group_policy_frame = xfce_gtk_frame_box_new (_("Manage layout:"), &bin);
     gtk_widget_show (group_policy_frame);
@@ -159,12 +177,14 @@ xfce_xkb_configure (XfcePanelPlugin *plugin,
             G_CALLBACK (on_settings_close), xkb);
 
     gtk_combo_box_set_active (GTK_COMBO_BOX (display_type_optmenu), xkb->display_type);
-    gtk_combo_box_set_active (GTK_COMBO_BOX (display_textsize_optmenu), xkb->display_textsize);
+    gtk_range_set_value (GTK_RANGE (display_textsize_scale), xkb->display_text_scale);
+    gtk_range_set_value (GTK_RANGE (display_imgsize_scale), xkb->display_img_scale);
     gtk_combo_box_set_active (GTK_COMBO_BOX (group_policy_combo), xkb->group_policy);
 
     g_signal_connect (display_type_optmenu, "changed", G_CALLBACK (on_display_type_changed), xkb);
     g_signal_connect (group_policy_combo, "changed", G_CALLBACK (on_group_policy_changed), xkb);
-    g_signal_connect (display_textsize_optmenu, "changed", G_CALLBACK (on_display_textsize_changed), xkb);
+    g_signal_connect (display_textsize_scale, "value_changed", G_CALLBACK (on_display_textsize_changed), xkb);
+    g_signal_connect (display_imgsize_scale, "value_changed", G_CALLBACK (on_display_imgsize_changed), xkb);
 
     gtk_widget_show (settings_dialog);
 }

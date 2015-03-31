@@ -52,6 +52,7 @@ gboolean          xkb_config_initialize                   (t_group_policy group_
 void              xkb_config_finalize                     (void);
 void              xkb_config_set_group_policy             (t_group_policy group_policy);
 gint              xkb_config_get_group_count              (void);
+guint             xkb_config_get_max_group_count          (void);
 const gchar*      xkb_config_get_group_name               (gint group);
 const gchar*      xkb_config_get_variant                  (gint group);
 gboolean          xkb_config_set_group                    (gint group);

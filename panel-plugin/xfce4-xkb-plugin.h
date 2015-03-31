@@ -60,7 +60,8 @@ typedef struct
     gint button_vsize;            /* read allocated button size - see below */
 
     t_display_type display_type;  /* display layout as image ot text */
-    t_display_textsize display_textsize; /* text size for text layout */
+    guint display_text_scale; /* text scale % for text layout */
+    guint display_img_scale;  /* image scale % for flag layout */
     t_group_policy group_policy;     /* per-app/window/global policy */
 
     gint button_state;            /* gtk state of the button */

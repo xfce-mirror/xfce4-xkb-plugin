@@ -34,8 +34,7 @@
 #define XKB_PREFERRED_FONT "Courier New, Courier 10 Pitch, Monospace Bold"
 
 #define xkb_cairo_arc_for_flag(cr, x, y, r, a1, a2) \
-    xx = layoutx + width - 12 + x; \
-    yy = layouty + height - 12 + y; \
+    xx = x; yy = y; \
     cairo_device_to_user (cr, &xx, &yy); \
     cairo_arc (cr, xx, yy, r, a1, a2);
 
@@ -59,7 +58,9 @@ xkb_cairo_draw_flag (cairo_t *cr,
                      gint width,
                      gint height,
                      gint variant_markers_count,
-                     gint textsize,
+                     guint max_variant_markers_count,
+                     guint img_scale,
+                     guint text_scale,
                      GdkColor fgcolor)
 {
     gchar *filename;
@@ -68,7 +69,9 @@ xkb_cairo_draw_flag (cairo_t *cr,
     double scalex, scaley;
     double xx, yy;
     gint i;
-    double layoutx, layouty;
+    double layoutx, layouty, img_width, img_height;
+    double radius, diameter;
+    guint spacing;
 
     g_assert (cr != NULL);
 
@@ -86,7 +89,7 @@ xkb_cairo_draw_flag (cairo_t *cr,
                 actual_width, actual_height,
                 width, height,
                 variant_markers_count,
-                textsize,
+                text_scale,
                 fgcolor);
         return;
     }
@@ -96,8 +99,17 @@ xkb_cairo_draw_flag (cairo_t *cr,
     scalex = (double) (width - 4) / dim.width;
     scaley = (double) (height - 4) / dim.height;
 
-    layoutx = (actual_width - width) / 2 + 2;
-    layouty = (actual_height - height) / 2 + 2;
+    scalex *= img_scale / 100.0;
+    scaley *= img_scale / 100.0;
+
+    img_width  = dim.width * scalex;
+    img_height = dim.height * scaley;
+
+    DBG ("scale x/y: %.3f/%.3f, dim w/h: %d/%d, scaled w/h: %.1f/%.1f",
+         scalex, scaley, dim.width, dim.height, scalex*dim.width, scaley*dim.height);
+
+    layoutx = (actual_width - img_width) / 2;
+    layouty = (actual_height - img_height) / 2;
     cairo_translate (cr, layoutx, layouty);
 
     cairo_save (cr);
@@ -107,15 +119,59 @@ xkb_cairo_draw_flag (cairo_t *cr,
 
     cairo_restore (cr);
 
+    DBG ("actual width/height: %d/%d; w/h: %d/%d; img w/h: %.1f/%.1f; markers: %d, max markers: %d",
+         actual_width, actual_height, width, height, img_width, img_height,
+         variant_markers_count, max_variant_markers_count);
+    DBG ("layout x/y: %.1f/%.1f", layoutx, layouty);
+
+    if (variant_markers_count > 0)
+    {
+        diameter = 5.0;
+        spacing = 1;
+
+        /* check if the flag is too small to draw variant markers inside it */
+        if ((diameter + spacing) * (max_variant_markers_count-1) > img_width - 2)
+        {
+            /* draw markers below the flag */
+            diameter = 4;
+            spacing  = 0;
+            layoutx  = actual_width / 2 + (max_variant_markers_count - 2) * diameter / 2;
+            layouty  = (actual_height + img_height) / 2 + diameter + 1;
+            DBG ("small flag");
+        }
+        else
+        {
+            /* draw markers inside the flag */
+            spacing  = 1;
+            layoutx += img_width  - diameter / 2 - 1;
+            layouty += img_height - diameter / 2 - 1;
+            DBG ("large flag");
+        }
+
+        radius = diameter / 2.0;
+
+        if (layouty > actual_height - radius)
+            layouty = actual_height - radius;
+        if (layoutx > actual_width - radius)
+            layoutx = actual_width - radius;
+    }
+
     /* draw variant_markers_count circles */
     for (i = 0; i < variant_markers_count; i++)
     {
+        gint x, y;
+
         cairo_set_source_rgb (cr, 0, 0, 0);
 
         cairo_set_line_cap (cr, CAIRO_LINE_CAP_ROUND);
         cairo_set_line_width (cr, 1);
 
-        xkb_cairo_arc_for_flag (cr, -(7 * i) + 4, 4, 2.5, 0, 2 * G_PI);
+        x = layoutx - (diameter + spacing) * i + 0.5;
+        y = layouty;
+
+        DBG ("variant center x/y: %d/%d, diameter: %.1f, spacing: %d",
+             x, y, diameter, spacing);
+        xkb_cairo_arc_for_flag (cr, x, y, radius, 0, 2 * G_PI);
 
         cairo_set_source_rgb (cr, 0, 0, 0);
         cairo_fill_preserve (cr);
@@ -136,7 +192,7 @@ xkb_cairo_draw_label (cairo_t *cr,
                       const gint width,
                       const gint height,
                       const gint variant_markers_count,
-                      const gint textsize,
+                      const guint text_scale,
                       const GdkColor fgcolor)
 {
     gchar *normalized_group_name;
@@ -176,18 +232,7 @@ xkb_cairo_draw_label (cairo_t *cr,
     pango_layout_get_pixel_size (layout, &pango_width, &pango_height);
     DBG ("pango_width/height: %d/%d", pango_width, pango_height);
 
-    switch (textsize){
-        case DISPLAY_TEXTSIZE_SMALL:
-        default:    /* catch misconfiguration */
-            scalex = scaley = 0.475;
-            break;
-        case DISPLAY_TEXTSIZE_MEDIUM:
-            scalex = scaley = 0.7;
-            break;
-        case DISPLAY_TEXTSIZE_LARGE:
-            scalex = scaley = 1;
-            break;
-    }
+    scalex = scaley = text_scale / 100.0;
 
     DBG ("txt size scale x/y: %.2f/%.2f", scalex, scaley);
 
@@ -201,7 +246,7 @@ xkb_cairo_draw_label (cairo_t *cr,
     {
         text_width = actual_width - 3 - (variant_markers_count) * diameter;
     }
-    else if (textsize == DISPLAY_TEXTSIZE_LARGE)
+    else if (text_scale >= 99.5)
     {
         text_width -= 3;
     }

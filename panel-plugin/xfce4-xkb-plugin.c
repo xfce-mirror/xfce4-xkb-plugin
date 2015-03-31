@@ -42,6 +42,9 @@
 #include "xkb-cairo.h"
 #include "xkb-callbacks.h"
 
+#define DISPLAY_TEXTSCALE_LARGE 100
+#define DISPLAY_IMGSCALE_LARGE  100
+
 /* ------------------------------------------------------------------ *
  *                     Panel Plugin Interface                         *
  * ------------------------------------------------------------------ */
@@ -288,7 +291,8 @@ xfce_xkb_save_config (XfcePanelPlugin *plugin, t_xkb *xkb)
     xfce_rc_set_group (rcfile, NULL);
 
     xfce_rc_write_int_entry (rcfile, "display_type", xkb->display_type);
-    xfce_rc_write_int_entry (rcfile, "display_textsize", xkb->display_textsize);
+    xfce_rc_write_int_entry (rcfile, "display_textscale", xkb->display_text_scale);
+    xfce_rc_write_int_entry (rcfile, "display_imgscale", xkb->display_img_scale);
     xfce_rc_write_int_entry (rcfile, "group_policy", xkb->group_policy);
 
     xfce_rc_close (rcfile);
@@ -299,12 +303,34 @@ static gboolean
 xkb_load_config (t_xkb *xkb, const gchar *filename)
 {
     XfceRc* rcfile;
+    gint text_scale;
+
     if ((rcfile = xfce_rc_simple_open (filename, TRUE)))
     {
         xfce_rc_set_group (rcfile, NULL);
 
         xkb->display_type = xfce_rc_read_int_entry (rcfile, "display_type", DISPLAY_TYPE_IMAGE);
-        xkb->display_textsize = xfce_rc_read_int_entry (rcfile, "display_textsize", DISPLAY_TEXTSIZE_LARGE);
+        text_scale = xfce_rc_read_int_entry (rcfile, "display_textscale", -1);
+        if (text_scale < 0)
+        {
+            /* Check if the old textsize value is there */
+            text_scale = xfce_rc_read_int_entry (rcfile, "display_textsize", -1);
+            switch (text_scale)
+            {
+            case DISPLAY_TEXTSIZE_SMALL:
+                text_scale = 47;
+                break;
+            case DISPLAY_TEXTSIZE_MEDIUM:
+                text_scale = 70;
+                break;
+            case DISPLAY_TEXTSIZE_LARGE:
+            default:
+                text_scale = DISPLAY_TEXTSCALE_LARGE;
+                break;
+            }
+        }
+        xkb->display_text_scale = text_scale;
+        xkb->display_img_scale = xfce_rc_read_int_entry (rcfile, "display_imgscale", DISPLAY_IMGSCALE_LARGE);
         xkb->group_policy = xfce_rc_read_int_entry (rcfile, "group_policy", GROUP_POLICY_PER_APPLICATION);
 
         xfce_rc_close (rcfile);
@@ -318,9 +344,10 @@ xkb_load_config (t_xkb *xkb, const gchar *filename)
 static void
 xkb_load_default (t_xkb *xkb)
 {
-    xkb->display_type = DISPLAY_TYPE_IMAGE;
-    xkb->display_textsize = DISPLAY_TEXTSIZE_LARGE;
-    xkb->group_policy = GROUP_POLICY_PER_APPLICATION;
+    xkb->display_type       = DISPLAY_TYPE_IMAGE;
+    xkb->display_text_scale = DISPLAY_TEXTSCALE_LARGE;
+    xkb->display_img_scale  = DISPLAY_IMGSCALE_LARGE;
+    xkb->group_policy       = GROUP_POLICY_PER_APPLICATION;
 }
 
 static gboolean

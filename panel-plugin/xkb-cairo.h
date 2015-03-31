@@ -41,7 +41,9 @@ void        xkb_cairo_draw_flag     (cairo_t *cr,
                                      gint width,
                                      gint height,
                                      gint variant_markers_count,
-                                     gint textsize,
+                                     guint max_variant_markers_count,
+                                     guint img_scale,
+                                     guint text_scale,
                                      GdkColor fgcolor);
 
 void        xkb_cairo_draw_label    (cairo_t *cr,
@@ -52,7 +54,7 @@ void        xkb_cairo_draw_label    (cairo_t *cr,
                                      const gint width,
                                      const gint height,
                                      const gint variant_markers_count,
-                                     const gint textsize,
+                                     const guint text_scale,
                                      const GdkColor fgcolor);
 
 #endif

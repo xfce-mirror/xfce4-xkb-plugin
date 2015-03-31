@@ -456,13 +456,17 @@ xkb_config_window_closed (guint window_id)
     }
 }
 
-
 gint
 xkb_config_get_group_count (void)
 {
     g_assert (config != NULL);
 
     return config->group_count;
+}
+
+guint xkb_config_get_max_group_count (void)
+{
+    return xkl_engine_get_max_num_groups(config->engine);
 }
 
 const gchar*

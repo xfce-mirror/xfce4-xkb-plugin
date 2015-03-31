@@ -137,7 +137,9 @@ xkb_plugin_layout_image_exposed (GtkWidget *widget,
                 actual_hsize, actual_vsize,
                 xkb->hsize, vsize,
                 xkb_config_variant_index_for_group (-1),
-                xkb->display_textsize,
+                xkb_config_get_max_group_count (),
+                xkb->display_img_scale,
+                xkb->display_text_scale,
                 fgcolor
         );
     }
@@ -148,7 +150,7 @@ xkb_plugin_layout_image_exposed (GtkWidget *widget,
                 actual_hsize, actual_vsize,
                 xkb->hsize, vsize,
                 xkb_config_variant_index_for_group (-1),
-                xkb->display_textsize,
+                xkb->display_text_scale,
                 fgcolor
         );
     }
