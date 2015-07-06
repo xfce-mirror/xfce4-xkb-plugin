@@ -4,84 +4,78 @@
 # 
 # Translators:
 # Theppitak Karoonboonyanan <thep@linux.thai.net>, 2014
+# Theppitak Karoonboonyanan <theppitak@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-03 21:34+0200\n"
-"PO-Revision-Date: 2014-03-06 08:16+0000\n"
-"Last-Translator: theppitak <theppitak@gmail.com>\n"
-"Language-Team: Thai (http://www.transifex.com/projects/p/xfce/language/th/)\n"
+"POT-Creation-Date: 2015-07-01 00:31+0200\n"
+"PO-Revision-Date: 2015-07-06 05:57+0000\n"
+"Last-Translator: Theppitak Karoonboonyanan <theppitak@gmail.com>\n"
+"Language-Team: Thai (http://www.transifex.com/projects/p/xfce-panel-plugins/language/th/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: th\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../panel-plugin/xkb-settings-dialog.c:112
+#: ../panel-plugin/xkb-settings-dialog.c:120
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
 msgid "Keyboard Layouts"
 msgstr "ผังแป้นพิมพ์"
 
 #. ***
-#: ../panel-plugin/xkb-settings-dialog.c:122
+#: ../panel-plugin/xkb-settings-dialog.c:130
 msgid "Show layout as:"
 msgstr "วิธีแสดงผัง:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:127
+#: ../panel-plugin/xkb-settings-dialog.c:135
 msgid "image"
 msgstr "รูปภาพ"
 
-#: ../panel-plugin/xkb-settings-dialog.c:128
+#: ../panel-plugin/xkb-settings-dialog.c:136
 msgid "text"
 msgstr "ข้อความ"
 
 #. text size option
-#: ../panel-plugin/xkb-settings-dialog.c:133
+#: ../panel-plugin/xkb-settings-dialog.c:141
 msgid "Text size:"
 msgstr "ขนาดของข้อความ:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:138
-msgid "small"
-msgstr "เล็ก"
+#. image size option
+#: ../panel-plugin/xkb-settings-dialog.c:152
+msgid "Image size:"
+msgstr "ขนาดของรูปภาพ:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:139
-msgid "medium"
-msgstr "กลาง"
-
-#: ../panel-plugin/xkb-settings-dialog.c:140
-msgid "large"
-msgstr "ใหญ่"
-
-#: ../panel-plugin/xkb-settings-dialog.c:144
+#: ../panel-plugin/xkb-settings-dialog.c:162
 msgid "Manage layout:"
 msgstr "จัดการผัง:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:149
+#: ../panel-plugin/xkb-settings-dialog.c:167
 msgid "globally"
 msgstr "ทั่วทั้งเดสก์ท็อป"
 
-#: ../panel-plugin/xkb-settings-dialog.c:150
+#: ../panel-plugin/xkb-settings-dialog.c:168
 msgid "per window"
 msgstr "รายหน้าต่าง"
 
-#: ../panel-plugin/xkb-settings-dialog.c:151
+#: ../panel-plugin/xkb-settings-dialog.c:169
 msgid "per application"
 msgstr "รายโปรแกรม"
 
-#: ../panel-plugin/xkb-settings-dialog.c:185
+#: ../panel-plugin/xkb-settings-dialog.c:205
 msgid "Keyboard Layouts Plugin"
 msgstr "ปลั๊กอินผังแป้นพิมพ์"
 
-#: ../panel-plugin/xkb-settings-dialog.c:195
+#: ../panel-plugin/xkb-settings-dialog.c:215
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "ช่วยคุณตั้งค่าและใช้ผังแป้นพิมพ์หลายผัง"
 
-#: ../panel-plugin/xkb-settings-dialog.c:199
+#: ../panel-plugin/xkb-settings-dialog.c:219
 msgid "Other plugins available here"
 msgstr "มีปลั๊กอินอื่นๆ ที่นี่"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:128
+#: ../panel-plugin/xfce4-xkb-plugin.c:131
 msgid "Keyboard settings"
 msgstr "ตั้งค่าแป้นพิมพ์"
 
