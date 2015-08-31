@@ -3,85 +3,78 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Necdet Yücel <necdetyucel@gmail.com>, 2013
+# Necdet Yücel <necdetyucel@gmail.com>, 2013,2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-03 21:34+0200\n"
-"PO-Revision-Date: 2013-08-02 13:16+0000\n"
+"POT-Creation-Date: 2015-07-01 00:31+0200\n"
+"PO-Revision-Date: 2015-08-31 11:00+0000\n"
 "Last-Translator: Necdet Yücel <necdetyucel@gmail.com>\n"
-"Language-Team: Turkish (http://www.transifex.com/projects/p/xfce/language/tr/)\n"
+"Language-Team: Turkish (http://www.transifex.com/xfce/xfce-panel-plugins/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: ../panel-plugin/xkb-settings-dialog.c:112
+#: ../panel-plugin/xkb-settings-dialog.c:120
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
 msgid "Keyboard Layouts"
 msgstr "Klavye Yerleşimleri"
 
 #. ***
-#: ../panel-plugin/xkb-settings-dialog.c:122
+#: ../panel-plugin/xkb-settings-dialog.c:130
 msgid "Show layout as:"
 msgstr "Yerleşimi şu şekilde göster:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:127
+#: ../panel-plugin/xkb-settings-dialog.c:135
 msgid "image"
 msgstr "resim"
 
-#: ../panel-plugin/xkb-settings-dialog.c:128
+#: ../panel-plugin/xkb-settings-dialog.c:136
 msgid "text"
 msgstr "yazı"
 
 #. text size option
-#: ../panel-plugin/xkb-settings-dialog.c:133
+#: ../panel-plugin/xkb-settings-dialog.c:141
 msgid "Text size:"
 msgstr "Metin boyutu:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:138
-msgid "small"
-msgstr "küçük"
+#. image size option
+#: ../panel-plugin/xkb-settings-dialog.c:152
+msgid "Image size:"
+msgstr "Resim boyutu:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:139
-msgid "medium"
-msgstr "orta"
-
-#: ../panel-plugin/xkb-settings-dialog.c:140
-msgid "large"
-msgstr "büyük"
-
-#: ../panel-plugin/xkb-settings-dialog.c:144
+#: ../panel-plugin/xkb-settings-dialog.c:162
 msgid "Manage layout:"
 msgstr "Yerleşimi yönet:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:149
+#: ../panel-plugin/xkb-settings-dialog.c:167
 msgid "globally"
 msgstr "genel olarak"
 
-#: ../panel-plugin/xkb-settings-dialog.c:150
+#: ../panel-plugin/xkb-settings-dialog.c:168
 msgid "per window"
 msgstr "pencere için"
 
-#: ../panel-plugin/xkb-settings-dialog.c:151
+#: ../panel-plugin/xkb-settings-dialog.c:169
 msgid "per application"
 msgstr "uygulama için"
 
-#: ../panel-plugin/xkb-settings-dialog.c:185
+#: ../panel-plugin/xkb-settings-dialog.c:205
 msgid "Keyboard Layouts Plugin"
 msgstr "Klavye Yerleşimleri Eklentisi"
 
-#: ../panel-plugin/xkb-settings-dialog.c:195
+#: ../panel-plugin/xkb-settings-dialog.c:215
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "Birden fazla klavye yerleşimi kullanmanızı ve yapılandırmanızı sağlar."
 
-#: ../panel-plugin/xkb-settings-dialog.c:199
+#: ../panel-plugin/xkb-settings-dialog.c:219
 msgid "Other plugins available here"
 msgstr "Diğer eklentilere ulaşmak için"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:128
+#: ../panel-plugin/xfce4-xkb-plugin.c:131
 msgid "Keyboard settings"
 msgstr "Klavye ayarları"
 
