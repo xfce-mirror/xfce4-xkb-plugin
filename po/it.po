@@ -3,85 +3,79 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# cri <cri.penta@gmail.com>, 2009,2013
+# Cristian Marchi <cri.penta@gmail.com>, 2009,2013
+# oblo <oblomov78@hotmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-03 21:34+0200\n"
-"PO-Revision-Date: 2013-07-13 10:10+0000\n"
-"Last-Translator: cri <cri.penta@gmail.com>\n"
-"Language-Team: Italian (http://www.transifex.com/projects/p/xfce/language/it/)\n"
+"POT-Creation-Date: 2015-07-01 00:31+0200\n"
+"PO-Revision-Date: 2015-10-14 19:45+0000\n"
+"Last-Translator: oblo <oblomov78@hotmail.com>\n"
+"Language-Team: Italian (http://www.transifex.com/xfce/xfce-panel-plugins/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../panel-plugin/xkb-settings-dialog.c:112
+#: ../panel-plugin/xkb-settings-dialog.c:120
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
 msgid "Keyboard Layouts"
 msgstr "Disposizione della tastiera"
 
 #. ***
-#: ../panel-plugin/xkb-settings-dialog.c:122
+#: ../panel-plugin/xkb-settings-dialog.c:130
 msgid "Show layout as:"
 msgstr "Mostra la disposizione come:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:127
+#: ../panel-plugin/xkb-settings-dialog.c:135
 msgid "image"
 msgstr "immagine"
 
-#: ../panel-plugin/xkb-settings-dialog.c:128
+#: ../panel-plugin/xkb-settings-dialog.c:136
 msgid "text"
 msgstr "testo"
 
 #. text size option
-#: ../panel-plugin/xkb-settings-dialog.c:133
+#: ../panel-plugin/xkb-settings-dialog.c:141
 msgid "Text size:"
 msgstr "Dimensione testo:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:138
-msgid "small"
-msgstr "piccolo"
+#. image size option
+#: ../panel-plugin/xkb-settings-dialog.c:152
+msgid "Image size:"
+msgstr "Dimensione immagine:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:139
-msgid "medium"
-msgstr "medio"
-
-#: ../panel-plugin/xkb-settings-dialog.c:140
-msgid "large"
-msgstr "grande"
-
-#: ../panel-plugin/xkb-settings-dialog.c:144
+#: ../panel-plugin/xkb-settings-dialog.c:162
 msgid "Manage layout:"
 msgstr "Gestisci disposizione:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:149
+#: ../panel-plugin/xkb-settings-dialog.c:167
 msgid "globally"
 msgstr "globalmente"
 
-#: ../panel-plugin/xkb-settings-dialog.c:150
+#: ../panel-plugin/xkb-settings-dialog.c:168
 msgid "per window"
 msgstr "per finestra"
 
-#: ../panel-plugin/xkb-settings-dialog.c:151
+#: ../panel-plugin/xkb-settings-dialog.c:169
 msgid "per application"
 msgstr "per applicazione"
 
-#: ../panel-plugin/xkb-settings-dialog.c:185
+#: ../panel-plugin/xkb-settings-dialog.c:205
 msgid "Keyboard Layouts Plugin"
 msgstr "Plugin per la disposizione della tastiera"
 
-#: ../panel-plugin/xkb-settings-dialog.c:195
+#: ../panel-plugin/xkb-settings-dialog.c:215
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "Permette di configurare e utilizzare diverse disposizioni della tastiera"
 
-#: ../panel-plugin/xkb-settings-dialog.c:199
+#: ../panel-plugin/xkb-settings-dialog.c:219
 msgid "Other plugins available here"
 msgstr "Altri plugin sono disponibili qui"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:128
+#: ../panel-plugin/xfce4-xkb-plugin.c:131
 msgid "Keyboard settings"
 msgstr "Impostazioni della tastiera"
 
