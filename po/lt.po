@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-07-01 00:31+0200\n"
-"PO-Revision-Date: 2016-04-29 18:43+0000\n"
+"PO-Revision-Date: 2016-06-24 10:45+0000\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian (http://www.transifex.com/xfce/xfce-panel-plugins/language/lt/)\n"
 "MIME-Version: 1.0\n"
@@ -31,7 +31,7 @@ msgstr "Rodyti išdėstymą kaip:"
 
 #: ../panel-plugin/xkb-settings-dialog.c:135
 msgid "image"
-msgstr "paveikslėlį"
+msgstr "paveikslą"
 
 #: ../panel-plugin/xkb-settings-dialog.c:136
 msgid "text"
