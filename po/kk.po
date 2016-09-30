@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-07-01 00:31+0200\n"
-"PO-Revision-Date: 2016-09-29 07:30+0000\n"
+"PO-Revision-Date: 2016-09-30 03:20+0000\n"
 "Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>\n"
 "Language-Team: Kazakh (http://www.transifex.com/xfce/xfce-panel-plugins/language/kk/)\n"
 "MIME-Version: 1.0\n"
@@ -21,7 +21,7 @@ msgstr ""
 #: ../panel-plugin/xkb-settings-dialog.c:120
 #: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
 msgid "Keyboard Layouts"
-msgstr "Keyboard Layouts"
+msgstr "Пернетақта жаймалары"
 
 #. ***
 #: ../panel-plugin/xkb-settings-dialog.c:130
