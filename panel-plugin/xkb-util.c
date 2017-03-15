@@ -63,7 +63,7 @@ xkb_util_get_layout_string (const gchar *group_name, const gchar *variant)
 }
 
 gchar*
-xkb_util_normalize_group_name (const gchar* group_name)
+xkb_util_normalize_group_name (const gchar* group_name, const gboolean capitalize)
 {
     const gchar *c;
     gchar *result;
@@ -73,21 +73,30 @@ xkb_util_normalize_group_name (const gchar* group_name)
     if (!group_name)
         return NULL;
 
-    if (strlen (group_name) <= 3)
-        return g_strdup (group_name);
+    cut_length = strlen (group_name);
 
-    for (c = group_name; *c; c++)
+    if (cut_length > 3)
     {
-        if (!((*c >= 'a' && *c <= 'z') || (*c >= 'A' && *c <= 'Z')))
+        for (c = group_name; *c; c++)
         {
-            index_of_na = c - group_name;
-            break;
+            if (!((*c >= 'a' && *c <= 'z') || (*c >= 'A' && *c <= 'Z')))
+            {
+                index_of_na = c - group_name;
+                break;
+            }
         }
+
+        cut_length = (index_of_na != -1 && index_of_na <= 3) ? index_of_na : 3;
     }
 
-    cut_length = (index_of_na != -1 && index_of_na <= 3) ? index_of_na : 3;
-
-    result = g_strndup (group_name, cut_length);
+    if (capitalize)
+    {
+        result = g_ascii_strup (group_name, cut_length);
+    }
+    else
+    {
+        result = g_strndup (group_name, cut_length);
+    }
 
     return result;
 }

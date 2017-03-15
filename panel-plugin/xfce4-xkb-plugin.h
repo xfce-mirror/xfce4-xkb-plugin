@@ -39,7 +39,8 @@
 typedef enum
 {
     DISPLAY_TYPE_IMAGE = 0,
-    DISPLAY_TYPE_TEXT = 1
+    DISPLAY_TYPE_TEXT = 1,
+    DISPLAY_TYPE_SYSTEM = 2
 } t_display_type;
 
 typedef enum

@@ -82,7 +82,7 @@ static void
 on_display_type_changed (GtkComboBox *cb, t_xkb *xkb)
 {
     xkb->display_type = gtk_combo_box_get_active (cb);
-    xkb_refresh_gui (xkb);
+    xkb_refresh_gui_and_size (xkb);
 }
 
 static void
@@ -138,6 +138,7 @@ xfce_xkb_configure (XfcePanelPlugin *plugin,
     display_type_optmenu = gtk_combo_box_text_new ();
     gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (display_type_optmenu), _("image"));
     gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (display_type_optmenu), _("text"));
+    gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (display_type_optmenu), _("system"));
     gtk_widget_set_size_request (display_type_optmenu, 230, -1);
     gtk_container_add (GTK_CONTAINER (bin), display_type_optmenu);
 

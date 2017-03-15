@@ -356,16 +356,18 @@ xkb_calculate_sizes (t_xkb *xkb, GtkOrientation orientation, gint panel_size)
 {
     guint nrows;
     gint hsize, vsize;
+    gboolean proportional;
 
     nrows       = xfce_panel_plugin_get_nrows (xkb->plugin);
     panel_size /= nrows;
+    proportional = nrows > 1 || xkb->display_type == DISPLAY_TYPE_SYSTEM;
     TRACE ("calculate_sizes(%p: %d,%d)", xkb, panel_size, nrows);
 
     switch (orientation)
     {
         case GTK_ORIENTATION_HORIZONTAL:
             vsize = panel_size;
-            if (nrows > 1)
+            if (proportional)
             {
                 hsize = panel_size;
             }
@@ -378,7 +380,7 @@ xkb_calculate_sizes (t_xkb *xkb, GtkOrientation orientation, gint panel_size)
             break;
         case GTK_ORIENTATION_VERTICAL:
             hsize = panel_size;
-            if (nrows > 1)
+            if (proportional)
             {
                 vsize = panel_size;
             }
@@ -394,7 +396,8 @@ xkb_calculate_sizes (t_xkb *xkb, GtkOrientation orientation, gint panel_size)
             break;
     }
 
-    DBG ("size requested: h/v (%p: %d/%d)", xkb, hsize, vsize);
+    DBG ("size requested: h/v (%p: %d/%d), proportional: %d",
+            xkb, hsize, vsize, proportional);
 
     xkb_refresh_gui (xkb);
     return TRUE;
@@ -486,6 +489,14 @@ xkb_refresh_gui (t_xkb *xkb)
     {
         gtk_tooltip_trigger_tooltip_query(display);
     }
+}
+
+void
+xkb_refresh_gui_and_size (t_xkb *xkb)
+{
+    xkb_calculate_sizes (xkb,
+            xfce_panel_plugin_get_orientation (xkb->plugin),
+            xfce_panel_plugin_get_size (xkb->plugin));
 }
 
 static void

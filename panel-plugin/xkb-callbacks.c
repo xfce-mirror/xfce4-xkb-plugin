@@ -79,6 +79,7 @@ xkb_plugin_layout_image_draw (GtkWidget *widget,
     GtkAllocation allocation;
     GtkStyleContext *style_ctx;
     GtkStateFlags state;
+    PangoFontDescription *desc;
     GdkRGBA rgba;
     gint actual_hsize, actual_vsize;
 
@@ -105,13 +106,22 @@ xkb_plugin_layout_image_draw (GtkWidget *widget,
                 rgba
         );
     }
-    else
+    else if (xkb->display_type == DISPLAY_TYPE_TEXT)
     {
         xkb_cairo_draw_label (cr, group_name,
                 actual_hsize, actual_vsize,
                 xkb_config_variant_index_for_group (-1),
                 xkb->display_text_scale,
                 rgba
+        );
+    }
+    else
+    {
+        gtk_style_context_get (style_ctx, state, "font", &desc, NULL);
+        xkb_cairo_draw_label_system (cr, group_name,
+                actual_hsize, actual_vsize,
+                xkb_config_variant_index_for_group (-1),
+                desc, rgba
         );
     }
 

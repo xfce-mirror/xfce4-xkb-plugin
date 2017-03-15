@@ -184,7 +184,7 @@ xkb_cairo_draw_label (cairo_t *cr,
          actual_width, actual_height, variant_markers_count);
 
     layout = pango_cairo_create_layout (cr);
-    normalized_group_name = xkb_util_normalize_group_name (group_name);
+    normalized_group_name = xkb_util_normalize_group_name (group_name, FALSE);
 
     if (!normalized_group_name ||
         !g_utf8_validate (normalized_group_name, -1, NULL))
@@ -247,6 +247,72 @@ xkb_cairo_draw_label (cairo_t *cr,
         cairo_arc (cr,
                 layoutx + text_width + 3 + (diameter * i),
                 layouty + text_height - (text_height / 5),
+                radius, 0, 2 * G_PI
+        );
+        cairo_fill (cr);
+    }
+
+    g_free (normalized_group_name);
+    g_object_unref (layout);
+}
+
+void
+xkb_cairo_draw_label_system (cairo_t *cr,
+                             const gchar *group_name,
+                             const gint actual_width,
+                             const gint actual_height,
+                             const gint variant_markers_count,
+                             const PangoFontDescription *desc,
+                             const GdkRGBA rgba)
+{
+    gchar *normalized_group_name;
+    gint pango_width, pango_height;
+    double layoutx, layouty;
+    gint i;
+    double radius, diameter;
+    PangoLayout *layout;
+
+    g_assert (cr != NULL);
+
+    DBG ("actual width/height: %d/%d; markers: %d",
+         actual_width, actual_height, variant_markers_count);
+
+    layout = pango_cairo_create_layout (cr);
+    normalized_group_name = xkb_util_normalize_group_name (group_name, TRUE);
+
+    if (!normalized_group_name ||
+        !g_utf8_validate (normalized_group_name, -1, NULL))
+    {
+        g_object_unref (layout);
+        g_free (normalized_group_name);
+        return;
+    }
+
+    pango_layout_set_text (layout, normalized_group_name, -1);
+    pango_layout_set_font_description (layout, desc);
+
+    gdk_cairo_set_source_rgba (cr, &rgba);
+    pango_layout_get_pixel_size (layout, &pango_width, &pango_height);
+    DBG ("pango_width/height: %d/%d", pango_width, pango_height);
+
+    layoutx = (double) (actual_width - pango_width) / 2;
+    layouty = (actual_height - pango_height) / 2;
+    radius = pango_height / 10;
+    diameter = 2 * radius;
+
+    DBG ("layout x/y: %.2f/%.2f, radius: %.2f", layoutx, layouty, radius);
+
+    cairo_move_to (cr, layoutx, layouty);
+    pango_cairo_show_layout (cr, layout);
+
+    for (i = 0; i < variant_markers_count; i++)
+    {
+        cairo_set_line_cap (cr, CAIRO_LINE_CAP_ROUND);
+        cairo_set_line_width (cr, 1);
+        cairo_arc (cr,
+                layoutx + (pango_width - (2 * variant_markers_count - 2) * diameter) / 2
+                    + 2 * diameter * i,
+                layouty + pango_height + radius,
                 radius, 0, 2 * G_PI
         );
         cairo_fill (cr);

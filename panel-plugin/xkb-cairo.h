@@ -32,23 +32,31 @@
 #include <cairo/cairo.h>
 #include <pango/pangocairo.h>
 
-void        xkb_cairo_draw_flag     (cairo_t *cr,
-                                     const gchar *flag_name,
-                                     gint actual_width,
-                                     gint actual_height,
-                                     gint variant_markers_count,
-                                     guint max_variant_markers_count,
-                                     guint img_scale,
-                                     guint text_scale,
-                                     GdkRGBA rgba);
+void        xkb_cairo_draw_flag         (cairo_t *cr,
+                                         const gchar *flag_name,
+                                         gint actual_width,
+                                         gint actual_height,
+                                         gint variant_markers_count,
+                                         guint max_variant_markers_count,
+                                         guint img_scale,
+                                         guint text_scale,
+                                         GdkRGBA rgba);
 
-void        xkb_cairo_draw_label    (cairo_t *cr,
-                                     const gchar *group_name,
-                                     const gint actual_width,
-                                     const gint actual_height,
-                                     const gint variant_markers_count,
-                                     const guint text_scale,
-                                     const GdkRGBA rgba);
+void        xkb_cairo_draw_label        (cairo_t *cr,
+                                         const gchar *group_name,
+                                         const gint actual_width,
+                                         const gint actual_height,
+                                         const gint variant_markers_count,
+                                         const guint text_scale,
+                                         const GdkRGBA rgba);
+
+void        xkb_cairo_draw_label_system (cairo_t *cr,
+                                         const gchar *group_name,
+                                         const gint actual_width,
+                                         const gint actual_height,
+                                         const gint variant_markers_count,
+                                         const PangoFontDescription *desc,
+                                         GdkRGBA rgba);
 
 #endif
 

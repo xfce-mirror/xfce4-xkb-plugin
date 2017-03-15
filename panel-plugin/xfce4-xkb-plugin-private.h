@@ -31,5 +31,7 @@ void            xfce_xkb_save_config        (XfcePanelPlugin *plugin,
 
 void            xkb_refresh_gui             (t_xkb *xkb);
 
+void            xkb_refresh_gui_and_size    (t_xkb *xkb);
+
 #endif
 
