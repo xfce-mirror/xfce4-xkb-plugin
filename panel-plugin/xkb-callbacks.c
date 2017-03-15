@@ -70,92 +70,50 @@ xkb_plugin_window_closed (WnckScreen *screen,
     xkb_config_window_closed (window_id);
 }
 
-void
-xkb_plugin_button_size_allocated (GtkWidget *button,
-                                  GtkAllocation *allocation,
-                                  t_xkb *xkb)
-{
-    xkb->button_hsize = allocation->width;
-    xkb->button_vsize = allocation->height;
-
-    DBG ("size_allocated: h/v (%p: %d/%d)",
-         xkb, xkb->button_hsize, xkb->button_vsize);
-}
-
 gboolean
-xkb_plugin_button_entered (GtkWidget *widget,
-                           GdkEventCrossing *event,
-                           t_xkb *xkb)
-{
-    xkb->button_state = GTK_STATE_PRELIGHT;
-    return FALSE;
-}
-
-gboolean
-xkb_plugin_button_left (GtkWidget *widget,
-                        GdkEventCrossing *event,
-                        t_xkb *xkb)
-{
-    xkb->button_state = GTK_STATE_NORMAL;
-    return FALSE;
-}
-
-gboolean
-xkb_plugin_layout_image_exposed (GtkWidget *widget,
-                                 GdkEventExpose *event,
+xkb_plugin_layout_image_draw (GtkWidget *widget,
+                                 cairo_t *cr,
                                  t_xkb *xkb)
 {
     const gchar *group_name;
-    cairo_t *cr;
-    GtkStyle *style;
-    GdkColor fgcolor;
-    gint actual_hsize, actual_vsize, panel_size;
-    gint vsize;
+    GtkAllocation allocation;
+    GtkStyleContext *style_ctx;
+    GtkStateFlags state;
+    GdkRGBA rgba;
+    gint actual_hsize, actual_vsize;
 
-    actual_hsize = (xkb->button_hsize > xkb->hsize) ? xkb->button_hsize : xkb->hsize;
-    actual_vsize = (xkb->button_vsize > xkb->vsize) ? xkb->button_vsize : xkb->vsize;
+    gtk_widget_get_allocation (GTK_WIDGET (widget), &allocation);
+    actual_hsize = allocation.width;
+    actual_vsize = allocation.height;
 
-    vsize = MIN (xkb->vsize, (int) (xkb->hsize * 0.75));
-
-    panel_size   = xfce_panel_plugin_get_size (xkb->plugin);
-    panel_size  /= xfce_panel_plugin_get_nrows (xkb->plugin);
-
-    style = gtk_widget_get_style (GTK_WIDGET (xkb->btn));
-    fgcolor = style->fg[xkb->button_state];
+    state = gtk_widget_get_state_flags (GTK_WIDGET (xkb->btn));
+    style_ctx = gtk_widget_get_style_context (GTK_WIDGET (xkb->btn));
+    gtk_style_context_get_color (style_ctx, state, &rgba);
     group_name = xkb_config_get_group_name (-1);
 
-    DBG ("img_exposed: actual h/v (%d/%d), xkb h/v (%d/%d), panel sz (%d)",
-         actual_hsize, actual_vsize,
-         xkb->hsize, xkb->vsize, panel_size);
-
-    cr = gdk_cairo_create ((GTK_WIDGET (xkb->layout_image))->window);
+    DBG ("img_exposed: actual h/v (%d/%d)",
+         actual_hsize, actual_vsize);
 
     if (xkb->display_type == DISPLAY_TYPE_IMAGE)
     {
         xkb_cairo_draw_flag (cr, group_name,
-                panel_size,
                 actual_hsize, actual_vsize,
-                xkb->hsize, vsize,
                 xkb_config_variant_index_for_group (-1),
                 xkb_config_get_max_group_count (),
                 xkb->display_img_scale,
                 xkb->display_text_scale,
-                fgcolor
+                rgba
         );
     }
     else
     {
         xkb_cairo_draw_label (cr, group_name,
-                panel_size,
                 actual_hsize, actual_vsize,
-                xkb->hsize, vsize,
                 xkb_config_variant_index_for_group (-1),
                 xkb->display_text_scale,
-                fgcolor
+                rgba
         );
     }
-
-    cairo_destroy (cr);
 
     return FALSE;
 }

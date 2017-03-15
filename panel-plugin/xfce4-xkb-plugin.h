@@ -53,31 +53,16 @@ typedef struct
 {
     XfcePanelPlugin *plugin;
 
-    /* options */
-    gint hsize;                   /* plugin horizontal size */
-    gint vsize;                   /* plugin vertical size */
-    gint button_hsize;            /* real allocated button size - see below */
-    gint button_vsize;            /* read allocated button size - see below */
-
     t_display_type display_type;  /* display layout as image ot text */
     guint display_text_scale; /* text scale % for text layout */
     guint display_img_scale;  /* image scale % for flag layout */
     t_group_policy group_policy;     /* per-app/window/global policy */
-
-    gint button_state;            /* gtk state of the button */
 
     /* widgets */
     GtkWidget *btn;
     GtkWidget *layout_image;
     GtkWidget *popup;
 } t_xkb;
-
-/*
- * NOTE: The t_xkb->button_size field is due to xfce panel 4.4.1
- * prior versions, allowing a plugin to resize the whole panel.
- * This should be removed after xfce 4.4.2, where this behaviour
- * should not be possible.
- */
 
 #endif
 

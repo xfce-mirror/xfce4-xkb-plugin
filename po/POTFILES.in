@@ -4,4 +4,5 @@ panel-plugin/xkb-settings-dialog.c
 panel-plugin/xfce4-xkb-plugin.c
 
 # files added by intltool-prepare.
-panel-plugin/xkb-plugin.desktop.in.in
+
+panel-plugin/xkb.desktop.in

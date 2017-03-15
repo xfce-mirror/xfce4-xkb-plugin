@@ -30,32 +30,25 @@
 #include <glib/gprintf.h>
 #include <gdk/gdk.h>
 #include <cairo/cairo.h>
-#include <librsvg/rsvg.h>
 #include <pango/pangocairo.h>
 
 void        xkb_cairo_draw_flag     (cairo_t *cr,
                                      const gchar *flag_name,
-                                     gint panel_size,
                                      gint actual_width,
                                      gint actual_height,
-                                     gint width,
-                                     gint height,
                                      gint variant_markers_count,
                                      guint max_variant_markers_count,
                                      guint img_scale,
                                      guint text_scale,
-                                     GdkColor fgcolor);
+                                     GdkRGBA rgba);
 
 void        xkb_cairo_draw_label    (cairo_t *cr,
                                      const gchar *group_name,
-                                     const gint panel_size,
                                      const gint actual_width,
                                      const gint actual_height,
-                                     const gint width,
-                                     const gint height,
                                      const gint variant_markers_count,
                                      const guint text_scale,
-                                     const GdkColor fgcolor);
+                                     const GdkRGBA rgba);
 
 #endif
 

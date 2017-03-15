@@ -91,7 +91,7 @@ static void         xfce_xkb_configure_layout           (GtkWidget *widget,
  *                        Implementation                              *
  * ================================================================== */
 
-XFCE_PANEL_PLUGIN_REGISTER_EXTERNAL (xfce_xkb_construct);
+XFCE_PANEL_PLUGIN_REGISTER (xfce_xkb_construct);
 
 static void
 xfce_xkb_construct (XfcePanelPlugin *plugin)
@@ -201,6 +201,7 @@ xkb_new (XfcePanelPlugin *plugin)
     t_xkb *xkb;
     gchar *filename;
     WnckScreen *wnck_screen;
+    GtkCssProvider *css_provider;
 
     xkb = panel_slice_new0 (t_xkb);
     xkb->plugin = plugin;
@@ -216,7 +217,14 @@ xkb_new (XfcePanelPlugin *plugin)
     gtk_button_set_relief (GTK_BUTTON (xkb->btn), GTK_RELIEF_NONE);
     gtk_container_add (GTK_CONTAINER (xkb->plugin), xkb->btn);
     xfce_panel_plugin_add_action_widget (xkb->plugin, xkb->btn);
-    xkb->button_state = GTK_STATE_NORMAL;
+    gtk_widget_add_events (xkb->btn, GDK_SCROLL_MASK);
+
+    /* remove padding inside button */
+    css_provider = gtk_css_provider_new ();
+    gtk_css_provider_load_from_data (css_provider, ".xfce4-panel button {padding: 0;}", -1, NULL);
+    gtk_style_context_add_provider (GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (xkb->btn))),
+            GTK_STYLE_PROVIDER (css_provider), GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+    g_object_unref (css_provider);
 
     gtk_widget_show (xkb->btn);
     g_signal_connect (xkb->btn, "clicked", G_CALLBACK (xkb_plugin_button_clicked), xkb);
@@ -227,17 +235,10 @@ xkb_new (XfcePanelPlugin *plugin)
     g_signal_connect (xkb->btn, "query-tooltip",
             G_CALLBACK (xkb_plugin_set_tooltip), xkb);
 
-    g_signal_connect (G_OBJECT (xkb->btn), "enter-notify-event",
-            G_CALLBACK (xkb_plugin_button_entered), xkb);
-    g_signal_connect (G_OBJECT (xkb->btn), "leave-notify-event",
-            G_CALLBACK (xkb_plugin_button_left), xkb);
-    g_signal_connect (G_OBJECT (xkb->btn), "size-allocate",
-            G_CALLBACK (xkb_plugin_button_size_allocated), xkb);
-
     xkb->layout_image = gtk_image_new ();
     gtk_container_add (GTK_CONTAINER (xkb->btn), xkb->layout_image);
-    g_signal_connect (G_OBJECT (xkb->layout_image), "expose-event",
-            G_CALLBACK (xkb_plugin_layout_image_exposed), xkb);
+    g_signal_connect (G_OBJECT (xkb->layout_image), "draw",
+            G_CALLBACK (xkb_plugin_layout_image_draw), xkb);
     gtk_widget_show (GTK_WIDGET (xkb->layout_image));
 
     if (xkb_config_initialize (xkb->group_policy, xkb_state_changed, xkb))
@@ -354,6 +355,7 @@ static gboolean
 xkb_calculate_sizes (t_xkb *xkb, GtkOrientation orientation, gint panel_size)
 {
     guint nrows;
+    gint hsize, vsize;
 
     nrows       = xfce_panel_plugin_get_nrows (xkb->plugin);
     panel_size /= nrows;
@@ -362,36 +364,37 @@ xkb_calculate_sizes (t_xkb *xkb, GtkOrientation orientation, gint panel_size)
     switch (orientation)
     {
         case GTK_ORIENTATION_HORIZONTAL:
-            xkb->vsize = panel_size;
+            vsize = panel_size;
             if (nrows > 1)
             {
-                xkb->hsize = xkb->vsize;
+                hsize = panel_size;
             }
             else
             {
-                xkb->hsize = (int) (1.33 * panel_size);
+                hsize = (int) (1.33 * panel_size);
             }
 
-            gtk_widget_set_size_request (xkb->btn, xkb->hsize, xkb->vsize);
+            gtk_widget_set_size_request (xkb->btn, hsize, vsize);
             break;
         case GTK_ORIENTATION_VERTICAL:
-            xkb->hsize = panel_size;
+            hsize = panel_size;
             if (nrows > 1)
             {
-                xkb->vsize = xkb->hsize;
+                vsize = panel_size;
             }
             else
             {
-                xkb->vsize = (int) (0.75 * panel_size);
+                vsize = (int) (0.75 * panel_size);
             }
-            if (xkb->vsize < 10) xkb->vsize = 10;
-            gtk_widget_set_size_request (xkb->btn, xkb->hsize, xkb->vsize);
+            if (vsize < 10) vsize = 10;
+
+            gtk_widget_set_size_request (xkb->btn, hsize, vsize);
             break;
         default:
             break;
     }
 
-    DBG ("size requested: h/v (%p: %d/%d)", xkb, xkb->hsize, xkb->vsize);
+    DBG ("size requested: h/v (%p: %d/%d)", xkb, hsize, vsize);
 
     xkb_refresh_gui (xkb);
     return TRUE;
@@ -470,10 +473,13 @@ void
 xkb_refresh_gui (t_xkb *xkb)
 {
     GdkDisplay * display;
+    GtkAllocation allocation;
+
+    gtk_widget_get_allocation (GTK_WIDGET (xkb->btn), &allocation);
 
     /* Part of the image may remain visible after display type change */
     gtk_widget_queue_draw_area (xkb->btn, 0, 0,
-            xkb->button_hsize, xkb->button_vsize);
+            allocation.width, allocation.height);
 
     display = gdk_display_get_default();
     if (display)

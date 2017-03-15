@@ -24,7 +24,6 @@
  */
 
 #include <string.h>
-#include <librsvg/rsvg.h>
 #include <cairo/cairo.h>
 
 #include "xkb-util.h"

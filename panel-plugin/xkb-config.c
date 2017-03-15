@@ -38,6 +38,7 @@
 #include <librsvg/rsvg.h>
 
 #ifndef DEBUG
+#undef G_DISABLE_ASSERT
 #define G_DISABLE_ASSERT
 #endif
 
@@ -104,7 +105,7 @@ xkb_config_initialize (t_group_policy group_policy,
     config->callback = callback;
     config->callback_data = callback_data;
 
-    config->engine = xkl_engine_get_instance (GDK_DISPLAY ());
+    config->engine = xkl_engine_get_instance (gdk_x11_get_default_xdisplay ());
 
     if (!config->engine)
     {

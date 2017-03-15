@@ -6,7 +6,10 @@ po/*.gmo
 *.o
 *.tar.*
 config.*
-configure*
 m4/*.m4
 *.m4
 *.in
+/configure*
+!/configure.ac.in
+!/po/POTFILES.in
+!/panel-plugin/xkb.desktop.in

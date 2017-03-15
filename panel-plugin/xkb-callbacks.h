@@ -32,20 +32,8 @@
 
 #include "xfce4-xkb-plugin.h"
 
-gboolean        xkb_plugin_layout_image_exposed     (GtkWidget *widget,
-                                 GdkEventExpose *event,
-                                 t_xkb *xkb);
-
-gboolean        xkb_plugin_button_entered       (GtkWidget *widget,
-                                 GdkEventCrossing *event,
-                                 t_xkb *xkb);
-
-gboolean        xkb_plugin_button_left          (GtkWidget *widget,
-                                 GdkEventCrossing *event,
-                                 t_xkb *xkb);
-
-void            xkb_plugin_button_size_allocated    (GtkWidget *button,
-                                 GtkAllocation *allocation,
+gboolean        xkb_plugin_layout_image_draw     (GtkWidget *widget,
+                                 cairo_t *cr,
                                  t_xkb *xkb);
 
 void            xkb_plugin_active_window_changed    (WnckScreen *screen,

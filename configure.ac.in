@@ -34,6 +34,7 @@ dnl ***************************
 AM_INIT_AUTOMAKE([1.8 dist-bzip2 tar-ustar])
 AM_CONFIG_HEADER([config.h])
 AM_MAINTAINER_MODE()
+m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
 
 dnl *******************************
 dnl *** Check for UNIX variants ***
@@ -70,16 +71,14 @@ XDT_I18N([@LINGUAS@])
 dnl ***********************************
 dnl *** Check for required packages ***
 dnl ***********************************
-XDT_CHECK_PACKAGE([GTK], [gtk+-2.0], [2.6.0])
-XDT_CHECK_PACKAGE([LIBXFCE4UTIL], [libxfce4util-1.0], [4.8.0])
-XDT_CHECK_PACKAGE([LIBXFCE4UI], [libxfce4ui-1], [4.8.0])
-XDT_CHECK_PACKAGE([LIBXFCE4PANEL], [libxfce4panel-1.0], [4.8.0])
-XDT_CHECK_PACKAGE([LIBXKLAVIER], [libxklavier], [5.0])
-XDT_CHECK_PACKAGE([LIBRSVG], [librsvg-2.0], [2.18])
-dnl check librsvg version to see if including headers other than rsvg.h is deprecated
-XDT_CHECK_OPTIONAL_PACKAGE([LIBRSVG_2_36_2], [librsvg-2.0], [2.36.2], [librsvg_2.36.2], [deprecated includes of librsvg header files (always leave enabled)], yes)
-XDT_CHECK_PACKAGE([LIBWNCK], [libwnck-1.0], [2.12])
-XDT_CHECK_PACKAGE([GARCON], [garcon-1], [0.1.5])
+XDT_CHECK_PACKAGE([GTK], [gtk+-3.0], [3.20.0])
+XDT_CHECK_PACKAGE([LIBXFCE4PANEL], [libxfce4panel-2.0], [4.12.0])
+XDT_CHECK_PACKAGE([LIBXFCE4UTIL], [libxfce4util-1.0], [4.12.0])
+XDT_CHECK_PACKAGE([LIBXFCE4UI], [libxfce4ui-2], [4.12.0])
+XDT_CHECK_PACKAGE([LIBXKLAVIER], [libxklavier], [5.4])
+XDT_CHECK_PACKAGE([LIBRSVG], [librsvg-2.0], [2.40])
+XDT_CHECK_PACKAGE([LIBWNCK], [libwnck-3.0], [3.14])
+XDT_CHECK_PACKAGE([GARCON], [garcon-1], [0.4.0])
 
 dnl ***********************************
 dnl *** Check for debugging support ***
