@@ -36,14 +36,11 @@
 #include <garcon/garcon.h>
 
 #include "xfce4-xkb-plugin.h"
-#include "xfce4-xkb-plugin-private.h"
 #include "xkb-settings-dialog.h"
 #include "xkb-util.h"
 #include "xkb-cairo.h"
 #include "xkb-callbacks.h"
-
-#define DISPLAY_TEXTSCALE_LARGE 100
-#define DISPLAY_IMGSCALE_LARGE  100
+#include "xkb-properties.h"
 
 /* ------------------------------------------------------------------ *
  *                     Panel Plugin Interface                         *
@@ -74,18 +71,20 @@ static gboolean     xkb_calculate_sizes                 (t_xkb *xkb,
                                                          GtkOrientation orientation,
                                                          gint panel_size);
 
-static gboolean     xkb_load_config                     (t_xkb *xkb,
-                                                         const gchar *filename);
-
-static void         xkb_load_default                    (t_xkb *xkb);
-
 static void         xkb_populate_popup_menu             (t_xkb *xkb);
 
 static void         xkb_destroy_popup_menu              (t_xkb *xkb);
 
+static void         xkb_refresh_gui                     (t_xkb *xkb);
+
 static void         xfce_xkb_configure_layout           (GtkWidget *widget,
                                                          gpointer user_data);
 
+static void         xkb_plugin_display_type_changed     (t_xkb *xkb);
+
+static void         xkb_plugin_display_scale_changed    (t_xkb *xkb);
+
+static void         xkb_plugin_group_policy_changed     (t_xkb *xkb);
 
 /* ================================================================== *
  *                        Implementation                              *
@@ -115,9 +114,6 @@ xfce_xkb_construct (XfcePanelPlugin *plugin)
 
     g_signal_connect (plugin, "free-data",
             G_CALLBACK (xfce_xkb_free_data), xkb);
-
-    g_signal_connect (plugin, "save",
-            G_CALLBACK (xfce_xkb_save_config), xkb);
 
     xfce_panel_plugin_menu_show_configure (plugin);
     g_signal_connect (plugin, "configure-plugin",
@@ -199,19 +195,19 @@ static t_xkb *
 xkb_new (XfcePanelPlugin *plugin)
 {
     t_xkb *xkb;
-    gchar *filename;
     WnckScreen *wnck_screen;
     GtkCssProvider *css_provider;
 
     xkb = panel_slice_new0 (t_xkb);
     xkb->plugin = plugin;
 
-    filename = xfce_panel_plugin_lookup_rc_file (plugin);
-    if ((!filename) || (!xkb_load_config (xkb, filename)))
-    {
-        xkb_load_default (xkb);
-    }
-    g_free (filename);
+    xkb->config = xkb_xfconf_new (xfce_panel_plugin_get_property_base (plugin));
+    g_signal_connect_swapped (G_OBJECT (xkb->config), "notify::" DISPLAY_TYPE,
+            G_CALLBACK (xkb_plugin_display_type_changed), xkb);
+    g_signal_connect_swapped (G_OBJECT (xkb->config), "notify::" DISPLAY_SCALE,
+            G_CALLBACK (xkb_plugin_display_scale_changed), xkb);
+    g_signal_connect_swapped (G_OBJECT (xkb->config), "notify::" GROUP_POLICY,
+            G_CALLBACK (xkb_plugin_group_policy_changed), xkb);
 
     xkb->btn = gtk_button_new ();
     gtk_button_set_relief (GTK_BUTTON (xkb->btn), GTK_RELIEF_NONE);
@@ -241,7 +237,7 @@ xkb_new (XfcePanelPlugin *plugin)
             G_CALLBACK (xkb_plugin_layout_image_draw), xkb);
     gtk_widget_show (GTK_WIDGET (xkb->layout_image));
 
-    if (xkb_config_initialize (xkb->group_policy, xkb_state_changed, xkb))
+    if (xkb_config_initialize (xkb_xfconf_get_group_policy (xkb->config), xkb_state_changed, xkb))
     {
         xkb_refresh_gui (xkb);
         xkb_populate_popup_menu (xkb);
@@ -267,88 +263,9 @@ xkb_free (t_xkb *xkb)
     gtk_widget_destroy (xkb->btn);
     xkb_destroy_popup_menu (xkb);
 
+    g_object_unref (G_OBJECT (xkb->config));
+
     panel_slice_free (t_xkb, xkb);
-}
-
-void
-xfce_xkb_save_config (XfcePanelPlugin *plugin, t_xkb *xkb)
-{
-    gchar* filename;
-    XfceRc* rcfile;
-
-
-    filename = xfce_panel_plugin_save_location (plugin, TRUE);
-    if (!filename)
-        return;
-
-
-    rcfile = xfce_rc_simple_open (filename, FALSE);
-    if (!rcfile)
-    {
-        g_free (filename);
-        return;
-    }
-
-    xfce_rc_set_group (rcfile, NULL);
-
-    xfce_rc_write_int_entry (rcfile, "display_type", xkb->display_type);
-    xfce_rc_write_int_entry (rcfile, "display_textscale", xkb->display_text_scale);
-    xfce_rc_write_int_entry (rcfile, "display_imgscale", xkb->display_img_scale);
-    xfce_rc_write_int_entry (rcfile, "group_policy", xkb->group_policy);
-
-    xfce_rc_close (rcfile);
-    g_free (filename);
-}
-
-static gboolean
-xkb_load_config (t_xkb *xkb, const gchar *filename)
-{
-    XfceRc* rcfile;
-    gint text_scale;
-
-    if ((rcfile = xfce_rc_simple_open (filename, TRUE)))
-    {
-        xfce_rc_set_group (rcfile, NULL);
-
-        xkb->display_type = xfce_rc_read_int_entry (rcfile, "display_type", DISPLAY_TYPE_IMAGE);
-        text_scale = xfce_rc_read_int_entry (rcfile, "display_textscale", -1);
-        if (text_scale < 0)
-        {
-            /* Check if the old textsize value is there */
-            text_scale = xfce_rc_read_int_entry (rcfile, "display_textsize", -1);
-            switch (text_scale)
-            {
-            case DISPLAY_TEXTSIZE_SMALL:
-                text_scale = 47;
-                break;
-            case DISPLAY_TEXTSIZE_MEDIUM:
-                text_scale = 70;
-                break;
-            case DISPLAY_TEXTSIZE_LARGE:
-            default:
-                text_scale = DISPLAY_TEXTSCALE_LARGE;
-                break;
-            }
-        }
-        xkb->display_text_scale = text_scale;
-        xkb->display_img_scale = xfce_rc_read_int_entry (rcfile, "display_imgscale", DISPLAY_IMGSCALE_LARGE);
-        xkb->group_policy = xfce_rc_read_int_entry (rcfile, "group_policy", GROUP_POLICY_PER_APPLICATION);
-
-        xfce_rc_close (rcfile);
-
-        return TRUE;
-    }
-
-    return FALSE;
-}
-
-static void
-xkb_load_default (t_xkb *xkb)
-{
-    xkb->display_type       = DISPLAY_TYPE_IMAGE;
-    xkb->display_text_scale = DISPLAY_TEXTSCALE_LARGE;
-    xkb->display_img_scale  = DISPLAY_IMGSCALE_LARGE;
-    xkb->group_policy       = GROUP_POLICY_PER_APPLICATION;
 }
 
 static gboolean
@@ -357,10 +274,12 @@ xkb_calculate_sizes (t_xkb *xkb, GtkOrientation orientation, gint panel_size)
     guint nrows;
     gint hsize, vsize;
     gboolean proportional;
+    guint display_type;
 
-    nrows       = xfce_panel_plugin_get_nrows (xkb->plugin);
+    display_type = xkb_xfconf_get_display_type (xkb->config);
+    nrows = xfce_panel_plugin_get_nrows (xkb->plugin);
     panel_size /= nrows;
-    proportional = nrows > 1 || xkb->display_type == DISPLAY_TYPE_SYSTEM;
+    proportional = nrows > 1 || display_type == DISPLAY_TYPE_SYSTEM;
     TRACE ("calculate_sizes(%p: %d,%d)", xkb, panel_size, nrows);
 
     switch (orientation)
@@ -472,7 +391,7 @@ xkb_populate_popup_menu (t_xkb *xkb)
     }
 }
 
-void
+static void
 xkb_refresh_gui (t_xkb *xkb)
 {
     GdkDisplay * display;
@@ -489,14 +408,6 @@ xkb_refresh_gui (t_xkb *xkb)
     {
         gtk_tooltip_trigger_tooltip_query(display);
     }
-}
-
-void
-xkb_refresh_gui_and_size (t_xkb *xkb)
-{
-    xkb_calculate_sizes (xkb,
-            xfce_panel_plugin_get_orientation (xkb->plugin),
-            xfce_panel_plugin_get_size (xkb->plugin));
 }
 
 static void
@@ -526,4 +437,24 @@ xfce_xkb_configure_layout (GtkWidget *widget,
 
     }
     g_free (desktop_file);
+}
+
+static void
+xkb_plugin_display_type_changed (t_xkb *xkb)
+{
+    xkb_calculate_sizes (xkb,
+            xfce_panel_plugin_get_orientation (xkb->plugin),
+            xfce_panel_plugin_get_size (xkb->plugin));
+}
+
+static void
+xkb_plugin_display_scale_changed (t_xkb *xkb)
+{
+    xkb_refresh_gui (xkb);
+}
+
+static void
+xkb_plugin_group_policy_changed (t_xkb *xkb)
+{
+    xkb_config_set_group_policy (xkb_xfconf_get_group_policy (xkb->config));
 }

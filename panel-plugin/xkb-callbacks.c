@@ -82,6 +82,10 @@ xkb_plugin_layout_image_draw (GtkWidget *widget,
     PangoFontDescription *desc;
     GdkRGBA rgba;
     gint actual_hsize, actual_vsize;
+    gint display_type, display_scale;
+
+    display_type = xkb_xfconf_get_display_type (xkb->config);
+    display_scale = xkb_xfconf_get_display_scale (xkb->config);
 
     gtk_widget_get_allocation (GTK_WIDGET (widget), &allocation);
     actual_hsize = allocation.width;
@@ -95,23 +99,22 @@ xkb_plugin_layout_image_draw (GtkWidget *widget,
     DBG ("img_exposed: actual h/v (%d/%d)",
          actual_hsize, actual_vsize);
 
-    if (xkb->display_type == DISPLAY_TYPE_IMAGE)
+    if (display_type == DISPLAY_TYPE_IMAGE)
     {
         xkb_cairo_draw_flag (cr, group_name,
                 actual_hsize, actual_vsize,
                 xkb_config_variant_index_for_group (-1),
                 xkb_config_get_max_group_count (),
-                xkb->display_img_scale,
-                xkb->display_text_scale,
+                display_scale,
                 rgba
         );
     }
-    else if (xkb->display_type == DISPLAY_TYPE_TEXT)
+    else if (display_type == DISPLAY_TYPE_TEXT)
     {
         xkb_cairo_draw_label (cr, group_name,
                 actual_hsize, actual_vsize,
                 xkb_config_variant_index_for_group (-1),
-                xkb->display_text_scale,
+                display_scale,
                 rgba
         );
     }

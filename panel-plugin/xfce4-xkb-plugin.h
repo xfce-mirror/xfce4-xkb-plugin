@@ -27,6 +27,7 @@
 #define _XFCE_XKB_H_
 
 #include "xkb-config.h"
+#include "xkb-xfconf.h"
 
 #include <libxfce4util/libxfce4util.h>
 #include <libxfce4ui/libxfce4ui.h>
@@ -36,28 +37,11 @@
 #include <gtk/gtk.h>
 #include <glib.h>
 
-typedef enum
-{
-    DISPLAY_TYPE_IMAGE = 0,
-    DISPLAY_TYPE_TEXT = 1,
-    DISPLAY_TYPE_SYSTEM = 2
-} t_display_type;
-
-typedef enum
-{
-    DISPLAY_TEXTSIZE_SMALL = 0,
-    DISPLAY_TEXTSIZE_MEDIUM = 1,
-    DISPLAY_TEXTSIZE_LARGE = 2
-} t_display_textsize;
-
 typedef struct
 {
     XfcePanelPlugin *plugin;
 
-    t_display_type display_type;  /* display layout as image ot text */
-    guint display_text_scale; /* text scale % for text layout */
-    guint display_img_scale;  /* image scale % for flag layout */
-    t_group_policy group_policy;     /* per-app/window/global policy */
+    XkbXfconf *config;
 
     /* widgets */
     GtkWidget *btn;

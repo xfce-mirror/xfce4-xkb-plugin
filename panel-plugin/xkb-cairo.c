@@ -38,8 +38,7 @@ xkb_cairo_draw_flag (cairo_t *cr,
                      gint actual_height,
                      gint variant_markers_count,
                      guint max_variant_markers_count,
-                     guint img_scale,
-                     guint text_scale,
+                     guint scale,
                      GdkRGBA rgba)
 {
     gchar *filename;
@@ -65,7 +64,7 @@ xkb_cairo_draw_flag (cairo_t *cr,
         xkb_cairo_draw_label (cr, group_name,
                 actual_width, actual_height,
                 variant_markers_count,
-                text_scale,
+                scale,
                 rgba);
         return;
     }
@@ -75,8 +74,8 @@ xkb_cairo_draw_flag (cairo_t *cr,
     scalex = (double) (actual_width - 4) / dim.width;
     scaley = (double) (actual_height - 4) / dim.height;
 
-    scalex *= img_scale / 100.0;
-    scaley *= img_scale / 100.0;
+    scalex *= scale / 100.0;
+    scaley *= scale / 100.0;
 
     img_width  = dim.width * scalex;
     img_height = dim.height * scaley;
@@ -165,7 +164,7 @@ xkb_cairo_draw_label (cairo_t *cr,
                       const gint actual_width,
                       const gint actual_height,
                       const gint variant_markers_count,
-                      const guint text_scale,
+                      const guint scale,
                       const GdkRGBA rgba)
 {
     gchar *normalized_group_name;
@@ -204,7 +203,7 @@ xkb_cairo_draw_label (cairo_t *cr,
     pango_layout_get_pixel_size (layout, &pango_width, &pango_height);
     DBG ("pango_width/height: %d/%d", pango_width, pango_height);
 
-    scalex = scaley = text_scale / 100.0;
+    scalex = scaley = scale / 100.0;
 
     DBG ("txt size scale x/y: %.2f/%.2f", scalex, scaley);
 
@@ -218,7 +217,7 @@ xkb_cairo_draw_label (cairo_t *cr,
     {
         text_width = actual_width - 3 - (variant_markers_count) * diameter;
     }
-    else if (text_scale >= 99.5)
+    else if (scale >= 99.5)
     {
         text_width -= 3;
     }

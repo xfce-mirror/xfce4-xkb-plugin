@@ -8,7 +8,6 @@ plugin_LTLIBRARIES = \
 
 libxkb_la_SOURCES = \
 	xfce4-xkb-plugin.h \
-	xfce4-xkb-plugin-private.h \
 	xfce4-xkb-plugin.c \
 	xkb-settings-dialog.h \
 	xkb-settings-dialog.c \
@@ -19,7 +18,10 @@ libxkb_la_SOURCES = \
 	xkb-cairo.h \
 	xkb-cairo.c \
 	xkb-callbacks.h \
-	xkb-callbacks.c
+	xkb-callbacks.c \
+	xkb-properties.h \
+	xkb-xfconf.h \
+	xkb-xfconf.c
 
 libxkb_la_CPPFLAGS = \
 	-I$(top_srcdir) \
@@ -30,6 +32,7 @@ libxkb_la_CFLAGS = \
 	$(LIBXFCE4PANEL_CFLAGS) \
 	$(LIBXFCE4UTIL_CFLAGS) \
 	$(LIBXFCE4UI_CFLAGS) \
+	$(XFCONF_CFLAGS) \
 	$(LIBXKLAVIER_CFLAGS) \
 	$(LIBRSVG_CFLAGS) \
 	$(LIBWNCK_CFLAGS) \
@@ -50,6 +53,7 @@ libxkb_la_LIBADD = \
 	$(LIBXFCE4PANEL_LIBS) \
 	$(LIBXFCE4UTIL_LIBS) \
 	$(LIBXFCE4UI_LIBS) \
+	$(XFCONF_LIBS) \
 	$(LIBXKLAVIER_LIBS) \
 	$(LIBWNCK_LIBS) \
 	$(GARCON_LIBS) \

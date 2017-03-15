@@ -35,13 +35,18 @@
 #include <libxfce4ui/libxfce4ui.h>
 
 #include "xfce4-xkb-plugin.h"
-#include "xfce4-xkb-plugin-private.h"
 #include "xkb-settings-dialog.h"
 #include "xkb-util.h"
 
 GtkTreeIter current_iter;
 GtkWidget *settings_dialog;
 GtkWidget *default_layout_menu;
+
+typedef struct
+{
+    t_xkb *xkb;
+    GtkWidget *display_scale_range;
+} DialogInstance;
 
 enum combo_enum
 {
@@ -69,41 +74,19 @@ enum enumeration
 /**************************************************************/
 
 static void
-on_settings_close (GtkDialog *dialog, gint response, t_xkb *xkb)
+on_settings_close (GtkDialog *dialog, gint response, DialogInstance *instance)
 {
-    xfce_panel_plugin_unblock_menu (xkb->plugin);
-
-    xfce_xkb_save_config (xkb->plugin, xkb);
-
+    xfce_panel_plugin_unblock_menu (instance->xkb->plugin);
     gtk_widget_destroy (GTK_WIDGET (dialog));
+    g_free (instance);
 }
 
 static void
-on_display_type_changed (GtkComboBox *cb, t_xkb *xkb)
+on_display_type_changed (GtkComboBox *cb, DialogInstance *instance)
 {
-    xkb->display_type = gtk_combo_box_get_active (cb);
-    xkb_refresh_gui_and_size (xkb);
-}
-
-static void
-on_display_textsize_changed (GtkHScale *scale, t_xkb *xkb)
-{
-    xkb->display_text_scale = gtk_range_get_value (GTK_RANGE (scale));
-    xkb_refresh_gui (xkb);
-}
-
-static void
-on_display_imgsize_changed (GtkHScale *scale, t_xkb *xkb)
-{
-    xkb->display_img_scale = gtk_range_get_value (GTK_RANGE (scale));
-    xkb_refresh_gui (xkb);
-}
-
-static void
-on_group_policy_changed (GtkComboBox *cb, t_xkb *xkb)
-{
-    xkb->group_policy = gtk_combo_box_get_active (cb);
-    xkb_config_set_group_policy (xkb->group_policy);
+    gint active = gtk_combo_box_get_active (cb);
+    gtk_widget_set_sensitive (instance->display_scale_range,
+            active == DISPLAY_TYPE_IMAGE || active == DISPLAY_TYPE_TEXT);
 }
 
 void
@@ -112,10 +95,13 @@ xfce_xkb_configure (XfcePanelPlugin *plugin,
 {
     GtkWidget *display_type_optmenu, *group_policy_combo;
     GtkWidget *vbox, *display_type_frame, *group_policy_frame, *bin;
-    GtkWidget *display_textsize_frame, *display_textsize_scale;
-    GtkWidget *display_imgsize_frame, *display_imgsize_scale;
+    GtkWidget *display_scale_frame, *display_scale_range;
+    DialogInstance *instance;
 
     xfce_panel_plugin_block_menu (plugin);
+
+    instance = g_new0 (DialogInstance, 1);
+    instance->xkb = xkb;
 
     settings_dialog = xfce_titled_dialog_new_with_buttons (_("Keyboard Layouts"),
             NULL, 0, "gtk-close", GTK_RESPONSE_OK, NULL);
@@ -142,25 +128,16 @@ xfce_xkb_configure (XfcePanelPlugin *plugin,
     gtk_widget_set_size_request (display_type_optmenu, 230, -1);
     gtk_container_add (GTK_CONTAINER (bin), display_type_optmenu);
 
-    /* text size option */
-    display_textsize_frame = xfce_gtk_frame_box_new (_("Text size:"), &bin);
-    gtk_widget_show (display_textsize_frame);
-    gtk_box_pack_start (GTK_BOX (vbox), display_textsize_frame, TRUE, TRUE, 2);
+    display_scale_frame = xfce_gtk_frame_box_new (_("Widget size:"), &bin);
+    gtk_widget_show (display_scale_frame);
+    gtk_box_pack_start (GTK_BOX (vbox), display_scale_frame, TRUE, TRUE, 2);
 
-    display_textsize_scale = gtk_scale_new_with_range (GTK_ORIENTATION_HORIZONTAL, 0, 100, 1);
-    gtk_scale_set_value_pos (GTK_SCALE (display_textsize_scale), GTK_POS_RIGHT);
-    gtk_widget_set_size_request (display_textsize_scale, 230, -1);
-    gtk_container_add (GTK_CONTAINER (bin), display_textsize_scale);
-
-    /* image size option */
-    display_imgsize_frame = xfce_gtk_frame_box_new (_("Image size:"), &bin);
-    gtk_widget_show (display_imgsize_frame);
-    gtk_box_pack_start (GTK_BOX (vbox), display_imgsize_frame, TRUE, TRUE, 2);
-
-    display_imgsize_scale = gtk_scale_new_with_range (GTK_ORIENTATION_HORIZONTAL, 0, 100, 1);
-    gtk_scale_set_value_pos (GTK_SCALE (display_imgsize_scale), GTK_POS_RIGHT);
-    gtk_widget_set_size_request (display_imgsize_scale, 230, -1);
-    gtk_container_add (GTK_CONTAINER (bin), display_imgsize_scale);
+    display_scale_range = gtk_scale_new_with_range (GTK_ORIENTATION_HORIZONTAL,
+            DISPLAY_SCALE_MIN, DISPLAY_SCALE_MAX, 1);
+    instance->display_scale_range = display_scale_range;
+    gtk_scale_set_value_pos (GTK_SCALE (display_scale_range), GTK_POS_RIGHT);
+    gtk_widget_set_size_request (display_scale_range, 230, -1);
+    gtk_container_add (GTK_CONTAINER (bin), display_scale_range);
 
     group_policy_frame = xfce_gtk_frame_box_new (_("Manage layout:"), &bin);
     gtk_widget_show (group_policy_frame);
@@ -177,17 +154,24 @@ xfce_xkb_configure (XfcePanelPlugin *plugin,
     gtk_widget_show_all (vbox);
 
     g_signal_connect ((gpointer) settings_dialog, "response",
-            G_CALLBACK (on_settings_close), xkb);
+            G_CALLBACK (on_settings_close), instance);
 
-    gtk_combo_box_set_active (GTK_COMBO_BOX (display_type_optmenu), xkb->display_type);
-    gtk_range_set_value (GTK_RANGE (display_textsize_scale), xkb->display_text_scale);
-    gtk_range_set_value (GTK_RANGE (display_imgsize_scale), xkb->display_img_scale);
-    gtk_combo_box_set_active (GTK_COMBO_BOX (group_policy_combo), xkb->group_policy);
+    /* enable or disable display_scale_range depending on display type */
+    g_signal_connect (display_type_optmenu, "changed",
+            G_CALLBACK (on_display_type_changed), instance);
+    on_display_type_changed (GTK_COMBO_BOX (display_type_optmenu), instance);
 
-    g_signal_connect (display_type_optmenu, "changed", G_CALLBACK (on_display_type_changed), xkb);
-    g_signal_connect (group_policy_combo, "changed", G_CALLBACK (on_group_policy_changed), xkb);
-    g_signal_connect (display_textsize_scale, "value_changed", G_CALLBACK (on_display_textsize_changed), xkb);
-    g_signal_connect (display_imgsize_scale, "value_changed", G_CALLBACK (on_display_imgsize_changed), xkb);
+    g_object_bind_property (G_OBJECT (xkb->config), DISPLAY_TYPE,
+            G_OBJECT (display_type_optmenu),
+            "active", G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
+
+    g_object_bind_property (G_OBJECT (xkb->config), DISPLAY_SCALE,
+            G_OBJECT (gtk_range_get_adjustment (GTK_RANGE (display_scale_range))),
+            "value", G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
+
+    g_object_bind_property (G_OBJECT (xkb->config), GROUP_POLICY,
+            G_OBJECT (group_policy_combo),
+            "active", G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
 
     gtk_widget_show (settings_dialog);
 }

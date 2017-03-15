@@ -1,10 +1,10 @@
 /* vim: set backspace=2 ts=4 softtabstop=4 sw=4 cinoptions=>4 expandtab autoindent smartindent: */
-/* xfce4-xkb-plugin-private.h
+/* xkb-properties.h
  * Copyright (C) 2008 Alexander Iliev <sasoiliev@mamul.org>
  *
  * Parts of this program comes from the XfKC tool:
  * Copyright (C) 2006 Gauvain Pocentek <gauvainpocentek@gmail.com>
- * 
+ *
  * A part of this file comes from the gnome keyboard capplet (control-center):
  * Copyright (C) 2003 Sergey V. Oudaltsov <svu@users.sourceforge.net>
  *
@@ -23,15 +23,29 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-#ifndef _XFCE_XKB_PRIVATE_H_
-#define _XFCE_XKB_PRIVATE_H_
+#ifndef _XKB_PROPERTIES_H_
+#define _XKB_PROPERTIES_H_
 
-void            xfce_xkb_save_config        (XfcePanelPlugin *plugin,
-                                             t_xkb *xkb);
+#define DISPLAY_TYPE "display-type"
+#define DISPLAY_SCALE "display-scale"
+#define GROUP_POLICY "group-policy"
 
-void            xkb_refresh_gui             (t_xkb *xkb);
+typedef enum
+{
+    DISPLAY_TYPE_IMAGE              = 0,
+    DISPLAY_TYPE_TEXT               = 1,
+    DISPLAY_TYPE_SYSTEM             = 2
+} t_display_type;
 
-void            xkb_refresh_gui_and_size    (t_xkb *xkb);
+#define DISPLAY_SCALE_MIN             0
+#define DISPLAY_SCALE_MAX             100
+
+typedef enum
+{
+    GROUP_POLICY_GLOBAL             = 0,
+    GROUP_POLICY_PER_WINDOW         = 1,
+    GROUP_POLICY_PER_APPLICATION    = 2
+} t_group_policy;
 
 #endif
 

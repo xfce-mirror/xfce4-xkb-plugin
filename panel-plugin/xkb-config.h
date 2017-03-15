@@ -35,12 +35,7 @@
 #include <gdk/gdk.h>
 #include <libxklavier/xklavier.h>
 
-typedef enum
-{
-    GROUP_POLICY_GLOBAL     = 0,
-    GROUP_POLICY_PER_WINDOW     = 1,
-    GROUP_POLICY_PER_APPLICATION    = 2
-} t_group_policy;
+#include "xkb-properties.h"
 
 typedef void        (*XkbCallback)                  (gint current_group,
                                                      gboolean groups_changed,
