@@ -185,11 +185,20 @@ xkb_plugin_set_tooltip (GtkWidget *widget,
                         GtkTooltip *tooltip,
                         t_xkb *xkb)
 {
-    gint       group       = xkb_config_get_current_group ();
-    GdkPixbuf *pixbuf      = xkb_config_get_tooltip_pixbuf (group);
-    gchar     *layout_name = xkb_config_get_pretty_layout_name (group);
+    gint group;
+    gchar *layout_name;
+    GdkPixbuf *pixbuf;
 
-    gtk_tooltip_set_icon (tooltip, pixbuf);
+    group = xkb_config_get_current_group ();
+
+    if (xkb_xfconf_get_display_tooltip_icon (xkb->config))
+    {
+        pixbuf = xkb_config_get_tooltip_pixbuf (group);
+        gtk_tooltip_set_icon (tooltip, pixbuf);
+    }
+
+    layout_name = xkb_config_get_pretty_layout_name (group);
+
     gtk_tooltip_set_text (tooltip, layout_name);
 
     return TRUE;

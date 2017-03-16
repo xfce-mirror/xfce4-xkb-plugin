@@ -95,6 +95,7 @@ xfce_xkb_configure (XfcePanelPlugin *plugin,
 {
     GtkWidget *display_type_combo;
     GtkWidget *display_scale_range;
+    GtkWidget *display_tooltip_icon_switch;
     GtkWidget *group_policy_combo;
     GtkWidget *vbox, *frame, *bin, *grid, *label;
     DialogInstance *instance;
@@ -151,6 +152,15 @@ xfce_xkb_configure (XfcePanelPlugin *plugin,
     gtk_widget_set_size_request (display_scale_range, 230, -1);
     gtk_grid_attach (GTK_GRID (grid), display_scale_range, 1, 1, 1, 1);
 
+    label = gtk_label_new (_("Tooltip icon:"));
+    gtk_label_set_xalign (GTK_LABEL (label), 0.f);
+    gtk_widget_set_hexpand (label, TRUE);
+    gtk_grid_attach (GTK_GRID (grid), label, 0, 2, 1, 1);
+
+    display_tooltip_icon_switch = gtk_switch_new ();
+    gtk_widget_set_halign (display_tooltip_icon_switch, GTK_ALIGN_END);
+    gtk_grid_attach (GTK_GRID (grid), display_tooltip_icon_switch, 1, 2, 1, 1);
+
     frame = xfce_gtk_frame_box_new (_("Behavior"), &bin);
     gtk_box_pack_start (GTK_BOX (vbox), frame, TRUE, TRUE, 2);
 
@@ -190,6 +200,10 @@ xfce_xkb_configure (XfcePanelPlugin *plugin,
     g_object_bind_property (G_OBJECT (xkb->config), DISPLAY_SCALE,
             G_OBJECT (gtk_range_get_adjustment (GTK_RANGE (display_scale_range))),
             "value", G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
+
+    g_object_bind_property (G_OBJECT (xkb->config), DISPLAY_TOOLTIP_ICON,
+            G_OBJECT (display_tooltip_icon_switch),
+            "active", G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
 
     g_object_bind_property (G_OBJECT (xkb->config), GROUP_POLICY,
             G_OBJECT (group_policy_combo),

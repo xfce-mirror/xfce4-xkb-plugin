@@ -46,6 +46,7 @@ XkbXfconf      *xkb_xfconf_new                             (const gchar   *prope
 
 guint           xkb_xfconf_get_display_type                (XkbXfconf     *config);
 guint           xkb_xfconf_get_display_scale               (XkbXfconf     *config);
+gboolean        xkb_xfconf_get_display_tooltip_icon        (XkbXfconf     *config);
 guint           xkb_xfconf_get_group_policy                (XkbXfconf     *config);
 
 G_END_DECLS

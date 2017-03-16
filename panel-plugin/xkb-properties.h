@@ -28,6 +28,7 @@
 
 #define DISPLAY_TYPE "display-type"
 #define DISPLAY_SCALE "display-scale"
+#define DISPLAY_TOOLTIP_ICON "display-tooltip-icon"
 #define GROUP_POLICY "group-policy"
 
 typedef enum

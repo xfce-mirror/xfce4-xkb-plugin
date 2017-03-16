@@ -36,6 +36,7 @@
 
 #define DEFAULT_DISPLAY_TYPE                DISPLAY_TYPE_IMAGE
 #define DEFAULT_DISPLAY_SCALE               DISPLAY_SCALE_MAX
+#define DEFAULT_DISPLAY_TOOLTIP_ICON        TRUE
 #define DEFAULT_GROUP_POLICY                GROUP_POLICY_PER_APPLICATION
 
 static void            xkb_xfconf_finalize            (GObject          *object);
@@ -59,6 +60,7 @@ struct _XkbXfconf
 
     guint display_type;
     guint display_scale;
+    gboolean display_tooltip_icon;
     guint group_policy;
 };
 
@@ -67,6 +69,7 @@ enum
     PROP_0,
     PROP_DISPLAY_TYPE,
     PROP_DISPLAY_SCALE,
+    PROP_DISPLAY_TOOLTIP_ICON,
     PROP_GROUP_POLICY,
     N_PROPERTIES,
 };
@@ -77,7 +80,7 @@ enum
     LAST_SIGNAL
 };
 
-static guint xkb_xfconf_signals [LAST_SIGNAL] = { NULL, };
+static guint xkb_xfconf_signals [LAST_SIGNAL] = { 0, };
 
 G_DEFINE_TYPE (XkbXfconf, xkb_xfconf, G_TYPE_OBJECT)
 
@@ -101,6 +104,11 @@ xkb_xfconf_class_init (XkbXfconfClass *klass)
                     DISPLAY_SCALE_MIN, DISPLAY_SCALE_MAX, DEFAULT_DISPLAY_SCALE,
                     G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
 
+    g_object_class_install_property (gobject_class, PROP_DISPLAY_TOOLTIP_ICON,
+            g_param_spec_boolean (DISPLAY_TOOLTIP_ICON, NULL, NULL,
+                    DEFAULT_DISPLAY_TOOLTIP_ICON,
+                    G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
+
     g_object_class_install_property (gobject_class, PROP_GROUP_POLICY,
             g_param_spec_uint (GROUP_POLICY, NULL, NULL,
                     GROUP_POLICY_GLOBAL, GROUP_POLICY_PER_APPLICATION, DEFAULT_GROUP_POLICY,
@@ -120,6 +128,7 @@ xkb_xfconf_init (XkbXfconf *config)
 {
     config->display_type = DEFAULT_DISPLAY_TYPE;
     config->display_scale = DEFAULT_DISPLAY_SCALE;
+    config->display_tooltip_icon = DEFAULT_DISPLAY_TOOLTIP_ICON;
     config->group_policy = DEFAULT_GROUP_POLICY;
 }
 
@@ -143,6 +152,9 @@ xkb_xfconf_get_property (GObject *object, guint prop_id, GValue *value, GParamSp
         case PROP_DISPLAY_SCALE:
             g_value_set_uint (value, config->display_scale);
             break;
+        case PROP_DISPLAY_TOOLTIP_ICON:
+            g_value_set_boolean (value, config->display_tooltip_icon);
+            break;
         case PROP_GROUP_POLICY:
             g_value_set_uint (value, config->group_policy);
             break;
@@ -157,6 +169,7 @@ xkb_xfconf_set_property (GObject *object, guint prop_id, const GValue *value, GP
 {
     XkbXfconf *config = XKB_XFCONF (object);
     guint val_uint;
+    gboolean val_boolean;
 
     switch (prop_id)
     {
@@ -175,6 +188,15 @@ xkb_xfconf_set_property (GObject *object, guint prop_id, const GValue *value, GP
             {
                 config->display_scale = val_uint;
                 g_object_notify (G_OBJECT (config), DISPLAY_SCALE);
+                g_signal_emit (G_OBJECT (config), xkb_xfconf_signals [CONFIGURATION_CHANGED], 0);
+            }
+            break;
+        case PROP_DISPLAY_TOOLTIP_ICON:
+            val_boolean = g_value_get_boolean (value);
+            if (config->display_tooltip_icon != val_boolean)
+            {
+                config->display_tooltip_icon = val_boolean;
+                g_object_notify (G_OBJECT (config), DISPLAY_TOOLTIP_ICON);
                 g_signal_emit (G_OBJECT (config), xkb_xfconf_signals [CONFIGURATION_CHANGED], 0);
             }
             break;
@@ -207,6 +229,13 @@ xkb_xfconf_get_display_scale (XkbXfconf *config)
     return config->display_scale;
 }
 
+gboolean
+xkb_xfconf_get_display_tooltip_icon (XkbXfconf *config)
+{
+    g_return_val_if_fail (IS_XKB_XFCONF (config), DEFAULT_DISPLAY_TOOLTIP_ICON);
+    return config->display_tooltip_icon;
+}
+
 guint
 xkb_xfconf_get_group_policy (XkbXfconf *config)
 {
@@ -233,6 +262,10 @@ xkb_xfconf_new (const gchar *property_base)
 
         property = g_strconcat (property_base, "/" DISPLAY_SCALE, NULL);
         xfconf_g_property_bind (channel, property, G_TYPE_UINT, config, DISPLAY_SCALE);
+        g_free (property);
+
+        property = g_strconcat (property_base, "/" DISPLAY_TOOLTIP_ICON, NULL);
+        xfconf_g_property_bind (channel, property, G_TYPE_BOOLEAN, config, DISPLAY_TOOLTIP_ICON);
         g_free (property);
 
         property = g_strconcat (property_base, "/" GROUP_POLICY, NULL);
