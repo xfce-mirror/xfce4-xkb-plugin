@@ -96,9 +96,6 @@ static void
 xfce_xkb_construct (XfcePanelPlugin *plugin)
 {
     GtkWidget *configure_layouts;
-    GtkIconTheme *theme;
-    GtkWidget *image;
-    GdkPixbuf *pixbuf;
 
     t_xkb *xkb = xkb_new (plugin);
 
@@ -123,27 +120,12 @@ xfce_xkb_construct (XfcePanelPlugin *plugin)
     g_signal_connect (plugin, "about",
             G_CALLBACK (xfce_xkb_about), xkb);
 
-    configure_layouts =
-        gtk_image_menu_item_new_with_label (_("Keyboard settings"));
-
-    theme = gtk_icon_theme_get_for_screen (gdk_screen_get_default());
-    pixbuf = gtk_icon_theme_load_icon (theme, "preferences-desktop-keyboard",
-                                       GTK_ICON_SIZE_MENU, 0, NULL);
-    if (pixbuf != NULL)
-    {
-        image = gtk_image_new ();
-        gtk_image_set_from_pixbuf (GTK_IMAGE (image), pixbuf);
-        gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (configure_layouts),
-                                       image);
-        g_object_unref (pixbuf);
-    }
-
+    configure_layouts = gtk_menu_item_new_with_label (_("Keyboard settings"));
     gtk_widget_show (configure_layouts);
-    xfce_panel_plugin_menu_insert_item (plugin,
-                                        GTK_MENU_ITEM (configure_layouts));
+    xfce_panel_plugin_menu_insert_item (plugin, GTK_MENU_ITEM (configure_layouts));
 
     g_signal_connect (G_OBJECT (configure_layouts), "activate",
-                      G_CALLBACK (xfce_xkb_configure_layout), NULL);
+            G_CALLBACK (xfce_xkb_configure_layout), NULL);
 }
 
 static void
@@ -223,9 +205,12 @@ xkb_new (XfcePanelPlugin *plugin)
     g_object_unref (css_provider);
 
     gtk_widget_show (xkb->btn);
-    g_signal_connect (xkb->btn, "clicked", G_CALLBACK (xkb_plugin_button_clicked), xkb);
+    g_signal_connect (xkb->btn, "button-press-event",
+            G_CALLBACK (xkb_plugin_button_clicked), xkb);
+    g_signal_connect (xkb->btn, "button-release-event",
+            G_CALLBACK (xkb_plugin_button_clicked), xkb);
     g_signal_connect (xkb->btn, "scroll-event",
-                      G_CALLBACK (xkb_plugin_button_scrolled), NULL);
+            G_CALLBACK (xkb_plugin_button_scrolled), NULL);
 
     g_object_set (G_OBJECT (xkb->btn), "has-tooltip", TRUE, NULL);
     g_signal_connect (xkb->btn, "query-tooltip",
@@ -259,9 +244,9 @@ xkb_free (t_xkb *xkb)
 {
     xkb_config_finalize ();
 
+    xkb_destroy_popup_menu (xkb);
     gtk_widget_destroy (xkb->layout_image);
     gtk_widget_destroy (xkb->btn);
-    xkb_destroy_popup_menu (xkb);
 
     g_object_unref (G_OBJECT (xkb->config));
 
@@ -325,11 +310,10 @@ xkb_calculate_sizes (t_xkb *xkb, GtkOrientation orientation, gint panel_size)
 static void
 xkb_destroy_popup_menu (t_xkb *xkb)
 {
-    if (xkb->popup)
+    if (xkb->popup != NULL)
     {
-        gtk_widget_destroy (xkb->popup);
-        g_object_ref_sink (xkb->popup);
-        g_object_unref (xkb->popup);
+        gtk_menu_popdown (GTK_MENU (xkb->popup));
+        gtk_menu_detach (GTK_MENU (xkb->popup));
         xkb->popup = NULL;
     }
 }
@@ -338,10 +322,7 @@ static void
 xkb_populate_popup_menu (t_xkb *xkb)
 {
     gint i, group_count;
-    RsvgHandle *handle;
-    GdkPixbuf *pixbuf, *tmp;
-    gchar *imgfilename;
-    GtkWidget *image;
+    gchar *layout_string;
     GtkWidget *menu_item;
 
     if (G_UNLIKELY (xkb == NULL)) return;
@@ -352,43 +333,21 @@ xkb_populate_popup_menu (t_xkb *xkb)
     group_count = xkb_config_get_group_count ();
     for (i = 0; i < group_count; i++)
     {
-        gchar *layout_string;
-
-        imgfilename = xkb_util_get_flag_filename (xkb_config_get_group_name (i));
-        handle = rsvg_handle_new_from_file (imgfilename, NULL);
-        g_free (imgfilename);
-
-        if (handle)
-        {
-            tmp = rsvg_handle_get_pixbuf (handle);
-        }
-
         layout_string = xkb_config_get_pretty_layout_name (i);
 
-        menu_item = gtk_image_menu_item_new_with_label (layout_string);
+        menu_item = gtk_menu_item_new_with_label (layout_string);
 
         g_signal_connect (G_OBJECT (menu_item), "activate",
                 G_CALLBACK (xkb_plugin_set_group), GINT_TO_POINTER (i));
 
-        if (handle)
-        {
-            image = gtk_image_new ();
-            pixbuf = gdk_pixbuf_scale_simple (tmp, 15, 10, GDK_INTERP_BILINEAR);
-            gtk_image_set_from_pixbuf (GTK_IMAGE (image), pixbuf);
-            gtk_widget_show (image);
-            g_object_unref (G_OBJECT (tmp));
-            g_object_unref (G_OBJECT (pixbuf));
-
-            gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (menu_item), image);
-
-            rsvg_handle_close (handle, NULL);
-            g_object_unref (handle);
-        }
-
         gtk_widget_show (menu_item);
-
         gtk_menu_shell_append (GTK_MENU_SHELL (xkb->popup), menu_item);
     }
+
+    g_signal_connect_swapped (GTK_MENU_SHELL (xkb->popup), "deactivate",
+            G_CALLBACK (xkb_plugin_popup_menu_deactivate), xkb);
+
+    gtk_menu_attach_to_widget (GTK_MENU (xkb->popup), xkb->btn, NULL);
 }
 
 static void

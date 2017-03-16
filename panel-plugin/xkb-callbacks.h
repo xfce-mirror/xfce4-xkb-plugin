@@ -48,12 +48,16 @@ void            xkb_plugin_window_closed        (WnckScreen *screen,
                                  WnckWindow *window,
                                  t_xkb *xkb);
 
-void            xkb_plugin_button_clicked       (GtkButton *btn,
+gboolean        xkb_plugin_button_clicked       (GtkButton *btn,
+                                 GdkEventButton *event,
                                  gpointer data);
 
 gboolean        xkb_plugin_button_scrolled      (GtkWidget *btn,
                                  GdkEventScroll *event,
                                  gpointer data);
+
+void            xkb_plugin_popup_menu_deactivate   (gpointer data,
+                                 GtkMenuShell *menu_shell);
 
 gboolean        xkb_plugin_set_tooltip          (GtkWidget *widget,
                                  gint x,

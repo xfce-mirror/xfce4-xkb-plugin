@@ -28,7 +28,8 @@
 #include "xkb-util.h"
 
 static void xkb_plugin_popup_menu (GtkButton *btn,
-                                   gpointer data);
+                                   GdkEventButton *event,
+                                   t_xkb *xkb);
 
 void
 xkb_plugin_active_window_changed (WnckScreen *screen,
@@ -131,18 +132,33 @@ xkb_plugin_layout_image_draw (GtkWidget *widget,
     return FALSE;
 }
 
-void
+gboolean
 xkb_plugin_button_clicked (GtkButton *btn,
+                           GdkEventButton *event,
                            gpointer data)
 {
-    if (xkb_config_get_group_count () > 2)
+    t_xkb *xkb;
+    gboolean released, display_popup;
+
+    if (event->button == 1)
     {
-        xkb_plugin_popup_menu (btn, data);
+        xkb = data;
+        released = event->type == GDK_BUTTON_RELEASE;
+        display_popup = xkb_config_get_group_count () > 2;
+
+        if (display_popup && !released)
+        {
+            xkb_plugin_popup_menu (btn, event, data);
+            return TRUE;
+        }
+
+        if (!display_popup && released)
+        {
+            xkb_config_next_group ();
+            return FALSE;
+        }
     }
-    else
-    {
-        xkb_config_next_group ();
-    }
+    return FALSE;
 }
 
 gboolean
@@ -169,12 +185,29 @@ xkb_plugin_button_scrolled (GtkWidget *btn,
 
 static void
 xkb_plugin_popup_menu (GtkButton *btn,
-                       gpointer data)
+                       GdkEventButton *event,
+                       t_xkb *xkb)
+{
+    gtk_widget_set_state_flags (GTK_WIDGET (xkb->btn), GTK_STATE_FLAG_CHECKED, FALSE);
+#if GTK_CHECK_VERSION(3, 22, 0)
+    gtk_menu_popup_at_widget (GTK_MENU (xkb->popup), GTK_WIDGET (btn),
+            GDK_GRAVITY_NORTH_WEST, GDK_GRAVITY_NORTH_WEST, (GdkEvent *) event);
+#else
+    gtk_menu_popup (GTK_MENU (xkb->popup), NULL, NULL,
+            xfce_panel_plugin_position_menu, xkb->plugin,
+            0, event->time);
+#endif
+}
+
+void
+xkb_plugin_popup_menu_deactivate (gpointer data,
+                                  GtkMenuShell *menu_shell)
 {
     t_xkb *xkb = (t_xkb *) data;
-    gtk_menu_popup (GTK_MENU (xkb->popup),
-            NULL, NULL, NULL, NULL, 0,
-            gtk_get_current_event_time ());
+
+    g_return_if_fail (GTK_IS_MENU_SHELL (menu_shell));
+
+    gtk_widget_unset_state_flags (GTK_WIDGET (xkb->btn), GTK_STATE_FLAG_CHECKED);
 }
 
 gboolean
