@@ -93,9 +93,10 @@ void
 xfce_xkb_configure (XfcePanelPlugin *plugin,
                     t_xkb *xkb)
 {
-    GtkWidget *display_type_optmenu, *group_policy_combo;
-    GtkWidget *vbox, *display_type_frame, *group_policy_frame, *bin;
-    GtkWidget *display_scale_frame, *display_scale_range;
+    GtkWidget *display_type_combo;
+    GtkWidget *display_scale_range;
+    GtkWidget *group_policy_combo;
+    GtkWidget *vbox, *frame, *bin, *grid, *label;
     DialogInstance *instance;
 
     xfce_panel_plugin_block_menu (plugin);
@@ -116,40 +117,61 @@ xfce_xkb_configure (XfcePanelPlugin *plugin,
     gtk_widget_show (vbox);
     gtk_container_add (GTK_CONTAINER (gtk_dialog_get_content_area (GTK_DIALOG (settings_dialog))), vbox);
 
-    /*****/
-    display_type_frame = xfce_gtk_frame_box_new (_("Show layout as:"), &bin);
-    gtk_widget_show (display_type_frame);
-    gtk_box_pack_start (GTK_BOX (vbox), display_type_frame, TRUE, TRUE, 2);
+    frame = xfce_gtk_frame_box_new (_("Appearance"), &bin);
+    gtk_box_pack_start (GTK_BOX (vbox), frame, TRUE, TRUE, 2);
 
-    display_type_optmenu = gtk_combo_box_text_new ();
-    gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (display_type_optmenu), _("image"));
-    gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (display_type_optmenu), _("text"));
-    gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (display_type_optmenu), _("system"));
-    gtk_widget_set_size_request (display_type_optmenu, 230, -1);
-    gtk_container_add (GTK_CONTAINER (bin), display_type_optmenu);
+    grid = gtk_grid_new ();
+    gtk_grid_set_row_spacing (GTK_GRID (grid), 6);
+    gtk_grid_set_column_spacing (GTK_GRID (grid), 18);
+    gtk_grid_set_row_homogeneous (GTK_GRID (grid), TRUE);
+    gtk_widget_set_size_request (grid, -1, -1);
+    gtk_container_add (GTK_CONTAINER (bin), grid);
 
-    display_scale_frame = xfce_gtk_frame_box_new (_("Widget size:"), &bin);
-    gtk_widget_show (display_scale_frame);
-    gtk_box_pack_start (GTK_BOX (vbox), display_scale_frame, TRUE, TRUE, 2);
+    label = gtk_label_new (_("Show layout as:"));
+    gtk_label_set_xalign (GTK_LABEL (label), 0.f);
+    gtk_widget_set_hexpand (label, TRUE);
+    gtk_grid_attach (GTK_GRID (grid), label, 0, 0, 1, 1);
+
+    display_type_combo = gtk_combo_box_text_new ();
+    gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (display_type_combo), _("image"));
+    gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (display_type_combo), _("text"));
+    gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (display_type_combo), _("system"));
+    gtk_widget_set_size_request (display_type_combo, 230, -1);
+    gtk_grid_attach (GTK_GRID (grid), display_type_combo, 1, 0, 1, 1);
+
+    label = gtk_label_new (_("Widget size:"));
+    gtk_label_set_xalign (GTK_LABEL (label), 0.f);
+    gtk_widget_set_hexpand (label, TRUE);
+    gtk_grid_attach (GTK_GRID (grid), label, 0, 1, 1, 1);
 
     display_scale_range = gtk_scale_new_with_range (GTK_ORIENTATION_HORIZONTAL,
             DISPLAY_SCALE_MIN, DISPLAY_SCALE_MAX, 1);
     instance->display_scale_range = display_scale_range;
     gtk_scale_set_value_pos (GTK_SCALE (display_scale_range), GTK_POS_RIGHT);
     gtk_widget_set_size_request (display_scale_range, 230, -1);
-    gtk_container_add (GTK_CONTAINER (bin), display_scale_range);
+    gtk_grid_attach (GTK_GRID (grid), display_scale_range, 1, 1, 1, 1);
 
-    group_policy_frame = xfce_gtk_frame_box_new (_("Manage layout:"), &bin);
-    gtk_widget_show (group_policy_frame);
-    gtk_box_pack_start (GTK_BOX (vbox), group_policy_frame, TRUE, TRUE, 2);
+    frame = xfce_gtk_frame_box_new (_("Behavior"), &bin);
+    gtk_box_pack_start (GTK_BOX (vbox), frame, TRUE, TRUE, 2);
+
+    grid = gtk_grid_new ();
+    gtk_grid_set_row_spacing (GTK_GRID (grid), 6);
+    gtk_grid_set_column_spacing (GTK_GRID (grid), 18);
+    gtk_grid_set_row_homogeneous (GTK_GRID (grid), TRUE);
+    gtk_widget_set_size_request (grid, -1, -1);
+    gtk_container_add (GTK_CONTAINER (bin), grid);
+
+    label = gtk_label_new (_("Manage layout:"));
+    gtk_label_set_xalign (GTK_LABEL (label), 0.f);
+    gtk_widget_set_hexpand (label, TRUE);
+    gtk_grid_attach (GTK_GRID (grid), label, 0, 0, 1, 1);
 
     group_policy_combo = gtk_combo_box_text_new ();
     gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (group_policy_combo), _("globally"));
     gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (group_policy_combo), _("per window"));
     gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (group_policy_combo), _("per application"));
     gtk_widget_set_size_request (group_policy_combo, 230, -1);
-    gtk_container_add (GTK_CONTAINER (bin), group_policy_combo);
-    gtk_widget_show (group_policy_combo);
+    gtk_grid_attach (GTK_GRID (grid), group_policy_combo, 1, 0, 1, 1);
 
     gtk_widget_show_all (vbox);
 
@@ -157,12 +179,12 @@ xfce_xkb_configure (XfcePanelPlugin *plugin,
             G_CALLBACK (on_settings_close), instance);
 
     /* enable or disable display_scale_range depending on display type */
-    g_signal_connect (display_type_optmenu, "changed",
+    g_signal_connect (display_type_combo, "changed",
             G_CALLBACK (on_display_type_changed), instance);
-    on_display_type_changed (GTK_COMBO_BOX (display_type_optmenu), instance);
+    on_display_type_changed (GTK_COMBO_BOX (display_type_combo), instance);
 
     g_object_bind_property (G_OBJECT (xkb->config), DISPLAY_TYPE,
-            G_OBJECT (display_type_optmenu),
+            G_OBJECT (display_type_combo),
             "active", G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
 
     g_object_bind_property (G_OBJECT (xkb->config), DISPLAY_SCALE,
