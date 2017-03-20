@@ -4,7 +4,7 @@ Information
 ===========
 
 This plugin allows you to setup and use multiple (currently
-ip to 4 due to X11 protocol limitation) keyboard layouts.
+up to 4 due to X11 protocol limitation) keyboard layouts.
 
 You can choose the keyboard model, what key combination to
 use to switch between the layouts, the actual keyboard layouts,
