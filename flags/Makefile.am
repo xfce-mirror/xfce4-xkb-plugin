@@ -18,7 +18,7 @@ flags_DATA = ae.svg \
 			cu.svg \
 			cz.svg \
 			de.svg \
-			dev.svg \
+			in.svg \
 			dj.svg \
 			dk.svg \
 			dvorak.svg \
