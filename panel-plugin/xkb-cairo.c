@@ -25,7 +25,7 @@
 
 #include "xkb-cairo.h"
 #include "xkb-util.h"
-#include "xfce4-xkb-plugin.h"
+#include "xkb-plugin.h"
 
 #include <librsvg/rsvg.h>
 

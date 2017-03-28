@@ -1,7 +1,7 @@
 # List of source files containing translatable strings.
 
 panel-plugin/xkb-settings-dialog.c
-panel-plugin/xfce4-xkb-plugin.c
+panel-plugin/xkb-plugin.c
 
 # files added by intltool-prepare.
 

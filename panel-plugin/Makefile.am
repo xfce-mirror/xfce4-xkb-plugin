@@ -7,8 +7,8 @@ plugin_LTLIBRARIES = \
 	libxkb.la
 
 libxkb_la_SOURCES = \
-	xfce4-xkb-plugin.h \
-	xfce4-xkb-plugin.c \
+	xkb-plugin.h \
+	xkb-plugin.c \
 	xkb-settings-dialog.h \
 	xkb-settings-dialog.c \
 	xkb-keyboard.h \
@@ -17,8 +17,6 @@ libxkb_la_SOURCES = \
 	xkb-util.c \
 	xkb-cairo.h \
 	xkb-cairo.c \
-	xkb-callbacks.h \
-	xkb-callbacks.c \
 	xkb-properties.h \
 	xkb-xfconf.h \
 	xkb-xfconf.c

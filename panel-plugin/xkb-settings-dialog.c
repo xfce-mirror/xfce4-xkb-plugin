@@ -34,7 +34,7 @@
 #include <libxfce4panel/xfce-panel-plugin.h>
 #include <libxfce4ui/libxfce4ui.h>
 
-#include "xfce4-xkb-plugin.h"
+#include "xkb-plugin.h"
 #include "xkb-settings-dialog.h"
 #include "xkb-util.h"
 
@@ -44,7 +44,7 @@ GtkWidget *default_layout_menu;
 
 typedef struct
 {
-    t_xkb *xkb;
+    XfcePanelPlugin *plugin;
     GtkWidget *display_scale_range;
 } DialogInstance;
 
@@ -74,15 +74,18 @@ enum enumeration
 /**************************************************************/
 
 static void
-on_settings_close (GtkDialog *dialog, gint response, DialogInstance *instance)
+on_settings_close (GtkDialog *dialog,
+                   gint response,
+                   DialogInstance *instance)
 {
-    xfce_panel_plugin_unblock_menu (instance->xkb->plugin);
+    xfce_panel_plugin_unblock_menu (instance->plugin);
     gtk_widget_destroy (GTK_WIDGET (dialog));
     g_free (instance);
 }
 
 static void
-on_display_type_changed (GtkComboBox *cb, DialogInstance *instance)
+on_display_type_changed (GtkComboBox *cb,
+                         DialogInstance *instance)
 {
     gint active = gtk_combo_box_get_active (cb);
     gtk_widget_set_sensitive (instance->display_scale_range,
@@ -90,20 +93,22 @@ on_display_type_changed (GtkComboBox *cb, DialogInstance *instance)
 }
 
 void
-xfce_xkb_configure (XfcePanelPlugin *plugin,
-                    t_xkb *xkb)
+xkb_plugin_configure_plugin (XfcePanelPlugin *plugin)
 {
     GtkWidget *display_type_combo;
     GtkWidget *display_scale_range;
     GtkWidget *display_tooltip_icon_switch;
     GtkWidget *group_policy_combo;
     GtkWidget *vbox, *frame, *bin, *grid, *label;
+    XkbXfconf *config;
     DialogInstance *instance;
 
     xfce_panel_plugin_block_menu (plugin);
 
+    config = xkb_plugin_get_config (XKB_PLUGIN (plugin));
+
     instance = g_new0 (DialogInstance, 1);
-    instance->xkb = xkb;
+    instance->plugin = plugin;
 
     settings_dialog = xfce_titled_dialog_new_with_buttons (_("Keyboard Layouts"),
             NULL, 0, "gtk-close", GTK_RESPONSE_OK, NULL);
@@ -193,19 +198,19 @@ xfce_xkb_configure (XfcePanelPlugin *plugin,
             G_CALLBACK (on_display_type_changed), instance);
     on_display_type_changed (GTK_COMBO_BOX (display_type_combo), instance);
 
-    g_object_bind_property (G_OBJECT (xkb->config), DISPLAY_TYPE,
+    g_object_bind_property (G_OBJECT (config), DISPLAY_TYPE,
             G_OBJECT (display_type_combo),
             "active", G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
 
-    g_object_bind_property (G_OBJECT (xkb->config), DISPLAY_SCALE,
+    g_object_bind_property (G_OBJECT (config), DISPLAY_SCALE,
             G_OBJECT (gtk_range_get_adjustment (GTK_RANGE (display_scale_range))),
             "value", G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
 
-    g_object_bind_property (G_OBJECT (xkb->config), DISPLAY_TOOLTIP_ICON,
+    g_object_bind_property (G_OBJECT (config), DISPLAY_TOOLTIP_ICON,
             G_OBJECT (display_tooltip_icon_switch),
             "active", G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
 
-    g_object_bind_property (G_OBJECT (xkb->config), GROUP_POLICY,
+    g_object_bind_property (G_OBJECT (config), GROUP_POLICY,
             G_OBJECT (group_policy_combo),
             "active", G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
 
@@ -213,7 +218,7 @@ xfce_xkb_configure (XfcePanelPlugin *plugin,
 }
 
 void
-xfce_xkb_about (XfcePanelPlugin *plugin)
+xkb_plugin_show_about (XfcePanelPlugin *plugin)
 {
     GtkWidget *about;
     GdkPixbuf *icon;

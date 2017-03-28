@@ -1,5 +1,5 @@
 /* vim: set backspace=2 ts=4 softtabstop=4 sw=4 cinoptions=>4 expandtab autoindent smartindent: */
-/* xfce4-xkb-plugin.h
+/* xkb-plugin.h
  * Copyright (C) 2008 Alexander Iliev <sasoiliev@mamul.org>
  *
  * Parts of this program comes from the XfKC tool:
@@ -37,25 +37,24 @@
 #include <gtk/gtk.h>
 #include <glib.h>
 
-typedef struct
-{
-    XfcePanelPlugin *plugin;
+G_BEGIN_DECLS
 
-    XkbXfconf *config;
-    XkbKeyboard *keyboard;
+typedef struct _XkbPluginClass      XkbPluginClass;
+typedef struct _XkbPlugin           XkbPlugin;
 
-    /* widgets */
-    GtkWidget *btn;
-    GtkWidget *layout_image;
-    GtkWidget *popup;
-    void *popup_user_data;
-} t_xkb;
+#define TYPE_XKB_PLUGIN             (xkb_plugin_get_type ())
+#define XKB_PLUGIN(obj)             (G_TYPE_CHECK_INSTANCE_CAST ((obj), TYPE_XKB_PLUGIN, XkbPlugin))
+#define XKB_PLUGIN_CLASS(klass)     (G_TYPE_CHECK_CLASS_CAST ((klass),  TYPE_XKB_PLUGIN, XkbPluginClass))
+#define IS_XKB_PLUGIN(obj)          (G_TYPE_CHECK_INSTANCE_TYPE ((obj), TYPE_XKB_PLUGIN))
+#define IS_XKB_PLUGIN_CLASS(klass)  (G_TYPE_CHECK_CLASS_TYPE ((klass),  TYPE_XKB_PLUGIN))
+#define XKB_PLUGIN_GET_CLASS(obj)   (G_TYPE_INSTANCE_GET_CLASS ((obj),  TYPE_XKB_PLUGIN, XkbPlugin))
 
-typedef struct
-{
-    t_xkb *xkb;
-    gint group;
-} MenuItemData;
+GType             xkb_plugin_get_type                     (void)                       G_GNUC_CONST;
+
+void              xkb_plugin_register_type                (XfcePanelTypeModule   *type_module);
+
+XkbXfconf        *xkb_plugin_get_config                   (XkbPlugin             *plugin);
+
+G_END_DECLS
 
 #endif
-

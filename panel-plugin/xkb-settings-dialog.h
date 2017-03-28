@@ -26,10 +26,8 @@
 #ifndef __XKB_SETTINGS_DIALOG_H__
 #define __XKB_SETTINGS_DIALOG_H__
 
-void    xfce_xkb_configure      (XfcePanelPlugin *plugin,
-                                 t_xkb *xkb);
-
-void    xfce_xkb_about          (XfcePanelPlugin *plugin);
+void    xkb_plugin_configure_plugin    (XfcePanelPlugin *plugin);
+void    xkb_plugin_show_about          (XfcePanelPlugin *plugin);
 
 #endif
 
