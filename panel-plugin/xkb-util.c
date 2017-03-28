@@ -27,7 +27,6 @@
 #include <cairo/cairo.h>
 
 #include "xkb-util.h"
-#include "xkb-config.h" // TODO : REMOVE THIS
 
 gchar*
 xkb_util_get_flag_filename (const gchar* group_name)

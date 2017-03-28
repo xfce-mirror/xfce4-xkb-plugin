@@ -44,7 +44,7 @@ xkb_plugin_active_window_changed (WnckScreen *screen,
     window_id = wnck_window_get_xid (window);
     application_id = wnck_window_get_pid (window);
 
-    xkb_config_window_changed (window_id, application_id);
+    xkb_keyboard_window_changed (xkb->keyboard, window_id, application_id);
 }
 
 void
@@ -56,7 +56,7 @@ xkb_plugin_application_closed (WnckScreen *screen,
 
     application_id = wnck_application_get_pid (app);
 
-    xkb_config_application_closed (application_id);
+    xkb_keyboard_application_closed (xkb->keyboard, application_id);
 }
 
 void
@@ -68,7 +68,7 @@ xkb_plugin_window_closed (WnckScreen *screen,
 
     window_id = wnck_window_get_xid (window);
 
-    xkb_config_window_closed (window_id);
+    xkb_keyboard_window_closed (xkb->keyboard, window_id);
 }
 
 gboolean
@@ -95,7 +95,7 @@ xkb_plugin_layout_image_draw (GtkWidget *widget,
     state = gtk_widget_get_state_flags (GTK_WIDGET (xkb->btn));
     style_ctx = gtk_widget_get_style_context (GTK_WIDGET (xkb->btn));
     gtk_style_context_get_color (style_ctx, state, &rgba);
-    group_name = xkb_config_get_group_name (-1);
+    group_name = xkb_keyboard_get_group_name (xkb->keyboard, -1);
 
     DBG ("img_exposed: actual h/v (%d/%d)",
          actual_hsize, actual_vsize);
@@ -104,8 +104,8 @@ xkb_plugin_layout_image_draw (GtkWidget *widget,
     {
         xkb_cairo_draw_flag (cr, group_name,
                 actual_hsize, actual_vsize,
-                xkb_config_variant_index_for_group (-1),
-                xkb_config_get_max_group_count (),
+                xkb_keyboard_variant_index_for_group (xkb->keyboard, -1),
+                xkb_keyboard_get_max_group_count (xkb->keyboard),
                 display_scale,
                 rgba
         );
@@ -114,7 +114,7 @@ xkb_plugin_layout_image_draw (GtkWidget *widget,
     {
         xkb_cairo_draw_label (cr, group_name,
                 actual_hsize, actual_vsize,
-                xkb_config_variant_index_for_group (-1),
+                xkb_keyboard_variant_index_for_group (xkb->keyboard, -1),
                 display_scale,
                 rgba
         );
@@ -124,7 +124,7 @@ xkb_plugin_layout_image_draw (GtkWidget *widget,
         gtk_style_context_get (style_ctx, state, "font", &desc, NULL);
         xkb_cairo_draw_label_system (cr, group_name,
                 actual_hsize, actual_vsize,
-                xkb_config_variant_index_for_group (-1),
+                xkb_keyboard_variant_index_for_group (xkb->keyboard, -1),
                 desc, rgba
         );
     }
@@ -144,7 +144,7 @@ xkb_plugin_button_clicked (GtkButton *btn,
     {
         xkb = data;
         released = event->type == GDK_BUTTON_RELEASE;
-        display_popup = xkb_config_get_group_count () > 2;
+        display_popup = xkb_keyboard_get_group_count (xkb->keyboard) > 2;
 
         if (display_popup && !released)
         {
@@ -154,7 +154,7 @@ xkb_plugin_button_clicked (GtkButton *btn,
 
         if (!display_popup && released)
         {
-            xkb_config_next_group ();
+            xkb_keyboard_next_group (xkb->keyboard);
             return FALSE;
         }
     }
@@ -166,15 +166,17 @@ xkb_plugin_button_scrolled (GtkWidget *btn,
                             GdkEventScroll *event,
                             gpointer data)
 {
+    t_xkb *xkb = data;
+
     switch (event->direction)
     {
       case GDK_SCROLL_UP:
       case GDK_SCROLL_RIGHT:
-          xkb_config_next_group ();
+          xkb_keyboard_next_group (xkb->keyboard);
           return TRUE;
       case GDK_SCROLL_DOWN:
       case GDK_SCROLL_LEFT:
-          xkb_config_prev_group ();
+          xkb_keyboard_prev_group (xkb->keyboard);
           return TRUE;
       default:
         return FALSE;
@@ -222,15 +224,15 @@ xkb_plugin_set_tooltip (GtkWidget *widget,
     gchar *layout_name;
     GdkPixbuf *pixbuf;
 
-    group = xkb_config_get_current_group ();
+    group = xkb_keyboard_get_current_group (xkb->keyboard);
 
     if (xkb_xfconf_get_display_tooltip_icon (xkb->config))
     {
-        pixbuf = xkb_config_get_tooltip_pixbuf (group);
+        pixbuf = xkb_keyboard_get_tooltip_pixbuf (xkb->keyboard, group);
         gtk_tooltip_set_icon (tooltip, pixbuf);
     }
 
-    layout_name = xkb_config_get_pretty_layout_name (group);
+    layout_name = xkb_keyboard_get_pretty_layout_name (xkb->keyboard, group);
 
     gtk_tooltip_set_text (tooltip, layout_name);
 

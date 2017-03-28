@@ -11,8 +11,8 @@ libxkb_la_SOURCES = \
 	xfce4-xkb-plugin.c \
 	xkb-settings-dialog.h \
 	xkb-settings-dialog.c \
-	xkb-config.h \
-	xkb-config.c \
+	xkb-keyboard.h \
+	xkb-keyboard.c \
 	xkb-util.h \
 	xkb-util.c \
 	xkb-cairo.h \

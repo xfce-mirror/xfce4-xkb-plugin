@@ -169,8 +169,8 @@ static void
 xkb_plugin_set_group (GtkMenuItem *item,
               gpointer data)
 {
-    gint group = GPOINTER_TO_INT (data);
-    xkb_config_set_group (group);
+    MenuItemData *item_data = data;
+    xkb_keyboard_set_group (item_data->xkb->keyboard, item_data->group);
 }
 
 static t_xkb *
@@ -210,7 +210,7 @@ xkb_new (XfcePanelPlugin *plugin)
     g_signal_connect (xkb->btn, "button-release-event",
             G_CALLBACK (xkb_plugin_button_clicked), xkb);
     g_signal_connect (xkb->btn, "scroll-event",
-            G_CALLBACK (xkb_plugin_button_scrolled), NULL);
+            G_CALLBACK (xkb_plugin_button_scrolled), xkb);
 
     g_object_set (G_OBJECT (xkb->btn), "has-tooltip", TRUE, NULL);
     g_signal_connect (xkb->btn, "query-tooltip",
@@ -222,7 +222,9 @@ xkb_new (XfcePanelPlugin *plugin)
             G_CALLBACK (xkb_plugin_layout_image_draw), xkb);
     gtk_widget_show (GTK_WIDGET (xkb->layout_image));
 
-    if (xkb_config_initialize (xkb_xfconf_get_group_policy (xkb->config), xkb_state_changed, xkb))
+    xkb->keyboard = xkb_keyboard_new (xkb_xfconf_get_group_policy (xkb->config),
+            xkb_state_changed, xkb);
+    if (xkb_keyboard_get_initialized (xkb->keyboard))
     {
         xkb_refresh_gui (xkb);
         xkb_populate_popup_menu (xkb);
@@ -242,12 +244,11 @@ xkb_new (XfcePanelPlugin *plugin)
 static void
 xkb_free (t_xkb *xkb)
 {
-    xkb_config_finalize ();
-
     xkb_destroy_popup_menu (xkb);
     gtk_widget_destroy (xkb->layout_image);
     gtk_widget_destroy (xkb->btn);
 
+    g_object_unref (G_OBJECT (xkb->keyboard));
     g_object_unref (G_OBJECT (xkb->config));
 
     panel_slice_free (t_xkb, xkb);
@@ -314,6 +315,8 @@ xkb_destroy_popup_menu (t_xkb *xkb)
     {
         gtk_menu_popdown (GTK_MENU (xkb->popup));
         gtk_menu_detach (GTK_MENU (xkb->popup));
+        g_free (xkb->popup_user_data);
+        xkb->popup_user_data = NULL;
         xkb->popup = NULL;
     }
 }
@@ -324,21 +327,29 @@ xkb_populate_popup_menu (t_xkb *xkb)
     gint i, group_count;
     gchar *layout_string;
     GtkWidget *menu_item;
+    MenuItemData *popup_user_data;
 
     if (G_UNLIKELY (xkb == NULL)) return;
 
+    group_count = xkb_keyboard_get_group_count (xkb->keyboard);
+
     xkb_destroy_popup_menu (xkb);
     xkb->popup = gtk_menu_new ();
+    xkb->popup_user_data = g_new0 (MenuItemData, group_count);
 
-    group_count = xkb_config_get_group_count ();
+    popup_user_data = xkb->popup_user_data;
+
     for (i = 0; i < group_count; i++)
     {
-        layout_string = xkb_config_get_pretty_layout_name (i);
+        layout_string = xkb_keyboard_get_pretty_layout_name (xkb->keyboard, i);
 
         menu_item = gtk_menu_item_new_with_label (layout_string);
 
+        popup_user_data[i].xkb = xkb;
+        popup_user_data[i].group = i;
+
         g_signal_connect (G_OBJECT (menu_item), "activate",
-                G_CALLBACK (xkb_plugin_set_group), GINT_TO_POINTER (i));
+                G_CALLBACK (xkb_plugin_set_group), &popup_user_data[i]);
 
         gtk_widget_show (menu_item);
         gtk_menu_shell_append (GTK_MENU_SHELL (xkb->popup), menu_item);
@@ -415,5 +426,6 @@ xkb_plugin_display_scale_changed (t_xkb *xkb)
 static void
 xkb_plugin_group_policy_changed (t_xkb *xkb)
 {
-    xkb_config_set_group_policy (xkb_xfconf_get_group_policy (xkb->config));
+    xkb_keyboard_set_group_policy (xkb->keyboard,
+            xkb_xfconf_get_group_policy (xkb->config));
 }

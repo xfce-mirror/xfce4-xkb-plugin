@@ -26,7 +26,7 @@
 #ifndef _XFCE_XKB_H_
 #define _XFCE_XKB_H_
 
-#include "xkb-config.h"
+#include "xkb-keyboard.h"
 #include "xkb-xfconf.h"
 
 #include <libxfce4util/libxfce4util.h>
@@ -42,12 +42,20 @@ typedef struct
     XfcePanelPlugin *plugin;
 
     XkbXfconf *config;
+    XkbKeyboard *keyboard;
 
     /* widgets */
     GtkWidget *btn;
     GtkWidget *layout_image;
     GtkWidget *popup;
+    void *popup_user_data;
 } t_xkb;
+
+typedef struct
+{
+    t_xkb *xkb;
+    gint group;
+} MenuItemData;
 
 #endif
 

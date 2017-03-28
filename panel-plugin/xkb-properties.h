@@ -36,7 +36,7 @@ typedef enum
     DISPLAY_TYPE_IMAGE              = 0,
     DISPLAY_TYPE_TEXT               = 1,
     DISPLAY_TYPE_SYSTEM             = 2
-} t_display_type;
+} XkbDisplayType;
 
 #define DISPLAY_SCALE_MIN             0
 #define DISPLAY_SCALE_MAX             100
@@ -46,7 +46,7 @@ typedef enum
     GROUP_POLICY_GLOBAL             = 0,
     GROUP_POLICY_PER_WINDOW         = 1,
     GROUP_POLICY_PER_APPLICATION    = 2
-} t_group_policy;
+} XkbGroupPolicy;
 
 #endif
 
