@@ -36,7 +36,7 @@
 #include <garcon/garcon.h>
 
 #include "xkb-plugin.h"
-#include "xkb-settings-dialog.h"
+#include "xkb-dialog.h"
 #include "xkb-util.h"
 #include "xkb-cairo.h"
 #include "xkb-properties.h"
@@ -76,6 +76,8 @@ static void         xkb_plugin_orientation_changed      (XfcePanelPlugin *plugin
 static gboolean     xkb_plugin_size_changed             (XfcePanelPlugin *plugin,
                                                          gint size);
 static void         xkb_plugin_free_data                (XfcePanelPlugin *plugin);
+static void         xkb_plugin_about_show               (XfcePanelPlugin *plugin);
+static void         xkb_plugin_configure_plugin         (XfcePanelPlugin *plugin);
 
 /* ----------------------------------------------------------------- *
  *                           XKB Stuff                               *
@@ -148,7 +150,7 @@ xkb_plugin_class_init (XkbPluginClass *klass)
     plugin_class = XFCE_PANEL_PLUGIN_CLASS (klass);
     plugin_class->construct = xkb_plugin_construct;
     plugin_class->free_data = xkb_plugin_free_data;
-    plugin_class->about = xkb_plugin_show_about;
+    plugin_class->about = xkb_plugin_about_show;
     plugin_class->configure_plugin = xkb_plugin_configure_plugin;
     plugin_class->orientation_changed = xkb_plugin_orientation_changed;
     plugin_class->size_changed = xkb_plugin_size_changed;
@@ -274,6 +276,20 @@ xkb_plugin_free_data (XfcePanelPlugin *plugin)
 
     g_object_unref (G_OBJECT (xkb_plugin->keyboard));
     g_object_unref (G_OBJECT (xkb_plugin->config));
+}
+
+static void
+xkb_plugin_about_show (XfcePanelPlugin *plugin)
+{
+    xkb_dialog_about_show ();
+}
+
+static void
+xkb_plugin_configure_plugin (XfcePanelPlugin *plugin)
+{
+    XkbPlugin *xkb_plugin = XKB_PLUGIN (plugin);
+
+    xkb_dialog_configure_plugin (plugin, xkb_plugin->config);
 }
 
 /* ----------------- xkb plugin stuff -----------------------*/
@@ -683,11 +699,4 @@ xkb_plugin_group_policy_changed (XkbPlugin *plugin)
 {
     xkb_keyboard_set_group_policy (plugin->keyboard,
             xkb_xfconf_get_group_policy (plugin->config));
-}
-
-XkbXfconf *
-xkb_plugin_get_config (XkbPlugin *plugin)
-{
-    g_return_val_if_fail (IS_XKB_PLUGIN (plugin), NULL);
-    return plugin->config;
 }

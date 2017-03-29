@@ -1,5 +1,5 @@
 /* vim: set backspace=2 ts=4 softtabstop=4 sw=4 cinoptions=>4 expandtab autoindent smartindent: */
-/* xkb-settings-dialog.c
+/* xkb-dialog.c
  * Copyright (C) 2008 Alexander Iliev <sasoiliev@mamul.org>
  *
  * Parts of this program comes from the XfKC tool:
@@ -35,12 +35,8 @@
 #include <libxfce4ui/libxfce4ui.h>
 
 #include "xkb-plugin.h"
-#include "xkb-settings-dialog.h"
+#include "xkb-dialog.h"
 #include "xkb-util.h"
-
-GtkTreeIter current_iter;
-GtkWidget *settings_dialog;
-GtkWidget *default_layout_menu;
 
 typedef struct
 {
@@ -48,35 +44,10 @@ typedef struct
     GtkWidget *display_scale_range;
 } DialogInstance;
 
-enum combo_enum
-{
-    DESC = 0,
-    NOM,
-    COMBO_NUM
-};
-
-enum tree_enum
-{
-    DEFAULT_LAYOUT = 0,
-    LAYOUTS,
-    VARIANTS,
-    TREE_NUM
-};
-
-enum enumeration
-{
-    AVAIL_LAYOUT_TREE_COL_DESCRIPTION = 0,
-    AVAIL_LAYOUT_TREE_COL_ID,
-    NUM
-};
-
-
-/**************************************************************/
-
 static void
-on_settings_close (GtkDialog *dialog,
-                   gint response,
-                   DialogInstance *instance)
+xkb_dialog_on_settings_close (GtkDialog *dialog,
+                              gint response,
+                              DialogInstance *instance)
 {
     xfce_panel_plugin_unblock_menu (instance->plugin);
     gtk_widget_destroy (GTK_WIDGET (dialog));
@@ -84,8 +55,8 @@ on_settings_close (GtkDialog *dialog,
 }
 
 static void
-on_display_type_changed (GtkComboBox *cb,
-                         DialogInstance *instance)
+xkb_dialog_on_display_type_changed (GtkComboBox *cb,
+                                    DialogInstance *instance)
 {
     gint active = gtk_combo_box_get_active (cb);
     gtk_widget_set_sensitive (instance->display_scale_range,
@@ -93,19 +64,18 @@ on_display_type_changed (GtkComboBox *cb,
 }
 
 void
-xkb_plugin_configure_plugin (XfcePanelPlugin *plugin)
+xkb_dialog_configure_plugin (XfcePanelPlugin *plugin,
+                             XkbXfconf *config)
 {
+    GtkWidget *settings_dialog;
     GtkWidget *display_type_combo;
     GtkWidget *display_scale_range;
     GtkWidget *display_tooltip_icon_switch;
     GtkWidget *group_policy_combo;
     GtkWidget *vbox, *frame, *bin, *grid, *label;
-    XkbXfconf *config;
     DialogInstance *instance;
 
     xfce_panel_plugin_block_menu (plugin);
-
-    config = xkb_plugin_get_config (XKB_PLUGIN (plugin));
 
     instance = g_new0 (DialogInstance, 1);
     instance->plugin = plugin;
@@ -191,12 +161,12 @@ xkb_plugin_configure_plugin (XfcePanelPlugin *plugin)
     gtk_widget_show_all (vbox);
 
     g_signal_connect ((gpointer) settings_dialog, "response",
-            G_CALLBACK (on_settings_close), instance);
+            G_CALLBACK (xkb_dialog_on_settings_close), instance);
 
     /* enable or disable display_scale_range depending on display type */
     g_signal_connect (display_type_combo, "changed",
-            G_CALLBACK (on_display_type_changed), instance);
-    on_display_type_changed (GTK_COMBO_BOX (display_type_combo), instance);
+            G_CALLBACK (xkb_dialog_on_display_type_changed), instance);
+    xkb_dialog_on_display_type_changed (GTK_COMBO_BOX (display_type_combo), instance);
 
     g_object_bind_property (G_OBJECT (config), DISPLAY_TYPE,
             G_OBJECT (display_type_combo),
@@ -218,7 +188,7 @@ xkb_plugin_configure_plugin (XfcePanelPlugin *plugin)
 }
 
 void
-xkb_plugin_show_about (XfcePanelPlugin *plugin)
+xkb_dialog_about_show (void)
 {
     GtkWidget *about;
     GdkPixbuf *icon;

@@ -1,5 +1,5 @@
 /* vim: set backspace=2 ts=4 softtabstop=4 sw=4 cinoptions=>4 expandtab autoindent smartindent: */
-/* xkb-settings-dialog.h
+/* xkb-dialog.h
  * Copyright (C) 2008 Alexander Iliev <sasoiliev@mamul.org>
  *
  * Parts of this program comes from the XfKC tool:
@@ -26,8 +26,9 @@
 #ifndef __XKB_SETTINGS_DIALOG_H__
 #define __XKB_SETTINGS_DIALOG_H__
 
-void    xkb_plugin_configure_plugin    (XfcePanelPlugin *plugin);
-void    xkb_plugin_show_about          (XfcePanelPlugin *plugin);
+void    xkb_dialog_configure_plugin    (XfcePanelPlugin *plugin,
+                                        XkbXfconf *config);
+void    xkb_dialog_about_show          (void);
 
 #endif
 

@@ -53,8 +53,6 @@ GType             xkb_plugin_get_type                     (void)                
 
 void              xkb_plugin_register_type                (XfcePanelTypeModule   *type_module);
 
-XkbXfconf        *xkb_plugin_get_config                   (XkbPlugin             *plugin);
-
 G_END_DECLS
 
 #endif
