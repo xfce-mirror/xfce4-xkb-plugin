@@ -26,16 +26,9 @@
 #ifndef _XFCE_XKB_H_
 #define _XFCE_XKB_H_
 
-#include "xkb-keyboard.h"
-#include "xkb-xfconf.h"
-
-#include <libxfce4util/libxfce4util.h>
-#include <libxfce4ui/libxfce4ui.h>
 #include <libxfce4panel/xfce-panel-plugin.h>
 
-#include <X11/Xlib.h>
-#include <gtk/gtk.h>
-#include <glib.h>
+#include "xkb-xfconf.h"
 
 G_BEGIN_DECLS
 

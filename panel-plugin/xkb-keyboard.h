@@ -27,7 +27,6 @@
 #define _xkb_keyboard_H_
 
 #include <gdk/gdk.h>
-#include <libxklavier/xklavier.h>
 
 #include "xkb-properties.h"
 

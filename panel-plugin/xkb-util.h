@@ -27,8 +27,6 @@
 #define __XKB_UTIL_H__
 
 #include <glib.h>
-#include <gdk/gdk.h>
-#include <gtk/gtk.h>
 
 gchar*      xkb_util_get_flag_filename      (const gchar* group_name);
 
@@ -38,4 +36,3 @@ gchar*      xkb_util_normalize_group_name   (const gchar* group_name,
                                              const gboolean capitalize);
 
 #endif
-

@@ -27,7 +27,6 @@
 #include <config.h>
 #endif
 
-#include "xkb-properties.h"
 #include "xkb-xfconf.h"
 
 #include <string.h>
@@ -58,10 +57,10 @@ struct _XkbXfconf
 {
     GObject __parent__;
 
-    guint display_type;
+    XkbDisplayType display_type;
     guint display_scale;
     gboolean display_tooltip_icon;
-    guint group_policy;
+    XkbGroupPolicy group_policy;
 };
 
 enum
@@ -215,7 +214,7 @@ xkb_xfconf_set_property (GObject *object, guint prop_id, const GValue *value, GP
     }
 }
 
-guint
+XkbDisplayType
 xkb_xfconf_get_display_type (XkbXfconf *config)
 {
     g_return_val_if_fail (IS_XKB_XFCONF (config), DEFAULT_DISPLAY_TYPE);
@@ -236,7 +235,7 @@ xkb_xfconf_get_display_tooltip_icon (XkbXfconf *config)
     return config->display_tooltip_icon;
 }
 
-guint
+XkbGroupPolicy
 xkb_xfconf_get_group_policy (XkbXfconf *config)
 {
     g_return_val_if_fail (IS_XKB_XFCONF (config), DEFAULT_GROUP_POLICY);

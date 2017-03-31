@@ -27,16 +27,11 @@
 #include <config.h>
 #endif
 
-#include <string.h>
-#include <glib.h>
-#include <gtk/gtk.h>
-
-#include <libxfce4panel/xfce-panel-plugin.h>
 #include <libxfce4ui/libxfce4ui.h>
 
 #include "xkb-plugin.h"
+#include "xkb-properties.h"
 #include "xkb-dialog.h"
-#include "xkb-util.h"
 
 typedef struct
 {

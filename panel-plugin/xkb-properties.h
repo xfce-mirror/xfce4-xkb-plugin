@@ -49,4 +49,3 @@ typedef enum
 } XkbGroupPolicy;
 
 #endif
-

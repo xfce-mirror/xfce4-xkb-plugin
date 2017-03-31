@@ -23,11 +23,11 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
+#include <libxfce4util/libxfce4util.h>
+#include <librsvg/rsvg.h>
+
 #include "xkb-cairo.h"
 #include "xkb-util.h"
-#include "xkb-plugin.h"
-
-#include <librsvg/rsvg.h>
 
 #define XKB_PREFERRED_FONT "Courier New, Courier 10 Pitch, Monospace Bold"
 
@@ -320,4 +320,3 @@ xkb_cairo_draw_label_system (cairo_t *cr,
     g_free (normalized_group_name);
     g_object_unref (layout);
 }
-

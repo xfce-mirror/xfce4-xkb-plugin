@@ -27,19 +27,16 @@
 #include <config.h>
 #endif
 
-#include <stdio.h>
-#include <ctype.h>
-
+#include <libxfce4ui/libxfce4ui.h>
 #include <libwnck/libwnck.h>
-
 #include <librsvg/rsvg.h>
 #include <garcon/garcon.h>
 
 #include "xkb-plugin.h"
-#include "xkb-dialog.h"
-#include "xkb-util.h"
-#include "xkb-cairo.h"
 #include "xkb-properties.h"
+#include "xkb-keyboard.h"
+#include "xkb-dialog.h"
+#include "xkb-cairo.h"
 
 typedef struct
 {
@@ -325,7 +322,7 @@ xkb_plugin_calculate_sizes (XkbPlugin *plugin,
     guint nrows;
     gint hsize, vsize;
     gboolean proportional;
-    guint display_type;
+    XkbDisplayType display_type;
 
     display_type = xkb_xfconf_get_display_type (plugin->config);
     nrows = xfce_panel_plugin_get_nrows (XFCE_PANEL_PLUGIN (plugin));
@@ -591,7 +588,8 @@ xkb_plugin_layout_image_draw (GtkWidget *widget,
     PangoFontDescription *desc;
     GdkRGBA rgba;
     gint actual_hsize, actual_vsize;
-    gint display_type, display_scale;
+    XkbDisplayType display_type;
+    gint display_scale;
 
     display_type = xkb_xfconf_get_display_type (plugin->config);
     display_scale = xkb_xfconf_get_display_scale (plugin->config);
@@ -608,33 +606,33 @@ xkb_plugin_layout_image_draw (GtkWidget *widget,
     DBG ("img_exposed: actual h/v (%d/%d)",
          actual_hsize, actual_vsize);
 
-    if (display_type == DISPLAY_TYPE_IMAGE)
+    switch (display_type)
     {
-        xkb_cairo_draw_flag (cr, group_name,
-                actual_hsize, actual_vsize,
-                xkb_keyboard_variant_index_for_group (plugin->keyboard, -1),
-                xkb_keyboard_get_max_group_count (plugin->keyboard),
-                display_scale,
-                rgba
-        );
-    }
-    else if (display_type == DISPLAY_TYPE_TEXT)
-    {
-        xkb_cairo_draw_label (cr, group_name,
-                actual_hsize, actual_vsize,
-                xkb_keyboard_variant_index_for_group (plugin->keyboard, -1),
-                display_scale,
-                rgba
-        );
-    }
-    else
-    {
-        gtk_style_context_get (style_ctx, state, "font", &desc, NULL);
-        xkb_cairo_draw_label_system (cr, group_name,
-                actual_hsize, actual_vsize,
-                xkb_keyboard_variant_index_for_group (plugin->keyboard, -1),
-                desc, rgba
-        );
+        case DISPLAY_TYPE_IMAGE:
+            xkb_cairo_draw_flag (cr, group_name,
+                    actual_hsize, actual_vsize,
+                    xkb_keyboard_variant_index_for_group (plugin->keyboard, -1),
+                    xkb_keyboard_get_max_group_count (plugin->keyboard),
+                    display_scale,
+                    rgba
+            );
+            break;
+        case DISPLAY_TYPE_TEXT:
+            xkb_cairo_draw_label (cr, group_name,
+                    actual_hsize, actual_vsize,
+                    xkb_keyboard_variant_index_for_group (plugin->keyboard, -1),
+                    display_scale,
+                    rgba
+            );
+            break;
+        case DISPLAY_TYPE_SYSTEM:
+            gtk_style_context_get (style_ctx, state, "font", &desc, NULL);
+            xkb_cairo_draw_label_system (cr, group_name,
+                    actual_hsize, actual_vsize,
+                    xkb_keyboard_variant_index_for_group (plugin->keyboard, -1),
+                    desc, rgba
+            );
+            break;
     }
 
     return FALSE;

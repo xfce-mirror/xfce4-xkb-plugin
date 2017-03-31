@@ -26,8 +26,6 @@
 #ifndef _XKB_CAIRO_H_
 #define _XKB_CAIRO_H_
 
-#include <glib.h>
-#include <glib/gprintf.h>
 #include <gdk/gdk.h>
 #include <cairo/cairo.h>
 #include <pango/pangocairo.h>
@@ -58,4 +56,3 @@ void        xkb_cairo_draw_label_system (cairo_t *cr,
                                          GdkRGBA rgba);
 
 #endif
-

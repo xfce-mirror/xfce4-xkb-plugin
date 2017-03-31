@@ -23,29 +23,12 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-#ifdef HAVE_CONFIG_H
-#include <config.h>
-#endif
-
 #include "xkb-keyboard.h"
 #include "xkb-util.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-#include <libxklavier/xklavier.h>
-
-#include <glib.h>
-#include <glib/gstdio.h>
-#include <gtk/gtk.h>
 #include <gdk/gdkx.h>
+#include <libxklavier/xklavier.h>
 #include <librsvg/rsvg.h>
-
-#ifndef DEBUG
-#undef G_DISABLE_ASSERT
-#define G_DISABLE_ASSERT
-#endif
 
 typedef struct
 {

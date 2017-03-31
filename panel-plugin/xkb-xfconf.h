@@ -26,7 +26,8 @@
 #ifndef _XKB_XFCONF_H_
 #define _XKB_XFCONF_H_
 
-#include <gdk/gdk.h>
+#include <glib-object.h>
+#include "xkb-properties.h"
 
 G_BEGIN_DECLS
 
@@ -44,10 +45,10 @@ GType           xkb_xfconf_get_type                        (void)               
 
 XkbXfconf      *xkb_xfconf_new                             (const gchar   *property_base);
 
-guint           xkb_xfconf_get_display_type                (XkbXfconf     *config);
+XkbDisplayType  xkb_xfconf_get_display_type                (XkbXfconf     *config);
 guint           xkb_xfconf_get_display_scale               (XkbXfconf     *config);
 gboolean        xkb_xfconf_get_display_tooltip_icon        (XkbXfconf     *config);
-guint           xkb_xfconf_get_group_policy                (XkbXfconf     *config);
+XkbGroupPolicy  xkb_xfconf_get_group_policy                (XkbXfconf     *config);
 
 G_END_DECLS
 

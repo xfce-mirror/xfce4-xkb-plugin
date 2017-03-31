@@ -24,7 +24,6 @@
  */
 
 #include <string.h>
-#include <cairo/cairo.h>
 
 #include "xkb-util.h"
 
@@ -99,4 +98,3 @@ xkb_util_normalize_group_name (const gchar* group_name, const gboolean capitaliz
 
     return result;
 }
-

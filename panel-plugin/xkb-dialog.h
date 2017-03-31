@@ -26,6 +26,10 @@
 #ifndef __XKB_SETTINGS_DIALOG_H__
 #define __XKB_SETTINGS_DIALOG_H__
 
+#include <libxfce4panel/xfce-panel-plugin.h>
+
+#include "xkb-xfconf.h"
+
 void    xkb_dialog_configure_plugin    (XfcePanelPlugin *plugin,
                                         XkbXfconf *config);
 void    xkb_dialog_about_show          (void);
