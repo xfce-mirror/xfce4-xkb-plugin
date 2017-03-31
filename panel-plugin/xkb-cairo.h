@@ -31,13 +31,12 @@
 #include <pango/pangocairo.h>
 
 void        xkb_cairo_draw_flag         (cairo_t *cr,
-                                         const gchar *flag_name,
+                                         GdkPixbuf *image,
                                          gint actual_width,
                                          gint actual_height,
                                          gint variant_markers_count,
                                          guint max_variant_markers_count,
-                                         guint scale,
-                                         GdkRGBA rgba);
+                                         guint scale);
 
 void        xkb_cairo_draw_label        (cairo_t *cr,
                                          const gchar *group_name,

@@ -32,9 +32,13 @@
 
 typedef struct
 {
-    gchar                *group_name;
+    gchar                *country_name;
+    gint                  country_index;
+    gchar                *language_name;
+    gint                  language_index;
     gchar                *variant;
     gchar                *pretty_layout_name;
+    GdkPixbuf            *display_pixbuf;
     GdkPixbuf            *tooltip_pixbuf;
 } XkbGroupData;
 
@@ -52,7 +56,6 @@ struct _XkbKeyboard
     XkbGroupData         *group_data;
 
     XkbGroupPolicy        group_policy;
-    GHashTable           *variant_index_by_group;
 
     GHashTable           *application_map;
     GHashTable           *window_map;
@@ -106,7 +109,6 @@ xkb_keyboard_init (XkbKeyboard *keyboard)
     keyboard->group_data = NULL;
     keyboard->group_policy = GROUP_POLICY_GLOBAL;
 
-    keyboard->variant_index_by_group = NULL;
     keyboard->application_map = NULL;
     keyboard->window_map = NULL;
 
@@ -196,7 +198,7 @@ xkb_keyboard_create_pretty_layout_name (XklConfigRegistry *registry,
     else
     {
         g_snprintf (config_item->name, sizeof (config_item->name),
-                    "%s", layout_name);
+                "%s", layout_name);
         if (xkl_config_registry_find_layout (registry, config_item))
         {
             pretty_layout_name = xkb_keyboard_xkb_description (config_item);
@@ -211,11 +213,27 @@ xkb_keyboard_create_pretty_layout_name (XklConfigRegistry *registry,
     return pretty_layout_name;
 }
 
+static gchar *
+xkb_keyboard_obtain_language_name (XklConfigRegistry *registry,
+                                   XklConfigItem *config_item,
+                                   gchar *layout_name)
+{
+    g_snprintf (config_item->name, sizeof (config_item->name),
+            "%s", layout_name);
+
+    if (xkl_config_registry_find_layout (registry, config_item))
+    {
+        return g_strdup (config_item->short_description);
+    }
+
+    return g_strdup (layout_name);
+}
+
 static void
 xkb_keyboard_initialize_xkb_options (XkbKeyboard *keyboard,
                                      const XklConfigRec *config_rec)
 {
-    GHashTable *index_variants;
+    GHashTable *country_indexes, *language_indexes;
     gchar **group;
     gint val, i;
     gpointer pval;
@@ -237,8 +255,8 @@ xkb_keyboard_initialize_xkb_options (XkbKeyboard *keyboard,
     keyboard->application_map = g_hash_table_new (g_direct_hash, NULL);
     keyboard->group_data = (XkbGroupData *) g_new0 (XkbGroupData,
             keyboard->group_count);
-    keyboard->variant_index_by_group = g_hash_table_new (NULL, NULL);
-    index_variants = g_hash_table_new (g_str_hash, g_str_equal);
+    country_indexes = g_hash_table_new (g_str_hash, g_str_equal);
+    language_indexes = g_hash_table_new (g_str_hash, g_str_equal);
 
     registry = xkl_config_registry_get_instance (keyboard->engine);
     xkl_config_registry_load (registry, FALSE);
@@ -249,58 +267,56 @@ xkb_keyboard_initialize_xkb_options (XkbKeyboard *keyboard,
         XkbGroupData *group_data = &keyboard->group_data[i];
         RsvgHandle *handle;
 
-        group_data->group_name = g_strdup (config_rec->layouts[i]);
+        group_data->country_name = g_strdup (config_rec->layouts[i]);
 
         group_data->variant = (config_rec->variants[i] == NULL)
             ? g_strdup ("") : g_strdup (config_rec->variants[i]);
 
-        pval = g_hash_table_lookup (
-                index_variants,
-                group_data->group_name
-        );
-        val = (pval != NULL) ? GPOINTER_TO_INT (pval) : 0;
-        val++;
-        g_hash_table_insert (
-                keyboard->variant_index_by_group,
-                GINT_TO_POINTER (i),
-                GINT_TO_POINTER (val)
-        );
-        g_hash_table_insert (
-                index_variants,
-                group_data->group_name,
-                GINT_TO_POINTER (val)
-        );
+        group_data->pretty_layout_name = xkb_keyboard_create_pretty_layout_name (registry,
+                config_item, group_data->country_name, group_data->variant);
 
-        imgfilename = xkb_util_get_flag_filename (group_data->group_name);
+        group_data->language_name = xkb_keyboard_obtain_language_name (registry,
+                config_item, group_data->country_name);
+
+        #define MODIFY_INDEXES(table, name, index) \
+            pval = g_hash_table_lookup ( \
+                    table, \
+                    group_data->name \
+            ); \
+            val = (pval != NULL) ? GPOINTER_TO_INT (pval) : 0; \
+            val++; \
+            group_data->index = val; \
+            g_hash_table_insert ( \
+                    table, \
+                    group_data->name, \
+                    GINT_TO_POINTER (val) \
+            );
+
+        MODIFY_INDEXES (country_indexes, country_name, country_index);
+        MODIFY_INDEXES (language_indexes, language_name, language_index);
+
+        imgfilename = xkb_util_get_flag_filename (group_data->country_name);
         handle = rsvg_handle_new_from_file (imgfilename, NULL);
         if (handle)
         {
-            GdkPixbuf *tmp = rsvg_handle_get_pixbuf (handle);
-            group_data->tooltip_pixbuf =
-                gdk_pixbuf_scale_simple (tmp, 30, 22, GDK_INTERP_BILINEAR);
-            g_object_unref (tmp);
+            group_data->display_pixbuf = rsvg_handle_get_pixbuf (handle);
+            group_data->tooltip_pixbuf = gdk_pixbuf_scale_simple (group_data->display_pixbuf,
+                    30, 22, GDK_INTERP_BILINEAR);
             rsvg_handle_close (handle, NULL);
             g_object_unref (handle);
         }
         g_free (imgfilename);
-
-        group_data->pretty_layout_name =
-            xkb_keyboard_create_pretty_layout_name (registry, config_item,
-                                                    group_data->group_name,
-                                                    group_data->variant);
     }
     g_object_unref (config_item);
     g_object_unref (registry);
-    g_hash_table_destroy (index_variants);
+    g_hash_table_destroy (country_indexes);
+    g_hash_table_destroy (language_indexes);
 }
 
 static void
 xkb_keyboard_free (XkbKeyboard *keyboard)
 {
     gint i;
-
-    if (keyboard->variant_index_by_group)
-        g_hash_table_destroy (keyboard->variant_index_by_group);
 
     if (keyboard->window_map)
         g_hash_table_destroy (keyboard->window_map);
@@ -313,13 +329,16 @@ xkb_keyboard_free (XkbKeyboard *keyboard)
         for (i = 0; i < keyboard->group_count; i++)
         {
             XkbGroupData *group_data = &keyboard->group_data[i];
-            g_free (group_data->group_name);
+            g_free (group_data->country_name);
+            g_free (group_data->language_name);
             g_free (group_data->variant);
             g_free (group_data->pretty_layout_name);
+
+            if (group_data->display_pixbuf)
+                g_object_unref (group_data->display_pixbuf);
+
             if (group_data->tooltip_pixbuf)
-            {
                 g_object_unref (group_data->tooltip_pixbuf);
-            }
         }
         g_free (keyboard->group_data);
     }
@@ -528,32 +547,62 @@ xkb_keyboard_get_max_group_count (XkbKeyboard *keyboard)
 
 const gchar*
 xkb_keyboard_get_group_name (XkbKeyboard *keyboard,
+                             XkbDisplayName display_name,
                              gint group)
 {
-    g_return_val_if_fail (IS_XKB_KEYBOARD (keyboard), NULL);
+    XkbGroupData *group_data;
 
-    if (G_UNLIKELY (group >= keyboard->group_count))
-        return NULL;
+    g_return_val_if_fail (IS_XKB_KEYBOARD (keyboard), NULL);
 
     if (group == -1)
         group = xkb_keyboard_get_current_group (keyboard);
 
-    return keyboard->group_data[group].group_name;
+    if (G_UNLIKELY (group < 0 || group >= keyboard->group_count))
+        return NULL;
+
+    group_data = &keyboard->group_data[group];
+
+    switch (display_name)
+    {
+        case DISPLAY_NAME_COUNTRY:
+            return group_data->country_name;
+
+        case DISPLAY_NAME_LANGUAGE:
+            return group_data->language_name;
+
+        default:
+            return "";
+    }
 }
 
-const gchar*
-xkb_keyboard_get_variant (XkbKeyboard *keyboard,
-                          gint group)
+gint
+xkb_keyboard_get_variant_index (XkbKeyboard *keyboard,
+                                XkbDisplayName display_name,
+                                gint group)
 {
-    g_return_val_if_fail (IS_XKB_KEYBOARD (keyboard), NULL);
+    XkbGroupData *group_data;
 
-    if (G_UNLIKELY (group >= keyboard->group_count))
-        return NULL;
+    g_return_val_if_fail (IS_XKB_KEYBOARD (keyboard), 0);
 
     if (group == -1)
         group = xkb_keyboard_get_current_group (keyboard);
 
-    return keyboard->group_data[group].variant;
+    if (G_UNLIKELY (group < 0 || group >= keyboard->group_count))
+        return 0;
+
+    group_data = &keyboard->group_data[group];
+
+    switch (display_name)
+    {
+        case DISPLAY_NAME_COUNTRY:
+            return group_data->country_index - 1;
+
+        case DISPLAY_NAME_LANGUAGE:
+            return group_data->language_index - 1;
+
+        default:
+            return 0;
+    }
 }
 
 static void
@@ -611,28 +660,6 @@ xkb_keyboard_xkl_config_changed (XklEngine *engine,
     }
 }
 
-gint
-xkb_keyboard_variant_index_for_group (XkbKeyboard *keyboard,
-                                      gint group)
-{
-    gpointer presult;
-    gint result;
-
-    g_return_val_if_fail (IS_XKB_KEYBOARD (keyboard), 0);
-
-    if (group == -1) group = xkb_keyboard_get_current_group (keyboard);
-
-    presult = g_hash_table_lookup (
-            keyboard->variant_index_by_group,
-            GINT_TO_POINTER (group)
-    );
-    if (presult == NULL) return 0;
-
-    result = GPOINTER_TO_INT (presult);
-    result = (result <= 0) ? 0 : result - 1;
-    return result;
-}
-
 static GdkFilterReturn
 xkb_keyboard_handle_xevent (GdkXEvent * xev, GdkEvent * event, gpointer user_data)
 {
@@ -645,11 +672,22 @@ xkb_keyboard_handle_xevent (GdkXEvent * xev, GdkEvent * event, gpointer user_dat
 }
 
 GdkPixbuf *
-xkb_keyboard_get_tooltip_pixbuf (XkbKeyboard *keyboard,
-                                 gint group)
+xkb_keyboard_get_pixbuf (XkbKeyboard *keyboard,
+                         gboolean tooltip,
+                         gint group)
 {
     g_return_val_if_fail (IS_XKB_KEYBOARD (keyboard), NULL);
-    return keyboard->group_data[group].tooltip_pixbuf;
+
+    if (group == -1)
+        group = xkb_keyboard_get_current_group (keyboard);
+
+    if (G_UNLIKELY (group < 0 || group >= keyboard->group_count))
+        return 0;
+
+    if (tooltip)
+        return keyboard->group_data[group].tooltip_pixbuf;
+    else
+        return keyboard->group_data[group].display_pixbuf;
 }
 
 gchar*
@@ -657,6 +695,13 @@ xkb_keyboard_get_pretty_layout_name (XkbKeyboard *keyboard,
                                      gint group)
 {
     g_return_val_if_fail (IS_XKB_KEYBOARD (keyboard), NULL);
+
+    if (group == -1)
+        group = xkb_keyboard_get_current_group (keyboard);
+
+    if (G_UNLIKELY (group < 0 || group >= keyboard->group_count))
+        return 0;
+
     return keyboard->group_data[group].pretty_layout_name;
 }
 

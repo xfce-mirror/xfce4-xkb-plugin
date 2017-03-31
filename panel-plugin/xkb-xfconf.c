@@ -34,6 +34,7 @@
 #include <xfconf/xfconf.h>
 
 #define DEFAULT_DISPLAY_TYPE                DISPLAY_TYPE_IMAGE
+#define DEFAULT_DISPLAY_NAME                DISPLAY_NAME_COUNTRY
 #define DEFAULT_DISPLAY_SCALE               DISPLAY_SCALE_MAX
 #define DEFAULT_DISPLAY_TOOLTIP_ICON        TRUE
 #define DEFAULT_GROUP_POLICY                GROUP_POLICY_PER_APPLICATION
@@ -58,6 +59,7 @@ struct _XkbXfconf
     GObject __parent__;
 
     XkbDisplayType display_type;
+    XkbDisplayName display_name;
     guint display_scale;
     gboolean display_tooltip_icon;
     XkbGroupPolicy group_policy;
@@ -67,6 +69,7 @@ enum
 {
     PROP_0,
     PROP_DISPLAY_TYPE,
+    PROP_DISPLAY_NAME,
     PROP_DISPLAY_SCALE,
     PROP_DISPLAY_TOOLTIP_ICON,
     PROP_GROUP_POLICY,
@@ -98,6 +101,11 @@ xkb_xfconf_class_init (XkbXfconfClass *klass)
                     DISPLAY_TYPE_IMAGE, DISPLAY_TYPE_SYSTEM, DEFAULT_DISPLAY_TYPE,
                     G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
 
+    g_object_class_install_property (gobject_class, PROP_DISPLAY_NAME,
+            g_param_spec_uint (DISPLAY_NAME, NULL, NULL,
+                    DISPLAY_NAME_COUNTRY, DISPLAY_NAME_LANGUAGE, DEFAULT_DISPLAY_NAME,
+                    G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
+
     g_object_class_install_property (gobject_class, PROP_DISPLAY_SCALE,
             g_param_spec_uint (DISPLAY_SCALE, NULL, NULL,
                     DISPLAY_SCALE_MIN, DISPLAY_SCALE_MAX, DEFAULT_DISPLAY_SCALE,
@@ -126,6 +134,7 @@ static void
 xkb_xfconf_init (XkbXfconf *config)
 {
     config->display_type = DEFAULT_DISPLAY_TYPE;
+    config->display_name = DEFAULT_DISPLAY_NAME;
     config->display_scale = DEFAULT_DISPLAY_SCALE;
     config->display_tooltip_icon = DEFAULT_DISPLAY_TOOLTIP_ICON;
     config->group_policy = DEFAULT_GROUP_POLICY;
@@ -147,6 +156,9 @@ xkb_xfconf_get_property (GObject *object, guint prop_id, GValue *value, GParamSp
     {
         case PROP_DISPLAY_TYPE:
             g_value_set_uint (value, config->display_type);
+            break;
+        case PROP_DISPLAY_NAME:
+            g_value_set_uint (value, config->display_name);
             break;
         case PROP_DISPLAY_SCALE:
             g_value_set_uint (value, config->display_scale);
@@ -178,6 +190,15 @@ xkb_xfconf_set_property (GObject *object, guint prop_id, const GValue *value, GP
             {
                 config->display_type = val_uint;
                 g_object_notify (G_OBJECT (config), DISPLAY_TYPE);
+                g_signal_emit (G_OBJECT (config), xkb_xfconf_signals [CONFIGURATION_CHANGED], 0);
+            }
+            break;
+        case PROP_DISPLAY_NAME:
+            val_uint = g_value_get_uint (value);
+            if (config->display_name != val_uint)
+            {
+                config->display_name = val_uint;
+                g_object_notify (G_OBJECT (config), DISPLAY_NAME);
                 g_signal_emit (G_OBJECT (config), xkb_xfconf_signals [CONFIGURATION_CHANGED], 0);
             }
             break;
@@ -221,6 +242,13 @@ xkb_xfconf_get_display_type (XkbXfconf *config)
     return config->display_type;
 }
 
+XkbDisplayName
+xkb_xfconf_get_display_name (XkbXfconf *config)
+{
+    g_return_val_if_fail (IS_XKB_XFCONF (config), DEFAULT_DISPLAY_NAME);
+    return config->display_name;
+}
+
 guint
 xkb_xfconf_get_display_scale (XkbXfconf *config)
 {
@@ -257,6 +285,10 @@ xkb_xfconf_new (const gchar *property_base)
 
         property = g_strconcat (property_base, "/" DISPLAY_TYPE, NULL);
         xfconf_g_property_bind (channel, property, G_TYPE_UINT, config, DISPLAY_TYPE);
+        g_free (property);
+
+        property = g_strconcat (property_base, "/" DISPLAY_NAME, NULL);
+        xfconf_g_property_bind (channel, property, G_TYPE_UINT, config, DISPLAY_NAME);
         g_free (property);
 
         property = g_strconcat (property_base, "/" DISPLAY_SCALE, NULL);

@@ -24,7 +24,6 @@
  */
 
 #include <libxfce4util/libxfce4util.h>
-#include <librsvg/rsvg.h>
 
 #include "xkb-cairo.h"
 #include "xkb-util.h"
@@ -33,55 +32,36 @@
 
 void
 xkb_cairo_draw_flag (cairo_t *cr,
-                     const gchar *group_name,
+                     GdkPixbuf *image,
                      gint actual_width,
                      gint actual_height,
                      gint variant_markers_count,
                      guint max_variant_markers_count,
-                     guint scale,
-                     GdkRGBA rgba)
+                     guint scale)
 {
-    gchar *filename;
-    RsvgHandle *handle;
-    RsvgDimensionData dim;
     double scalex, scaley;
-    gint i;
+    gint i, width, height;
     double layoutx, layouty, img_width, img_height;
     double radius, diameter;
     guint spacing;
 
     g_assert (cr != NULL);
+    g_assert (image != NULL);
 
-    if (!group_name)
-        return;
+    width = gdk_pixbuf_get_width (image);
+    height = gdk_pixbuf_get_height (image);
 
-    filename = xkb_util_get_flag_filename (group_name);
-    handle = rsvg_handle_new_from_file (filename, NULL);
-    g_free (filename);
-
-    if (!handle)
-    {
-        xkb_cairo_draw_label (cr, group_name,
-                actual_width, actual_height,
-                variant_markers_count,
-                scale,
-                rgba);
-        return;
-    }
-
-    rsvg_handle_get_dimensions (handle, &dim);
-
-    scalex = (double) (actual_width - 4) / dim.width;
-    scaley = (double) (actual_height - 4) / dim.height;
+    scalex = (double) (actual_width - 4) / width;
+    scaley = (double) (actual_height - 4) / height;
 
     scalex *= scale / 100.0;
     scaley *= scale / 100.0;
 
-    img_width  = dim.width * scalex;
-    img_height = dim.height * scaley;
+    img_width  = width * scalex;
+    img_height = height * scaley;
 
     DBG ("scale x/y: %.3f/%.3f, dim w/h: %d/%d, scaled w/h: %.1f/%.1f",
-         scalex, scaley, dim.width, dim.height, scalex*dim.width, scaley*dim.height);
+         scalex, scaley, width, height, scalex*width, scaley*height);
 
     layoutx = (actual_width - img_width) / 2;
     layouty = (actual_height - img_height) / 2;
@@ -90,7 +70,8 @@ xkb_cairo_draw_flag (cairo_t *cr,
     cairo_save (cr);
 
     cairo_scale (cr, scalex, scaley);
-    rsvg_handle_render_cairo (handle, cr);
+    gdk_cairo_set_source_pixbuf (cr, image, 0, 0);
+    cairo_paint (cr);
 
     cairo_restore (cr);
 
@@ -153,9 +134,6 @@ xkb_cairo_draw_flag (cairo_t *cr,
         cairo_set_source_rgb (cr, 1, 1, 1);
         cairo_stroke (cr);
     }
-
-    rsvg_handle_close (handle, NULL);
-    g_object_unref (handle);
 }
 
 void

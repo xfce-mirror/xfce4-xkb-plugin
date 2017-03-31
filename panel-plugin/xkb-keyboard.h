@@ -58,15 +58,15 @@ void              xkb_keyboard_set_group_policy             (XkbKeyboard     *ke
 gint              xkb_keyboard_get_group_count              (XkbKeyboard     *keyboard);
 guint             xkb_keyboard_get_max_group_count          (XkbKeyboard     *keyboard);
 const gchar*      xkb_keyboard_get_group_name               (XkbKeyboard     *keyboard,
+                                                             XkbDisplayName   display_name,
                                                              gint             group);
-const gchar*      xkb_keyboard_get_variant                  (XkbKeyboard     *keyboard,
+gint              xkb_keyboard_get_variant_index            (XkbKeyboard     *keyboard,
+                                                             XkbDisplayName   display_name,
                                                              gint             group);
 gboolean          xkb_keyboard_set_group                    (XkbKeyboard     *keyboard,
                                                              gint             group);
 gboolean          xkb_keyboard_next_group                   (XkbKeyboard     *keyboard);
 gboolean          xkb_keyboard_prev_group                   (XkbKeyboard     *keyboard);
-gint              xkb_keyboard_variant_index_for_group      (XkbKeyboard     *keyboard,
-                                                             gint             group);
 
 void              xkb_keyboard_window_changed               (XkbKeyboard     *keyboard,
                                                              guint            new_window_id,
@@ -75,7 +75,8 @@ void              xkb_keyboard_application_closed           (XkbKeyboard     *ke
                                                              guint            application_id);
 void              xkb_keyboard_window_closed                (XkbKeyboard     *keyboard,
                                                              guint            window_id);
-GdkPixbuf*        xkb_keyboard_get_tooltip_pixbuf           (XkbKeyboard     *keyboard,
+GdkPixbuf*        xkb_keyboard_get_pixbuf                   (XkbKeyboard     *keyboard,
+                                                             gboolean         tooltip,
                                                              gint             group);
 gchar*            xkb_keyboard_get_pretty_layout_name       (XkbKeyboard     *keyboard,
                                                              gint             group);

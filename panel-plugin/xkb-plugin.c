@@ -130,6 +130,7 @@ static void         xkb_plugin_window_closed           (WnckScreen *screen,
                                                         XkbPlugin *plugin);
 
 static void         xkb_plugin_display_type_changed     (XkbPlugin *plugin);
+static void         xkb_plugin_display_name_changed     (XkbPlugin *plugin);
 static void         xkb_plugin_display_scale_changed    (XkbPlugin *plugin);
 static void         xkb_plugin_group_policy_changed     (XkbPlugin *plugin);
 
@@ -178,6 +179,8 @@ xkb_plugin_construct (XfcePanelPlugin *plugin)
     xkb_plugin->config = xkb_xfconf_new (xfce_panel_plugin_get_property_base (plugin));
     g_signal_connect_swapped (G_OBJECT (xkb_plugin->config), "notify::" DISPLAY_TYPE,
             G_CALLBACK (xkb_plugin_display_type_changed), xkb_plugin);
+    g_signal_connect_swapped (G_OBJECT (xkb_plugin->config), "notify::" DISPLAY_NAME,
+            G_CALLBACK (xkb_plugin_display_name_changed), xkb_plugin);
     g_signal_connect_swapped (G_OBJECT (xkb_plugin->config), "notify::" DISPLAY_SCALE,
             G_CALLBACK (xkb_plugin_display_scale_changed), xkb_plugin);
     g_signal_connect_swapped (G_OBJECT (xkb_plugin->config), "notify::" GROUP_POLICY,
@@ -557,19 +560,16 @@ xkb_plugin_set_tooltip (GtkWidget *widget,
                         GtkTooltip *tooltip,
                         XkbPlugin *plugin)
 {
-    gint group;
     gchar *layout_name;
     GdkPixbuf *pixbuf;
 
-    group = xkb_keyboard_get_current_group (plugin->keyboard);
-
     if (xkb_xfconf_get_display_tooltip_icon (plugin->config))
     {
-        pixbuf = xkb_keyboard_get_tooltip_pixbuf (plugin->keyboard, group);
+        pixbuf = xkb_keyboard_get_pixbuf (plugin->keyboard, TRUE, -1);
         gtk_tooltip_set_icon (tooltip, pixbuf);
     }
 
-    layout_name = xkb_keyboard_get_pretty_layout_name (plugin->keyboard, group);
+    layout_name = xkb_keyboard_get_pretty_layout_name (plugin->keyboard, -1);
 
     gtk_tooltip_set_text (tooltip, layout_name);
 
@@ -582,6 +582,8 @@ xkb_plugin_layout_image_draw (GtkWidget *widget,
                               XkbPlugin *plugin)
 {
     const gchar *group_name;
+    gint variant_index;
+    GdkPixbuf *pixbuf;
     GtkAllocation allocation;
     GtkStyleContext *style_ctx;
     GtkStateFlags state;
@@ -589,9 +591,11 @@ xkb_plugin_layout_image_draw (GtkWidget *widget,
     GdkRGBA rgba;
     gint actual_hsize, actual_vsize;
     XkbDisplayType display_type;
+    XkbDisplayName display_name;
     gint display_scale;
 
     display_type = xkb_xfconf_get_display_type (plugin->config);
+    display_name = xkb_xfconf_get_display_name (plugin->config);
     display_scale = xkb_xfconf_get_display_scale (plugin->config);
 
     gtk_widget_get_allocation (GTK_WIDGET (widget), &allocation);
@@ -601,7 +605,13 @@ xkb_plugin_layout_image_draw (GtkWidget *widget,
     state = gtk_widget_get_state_flags (GTK_WIDGET (plugin->btn));
     style_ctx = gtk_widget_get_style_context (GTK_WIDGET (plugin->btn));
     gtk_style_context_get_color (style_ctx, state, &rgba);
-    group_name = xkb_keyboard_get_group_name (plugin->keyboard, -1);
+
+    group_name = xkb_keyboard_get_group_name (plugin->keyboard, display_name, -1);
+    pixbuf = xkb_keyboard_get_pixbuf (plugin->keyboard, FALSE, -1);
+    variant_index = xkb_keyboard_get_variant_index (plugin->keyboard, display_name, -1);
+
+    if (pixbuf == NULL && display_type == DISPLAY_TYPE_IMAGE)
+        display_type = DISPLAY_TYPE_TEXT;
 
     DBG ("img_exposed: actual h/v (%d/%d)",
          actual_hsize, actual_vsize);
@@ -609,18 +619,17 @@ xkb_plugin_layout_image_draw (GtkWidget *widget,
     switch (display_type)
     {
         case DISPLAY_TYPE_IMAGE:
-            xkb_cairo_draw_flag (cr, group_name,
+            xkb_cairo_draw_flag (cr, pixbuf,
                     actual_hsize, actual_vsize,
-                    xkb_keyboard_variant_index_for_group (plugin->keyboard, -1),
+                    variant_index,
                     xkb_keyboard_get_max_group_count (plugin->keyboard),
-                    display_scale,
-                    rgba
+                    display_scale
             );
             break;
         case DISPLAY_TYPE_TEXT:
             xkb_cairo_draw_label (cr, group_name,
                     actual_hsize, actual_vsize,
-                    xkb_keyboard_variant_index_for_group (plugin->keyboard, -1),
+                    variant_index,
                     display_scale,
                     rgba
             );
@@ -629,7 +638,7 @@ xkb_plugin_layout_image_draw (GtkWidget *widget,
             gtk_style_context_get (style_ctx, state, "font", &desc, NULL);
             xkb_cairo_draw_label_system (cr, group_name,
                     actual_hsize, actual_vsize,
-                    xkb_keyboard_variant_index_for_group (plugin->keyboard, -1),
+                    variant_index,
                     desc, rgba
             );
             break;
@@ -684,6 +693,12 @@ xkb_plugin_display_type_changed (XkbPlugin *plugin)
     xkb_plugin_calculate_sizes (plugin,
             xfce_panel_plugin_get_orientation (XFCE_PANEL_PLUGIN (plugin)),
             xfce_panel_plugin_get_size (XFCE_PANEL_PLUGIN (plugin)));
+}
+
+static void
+xkb_plugin_display_name_changed (XkbPlugin *plugin)
+{
+    xkb_plugin_refresh_gui (plugin);
 }
 
 static void
