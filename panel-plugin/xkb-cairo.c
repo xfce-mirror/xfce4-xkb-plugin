@@ -163,8 +163,7 @@ xkb_cairo_draw_label (cairo_t *cr,
     layout = pango_cairo_create_layout (cr);
     normalized_group_name = xkb_util_normalize_group_name (group_name, FALSE);
 
-    if (!normalized_group_name ||
-        !g_utf8_validate (normalized_group_name, -1, NULL))
+    if (!normalized_group_name)
     {
         g_object_unref (layout);
         g_free (normalized_group_name);
@@ -257,8 +256,7 @@ xkb_cairo_draw_label_system (cairo_t *cr,
     layout = pango_cairo_create_layout (cr);
     normalized_group_name = xkb_util_normalize_group_name (group_name, TRUE);
 
-    if (!normalized_group_name ||
-        !g_utf8_validate (normalized_group_name, -1, NULL))
+    if (!normalized_group_name)
     {
         g_object_unref (layout);
         g_free (normalized_group_name);

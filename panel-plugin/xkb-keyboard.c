@@ -176,7 +176,7 @@ xkb_keyboard_xkb_description (XklConfigItem *config_item)
     if (ci_description[0] == 0)
         description = g_strdup (config_item->name);
     else
-        description = g_locale_to_utf8 (ci_description, -1, NULL, NULL, NULL);
+        description = g_strdup (ci_description);
 
     return description;
 }
