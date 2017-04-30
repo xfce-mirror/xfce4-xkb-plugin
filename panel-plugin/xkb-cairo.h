@@ -31,7 +31,7 @@
 #include <pango/pangocairo.h>
 
 void        xkb_cairo_draw_flag         (cairo_t *cr,
-                                         GdkPixbuf *image,
+                                         const GdkPixbuf *image,
                                          gint actual_width,
                                          gint actual_height,
                                          gint variant_markers_count,
@@ -40,17 +40,17 @@ void        xkb_cairo_draw_flag         (cairo_t *cr,
 
 void        xkb_cairo_draw_label        (cairo_t *cr,
                                          const gchar *group_name,
-                                         const gint actual_width,
-                                         const gint actual_height,
-                                         const gint variant_markers_count,
-                                         const guint scale,
-                                         const GdkRGBA rgba);
+                                         gint actual_width,
+                                         gint actual_height,
+                                         gint variant_markers_count,
+                                         guint scale,
+                                         GdkRGBA rgba);
 
 void        xkb_cairo_draw_label_system (cairo_t *cr,
                                          const gchar *group_name,
-                                         const gint actual_width,
-                                         const gint actual_height,
-                                         const gint variant_markers_count,
+                                         gint actual_width,
+                                         gint actual_height,
+                                         gint variant_markers_count,
                                          const PangoFontDescription *desc,
                                          GdkRGBA rgba);
 
