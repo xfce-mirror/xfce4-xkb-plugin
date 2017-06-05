@@ -36,8 +36,9 @@ libxkb_la_CFLAGS = \
 	$(LIBWNCK_CFLAGS) \
 	$(GARCON_CFLAGS) \
 	$(PLATFORM_CFLAGS) \
-	-DPACKAGE_LOCALE_DIR=\"$(localedir)\" \
-	-DFLAGSDIR=\"$(datadir)/xfce4/xkb/flags\" \
+	-DLOCALEDIR=\"$(localedir)\" \
+	-DDATADIR=\"$(datadir)\" \
+	-DFLAGSRELDIR=\"xfce4/xkb/flags\" \
 	-DWNCK_I_KNOW_THIS_IS_UNSTABLE
 
 libxkb_la_LDFLAGS = \

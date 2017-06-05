@@ -234,7 +234,7 @@ xkb_plugin_construct (XfcePanelPlugin *plugin)
     g_signal_connect (G_OBJECT (wnck_screen), "application-closed",
             G_CALLBACK (xkb_plugin_application_closed), xkb_plugin);
 
-    xfce_textdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");
+    xfce_textdomain (GETTEXT_PACKAGE, LOCALEDIR, "UTF-8");
 
     xfce_panel_plugin_menu_show_configure (plugin);
     xfce_panel_plugin_menu_show_about (plugin);
