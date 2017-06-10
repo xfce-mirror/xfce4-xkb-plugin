@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-01 00:31+0200\n"
-"PO-Revision-Date: 2017-01-22 17:36+0000\n"
+"POT-Creation-Date: 2017-06-10 15:06+0200\n"
+"PO-Revision-Date: 2017-06-10 15:05+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/xfce/xfce-panel-plugins/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -22,66 +22,86 @@ msgstr ""
 "Language: da\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../panel-plugin/xkb-settings-dialog.c:120
-#: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
+#: ../panel-plugin/xkb-dialog.c:80 ../panel-plugin/xkb.desktop.in.h:1
 msgid "Keyboard Layouts"
 msgstr "Tastaturlayouts"
 
-#. ***
-#: ../panel-plugin/xkb-settings-dialog.c:130
+#: ../panel-plugin/xkb-dialog.c:95
+msgid "Appearance"
+msgstr "Udseende"
+
+#: ../panel-plugin/xkb-dialog.c:105
 msgid "Show layout as:"
 msgstr "Vis layout som:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:135
+#: ../panel-plugin/xkb-dialog.c:111
 msgid "image"
 msgstr "billede"
 
-#: ../panel-plugin/xkb-settings-dialog.c:136
+#: ../panel-plugin/xkb-dialog.c:112
 msgid "text"
 msgstr "tekst"
 
-#. text size option
-#: ../panel-plugin/xkb-settings-dialog.c:141
-msgid "Text size:"
-msgstr "Tekst størrelse:"
+#: ../panel-plugin/xkb-dialog.c:113
+msgid "system"
+msgstr "system"
 
-#. image size option
-#: ../panel-plugin/xkb-settings-dialog.c:152
-msgid "Image size:"
-msgstr "Billedstørrelse:"
+#: ../panel-plugin/xkb-dialog.c:119
+msgid "Layout name:"
+msgstr "Layoutnavn:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:162
+#: ../panel-plugin/xkb-dialog.c:125
+msgid "country"
+msgstr "land"
+
+#: ../panel-plugin/xkb-dialog.c:126
+msgid "language"
+msgstr "sprog"
+
+#: ../panel-plugin/xkb-dialog.c:132
+msgid "Widget size:"
+msgstr "Widget-størrelse:"
+
+#: ../panel-plugin/xkb-dialog.c:146
+msgid "Tooltip icon:"
+msgstr "Ikon for værktøjstip:"
+
+#: ../panel-plugin/xkb-dialog.c:157
+msgid "Behavior"
+msgstr "Adfærd"
+
+#: ../panel-plugin/xkb-dialog.c:167
 msgid "Manage layout:"
 msgstr "Håndtér layout:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:167
+#: ../panel-plugin/xkb-dialog.c:173
 msgid "globally"
 msgstr "globalt"
 
-#: ../panel-plugin/xkb-settings-dialog.c:168
+#: ../panel-plugin/xkb-dialog.c:174
 msgid "per window"
 msgstr "hvert vindue"
 
-#: ../panel-plugin/xkb-settings-dialog.c:169
+#: ../panel-plugin/xkb-dialog.c:175
 msgid "per application"
 msgstr "hvert program"
 
-#: ../panel-plugin/xkb-settings-dialog.c:205
+#: ../panel-plugin/xkb-dialog.c:228
 msgid "Keyboard Layouts Plugin"
 msgstr "Udvidelsesmodul til tastaturlayouts"
 
-#: ../panel-plugin/xkb-settings-dialog.c:215
+#: ../panel-plugin/xkb-dialog.c:238
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "Tillader dig at indstille og bruge flere tastaturlayouts."
 
-#: ../panel-plugin/xkb-settings-dialog.c:219
+#: ../panel-plugin/xkb-dialog.c:242
 msgid "Other plugins available here"
 msgstr "Andre udvidelsesmoduler som er tilgængelige her"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:131
+#: ../panel-plugin/xkb-plugin.c:244
 msgid "Keyboard settings"
 msgstr "Tastaturindstillinger"
 
-#: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
+#: ../panel-plugin/xkb.desktop.in.h:2
 msgid "Keyboard layouts setup and switch plugin"
 msgstr "Udvidelsesmodul til indstilling og skift af tastaturlayout"
