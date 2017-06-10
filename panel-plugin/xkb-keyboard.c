@@ -52,6 +52,9 @@ struct _XkbKeyboard
     GObject __parent__;
     
     XklEngine            *engine;
+    XklConfigRec         *last_config_rec;
+
+    guint                 config_timeout_id;
 
     XkbGroupData         *group_data;
 
@@ -85,7 +88,7 @@ static GdkFilterReturn   xkb_keyboard_handle_xevent            (GdkXEvent * xev,
 
 static void              xkb_keyboard_free                     (XkbKeyboard *keyboard);
 static void              xkb_keyboard_finalize                 (GObject *object);
-static void              xkb_keyboard_update_from_xkl          (XkbKeyboard *keyboard);
+static gboolean          xkb_keyboard_update_from_xkl          (XkbKeyboard *keyboard);
 static void              xkb_keyboard_initialize_xkb_options   (XkbKeyboard *keyboard,
                                                                 const XklConfigRec *config_rec);
 
@@ -106,6 +109,10 @@ static void
 xkb_keyboard_init (XkbKeyboard *keyboard)
 {
     keyboard->engine = NULL;
+    keyboard->last_config_rec = NULL;
+
+    keyboard->config_timeout_id = 0;
+
     keyboard->group_data = NULL;
     keyboard->group_policy = GROUP_POLICY_GLOBAL;
 
@@ -358,6 +365,12 @@ xkb_keyboard_finalize (GObject *object)
     }
 
     xkb_keyboard_free (keyboard);
+
+    if (keyboard->last_config_rec != NULL)
+        g_object_unref (keyboard->last_config_rec);
+
+    if (keyboard->config_timeout_id != 0)
+        g_source_remove (keyboard->config_timeout_id);
     
     G_OBJECT_CLASS (xkb_keyboard_parent_class)->finalize (object);
 }
@@ -418,17 +431,58 @@ xkb_keyboard_set_group_policy (XkbKeyboard *keyboard,
     keyboard->group_policy = group_policy;
 }
 
-static void
+static gboolean
+xkb_keyboard_xkl_config_rec_equals (const XklConfigRec * rec1,
+                                   const XklConfigRec * rec2)
+{
+    gint i = 0;
+
+    g_return_val_if_fail (XKL_IS_CONFIG_REC (rec1), FALSE);
+    g_return_val_if_fail (XKL_IS_CONFIG_REC (rec2), FALSE);
+
+    #define STRING_ARRAYS_NOT_EQUAL_RETURN(array1, array2) \
+        for (i = 0; array1[i] || array2[i]; i++) \
+        { \
+            if (!array1[i] || !array2[i] || \
+                    g_ascii_strcasecmp (array1[i], array2[i]) != 0) \
+            { \
+                return FALSE; \
+            } \
+        }
+
+    STRING_ARRAYS_NOT_EQUAL_RETURN (rec1->layouts, rec2->layouts);
+    STRING_ARRAYS_NOT_EQUAL_RETURN (rec1->variants, rec2->variants);
+
+    #undef STRING_ARRAYS_NOT_EQUAL_RETURN
+
+    return TRUE;
+}
+
+static gboolean
 xkb_keyboard_update_from_xkl (XkbKeyboard *keyboard)
 {
     XklConfigRec *config_rec;
 
     config_rec = xkl_config_rec_new ();
+    g_object_ref (config_rec);
     xkl_config_rec_get_from_server (config_rec, keyboard->engine);
 
-    xkb_keyboard_initialize_xkb_options (keyboard, config_rec);
+    if (keyboard->last_config_rec == NULL ||
+            !xkb_keyboard_xkl_config_rec_equals (config_rec, keyboard->last_config_rec))
+    {
+        xkb_keyboard_initialize_xkb_options (keyboard, config_rec);
 
-    g_object_unref (config_rec);
+        if (keyboard->last_config_rec != NULL)
+            g_object_unref (keyboard->last_config_rec);
+
+        keyboard->last_config_rec = config_rec;
+
+        return TRUE;
+    }
+    else
+    {
+        return FALSE;
+    }
 }
 
 void
@@ -645,19 +699,35 @@ xkb_keyboard_xkl_state_changed (XklEngine *engine,
     }
 }
 
+static gboolean
+xkb_keyboard_xkl_config_changed_timeout (gpointer user_data)
+{
+    XkbKeyboard *keyboard = user_data;
+    gboolean     updated;
+
+    updated = xkb_keyboard_update_from_xkl (keyboard);
+
+    if (updated && keyboard->callback != NULL)
+    {
+        xkb_keyboard_set_group (keyboard, 0);
+        keyboard->callback (0, TRUE, keyboard->callback_data);
+    }
+
+    keyboard->config_timeout_id = 0;
+
+    return G_SOURCE_REMOVE;
+}
+
 static void
 xkb_keyboard_xkl_config_changed (XklEngine *engine,
                                  gpointer user_data)
 {
     XkbKeyboard *keyboard = user_data;
 
-    xkb_keyboard_update_from_xkl (keyboard);
+    if (keyboard->config_timeout_id != 0)
+        g_source_remove (keyboard->config_timeout_id);
 
-    if (keyboard->callback != NULL)
-    {
-        xkb_keyboard_set_group (keyboard, 0);
-        keyboard->callback (0, TRUE, keyboard->callback_data);
-    }
+    keyboard->config_timeout_id = g_timeout_add (100, xkb_keyboard_xkl_config_changed_timeout, keyboard);
 }
 
 static GdkFilterReturn
