@@ -6,14 +6,15 @@
 # Carles Muñoz Gorriz <carlesmu@internautas.org>, 2012
 # Davidmp <medipas@gmail.com>, 2016
 # Pau Ruŀlan Ferragut <paurullan@bulma.net>, 2006
-# Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>, 2016
+# Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2017
+# Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-01 00:31+0200\n"
-"PO-Revision-Date: 2016-05-04 07:54+0000\n"
-"Last-Translator: Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>\n"
+"POT-Creation-Date: 2017-06-10 15:06+0200\n"
+"PO-Revision-Date: 2017-06-10 16:55+0000\n"
+"Last-Translator: Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/xfce/xfce-panel-plugins/language/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,66 +22,86 @@ msgstr ""
 "Language: ca\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../panel-plugin/xkb-settings-dialog.c:120
-#: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
+#: ../panel-plugin/xkb-dialog.c:80 ../panel-plugin/xkb.desktop.in.h:1
 msgid "Keyboard Layouts"
 msgstr "Disposicions de teclats"
 
-#. ***
-#: ../panel-plugin/xkb-settings-dialog.c:130
+#: ../panel-plugin/xkb-dialog.c:95
+msgid "Appearance"
+msgstr "Aparença"
+
+#: ../panel-plugin/xkb-dialog.c:105
 msgid "Show layout as:"
 msgstr "Mostra la disposició com:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:135
+#: ../panel-plugin/xkb-dialog.c:111
 msgid "image"
 msgstr "imatge"
 
-#: ../panel-plugin/xkb-settings-dialog.c:136
+#: ../panel-plugin/xkb-dialog.c:112
 msgid "text"
 msgstr "text"
 
-#. text size option
-#: ../panel-plugin/xkb-settings-dialog.c:141
-msgid "Text size:"
-msgstr "Mida del text:"
+#: ../panel-plugin/xkb-dialog.c:113
+msgid "system"
+msgstr "sistema"
 
-#. image size option
-#: ../panel-plugin/xkb-settings-dialog.c:152
-msgid "Image size:"
-msgstr "Mida de la imatge:"
+#: ../panel-plugin/xkb-dialog.c:119
+msgid "Layout name:"
+msgstr "Nom de la disposició:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:162
+#: ../panel-plugin/xkb-dialog.c:125
+msgid "country"
+msgstr "país"
+
+#: ../panel-plugin/xkb-dialog.c:126
+msgid "language"
+msgstr "idioma"
+
+#: ../panel-plugin/xkb-dialog.c:132
+msgid "Widget size:"
+msgstr "Mida de l'estri:"
+
+#: ../panel-plugin/xkb-dialog.c:146
+msgid "Tooltip icon:"
+msgstr "Icona de l'indicador de funció:"
+
+#: ../panel-plugin/xkb-dialog.c:157
+msgid "Behavior"
+msgstr "Comportament"
+
+#: ../panel-plugin/xkb-dialog.c:167
 msgid "Manage layout:"
 msgstr "Gestiona el tipus:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:167
+#: ../panel-plugin/xkb-dialog.c:173
 msgid "globally"
 msgstr "globalment"
 
-#: ../panel-plugin/xkb-settings-dialog.c:168
+#: ../panel-plugin/xkb-dialog.c:174
 msgid "per window"
 msgstr "per finestra"
 
-#: ../panel-plugin/xkb-settings-dialog.c:169
+#: ../panel-plugin/xkb-dialog.c:175
 msgid "per application"
 msgstr "per aplicació"
 
-#: ../panel-plugin/xkb-settings-dialog.c:205
+#: ../panel-plugin/xkb-dialog.c:228
 msgid "Keyboard Layouts Plugin"
 msgstr "Connector de les disposicions del teclat"
 
-#: ../panel-plugin/xkb-settings-dialog.c:215
+#: ../panel-plugin/xkb-dialog.c:238
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "Us permet configurar i utilitzar múltiples disposicions de teclats."
 
-#: ../panel-plugin/xkb-settings-dialog.c:219
+#: ../panel-plugin/xkb-dialog.c:242
 msgid "Other plugins available here"
 msgstr "Altres connectors disponibles"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:131
+#: ../panel-plugin/xkb-plugin.c:244
 msgid "Keyboard settings"
 msgstr "Ajusts del teclat"
 
-#: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
+#: ../panel-plugin/xkb.desktop.in.h:2
 msgid "Keyboard layouts setup and switch plugin"
 msgstr "Connector de configuració i de canvi de la disposició del teclat"
