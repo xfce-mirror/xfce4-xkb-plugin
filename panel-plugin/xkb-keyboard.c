@@ -302,6 +302,8 @@ xkb_keyboard_initialize_xkb_options (XkbKeyboard *keyboard,
         MODIFY_INDEXES (country_indexes, country_name, country_index);
         MODIFY_INDEXES (language_indexes, language_name, language_index);
 
+        #undef MODIFY_INDEXES
+
         imgfilename = xkb_util_get_flag_filename (group_data->country_name);
         handle = rsvg_handle_new_from_file (imgfilename, NULL);
         if (handle)
@@ -433,7 +435,7 @@ xkb_keyboard_set_group_policy (XkbKeyboard *keyboard,
 
 static gboolean
 xkb_keyboard_xkl_config_rec_equals (const XklConfigRec * rec1,
-                                   const XklConfigRec * rec2)
+                                    const XklConfigRec * rec2)
 {
     gint i = 0;
 
@@ -464,7 +466,6 @@ xkb_keyboard_update_from_xkl (XkbKeyboard *keyboard)
     XklConfigRec *config_rec;
 
     config_rec = xkl_config_rec_new ();
-    g_object_ref (config_rec);
     xkl_config_rec_get_from_server (config_rec, keyboard->engine);
 
     if (keyboard->last_config_rec == NULL ||
@@ -481,6 +482,8 @@ xkb_keyboard_update_from_xkl (XkbKeyboard *keyboard)
     }
     else
     {
+        g_object_unref (config_rec);
+
         return FALSE;
     }
 }
