@@ -39,6 +39,7 @@ xkb_util_get_flag_filename (const gchar* group_name)
 
     if (!g_file_test (filename, G_FILE_TEST_EXISTS))
     {
+        g_free (filename);
         filename = g_strconcat (DATADIR, "/", FLAGSRELDIR, "/", group_name, ".svg", NULL);
     }
 
