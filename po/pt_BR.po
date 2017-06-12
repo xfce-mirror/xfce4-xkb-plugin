@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# André Miranda <andre42m@gmail.com>, 2017
 # Fábio Nogueira <deb-user-ba@ubuntu.com>, 2008
 # Marcio Andre Padula <padula1000@gmail.com>, 2015
 # secipolla <secipolla@gmail.com>, 2011
@@ -12,76 +13,96 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-01 00:31+0200\n"
-"PO-Revision-Date: 2015-07-05 01:26+0000\n"
-"Last-Translator: Marcio Andre Padula <padula1000@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/xfce-panel-plugins/language/pt_BR/)\n"
+"POT-Creation-Date: 2017-06-10 15:06+0200\n"
+"PO-Revision-Date: 2017-06-12 01:08+0000\n"
+"Last-Translator: André Miranda <andre42m@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) (http://www.transifex.com/xfce/xfce-panel-plugins/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: ../panel-plugin/xkb-settings-dialog.c:120
-#: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
+#: ../panel-plugin/xkb-dialog.c:80 ../panel-plugin/xkb.desktop.in.h:1
 msgid "Keyboard Layouts"
 msgstr "Disposições de teclado"
 
-#. ***
-#: ../panel-plugin/xkb-settings-dialog.c:130
+#: ../panel-plugin/xkb-dialog.c:95
+msgid "Appearance"
+msgstr "Aparência"
+
+#: ../panel-plugin/xkb-dialog.c:105
 msgid "Show layout as:"
 msgstr "Mostrar disposição como:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:135
+#: ../panel-plugin/xkb-dialog.c:111
 msgid "image"
 msgstr "imagem"
 
-#: ../panel-plugin/xkb-settings-dialog.c:136
+#: ../panel-plugin/xkb-dialog.c:112
 msgid "text"
 msgstr "texto"
 
-#. text size option
-#: ../panel-plugin/xkb-settings-dialog.c:141
-msgid "Text size:"
-msgstr "Tamanho do texto:"
+#: ../panel-plugin/xkb-dialog.c:113
+msgid "system"
+msgstr "sistema"
 
-#. image size option
-#: ../panel-plugin/xkb-settings-dialog.c:152
-msgid "Image size:"
-msgstr "Tamanho da Imagem:"
+#: ../panel-plugin/xkb-dialog.c:119
+msgid "Layout name:"
+msgstr "Nome do layout:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:162
+#: ../panel-plugin/xkb-dialog.c:125
+msgid "country"
+msgstr "país"
+
+#: ../panel-plugin/xkb-dialog.c:126
+msgid "language"
+msgstr "idioma"
+
+#: ../panel-plugin/xkb-dialog.c:132
+msgid "Widget size:"
+msgstr "Tamanho do widget:"
+
+#: ../panel-plugin/xkb-dialog.c:146
+msgid "Tooltip icon:"
+msgstr "Ícone da dica:"
+
+#: ../panel-plugin/xkb-dialog.c:157
+msgid "Behavior"
+msgstr "Comportamento"
+
+#: ../panel-plugin/xkb-dialog.c:167
 msgid "Manage layout:"
 msgstr "Gerenciar disposição:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:167
+#: ../panel-plugin/xkb-dialog.c:173
 msgid "globally"
 msgstr "globalmente"
 
-#: ../panel-plugin/xkb-settings-dialog.c:168
+#: ../panel-plugin/xkb-dialog.c:174
 msgid "per window"
 msgstr "por janela"
 
-#: ../panel-plugin/xkb-settings-dialog.c:169
+#: ../panel-plugin/xkb-dialog.c:175
 msgid "per application"
 msgstr "por aplicativo"
 
-#: ../panel-plugin/xkb-settings-dialog.c:205
+#: ../panel-plugin/xkb-dialog.c:228
 msgid "Keyboard Layouts Plugin"
 msgstr "Plug-in de disposições de teclado"
 
-#: ../panel-plugin/xkb-settings-dialog.c:215
+#: ../panel-plugin/xkb-dialog.c:238
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "Permite configurar e usar múltiplas disposições de teclado."
 
-#: ../panel-plugin/xkb-settings-dialog.c:219
+#: ../panel-plugin/xkb-dialog.c:242
 msgid "Other plugins available here"
 msgstr "Outros plug-ins disponíveis aqui"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:131
+#: ../panel-plugin/xkb-plugin.c:244
 msgid "Keyboard settings"
 msgstr "Configurações de teclado"
 
-#: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
+#: ../panel-plugin/xkb.desktop.in.h:2
 msgid "Keyboard layouts setup and switch plugin"
 msgstr "Plug-in configurador e alternador de disposições de teclado"
