@@ -160,15 +160,12 @@ xkb_cairo_draw_label (cairo_t *cr,
     DBG ("actual width/height: %d/%d; markers: %d",
          actual_width, actual_height, variant_markers_count);
 
-    layout = pango_cairo_create_layout (cr);
     normalized_group_name = xkb_util_normalize_group_name (group_name, FALSE);
 
     if (!normalized_group_name)
-    {
-        g_object_unref (layout);
-        g_free (normalized_group_name);
         return;
-    }
+
+    layout = pango_cairo_create_layout (cr);
 
     pango_layout_set_text (layout, normalized_group_name, -1);
 
@@ -253,15 +250,12 @@ xkb_cairo_draw_label_system (cairo_t *cr,
     DBG ("actual width/height: %d/%d; markers: %d",
          actual_width, actual_height, variant_markers_count);
 
-    layout = pango_cairo_create_layout (cr);
     normalized_group_name = xkb_util_normalize_group_name (group_name, TRUE);
 
     if (!normalized_group_name)
-    {
-        g_object_unref (layout);
-        g_free (normalized_group_name);
         return;
-    }
+
+    layout = pango_cairo_create_layout (cr);
 
     pango_layout_set_text (layout, normalized_group_name, -1);
     pango_layout_set_font_description (layout, desc);
