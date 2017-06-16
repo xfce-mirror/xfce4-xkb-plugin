@@ -1,3 +1,20 @@
+2017-06-16 20:10
+    * New version 0.8.0
+    * New plugin is not compatible with previous versions;
+      you will have to add and configure it again!
+    * Port to GTK+3
+    * Add xfconf support
+    * Add new "system" layout style
+    * Allow adjusting widget size
+    * Allow displaying language name instead of country name
+    * Allow hiding tooltip icon
+    * Load flags from XDG_DATA_HOME if present
+    * Translation updates: ar ast bg ca cs da de el en_AU es fr he hr hu
+      id is it ja kk ko lt ms nb nl oc pl pt pt_BR ru sk sr sv th tr ug uk
+      zh_CN zh_TW
+    * Fix Indian flag filename
+    * Fix charset for layout names
+
 2015-02-27 18:29
     * New version 0.7.1 - to be used with xfce4-settings 4.11 or later;
       do *not* use this version with XFCE 4.8 or 4.10, it won't work!
