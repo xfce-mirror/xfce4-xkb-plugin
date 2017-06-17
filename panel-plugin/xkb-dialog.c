@@ -150,6 +150,7 @@ xkb_dialog_configure_plugin (XfcePanelPlugin *plugin,
 
     display_tooltip_icon_switch = gtk_switch_new ();
     gtk_widget_set_halign (display_tooltip_icon_switch, GTK_ALIGN_END);
+    gtk_widget_set_valign (display_tooltip_icon_switch, GTK_ALIGN_CENTER);
     gtk_grid_attach (GTK_GRID (grid), display_tooltip_icon_switch, 1, grid_vertical, 1, 1);
 
     grid_vertical = 0;
