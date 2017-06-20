@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-01 00:31+0200\n"
-"PO-Revision-Date: 2017-02-26 07:25+0000\n"
+"POT-Creation-Date: 2017-06-10 15:06+0200\n"
+"PO-Revision-Date: 2017-06-20 04:56+0000\n"
 "Last-Translator: Kukuh Syafaat <syafaatkukuh@gmail.com>\n"
 "Language-Team: Indonesian (http://www.transifex.com/xfce/xfce-panel-plugins/language/id/)\n"
 "MIME-Version: 1.0\n"
@@ -19,66 +19,86 @@ msgstr ""
 "Language: id\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../panel-plugin/xkb-settings-dialog.c:120
-#: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
+#: ../panel-plugin/xkb-dialog.c:80 ../panel-plugin/xkb.desktop.in.h:1
 msgid "Keyboard Layouts"
 msgstr "Tata Letak Papan Ketik"
 
-#. ***
-#: ../panel-plugin/xkb-settings-dialog.c:130
+#: ../panel-plugin/xkb-dialog.c:95
+msgid "Appearance"
+msgstr "Penampilan"
+
+#: ../panel-plugin/xkb-dialog.c:105
 msgid "Show layout as:"
 msgstr "Tampilkan tata letak sebagai:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:135
+#: ../panel-plugin/xkb-dialog.c:111
 msgid "image"
 msgstr "gambar"
 
-#: ../panel-plugin/xkb-settings-dialog.c:136
+#: ../panel-plugin/xkb-dialog.c:112
 msgid "text"
 msgstr "teks"
 
-#. text size option
-#: ../panel-plugin/xkb-settings-dialog.c:141
-msgid "Text size:"
-msgstr "Ukuran teks:"
+#: ../panel-plugin/xkb-dialog.c:113
+msgid "system"
+msgstr "sistem"
 
-#. image size option
-#: ../panel-plugin/xkb-settings-dialog.c:152
-msgid "Image size:"
-msgstr "Ukuran gambar:"
+#: ../panel-plugin/xkb-dialog.c:119
+msgid "Layout name:"
+msgstr "Nama tata letak:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:162
+#: ../panel-plugin/xkb-dialog.c:125
+msgid "country"
+msgstr "negara"
+
+#: ../panel-plugin/xkb-dialog.c:126
+msgid "language"
+msgstr "bahasa"
+
+#: ../panel-plugin/xkb-dialog.c:132
+msgid "Widget size:"
+msgstr "Ukuran widget:"
+
+#: ../panel-plugin/xkb-dialog.c:146
+msgid "Tooltip icon:"
+msgstr "Ikon tooltip:"
+
+#: ../panel-plugin/xkb-dialog.c:157
+msgid "Behavior"
+msgstr "Perilaku"
+
+#: ../panel-plugin/xkb-dialog.c:167
 msgid "Manage layout:"
 msgstr "Atur tata letak:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:167
+#: ../panel-plugin/xkb-dialog.c:173
 msgid "globally"
 msgstr "secara global"
 
-#: ../panel-plugin/xkb-settings-dialog.c:168
+#: ../panel-plugin/xkb-dialog.c:174
 msgid "per window"
 msgstr "per jendela"
 
-#: ../panel-plugin/xkb-settings-dialog.c:169
+#: ../panel-plugin/xkb-dialog.c:175
 msgid "per application"
 msgstr "per aplikasi"
 
-#: ../panel-plugin/xkb-settings-dialog.c:205
+#: ../panel-plugin/xkb-dialog.c:228
 msgid "Keyboard Layouts Plugin"
 msgstr "Plugin Tata Letak Papan Ketik"
 
-#: ../panel-plugin/xkb-settings-dialog.c:215
+#: ../panel-plugin/xkb-dialog.c:238
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "Memungkinkan anda untuk menyesuaikan berbagai tata letak papan ketik."
 
-#: ../panel-plugin/xkb-settings-dialog.c:219
+#: ../panel-plugin/xkb-dialog.c:242
 msgid "Other plugins available here"
 msgstr "Plugin lainnya tersedia di sini"
 
-#: ../panel-plugin/xfce4-xkb-plugin.c:131
+#: ../panel-plugin/xkb-plugin.c:244
 msgid "Keyboard settings"
 msgstr "Pengaturan papan ketik"
 
-#: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
+#: ../panel-plugin/xkb.desktop.in.h:2
 msgid "Keyboard layouts setup and switch plugin"
 msgstr "Pengaturan tata letak papan ketik dan pengalih plugin"
