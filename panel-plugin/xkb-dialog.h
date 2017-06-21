@@ -31,7 +31,7 @@
 #include "xkb-xfconf.h"
 
 void    xkb_dialog_configure_plugin    (XfcePanelPlugin *plugin,
-                                        XkbXfconf *config);
+                                        XkbXfconf       *config);
 void    xkb_dialog_about_show          (void);
 
 #endif

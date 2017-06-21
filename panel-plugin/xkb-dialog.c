@@ -35,13 +35,15 @@
 
 typedef struct
 {
-    XfcePanelPlugin *plugin;
-    GtkWidget *display_scale_range;
+  XfcePanelPlugin *plugin;
+  GtkWidget       *display_scale_range;
 } DialogInstance;
 
+
+
 static void
-xkb_dialog_on_settings_close (GtkDialog *dialog,
-                              gint response,
+xkb_dialog_on_settings_close (GtkDialog      *dialog,
+                              gint            response,
                               DialogInstance *instance)
 {
     xfce_panel_plugin_unblock_menu (instance->plugin);
@@ -49,200 +51,198 @@ xkb_dialog_on_settings_close (GtkDialog *dialog,
     g_free (instance);
 }
 
+
+
 static void
-xkb_dialog_on_display_type_changed (GtkComboBox *cb,
+xkb_dialog_on_display_type_changed (GtkComboBox    *cb,
                                     DialogInstance *instance)
 {
     gint active = gtk_combo_box_get_active (cb);
     gtk_widget_set_sensitive (instance->display_scale_range,
-            active == DISPLAY_TYPE_IMAGE || active == DISPLAY_TYPE_TEXT);
+                              active == DISPLAY_TYPE_IMAGE || active == DISPLAY_TYPE_TEXT);
 }
+
+
 
 void
 xkb_dialog_configure_plugin (XfcePanelPlugin *plugin,
-                             XkbXfconf *config)
+                             XkbXfconf       *config)
 {
-    GtkWidget *settings_dialog;
-    GtkWidget *display_type_combo;
-    GtkWidget *display_name_combo;
-    GtkWidget *display_scale_range;
-    GtkWidget *display_tooltip_icon_switch;
-    GtkWidget *group_policy_combo;
-    GtkWidget *vbox, *frame, *bin, *grid, *label;
-    gint grid_vertical;
-    DialogInstance *instance;
+  GtkWidget      *settings_dialog;
+  GtkWidget      *display_type_combo;
+  GtkWidget      *display_name_combo;
+  GtkWidget      *display_scale_range;
+  GtkWidget      *display_tooltip_icon_switch;
+  GtkWidget      *group_policy_combo;
+  GtkWidget      *vbox, *frame, *bin, *grid, *label;
+  gint            grid_vertical;
+  DialogInstance *instance;
 
-    xfce_panel_plugin_block_menu (plugin);
+  xfce_panel_plugin_block_menu (plugin);
 
-    instance = g_new0 (DialogInstance, 1);
-    instance->plugin = plugin;
+  instance = g_new0 (DialogInstance, 1);
+  instance->plugin = plugin;
 
-    settings_dialog = xfce_titled_dialog_new_with_buttons (_("Keyboard Layouts"),
-            NULL, 0, "gtk-close", GTK_RESPONSE_OK, NULL);
-    gtk_window_set_icon_name (GTK_WINDOW (settings_dialog), "xfce4-settings");
+  settings_dialog = xfce_titled_dialog_new_with_buttons (_("Keyboard Layouts"),
+                                                         NULL, 0, "gtk-close",
+                                                         GTK_RESPONSE_OK, NULL);
+  gtk_window_set_icon_name (GTK_WINDOW (settings_dialog), "xfce4-settings");
 
-    vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 2);
-    gtk_box_set_homogeneous (GTK_BOX (vbox), FALSE);
-    gtk_widget_set_margin_start (vbox, 8);
-    gtk_widget_set_margin_end (vbox, 8);
-    gtk_widget_set_margin_top (vbox, 8);
-    gtk_widget_set_margin_bottom (vbox, 8);
-    gtk_widget_show (vbox);
-    gtk_container_add (GTK_CONTAINER (gtk_dialog_get_content_area (GTK_DIALOG (settings_dialog))), vbox);
+  vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 2);
+  gtk_box_set_homogeneous (GTK_BOX (vbox), FALSE);
+  gtk_widget_set_margin_start (vbox, 8);
+  gtk_widget_set_margin_end (vbox, 8);
+  gtk_widget_set_margin_top (vbox, 8);
+  gtk_widget_set_margin_bottom (vbox, 8);
+  gtk_widget_show (vbox);
+  gtk_container_add (GTK_CONTAINER (gtk_dialog_get_content_area (GTK_DIALOG (settings_dialog))), vbox);
 
-    grid_vertical = 0;
+  grid_vertical = 0;
 
-    frame = xfce_gtk_frame_box_new (_("Appearance"), &bin);
-    gtk_box_pack_start (GTK_BOX (vbox), frame, TRUE, TRUE, 2);
+  frame = xfce_gtk_frame_box_new (_("Appearance"), &bin);
+  gtk_box_pack_start (GTK_BOX (vbox), frame, TRUE, TRUE, 2);
 
-    grid = gtk_grid_new ();
-    gtk_grid_set_row_spacing (GTK_GRID (grid), 6);
-    gtk_grid_set_column_spacing (GTK_GRID (grid), 18);
-    gtk_grid_set_row_homogeneous (GTK_GRID (grid), TRUE);
-    gtk_widget_set_size_request (grid, -1, -1);
-    gtk_container_add (GTK_CONTAINER (bin), grid);
+  grid = gtk_grid_new ();
+  gtk_grid_set_row_spacing (GTK_GRID (grid), 6);
+  gtk_grid_set_column_spacing (GTK_GRID (grid), 18);
+  gtk_grid_set_row_homogeneous (GTK_GRID (grid), TRUE);
+  gtk_widget_set_size_request (grid, -1, -1);
+  gtk_container_add (GTK_CONTAINER (bin), grid);
 
-    label = gtk_label_new (_("Show layout as:"));
-    gtk_label_set_xalign (GTK_LABEL (label), 0.f);
-    gtk_widget_set_hexpand (label, TRUE);
-    gtk_grid_attach (GTK_GRID (grid), label, 0, grid_vertical, 1, 1);
+  label = gtk_label_new (_("Show layout as:"));
+  gtk_label_set_xalign (GTK_LABEL (label), 0.f);
+  gtk_widget_set_hexpand (label, TRUE);
+  gtk_grid_attach (GTK_GRID (grid), label, 0, grid_vertical, 1, 1);
 
-    display_type_combo = gtk_combo_box_text_new ();
-    gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (display_type_combo), _("image"));
-    gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (display_type_combo), _("text"));
-    gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (display_type_combo), _("system"));
-    gtk_widget_set_size_request (display_type_combo, 230, -1);
-    gtk_grid_attach (GTK_GRID (grid), display_type_combo, 1, grid_vertical, 1, 1);
+  display_type_combo = gtk_combo_box_text_new ();
+  gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (display_type_combo), _("image"));
+  gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (display_type_combo), _("text"));
+  gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (display_type_combo), _("system"));
+  gtk_widget_set_size_request (display_type_combo, 230, -1);
+  gtk_grid_attach (GTK_GRID (grid), display_type_combo, 1, grid_vertical, 1, 1);
 
-    grid_vertical++;
+  grid_vertical++;
 
-    label = gtk_label_new (_("Layout name:"));
-    gtk_label_set_xalign (GTK_LABEL (label), 0.f);
-    gtk_widget_set_hexpand (label, TRUE);
-    gtk_grid_attach (GTK_GRID (grid), label, 0, grid_vertical, 1, 1);
+  label = gtk_label_new (_("Layout name:"));
+  gtk_label_set_xalign (GTK_LABEL (label), 0.f);
+  gtk_widget_set_hexpand (label, TRUE);
+  gtk_grid_attach (GTK_GRID (grid), label, 0, grid_vertical, 1, 1);
 
-    display_name_combo = gtk_combo_box_text_new ();
-    gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (display_name_combo), _("country"));
-    gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (display_name_combo), _("language"));
-    gtk_widget_set_size_request (display_name_combo, 230, -1);
-    gtk_grid_attach (GTK_GRID (grid), display_name_combo, 1, grid_vertical, 1, 1);
+  display_name_combo = gtk_combo_box_text_new ();
+  gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (display_name_combo), _("country"));
+  gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (display_name_combo), _("language"));
+  gtk_widget_set_size_request (display_name_combo, 230, -1);
+  gtk_grid_attach (GTK_GRID (grid), display_name_combo, 1, grid_vertical, 1, 1);
 
-    grid_vertical++;
+  grid_vertical++;
 
-    label = gtk_label_new (_("Widget size:"));
-    gtk_label_set_xalign (GTK_LABEL (label), 0.f);
-    gtk_widget_set_hexpand (label, TRUE);
-    gtk_grid_attach (GTK_GRID (grid), label, 0, grid_vertical, 1, 1);
+  label = gtk_label_new (_("Widget size:"));
+  gtk_label_set_xalign (GTK_LABEL (label), 0.f);
+  gtk_widget_set_hexpand (label, TRUE);
+  gtk_grid_attach (GTK_GRID (grid), label, 0, grid_vertical, 1, 1);
 
-    display_scale_range = gtk_scale_new_with_range (GTK_ORIENTATION_HORIZONTAL,
-            DISPLAY_SCALE_MIN, DISPLAY_SCALE_MAX, 1);
-    instance->display_scale_range = display_scale_range;
-    gtk_scale_set_value_pos (GTK_SCALE (display_scale_range), GTK_POS_RIGHT);
-    gtk_widget_set_size_request (display_scale_range, 230, -1);
-    gtk_grid_attach (GTK_GRID (grid), display_scale_range, 1, grid_vertical, 1, 1);
+  display_scale_range = gtk_scale_new_with_range (GTK_ORIENTATION_HORIZONTAL,
+                                                  DISPLAY_SCALE_MIN, DISPLAY_SCALE_MAX, 1);
+  instance->display_scale_range = display_scale_range;
+  gtk_scale_set_value_pos (GTK_SCALE (display_scale_range), GTK_POS_RIGHT);
+  gtk_widget_set_size_request (display_scale_range, 230, -1);
+  gtk_grid_attach (GTK_GRID (grid), display_scale_range, 1, grid_vertical, 1, 1);
 
-    grid_vertical++;
+  grid_vertical++;
 
-    label = gtk_label_new (_("Tooltip icon:"));
-    gtk_label_set_xalign (GTK_LABEL (label), 0.f);
-    gtk_widget_set_hexpand (label, TRUE);
-    gtk_grid_attach (GTK_GRID (grid), label, 0, grid_vertical, 1, 1);
+  label = gtk_label_new (_("Tooltip icon:"));
+  gtk_label_set_xalign (GTK_LABEL (label), 0.f);
+  gtk_widget_set_hexpand (label, TRUE);
+  gtk_grid_attach (GTK_GRID (grid), label, 0, grid_vertical, 1, 1);
 
-    display_tooltip_icon_switch = gtk_switch_new ();
-    gtk_widget_set_halign (display_tooltip_icon_switch, GTK_ALIGN_END);
-    gtk_widget_set_valign (display_tooltip_icon_switch, GTK_ALIGN_CENTER);
-    gtk_grid_attach (GTK_GRID (grid), display_tooltip_icon_switch, 1, grid_vertical, 1, 1);
+  display_tooltip_icon_switch = gtk_switch_new ();
+  gtk_widget_set_halign (display_tooltip_icon_switch, GTK_ALIGN_END);
+  gtk_widget_set_valign (display_tooltip_icon_switch, GTK_ALIGN_CENTER);
+  gtk_grid_attach (GTK_GRID (grid), display_tooltip_icon_switch, 1, grid_vertical, 1, 1);
 
-    grid_vertical = 0;
+  grid_vertical = 0;
 
-    frame = xfce_gtk_frame_box_new (_("Behavior"), &bin);
-    gtk_box_pack_start (GTK_BOX (vbox), frame, TRUE, TRUE, 2);
+  frame = xfce_gtk_frame_box_new (_("Behavior"), &bin);
+  gtk_box_pack_start (GTK_BOX (vbox), frame, TRUE, TRUE, 2);
 
-    grid = gtk_grid_new ();
-    gtk_grid_set_row_spacing (GTK_GRID (grid), 6);
-    gtk_grid_set_column_spacing (GTK_GRID (grid), 18);
-    gtk_grid_set_row_homogeneous (GTK_GRID (grid), TRUE);
-    gtk_widget_set_size_request (grid, -1, -1);
-    gtk_container_add (GTK_CONTAINER (bin), grid);
+  grid = gtk_grid_new ();
+  gtk_grid_set_row_spacing (GTK_GRID (grid), 6);
+  gtk_grid_set_column_spacing (GTK_GRID (grid), 18);
+  gtk_grid_set_row_homogeneous (GTK_GRID (grid), TRUE);
+  gtk_widget_set_size_request (grid, -1, -1);
+  gtk_container_add (GTK_CONTAINER (bin), grid);
 
-    label = gtk_label_new (_("Manage layout:"));
-    gtk_label_set_xalign (GTK_LABEL (label), 0.f);
-    gtk_widget_set_hexpand (label, TRUE);
-    gtk_grid_attach (GTK_GRID (grid), label, 0, grid_vertical, 1, 1);
+  label = gtk_label_new (_("Manage layout:"));
+  gtk_label_set_xalign (GTK_LABEL (label), 0.f);
+  gtk_widget_set_hexpand (label, TRUE);
+  gtk_grid_attach (GTK_GRID (grid), label, 0, grid_vertical, 1, 1);
 
-    group_policy_combo = gtk_combo_box_text_new ();
-    gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (group_policy_combo), _("globally"));
-    gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (group_policy_combo), _("per window"));
-    gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (group_policy_combo), _("per application"));
-    gtk_widget_set_size_request (group_policy_combo, 230, -1);
-    gtk_grid_attach (GTK_GRID (grid), group_policy_combo, 1, grid_vertical, 1, 1);
+  group_policy_combo = gtk_combo_box_text_new ();
+  gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (group_policy_combo), _("globally"));
+  gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (group_policy_combo), _("per window"));
+  gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (group_policy_combo), _("per application"));
+  gtk_widget_set_size_request (group_policy_combo, 230, -1);
+  gtk_grid_attach (GTK_GRID (grid), group_policy_combo, 1, grid_vertical, 1, 1);
 
-    gtk_widget_show_all (vbox);
+  gtk_widget_show_all (vbox);
 
-    g_signal_connect ((gpointer) settings_dialog, "response",
-            G_CALLBACK (xkb_dialog_on_settings_close), instance);
+  g_signal_connect ((gpointer) settings_dialog, "response",
+                    G_CALLBACK (xkb_dialog_on_settings_close), instance);
 
-    /* enable or disable display_scale_range depending on display type */
-    g_signal_connect (display_type_combo, "changed",
-            G_CALLBACK (xkb_dialog_on_display_type_changed), instance);
-    xkb_dialog_on_display_type_changed (GTK_COMBO_BOX (display_type_combo), instance);
+  g_signal_connect (display_type_combo, "changed",
+                    G_CALLBACK (xkb_dialog_on_display_type_changed), instance);
+  xkb_dialog_on_display_type_changed (GTK_COMBO_BOX (display_type_combo), instance);
 
-    g_object_bind_property (G_OBJECT (config), DISPLAY_TYPE,
-            G_OBJECT (display_type_combo),
-            "active", G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
+  g_object_bind_property (G_OBJECT (config), DISPLAY_TYPE,
+                          G_OBJECT (display_type_combo),
+                          "active", G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
 
-    g_object_bind_property (G_OBJECT (config), DISPLAY_NAME,
-            G_OBJECT (display_name_combo),
-            "active", G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
+  g_object_bind_property (G_OBJECT (config), DISPLAY_NAME,
+                          G_OBJECT (display_name_combo),
+                          "active", G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
 
-    g_object_bind_property (G_OBJECT (config), DISPLAY_SCALE,
-            G_OBJECT (gtk_range_get_adjustment (GTK_RANGE (display_scale_range))),
-            "value", G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
+  g_object_bind_property (G_OBJECT (config), DISPLAY_SCALE,
+                          G_OBJECT (gtk_range_get_adjustment (GTK_RANGE (display_scale_range))),
+                          "value", G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
 
-    g_object_bind_property (G_OBJECT (config), DISPLAY_TOOLTIP_ICON,
-            G_OBJECT (display_tooltip_icon_switch),
-            "active", G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
+  g_object_bind_property (G_OBJECT (config), DISPLAY_TOOLTIP_ICON,
+                          G_OBJECT (display_tooltip_icon_switch),
+                          "active", G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
 
-    g_object_bind_property (G_OBJECT (config), GROUP_POLICY,
-            G_OBJECT (group_policy_combo),
-            "active", G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
+  g_object_bind_property (G_OBJECT (config), GROUP_POLICY,
+                          G_OBJECT (group_policy_combo),
+                          "active", G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
 
-    gtk_widget_show (settings_dialog);
+  gtk_widget_show (settings_dialog);
 }
+
+
 
 void
 xkb_dialog_about_show (void)
 {
-    GtkWidget *about;
-    GdkPixbuf *icon;
+  GdkPixbuf *icon;
 
-    const gchar* authors[] = {
-        "Alexander Iliev <sasoiliev@mamul.org>",
-        "Gauvain Pocentek <gauvainpocentek@gmail.com>",
-        "Igor Slepchin <igor.slepchin@gmail.com>",
-        NULL
+  const gchar* authors[] =
+    {
+      "Alexander Iliev <sasoiliev@mamul.org>",
+      "Gauvain Pocentek <gauvainpocentek@gmail.com>",
+      "Igor Slepchin <igor.slepchin@gmail.com>",
+      NULL
     };
 
-    icon = xfce_panel_pixbuf_from_source ("preferences-desktop-keyboard", NULL, 32);
-    about = gtk_about_dialog_new ();
-    gtk_about_dialog_set_program_name (GTK_ABOUT_DIALOG (about),
-            _("Keyboard Layouts Plugin"));
-    gtk_about_dialog_set_version (GTK_ABOUT_DIALOG (about),
-            PACKAGE_VERSION);
-    gtk_about_dialog_set_logo (GTK_ABOUT_DIALOG (about),
-            icon);
-    gtk_about_dialog_set_license (GTK_ABOUT_DIALOG (about),
-            xfce_get_license_text (XFCE_LICENSE_TEXT_GPL));
-    gtk_about_dialog_set_authors (GTK_ABOUT_DIALOG (about),
-            (const gchar**) authors);
-    gtk_about_dialog_set_comments (GTK_ABOUT_DIALOG (about),
-            _("Allows you to configure and use multiple keyboard layouts."));
-    gtk_about_dialog_set_website (GTK_ABOUT_DIALOG (about),
-            "http://goodies.xfce.org/");
-    gtk_about_dialog_set_website_label (GTK_ABOUT_DIALOG (about),
-            _("Other plugins available here"));
-    gtk_dialog_run (GTK_DIALOG (about));
-    gtk_widget_destroy (about);
-    if (icon)
-        g_object_unref (G_OBJECT (icon));
+  icon = xfce_panel_pixbuf_from_source ("preferences-desktop-keyboard", NULL, 32);
+
+  gtk_show_about_dialog (NULL,
+                         "logo", icon,
+                         "program-name", _("Keyboard Layouts Plugin"),
+                         "version", PACKAGE_VERSION,
+                         "comments", _("Allows you to configure and use multiple keyboard layouts."),
+                         "website", "https://goodies.xfce.org/projects/panel-plugins/xfce4-xkb-plugin",
+                         "license", xfce_get_license_text (XFCE_LICENSE_TEXT_GPL),
+                         "authors", authors,
+                         NULL);
+
+  if (icon)
+    g_object_unref (G_OBJECT (icon));
 }

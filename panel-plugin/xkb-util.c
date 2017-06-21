@@ -27,80 +27,80 @@
 
 #include "xkb-util.h"
 
+
+
 gchar*
 xkb_util_get_flag_filename (const gchar* group_name)
 {
-    gchar* filename;
+  gchar* filename;
 
-    if (!group_name)
-        return NULL;
+  if (!group_name)
+    return NULL;
 
-    filename = g_strconcat (g_get_user_data_dir (), "/", FLAGSRELDIR, "/", group_name, ".svg", NULL);
+  filename = g_strconcat (g_get_user_data_dir (), "/", FLAGSRELDIR, "/", group_name, ".svg", NULL);
 
-    if (!g_file_test (filename, G_FILE_TEST_EXISTS))
+  if (!g_file_test (filename, G_FILE_TEST_EXISTS))
     {
-        g_free (filename);
-        filename = g_strconcat (DATADIR, "/", FLAGSRELDIR, "/", group_name, ".svg", NULL);
+      g_free (filename);
+      filename = g_strconcat (DATADIR, "/", FLAGSRELDIR, "/", group_name, ".svg", NULL);
     }
 
-    return filename;
+  return filename;
 }
 
+
+
 gchar*
-xkb_util_get_layout_string (const gchar *group_name, const gchar *variant)
+xkb_util_get_layout_string (const gchar *group_name,
+                            const gchar *variant)
 {
-    gchar *layout;
+  gchar *layout;
 
-    if (!group_name)
-        return NULL;
+  if (!group_name)
+    return NULL;
 
-    if (variant && strlen (variant) > 0)
-    {
-        layout = g_strconcat (group_name, " (", variant, ")", NULL);
-    }
-    else
-    {
-        layout = g_strconcat (group_name, NULL);
-    }
+  if (variant && strlen (variant) > 0)
+    layout = g_strconcat (group_name, " (", variant, ")", NULL);
+  else
+    layout = g_strconcat (group_name, NULL);
 
-    return layout;
+  return layout;
 }
 
+
+
 gchar*
-xkb_util_normalize_group_name (const gchar* group_name, const gboolean capitalize)
+xkb_util_normalize_group_name (const gchar *group_name,
+                               gboolean     capitalize)
 {
-    const gchar *c;
-    gchar *result;
-    gint cut_length;
-    gint index_of_na = -1;
+  const gchar *c;
+  gchar       *result;
+  gint         cut_length;
+  gint         index_of_na = -1;
 
-    if (!group_name)
-        return NULL;
+  if (!group_name)
+    return NULL;
 
-    cut_length = strlen (group_name);
+  cut_length = strlen (group_name);
 
-    if (cut_length > 3)
+  if (cut_length > 3)
     {
-        for (c = group_name; *c; c++)
+      for (c = group_name; *c; c++)
         {
-            if (!((*c >= 'a' && *c <= 'z') || (*c >= 'A' && *c <= 'Z')))
+          if (!((*c >= 'a' && *c <= 'z') || (*c >= 'A' && *c <= 'Z')))
             {
-                index_of_na = c - group_name;
-                break;
+              index_of_na = c - group_name;
+              break;
             }
         }
 
-        cut_length = (index_of_na != -1 && index_of_na <= 3) ? index_of_na : 3;
+      cut_length = (index_of_na != -1 && index_of_na <= 3) ? index_of_na : 3;
     }
 
-    if (capitalize)
-    {
-        result = g_ascii_strup (group_name, cut_length);
-    }
-    else
-    {
-        result = g_strndup (group_name, cut_length);
-    }
+  if (capitalize)
+    result = g_ascii_strup (group_name, cut_length);
+  else
+    result = g_strndup (group_name, cut_length);
 
-    return result;
+  return result;
 }

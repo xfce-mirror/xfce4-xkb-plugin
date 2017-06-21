@@ -44,7 +44,7 @@ typedef struct _XkbKeyboard           XkbKeyboard;
 
 GType             xkb_keyboard_get_type                     (void)                           G_GNUC_CONST;
 
-XkbKeyboard      *xkb_keyboard_new                          (XkbGroupPolicy group_policy);
+XkbKeyboard      *xkb_keyboard_new                          (XkbGroupPolicy   group_policy);
 
 gboolean          xkb_keyboard_get_initialized              (XkbKeyboard     *keyboard);
 void              xkb_keyboard_set_group_policy             (XkbKeyboard     *keyboard,

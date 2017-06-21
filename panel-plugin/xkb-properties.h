@@ -26,33 +26,33 @@
 #ifndef _XKB_PROPERTIES_H_
 #define _XKB_PROPERTIES_H_
 
-#define DISPLAY_TYPE "display-type"
-#define DISPLAY_NAME "display-name"
-#define DISPLAY_SCALE "display-scale"
-#define DISPLAY_TOOLTIP_ICON "display-tooltip-icon"
-#define GROUP_POLICY "group-policy"
+#define DISPLAY_TYPE                "display-type"
+#define DISPLAY_NAME                "display-name"
+#define DISPLAY_SCALE               "display-scale"
+#define DISPLAY_TOOLTIP_ICON        "display-tooltip-icon"
+#define GROUP_POLICY                "group-policy"
 
 typedef enum
 {
-    DISPLAY_TYPE_IMAGE              = 0,
-    DISPLAY_TYPE_TEXT               = 1,
-    DISPLAY_TYPE_SYSTEM             = 2
+  DISPLAY_TYPE_IMAGE              = 0,
+  DISPLAY_TYPE_TEXT               = 1,
+  DISPLAY_TYPE_SYSTEM             = 2
 } XkbDisplayType;
 
 typedef enum
 {
-    DISPLAY_NAME_COUNTRY            = 0,
-    DISPLAY_NAME_LANGUAGE           = 1,
+  DISPLAY_NAME_COUNTRY            = 0,
+  DISPLAY_NAME_LANGUAGE           = 1,
 } XkbDisplayName;
 
-#define DISPLAY_SCALE_MIN             0
-#define DISPLAY_SCALE_MAX             100
+#define DISPLAY_SCALE_MIN           0
+#define DISPLAY_SCALE_MAX           100
 
 typedef enum
 {
-    GROUP_POLICY_GLOBAL             = 0,
-    GROUP_POLICY_PER_WINDOW         = 1,
-    GROUP_POLICY_PER_APPLICATION    = 2
+  GROUP_POLICY_GLOBAL             = 0,
+  GROUP_POLICY_PER_WINDOW         = 1,
+  GROUP_POLICY_PER_APPLICATION    = 2
 } XkbGroupPolicy;
 
 #endif
