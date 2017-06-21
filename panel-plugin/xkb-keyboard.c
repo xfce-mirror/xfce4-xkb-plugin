@@ -68,9 +68,6 @@ struct _XkbKeyboard
 
     gint                  group_count;
     gint                  current_group;
-
-    XkbCallback           callback;
-    gpointer              callback_data;
 };
 
 static void              xkb_keyboard_xkl_state_changed        (XklEngine *engine,
@@ -92,7 +89,13 @@ static gboolean          xkb_keyboard_update_from_xkl          (XkbKeyboard *key
 static void              xkb_keyboard_initialize_xkb_options   (XkbKeyboard *keyboard,
                                                                 const XklConfigRec *config_rec);
 
-/* ---------------------- implementation ------------------------- */
+enum
+{
+    STATE_CHANGED,
+    LAST_SIGNAL
+};
+
+static guint xkb_keyboard_signals [LAST_SIGNAL] = { 0, };
 
 G_DEFINE_TYPE (XkbKeyboard, xkb_keyboard, G_TYPE_OBJECT)
 
@@ -103,6 +106,14 @@ xkb_keyboard_class_init (XkbKeyboardClass *klass)
 
     gobject_class = G_OBJECT_CLASS (klass);
     gobject_class->finalize = xkb_keyboard_finalize;
+
+    xkb_keyboard_signals[STATE_CHANGED] =
+            g_signal_new (g_intern_static_string ("state-changed"),
+                    G_TYPE_FROM_CLASS (gobject_class),
+                    G_SIGNAL_RUN_LAST,
+                    0, NULL, NULL,
+                    g_cclosure_marshal_VOID__BOOLEAN,
+                    G_TYPE_NONE, 1, G_TYPE_BOOLEAN);
 }
 
 static void
@@ -124,22 +135,14 @@ xkb_keyboard_init (XkbKeyboard *keyboard)
 
     keyboard->group_count = 0;
     keyboard->current_group = 0;
-
-    keyboard->callback = NULL;
-    keyboard->callback_data = NULL;
 }
 
 XkbKeyboard *
-xkb_keyboard_new (XkbGroupPolicy group_policy,
-                  XkbCallback callback,
-                  gpointer callback_data)
+xkb_keyboard_new (XkbGroupPolicy group_policy)
 {
     XkbKeyboard *keyboard = g_object_new (TYPE_XKB_KEYBOARD, NULL);
 
     keyboard->group_policy = group_policy;
-
-    keyboard->callback = callback;
-    keyboard->callback_data = callback_data;
 
     keyboard->engine = xkl_engine_get_instance (gdk_x11_get_default_xdisplay ());
 
@@ -697,8 +700,9 @@ xkb_keyboard_xkl_state_changed (XklEngine *engine,
             break;
         }
 
-        if (keyboard->callback != NULL)
-            keyboard->callback (group, FALSE, keyboard->callback_data);
+        g_signal_emit (G_OBJECT (keyboard),
+                xkb_keyboard_signals [STATE_CHANGED],
+                0, FALSE);
     }
 }
 
@@ -710,10 +714,13 @@ xkb_keyboard_xkl_config_changed_timeout (gpointer user_data)
 
     updated = xkb_keyboard_update_from_xkl (keyboard);
 
-    if (updated && keyboard->callback != NULL)
+    if (updated)
     {
         xkb_keyboard_set_group (keyboard, 0);
-        keyboard->callback (0, TRUE, keyboard->callback_data);
+
+        g_signal_emit (G_OBJECT (keyboard),
+                xkb_keyboard_signals [STATE_CHANGED],
+                0, TRUE);
     }
 
     keyboard->config_timeout_id = 0;

@@ -42,15 +42,9 @@ typedef struct _XkbKeyboard           XkbKeyboard;
 #define IS_XKB_KEYBOARD_CLASS(klass)  (G_TYPE_CHECK_CLASS_TYPE ((klass),  TYPE_XKB_KEYBOARD))
 #define XKB_KEYBOARD_GET_CLASS(obj)   (G_TYPE_INSTANCE_GET_CLASS ((obj),  TYPE_XKB_KEYBOARD, XkbKeyboard))
 
-typedef void      (*XkbCallback)                            (gint current_group,
-                                                             gboolean groups_changed,
-                                                             gpointer user_data);
-
 GType             xkb_keyboard_get_type                     (void)                           G_GNUC_CONST;
 
-XkbKeyboard      *xkb_keyboard_new                          (XkbGroupPolicy group_policy,
-                                                             XkbCallback callback,
-                                                             gpointer data);
+XkbKeyboard      *xkb_keyboard_new                          (XkbGroupPolicy group_policy);
 
 gboolean          xkb_keyboard_get_initialized              (XkbKeyboard     *keyboard);
 void              xkb_keyboard_set_group_policy             (XkbKeyboard     *keyboard,

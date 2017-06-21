@@ -80,7 +80,7 @@ static void         xkb_plugin_configure_plugin         (XfcePanelPlugin *plugin
  *                           XKB Stuff                               *
  * ----------------------------------------------------------------- */
 
-static void         xkb_plugin_state_changed            (gint current_group,
+static void         xkb_plugin_state_changed            (XkbKeyboard *keyboard,
                                                          gboolean config_changed,
                                                          gpointer user_data);
 
@@ -217,8 +217,10 @@ xkb_plugin_construct (XfcePanelPlugin *plugin)
             G_CALLBACK (xkb_plugin_layout_image_draw), xkb_plugin);
     gtk_widget_show (GTK_WIDGET (xkb_plugin->layout_image));
 
-    xkb_plugin->keyboard = xkb_keyboard_new (xkb_xfconf_get_group_policy (xkb_plugin->config),
-            xkb_plugin_state_changed, xkb_plugin);
+    xkb_plugin->keyboard = xkb_keyboard_new (xkb_xfconf_get_group_policy (xkb_plugin->config));
+
+    g_signal_connect (G_OBJECT (xkb_plugin->keyboard), "state-changed",
+            G_CALLBACK (xkb_plugin_state_changed), xkb_plugin);
 
     if (xkb_keyboard_get_initialized (xkb_plugin->keyboard))
     {
@@ -295,7 +297,7 @@ xkb_plugin_configure_plugin (XfcePanelPlugin *plugin)
 /* ----------------- xkb plugin stuff -----------------------*/
 
 static void
-xkb_plugin_state_changed (gint current_group,
+xkb_plugin_state_changed (XkbKeyboard *keyboard,
                           gboolean config_changed,
                           gpointer user_data)
 {
