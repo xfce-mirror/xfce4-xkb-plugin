@@ -62,13 +62,6 @@ gboolean          xkb_keyboard_set_group                    (XkbKeyboard     *ke
 gboolean          xkb_keyboard_next_group                   (XkbKeyboard     *keyboard);
 gboolean          xkb_keyboard_prev_group                   (XkbKeyboard     *keyboard);
 
-void              xkb_keyboard_window_changed               (XkbKeyboard     *keyboard,
-                                                             guint            new_window_id,
-                                                             guint            application_id);
-void              xkb_keyboard_application_closed           (XkbKeyboard     *keyboard,
-                                                             guint            application_id);
-void              xkb_keyboard_window_closed                (XkbKeyboard     *keyboard,
-                                                             guint            window_id);
 GdkPixbuf*        xkb_keyboard_get_pixbuf                   (XkbKeyboard     *keyboard,
                                                              gboolean         tooltip,
                                                              gint             group);

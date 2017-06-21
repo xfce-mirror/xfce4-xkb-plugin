@@ -28,7 +28,6 @@
 #endif
 
 #include <libxfce4ui/libxfce4ui.h>
-#include <libwnck/libwnck.h>
 #include <librsvg/rsvg.h>
 #include <garcon/garcon.h>
 
@@ -119,16 +118,6 @@ static gboolean     xkb_plugin_layout_image_draw        (GtkWidget *widget,
                                                          cairo_t *cr,
                                                          XkbPlugin *plugin);
 
-static void         xkb_plugin_active_window_changed   (WnckScreen *screen,
-                                                        WnckWindow *previously_active_window,
-                                                        XkbPlugin *plugin);
-static void         xkb_plugin_application_closed      (WnckScreen *screen,
-                                                        WnckApplication *app,
-                                                        XkbPlugin *plugin);
-static void         xkb_plugin_window_closed           (WnckScreen *screen,
-                                                        WnckWindow *window,
-                                                        XkbPlugin *plugin);
-
 static void         xkb_plugin_display_type_changed     (XkbPlugin *plugin);
 static void         xkb_plugin_display_name_changed     (XkbPlugin *plugin);
 static void         xkb_plugin_display_scale_changed    (XkbPlugin *plugin);
@@ -171,7 +160,6 @@ xkb_plugin_construct (XfcePanelPlugin *plugin)
 {
     XkbPlugin *xkb_plugin;
     GtkWidget *configure_layouts;
-    WnckScreen *wnck_screen;
     GtkCssProvider *css_provider;
 
     xkb_plugin = XKB_PLUGIN (plugin);
@@ -227,14 +215,6 @@ xkb_plugin_construct (XfcePanelPlugin *plugin)
         xkb_plugin_refresh_gui (xkb_plugin);
         xkb_plugin_popup_menu_populate (xkb_plugin);
     }
-
-    wnck_screen = wnck_screen_get_default ();
-    g_signal_connect (G_OBJECT (wnck_screen), "active-window-changed",
-            G_CALLBACK (xkb_plugin_active_window_changed), xkb_plugin);
-    g_signal_connect (G_OBJECT (wnck_screen), "window-closed",
-            G_CALLBACK (xkb_plugin_window_closed), xkb_plugin);
-    g_signal_connect (G_OBJECT (wnck_screen), "application-closed",
-            G_CALLBACK (xkb_plugin_application_closed), xkb_plugin);
 
     xfce_textdomain (GETTEXT_PACKAGE, LOCALEDIR, "UTF-8");
 
@@ -647,46 +627,6 @@ xkb_plugin_layout_image_draw (GtkWidget *widget,
     }
 
     return FALSE;
-}
-
-static void
-xkb_plugin_active_window_changed (WnckScreen *screen,
-                                  WnckWindow *previously_active_window,
-                                  XkbPlugin *plugin)
-{
-    WnckWindow *window;
-    guint window_id, application_id;
-
-    window = wnck_screen_get_active_window (screen);
-    if (!WNCK_IS_WINDOW (window)) return;
-    window_id = wnck_window_get_xid (window);
-    application_id = wnck_window_get_pid (window);
-
-    xkb_keyboard_window_changed (plugin->keyboard, window_id, application_id);
-}
-
-static void
-xkb_plugin_application_closed (WnckScreen *screen,
-                               WnckApplication *app,
-                               XkbPlugin *plugin)
-{
-    guint application_id;
-
-    application_id = wnck_application_get_pid (app);
-
-    xkb_keyboard_application_closed (plugin->keyboard, application_id);
-}
-
-static void
-xkb_plugin_window_closed (WnckScreen *screen,
-                          WnckWindow *window,
-                          XkbPlugin *plugin)
-{
-    guint window_id;
-
-    window_id = wnck_window_get_xid (window);
-
-    xkb_keyboard_window_closed (plugin->keyboard, window_id);
 }
 
 static void

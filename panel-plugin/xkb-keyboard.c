@@ -28,6 +28,7 @@
 
 #include <gdk/gdkx.h>
 #include <libxklavier/xklavier.h>
+#include <libwnck/libwnck.h>
 #include <librsvg/rsvg.h>
 
 typedef struct
@@ -54,6 +55,8 @@ struct _XkbKeyboard
     XklEngine            *engine;
     XklConfigRec         *last_config_rec;
 
+    WnckScreen           *wnck_screen;
+
     guint                 config_timeout_id;
 
     XkbGroupData         *group_data;
@@ -68,7 +71,21 @@ struct _XkbKeyboard
 
     gint                  group_count;
     gint                  current_group;
+
+    gulong                active_window_changed_handler_id;
+    gulong                application_closed_handler_id;
+    gulong                window_closed_handler_id;
 };
+
+static void              xkb_keyboard_active_window_changed   (WnckScreen            *screen,
+                                                               WnckWindow            *previously_active_window,
+                                                               XkbKeyboard           *keyboard);
+static void              xkb_keyboard_application_closed      (WnckScreen            *screen,
+                                                               WnckApplication       *application,
+                                                               XkbKeyboard           *keyboard);
+static void              xkb_keyboard_window_closed           (WnckScreen            *screen,
+                                                               WnckWindow            *window,
+                                                               XkbKeyboard           *keyboard);
 
 static void              xkb_keyboard_xkl_state_changed        (XklEngine *engine,
                                                                 XklEngineStateChange change,
@@ -135,16 +152,24 @@ xkb_keyboard_init (XkbKeyboard *keyboard)
 
     keyboard->group_count = 0;
     keyboard->current_group = 0;
+
+    keyboard->active_window_changed_handler_id = 0;
+    keyboard->application_closed_handler_id = 0;
+    keyboard->window_closed_handler_id = 0;
 }
 
 XkbKeyboard *
 xkb_keyboard_new (XkbGroupPolicy group_policy)
 {
-    XkbKeyboard *keyboard = g_object_new (TYPE_XKB_KEYBOARD, NULL);
+    XkbKeyboard *keyboard;
+
+    keyboard = g_object_new (TYPE_XKB_KEYBOARD, NULL);
 
     keyboard->group_policy = group_policy;
 
     keyboard->engine = xkl_engine_get_instance (gdk_x11_get_default_xdisplay ());
+
+    keyboard->wnck_screen = wnck_screen_get_default ();
 
     if (keyboard->engine)
     {
@@ -163,6 +188,16 @@ xkb_keyboard_new (XkbGroupPolicy group_policy)
                 G_CALLBACK (xkb_keyboard_xkl_config_changed),
                 keyboard);
         gdk_window_add_filter (NULL, xkb_keyboard_handle_xevent, keyboard);
+
+        keyboard->active_window_changed_handler_id =
+                g_signal_connect (G_OBJECT (keyboard->wnck_screen), "active-window-changed",
+                        G_CALLBACK (xkb_keyboard_active_window_changed), keyboard);
+        keyboard->application_closed_handler_id =
+                g_signal_connect (G_OBJECT (keyboard->wnck_screen), "application-closed",
+                        G_CALLBACK (xkb_keyboard_application_closed), keyboard);
+        keyboard->window_closed_handler_id =
+                g_signal_connect (G_OBJECT (keyboard->wnck_screen), "window-closed",
+                        G_CALLBACK (xkb_keyboard_window_closed), keyboard);
     }
 
     return keyboard;
@@ -376,7 +411,16 @@ xkb_keyboard_finalize (GObject *object)
 
     if (keyboard->config_timeout_id != 0)
         g_source_remove (keyboard->config_timeout_id);
-    
+
+    if (keyboard->active_window_changed_handler_id > 0)
+        g_signal_handler_disconnect (keyboard->wnck_screen, keyboard->active_window_changed_handler_id);
+
+    if (keyboard->application_closed_handler_id > 0)
+        g_signal_handler_disconnect (keyboard->wnck_screen, keyboard->application_closed_handler_id);
+
+    if (keyboard->window_closed_handler_id > 0)
+        g_signal_handler_disconnect (keyboard->wnck_screen, keyboard->window_closed_handler_id);
+
     G_OBJECT_CLASS (xkb_keyboard_parent_class)->finalize (object);
 }
 
@@ -491,20 +535,27 @@ xkb_keyboard_update_from_xkl (XkbKeyboard *keyboard)
     }
 }
 
-void
-xkb_keyboard_window_changed (XkbKeyboard *keyboard,
-                             guint new_window_id,
-                             guint application_id)
+static void
+xkb_keyboard_active_window_changed (WnckScreen  *screen,
+                                    WnckWindow  *previously_active_window,
+                                    XkbKeyboard *keyboard)
 {
-    gint group;
+    gint group = 0;
     gpointer key, value;
-    GHashTable *hashtable;
-    guint id;
+    GHashTable *hashtable = NULL;
+    guint id = 0;
+    WnckWindow *window;
+    guint window_id, application_id;
 
     g_return_if_fail (IS_XKB_KEYBOARD (keyboard));
 
-    id = 0;
-    hashtable = NULL;
+    window = wnck_screen_get_active_window (screen);
+
+    if (!WNCK_IS_WINDOW (window))
+        return;
+
+    window_id = wnck_window_get_xid (window);
+    application_id = wnck_window_get_pid (window);
 
     switch (keyboard->group_policy)
     {
@@ -513,7 +564,7 @@ xkb_keyboard_window_changed (XkbKeyboard *keyboard,
 
         case GROUP_POLICY_PER_WINDOW:
             hashtable = keyboard->window_map;
-            id = new_window_id;
+            id = window_id;
             keyboard->current_window_id = id;
             break;
 
@@ -523,8 +574,6 @@ xkb_keyboard_window_changed (XkbKeyboard *keyboard,
             keyboard->current_application_id = id;
             break;
     }
-
-    group = 0;
 
     if (g_hash_table_lookup_extended (hashtable, GINT_TO_POINTER (id), &key, &value))
     {
@@ -540,11 +589,16 @@ xkb_keyboard_window_changed (XkbKeyboard *keyboard,
     xkb_keyboard_set_group (keyboard, group);
 }
 
-void
-xkb_keyboard_application_closed (XkbKeyboard *keyboard,
-                                 guint application_id)
+static void
+xkb_keyboard_application_closed (WnckScreen      *screen,
+                                 WnckApplication *application,
+                                 XkbKeyboard     *keyboard)
 {
+    guint application_id;
+
     g_return_if_fail (IS_XKB_KEYBOARD (keyboard));
+
+    application_id = wnck_application_get_pid (application);
 
     switch (keyboard->group_policy)
     {
@@ -562,11 +616,16 @@ xkb_keyboard_application_closed (XkbKeyboard *keyboard,
     }
 }
 
-void
-xkb_keyboard_window_closed (XkbKeyboard *keyboard,
-                            guint window_id)
+static void
+xkb_keyboard_window_closed (WnckScreen  *screen,
+                            WnckWindow  *window,
+                            XkbKeyboard *keyboard)
 {
+    guint window_id;
+
     g_return_if_fail (IS_XKB_KEYBOARD (keyboard));
+
+    window_id = wnck_window_get_xid (window);
 
     switch (keyboard->group_policy)
     {
