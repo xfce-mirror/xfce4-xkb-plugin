@@ -230,6 +230,7 @@ xkb_cairo_draw_label_system (cairo_t                    *cr,
                              gint                        actual_width,
                              gint                        actual_height,
                              gint                        variant_markers_count,
+                             gboolean                    capslock_enabled,
                              const PangoFontDescription *desc,
                              GdkRGBA                     rgba)
 {
@@ -275,6 +276,20 @@ xkb_cairo_draw_label_system (cairo_t                    *cr,
       cairo_set_line_cap (cr, CAIRO_LINE_CAP_ROUND);
       cairo_set_line_width (cr, 1);
       cairo_arc (cr, x, y, radius, 0, 2 * G_PI);
+      cairo_fill (cr);
+    }
+
+  if (capslock_enabled)
+    {
+      y = layouty - radius;
+
+      cairo_set_line_cap (cr, CAIRO_LINE_CAP_ROUND);
+      cairo_set_line_width (cr, 1);
+      cairo_arc (cr, layoutx + radius, y, radius, 0, 2 * G_PI);
+      cairo_fill (cr);
+      cairo_arc (cr, layoutx + pango_width - radius, y, radius, 0, 2 * G_PI);
+      cairo_fill (cr);
+      cairo_rectangle (cr, layoutx + radius, layouty - diameter, pango_width - diameter, diameter);
       cairo_fill (cr);
     }
 

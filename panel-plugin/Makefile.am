@@ -9,6 +9,7 @@ plugin_LTLIBRARIES = \
 libxkb_la_SOURCES = \
 	xkb-plugin.c \
 	xkb-keyboard.c \
+	xkb-modifier.c \
 	xkb-dialog.c \
 	xkb-xfconf.c \
 	xkb-cairo.c \

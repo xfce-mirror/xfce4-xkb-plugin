@@ -34,6 +34,7 @@
 #include "xkb-plugin.h"
 #include "xkb-properties.h"
 #include "xkb-keyboard.h"
+#include "xkb-modifier.h"
 #include "xkb-dialog.h"
 #include "xkb-cairo.h"
 
@@ -54,6 +55,7 @@ struct _XkbPlugin
     
   XkbXfconf           *config;
   XkbKeyboard         *keyboard;
+  XkbModifier         *modifier;
 
   GtkWidget           *button;
   GtkWidget           *layout_image;
@@ -80,6 +82,8 @@ static void         xkb_plugin_configure_plugin         (XfcePanelPlugin *plugin
 
 static void         xkb_plugin_state_changed            (XkbPlugin        *plugin,
                                                          gboolean          config_changed);
+
+static void         xkb_plugin_modifier_changed         (XkbPlugin        *plugin);
 
 static gboolean     xkb_plugin_calculate_sizes          (XkbPlugin        *plugin,
                                                          GtkOrientation    orientation,
@@ -149,6 +153,7 @@ xkb_plugin_init (XkbPlugin *plugin)
 {
   plugin->config = NULL;
   plugin->keyboard = NULL;
+  plugin->modifier = NULL;
 
   plugin->button = NULL;
   plugin->layout_image = NULL;
@@ -240,6 +245,13 @@ xkb_plugin_construct (XfcePanelPlugin *plugin)
       xkb_plugin_popup_menu_populate (xkb_plugin);
     }
 
+  xkb_plugin->modifier = xkb_modifier_new ();
+
+  g_signal_connect_swapped (G_OBJECT (xkb_plugin->modifier),
+                            "modifier-changed",
+                            G_CALLBACK (xkb_plugin_modifier_changed),
+                            xkb_plugin);
+
   xfce_textdomain (GETTEXT_PACKAGE, LOCALEDIR, "UTF-8");
 
   xfce_panel_plugin_menu_show_configure (plugin);
@@ -290,6 +302,7 @@ xkb_plugin_free_data (XfcePanelPlugin *plugin)
   gtk_widget_destroy (xkb_plugin->layout_image);
   gtk_widget_destroy (xkb_plugin->button);
 
+  g_object_unref (G_OBJECT (xkb_plugin->modifier));
   g_object_unref (G_OBJECT (xkb_plugin->keyboard));
   g_object_unref (G_OBJECT (xkb_plugin->config));
 }
@@ -322,6 +335,14 @@ xkb_plugin_state_changed (XkbPlugin *plugin,
 
   if (config_changed)
     xkb_plugin_popup_menu_populate (plugin);
+}
+
+
+
+static void
+xkb_plugin_modifier_changed (XkbPlugin *plugin)
+{
+  xkb_plugin_refresh_gui (plugin);
 }
 
 
@@ -631,6 +652,7 @@ xkb_plugin_layout_image_draw (GtkWidget *widget,
   XkbDisplayType        display_type;
   XkbDisplayName        display_name;
   gint                  display_scale;
+  gboolean              capslock_enabled;
 
   display_type = xkb_xfconf_get_display_type (plugin->config);
   display_name = xkb_xfconf_get_display_name (plugin->config);
@@ -647,6 +669,7 @@ xkb_plugin_layout_image_draw (GtkWidget *widget,
   group_name = xkb_keyboard_get_group_name (plugin->keyboard, display_name, -1);
   pixbuf = xkb_keyboard_get_pixbuf (plugin->keyboard, FALSE, -1);
   variant_index = xkb_keyboard_get_variant_index (plugin->keyboard, display_name, -1);
+  capslock_enabled = xkb_modifier_get_capslock_enabled (plugin->modifier);
 
   if (pixbuf == NULL && display_type == DISPLAY_TYPE_IMAGE)
     display_type = DISPLAY_TYPE_TEXT;
@@ -677,6 +700,7 @@ xkb_plugin_layout_image_draw (GtkWidget *widget,
       xkb_cairo_draw_label_system (cr, group_name,
                                    actual_hsize, actual_vsize,
                                    variant_index,
+                                   capslock_enabled,
                                    desc, rgba);
       break;
     }
