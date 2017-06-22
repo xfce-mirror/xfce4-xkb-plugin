@@ -55,6 +55,7 @@ struct _XkbKeyboard
   XklEngine           *engine;
   XklConfigRec        *last_config_rec;
 
+  XkbXfconf           *config;
   WnckScreen          *wnck_screen;
 
   guint                config_timeout_id;
@@ -76,6 +77,8 @@ struct _XkbKeyboard
   gulong               application_closed_handler_id;
   gulong               window_closed_handler_id;
 };
+
+static void              xkb_keyboard_group_policy_changed     (XkbKeyboard          *keyboard);
 
 static void              xkb_keyboard_active_window_changed    (WnckScreen           *screen,
                                                                 WnckWindow           *previously_active_window,
@@ -143,6 +146,9 @@ xkb_keyboard_init (XkbKeyboard *keyboard)
   keyboard->engine = NULL;
   keyboard->last_config_rec = NULL;
 
+  keyboard->config = NULL;
+  keyboard->wnck_screen = NULL;
+
   keyboard->config_timeout_id = 0;
 
   keyboard->group_data = NULL;
@@ -165,17 +171,25 @@ xkb_keyboard_init (XkbKeyboard *keyboard)
 
 
 XkbKeyboard *
-xkb_keyboard_new (XkbGroupPolicy group_policy)
+xkb_keyboard_new (XkbXfconf *config)
 {
   XkbKeyboard *keyboard;
 
   keyboard = g_object_new (TYPE_XKB_KEYBOARD, NULL);
 
-  keyboard->group_policy = group_policy;
+  keyboard->group_policy = xkb_xfconf_get_group_policy (config);
 
-  keyboard->engine = xkl_engine_get_instance (gdk_x11_get_default_xdisplay ());
+  g_signal_connect_swapped (G_OBJECT (config),
+                            "notify::" GROUP_POLICY,
+                            G_CALLBACK (xkb_keyboard_group_policy_changed),
+                            keyboard);
+
+  g_object_ref (config);
+  keyboard->config = config;
 
   keyboard->wnck_screen = wnck_screen_get_default ();
+
+  keyboard->engine = xkl_engine_get_instance (gdk_x11_get_default_xdisplay ());
 
   if (keyboard->engine)
     {
@@ -443,6 +457,8 @@ xkb_keyboard_finalize (GObject *object)
   if (keyboard->window_closed_handler_id > 0)
     g_signal_handler_disconnect (keyboard->wnck_screen, keyboard->window_closed_handler_id);
 
+  g_object_unref (keyboard->config);
+
   G_OBJECT_CLASS (xkb_keyboard_parent_class)->finalize (object);
 }
 
@@ -495,13 +511,10 @@ xkb_keyboard_prev_group (XkbKeyboard *keyboard)
 
 
 
-void
-xkb_keyboard_set_group_policy (XkbKeyboard    *keyboard,
-                               XkbGroupPolicy  group_policy)
+static void
+xkb_keyboard_group_policy_changed (XkbKeyboard *keyboard)
 {
-  g_return_if_fail (IS_XKB_KEYBOARD (keyboard));
-
-  keyboard->group_policy = group_policy;
+  keyboard->group_policy = xkb_xfconf_get_group_policy (keyboard->config);
 }
 
 

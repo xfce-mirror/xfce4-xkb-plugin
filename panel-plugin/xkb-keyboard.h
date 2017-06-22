@@ -28,6 +28,7 @@
 
 #include <gdk/gdk.h>
 
+#include "xkb-xfconf.h"
 #include "xkb-properties.h"
 
 G_BEGIN_DECLS
@@ -44,11 +45,10 @@ typedef struct _XkbKeyboard           XkbKeyboard;
 
 GType             xkb_keyboard_get_type                     (void)                           G_GNUC_CONST;
 
-XkbKeyboard      *xkb_keyboard_new                          (XkbGroupPolicy   group_policy);
+XkbKeyboard      *xkb_keyboard_new                          (XkbXfconf       *config);
 
 gboolean          xkb_keyboard_get_initialized              (XkbKeyboard     *keyboard);
-void              xkb_keyboard_set_group_policy             (XkbKeyboard     *keyboard,
-                                                             XkbGroupPolicy   group_policy);
+
 gint              xkb_keyboard_get_group_count              (XkbKeyboard     *keyboard);
 guint             xkb_keyboard_get_max_group_count          (XkbKeyboard     *keyboard);
 const gchar*      xkb_keyboard_get_group_name               (XkbKeyboard     *keyboard,
@@ -57,6 +57,7 @@ const gchar*      xkb_keyboard_get_group_name               (XkbKeyboard     *ke
 gint              xkb_keyboard_get_variant_index            (XkbKeyboard     *keyboard,
                                                              XkbDisplayName   display_name,
                                                              gint             group);
+
 gboolean          xkb_keyboard_set_group                    (XkbKeyboard     *keyboard,
                                                              gint             group);
 gboolean          xkb_keyboard_next_group                   (XkbKeyboard     *keyboard);

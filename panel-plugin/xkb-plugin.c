@@ -122,7 +122,6 @@ static gboolean     xkb_plugin_layout_image_draw        (GtkWidget        *widge
 static void         xkb_plugin_display_type_changed     (XkbPlugin        *plugin);
 static void         xkb_plugin_display_name_changed     (XkbPlugin        *plugin);
 static void         xkb_plugin_display_scale_changed    (XkbPlugin        *plugin);
-static void         xkb_plugin_group_policy_changed     (XkbPlugin        *plugin);
 
 /* ================================================================== *
  *                        Implementation                              *
@@ -186,10 +185,6 @@ xkb_plugin_construct (XfcePanelPlugin *plugin)
                             "notify::" DISPLAY_SCALE,
                             G_CALLBACK (xkb_plugin_display_scale_changed),
                             xkb_plugin);
-  g_signal_connect_swapped (G_OBJECT (xkb_plugin->config),
-                            "notify::" GROUP_POLICY,
-                            G_CALLBACK (xkb_plugin_group_policy_changed),
-                            xkb_plugin);
 
   xkb_plugin->button = gtk_button_new ();
   gtk_button_set_relief (GTK_BUTTON (xkb_plugin->button), GTK_RELIEF_NONE);
@@ -232,7 +227,7 @@ xkb_plugin_construct (XfcePanelPlugin *plugin)
                     xkb_plugin);
   gtk_widget_show (GTK_WIDGET (xkb_plugin->layout_image));
 
-  xkb_plugin->keyboard = xkb_keyboard_new (xkb_xfconf_get_group_policy (xkb_plugin->config));
+  xkb_plugin->keyboard = xkb_keyboard_new (xkb_plugin->config);
 
   g_signal_connect_swapped (G_OBJECT (xkb_plugin->keyboard),
                             "state-changed",
@@ -732,13 +727,4 @@ static void
 xkb_plugin_display_scale_changed (XkbPlugin *plugin)
 {
   xkb_plugin_refresh_gui (plugin);
-}
-
-
-
-static void
-xkb_plugin_group_policy_changed (XkbPlugin *plugin)
-{
-  xkb_keyboard_set_group_policy (plugin->keyboard,
-                                 xkb_xfconf_get_group_policy (plugin->config));
 }
