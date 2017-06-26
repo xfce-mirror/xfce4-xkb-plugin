@@ -33,33 +33,20 @@
 #include "xkb-properties.h"
 #include "xkb-dialog.h"
 
-typedef struct
+
+
+static gboolean
+xkb_dialog_transform_scale_range (GBinding     *binding,
+                                  const GValue *from_value,
+                                  GValue       *to_value,
+                                  gpointer      user_data)
 {
-  XfcePanelPlugin *plugin;
-  GtkWidget       *display_scale_range;
-} DialogInstance;
+  gint display_type = g_value_get_int (from_value);
 
+  g_value_set_boolean (to_value,
+                       display_type == DISPLAY_TYPE_IMAGE || display_type == DISPLAY_TYPE_TEXT);
 
-
-static void
-xkb_dialog_on_settings_close (GtkDialog      *dialog,
-                              gint            response,
-                              DialogInstance *instance)
-{
-    xfce_panel_plugin_unblock_menu (instance->plugin);
-    gtk_widget_destroy (GTK_WIDGET (dialog));
-    g_free (instance);
-}
-
-
-
-static void
-xkb_dialog_on_display_type_changed (GtkComboBox    *cb,
-                                    DialogInstance *instance)
-{
-    gint active = gtk_combo_box_get_active (cb);
-    gtk_widget_set_sensitive (instance->display_scale_range,
-                              active == DISPLAY_TYPE_IMAGE || active == DISPLAY_TYPE_TEXT);
+  return TRUE;
 }
 
 
@@ -68,20 +55,16 @@ void
 xkb_dialog_configure_plugin (XfcePanelPlugin *plugin,
                              XkbXfconf       *config)
 {
-  GtkWidget      *settings_dialog;
-  GtkWidget      *display_type_combo;
-  GtkWidget      *display_name_combo;
-  GtkWidget      *display_scale_range;
-  GtkWidget      *display_tooltip_icon_switch;
-  GtkWidget      *group_policy_combo;
-  GtkWidget      *vbox, *frame, *bin, *grid, *label;
-  gint            grid_vertical;
-  DialogInstance *instance;
+  GtkWidget *settings_dialog;
+  GtkWidget *display_type_combo;
+  GtkWidget *display_name_combo;
+  GtkWidget *display_scale_range;
+  GtkWidget *display_tooltip_icon_switch;
+  GtkWidget *group_policy_combo;
+  GtkWidget *vbox, *frame, *bin, *grid, *label;
+  gint       grid_vertical;
 
   xfce_panel_plugin_block_menu (plugin);
-
-  instance = g_new0 (DialogInstance, 1);
-  instance->plugin = plugin;
 
   settings_dialog = xfce_titled_dialog_new_with_buttons (_("Keyboard Layouts"),
                                                          NULL, 0, "gtk-close",
@@ -143,7 +126,6 @@ xkb_dialog_configure_plugin (XfcePanelPlugin *plugin,
 
   display_scale_range = gtk_scale_new_with_range (GTK_ORIENTATION_HORIZONTAL,
                                                   DISPLAY_SCALE_MIN, DISPLAY_SCALE_MAX, 1);
-  instance->display_scale_range = display_scale_range;
   gtk_scale_set_value_pos (GTK_SCALE (display_scale_range), GTK_POS_RIGHT);
   gtk_widget_set_size_request (display_scale_range, 230, -1);
   gtk_grid_attach (GTK_GRID (grid), display_scale_range, 1, grid_vertical, 1, 1);
@@ -186,32 +168,35 @@ xkb_dialog_configure_plugin (XfcePanelPlugin *plugin,
 
   gtk_widget_show_all (vbox);
 
+  g_signal_connect_swapped ((gpointer) settings_dialog, "response",
+                            G_CALLBACK (xfce_panel_plugin_unblock_menu), plugin);
   g_signal_connect ((gpointer) settings_dialog, "response",
-                    G_CALLBACK (xkb_dialog_on_settings_close), instance);
+                    G_CALLBACK (gtk_widget_destroy), NULL);
 
-  g_signal_connect (display_type_combo, "changed",
-                    G_CALLBACK (xkb_dialog_on_display_type_changed), instance);
-  xkb_dialog_on_display_type_changed (GTK_COMBO_BOX (display_type_combo), instance);
+  g_object_bind_property_full (G_OBJECT (display_type_combo), "active",
+                               G_OBJECT (display_scale_range), "sensitive",
+                               G_BINDING_SYNC_CREATE,
+                               xkb_dialog_transform_scale_range, NULL, NULL, NULL);
 
   g_object_bind_property (G_OBJECT (config), DISPLAY_TYPE,
-                          G_OBJECT (display_type_combo),
-                          "active", G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
+                          G_OBJECT (display_type_combo), "active",
+                          G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
 
   g_object_bind_property (G_OBJECT (config), DISPLAY_NAME,
-                          G_OBJECT (display_name_combo),
-                          "active", G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
+                          G_OBJECT (display_name_combo), "active",
+                          G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
 
   g_object_bind_property (G_OBJECT (config), DISPLAY_SCALE,
-                          G_OBJECT (gtk_range_get_adjustment (GTK_RANGE (display_scale_range))),
-                          "value", G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
+                          G_OBJECT (gtk_range_get_adjustment (GTK_RANGE (display_scale_range))), "value",
+                          G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
 
   g_object_bind_property (G_OBJECT (config), DISPLAY_TOOLTIP_ICON,
-                          G_OBJECT (display_tooltip_icon_switch),
-                          "active", G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
+                          G_OBJECT (display_tooltip_icon_switch), "active",
+                          G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
 
   g_object_bind_property (G_OBJECT (config), GROUP_POLICY,
-                          G_OBJECT (group_policy_combo),
-                          "active", G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
+                          G_OBJECT (group_policy_combo), "active",
+                          G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
 
   gtk_widget_show (settings_dialog);
 }
