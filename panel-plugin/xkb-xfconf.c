@@ -33,6 +33,7 @@
 #define DEFAULT_DISPLAY_TYPE                DISPLAY_TYPE_IMAGE
 #define DEFAULT_DISPLAY_NAME                DISPLAY_NAME_COUNTRY
 #define DEFAULT_DISPLAY_SCALE               DISPLAY_SCALE_MAX
+#define DEFAULT_CAPS_LOCK_INDICATOR         TRUE
 #define DEFAULT_DISPLAY_TOOLTIP_ICON        TRUE
 #define DEFAULT_GROUP_POLICY                GROUP_POLICY_PER_APPLICATION
 
@@ -58,6 +59,7 @@ struct _XkbXfconf
   XkbDisplayType       display_type;
   XkbDisplayName       display_name;
   guint                display_scale;
+  gboolean             caps_lock_indicator;
   gboolean             display_tooltip_icon;
   XkbGroupPolicy       group_policy;
 };
@@ -68,6 +70,7 @@ enum
   PROP_DISPLAY_TYPE,
   PROP_DISPLAY_NAME,
   PROP_DISPLAY_SCALE,
+  PROP_CAPS_LOCK_INDICATOR,
   PROP_DISPLAY_TOOLTIP_ICON,
   PROP_GROUP_POLICY,
   N_PROPERTIES,
@@ -116,10 +119,15 @@ xkb_xfconf_class_init (XkbXfconfClass *klass)
                                                       DEFAULT_DISPLAY_SCALE,
                                                       G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
 
+  g_object_class_install_property (gobject_class, PROP_CAPS_LOCK_INDICATOR,
+                                   g_param_spec_boolean (CAPS_LOCK_INDICATOR, NULL, NULL,
+                                                         DEFAULT_CAPS_LOCK_INDICATOR,
+                                                         G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
+
   g_object_class_install_property (gobject_class, PROP_DISPLAY_TOOLTIP_ICON,
                                    g_param_spec_boolean (DISPLAY_TOOLTIP_ICON, NULL, NULL,
-                                                      DEFAULT_DISPLAY_TOOLTIP_ICON,
-                                                      G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
+                                                         DEFAULT_DISPLAY_TOOLTIP_ICON,
+                                                         G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
 
   g_object_class_install_property (gobject_class, PROP_GROUP_POLICY,
                                    g_param_spec_uint (GROUP_POLICY, NULL, NULL,
@@ -145,6 +153,7 @@ xkb_xfconf_init (XkbXfconf *config)
   config->display_type = DEFAULT_DISPLAY_TYPE;
   config->display_name = DEFAULT_DISPLAY_NAME;
   config->display_scale = DEFAULT_DISPLAY_SCALE;
+  config->caps_lock_indicator = DEFAULT_CAPS_LOCK_INDICATOR;
   config->display_tooltip_icon = DEFAULT_DISPLAY_TOOLTIP_ICON;
   config->group_policy = DEFAULT_GROUP_POLICY;
 }
@@ -180,6 +189,10 @@ xkb_xfconf_get_property (GObject    *object,
 
     case PROP_DISPLAY_SCALE:
       g_value_set_uint (value, config->display_scale);
+      break;
+
+    case PROP_CAPS_LOCK_INDICATOR:
+      g_value_set_boolean (value, config->caps_lock_indicator);
       break;
 
     case PROP_DISPLAY_TOOLTIP_ICON:
@@ -240,6 +253,16 @@ xkb_xfconf_set_property (GObject      *object,
         }
       break;
 
+    case PROP_CAPS_LOCK_INDICATOR:
+      val_boolean = g_value_get_boolean (value);
+      if (config->caps_lock_indicator != val_boolean)
+        {
+          config->caps_lock_indicator = val_boolean;
+          g_object_notify (G_OBJECT (config), CAPS_LOCK_INDICATOR);
+          g_signal_emit (G_OBJECT (config), xkb_xfconf_signals[CONFIGURATION_CHANGED], 0);
+        }
+      break;
+
     case PROP_DISPLAY_TOOLTIP_ICON:
       val_boolean = g_value_get_boolean (value);
       if (config->display_tooltip_icon != val_boolean)
@@ -296,6 +319,15 @@ xkb_xfconf_get_display_scale (XkbXfconf *config)
 
 
 gboolean
+xkb_xfconf_get_caps_lock_indicator (XkbXfconf *config)
+{
+  g_return_val_if_fail (IS_XKB_XFCONF (config), DEFAULT_CAPS_LOCK_INDICATOR);
+  return config->caps_lock_indicator;
+}
+
+
+
+gboolean
 xkb_xfconf_get_display_tooltip_icon (XkbXfconf *config)
 {
   g_return_val_if_fail (IS_XKB_XFCONF (config), DEFAULT_DISPLAY_TOOLTIP_ICON);
@@ -336,6 +368,10 @@ xkb_xfconf_new (const gchar *property_base)
 
       property = g_strconcat (property_base, "/" DISPLAY_SCALE, NULL);
       xfconf_g_property_bind (channel, property, G_TYPE_UINT, config, DISPLAY_SCALE);
+      g_free (property);
+
+      property = g_strconcat (property_base, "/" CAPS_LOCK_INDICATOR, NULL);
+      xfconf_g_property_bind (channel, property, G_TYPE_BOOLEAN, config, CAPS_LOCK_INDICATOR);
       g_free (property);
 
       property = g_strconcat (property_base, "/" DISPLAY_TOOLTIP_ICON, NULL);

@@ -119,9 +119,7 @@ static gboolean     xkb_plugin_layout_image_draw        (GtkWidget        *widge
                                                          cairo_t          *cr,
                                                          XkbPlugin        *plugin);
 
-static void         xkb_plugin_display_type_changed     (XkbPlugin        *plugin);
-static void         xkb_plugin_display_name_changed     (XkbPlugin        *plugin);
-static void         xkb_plugin_display_scale_changed    (XkbPlugin        *plugin);
+static void         xkb_plugin_update_size_allocation   (XkbPlugin        *plugin);
 
 /* ================================================================== *
  *                        Implementation                              *
@@ -175,15 +173,19 @@ xkb_plugin_construct (XfcePanelPlugin *plugin)
 
   g_signal_connect_swapped (G_OBJECT (xkb_plugin->config),
                             "notify::" DISPLAY_TYPE,
-                            G_CALLBACK (xkb_plugin_display_type_changed),
+                            G_CALLBACK (xkb_plugin_update_size_allocation),
                             xkb_plugin);
   g_signal_connect_swapped (G_OBJECT (xkb_plugin->config),
                             "notify::" DISPLAY_NAME,
-                            G_CALLBACK (xkb_plugin_display_name_changed),
+                            G_CALLBACK (xkb_plugin_refresh_gui),
                             xkb_plugin);
   g_signal_connect_swapped (G_OBJECT (xkb_plugin->config),
                             "notify::" DISPLAY_SCALE,
-                            G_CALLBACK (xkb_plugin_display_scale_changed),
+                            G_CALLBACK (xkb_plugin_refresh_gui),
+                            xkb_plugin);
+  g_signal_connect_swapped (G_OBJECT (xkb_plugin->config),
+                            "notify::" CAPS_LOCK_INDICATOR,
+                            G_CALLBACK (xkb_plugin_refresh_gui),
                             xkb_plugin);
 
   xkb_plugin->button = gtk_button_new ();
@@ -647,11 +649,13 @@ xkb_plugin_layout_image_draw (GtkWidget *widget,
   XkbDisplayType        display_type;
   XkbDisplayName        display_name;
   gint                  display_scale;
-  gboolean              capslock_enabled;
+  gboolean              caps_lock_indicator;
+  gboolean              caps_lock_enabled;
 
   display_type = xkb_xfconf_get_display_type (plugin->config);
   display_name = xkb_xfconf_get_display_name (plugin->config);
   display_scale = xkb_xfconf_get_display_scale (plugin->config);
+  caps_lock_indicator = xkb_xfconf_get_caps_lock_indicator (plugin->config);
 
   gtk_widget_get_allocation (GTK_WIDGET (widget), &allocation);
   actual_hsize = allocation.width;
@@ -664,7 +668,7 @@ xkb_plugin_layout_image_draw (GtkWidget *widget,
   group_name = xkb_keyboard_get_group_name (plugin->keyboard, display_name, -1);
   pixbuf = xkb_keyboard_get_pixbuf (plugin->keyboard, FALSE, -1);
   variant_index = xkb_keyboard_get_variant_index (plugin->keyboard, display_name, -1);
-  capslock_enabled = xkb_modifier_get_capslock_enabled (plugin->modifier);
+  caps_lock_enabled = xkb_modifier_get_caps_lock_enabled (plugin->modifier);
 
   if (pixbuf == NULL && display_type == DISPLAY_TYPE_IMAGE)
     display_type = DISPLAY_TYPE_TEXT;
@@ -695,7 +699,7 @@ xkb_plugin_layout_image_draw (GtkWidget *widget,
       xkb_cairo_draw_label_system (cr, group_name,
                                    actual_hsize, actual_vsize,
                                    variant_index,
-                                   capslock_enabled,
+                                   caps_lock_indicator && caps_lock_enabled,
                                    desc, rgba);
       break;
     }
@@ -706,25 +710,9 @@ xkb_plugin_layout_image_draw (GtkWidget *widget,
 
 
 static void
-xkb_plugin_display_type_changed (XkbPlugin *plugin)
+xkb_plugin_update_size_allocation (XkbPlugin *plugin)
 {
   xkb_plugin_calculate_sizes (plugin,
                               xfce_panel_plugin_get_orientation (XFCE_PANEL_PLUGIN (plugin)),
                               xfce_panel_plugin_get_size (XFCE_PANEL_PLUGIN (plugin)));
-}
-
-
-
-static void
-xkb_plugin_display_name_changed (XkbPlugin *plugin)
-{
-  xkb_plugin_refresh_gui (plugin);
-}
-
-
-
-static void
-xkb_plugin_display_scale_changed (XkbPlugin *plugin)
-{
-  xkb_plugin_refresh_gui (plugin);
 }

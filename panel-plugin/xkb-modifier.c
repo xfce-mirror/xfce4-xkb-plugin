@@ -36,7 +36,7 @@ struct _XkbModifier
   GObject              __parent__;
 
   gint                 xkb_event_type;
-  gboolean             capslock_enabled;
+  gboolean             caps_lock_enabled;
 };
 
 static GdkFilterReturn   xkb_modifier_handle_xevent            (GdkXEvent            *xev,
@@ -80,7 +80,7 @@ static void
 xkb_modifier_init (XkbModifier *modifier)
 {
   modifier->xkb_event_type = 0;
-  modifier->capslock_enabled = FALSE;
+  modifier->caps_lock_enabled = FALSE;
 }
 
 
@@ -91,12 +91,12 @@ xkb_modifier_new (void)
   XkbModifier *modifier;
   Display     *display;
   XkbDescRec  *xkb_desc;
-  gint         i, states, capslock_mask;
+  gint         i, states, caps_lock_mask;
   gchar       *atom_name;
 
   modifier = g_object_new (TYPE_XKB_MODIFIER, NULL);
 
-  /* obtain xkb_event type and capslock state */
+  /* obtain xkb_event type and caps lock state */
   display = XOpenDisplay (NULL);
   if (display != NULL)
     {
@@ -112,8 +112,8 @@ xkb_modifier_new (void)
                     {
                       if (XkbGetIndicatorState (display, XkbUseCoreKbd, &states) == Success)
                         {
-                          capslock_mask = 1 << i;
-                          modifier->capslock_enabled = (states & capslock_mask) == capslock_mask;
+                          caps_lock_mask = 1 << i;
+                          modifier->caps_lock_enabled = (states & caps_lock_mask) == caps_lock_mask;
                         }
 
                       break;
@@ -167,7 +167,7 @@ xkb_modifier_handle_xevent (GdkXEvent *xev,
       if (display != NULL)
         {
           modifier_flags = XkbKeysymToModifiers (display, XK_Caps_Lock);
-          modifier->capslock_enabled = (state_event->locked_mods & modifier_flags) == modifier_flags;
+          modifier->caps_lock_enabled = (state_event->locked_mods & modifier_flags) == modifier_flags;
           XCloseDisplay (display);
 
           g_signal_emit (G_OBJECT (modifier),
@@ -182,9 +182,9 @@ xkb_modifier_handle_xevent (GdkXEvent *xev,
 
 
 gboolean
-xkb_modifier_get_capslock_enabled (XkbModifier *modifier)
+xkb_modifier_get_caps_lock_enabled (XkbModifier *modifier)
 {
   g_return_val_if_fail (IS_XKB_MODIFIER (modifier), 0);
 
-  return modifier->capslock_enabled;
+  return modifier->caps_lock_enabled;
 }

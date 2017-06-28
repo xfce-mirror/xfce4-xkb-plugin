@@ -36,16 +36,28 @@
 
 
 static gboolean
-xkb_dialog_transform_scale_range (GBinding     *binding,
-                                  const GValue *from_value,
-                                  GValue       *to_value,
-                                  gpointer      user_data)
+xkb_dialog_transform_scale_range_for_display_type (GBinding     *binding,
+                                                   const GValue *from_value,
+                                                   GValue       *to_value,
+                                                   gpointer      user_data)
 {
   gint display_type = g_value_get_int (from_value);
-
   g_value_set_boolean (to_value,
                        display_type == DISPLAY_TYPE_IMAGE || display_type == DISPLAY_TYPE_TEXT);
+  return TRUE;
+}
 
+
+
+static gboolean
+xkb_dialog_transform_scale_range_for_caps_lock_indicator (GBinding     *binding,
+                                                          const GValue *from_value,
+                                                          GValue       *to_value,
+                                                          gpointer      user_data)
+{
+  gint display_type = g_value_get_int (from_value);
+  g_value_set_boolean (to_value,
+                       display_type == DISPLAY_TYPE_SYSTEM);
   return TRUE;
 }
 
@@ -59,6 +71,7 @@ xkb_dialog_configure_plugin (XfcePanelPlugin *plugin,
   GtkWidget *display_type_combo;
   GtkWidget *display_name_combo;
   GtkWidget *display_scale_range;
+  GtkWidget *caps_lock_indicator_switch;
   GtkWidget *display_tooltip_icon_switch;
   GtkWidget *group_policy_combo;
   GtkWidget *vbox, *frame, *bin, *grid, *label;
@@ -132,6 +145,18 @@ xkb_dialog_configure_plugin (XfcePanelPlugin *plugin,
 
   grid_vertical++;
 
+  label = gtk_label_new (_("Caps Lock indicator:"));
+  gtk_label_set_xalign (GTK_LABEL (label), 0.f);
+  gtk_widget_set_hexpand (label, TRUE);
+  gtk_grid_attach (GTK_GRID (grid), label, 0, grid_vertical, 1, 1);
+
+  caps_lock_indicator_switch = gtk_switch_new ();
+  gtk_widget_set_halign (caps_lock_indicator_switch, GTK_ALIGN_END);
+  gtk_widget_set_valign (caps_lock_indicator_switch, GTK_ALIGN_CENTER);
+  gtk_grid_attach (GTK_GRID (grid), caps_lock_indicator_switch, 1, grid_vertical, 1, 1);
+
+  grid_vertical++;
+
   label = gtk_label_new (_("Tooltip icon:"));
   gtk_label_set_xalign (GTK_LABEL (label), 0.f);
   gtk_widget_set_hexpand (label, TRUE);
@@ -173,11 +198,6 @@ xkb_dialog_configure_plugin (XfcePanelPlugin *plugin,
   g_signal_connect ((gpointer) settings_dialog, "response",
                     G_CALLBACK (gtk_widget_destroy), NULL);
 
-  g_object_bind_property_full (G_OBJECT (display_type_combo), "active",
-                               G_OBJECT (display_scale_range), "sensitive",
-                               G_BINDING_SYNC_CREATE,
-                               xkb_dialog_transform_scale_range, NULL, NULL, NULL);
-
   g_object_bind_property (G_OBJECT (config), DISPLAY_TYPE,
                           G_OBJECT (display_type_combo), "active",
                           G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
@@ -190,6 +210,10 @@ xkb_dialog_configure_plugin (XfcePanelPlugin *plugin,
                           G_OBJECT (gtk_range_get_adjustment (GTK_RANGE (display_scale_range))), "value",
                           G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
 
+  g_object_bind_property (G_OBJECT (config), CAPS_LOCK_INDICATOR,
+                          G_OBJECT (caps_lock_indicator_switch), "active",
+                          G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
+
   g_object_bind_property (G_OBJECT (config), DISPLAY_TOOLTIP_ICON,
                           G_OBJECT (display_tooltip_icon_switch), "active",
                           G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
@@ -197,6 +221,18 @@ xkb_dialog_configure_plugin (XfcePanelPlugin *plugin,
   g_object_bind_property (G_OBJECT (config), GROUP_POLICY,
                           G_OBJECT (group_policy_combo), "active",
                           G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
+
+  g_object_bind_property_full (G_OBJECT (display_type_combo), "active",
+                               G_OBJECT (display_scale_range), "sensitive",
+                               G_BINDING_SYNC_CREATE,
+                               xkb_dialog_transform_scale_range_for_display_type,
+                               NULL, NULL, NULL);
+
+  g_object_bind_property_full (G_OBJECT (display_type_combo), "active",
+                               G_OBJECT (caps_lock_indicator_switch), "sensitive",
+                               G_BINDING_SYNC_CREATE,
+                               xkb_dialog_transform_scale_range_for_caps_lock_indicator,
+                               NULL, NULL, NULL);
 
   gtk_widget_show (settings_dialog);
 }

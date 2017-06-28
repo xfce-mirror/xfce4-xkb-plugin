@@ -29,6 +29,7 @@
 #define DISPLAY_TYPE                "display-type"
 #define DISPLAY_NAME                "display-name"
 #define DISPLAY_SCALE               "display-scale"
+#define CAPS_LOCK_INDICATOR         "caps-lock-indicator"
 #define DISPLAY_TOOLTIP_ICON        "display-tooltip-icon"
 #define GROUP_POLICY                "group-policy"
 

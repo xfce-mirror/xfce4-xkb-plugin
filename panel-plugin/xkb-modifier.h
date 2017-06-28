@@ -41,7 +41,7 @@ GType             xkb_modifier_get_type                     (void)              
 
 XkbModifier      *xkb_modifier_new                          (void);
 
-gboolean          xkb_modifier_get_capslock_enabled         (XkbModifier     *modifier);
+gboolean          xkb_modifier_get_caps_lock_enabled        (XkbModifier     *modifier);
 
 G_END_DECLS
 

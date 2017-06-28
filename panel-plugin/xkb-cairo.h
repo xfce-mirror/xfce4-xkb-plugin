@@ -51,7 +51,7 @@ void        xkb_cairo_draw_label_system     (cairo_t                        *cr,
                                              gint                            actual_width,
                                              gint                            actual_height,
                                              gint                            variant_markers_count,
-                                             gboolean                        capslock_enabled,
+                                             gboolean                        caps_lock_enabled,
                                              const PangoFontDescription     *desc,
                                              GdkRGBA                         rgba);
 
