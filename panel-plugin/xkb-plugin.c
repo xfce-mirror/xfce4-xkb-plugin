@@ -91,7 +91,7 @@ static gboolean     xkb_plugin_calculate_sizes          (XkbPlugin        *plugi
 
 static void         xkb_plugin_popup_menu_populate      (XkbPlugin        *plugin);
 static void         xkb_plugin_popup_menu_destroy       (XkbPlugin        *plugin);
-static void         xkb_plugin_popup_menu_show          (GtkButton        *button,
+static void         xkb_plugin_popup_menu_show          (GtkWidget        *widget,
                                                          GdkEventButton   *event,
                                                          XkbPlugin        *plugin);
 static void         xkb_plugin_popup_menu_deactivate    (XkbPlugin        *plugin,
@@ -101,10 +101,10 @@ static void         xkb_plugin_refresh_gui              (XkbPlugin        *plugi
 
 static void         xkb_plugin_configure_layout         (GtkWidget        *widget);
 
-static gboolean     xkb_plugin_button_clicked           (GtkButton        *button,
+static gboolean     xkb_plugin_button_clicked           (GtkWidget        *widget,
                                                          GdkEventButton   *event,
                                                          XkbPlugin        *plugin);
-static gboolean     xkb_plugin_button_scrolled          (GtkWidget        *button,
+static gboolean     xkb_plugin_button_scrolled          (GtkWidget        *widget,
                                                          GdkEventScroll   *event,
                                                          XkbPlugin        *plugin);
 
@@ -197,8 +197,9 @@ xkb_plugin_construct (XfcePanelPlugin *plugin)
   /* remove padding inside button */
   css_provider = gtk_css_provider_new ();
   gtk_css_provider_load_from_data (css_provider, ".xfce4-panel button {padding: 0;}", -1, NULL);
-  gtk_style_context_add_provider (GTK_STYLE_CONTEXT (gtk_widget_get_style_context (GTK_WIDGET (xkb_plugin->button))),
-                                  GTK_STYLE_PROVIDER (css_provider), GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+  gtk_style_context_add_provider (gtk_widget_get_style_context (xkb_plugin->button),
+                                  GTK_STYLE_PROVIDER (css_provider),
+                                  GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
   g_object_unref (css_provider);
 
   gtk_widget_show (xkb_plugin->button);
@@ -227,7 +228,7 @@ xkb_plugin_construct (XfcePanelPlugin *plugin)
                     "draw",
                     G_CALLBACK (xkb_plugin_layout_image_draw),
                     xkb_plugin);
-  gtk_widget_show (GTK_WIDGET (xkb_plugin->layout_image));
+  gtk_widget_show (xkb_plugin->layout_image);
 
   xkb_plugin->keyboard = xkb_keyboard_new (xkb_plugin->config);
 
@@ -471,13 +472,13 @@ xkb_plugin_popup_menu_populate (XkbPlugin *plugin)
 
 
 static void
-xkb_plugin_popup_menu_show (GtkButton      *button,
+xkb_plugin_popup_menu_show (GtkWidget      *widget,
                             GdkEventButton *event,
                             XkbPlugin      *plugin)
 {
-  gtk_widget_set_state_flags (GTK_WIDGET (button), GTK_STATE_FLAG_CHECKED, FALSE);
+  gtk_widget_set_state_flags (widget, GTK_STATE_FLAG_CHECKED, FALSE);
 #if GTK_CHECK_VERSION(3, 22, 0)
-  gtk_menu_popup_at_widget (GTK_MENU (plugin->popup), GTK_WIDGET (button),
+  gtk_menu_popup_at_widget (GTK_MENU (plugin->popup), widget,
                             GDK_GRAVITY_NORTH_WEST, GDK_GRAVITY_NORTH_WEST, (GdkEvent *) event);
 #else
   gtk_menu_popup (GTK_MENU (plugin->popup), NULL, NULL,
@@ -494,7 +495,7 @@ xkb_plugin_popup_menu_deactivate (XkbPlugin    *plugin,
 {
   g_return_if_fail (GTK_IS_MENU_SHELL (menu_shell));
 
-  gtk_widget_unset_state_flags (GTK_WIDGET (plugin->button), GTK_STATE_FLAG_CHECKED);
+  gtk_widget_unset_state_flags (plugin->button, GTK_STATE_FLAG_CHECKED);
 }
 
 
@@ -505,7 +506,7 @@ xkb_plugin_refresh_gui (XkbPlugin *plugin)
    GdkDisplay    *display;
   GtkAllocation  allocation;
 
-  gtk_widget_get_allocation (GTK_WIDGET (plugin->button), &allocation);
+  gtk_widget_get_allocation (plugin->button, &allocation);
 
   /* Part of the image may remain visible after display type change */
   gtk_widget_queue_draw_area (plugin->button, 0, 0, allocation.width, allocation.height);
@@ -533,7 +534,7 @@ xkb_plugin_configure_layout (GtkWidget *widget)
   if (item)
     {
       g_shell_parse_argv (garcon_menu_item_get_command (item), NULL, &argv, &error);
-      succeed = xfce_spawn_on_screen (gtk_widget_get_screen (GTK_WIDGET (widget)),
+      succeed = xfce_spawn_on_screen (gtk_widget_get_screen (widget),
                                       garcon_menu_item_get_path (item),
                                       argv, NULL, G_SPAWN_SEARCH_PATH,
                                       garcon_menu_item_supports_startup_notification (item),
@@ -551,7 +552,7 @@ xkb_plugin_configure_layout (GtkWidget *widget)
 
 
 static gboolean
-xkb_plugin_button_clicked (GtkButton      *button,
+xkb_plugin_button_clicked (GtkWidget      *widget,
                            GdkEventButton *event,
                            XkbPlugin      *plugin)
 {
@@ -564,7 +565,7 @@ xkb_plugin_button_clicked (GtkButton      *button,
 
       if (display_popup && !released)
         {
-          xkb_plugin_popup_menu_show (button, event, plugin);
+          xkb_plugin_popup_menu_show (widget, event, plugin);
           return TRUE;
         }
 
@@ -657,12 +658,12 @@ xkb_plugin_layout_image_draw (GtkWidget *widget,
   display_scale = xkb_xfconf_get_display_scale (plugin->config);
   caps_lock_indicator = xkb_xfconf_get_caps_lock_indicator (plugin->config);
 
-  gtk_widget_get_allocation (GTK_WIDGET (widget), &allocation);
+  gtk_widget_get_allocation (widget, &allocation);
   actual_hsize = allocation.width;
   actual_vsize = allocation.height;
 
-  state = gtk_widget_get_state_flags (GTK_WIDGET (plugin->button));
-  style_ctx = gtk_widget_get_style_context (GTK_WIDGET (plugin->button));
+  state = gtk_widget_get_state_flags (plugin->button);
+  style_ctx = gtk_widget_get_style_context (plugin->button);
   gtk_style_context_get_color (style_ctx, state, &rgba);
 
   group_name = xkb_keyboard_get_group_name (plugin->keyboard, display_name, -1);
