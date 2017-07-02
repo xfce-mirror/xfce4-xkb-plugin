@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-10 15:06+0200\n"
-"PO-Revision-Date: 2017-06-11 08:05+0000\n"
+"POT-Creation-Date: 2017-07-02 00:31+0200\n"
+"PO-Revision-Date: 2017-07-02 12:59+0000\n"
 "Last-Translator: Yannick Le Guen <leguen.yannick@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/xfce/xfce-panel-plugins/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -20,83 +20,83 @@ msgstr ""
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: ../panel-plugin/xkb-dialog.c:80 ../panel-plugin/xkb.desktop.in.h:1
+#: ../panel-plugin/xkb-dialog.c:82 ../panel-plugin/xkb.desktop.in.h:1
 msgid "Keyboard Layouts"
 msgstr "Dispositions du clavier"
 
-#: ../panel-plugin/xkb-dialog.c:95
+#: ../panel-plugin/xkb-dialog.c:98
 msgid "Appearance"
 msgstr "Apparence"
 
-#: ../panel-plugin/xkb-dialog.c:105
+#: ../panel-plugin/xkb-dialog.c:108
 msgid "Show layout as:"
 msgstr "Afficher la disposition sous forme de :"
 
-#: ../panel-plugin/xkb-dialog.c:111
+#: ../panel-plugin/xkb-dialog.c:114
 msgid "image"
 msgstr "image"
 
-#: ../panel-plugin/xkb-dialog.c:112
+#: ../panel-plugin/xkb-dialog.c:115
 msgid "text"
 msgstr "texte"
 
-#: ../panel-plugin/xkb-dialog.c:113
+#: ../panel-plugin/xkb-dialog.c:116
 msgid "system"
 msgstr "système"
 
-#: ../panel-plugin/xkb-dialog.c:119
+#: ../panel-plugin/xkb-dialog.c:122
 msgid "Layout name:"
 msgstr "Nom de la disposition :"
 
-#: ../panel-plugin/xkb-dialog.c:125
+#: ../panel-plugin/xkb-dialog.c:128
 msgid "country"
 msgstr "pays"
 
-#: ../panel-plugin/xkb-dialog.c:126
+#: ../panel-plugin/xkb-dialog.c:129
 msgid "language"
 msgstr "langue"
 
-#: ../panel-plugin/xkb-dialog.c:132
+#: ../panel-plugin/xkb-dialog.c:135
 msgid "Widget size:"
 msgstr "Taille du widget :"
 
-#: ../panel-plugin/xkb-dialog.c:146
+#: ../panel-plugin/xkb-dialog.c:148
+msgid "Caps Lock indicator:"
+msgstr "Indicateur Verr Maj :"
+
+#: ../panel-plugin/xkb-dialog.c:160
 msgid "Tooltip icon:"
 msgstr "Icône de l’infobulle :"
 
-#: ../panel-plugin/xkb-dialog.c:157
+#: ../panel-plugin/xkb-dialog.c:172
 msgid "Behavior"
 msgstr "Comportement"
 
-#: ../panel-plugin/xkb-dialog.c:167
+#: ../panel-plugin/xkb-dialog.c:182
 msgid "Manage layout:"
 msgstr "Gérer la disposition :"
 
-#: ../panel-plugin/xkb-dialog.c:173
+#: ../panel-plugin/xkb-dialog.c:188
 msgid "globally"
 msgstr "globalement"
 
-#: ../panel-plugin/xkb-dialog.c:174
+#: ../panel-plugin/xkb-dialog.c:189
 msgid "per window"
 msgstr "par fenêtre"
 
-#: ../panel-plugin/xkb-dialog.c:175
+#: ../panel-plugin/xkb-dialog.c:190
 msgid "per application"
 msgstr "par application"
 
-#: ../panel-plugin/xkb-dialog.c:228
+#: ../panel-plugin/xkb-dialog.c:259
 msgid "Keyboard Layouts Plugin"
 msgstr "Greffon de disposition du clavier"
 
-#: ../panel-plugin/xkb-dialog.c:238
+#: ../panel-plugin/xkb-dialog.c:261
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "Permet l'utilisation de plusieurs dispositions du clavier."
 
-#: ../panel-plugin/xkb-dialog.c:242
-msgid "Other plugins available here"
-msgstr "Autres greffons disponibles ici"
-
-#: ../panel-plugin/xkb-plugin.c:244
+#: ../panel-plugin/xkb-plugin.c:260
 msgid "Keyboard settings"
 msgstr "Paramètres du clavier"
 
