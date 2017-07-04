@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-10 15:06+0200\n"
-"PO-Revision-Date: 2017-06-18 16:33+0000\n"
+"POT-Creation-Date: 2017-07-02 00:31+0200\n"
+"PO-Revision-Date: 2017-07-04 19:05+0000\n"
 "Last-Translator: Påvel Nicklasson <pavel2@frimix.se>\n"
 "Language-Team: Swedish (http://www.transifex.com/xfce/xfce-panel-plugins/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -19,83 +19,83 @@ msgstr ""
 "Language: sv\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../panel-plugin/xkb-dialog.c:80 ../panel-plugin/xkb.desktop.in.h:1
+#: ../panel-plugin/xkb-dialog.c:82 ../panel-plugin/xkb.desktop.in.h:1
 msgid "Keyboard Layouts"
 msgstr "Tangentbordslayouter"
 
-#: ../panel-plugin/xkb-dialog.c:95
+#: ../panel-plugin/xkb-dialog.c:98
 msgid "Appearance"
 msgstr "Utseende"
 
-#: ../panel-plugin/xkb-dialog.c:105
+#: ../panel-plugin/xkb-dialog.c:108
 msgid "Show layout as:"
 msgstr "Visa layout som:"
 
-#: ../panel-plugin/xkb-dialog.c:111
+#: ../panel-plugin/xkb-dialog.c:114
 msgid "image"
 msgstr "bild"
 
-#: ../panel-plugin/xkb-dialog.c:112
+#: ../panel-plugin/xkb-dialog.c:115
 msgid "text"
 msgstr "text"
 
-#: ../panel-plugin/xkb-dialog.c:113
+#: ../panel-plugin/xkb-dialog.c:116
 msgid "system"
 msgstr "system"
 
-#: ../panel-plugin/xkb-dialog.c:119
+#: ../panel-plugin/xkb-dialog.c:122
 msgid "Layout name:"
 msgstr "Layoutnamn:"
 
-#: ../panel-plugin/xkb-dialog.c:125
+#: ../panel-plugin/xkb-dialog.c:128
 msgid "country"
 msgstr "land"
 
-#: ../panel-plugin/xkb-dialog.c:126
+#: ../panel-plugin/xkb-dialog.c:129
 msgid "language"
 msgstr "språk"
 
-#: ../panel-plugin/xkb-dialog.c:132
+#: ../panel-plugin/xkb-dialog.c:135
 msgid "Widget size:"
 msgstr "Widget-storlek:"
 
-#: ../panel-plugin/xkb-dialog.c:146
+#: ../panel-plugin/xkb-dialog.c:148
+msgid "Caps Lock indicator:"
+msgstr "Caps Lock-indikator"
+
+#: ../panel-plugin/xkb-dialog.c:160
 msgid "Tooltip icon:"
 msgstr "Verktygstipsikon:"
 
-#: ../panel-plugin/xkb-dialog.c:157
+#: ../panel-plugin/xkb-dialog.c:172
 msgid "Behavior"
 msgstr "Beteende"
 
-#: ../panel-plugin/xkb-dialog.c:167
+#: ../panel-plugin/xkb-dialog.c:182
 msgid "Manage layout:"
 msgstr "Hantera layout:"
 
-#: ../panel-plugin/xkb-dialog.c:173
+#: ../panel-plugin/xkb-dialog.c:188
 msgid "globally"
 msgstr "globalt"
 
-#: ../panel-plugin/xkb-dialog.c:174
+#: ../panel-plugin/xkb-dialog.c:189
 msgid "per window"
 msgstr "per fönster"
 
-#: ../panel-plugin/xkb-dialog.c:175
+#: ../panel-plugin/xkb-dialog.c:190
 msgid "per application"
 msgstr "per program"
 
-#: ../panel-plugin/xkb-dialog.c:228
+#: ../panel-plugin/xkb-dialog.c:259
 msgid "Keyboard Layouts Plugin"
 msgstr "Insticksmodul för tangentbordslayouter"
 
-#: ../panel-plugin/xkb-dialog.c:238
+#: ../panel-plugin/xkb-dialog.c:261
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "Låter dig konfigurera och använda flera olika tangentbordslayouter."
 
-#: ../panel-plugin/xkb-dialog.c:242
-msgid "Other plugins available here"
-msgstr "Andra insticksmoduler tillgängliga här"
-
-#: ../panel-plugin/xkb-plugin.c:244
+#: ../panel-plugin/xkb-plugin.c:260
 msgid "Keyboard settings"
 msgstr "Tangentbordsinställningar"
 
