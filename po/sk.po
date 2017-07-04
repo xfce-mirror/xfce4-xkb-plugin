@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Dušan Kazik <prescott66@gmail.com>, 2015
+# Dušan Kazik <prescott66@gmail.com>, 2015,2017
 # Robert Hartl <hartl.robert@gmail.com>, 2009
 # Slavko <linux@slavino.sk>, 2015
 # Tomáš Vadina <tomasvadina+transifex@cryptolab.net>, 2011
@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-01 00:31+0200\n"
-"PO-Revision-Date: 2015-10-22 17:38+0000\n"
+"POT-Creation-Date: 2017-07-02 00:31+0200\n"
+"PO-Revision-Date: 2017-07-04 04:56+0000\n"
 "Last-Translator: Dušan Kazik <prescott66@gmail.com>\n"
 "Language-Team: Slovak (http://www.transifex.com/xfce/xfce-panel-plugins/language/sk/)\n"
 "MIME-Version: 1.0\n"
@@ -21,66 +21,86 @@ msgstr ""
 "Language: sk\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
-#: ../panel-plugin/xkb-settings-dialog.c:120
-#: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
+#: ../panel-plugin/xkb-dialog.c:82 ../panel-plugin/xkb.desktop.in.h:1
 msgid "Keyboard Layouts"
 msgstr "Rozloženie klávesnice"
 
-#. ***
-#: ../panel-plugin/xkb-settings-dialog.c:130
+#: ../panel-plugin/xkb-dialog.c:98
+msgid "Appearance"
+msgstr "Vzhľad"
+
+#: ../panel-plugin/xkb-dialog.c:108
 msgid "Show layout as:"
 msgstr "Zobraziť rozloženie ako:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:135
+#: ../panel-plugin/xkb-dialog.c:114
 msgid "image"
 msgstr "obrázok"
 
-#: ../panel-plugin/xkb-settings-dialog.c:136
+#: ../panel-plugin/xkb-dialog.c:115
 msgid "text"
 msgstr "text"
 
-#. text size option
-#: ../panel-plugin/xkb-settings-dialog.c:141
-msgid "Text size:"
-msgstr "Veľkosť textu:"
+#: ../panel-plugin/xkb-dialog.c:116
+msgid "system"
+msgstr "systémový"
 
-#. image size option
-#: ../panel-plugin/xkb-settings-dialog.c:152
-msgid "Image size:"
-msgstr "Veľkosť obrázka:"
+#: ../panel-plugin/xkb-dialog.c:122
+msgid "Layout name:"
+msgstr "Názov rozloženia:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:162
+#: ../panel-plugin/xkb-dialog.c:128
+msgid "country"
+msgstr "krajina"
+
+#: ../panel-plugin/xkb-dialog.c:129
+msgid "language"
+msgstr "jazyk"
+
+#: ../panel-plugin/xkb-dialog.c:135
+msgid "Widget size:"
+msgstr "Veľkosť miniaplikácie:"
+
+#: ../panel-plugin/xkb-dialog.c:148
+msgid "Caps Lock indicator:"
+msgstr "Indikátor funkcie Caps Lock:"
+
+#: ../panel-plugin/xkb-dialog.c:160
+msgid "Tooltip icon:"
+msgstr "Ikona tipu:"
+
+#: ../panel-plugin/xkb-dialog.c:172
+msgid "Behavior"
+msgstr "Správanie"
+
+#: ../panel-plugin/xkb-dialog.c:182
 msgid "Manage layout:"
 msgstr "Spravovať rozloženie:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:167
+#: ../panel-plugin/xkb-dialog.c:188
 msgid "globally"
 msgstr "globálne"
 
-#: ../panel-plugin/xkb-settings-dialog.c:168
+#: ../panel-plugin/xkb-dialog.c:189
 msgid "per window"
 msgstr "pre jednotlivé okná"
 
-#: ../panel-plugin/xkb-settings-dialog.c:169
+#: ../panel-plugin/xkb-dialog.c:190
 msgid "per application"
 msgstr "pre jednotlivé aplikácie"
 
-#: ../panel-plugin/xkb-settings-dialog.c:205
+#: ../panel-plugin/xkb-dialog.c:259
 msgid "Keyboard Layouts Plugin"
 msgstr "Prepínač rozloženia klávesnice"
 
-#: ../panel-plugin/xkb-settings-dialog.c:215
+#: ../panel-plugin/xkb-dialog.c:261
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "Umožňuje konfigurovať a používať viac rozložení klávesnice."
 
-#: ../panel-plugin/xkb-settings-dialog.c:219
-msgid "Other plugins available here"
-msgstr "Ďalšie zásuvné moduly sú dostupné tu"
-
-#: ../panel-plugin/xfce4-xkb-plugin.c:131
+#: ../panel-plugin/xkb-plugin.c:260
 msgid "Keyboard settings"
 msgstr "Nastavenia klávesnice"
 
-#: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
+#: ../panel-plugin/xkb.desktop.in.h:2
 msgid "Keyboard layouts setup and switch plugin"
 msgstr "Nastavuje a prepína rozloženie klávesnice"
