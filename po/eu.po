@@ -1,127 +1,103 @@
-# translation of xfce4-xkb-plugin.master.po to Euskara
-# Basque translations for xfce4-xkb-plugin package.
-# Copyright (C) 2004-2006 Alexander Iliev.
-# This file is distributed under the same license as the xfce4-xkb-plugin package.
-#
-# Piarres Beobide <pi@beobide.net>,2006, 2007, 2008, 2009.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Piarres Beobide <pi@beobide.net>, 2007-2009
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-xkb-plugin.master\n"
+"Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-27 22:05-0400\n"
-"PO-Revision-Date: 2009-08-18 09:30+0200\n"
-"Last-Translator: Piarres Beobide <pi@beobide.net>\n"
-"Language-Team: Euskara <debian-l10n-eu@lists.debian.org>\n"
-"Language: \n"
+"POT-Creation-Date: 2017-07-02 00:31+0200\n"
+"PO-Revision-Date: 2017-07-25 11:28+0000\n"
+"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
+"Language-Team: Basque (http://www.transifex.com/xfce/xfce-panel-plugins/language/eu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: eu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: KBabel 1.11.4\n"
 
-#: ../panel-plugin/xkb-settings-dialog.c:112
-#: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
+#: ../panel-plugin/xkb-dialog.c:82 ../panel-plugin/xkb.desktop.in.h:1
 msgid "Keyboard Layouts"
 msgstr "Teklatu inguruneak"
 
-#. ***
-#: ../panel-plugin/xkb-settings-dialog.c:122
+#: ../panel-plugin/xkb-dialog.c:98
+msgid "Appearance"
+msgstr "Itxura"
+
+#: ../panel-plugin/xkb-dialog.c:108
 msgid "Show layout as:"
 msgstr "Ikusi ingurunea horrela:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:127
+#: ../panel-plugin/xkb-dialog.c:114
 msgid "image"
 msgstr "irudia"
 
-#: ../panel-plugin/xkb-settings-dialog.c:128
+#: ../panel-plugin/xkb-dialog.c:115
 msgid "text"
 msgstr "testua"
 
-#. text size option
-#: ../panel-plugin/xkb-settings-dialog.c:133
-msgid "Text size:"
-msgstr "Testu tamaina:"
+#: ../panel-plugin/xkb-dialog.c:116
+msgid "system"
+msgstr ""
 
-#: ../panel-plugin/xkb-settings-dialog.c:138
-msgid "small"
-msgstr "txikia"
+#: ../panel-plugin/xkb-dialog.c:122
+msgid "Layout name:"
+msgstr ""
 
-#: ../panel-plugin/xkb-settings-dialog.c:139
-msgid "medium"
-msgstr "ertaina"
+#: ../panel-plugin/xkb-dialog.c:128
+msgid "country"
+msgstr ""
 
-#: ../panel-plugin/xkb-settings-dialog.c:140
-msgid "large"
-msgstr "handia"
+#: ../panel-plugin/xkb-dialog.c:129
+msgid "language"
+msgstr ""
 
-#: ../panel-plugin/xkb-settings-dialog.c:144
+#: ../panel-plugin/xkb-dialog.c:135
+msgid "Widget size:"
+msgstr ""
+
+#: ../panel-plugin/xkb-dialog.c:148
+msgid "Caps Lock indicator:"
+msgstr ""
+
+#: ../panel-plugin/xkb-dialog.c:160
+msgid "Tooltip icon:"
+msgstr ""
+
+#: ../panel-plugin/xkb-dialog.c:172
+msgid "Behavior"
+msgstr ""
+
+#: ../panel-plugin/xkb-dialog.c:182
 msgid "Manage layout:"
 msgstr "Kudeatu ingurunea:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:149
+#: ../panel-plugin/xkb-dialog.c:188
 msgid "globally"
 msgstr "orokorrean"
 
-#: ../panel-plugin/xkb-settings-dialog.c:150
+#: ../panel-plugin/xkb-dialog.c:189
 msgid "per window"
 msgstr "leiho bakoitzeko"
 
-#: ../panel-plugin/xkb-settings-dialog.c:151
+#: ../panel-plugin/xkb-dialog.c:190
 msgid "per application"
 msgstr "Aplikazio bakoizeko"
 
-#: ../panel-plugin/xkb-settings-dialog.c:185
+#: ../panel-plugin/xkb-dialog.c:259
 msgid "Keyboard Layouts Plugin"
 msgstr "Teklatu ingurune plugina"
 
-#: ../panel-plugin/xkb-settings-dialog.c:195
+#: ../panel-plugin/xkb-dialog.c:261
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "Teklatu ingurune ezberdinak konfiguratzeko aukera ematen du."
 
-#: ../panel-plugin/xkb-settings-dialog.c:199
-msgid "Other plugins available here"
-msgstr "Hemen eskurgarri dauden beste zenbait plugin:"
-
-#: ../panel-plugin/xfce4-xkb-plugin.c:125
-#, fuzzy
+#: ../panel-plugin/xkb-plugin.c:260
 msgid "Keyboard settings"
-msgstr "Teklatu inguruneak"
+msgstr ""
 
-#: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
+#: ../panel-plugin/xkb.desktop.in.h:2
 msgid "Keyboard layouts setup and switch plugin"
 msgstr "Teklatu ingurune konfigurazio eta txandakatze plugina"
-
-#~ msgid ""
-#~ "XKB configuration modifications are\n"
-#~ "disabled from the config file.\n"
-#~ "\n"
-#~ "See the README file for more information."
-#~ msgstr ""
-#~ "XKB konfigurazio aldaketak konfigurazio\n"
-#~ "fitxategitik desgaiturik daude.\n"
-#~ "\n"
-#~ "Ikusi README fitxategia argibide gehiagotako."
-
-#~ msgid "Keyboard model:"
-#~ msgstr "Teklatu modeloa:"
-
-#~ msgid "Change layout option:"
-#~ msgstr "Aldatu ingurune aukera:"
-
-#~ msgid "Compose key position:"
-#~ msgstr "Konposizio tekla kokalekua:"
-
-#~ msgid "Keyboard layouts:"
-#~ msgstr "Teklatu inguruneak:"
-
-#~ msgid "Default"
-#~ msgstr "Lehenetsia"
-
-#~ msgid "Layout"
-#~ msgstr "Ingurunea"
-
-#~ msgid "Variant"
-#~ msgstr "Aldagaia"
-
-#~ msgid "Add layout"
-#~ msgstr "Gehitu ingurunea"
