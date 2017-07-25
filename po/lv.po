@@ -1,139 +1,104 @@
-# Latvian translation of the xfce4-xkb-plugin.
-# Copyright (C) xfce4-xkb-plugin COPYRIGHT HOLDER
-# This file is distributed under the same license as the xfce4-xkb-plugin package.
-#
-# Rihards Prieditis <rprieditis@inbox.lv>, 2007.
-# Rihards Prieditis <rprieditis@gmail.com>, 2009.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Rihards Priedītis <rprieditis@gmail.com>, 2009
+# Rihards Prieditis <rprieditis@inbox.lv>, 2007
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-xkb-plugin\n"
+"Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-27 22:05-0400\n"
-"PO-Revision-Date: 2009-09-18 23:53+0100\n"
-"Last-Translator: Rihards Prieditis <rprieditis@gmail.com>\n"
-"Language-Team: Latvian <translation-team-lv@lists.sourceforge.net>\n"
-"Language: lv\n"
+"POT-Creation-Date: 2017-07-02 00:31+0200\n"
+"PO-Revision-Date: 2017-07-25 11:28+0000\n"
+"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
+"Language-Team: Latvian (http://www.transifex.com/xfce/xfce-panel-plugins/language/lv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.0\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
-"2);\n"
+"Language: lv\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2);\n"
 
-#: ../panel-plugin/xkb-settings-dialog.c:112
-#: ../panel-plugin/xkb-plugin.desktop.in.in.h:1
+#: ../panel-plugin/xkb-dialog.c:82 ../panel-plugin/xkb.desktop.in.h:1
 msgid "Keyboard Layouts"
 msgstr "Klaviatūras izkārtojumi"
 
-#. ***
-#: ../panel-plugin/xkb-settings-dialog.c:122
+#: ../panel-plugin/xkb-dialog.c:98
+msgid "Appearance"
+msgstr "Izskats"
+
+#: ../panel-plugin/xkb-dialog.c:108
 msgid "Show layout as:"
 msgstr "Rādīt izkārtojumu, kā:"
 
-#: ../panel-plugin/xkb-settings-dialog.c:127
+#: ../panel-plugin/xkb-dialog.c:114
 msgid "image"
 msgstr "attēlu"
 
-#: ../panel-plugin/xkb-settings-dialog.c:128
+#: ../panel-plugin/xkb-dialog.c:115
 msgid "text"
 msgstr "tekstu"
 
-#. text size option
-#: ../panel-plugin/xkb-settings-dialog.c:133
-msgid "Text size:"
+#: ../panel-plugin/xkb-dialog.c:116
+msgid "system"
 msgstr ""
 
-#: ../panel-plugin/xkb-settings-dialog.c:138
-msgid "small"
+#: ../panel-plugin/xkb-dialog.c:122
+msgid "Layout name:"
 msgstr ""
 
-#: ../panel-plugin/xkb-settings-dialog.c:139
-msgid "medium"
+#: ../panel-plugin/xkb-dialog.c:128
+msgid "country"
 msgstr ""
 
-#: ../panel-plugin/xkb-settings-dialog.c:140
-msgid "large"
+#: ../panel-plugin/xkb-dialog.c:129
+msgid "language"
 msgstr ""
 
-#: ../panel-plugin/xkb-settings-dialog.c:144
+#: ../panel-plugin/xkb-dialog.c:135
+msgid "Widget size:"
+msgstr ""
+
+#: ../panel-plugin/xkb-dialog.c:148
+msgid "Caps Lock indicator:"
+msgstr ""
+
+#: ../panel-plugin/xkb-dialog.c:160
+msgid "Tooltip icon:"
+msgstr ""
+
+#: ../panel-plugin/xkb-dialog.c:172
+msgid "Behavior"
+msgstr ""
+
+#: ../panel-plugin/xkb-dialog.c:182
 msgid "Manage layout:"
 msgstr "Pārvaldīt izkārtojumu"
 
-#: ../panel-plugin/xkb-settings-dialog.c:149
+#: ../panel-plugin/xkb-dialog.c:188
 msgid "globally"
 msgstr "globāli"
 
-#: ../panel-plugin/xkb-settings-dialog.c:150
+#: ../panel-plugin/xkb-dialog.c:189
 msgid "per window"
 msgstr "pa logam"
 
-#: ../panel-plugin/xkb-settings-dialog.c:151
+#: ../panel-plugin/xkb-dialog.c:190
 msgid "per application"
 msgstr "pa aplikācijai"
 
-#: ../panel-plugin/xkb-settings-dialog.c:185
+#: ../panel-plugin/xkb-dialog.c:259
 msgid "Keyboard Layouts Plugin"
 msgstr "Klaviatūras izkārtojuma spraudnis"
 
-#: ../panel-plugin/xkb-settings-dialog.c:195
+#: ../panel-plugin/xkb-dialog.c:261
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "Ļauj konfigurēt un izmantot vairākus klaviatūru izkārtojumus"
 
-#: ../panel-plugin/xkb-settings-dialog.c:199
-msgid "Other plugins available here"
-msgstr "Citi spraudņi pieejami šeit"
-
-#: ../panel-plugin/xfce4-xkb-plugin.c:125
-#, fuzzy
+#: ../panel-plugin/xkb-plugin.c:260
 msgid "Keyboard settings"
-msgstr "Klaviatūras izkārtojumi"
+msgstr ""
 
-#: ../panel-plugin/xkb-plugin.desktop.in.in.h:2
+#: ../panel-plugin/xkb.desktop.in.h:2
 msgid "Keyboard layouts setup and switch plugin"
 msgstr "Klaviatūras izkārtojuma uzstādījumi un pārslēgšanas spraudnis"
-
-#~ msgid ""
-#~ "XKB configuration modifications are\n"
-#~ "disabled from the config file.\n"
-#~ "\n"
-#~ "See the README file for more information."
-#~ msgstr ""
-#~ "XKB konfigurācijas modifikācijas ir\n"
-#~ "izslēgtas iekš konfigurācijas faila.\n"
-#~ "\n"
-#~ "Apskatiet README failu, lai uzzinātu ko vairāk."
-
-#~ msgid "Keyboard model:"
-#~ msgstr "Klaviatūras modelis:"
-
-#~ msgid "Change layout option:"
-#~ msgstr "Mainīt izkārtojuma opcijas:"
-
-#~ msgid "Compose key position:"
-#~ msgstr "Salikt taustiņu pozīciju:"
-
-#~ msgid "Keyboard layouts:"
-#~ msgstr "Klaviatūras izkārtojums:"
-
-#, fuzzy
-#~ msgid "Layout"
-#~ msgstr "Pievienot izkārtojumu"
-
-#~ msgid "Add layout"
-#~ msgstr "Pievienot izkārtojumu"
-
-#~ msgid ""
-#~ "Allows you to switch the keyboard layout and\n"
-#~ "displays the currently selected layout."
-#~ msgstr ""
-#~ "Ļauj pārslēgt klaviatūras izkārtojumus un\n"
-#~ "attēlo atlasito izkārtojumu."
-
-#~ msgid "Configure Keyboard Layout Switcher"
-#~ msgstr "Konfigurēt Klaviatūras Izkārtojuma Pārslēdzēju"
-
-#~ msgid "_Remember layout for each application"
-#~ msgstr "_Atcerēties izkārtojumus, katrai lietotnei"
-
-#~ msgid "Button to switch the X keyboard layout"
-#~ msgstr "Poga, lai pārslēgtu X klaviatūras izkārtojumus"
