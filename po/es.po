@@ -5,7 +5,7 @@
 # Translators:
 #  <abel.martin.ruiz@gmail.com>, 2009
 # Adolfo Jayme Barrientos, 2014
-# Adolfo Jayme Barrientos, 2014
+# Adolfo Jayme-Barrientos, 2014
 # David Segura Monroy <davidseg@gmail.com>, 2013
 # Pablo Roberto “Jristz” Lezaeta Reyes <prflr88@gmail.com>, 2014
 # Pablo Roberto “Jristz” Lezaeta Reyes <prflr88@gmail.com>, 2017
@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-10 15:06+0200\n"
-"PO-Revision-Date: 2017-06-15 07:58+0000\n"
+"POT-Creation-Date: 2017-07-02 00:31+0200\n"
+"PO-Revision-Date: 2017-07-25 11:28+0000\n"
 "Last-Translator: Pablo Roberto “Jristz” Lezaeta Reyes <prflr88@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/xfce/xfce-panel-plugins/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -23,83 +23,83 @@ msgstr ""
 "Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../panel-plugin/xkb-dialog.c:80 ../panel-plugin/xkb.desktop.in.h:1
+#: ../panel-plugin/xkb-dialog.c:82 ../panel-plugin/xkb.desktop.in.h:1
 msgid "Keyboard Layouts"
 msgstr "Distribuciones de teclado"
 
-#: ../panel-plugin/xkb-dialog.c:95
+#: ../panel-plugin/xkb-dialog.c:98
 msgid "Appearance"
 msgstr "Apariencia"
 
-#: ../panel-plugin/xkb-dialog.c:105
+#: ../panel-plugin/xkb-dialog.c:108
 msgid "Show layout as:"
 msgstr "Mostrar distribución como:"
 
-#: ../panel-plugin/xkb-dialog.c:111
+#: ../panel-plugin/xkb-dialog.c:114
 msgid "image"
 msgstr "imagen"
 
-#: ../panel-plugin/xkb-dialog.c:112
+#: ../panel-plugin/xkb-dialog.c:115
 msgid "text"
 msgstr "texto"
 
-#: ../panel-plugin/xkb-dialog.c:113
+#: ../panel-plugin/xkb-dialog.c:116
 msgid "system"
 msgstr "sistema"
 
-#: ../panel-plugin/xkb-dialog.c:119
+#: ../panel-plugin/xkb-dialog.c:122
 msgid "Layout name:"
 msgstr "Nombre de distribución:"
 
-#: ../panel-plugin/xkb-dialog.c:125
+#: ../panel-plugin/xkb-dialog.c:128
 msgid "country"
 msgstr "país"
 
-#: ../panel-plugin/xkb-dialog.c:126
+#: ../panel-plugin/xkb-dialog.c:129
 msgid "language"
 msgstr "idioma"
 
-#: ../panel-plugin/xkb-dialog.c:132
+#: ../panel-plugin/xkb-dialog.c:135
 msgid "Widget size:"
 msgstr "Tamaño del «widget»:"
 
-#: ../panel-plugin/xkb-dialog.c:146
+#: ../panel-plugin/xkb-dialog.c:148
+msgid "Caps Lock indicator:"
+msgstr "Indicador de Bloq Mayús:"
+
+#: ../panel-plugin/xkb-dialog.c:160
 msgid "Tooltip icon:"
 msgstr "Tamaño de descripción:"
 
-#: ../panel-plugin/xkb-dialog.c:157
+#: ../panel-plugin/xkb-dialog.c:172
 msgid "Behavior"
 msgstr "Comportamiento"
 
-#: ../panel-plugin/xkb-dialog.c:167
+#: ../panel-plugin/xkb-dialog.c:182
 msgid "Manage layout:"
 msgstr "Gestionar distribución:"
 
-#: ../panel-plugin/xkb-dialog.c:173
+#: ../panel-plugin/xkb-dialog.c:188
 msgid "globally"
 msgstr "globalmente"
 
-#: ../panel-plugin/xkb-dialog.c:174
+#: ../panel-plugin/xkb-dialog.c:189
 msgid "per window"
 msgstr "por ventana"
 
-#: ../panel-plugin/xkb-dialog.c:175
+#: ../panel-plugin/xkb-dialog.c:190
 msgid "per application"
 msgstr "por aplicación"
 
-#: ../panel-plugin/xkb-dialog.c:228
+#: ../panel-plugin/xkb-dialog.c:259
 msgid "Keyboard Layouts Plugin"
 msgstr "Complemento de distribuciones de teclado"
 
-#: ../panel-plugin/xkb-dialog.c:238
+#: ../panel-plugin/xkb-dialog.c:261
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "Le permite configurar y usar múltiples distribuciones de teclado."
 
-#: ../panel-plugin/xkb-dialog.c:242
-msgid "Other plugins available here"
-msgstr "Otros complementos disponibles aquí"
-
-#: ../panel-plugin/xkb-plugin.c:244
+#: ../panel-plugin/xkb-plugin.c:260
 msgid "Keyboard settings"
 msgstr "Configuración del teclado"
 
