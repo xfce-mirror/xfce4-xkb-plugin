@@ -63,6 +63,29 @@ xkb_dialog_transform_scale_range_for_caps_lock_indicator (GBinding     *binding,
 
 
 
+static gboolean
+xkb_dialog_set_style_warning_tooltip (GtkWidget *widget,
+                                      gint        x,
+                                      gint        y,
+                                      gboolean    keyboard_mode,
+                                      GtkTooltip *tooltip)
+{
+  if (!gtk_widget_get_sensitive (widget))
+    {
+      gtk_tooltip_set_text (tooltip,
+                            _("This option is not available for current layout style"));
+      gtk_tooltip_set_icon_from_icon_name (tooltip,
+                                           "dialog-warning-symbolic",
+                                           GTK_ICON_SIZE_SMALL_TOOLBAR);
+
+      return TRUE;
+    }
+
+  return FALSE;
+}
+
+
+
 void
 xkb_dialog_configure_plugin (XfcePanelPlugin *plugin,
                              XkbXfconf       *config)
@@ -233,6 +256,14 @@ xkb_dialog_configure_plugin (XfcePanelPlugin *plugin,
                                G_BINDING_SYNC_CREATE,
                                xkb_dialog_transform_scale_range_for_caps_lock_indicator,
                                NULL, NULL, NULL);
+
+  gtk_widget_set_has_tooltip (display_scale_range, TRUE);
+  g_signal_connect (display_scale_range, "query-tooltip",
+                    G_CALLBACK (xkb_dialog_set_style_warning_tooltip), NULL);
+
+  gtk_widget_set_has_tooltip (caps_lock_indicator_switch, TRUE);
+  g_signal_connect (caps_lock_indicator_switch, "query-tooltip",
+                    G_CALLBACK (xkb_dialog_set_style_warning_tooltip), NULL);
 
   gtk_widget_show (settings_dialog);
 }
