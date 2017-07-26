@@ -179,10 +179,8 @@ xkb_keyboard_new (XkbXfconf *config)
 
   keyboard->group_policy = xkb_xfconf_get_group_policy (config);
 
-  g_signal_connect_swapped (G_OBJECT (config),
-                            "notify::" GROUP_POLICY,
-                            G_CALLBACK (xkb_keyboard_group_policy_changed),
-                            keyboard);
+  g_signal_connect_swapped (G_OBJECT (config), "notify::" GROUP_POLICY,
+                            G_CALLBACK (xkb_keyboard_group_policy_changed), keyboard);
 
   g_object_ref (config);
   keyboard->config = config;
@@ -199,32 +197,22 @@ xkb_keyboard_new (XkbXfconf *config)
 
       xkl_engine_start_listen (keyboard->engine, XKLL_TRACK_KEYBOARD_STATE);
 
-      g_signal_connect (keyboard->engine,
-                        "X-state-changed",
-                        G_CALLBACK (xkb_keyboard_xkl_state_changed),
-                        keyboard);
-      g_signal_connect (keyboard->engine,
-                        "X-config-changed",
-                        G_CALLBACK (xkb_keyboard_xkl_config_changed),
-                        keyboard);
+      g_signal_connect (keyboard->engine, "X-state-changed",
+                        G_CALLBACK (xkb_keyboard_xkl_state_changed), keyboard);
+      g_signal_connect (keyboard->engine, "X-config-changed",
+                        G_CALLBACK (xkb_keyboard_xkl_config_changed), keyboard);
 
       gdk_window_add_filter (NULL, xkb_keyboard_handle_xevent, keyboard);
 
       keyboard->active_window_changed_handler_id =
-        g_signal_connect (G_OBJECT (keyboard->wnck_screen),
-                          "active-window-changed",
-                          G_CALLBACK (xkb_keyboard_active_window_changed),
-                          keyboard);
+        g_signal_connect (G_OBJECT (keyboard->wnck_screen), "active-window-changed",
+                          G_CALLBACK (xkb_keyboard_active_window_changed), keyboard);
       keyboard->application_closed_handler_id =
-        g_signal_connect (G_OBJECT (keyboard->wnck_screen),
-                          "application-closed",
-                          G_CALLBACK (xkb_keyboard_application_closed),
-                          keyboard);
+        g_signal_connect (G_OBJECT (keyboard->wnck_screen), "application-closed",
+                          G_CALLBACK (xkb_keyboard_application_closed), keyboard);
       keyboard->window_closed_handler_id =
-        g_signal_connect (G_OBJECT (keyboard->wnck_screen),
-                          "window-closed",
-                          G_CALLBACK (xkb_keyboard_window_closed),
-                          keyboard);
+        g_signal_connect (G_OBJECT (keyboard->wnck_screen), "window-closed",
+                          G_CALLBACK (xkb_keyboard_window_closed), keyboard);
     }
 
   return keyboard;

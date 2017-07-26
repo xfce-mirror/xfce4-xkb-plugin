@@ -193,9 +193,9 @@ xkb_dialog_configure_plugin (XfcePanelPlugin *plugin,
 
   gtk_widget_show_all (vbox);
 
-  g_signal_connect_swapped ((gpointer) settings_dialog, "response",
+  g_signal_connect_swapped (settings_dialog, "response",
                             G_CALLBACK (xfce_panel_plugin_unblock_menu), plugin);
-  g_signal_connect ((gpointer) settings_dialog, "response",
+  g_signal_connect (settings_dialog, "response",
                     G_CALLBACK (gtk_widget_destroy), NULL);
 
   g_object_bind_property (G_OBJECT (config), DISPLAY_TYPE,

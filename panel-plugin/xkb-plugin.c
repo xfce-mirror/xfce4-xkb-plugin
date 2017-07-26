@@ -171,22 +171,14 @@ xkb_plugin_construct (XfcePanelPlugin *plugin)
 
   xkb_plugin->config = xkb_xfconf_new (xfce_panel_plugin_get_property_base (plugin));
 
-  g_signal_connect_swapped (G_OBJECT (xkb_plugin->config),
-                            "notify::" DISPLAY_TYPE,
-                            G_CALLBACK (xkb_plugin_update_size_allocation),
-                            xkb_plugin);
-  g_signal_connect_swapped (G_OBJECT (xkb_plugin->config),
-                            "notify::" DISPLAY_NAME,
-                            G_CALLBACK (xkb_plugin_refresh_gui),
-                            xkb_plugin);
-  g_signal_connect_swapped (G_OBJECT (xkb_plugin->config),
-                            "notify::" DISPLAY_SCALE,
-                            G_CALLBACK (xkb_plugin_refresh_gui),
-                            xkb_plugin);
-  g_signal_connect_swapped (G_OBJECT (xkb_plugin->config),
-                            "notify::" CAPS_LOCK_INDICATOR,
-                            G_CALLBACK (xkb_plugin_refresh_gui),
-                            xkb_plugin);
+  g_signal_connect_swapped (G_OBJECT (xkb_plugin->config), "notify::" DISPLAY_TYPE,
+                            G_CALLBACK (xkb_plugin_update_size_allocation), xkb_plugin);
+  g_signal_connect_swapped (G_OBJECT (xkb_plugin->config), "notify::" DISPLAY_NAME,
+                            G_CALLBACK (xkb_plugin_refresh_gui), xkb_plugin);
+  g_signal_connect_swapped (G_OBJECT (xkb_plugin->config), "notify::" DISPLAY_SCALE,
+                            G_CALLBACK (xkb_plugin_refresh_gui), xkb_plugin);
+  g_signal_connect_swapped (G_OBJECT (xkb_plugin->config), "notify::" CAPS_LOCK_INDICATOR,
+                            G_CALLBACK (xkb_plugin_refresh_gui), xkb_plugin);
 
   xkb_plugin->button = gtk_button_new ();
   gtk_button_set_relief (GTK_BUTTON (xkb_plugin->button), GTK_RELIEF_NONE);
@@ -203,39 +195,27 @@ xkb_plugin_construct (XfcePanelPlugin *plugin)
   g_object_unref (css_provider);
 
   gtk_widget_show (xkb_plugin->button);
-  g_signal_connect (xkb_plugin->button,
-                    "button-press-event",
-                    G_CALLBACK (xkb_plugin_button_clicked),
-                    xkb_plugin);
-  g_signal_connect (xkb_plugin->button,
-                    "button-release-event",
-                    G_CALLBACK (xkb_plugin_button_clicked),
-                    xkb_plugin);
-  g_signal_connect (xkb_plugin->button,
-                    "scroll-event",
-                    G_CALLBACK (xkb_plugin_button_scrolled),
-                    xkb_plugin);
+  g_signal_connect (xkb_plugin->button, "button-press-event",
+                    G_CALLBACK (xkb_plugin_button_clicked), xkb_plugin);
+  g_signal_connect (xkb_plugin->button, "button-release-event",
+                    G_CALLBACK (xkb_plugin_button_clicked), xkb_plugin);
+  g_signal_connect (xkb_plugin->button, "scroll-event",
+                    G_CALLBACK (xkb_plugin_button_scrolled), xkb_plugin);
 
-  g_object_set (G_OBJECT (xkb_plugin->button), "has-tooltip", TRUE, NULL);
-  g_signal_connect (xkb_plugin->button,
-                    "query-tooltip",
-                    G_CALLBACK (xkb_plugin_set_tooltip),
-                    xkb_plugin);
+  gtk_widget_set_has_tooltip (xkb_plugin->button, TRUE);
+  g_signal_connect (xkb_plugin->button, "query-tooltip",
+                    G_CALLBACK (xkb_plugin_set_tooltip), xkb_plugin);
 
   xkb_plugin->layout_image = gtk_image_new ();
   gtk_container_add (GTK_CONTAINER (xkb_plugin->button), xkb_plugin->layout_image);
-  g_signal_connect (G_OBJECT (xkb_plugin->layout_image),
-                    "draw",
-                    G_CALLBACK (xkb_plugin_layout_image_draw),
-                    xkb_plugin);
+  g_signal_connect (G_OBJECT (xkb_plugin->layout_image), "draw",
+                    G_CALLBACK (xkb_plugin_layout_image_draw), xkb_plugin);
   gtk_widget_show (xkb_plugin->layout_image);
 
   xkb_plugin->keyboard = xkb_keyboard_new (xkb_plugin->config);
 
-  g_signal_connect_swapped (G_OBJECT (xkb_plugin->keyboard),
-                            "state-changed",
-                            G_CALLBACK (xkb_plugin_state_changed),
-                            xkb_plugin);
+  g_signal_connect_swapped (G_OBJECT (xkb_plugin->keyboard), "state-changed",
+                            G_CALLBACK (xkb_plugin_state_changed), xkb_plugin);
 
   if (xkb_keyboard_get_initialized (xkb_plugin->keyboard))
     {
@@ -245,10 +225,8 @@ xkb_plugin_construct (XfcePanelPlugin *plugin)
 
   xkb_plugin->modifier = xkb_modifier_new ();
 
-  g_signal_connect_swapped (G_OBJECT (xkb_plugin->modifier),
-                            "modifier-changed",
-                            G_CALLBACK (xkb_plugin_modifier_changed),
-                            xkb_plugin);
+  g_signal_connect_swapped (G_OBJECT (xkb_plugin->modifier), "modifier-changed",
+                            G_CALLBACK (xkb_plugin_modifier_changed), xkb_plugin);
 
   xfce_textdomain (GETTEXT_PACKAGE, LOCALEDIR, "UTF-8");
 
@@ -261,10 +239,8 @@ xkb_plugin_construct (XfcePanelPlugin *plugin)
   gtk_widget_show (configure_layouts);
   xfce_panel_plugin_menu_insert_item (plugin, GTK_MENU_ITEM (configure_layouts));
 
-  g_signal_connect (G_OBJECT (configure_layouts),
-                    "activate",
-                    G_CALLBACK (xkb_plugin_configure_layout),
-                    NULL);
+  g_signal_connect (G_OBJECT (configure_layouts), "activate",
+                    G_CALLBACK (xkb_plugin_configure_layout), NULL);
 }
 
 
@@ -452,19 +428,15 @@ xkb_plugin_popup_menu_populate (XkbPlugin *plugin)
       plugin->popup_user_data[i].plugin = plugin;
       plugin->popup_user_data[i].group = i;
 
-      g_signal_connect (G_OBJECT (menu_item),
-                        "activate",
-                        G_CALLBACK (xkb_plugin_set_group),
-                        &plugin->popup_user_data[i]);
+      g_signal_connect (G_OBJECT (menu_item), "activate",
+                        G_CALLBACK (xkb_plugin_set_group), &plugin->popup_user_data[i]);
 
       gtk_widget_show (menu_item);
       gtk_menu_shell_append (GTK_MENU_SHELL (plugin->popup), menu_item);
     }
 
-  g_signal_connect_swapped (GTK_MENU_SHELL (plugin->popup),
-                            "deactivate",
-                            G_CALLBACK (xkb_plugin_popup_menu_deactivate),
-                            plugin);
+  g_signal_connect_swapped (GTK_MENU_SHELL (plugin->popup), "deactivate",
+                            G_CALLBACK (xkb_plugin_popup_menu_deactivate), plugin);
 
   gtk_menu_attach_to_widget (GTK_MENU (plugin->popup), plugin->button, NULL);
 }
