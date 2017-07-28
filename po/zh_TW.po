@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-02 00:31+0200\n"
-"PO-Revision-Date: 2017-07-25 11:28+0000\n"
+"POT-Creation-Date: 2017-07-27 00:32+0200\n"
+"PO-Revision-Date: 2017-07-28 03:17+0000\n"
 "Last-Translator: Jeff Huang <s8321414@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/xfce/xfce-panel-plugins/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -20,83 +20,87 @@ msgstr ""
 "Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../panel-plugin/xkb-dialog.c:82 ../panel-plugin/xkb.desktop.in.h:1
+#: ../panel-plugin/xkb-dialog.c:76
+msgid "This option is not available for current layout style"
+msgstr "此選項未在目前的佈局樣式中提供"
+
+#: ../panel-plugin/xkb-dialog.c:105 ../panel-plugin/xkb.desktop.in.h:1
 msgid "Keyboard Layouts"
 msgstr "鍵盤配置"
 
-#: ../panel-plugin/xkb-dialog.c:98
+#: ../panel-plugin/xkb-dialog.c:121
 msgid "Appearance"
 msgstr "外觀"
 
-#: ../panel-plugin/xkb-dialog.c:108
+#: ../panel-plugin/xkb-dialog.c:131
 msgid "Show layout as:"
 msgstr "顯示配置為："
 
-#: ../panel-plugin/xkb-dialog.c:114
+#: ../panel-plugin/xkb-dialog.c:137
 msgid "image"
 msgstr "影像"
 
-#: ../panel-plugin/xkb-dialog.c:115
+#: ../panel-plugin/xkb-dialog.c:138
 msgid "text"
 msgstr "文字"
 
-#: ../panel-plugin/xkb-dialog.c:116
+#: ../panel-plugin/xkb-dialog.c:139
 msgid "system"
 msgstr "系統"
 
-#: ../panel-plugin/xkb-dialog.c:122
+#: ../panel-plugin/xkb-dialog.c:145
 msgid "Layout name:"
 msgstr "佈局名稱："
 
-#: ../panel-plugin/xkb-dialog.c:128
+#: ../panel-plugin/xkb-dialog.c:151
 msgid "country"
 msgstr "國家"
 
-#: ../panel-plugin/xkb-dialog.c:129
+#: ../panel-plugin/xkb-dialog.c:152
 msgid "language"
 msgstr "語言"
 
-#: ../panel-plugin/xkb-dialog.c:135
+#: ../panel-plugin/xkb-dialog.c:158
 msgid "Widget size:"
 msgstr "小工具大小："
 
-#: ../panel-plugin/xkb-dialog.c:148
+#: ../panel-plugin/xkb-dialog.c:171
 msgid "Caps Lock indicator:"
 msgstr "大寫鎖定鍵指示器："
 
-#: ../panel-plugin/xkb-dialog.c:160
+#: ../panel-plugin/xkb-dialog.c:183
 msgid "Tooltip icon:"
 msgstr "工具提示圖示："
 
-#: ../panel-plugin/xkb-dialog.c:172
+#: ../panel-plugin/xkb-dialog.c:195
 msgid "Behavior"
 msgstr "行為"
 
-#: ../panel-plugin/xkb-dialog.c:182
+#: ../panel-plugin/xkb-dialog.c:205
 msgid "Manage layout:"
 msgstr "管理配置："
 
-#: ../panel-plugin/xkb-dialog.c:188
+#: ../panel-plugin/xkb-dialog.c:211
 msgid "globally"
 msgstr "全域"
 
-#: ../panel-plugin/xkb-dialog.c:189
+#: ../panel-plugin/xkb-dialog.c:212
 msgid "per window"
 msgstr "各個視窗獨立"
 
-#: ../panel-plugin/xkb-dialog.c:190
+#: ../panel-plugin/xkb-dialog.c:213
 msgid "per application"
 msgstr "各個程式獨立"
 
-#: ../panel-plugin/xkb-dialog.c:259
+#: ../panel-plugin/xkb-dialog.c:290
 msgid "Keyboard Layouts Plugin"
 msgstr "鍵盤配置插件"
 
-#: ../panel-plugin/xkb-dialog.c:261
+#: ../panel-plugin/xkb-dialog.c:292
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "讓您設定並使用多種鍵盤配置。"
 
-#: ../panel-plugin/xkb-plugin.c:260
+#: ../panel-plugin/xkb-plugin.c:238
 msgid "Keyboard settings"
 msgstr "鍵盤設定"
 
