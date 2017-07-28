@@ -7,15 +7,16 @@
 # Hunt Xu <huntxu@live.cn>, 2008-2009
 # wwj402 <wwj402@gmail.com>, 2017
 # 玉堂白鹤 <yjwork@qq.com>, 2013
+# 张诚 <xxzhangcheng1@gmail.com>, 2017
 # 玉堂白鹤 <yjwork@qq.com>, 2017
 # Mingcong Bai <jeffbai@aosc.xyz>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-02 00:31+0200\n"
-"PO-Revision-Date: 2017-07-25 11:28+0000\n"
-"Last-Translator: wwj402 <wwj402@gmail.com>\n"
+"POT-Creation-Date: 2017-07-27 00:32+0200\n"
+"PO-Revision-Date: 2017-07-28 02:21+0000\n"
+"Last-Translator: 张诚 <xxzhangcheng1@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/xfce/xfce-panel-plugins/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,83 +24,87 @@ msgstr ""
 "Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../panel-plugin/xkb-dialog.c:82 ../panel-plugin/xkb.desktop.in.h:1
+#: ../panel-plugin/xkb-dialog.c:76
+msgid "This option is not available for current layout style"
+msgstr "该选项对当前的键盘布局样式无效"
+
+#: ../panel-plugin/xkb-dialog.c:105 ../panel-plugin/xkb.desktop.in.h:1
 msgid "Keyboard Layouts"
 msgstr "键盘布局"
 
-#: ../panel-plugin/xkb-dialog.c:98
+#: ../panel-plugin/xkb-dialog.c:121
 msgid "Appearance"
 msgstr "外观"
 
-#: ../panel-plugin/xkb-dialog.c:108
+#: ../panel-plugin/xkb-dialog.c:131
 msgid "Show layout as:"
 msgstr "显示布局为："
 
-#: ../panel-plugin/xkb-dialog.c:114
+#: ../panel-plugin/xkb-dialog.c:137
 msgid "image"
 msgstr "图片"
 
-#: ../panel-plugin/xkb-dialog.c:115
+#: ../panel-plugin/xkb-dialog.c:138
 msgid "text"
 msgstr "文字"
 
-#: ../panel-plugin/xkb-dialog.c:116
+#: ../panel-plugin/xkb-dialog.c:139
 msgid "system"
 msgstr "系统"
 
-#: ../panel-plugin/xkb-dialog.c:122
+#: ../panel-plugin/xkb-dialog.c:145
 msgid "Layout name:"
 msgstr "布局名称："
 
-#: ../panel-plugin/xkb-dialog.c:128
+#: ../panel-plugin/xkb-dialog.c:151
 msgid "country"
 msgstr "国家"
 
-#: ../panel-plugin/xkb-dialog.c:129
+#: ../panel-plugin/xkb-dialog.c:152
 msgid "language"
 msgstr "语言"
 
-#: ../panel-plugin/xkb-dialog.c:135
+#: ../panel-plugin/xkb-dialog.c:158
 msgid "Widget size:"
 msgstr "控件大小："
 
-#: ../panel-plugin/xkb-dialog.c:148
+#: ../panel-plugin/xkb-dialog.c:171
 msgid "Caps Lock indicator:"
 msgstr "大写锁定指示器："
 
-#: ../panel-plugin/xkb-dialog.c:160
+#: ../panel-plugin/xkb-dialog.c:183
 msgid "Tooltip icon:"
 msgstr "工具提示图标："
 
-#: ../panel-plugin/xkb-dialog.c:172
+#: ../panel-plugin/xkb-dialog.c:195
 msgid "Behavior"
 msgstr "行为"
 
-#: ../panel-plugin/xkb-dialog.c:182
+#: ../panel-plugin/xkb-dialog.c:205
 msgid "Manage layout:"
 msgstr "管理布局："
 
-#: ../panel-plugin/xkb-dialog.c:188
+#: ../panel-plugin/xkb-dialog.c:211
 msgid "globally"
 msgstr "全局"
 
-#: ../panel-plugin/xkb-dialog.c:189
+#: ../panel-plugin/xkb-dialog.c:212
 msgid "per window"
 msgstr "每个窗口"
 
-#: ../panel-plugin/xkb-dialog.c:190
+#: ../panel-plugin/xkb-dialog.c:213
 msgid "per application"
 msgstr "每个应用程序"
 
-#: ../panel-plugin/xkb-dialog.c:259
+#: ../panel-plugin/xkb-dialog.c:290
 msgid "Keyboard Layouts Plugin"
 msgstr "键盘布局插件"
 
-#: ../panel-plugin/xkb-dialog.c:261
+#: ../panel-plugin/xkb-dialog.c:292
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "让您配置并使用多种键盘布局。"
 
-#: ../panel-plugin/xkb-plugin.c:260
+#: ../panel-plugin/xkb-plugin.c:238
 msgid "Keyboard settings"
 msgstr "键盘设置"
 
