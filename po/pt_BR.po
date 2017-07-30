@@ -4,6 +4,7 @@
 # 
 # Translators:
 # Andre Miranda <andre42m@gmail.com>, 2017
+# Andre Miranda <andre42m@gmail.com>, 2017
 # Fábio Nogueira <deb-user-ba@ubuntu.com>, 2008
 # Marcio Andre Padula <padula1000@gmail.com>, 2015
 # Miguel V. S. Frasson <mvsfrasson@gmail.com>, 2017
@@ -14,9 +15,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-02 00:31+0200\n"
-"PO-Revision-Date: 2017-07-25 11:28+0000\n"
-"Last-Translator: Miguel V. S. Frasson <mvsfrasson@gmail.com>\n"
+"POT-Creation-Date: 2017-07-27 00:32+0200\n"
+"PO-Revision-Date: 2017-07-30 18:00+0000\n"
+"Last-Translator: Andre Miranda <andre42m@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/xfce/xfce-panel-plugins/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,83 +25,87 @@ msgstr ""
 "Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: ../panel-plugin/xkb-dialog.c:82 ../panel-plugin/xkb.desktop.in.h:1
+#: ../panel-plugin/xkb-dialog.c:76
+msgid "This option is not available for current layout style"
+msgstr "Esta opção não está disponível para estilo de layout atual"
+
+#: ../panel-plugin/xkb-dialog.c:105 ../panel-plugin/xkb.desktop.in.h:1
 msgid "Keyboard Layouts"
 msgstr "Disposições de teclado"
 
-#: ../panel-plugin/xkb-dialog.c:98
+#: ../panel-plugin/xkb-dialog.c:121
 msgid "Appearance"
 msgstr "Aparência"
 
-#: ../panel-plugin/xkb-dialog.c:108
+#: ../panel-plugin/xkb-dialog.c:131
 msgid "Show layout as:"
 msgstr "Mostrar disposição como:"
 
-#: ../panel-plugin/xkb-dialog.c:114
+#: ../panel-plugin/xkb-dialog.c:137
 msgid "image"
 msgstr "imagem"
 
-#: ../panel-plugin/xkb-dialog.c:115
+#: ../panel-plugin/xkb-dialog.c:138
 msgid "text"
 msgstr "texto"
 
-#: ../panel-plugin/xkb-dialog.c:116
+#: ../panel-plugin/xkb-dialog.c:139
 msgid "system"
 msgstr "sistema"
 
-#: ../panel-plugin/xkb-dialog.c:122
+#: ../panel-plugin/xkb-dialog.c:145
 msgid "Layout name:"
 msgstr "Nome do layout:"
 
-#: ../panel-plugin/xkb-dialog.c:128
+#: ../panel-plugin/xkb-dialog.c:151
 msgid "country"
 msgstr "país"
 
-#: ../panel-plugin/xkb-dialog.c:129
+#: ../panel-plugin/xkb-dialog.c:152
 msgid "language"
 msgstr "idioma"
 
-#: ../panel-plugin/xkb-dialog.c:135
+#: ../panel-plugin/xkb-dialog.c:158
 msgid "Widget size:"
 msgstr "Tamanho do widget:"
 
-#: ../panel-plugin/xkb-dialog.c:148
+#: ../panel-plugin/xkb-dialog.c:171
 msgid "Caps Lock indicator:"
 msgstr "Indicador de Maiúsculas:"
 
-#: ../panel-plugin/xkb-dialog.c:160
+#: ../panel-plugin/xkb-dialog.c:183
 msgid "Tooltip icon:"
 msgstr "Ícone da dica:"
 
-#: ../panel-plugin/xkb-dialog.c:172
+#: ../panel-plugin/xkb-dialog.c:195
 msgid "Behavior"
 msgstr "Comportamento"
 
-#: ../panel-plugin/xkb-dialog.c:182
+#: ../panel-plugin/xkb-dialog.c:205
 msgid "Manage layout:"
 msgstr "Gerenciar disposição:"
 
-#: ../panel-plugin/xkb-dialog.c:188
+#: ../panel-plugin/xkb-dialog.c:211
 msgid "globally"
 msgstr "globalmente"
 
-#: ../panel-plugin/xkb-dialog.c:189
+#: ../panel-plugin/xkb-dialog.c:212
 msgid "per window"
 msgstr "por janela"
 
-#: ../panel-plugin/xkb-dialog.c:190
+#: ../panel-plugin/xkb-dialog.c:213
 msgid "per application"
 msgstr "por aplicativo"
 
-#: ../panel-plugin/xkb-dialog.c:259
+#: ../panel-plugin/xkb-dialog.c:290
 msgid "Keyboard Layouts Plugin"
 msgstr "Plug-in de disposições de teclado"
 
-#: ../panel-plugin/xkb-dialog.c:261
+#: ../panel-plugin/xkb-dialog.c:292
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "Permite configurar e usar múltiplas disposições de teclado."
 
-#: ../panel-plugin/xkb-plugin.c:260
+#: ../panel-plugin/xkb-plugin.c:238
 msgid "Keyboard settings"
 msgstr "Configurações de teclado"
 
