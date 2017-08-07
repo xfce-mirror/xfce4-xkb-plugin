@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-27 00:32+0200\n"
-"PO-Revision-Date: 2017-07-27 10:49+0000\n"
+"PO-Revision-Date: 2017-08-07 15:46+0000\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian (http://www.transifex.com/xfce/xfce-panel-plugins/language/lt/)\n"
 "MIME-Version: 1.0\n"
@@ -45,7 +45,7 @@ msgstr "tekstą"
 
 #: ../panel-plugin/xkb-dialog.c:139
 msgid "system"
-msgstr "sistema"
+msgstr "sistemą"
 
 #: ../panel-plugin/xkb-dialog.c:145
 msgid "Layout name:"
