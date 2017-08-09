@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-27 00:32+0200\n"
-"PO-Revision-Date: 2017-07-26 23:08+0000\n"
+"PO-Revision-Date: 2017-08-09 19:46+0000\n"
 "Last-Translator: Viktor Odintsev <ninetls@xfce.org>\n"
 "Language-Team: Russian (http://www.transifex.com/xfce/xfce-panel-plugins/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -23,7 +23,7 @@ msgstr ""
 
 #: ../panel-plugin/xkb-dialog.c:76
 msgid "This option is not available for current layout style"
-msgstr "Данная опция недоступа для текущего стиля раскладки"
+msgstr "Данная опция недоступна для текущего стиля раскладки"
 
 #: ../panel-plugin/xkb-dialog.c:105 ../panel-plugin/xkb.desktop.in.h:1
 msgid "Keyboard Layouts"
