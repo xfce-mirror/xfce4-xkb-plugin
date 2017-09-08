@@ -7,12 +7,20 @@ plugin_LTLIBRARIES = \
 	libxkb.la
 
 libxkb_la_SOURCES = \
+	xkb-plugin.h \
 	xkb-plugin.c \
+	xkb-properties.h \
+	xkb-keyboard.h \
 	xkb-keyboard.c \
+	xkb-modifier.h \
 	xkb-modifier.c \
+	xkb-dialog.h \
 	xkb-dialog.c \
+	xkb-xfconf.h \
 	xkb-xfconf.c \
+	xkb-cairo.h \
 	xkb-cairo.c \
+	xkb-util.h \
 	xkb-util.c
 
 libxkb_la_CPPFLAGS = \
