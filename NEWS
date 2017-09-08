@@ -1,3 +1,16 @@
+2017-09-08 23:50
+    * New version 0.8.1
+    * Add caps lock indicator for "system" layout style
+    * Translation updates: Albanian, Arabic, Asturian, Basque, Belarusian,
+      Bulgarian, Catalan, Chinese (China), Chinese (Taiwan), Croatian, Czech,
+      Danish, Dutch, English (Australia), English (United Kingdom), Finnish,
+      French, Galician, German, Greek, Hebrew, Hungarian, Icelandic,
+      Indonesian, Italian, Japanese, Kazakh, Korean, Latvian, Lithuanian,
+      Malay, Norwegian Bokmål, Occitan (post 1500), Polish, Portuguese,
+      Portuguese (Brazil), Romanian, Russian, Serbian, Slovak, Slovenian,
+      Spanish, Swedish, Thai, Turkish, Uighur, Ukrainian, Urdu,
+      Urdu (Pakistan), Uzbek, Uzbek (Latin)
+
 2017-06-16 20:10
     * New version 0.8.0
     * New plugin is not compatible with previous versions;
