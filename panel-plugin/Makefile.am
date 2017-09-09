@@ -58,7 +58,8 @@ libxkb_la_LIBADD = \
 	$(LIBXKLAVIER_LIBS) \
 	$(LIBWNCK_LIBS) \
 	$(GARCON_LIBS) \
-	$(LIBRSVG_LIBS)
+	$(LIBRSVG_LIBS) \
+	-lX11
 
 #
 # Desktop file
