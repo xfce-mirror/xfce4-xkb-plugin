@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-02 00:31+0200\n"
-"PO-Revision-Date: 2017-07-25 11:28+0000\n"
+"POT-Creation-Date: 2017-07-27 00:32+0200\n"
+"PO-Revision-Date: 2017-09-19 18:07+0000\n"
 "Last-Translator: Xfce Bot <transifex@xfce.org>\n"
 "Language-Team: Kazakh (http://www.transifex.com/xfce/xfce-panel-plugins/language/kk/)\n"
 "MIME-Version: 1.0\n"
@@ -18,83 +18,87 @@ msgstr ""
 "Language: kk\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../panel-plugin/xkb-dialog.c:82 ../panel-plugin/xkb.desktop.in.h:1
+#: ../panel-plugin/xkb-dialog.c:76
+msgid "This option is not available for current layout style"
+msgstr ""
+
+#: ../panel-plugin/xkb-dialog.c:105 ../panel-plugin/xkb.desktop.in.h:1
 msgid "Keyboard Layouts"
 msgstr "Пернетақта жаймалары"
 
-#: ../panel-plugin/xkb-dialog.c:98
+#: ../panel-plugin/xkb-dialog.c:121
 msgid "Appearance"
 msgstr "Сыртқы түрі"
 
-#: ../panel-plugin/xkb-dialog.c:108
+#: ../panel-plugin/xkb-dialog.c:131
 msgid "Show layout as:"
 msgstr "Жайманы қалайша көрсету:"
 
-#: ../panel-plugin/xkb-dialog.c:114
+#: ../panel-plugin/xkb-dialog.c:137
 msgid "image"
 msgstr "сурет"
 
-#: ../panel-plugin/xkb-dialog.c:115
+#: ../panel-plugin/xkb-dialog.c:138
 msgid "text"
 msgstr "мәтін"
 
-#: ../panel-plugin/xkb-dialog.c:116
+#: ../panel-plugin/xkb-dialog.c:139
 msgid "system"
 msgstr ""
 
-#: ../panel-plugin/xkb-dialog.c:122
+#: ../panel-plugin/xkb-dialog.c:145
 msgid "Layout name:"
 msgstr ""
 
-#: ../panel-plugin/xkb-dialog.c:128
+#: ../panel-plugin/xkb-dialog.c:151
 msgid "country"
 msgstr ""
 
-#: ../panel-plugin/xkb-dialog.c:129
+#: ../panel-plugin/xkb-dialog.c:152
 msgid "language"
 msgstr ""
 
-#: ../panel-plugin/xkb-dialog.c:135
+#: ../panel-plugin/xkb-dialog.c:158
 msgid "Widget size:"
 msgstr ""
 
-#: ../panel-plugin/xkb-dialog.c:148
+#: ../panel-plugin/xkb-dialog.c:171
 msgid "Caps Lock indicator:"
 msgstr ""
 
-#: ../panel-plugin/xkb-dialog.c:160
+#: ../panel-plugin/xkb-dialog.c:183
 msgid "Tooltip icon:"
 msgstr ""
 
-#: ../panel-plugin/xkb-dialog.c:172
+#: ../panel-plugin/xkb-dialog.c:195
 msgid "Behavior"
 msgstr ""
 
-#: ../panel-plugin/xkb-dialog.c:182
+#: ../panel-plugin/xkb-dialog.c:205
 msgid "Manage layout:"
 msgstr "Жайманы орнату:"
 
-#: ../panel-plugin/xkb-dialog.c:188
+#: ../panel-plugin/xkb-dialog.c:211
 msgid "globally"
 msgstr "глобалды"
 
-#: ../panel-plugin/xkb-dialog.c:189
+#: ../panel-plugin/xkb-dialog.c:212
 msgid "per window"
 msgstr "әр терезе үшін"
 
-#: ../panel-plugin/xkb-dialog.c:190
+#: ../panel-plugin/xkb-dialog.c:213
 msgid "per application"
 msgstr "әр қолданба үшін"
 
-#: ../panel-plugin/xkb-dialog.c:259
+#: ../panel-plugin/xkb-dialog.c:290
 msgid "Keyboard Layouts Plugin"
 msgstr "Пернетақта жаймалары плагині"
 
-#: ../panel-plugin/xkb-dialog.c:261
+#: ../panel-plugin/xkb-dialog.c:292
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "Сізге көптеген пернетақта жаймаларын баптау мен қолдануға көмектеседі."
 
-#: ../panel-plugin/xkb-plugin.c:260
+#: ../panel-plugin/xkb-plugin.c:238
 msgid "Keyboard settings"
 msgstr "Пернетақта баптаулары"
 
