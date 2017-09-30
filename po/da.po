@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-27 00:32+0200\n"
-"PO-Revision-Date: 2017-09-19 18:07+0000\n"
+"PO-Revision-Date: 2017-09-30 14:20+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/xfce/xfce-panel-plugins/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -96,7 +96,7 @@ msgstr "hvert program"
 
 #: ../panel-plugin/xkb-dialog.c:290
 msgid "Keyboard Layouts Plugin"
-msgstr "Udvidelsesmodul til tastaturlayouts"
+msgstr "Plugin til tastaturlayouts"
 
 #: ../panel-plugin/xkb-dialog.c:292
 msgid "Allows you to configure and use multiple keyboard layouts."
@@ -108,4 +108,4 @@ msgstr "Tastaturindstillinger"
 
 #: ../panel-plugin/xkb.desktop.in.h:2
 msgid "Keyboard layouts setup and switch plugin"
-msgstr "Udvidelsesmodul til indstilling og skift af tastaturlayout"
+msgstr "Plugin til indstilling og skift af tastaturlayout"
