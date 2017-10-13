@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Baurzhan Muftakhidinov <baurthefirst@gmail.com>, 2009,2013,2016
+# Baurzhan Muftakhidinov <baurthefirst@gmail.com>, 2009,2013,2016-2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-27 00:32+0200\n"
-"PO-Revision-Date: 2017-09-19 18:07+0000\n"
-"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
+"PO-Revision-Date: 2017-10-13 15:42+0000\n"
+"Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>\n"
 "Language-Team: Kazakh (http://www.transifex.com/xfce/xfce-panel-plugins/language/kk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #: ../panel-plugin/xkb-dialog.c:76
 msgid "This option is not available for current layout style"
-msgstr ""
+msgstr "Бұл опция ағымдағы жайма стилі үшін қолжетерсіз"
 
 #: ../panel-plugin/xkb-dialog.c:105 ../panel-plugin/xkb.desktop.in.h:1
 msgid "Keyboard Layouts"
@@ -44,35 +44,35 @@ msgstr "мәтін"
 
 #: ../panel-plugin/xkb-dialog.c:139
 msgid "system"
-msgstr ""
+msgstr "жүйе"
 
 #: ../panel-plugin/xkb-dialog.c:145
 msgid "Layout name:"
-msgstr ""
+msgstr "Жайма атауы:"
 
 #: ../panel-plugin/xkb-dialog.c:151
 msgid "country"
-msgstr ""
+msgstr "ел"
 
 #: ../panel-plugin/xkb-dialog.c:152
 msgid "language"
-msgstr ""
+msgstr "тіл"
 
 #: ../panel-plugin/xkb-dialog.c:158
 msgid "Widget size:"
-msgstr ""
+msgstr "Виджет өлшемі:"
 
 #: ../panel-plugin/xkb-dialog.c:171
 msgid "Caps Lock indicator:"
-msgstr ""
+msgstr "Caps Lock индикаторы:"
 
 #: ../panel-plugin/xkb-dialog.c:183
 msgid "Tooltip icon:"
-msgstr ""
+msgstr "Қалқымалы таңбаша:"
 
 #: ../panel-plugin/xkb-dialog.c:195
 msgid "Behavior"
-msgstr ""
+msgstr "Мінез-құлығы"
 
 #: ../panel-plugin/xkb-dialog.c:205
 msgid "Manage layout:"
