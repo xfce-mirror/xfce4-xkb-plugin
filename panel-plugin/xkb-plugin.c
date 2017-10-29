@@ -376,6 +376,7 @@ xkb_plugin_calculate_sizes (XkbPlugin      *plugin,
       break;
 
     default:
+      hsize = vsize = panel_size;
       break;
     }
 
@@ -493,15 +494,16 @@ xkb_plugin_refresh_gui (XkbPlugin *plugin)
 static void
 xkb_plugin_configure_layout (GtkWidget *widget)
 {
-  gchar     *desktop_file;
-  GError    *error = NULL;
-  gchar    **argv;
-  gboolean   succeed;
+  gchar           *desktop_file;
+  GError          *error = NULL;
+  gchar          **argv;
+  gboolean         succeed;
+  GarconMenuItem  *item;
 
   desktop_file = xfce_resource_lookup (XFCE_RESOURCE_DATA,
                                        "applications/xfce-keyboard-settings.desktop");
 
-  GarconMenuItem *item = garcon_menu_item_new_for_path (desktop_file);
+  item = garcon_menu_item_new_for_path (desktop_file);
 
   if (item)
     {

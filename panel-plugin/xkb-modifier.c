@@ -91,7 +91,8 @@ xkb_modifier_new (void)
   XkbModifier *modifier;
   Display     *display;
   XkbDescRec  *xkb_desc;
-  gint         i, states, caps_lock_mask;
+  gint         i;
+  guint        states, caps_lock_mask;
   gchar       *atom_name;
 
   modifier = g_object_new (TYPE_XKB_MODIFIER, NULL);
@@ -100,7 +101,7 @@ xkb_modifier_new (void)
   display = XOpenDisplay (NULL);
   if (display != NULL)
     {
-      XkbDescRec *xkb_desc = XkbGetKeyboard (display, XkbAllComponentsMask, XkbUseCoreKbd);
+      xkb_desc = XkbGetKeyboard (display, XkbAllComponentsMask, XkbUseCoreKbd);
       if (xkb_desc != NULL)
         {
           for (i = 0; i < XkbNumIndicators; i++)
@@ -155,7 +156,7 @@ xkb_modifier_handle_xevent (GdkXEvent *xev,
   XkbModifier         *modifier = user_data;
   Display             *display;
   XkbStateNotifyEvent *state_event = xev;
-  gint                 modifier_flags;
+  guint                modifier_flags;
 
   if (modifier->xkb_event_type != 0 &&
       state_event->type == modifier->xkb_event_type &&
