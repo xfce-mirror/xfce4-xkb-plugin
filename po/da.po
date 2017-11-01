@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-27 00:32+0200\n"
-"PO-Revision-Date: 2017-09-30 14:20+0000\n"
+"PO-Revision-Date: 2017-11-01 16:43+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/xfce/xfce-panel-plugins/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -64,7 +64,7 @@ msgstr "sprog"
 
 #: ../panel-plugin/xkb-dialog.c:158
 msgid "Widget size:"
-msgstr "Widget-størrelse:"
+msgstr "Widgetstørrelse:"
 
 #: ../panel-plugin/xkb-dialog.c:171
 msgid "Caps Lock indicator:"
@@ -96,11 +96,11 @@ msgstr "hvert program"
 
 #: ../panel-plugin/xkb-dialog.c:290
 msgid "Keyboard Layouts Plugin"
-msgstr "Plugin til tastaturlayouts"
+msgstr "Tastaturlayouts-plugin"
 
 #: ../panel-plugin/xkb-dialog.c:292
 msgid "Allows you to configure and use multiple keyboard layouts."
-msgstr "Tillader dig at indstille og bruge flere tastaturlayouts."
+msgstr "Giver dig mulighed for at konfigurere og bruge flere tastaturlayouts."
 
 #: ../panel-plugin/xkb-plugin.c:238
 msgid "Keyboard settings"
@@ -108,4 +108,4 @@ msgstr "Tastaturindstillinger"
 
 #: ../panel-plugin/xkb.desktop.in.h:2
 msgid "Keyboard layouts setup and switch plugin"
-msgstr "Plugin til indstilling og skift af tastaturlayout"
+msgstr "Plugin til opsætning og skift af tastaturlayout"
