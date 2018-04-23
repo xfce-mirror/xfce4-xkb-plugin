@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-27 00:32+0200\n"
-"PO-Revision-Date: 2017-09-19 18:07+0000\n"
-"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
+"PO-Revision-Date: 2018-04-23 18:24+0000\n"
+"Last-Translator: Zmicer Turok <zmicerturok@gmail.com>\n"
 "Language-Team: Belarusian (http://www.transifex.com/xfce/xfce-panel-plugins/language/be/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,11 +20,11 @@ msgstr ""
 
 #: ../panel-plugin/xkb-dialog.c:76
 msgid "This option is not available for current layout style"
-msgstr ""
+msgstr "Гэты параметр недаступны пры бягучым стылі раскладкі"
 
 #: ../panel-plugin/xkb-dialog.c:105 ../panel-plugin/xkb.desktop.in.h:1
 msgid "Keyboard Layouts"
-msgstr "Раскладкі клявіятуры"
+msgstr "Раскладкі клавіятуры"
 
 #: ../panel-plugin/xkb-dialog.c:121
 msgid "Appearance"
@@ -32,76 +32,76 @@ msgstr "Выгляд"
 
 #: ../panel-plugin/xkb-dialog.c:131
 msgid "Show layout as:"
-msgstr "Інфармаваць пра раскладку ў выглядзе:"
+msgstr "Стыль адлюстравання:"
 
 #: ../panel-plugin/xkb-dialog.c:137
 msgid "image"
-msgstr "відарыса"
+msgstr "выява"
 
 #: ../panel-plugin/xkb-dialog.c:138
 msgid "text"
-msgstr "тэксту"
+msgstr "тэкст"
 
 #: ../panel-plugin/xkb-dialog.c:139
 msgid "system"
-msgstr ""
+msgstr "сістэмны"
 
 #: ../panel-plugin/xkb-dialog.c:145
 msgid "Layout name:"
-msgstr ""
+msgstr "Назва раскладкі:"
 
 #: ../panel-plugin/xkb-dialog.c:151
 msgid "country"
-msgstr ""
+msgstr "краіна"
 
 #: ../panel-plugin/xkb-dialog.c:152
 msgid "language"
-msgstr ""
+msgstr "мова"
 
 #: ../panel-plugin/xkb-dialog.c:158
 msgid "Widget size:"
-msgstr ""
+msgstr "Памер віджэта:"
 
 #: ../panel-plugin/xkb-dialog.c:171
 msgid "Caps Lock indicator:"
-msgstr ""
+msgstr "Індыкатар Caps Lock:"
 
 #: ../panel-plugin/xkb-dialog.c:183
 msgid "Tooltip icon:"
-msgstr ""
+msgstr "Значок падказак:"
 
 #: ../panel-plugin/xkb-dialog.c:195
 msgid "Behavior"
-msgstr ""
+msgstr "Паводзіны"
 
 #: ../panel-plugin/xkb-dialog.c:205
 msgid "Manage layout:"
-msgstr "Дзеяньне раскладкі:"
+msgstr "Кіраванне раскладкамі:"
 
 #: ../panel-plugin/xkb-dialog.c:211
 msgid "globally"
-msgstr "глябальнае"
+msgstr "глабальна"
 
 #: ../panel-plugin/xkb-dialog.c:212
 msgid "per window"
-msgstr "для кожнага вакна"
+msgstr "для кожнага акна"
 
 #: ../panel-plugin/xkb-dialog.c:213
 msgid "per application"
-msgstr "для кожнага дастасаваньня"
+msgstr "для кожнай праграмы"
 
 #: ../panel-plugin/xkb-dialog.c:290
 msgid "Keyboard Layouts Plugin"
-msgstr "Модуль раскладак клявіятуры"
+msgstr "Убудова раскладак клавіятуры"
 
 #: ../panel-plugin/xkb-dialog.c:292
 msgid "Allows you to configure and use multiple keyboard layouts."
-msgstr "Дазваляе вам наладжіць і выкарыстоўваць некалькі раскладак клявіятуры."
+msgstr "Дае магчымасць наладзіць і выкарыстоўваць некалькі раскладак клавіятуры."
 
 #: ../panel-plugin/xkb-plugin.c:238
 msgid "Keyboard settings"
-msgstr ""
+msgstr "Налады клавіятуры"
 
 #: ../panel-plugin/xkb.desktop.in.h:2
 msgid "Keyboard layouts setup and switch plugin"
-msgstr "Модуль наладкі й пераключэньня раскладак клявіятуры"
+msgstr "Убудова для пераключэння і наладкі раскладак клавіятуры"
