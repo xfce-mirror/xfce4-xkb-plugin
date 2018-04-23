@@ -18,7 +18,7 @@
    sodipodi:version="0.32"
    inkscape:version="0.43"
    sodipodi:docname="Flag_of_Myanmar.svg"
-   sodipodi:docbase="C:\Documents and Settings\David Nelson\Archives\Svg">
+   sodipodi:docbase="/home/kokoye2007/Desktop/Myanmar_Flag.svg">
   <sodipodi:namedview
      inkscape:window-height="540"
      inkscape:window-width="756"
@@ -47,7 +47,207 @@
             <rdf:li>asia</rdf:li>
             <rdf:li>united_nations_member</rdf:li>
             <rdf:li>flag</rdf:li>
+            <rdf:li>sign</rdf:li><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Sodipodi ("http://www.sodipodi.com/") -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   height="502.66537"
+   id="svg548"
+   version="1.0"
+   width="753.99805"
+   x="0.00000000"
+   y="0.00000000"
+   sodipodi:version="0.32"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   sodipodi:docname="mm_flag.svg">
+  <sodipodi:namedview
+     inkscape:window-height="713"
+     inkscape:window-width="1299"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base"
+     inkscape:zoom="0.73311632"
+     inkscape:cx="380.59471"
+     inkscape:cy="248.37887"
+     inkscape:window-x="67"
+     inkscape:window-y="27"
+     inkscape:current-layer="svg548"
+     showgrid="false"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:window-maximized="1">
+    <sodipodi:guide
+       position="377.18462,139.47946"
+       orientation="1,0"
+       id="guide3853"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata4985">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title></dc:title>
+        <dc:description />
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li />
+            <rdf:li>asia</rdf:li>
+            <rdf:li>united_nations_member</rdf:li>
+            <rdf:li>flag</rdf:li>
             <rdf:li>sign</rdf:li>
+            <rdf:li>burma</rdf:li>
+            <rdf:li>myanmar</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+        <dc:publisher>
+          <cc:Agent
+             rdf:about="http://www.openclipart.org">
+            <dc:title>Caleb Moore</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Caleb Moore</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:rights>
+          <cc:Agent>
+            <dc:title>Caleb Moore</dc:title>
+          </cc:Agent>
+        </dc:rights>
+        <dc:date />
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <cc:license
+           rdf:resource="http://web.resource.org/cc/PublicDomain" />
+        <dc:language>en</dc:language>
+      </cc:Work>
+      <cc:License
+         rdf:about="http://web.resource.org/cc/PublicDomain">
+        <cc:permits
+           rdf:resource="http://web.resource.org/cc/Reproduction" />
+        <cc:permits
+           rdf:resource="http://web.resource.org/cc/Distribution" />
+        <cc:permits
+           rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs550">
+    <linearGradient
+       gradientUnits="objectBoundingBox"
+       id="linearGradient604"
+       spreadMethod="pad"
+       x1="0"
+       x2="1"
+       y1="0"
+       y2="0">
+      <stop
+         id="stop605"
+         offset="0.00000000"
+         style="stop-color:#000000;stop-opacity:1;" />
+      <stop
+         id="stop606"
+         offset="1.00000000"
+         style="stop-color:#ffffff;stop-opacity:1;" />
+    </linearGradient>
+    <radialGradient
+       cx="0.5"
+       cy="0.5"
+       fx="0.5"
+       fy="0.5"
+       gradientUnits="objectBoundingBox"
+       id="radialGradient607"
+       r="0.5"
+       spreadMethod="pad"
+       xlink:href="#linearGradient604" />
+    <linearGradient
+       gradientTransform="translate(1.039138e-6)"
+       gradientUnits="objectBoundingBox"
+       id="linearGradient608"
+       spreadMethod="pad"
+       x1="1.04e-06"
+       x2="1.0000011"
+       xlink:href="#linearGradient604"
+       y1="-2e-07"
+       y2="-2e-07" />
+  </defs>
+  <rect
+     y="0"
+     x="0"
+     style="fill:#fecb00;stroke-width:41.8887825"
+     width="753.99805"
+     height="251.3327"
+     id="rect2" />
+  <rect
+     x="0"
+     style="fill:#ea2839;stroke-width:41.8887825"
+     width="753.99805"
+     height="251.3327"
+     y="251.33269"
+     id="rect4" />
+  <rect
+     x="0"
+     style="fill:#34b233;stroke-width:41.8887825"
+     width="753.99805"
+     height="167.55513"
+     y="167.55515"
+     id="rect6" />
+  <g
+     transform="matrix(185.23219,0,0,185.23219,376.99903,269.00975)"
+     id="g17">
+    <polygon
+       style="fill:#ffffff"
+       id="pt"
+       points="-0.3249197,0 0,-1 0.3249197,0 " />
+    <use
+       height="100%"
+       width="100%"
+       y="0"
+       x="0"
+       xlink:href="#pt"
+       transform="rotate(-144)"
+       id="use9" />
+    <use
+       height="100%"
+       width="100%"
+       y="0"
+       x="0"
+       xlink:href="#pt"
+       transform="rotate(-72)"
+       id="use11" />
+    <use
+       height="100%"
+       width="100%"
+       y="0"
+       x="0"
+       xlink:href="#pt"
+       transform="rotate(72)"
+       id="use13" />
+    <use
+       height="100%"
+       width="100%"
+       y="0"
+       x="0"
+       xlink:href="#pt"
+       transform="rotate(144)"
+       id="use15" />
+  </g>
+</svg>
             <rdf:li>burma</rdf:li>
           </rdf:Bag>
         </dc:subject>
