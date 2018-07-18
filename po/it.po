@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-27 00:32+0200\n"
-"PO-Revision-Date: 2018-07-11 15:08+0000\n"
+"PO-Revision-Date: 2018-07-18 11:57+0000\n"
 "Last-Translator: Emanuele Petriglia <inbox@emanuelepetriglia.me>\n"
 "Language-Team: Italian (http://www.transifex.com/xfce/xfce-panel-plugins/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -94,11 +94,11 @@ msgstr "per applicazione"
 
 #: ../panel-plugin/xkb-dialog.c:290
 msgid "Keyboard Layouts Plugin"
-msgstr "Plugin per la disposizione della tastiera"
+msgstr "Componente aggiuntivo per la disposizione della tastiera"
 
 #: ../panel-plugin/xkb-dialog.c:292
 msgid "Allows you to configure and use multiple keyboard layouts."
-msgstr "Permette di configurare e utilizzare diverse disposizioni della tastiera"
+msgstr "Permette di configurare e utilizzare diverse disposizioni della tastiera."
 
 #: ../panel-plugin/xkb-plugin.c:238
 msgid "Keyboard settings"
@@ -106,4 +106,4 @@ msgstr "Impostazioni della tastiera"
 
 #: ../panel-plugin/xkb.desktop.in.h:2
 msgid "Keyboard layouts setup and switch plugin"
-msgstr "Impostazione della disposizione tastiera e plugin di scelta"
+msgstr "Componente aggiuntivo per l'impostazione ed il cambio della disposizione della tastiera"
