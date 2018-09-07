@@ -107,23 +107,23 @@ xkb_dialog_configure_plugin (XfcePanelPlugin *plugin,
                                                          GTK_RESPONSE_OK, NULL);
   gtk_window_set_icon_name (GTK_WINDOW (settings_dialog), "xfce4-settings");
 
-  vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 2);
+  vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 18);
   gtk_box_set_homogeneous (GTK_BOX (vbox), FALSE);
-  gtk_widget_set_margin_start (vbox, 8);
-  gtk_widget_set_margin_end (vbox, 8);
-  gtk_widget_set_margin_top (vbox, 8);
-  gtk_widget_set_margin_bottom (vbox, 8);
+  gtk_container_set_border_width (GTK_CONTAINER (vbox), 10);
   gtk_widget_show (vbox);
   gtk_container_add (GTK_CONTAINER (gtk_dialog_get_content_area (GTK_DIALOG (settings_dialog))), vbox);
 
   grid_vertical = 0;
 
   frame = xfce_gtk_frame_box_new (_("Appearance"), &bin);
-  gtk_box_pack_start (GTK_BOX (vbox), frame, TRUE, TRUE, 2);
+  G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+  gtk_alignment_set_padding (GTK_ALIGNMENT (bin), 6, 0, 12, 0);
+  G_GNUC_END_IGNORE_DEPRECATIONS
+  gtk_box_pack_start (GTK_BOX (vbox), frame, TRUE, TRUE, 0);
 
   grid = gtk_grid_new ();
   gtk_grid_set_row_spacing (GTK_GRID (grid), 6);
-  gtk_grid_set_column_spacing (GTK_GRID (grid), 18);
+  gtk_grid_set_column_spacing (GTK_GRID (grid), 12);
   gtk_grid_set_row_homogeneous (GTK_GRID (grid), TRUE);
   gtk_widget_set_size_request (grid, -1, -1);
   gtk_container_add (GTK_CONTAINER (bin), grid);
@@ -193,11 +193,14 @@ xkb_dialog_configure_plugin (XfcePanelPlugin *plugin,
   grid_vertical = 0;
 
   frame = xfce_gtk_frame_box_new (_("Behavior"), &bin);
-  gtk_box_pack_start (GTK_BOX (vbox), frame, TRUE, TRUE, 2);
+  G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+  gtk_alignment_set_padding (GTK_ALIGNMENT (bin), 6, 0, 12, 0);
+  G_GNUC_END_IGNORE_DEPRECATIONS
+  gtk_box_pack_start (GTK_BOX (vbox), frame, TRUE, TRUE, 0);
 
   grid = gtk_grid_new ();
   gtk_grid_set_row_spacing (GTK_GRID (grid), 6);
-  gtk_grid_set_column_spacing (GTK_GRID (grid), 18);
+  gtk_grid_set_column_spacing (GTK_GRID (grid), 12);
   gtk_grid_set_row_homogeneous (GTK_GRID (grid), TRUE);
   gtk_widget_set_size_request (grid, -1, -1);
   gtk_container_add (GTK_CONTAINER (bin), grid);
