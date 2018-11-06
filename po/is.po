@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-27 00:32+0200\n"
-"PO-Revision-Date: 2018-11-05 20:27+0000\n"
+"PO-Revision-Date: 2018-11-06 12:09+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic (http://www.transifex.com/xfce/xfce-panel-plugins/language/is/)\n"
 "MIME-Version: 1.0\n"
@@ -21,11 +21,11 @@ msgstr ""
 
 #: ../panel-plugin/xkb-dialog.c:76
 msgid "This option is not available for current layout style"
-msgstr ""
+msgstr "Þessi valkostur er ekki tiltækur fyrir núverandi stíl uppsetningar"
 
 #: ../panel-plugin/xkb-dialog.c:105 ../panel-plugin/xkb.desktop.in.h:1
 msgid "Keyboard Layouts"
-msgstr "Lyklaborðsframsetningar"
+msgstr "Lyklaborðsuppsetningar"
 
 #: ../panel-plugin/xkb-dialog.c:121
 msgid "Appearance"
@@ -49,7 +49,7 @@ msgstr "kerfi"
 
 #: ../panel-plugin/xkb-dialog.c:145
 msgid "Layout name:"
-msgstr "Heiti framsetningar:"
+msgstr "Heiti uppsetningar:"
 
 #: ../panel-plugin/xkb-dialog.c:151
 msgid "country"
@@ -65,7 +65,7 @@ msgstr "Stærð viðmótshluta (widget):"
 
 #: ../panel-plugin/xkb-dialog.c:171
 msgid "Caps Lock indicator:"
-msgstr ""
+msgstr "Ástandsvísir fyrir hástafalæsingu:"
 
 #: ../panel-plugin/xkb-dialog.c:183
 msgid "Tooltip icon:"
@@ -77,7 +77,7 @@ msgstr "Hegðun"
 
 #: ../panel-plugin/xkb-dialog.c:205
 msgid "Manage layout:"
-msgstr "Stýra framsetningu:"
+msgstr "Stýra uppsetningu:"
 
 #: ../panel-plugin/xkb-dialog.c:211
 msgid "globally"
@@ -93,7 +93,7 @@ msgstr "fyrir forrit"
 
 #: ../panel-plugin/xkb-dialog.c:290
 msgid "Keyboard Layouts Plugin"
-msgstr "Lyklaborðsframsetningarviðbót"
+msgstr "Lyklaborðsuppsetningarviðbót"
 
 #: ../panel-plugin/xkb-dialog.c:292
 msgid "Allows you to configure and use multiple keyboard layouts."
@@ -105,4 +105,4 @@ msgstr "Stillingar lyklaborðs"
 
 #: ../panel-plugin/xkb.desktop.in.h:2
 msgid "Keyboard layouts setup and switch plugin"
-msgstr "Viðbót fyrir framsetningar og skiptingar milli lyklaborða"
+msgstr "Viðbót fyrir uppsetningar og skiptingar milli lyklaborða"
