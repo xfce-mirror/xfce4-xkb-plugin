@@ -44,6 +44,7 @@ typedef enum
 {
   DISPLAY_NAME_COUNTRY            = 0,
   DISPLAY_NAME_LANGUAGE           = 1,
+  DISPLAY_NAME_VARIANT            = 2
 } XkbDisplayName;
 
 #define DISPLAY_SCALE_MIN           0

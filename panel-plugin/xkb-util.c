@@ -25,22 +25,39 @@
 
 #include <string.h>
 
+#include <libxfce4util/libxfce4util.h>
+
 #include "xkb-util.h"
 
 
-
 gchar*
-xkb_util_get_flag_filename (const gchar* group_name)
+xkb_util_get_flag_filename (const gchar* group_name,
+                            const gchar* variant)
 {
   gchar* filename;
 
   if (!group_name)
     return NULL;
 
-  filename = g_strconcat (g_get_user_data_dir (), "/", FLAGSRELDIR, "/", group_name, ".svg", NULL);
+  filename = g_strconcat (g_get_user_data_dir (), "/", FLAGSRELDIR, "/", group_name, "-", variant, ".svg", NULL);
 
   if (!g_file_test (filename, G_FILE_TEST_EXISTS))
     {
+      DBG ("Non existent file: %s", filename);
+      g_free (filename);
+      filename = g_strconcat (g_get_user_data_dir (), "/", FLAGSRELDIR, "/", group_name, ".svg", NULL);
+    }
+
+  if (!g_file_test (filename, G_FILE_TEST_EXISTS))
+    {
+      DBG ("Non existent file: %s", filename);
+      g_free (filename);
+      filename = g_strconcat (DATADIR, "/", FLAGSRELDIR, "/", group_name, "-", variant, ".svg", NULL);
+    }
+
+  if (!g_file_test (filename, G_FILE_TEST_EXISTS))
+    {
+      DBG ("Non existent file: %s", filename);
       g_free (filename);
       filename = g_strconcat (DATADIR, "/", FLAGSRELDIR, "/", group_name, ".svg", NULL);
     }

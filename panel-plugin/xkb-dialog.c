@@ -150,6 +150,7 @@ xkb_dialog_configure_plugin (XfcePanelPlugin *plugin,
   display_name_combo = gtk_combo_box_text_new ();
   gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (display_name_combo), _("country"));
   gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (display_name_combo), _("language"));
+  gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (display_name_combo), _("variant"));
   gtk_widget_set_size_request (display_name_combo, 230, -1);
   gtk_grid_attach (GTK_GRID (grid), display_name_combo, 1, grid_vertical, 1, 1);
 

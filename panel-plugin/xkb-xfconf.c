@@ -108,7 +108,7 @@ xkb_xfconf_class_init (XkbXfconfClass *klass)
   g_object_class_install_property (gobject_class, PROP_DISPLAY_NAME,
                                    g_param_spec_uint (DISPLAY_NAME, NULL, NULL,
                                                       DISPLAY_NAME_COUNTRY,
-                                                      DISPLAY_NAME_LANGUAGE,
+                                                      DISPLAY_NAME_VARIANT,
                                                       DEFAULT_DISPLAY_NAME,
                                                       G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
 

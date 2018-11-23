@@ -358,7 +358,7 @@ xkb_keyboard_initialize_xkb_options (XkbKeyboard        *keyboard,
 
       #undef MODIFY_INDEXES
 
-      imgfilename = xkb_util_get_flag_filename (group_data->country_name);
+      imgfilename = xkb_util_get_flag_filename (group_data->country_name, group_data->variant);
       handle = rsvg_handle_new_from_file (imgfilename, NULL);
       if (handle)
         {
@@ -710,6 +710,12 @@ xkb_keyboard_get_group_name (XkbKeyboard    *keyboard,
 
     case DISPLAY_NAME_LANGUAGE:
       return group_data->language_name;
+
+    case DISPLAY_NAME_VARIANT:
+      if (g_str_equal(group_data->variant, "")) {
+          return group_data->language_name;
+      }
+      return group_data->variant;
 
     default:
       return "";
