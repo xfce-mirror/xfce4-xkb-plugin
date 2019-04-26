@@ -345,7 +345,7 @@ xkb_xfconf_set_property (GObject      *object,
 	g_string_assign (config->layout_defaults[layout], val_string->str);
 	g_object_notify (G_OBJECT (config), prop_names[layout]);
 	g_signal_emit (G_OBJECT (config), xkb_xfconf_signals[CONFIGURATION_CHANGED], 0);
-      } 
+      }
       g_string_free (val_string, TRUE);
       break;
 
