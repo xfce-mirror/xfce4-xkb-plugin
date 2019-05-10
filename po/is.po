@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Sveinn í Felli <sv1@fellsnet.is>, 2014-2015
+# Sveinn í Felli <sv1@fellsnet.is>, 2013-2015,2018-2019
 # Sveinn í Felli <sveinki@nett.is>, 2013,2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-27 00:32+0200\n"
-"PO-Revision-Date: 2018-11-06 12:09+0000\n"
+"PO-Revision-Date: 2019-05-10 11:27+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic (http://www.transifex.com/xfce/xfce-panel-plugins/language/is/)\n"
 "MIME-Version: 1.0\n"
@@ -85,11 +85,11 @@ msgstr "allstaðar"
 
 #: ../panel-plugin/xkb-dialog.c:212
 msgid "per window"
-msgstr "fyrir glugga"
+msgstr "fyrir hvern glugga"
 
 #: ../panel-plugin/xkb-dialog.c:213
 msgid "per application"
-msgstr "fyrir forrit"
+msgstr "fyrir hvert forrit"
 
 #: ../panel-plugin/xkb-dialog.c:290
 msgid "Keyboard Layouts Plugin"
