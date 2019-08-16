@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Daniel Muñiz Fontoira <dani@damufo.com>, 2018
+# Daniel Muñiz Fontoira <dani@damufo.com>, 2018-2019
 # Leandro Regueiro <leandro.regueiro@gmail.com>, 2006,2008-2009
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-27 00:32+0200\n"
-"PO-Revision-Date: 2018-09-10 05:57+0000\n"
+"PO-Revision-Date: 2019-08-16 13:41+0000\n"
 "Last-Translator: Daniel Muñiz Fontoira <dani@damufo.com>\n"
 "Language-Team: Galician (http://www.transifex.com/xfce/xfce-panel-plugins/language/gl/)\n"
 "MIME-Version: 1.0\n"
@@ -33,7 +33,7 @@ msgstr "Aparencia"
 
 #: ../panel-plugin/xkb-dialog.c:131
 msgid "Show layout as:"
-msgstr "Mostrar a disposición como:"
+msgstr "Amosar a disposición como:"
 
 #: ../panel-plugin/xkb-dialog.c:137
 msgid "image"
