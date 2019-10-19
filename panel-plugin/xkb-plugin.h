@@ -26,7 +26,7 @@
 #ifndef _XFCE_XKB_H_
 #define _XFCE_XKB_H_
 
-#include <libxfce4panel/xfce-panel-plugin.h>
+#include <libxfce4panel/libxfce4panel.h>
 
 #include "xkb-xfconf.h"
 
