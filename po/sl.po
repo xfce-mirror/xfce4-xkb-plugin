@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Arnold Marko <arnold.marko@gmail.com>, 2019
 # Kernc, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-27 00:32+0200\n"
-"PO-Revision-Date: 2017-09-18 20:51+0000\n"
-"Last-Translator: Kernc\n"
+"PO-Revision-Date: 2019-11-03 17:43+0000\n"
+"Last-Translator: Arnold Marko <arnold.marko@gmail.com>\n"
 "Language-Team: Slovenian (http://www.transifex.com/xfce/xfce-panel-plugins/language/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,19 +21,19 @@ msgstr ""
 
 #: ../panel-plugin/xkb-dialog.c:76
 msgid "This option is not available for current layout style"
-msgstr "Opcija ni na voljo za trenutno postavitev tipk"
+msgstr "Ta možnost ni na voljo za trenutni razpored tipk"
 
 #: ../panel-plugin/xkb-dialog.c:105 ../panel-plugin/xkb.desktop.in.h:1
 msgid "Keyboard Layouts"
-msgstr "Razporeditve tipk"
+msgstr "Razporedi tipk"
 
 #: ../panel-plugin/xkb-dialog.c:121
 msgid "Appearance"
-msgstr "Izgled"
+msgstr "Videz"
 
 #: ../panel-plugin/xkb-dialog.c:131
 msgid "Show layout as:"
-msgstr "Pokaži razporeditev kot:"
+msgstr "Pokaži razpored kot:"
 
 #: ../panel-plugin/xkb-dialog.c:137
 msgid "image"
@@ -48,7 +49,7 @@ msgstr "sistemsko"
 
 #: ../panel-plugin/xkb-dialog.c:145
 msgid "Layout name:"
-msgstr "Ime razporeditve"
+msgstr "Ime razporeda"
 
 #: ../panel-plugin/xkb-dialog.c:151
 msgid "country"
@@ -76,7 +77,7 @@ msgstr "Obnašanje"
 
 #: ../panel-plugin/xkb-dialog.c:205
 msgid "Manage layout:"
-msgstr "Nastavi razporeditev:"
+msgstr "Urejanje razporeda:"
 
 #: ../panel-plugin/xkb-dialog.c:211
 msgid "globally"
@@ -92,11 +93,11 @@ msgstr "za vsak program posebej"
 
 #: ../panel-plugin/xkb-dialog.c:290
 msgid "Keyboard Layouts Plugin"
-msgstr "Razporeditev tipk"
+msgstr "Vitčnik za razporede tipk"
 
 #: ../panel-plugin/xkb-dialog.c:292
 msgid "Allows you to configure and use multiple keyboard layouts."
-msgstr "Omogoča prilagajanje in preklapljanje med večimi razporeditvami tipk"
+msgstr "Omogoča prilagajanje in preklapljanje med različnimi razporedi tipk."
 
 #: ../panel-plugin/xkb-plugin.c:238
 msgid "Keyboard settings"
@@ -104,4 +105,4 @@ msgstr "Nastavitve tipkovnice"
 
 #: ../panel-plugin/xkb.desktop.in.h:2
 msgid "Keyboard layouts setup and switch plugin"
-msgstr "Prilagoditev / preklapljanje razporeditve tipk"
+msgstr "Prilagoditev / preklapljanje razporeda tipk"
