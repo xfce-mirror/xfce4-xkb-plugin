@@ -1,4 +1,6 @@
-Xfce4 XKB Layouts panel plugin.
+xfce4-xkb-plugin - An Xfce4 XKB Layouts panel plugin.
+===================
+https://docs.xfce.org/panel-plugins/xfce4-xkb-plugin
 
 Information
 ===========
@@ -52,3 +54,13 @@ Contact
 Send any question, suggestions, etc. to me, Azamat H. Hackimov
 (azamat.hackimov@gmail.com).
 
+
+How to report bugs?
+===================
+
+You can report bugs and feature requests at http://bugzilla.xfce.org.
+Choose the product Panel Plugins and the component xfce4-xkb-plugin.
+You will need to create an account for yourself.
+
+You can also join the Xfce development mailing-list:
+https://mail.xfce.org/mailman/listinfo/xfce4-dev

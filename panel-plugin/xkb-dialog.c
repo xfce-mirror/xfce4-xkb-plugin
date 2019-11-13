@@ -293,7 +293,7 @@ xkb_dialog_about_show (void)
                          "program-name", _("Keyboard Layouts Plugin"),
                          "version", PACKAGE_VERSION,
                          "comments", _("Allows you to configure and use multiple keyboard layouts."),
-                         "website", "https://goodies.xfce.org/projects/panel-plugins/xfce4-xkb-plugin",
+                         "website", "https://docs.xfce.org/panel-plugins/xfce4-xkb-plugin",
                          "license", xfce_get_license_text (XFCE_LICENSE_TEXT_GPL),
                          "authors", authors,
                          NULL);
