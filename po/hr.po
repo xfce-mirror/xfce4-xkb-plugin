@@ -4,14 +4,14 @@
 # 
 # Translators:
 # Edin Veskovic <edin.lockedin@gmail.com>, 2015,2017
-# Ivica  Kolić <ikoli@yahoo.com>, 2013
+# Ivica  Kolić <ikoli@yahoo.com>, 2013,2019
 # Ivica  Kolić <ikoli@yahoo.com>, 2011
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-27 00:32+0200\n"
-"PO-Revision-Date: 2017-10-22 00:10+0000\n"
+"PO-Revision-Date: 2019-12-23 21:50+0000\n"
 "Last-Translator: Ivica  Kolić <ikoli@yahoo.com>\n"
 "Language-Team: Croatian (http://www.transifex.com/xfce/xfce-panel-plugins/language/hr/)\n"
 "MIME-Version: 1.0\n"
@@ -66,7 +66,7 @@ msgstr "Veličina dodatka"
 
 #: ../panel-plugin/xkb-dialog.c:171
 msgid "Caps Lock indicator:"
-msgstr "Indikator tiskanih slova:"
+msgstr "Indikator velikih slova:"
 
 #: ../panel-plugin/xkb-dialog.c:183
 msgid "Tooltip icon:"
