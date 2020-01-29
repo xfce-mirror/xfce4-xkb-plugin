@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Besnik <besnik@programeshqip.org>, 2007,2019-2020
 # Besnik <besnik@programeshqip.org>, 2007
 # Besnik <besnik@programeshqip.org>, 2019
 msgid ""
@@ -10,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-27 00:32+0200\n"
-"PO-Revision-Date: 2019-10-16 10:03+0000\n"
+"PO-Revision-Date: 2020-01-29 10:47+0000\n"
 "Last-Translator: Besnik <besnik@programeshqip.org>\n"
 "Language-Team: Albanian (http://www.transifex.com/xfce/xfce-panel-plugins/language/sq/)\n"
 "MIME-Version: 1.0\n"
@@ -37,7 +38,7 @@ msgstr "Shfaq skemë si:"
 
 #: ../panel-plugin/xkb-dialog.c:137
 msgid "image"
-msgstr "pamje"
+msgstr "figurë"
 
 #: ../panel-plugin/xkb-dialog.c:138
 msgid "text"
@@ -77,7 +78,7 @@ msgstr "Sjellje"
 
 #: ../panel-plugin/xkb-dialog.c:205
 msgid "Manage layout:"
-msgstr "Administroni stil:"
+msgstr "Administroni skemë:"
 
 #: ../panel-plugin/xkb-dialog.c:211
 msgid "globally"
