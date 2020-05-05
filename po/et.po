@@ -1,0 +1,107 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Priit Jõerüüt <transifex@joeruut.com>, 2020
+msgid ""
+msgstr ""
+"Project-Id-Version: Xfce Panel Plugins\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-07-27 00:32+0200\n"
+"PO-Revision-Date: 2020-05-05 21:29+0000\n"
+"Last-Translator: Priit Jõerüüt <transifex@joeruut.com>\n"
+"Language-Team: Estonian (http://www.transifex.com/xfce/xfce-panel-plugins/language/et/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: et\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../panel-plugin/xkb-dialog.c:76
+msgid "This option is not available for current layout style"
+msgstr "See valik ei ole praeguse paigutuse juures saadaval"
+
+#: ../panel-plugin/xkb-dialog.c:105 ../panel-plugin/xkb.desktop.in.h:1
+msgid "Keyboard Layouts"
+msgstr "Klaviatuuri paigutused"
+
+#: ../panel-plugin/xkb-dialog.c:121
+msgid "Appearance"
+msgstr "Välimus"
+
+#: ../panel-plugin/xkb-dialog.c:131
+msgid "Show layout as:"
+msgstr "Näita kehtivat paigutust:"
+
+#: ../panel-plugin/xkb-dialog.c:137
+msgid "image"
+msgstr "pildina"
+
+#: ../panel-plugin/xkb-dialog.c:138
+msgid "text"
+msgstr "tekstina"
+
+#: ../panel-plugin/xkb-dialog.c:139
+msgid "system"
+msgstr "süsteemsena"
+
+#: ../panel-plugin/xkb-dialog.c:145
+msgid "Layout name:"
+msgstr "Paigutuse nimi:"
+
+#: ../panel-plugin/xkb-dialog.c:151
+msgid "country"
+msgstr "riigi järgi"
+
+#: ../panel-plugin/xkb-dialog.c:152
+msgid "language"
+msgstr "keele järgi"
+
+#: ../panel-plugin/xkb-dialog.c:158
+msgid "Widget size:"
+msgstr "Vidina suurus:"
+
+#: ../panel-plugin/xkb-dialog.c:171
+msgid "Caps Lock indicator:"
+msgstr "Suurtäheluku näidik:"
+
+#: ../panel-plugin/xkb-dialog.c:183
+msgid "Tooltip icon:"
+msgstr "Ikoon teabemullis: "
+
+#: ../panel-plugin/xkb-dialog.c:195
+msgid "Behavior"
+msgstr "Käitumine"
+
+#: ../panel-plugin/xkb-dialog.c:205
+msgid "Manage layout:"
+msgstr "Halda klaviatuuri paigutust:"
+
+#: ../panel-plugin/xkb-dialog.c:211
+msgid "globally"
+msgstr "kõikjal"
+
+#: ../panel-plugin/xkb-dialog.c:212
+msgid "per window"
+msgstr "akna kohaselt"
+
+#: ../panel-plugin/xkb-dialog.c:213
+msgid "per application"
+msgstr "rakenduse kohaselt"
+
+#: ../panel-plugin/xkb-dialog.c:290
+msgid "Keyboard Layouts Plugin"
+msgstr "Klaviatuuri paigutuse pistikprogramm"
+
+#: ../panel-plugin/xkb-dialog.c:292
+msgid "Allows you to configure and use multiple keyboard layouts."
+msgstr "Võimaldab sul seadistada ja kasutada mitmeid klaviatuuri paigutusi."
+
+#: ../panel-plugin/xkb-plugin.c:238
+msgid "Keyboard settings"
+msgstr "Klaviatuuri seadistused"
+
+#: ../panel-plugin/xkb.desktop.in.h:2
+msgid "Keyboard layouts setup and switch plugin"
+msgstr "Klaviatuuri paigutuse seadistamise ja vahetamise pistikprogramm"
