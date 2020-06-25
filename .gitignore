@@ -21,6 +21,7 @@ missing
 config.*
 stamp*
 m4/*.m4
+ChangeLog
 *.m4
 *.in
 /configure*

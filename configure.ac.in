@@ -18,12 +18,18 @@ m4_define([xkb_version_build], [@REVISION@])
 m4_define([xkb_version_tag], [git])
 m4_define([xkb_version], [xkb_version_major().xkb_version_minor().xkb_version_micro()ifelse(xkb_version_nano(), [], [], [.xkb_version_nano()])ifelse(xkb_version_tag(), [git], [xkb_version_tag()-xkb_version_build()], [xkb_version_tag()])])
 
+dnl *******************************************
+dnl *** Debugging support for GIT  snapshots ***
+dnl *******************************************
+m4_define([xkb_debug_default], [ifelse(xkb_version_tag(), [git], [yes], [minimum])])
+
+
 dnl ***************************
 dnl *** Initialize autoconf ***
 dnl ***************************
-AC_COPYRIGHT([Copyright (c) 2006-2013
+AC_COPYRIGHT([Copyright (c) 2006-2020
         The Xfce development team. All rights reserved.])
-AC_INIT([xfce4-xkb-plugin], [xkb_version], [https://bugzilla.xfce.org/], [xfce4-xkb-plugin])
+AC_INIT([xfce4-xkb-plugin], [xkb_version], [https://gitlab.xfce.org/panel-plugins/xfce4-xkb-plugin/], [xfce4-xkb-plugin])
 AC_PREREQ([2.50])
 AC_CANONICAL_TARGET()
 AC_REVISION([@REVISION@])
@@ -42,7 +48,6 @@ dnl *******************************
 AC_AIX()
 AC_ISC_POSIX()
 AC_MINIX()
-AM_CONDITIONAL([HAVE_CYGWIN], [test "`uname | grep \"CYGWIN\"`" != ""])
 
 dnl ********************************
 dnl *** Check for basic programs ***
@@ -76,7 +81,7 @@ XDT_CHECK_PACKAGE([LIBXFCE4PANEL], [libxfce4panel-2.0], [4.12.0])
 XDT_CHECK_PACKAGE([LIBXFCE4UTIL], [libxfce4util-1.0], [4.12.0])
 XDT_CHECK_PACKAGE([LIBXFCE4UI], [libxfce4ui-2], [4.12.0])
 XDT_CHECK_PACKAGE([XFCONF], [libxfconf-0], [4.12.1])
-XDT_CHECK_PACKAGE([LIBXKLAVIER], [libxklavier], [5.4])
+XDT_CHECK_PACKAGE([LIBXKLAVIER], [libxklavier], [5.3])
 XDT_CHECK_PACKAGE([LIBRSVG], [librsvg-2.0], [2.40])
 XDT_CHECK_PACKAGE([LIBWNCK], [libwnck-3.0], [3.14])
 XDT_CHECK_PACKAGE([GARCON], [garcon-1], [0.4.0])
@@ -84,7 +89,7 @@ XDT_CHECK_PACKAGE([GARCON], [garcon-1], [0.4.0])
 dnl ***********************************
 dnl *** Check for debugging support ***
 dnl ***********************************
-XDT_FEATURE_DEBUG()
+XDT_FEATURE_DEBUG([xkb_debug_default])
 
 AC_OUTPUT([
 panel-plugin/Makefile

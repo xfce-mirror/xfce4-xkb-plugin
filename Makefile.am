@@ -1,13 +1,10 @@
 @SET_MAKE@
+ACLOCAL_AMFLAGS = -I m4
 
 SUBDIRS = panel-plugin flags po
 
 distclean-local:
 	rm -rf *.cache *~
-
-rpm: dist
-	rpmbuild -ta $(PACKAGE)-$(VERSION).tar.gz
-	@rm -f $(PACKAGE)-$(VERSION).tar.gz
 
 .PHONY: ChangeLog
 
