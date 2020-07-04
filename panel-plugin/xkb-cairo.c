@@ -83,14 +83,15 @@ xkb_cairo_draw_flag (cairo_t         *cr,
 
   if (variant_markers_count > 0)
     {
-      diameter = 5.0;
-      spacing = 1;
+      diameter = img_width/5.0;
+      if (diameter < 5.0) diameter = 5.0;
+      spacing = diameter * 0.2;
 
       /* check if the flag is too small to draw variant markers inside it */
       if ((diameter + spacing) * (max_variant_markers_count-1) > img_width - 2)
         {
           /* draw markers below the flag */
-          diameter = 4;
+          diameter *= 0.8;
           spacing = 0;
           layoutx = actual_width / 2 + (max_variant_markers_count - 2) * diameter / 2;
           layouty = (actual_height + img_height) / 2 + diameter + 1;
