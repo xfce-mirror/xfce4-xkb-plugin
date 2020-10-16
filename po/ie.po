@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Caarmi, 2020
 # Caarmi, 2019
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-27 00:32+0200\n"
-"PO-Revision-Date: 2019-05-15 20:56+0000\n"
+"PO-Revision-Date: 2020-08-09 08:18+0000\n"
 "Last-Translator: Caarmi\n"
 "Language-Team: Interlingue (http://www.transifex.com/xfce/xfce-panel-plugins/language/ie/)\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +21,7 @@ msgstr ""
 
 #: ../panel-plugin/xkb-dialog.c:76
 msgid "This option is not available for current layout style"
-msgstr ""
+msgstr "Ti-ci parametre es índisponibil por li actual stil de arangeament"
 
 #: ../panel-plugin/xkb-dialog.c:105 ../panel-plugin/xkb.desktop.in.h:1
 msgid "Keyboard Layouts"
@@ -60,15 +61,15 @@ msgstr "lingue"
 
 #: ../panel-plugin/xkb-dialog.c:158
 msgid "Widget size:"
-msgstr ""
+msgstr "Dimensiones del widget:"
 
 #: ../panel-plugin/xkb-dialog.c:171
 msgid "Caps Lock indicator:"
-msgstr ""
+msgstr "Indicator «Caps Lock»:"
 
 #: ../panel-plugin/xkb-dialog.c:183
 msgid "Tooltip icon:"
-msgstr ""
+msgstr "Icone del infopanel:"
 
 #: ../panel-plugin/xkb-dialog.c:195
 msgid "Behavior"
