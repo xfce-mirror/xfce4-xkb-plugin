@@ -1,3 +1,29 @@
+0.8.2
+======
+- Update configure.ac.in syntax
+- scale alternate layout dots to be visible on hi dpi displays
+- Add basic GitLab pipeline
+- Minor build updates
+- Update URLs from goodies.x.o to docs.x.o (Bug #16184)
+- Update .gitignore
+- s/http/https
+- Fix build with panel 4.15
+- Update Myanmar flag
+- Improve spacing (Bug #14684)
+- Fix compilation warnings
+- Add -lX11 to libxkb_la_LIBADD
+- Translation Updates:
+  Albanian, Arabic, Armenian (Armenia), Asturian, Basque, Belarusian,
+  Bulgarian, Catalan, Chinese (China), Chinese (Taiwan), Croatian,
+  Czech, Danish, Dutch, Eastern Armenian, English (Australia), English
+  (Canada), English (United Kingdom), Estonian, Finnish, French,
+  Galician, Georgian, German, Greek, Hebrew, Hungarian, Icelandic,
+  Indonesian, Interlingue, Italian, Japanese, Kazakh, Korean, Latvian,
+  Lithuanian, Malay, Norwegian Bokmål, Occitan (post 1500), Polish,
+  Portuguese, Portuguese (Brazil), Romanian, Russian, Serbian, Slovak,
+  Slovenian, Spanish, Swedish, Thai, Turkish, Ukrainian, Urdu, Urdu
+  (Pakistan), Uyghur, Uzbek, Uzbek (Latin)
+
 2017-09-08 23:50
     * New version 0.8.1
     * Add caps lock indicator for "system" layout style
@@ -1054,4 +1080,3 @@
 2004-05-23 08:44  
 
 	* .: New repository initialized by cvs2svn.
-
