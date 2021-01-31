@@ -11,7 +11,7 @@ missing
 /panel-plugin/xkb.desktop
 /po/*.gmo
 /po/POTFILES
-/po/.intltool-merge-cache
+/po/.intltool-merge-cache*
 .deps
 .libs
 *.la
