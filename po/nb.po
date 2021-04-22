@@ -6,14 +6,14 @@
 # Allan Nordhøy <epost@anotheragency.no>, 2014
 # Allan Nordhøy <epost@anotheragency.no>, 2015,2017
 # Harald H. <haarektrans@gmail.com>, 2014
-# Kjell Cato Heskjestad <cato@heskjestad.xyz>, 2019-2020
+# heskjestad <cato@heskjestad.xyz>, 2019-2020
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-27 00:32+0200\n"
 "PO-Revision-Date: 2020-12-31 07:05+0000\n"
-"Last-Translator: Kjell Cato Heskjestad <cato@heskjestad.xyz>\n"
+"Last-Translator: heskjestad <cato@heskjestad.xyz>\n"
 "Language-Team: Norwegian Bokmål (http://www.transifex.com/xfce/xfce-panel-plugins/language/nb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
