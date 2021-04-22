@@ -1,9 +1,97 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="1100" height="800">
- <rect width="1100" height="800" fill="#ef2b2d"/>
- <rect width="200" height="800" x="300" fill="#fff"/>
- <rect width="1100" height="200" y="300" fill="#fff"/>
- <rect width="100" height="800" x="350" fill="#002868"/>
- <rect width="1100" height="100" y="350" fill="#002868"/>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   version="1.1"
+   width="80"
+   height="60"
+   id="svg2987">
+  <metadata
+     id="metadata2993">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs2991" />
+  <image
+     xlink:href="data:image/png;base64,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
+
+"
+     x="0"
+     y="0"
+     width="80"
+     height="60"
+     id="image2995" />
 </svg>
