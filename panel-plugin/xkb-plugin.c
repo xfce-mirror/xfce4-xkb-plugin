@@ -497,8 +497,8 @@ xkb_plugin_configure_layout (GtkWidget *widget)
   gchar           *desktop_file;
   GError          *error = NULL;
   gchar          **argv;
-  gboolean         succeed;
   GarconMenuItem  *item;
+  G_GNUC_UNUSED gboolean succeed;
 
   desktop_file = xfce_resource_lookup (XFCE_RESOURCE_DATA,
                                        "applications/xfce-keyboard-settings.desktop");
