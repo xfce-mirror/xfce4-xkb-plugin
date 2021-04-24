@@ -48,6 +48,7 @@ guint           xkb_xfconf_get_display_scale               (XkbXfconf     *confi
 gboolean        xkb_xfconf_get_caps_lock_indicator         (XkbXfconf     *config);
 gboolean        xkb_xfconf_get_display_tooltip_icon        (XkbXfconf     *config);
 XkbGroupPolicy  xkb_xfconf_get_group_policy                (XkbXfconf     *config);
+const gchar *   xkb_xfconf_get_layout_defaults             (XkbXfconf     *config, guint layout);
 
 G_END_DECLS
 
