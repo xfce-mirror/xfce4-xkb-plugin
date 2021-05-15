@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-27 00:32+0200\n"
-"PO-Revision-Date: 2021-05-09 09:36+0000\n"
+"PO-Revision-Date: 2021-05-15 16:57+0000\n"
 "Last-Translator: Toni Estévez <toni.estevez@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/xfce/xfce-panel-plugins/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -43,15 +43,15 @@ msgstr "Mostrar la distribución como:"
 
 #: ../panel-plugin/xkb-dialog.c:137
 msgid "image"
-msgstr "imagen"
+msgstr "Imagen"
 
 #: ../panel-plugin/xkb-dialog.c:138
 msgid "text"
-msgstr "texto"
+msgstr "Texto"
 
 #: ../panel-plugin/xkb-dialog.c:139
 msgid "system"
-msgstr "sistema"
+msgstr "Sistema"
 
 #: ../panel-plugin/xkb-dialog.c:145
 msgid "Layout name:"
@@ -59,15 +59,15 @@ msgstr "Nombre de la distribución:"
 
 #: ../panel-plugin/xkb-dialog.c:151
 msgid "country"
-msgstr "país"
+msgstr "País"
 
 #: ../panel-plugin/xkb-dialog.c:152
 msgid "language"
-msgstr "idioma"
+msgstr "Idioma"
 
 #: ../panel-plugin/xkb-dialog.c:158
 msgid "Widget size:"
-msgstr "Tamaño de las miniaplicaciones:"
+msgstr "Tamaño del botón:"
 
 #: ../panel-plugin/xkb-dialog.c:171
 msgid "Caps Lock indicator:"
@@ -75,7 +75,7 @@ msgstr "Indicador de Bloq Mayús:"
 
 #: ../panel-plugin/xkb-dialog.c:183
 msgid "Tooltip icon:"
-msgstr "Icono de la información emergente:"
+msgstr "Icono en la información emergente:"
 
 #: ../panel-plugin/xkb-dialog.c:195
 msgid "Behavior"
@@ -87,19 +87,19 @@ msgstr "Gestionar la distribución:"
 
 #: ../panel-plugin/xkb-dialog.c:211
 msgid "globally"
-msgstr "globalmente"
+msgstr "Globalmente"
 
 #: ../panel-plugin/xkb-dialog.c:212
 msgid "per window"
-msgstr "por ventana"
+msgstr "Por ventana"
 
 #: ../panel-plugin/xkb-dialog.c:213
 msgid "per application"
-msgstr "por aplicación"
+msgstr "Por aplicación"
 
 #: ../panel-plugin/xkb-dialog.c:290
 msgid "Keyboard Layouts Plugin"
-msgstr "Complemento para la distribución del teclado"
+msgstr "Distribuciones del teclado"
 
 #: ../panel-plugin/xkb-dialog.c:292
 msgid "Allows you to configure and use multiple keyboard layouts."
@@ -111,4 +111,4 @@ msgstr "Configuración del teclado"
 
 #: ../panel-plugin/xkb.desktop.in.h:2
 msgid "Keyboard layouts setup and switch plugin"
-msgstr "Complemento para la configuración y el cambio de la distribución del teclado"
+msgstr "Configuración y cambio de la distribución del teclado"
