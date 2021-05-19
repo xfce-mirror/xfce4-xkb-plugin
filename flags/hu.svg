@@ -1,8 +1,75 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE svg>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.0"
-width="1200" height="600">
-<rect width="1200" height="600" fill="#d2232c"/>
-<rect width="1200" height="400" y="200" fill="#fff"/>
-<rect width="1200" height="200" y="400" fill="#008d46"/>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   version="1.1"
+   width="80"
+   height="60"
+   id="svg3017">
+  <metadata
+     id="metadata3023">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs3021" />
+  <image
+     xlink:href="data:image/png;base64,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
+gg==
+"
+     x="0"
+     y="0"
+     width="80"
+     height="60"
+     id="image3025" />
 </svg>
