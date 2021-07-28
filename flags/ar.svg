@@ -1,44 +1,95 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns="http://www.w3.org/2000/svg" width="784px" height="504px" viewBox="-910 -585 1820 1170">
-	<title>Flag of Argentina</title>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
 
-	<rect id="blue" fill="#75aadb" x="-50%" y="-50%" width="100%" height="100%"/>
-	<rect id="white" fill="white" x="-50%" y="-195" width="100%" height="390"/>
-	<g id="sun" fill="#fcbf49" stroke="#843511" stroke-width="1.5">
-		<g id="16rays">
-			<g id="8rays">
-				<g id="4rays">
-					<g id="2rays">
-						<path d="M -8,0 L -2,159.5 c 0,0 0,3 2,3 s 2,-3 2,-3 L 8,0"/>
-						<path d="M -4,0 L 0,109.5 L 4,0" fill="#843511" stroke="none"/>
-						<g transform="rotate(11.5)">
-							<path d="M -4.5,53.5 C -9.5,75 1.5,89.5 -4,108.5 S -1,140.5 0,148.5 -5,160 -3,161.5 5,158 5.5,147 -1.5,131.25 5,108 1,77 8,56"/>
-							<path d="M -1,58 C -4,79 6,90.5 0,109 C 8,95 -2,81 3,59" fill="#843511" stroke="none"/>
-						</g>
-					</g>
-					<use xlink:href="#2rays" transform="rotate(180)"/>
-				</g>
-				<use xlink:href="#4rays" transform="rotate(90)"/>
-			</g>
-			<use xlink:href="#8rays" transform="rotate(45)"/>
-		</g>
-		<use xlink:href="#16rays" transform="rotate(22.5)"/>
-		<circle r="65" stroke-width="1"/>
-		<g id="face_right" fill="#843511" stroke="none">
-			<path id="eyebrow_nose" d="M 41,-14 C 29.5,-24 15,-25.5 7,-18 A 140,50 10 0,0 8.5,8.5 C 8,8.5 7,9 6.5,9.5 A 80,50 10 0,1 4,-19 C 15,-28 30,-29 41,-14"/>
-			<path id="uppalpebra" d="M 23,-17 C 16.5,-17 15,-15.5 12,-13 S 7.5,-11 7,-10.5 S 7,-8.5 8,-9 S 11,-10.5 14,-13 S 20,-15.5 23,-15.5 C 32,-15.5 37,-8 38,-8.5 S 33,-17 23,-17"/>
-			<path id="upeyecontour" d="M 34.5,-8.5 C 28,-15.5 16,-16 11,-8 H 13 C 18,-16 30,-12.5 31,-9 v 1"/>
-			<circle id="pupil" cx="22" cy="-9" r="4.5"/>
-			<path id="loweyecontour" d="M 11,-8 C 16,-3.5 27,-3 34.5,-8.5 L 31,-9 C 26,-3.5 18,-4 13,-8 v -1"/>
-			<path id="lowpalpebra" d="M 35,-6 C 26.5,0.5 18,0 13,-3 S 8,-7 9,-7 S 11,-6 15,-4 S 25,-2 35,-6"/>
-			<path id="nose" d="M 10.5,9 A 3,3 0 1,1 6.5,12 C 6,13 4,16 0,16 h -1 l 1,1.5 C 1,17.5 4,17.5 6,16 A 4.5,4.5 0 1,0 10.5,9"/>
-			<path id="uplip" d="M 16.5,30 C 12,27 10,22.5 5,22.5 C 4,22.5 2,23 0,24 h -1 L 0,25.5 C 2,25.5 5,23 8.5,25 S 14,29 16.5,30"/>
-			<path id="midlip" d="M 15,30 C 5,27 3,29 0,29 h -1 l 1,2 C 4,31 6,28 15,30"/>
-			<path id="uplip" d="M 16.5,30 C 5.5,29 9,35.5 0,35.5 h -1 L 0,37 C 11,37 6,31 16.5,30"/>
-			<path id="chin" d="M 9,46 a 9,9 0 0,0 -18,0 a 9.25,9.25 0 0,1 18,0"/>
-		</g>
-		<use xlink:href="#face_right" transform="scale(-1,1)"/>
-	</g>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   version="1.1"
+   width="80"
+   height="60"
+   id="svg2987">
+  <metadata
+     id="metadata2993">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs2991" />
+  <image
+     xlink:href="data:image/png;base64,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
+AAAAAElFTkSuQmCC
+"
+     x="0"
+     y="0"
+     width="80"
+     height="60"
+     id="image2995" />
 </svg>
-
