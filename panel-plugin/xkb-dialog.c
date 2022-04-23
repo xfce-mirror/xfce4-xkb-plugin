@@ -86,6 +86,21 @@ xkb_dialog_set_style_warning_tooltip (GtkWidget *widget,
 
 
 
+static gboolean
+xkb_dialog_layoutdefault_tooltip (GtkWidget *widget,
+				  gint        x,
+				  gint        y,
+				  gboolean    keyboard_mode,
+				  GtkTooltip *tooltip)
+{
+  gtk_tooltip_set_text (
+    tooltip,
+    _("Enter a comma-separated list of window classes which will default to this layout."));
+  return TRUE;
+}
+
+
+
 void
 xkb_dialog_configure_plugin (XfcePanelPlugin *plugin,
                              XkbXfconf       *config)
@@ -97,8 +112,16 @@ xkb_dialog_configure_plugin (XfcePanelPlugin *plugin,
   GtkWidget *caps_lock_indicator_switch;
   GtkWidget *display_tooltip_icon_switch;
   GtkWidget *group_policy_combo;
+  GtkWidget *layoutdefault_entry[MAX_LAYOUTS];
   GtkWidget *vbox, *frame, *bin, *grid, *label;
+  GString   *labtext;
   gint       grid_vertical;
+  guint      i;
+  const gchar *prop_names[MAX_LAYOUTS];
+
+  prop_names[1] = LAYOUT1_DEFAULTS;
+  prop_names[2] = LAYOUT2_DEFAULTS;
+  prop_names[3] = LAYOUT3_DEFAULTS;
 
   xfce_panel_plugin_block_menu (plugin);
 
@@ -217,6 +240,25 @@ xkb_dialog_configure_plugin (XfcePanelPlugin *plugin,
   gtk_widget_set_size_request (group_policy_combo, 230, -1);
   gtk_grid_attach (GTK_GRID (grid), group_policy_combo, 1, grid_vertical, 1, 1);
 
+  grid_vertical++;
+
+  label = gtk_label_new (_("Window classes which default to ..."));
+  gtk_label_set_xalign (GTK_LABEL (label), 0.f);
+  gtk_grid_attach (GTK_GRID (grid), label, 0, grid_vertical, 2, 1);
+
+  grid_vertical++;
+  for (i = 1; i < MAX_LAYOUTS; ++i,++grid_vertical) {
+    labtext = g_string_new (_("... layout "));
+    g_string_append_printf (labtext, "%d:", i);
+    label = gtk_label_new (labtext->str);
+    g_string_free (labtext, TRUE);
+    gtk_label_set_xalign (GTK_LABEL (label), 0.1f);
+    gtk_grid_attach (GTK_GRID (grid), label, 0, grid_vertical, 1, 1);
+    layoutdefault_entry[i] = gtk_entry_new();
+    gtk_widget_set_hexpand (layoutdefault_entry[i], TRUE);
+    gtk_grid_attach (GTK_GRID (grid), layoutdefault_entry[i], 1, grid_vertical, 1, 1);
+  }
+
   gtk_widget_show_all (vbox);
 
   g_signal_connect_swapped (settings_dialog, "response",
@@ -259,6 +301,15 @@ xkb_dialog_configure_plugin (XfcePanelPlugin *plugin,
                                G_BINDING_SYNC_CREATE,
                                xkb_dialog_transform_scale_range_for_caps_lock_indicator,
                                NULL, NULL, NULL);
+
+  for (i = 1; i < MAX_LAYOUTS; ++i) {
+    g_object_bind_property (G_OBJECT (config), prop_names[i],
+			    G_OBJECT (layoutdefault_entry[i]), "text",
+			    G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
+    gtk_widget_set_has_tooltip (layoutdefault_entry[i], TRUE);
+    g_signal_connect (layoutdefault_entry[i], "query-tooltip",
+		      G_CALLBACK (xkb_dialog_layoutdefault_tooltip), NULL);
+  }
 
   gtk_widget_set_has_tooltip (display_scale_range, TRUE);
   g_signal_connect (display_scale_range, "query-tooltip",
