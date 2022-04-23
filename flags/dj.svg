@@ -1,82 +1,89 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
 <svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:cc="http://creativecommons.org/ns#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="600"
-   height="400"
-   viewBox="0 0 15 10"
-   id="svg6735"
-   sodipodi:version="0.32"
-   inkscape:version="0.44"
-   sodipodi:docname="Flag_of_Djibouti.svg"
-   sodipodi:docbase="C:\Documents and Settings\David Nelson\Archives\Svg">
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   version="1.1"
+   width="80"
+   height="60"
+   id="svg3037">
   <metadata
-     id="metadata6770">
+     id="metadata3043">
     <rdf:RDF>
       <cc:Work
          rdf:about="">
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
   <defs
-     id="defs6768" />
-  <sodipodi:namedview
-     inkscape:window-height="573"
-     inkscape:window-width="853"
-     inkscape:pageshadow="2"
-     inkscape:pageopacity="0.0"
-     guidetolerance="10.0"
-     gridtolerance="10.0"
-     objecttolerance="10.0"
-     borderopacity="1.0"
-     bordercolor="#666666"
-     pagecolor="#ffffff"
-     id="base"
-     inkscape:zoom="0.9425"
-     inkscape:cx="300"
-     inkscape:cy="200"
-     inkscape:window-x="64"
-     inkscape:window-y="42"
-     inkscape:current-layer="svg6735" />
-  <rect
-     width="15"
-     height="5"
-     fill="#6ab2e7"
-     id="blue_stripe" />
-  <rect
-     width="15"
-     height="5"
-     y="5"
-     fill="#12ad2b"
-     id="green_stripe" />
-  <comment
-     id="comment6752">the star is in the center of gravity of the triangle, so the x-pos is irrational (5 / sin30 * sin60)</comment>
-  <path
-     style="fill:white;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     d="M 0,0 L 0,5 L 0,10 L 4.330127,7.5 L 8.660254,5 L 4.330127,2.5 L 0,0 z "
-     id="path6904"
-     sodipodi:nodetypes="ccccccc" />
-  <path
-     sodipodi:type="star"
-     style="opacity:1;fill:red;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     id="path6929"
-     sodipodi:sides="5"
-     sodipodi:cx="2.8867514"
-     sodipodi:cy="5"
-     sodipodi:r1="1"
-     sodipodi:r2="0.38196602"
-     sodipodi:arg1="-1.5707963"
-     sodipodi:arg2="-0.94247777"
-     inkscape:flatsided="false"
-     inkscape:rounded="0"
-     inkscape:randomized="0"
-     d="M 2.8867514,4 L 3.1112654,4.690983 L 3.8378079,4.690983 L 3.2500227,5.118034 L 3.4745366,5.809017 L 2.8867514,5.381966 L 2.2989661,5.809017 L 2.5234801,5.118034 L 1.9356949,4.690983 L 2.6622374,4.690983 L 2.8867514,4 z " />
+     id="defs3041" />
+  <image
+     xlink:href="data:image/png;base64,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
+FWnEtMAAAAAASUVORK5CYII=
+"
+     x="0"
+     y="0"
+     width="80"
+     height="60"
+     id="image3045" />
 </svg>
