@@ -81,6 +81,12 @@ XDT_CHECK_PACKAGE([LIBRSVG], [librsvg-2.0], [2.40])
 XDT_CHECK_PACKAGE([LIBWNCK], [libwnck-3.0], [3.14])
 XDT_CHECK_PACKAGE([GARCON], [garcon-1], [0.4.0])
 
+dnl **********************************
+dnl *** Optional libnotify Support ***
+dnl **********************************
+XDT_CHECK_OPTIONAL_PACKAGE([LIBNOTIFY], [libnotify], [0.7.0], [libnotify],
+                           [libnotify library])
+
 dnl ***********************************
 dnl *** Check for debugging support ***
 dnl ***********************************
@@ -100,5 +106,6 @@ dnl ***************************
 echo
 echo "Build Configuration:"
 echo
-echo "* Debug Support:    $enable_debug"
+echo "* Debug Support:      $enable_debug"
+echo "* libnotify Support:  ${LIBNOTIFY_FOUND:-no}"
 echo
