@@ -31,12 +31,17 @@
 #include <librsvg/rsvg.h>
 #include <garcon/garcon.h>
 
+#ifdef HAVE_LIBNOTIFY
+#include <libnotify/notify.h>
+#endif
+
 #include "xkb-plugin.h"
 #include "xkb-properties.h"
 #include "xkb-keyboard.h"
 #include "xkb-modifier.h"
 #include "xkb-dialog.h"
 #include "xkb-cairo.h"
+#include "xkb-util.h"
 
 typedef struct
 {
@@ -61,6 +66,9 @@ struct _XkbPlugin
   GtkWidget           *layout_image;
   GtkWidget           *popup;
   MenuItemData        *popup_user_data;
+#ifdef HAVE_LIBNOTIFY
+  NotifyNotification  *notification;
+#endif
 };
 
 /* ------------------------------------------------------------------ *
@@ -96,6 +104,10 @@ static void         xkb_plugin_popup_menu_show          (GtkWidget        *widge
                                                          XkbPlugin        *plugin);
 static void         xkb_plugin_popup_menu_deactivate    (XkbPlugin        *plugin,
                                                          GtkMenuShell     *menu_shell);
+
+#ifdef HAVE_LIBNOTIFY
+static void         xkb_plugin_notify                   (XkbPlugin        *plugin);
+#endif
 
 static void         xkb_plugin_refresh_gui              (XkbPlugin        *plugin);
 
@@ -156,6 +168,10 @@ xkb_plugin_init (XkbPlugin *plugin)
   plugin->layout_image = NULL;
   plugin->popup = NULL;
   plugin->popup_user_data = NULL;
+#ifdef HAVE_LIBNOTIFY
+  notify_init("xfce4-xkb-plugin");
+  plugin->notification = NULL;
+#endif
 }
 
 
@@ -241,6 +257,10 @@ xkb_plugin_construct (XfcePanelPlugin *plugin)
 
   g_signal_connect (G_OBJECT (configure_layouts), "activate",
                     G_CALLBACK (xkb_plugin_configure_layout), NULL);
+#ifdef HAVE_LIBNOTIFY
+  xkb_plugin->notification = notify_notification_new (NULL, NULL, NULL);
+  notify_notification_set_hint (xkb_plugin->notification, "transient", g_variant_new_boolean (TRUE));
+#endif
 }
 
 
@@ -271,6 +291,12 @@ static void
 xkb_plugin_free_data (XfcePanelPlugin *plugin)
 {
   XkbPlugin *xkb_plugin = XKB_PLUGIN (plugin);
+
+#ifdef HAVE_LIBNOTIFY
+  g_object_unref (G_OBJECT (plugin->notification));
+  plugin->notification = NULL;
+  notify_uninit();
+#endif
 
   xkb_plugin_popup_menu_destroy (xkb_plugin);
   gtk_widget_destroy (xkb_plugin->layout_image);
@@ -306,6 +332,11 @@ xkb_plugin_state_changed (XkbPlugin *plugin,
                           gboolean   config_changed)
 {
   xkb_plugin_refresh_gui (plugin);
+
+#ifdef HAVE_LIBNOTIFY
+  if (xkb_xfconf_get_show_notifications(plugin->config))
+    xkb_plugin_notify (plugin);
+#endif
 
   if (config_changed)
     xkb_plugin_popup_menu_populate (plugin);
@@ -471,6 +502,34 @@ xkb_plugin_popup_menu_deactivate (XkbPlugin    *plugin,
   gtk_widget_unset_state_flags (plugin->button, GTK_STATE_FLAG_CHECKED);
 }
 
+
+
+#ifdef HAVE_LIBNOTIFY
+static void
+xkb_plugin_notify (XkbPlugin *plugin)
+{
+  XkbDisplayName        display_name;
+  const gchar          *group_name;
+  gchar                *normalized_group_name;
+  GError               *error = NULL;
+
+  display_name = xkb_xfconf_get_display_name (plugin->config);
+  group_name = xkb_keyboard_get_group_name (plugin->keyboard, display_name, -1);
+  normalized_group_name = xkb_util_normalize_group_name (group_name, FALSE);
+
+  if (!normalized_group_name)
+    return;
+
+  notify_notification_update (plugin->notification, group_name, _("Keyboard layout changed"), "org.xfce.settings.keyboard");
+
+  if (!notify_notification_show (plugin->notification, &error))
+    {
+      g_warning ("Error while sending notification : %s\n", error->message);
+      g_error_free (error);
+    }
+  g_free(normalized_group_name);
+}
+#endif
 
 
 static void
