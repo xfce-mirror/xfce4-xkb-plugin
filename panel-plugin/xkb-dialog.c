@@ -95,6 +95,9 @@ xkb_dialog_configure_plugin (XfcePanelPlugin *plugin,
   GtkWidget *display_name_combo;
   GtkWidget *display_scale_range;
   GtkWidget *caps_lock_indicator_switch;
+#ifdef HAVE_LIBNOTIFY
+  GtkWidget *show_notifications_switch;
+#endif
   GtkWidget *display_tooltip_icon_switch;
   GtkWidget *group_policy_combo;
   GtkWidget *vbox, *frame, *bin, *grid, *label;
@@ -180,6 +183,20 @@ xkb_dialog_configure_plugin (XfcePanelPlugin *plugin,
 
   grid_vertical++;
 
+#ifdef HAVE_LIBNOTIFY
+  label = gtk_label_new (_("Show notifications on layout change:"));
+  gtk_label_set_xalign (GTK_LABEL (label), 0.f);
+  gtk_widget_set_hexpand (label, TRUE);
+  gtk_grid_attach (GTK_GRID (grid), label, 0, grid_vertical, 1, 1);
+
+  show_notifications_switch = gtk_switch_new ();
+  gtk_widget_set_halign (show_notifications_switch, GTK_ALIGN_END);
+  gtk_widget_set_valign (show_notifications_switch, GTK_ALIGN_CENTER);
+  gtk_grid_attach (GTK_GRID (grid), show_notifications_switch, 1, grid_vertical, 1, 1);
+
+  grid_vertical++;
+#endif
+
   label = gtk_label_new (_("Tooltip icon:"));
   gtk_label_set_xalign (GTK_LABEL (label), 0.f);
   gtk_widget_set_hexpand (label, TRUE);
@@ -239,6 +256,12 @@ xkb_dialog_configure_plugin (XfcePanelPlugin *plugin,
   g_object_bind_property (G_OBJECT (config), CAPS_LOCK_INDICATOR,
                           G_OBJECT (caps_lock_indicator_switch), "active",
                           G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
+
+#ifdef HAVE_LIBNOTIFY
+  g_object_bind_property (G_OBJECT (config), SHOW_NOTIFICATIONS,
+                          G_OBJECT (show_notifications_switch), "active",
+                          G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
+#endif
 
   g_object_bind_property (G_OBJECT (config), DISPLAY_TOOLTIP_ICON,
                           G_OBJECT (display_tooltip_icon_switch), "active",
