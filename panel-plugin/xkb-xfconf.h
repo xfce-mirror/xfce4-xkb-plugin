@@ -46,6 +46,9 @@ XkbDisplayType  xkb_xfconf_get_display_type                (XkbXfconf     *confi
 XkbDisplayName  xkb_xfconf_get_display_name                (XkbXfconf     *config);
 guint           xkb_xfconf_get_display_scale               (XkbXfconf     *config);
 gboolean        xkb_xfconf_get_caps_lock_indicator         (XkbXfconf     *config);
+#ifdef HAVE_LIBNOTIFY
+gboolean        xkb_xfconf_get_show_notifications          (XkbXfconf     *config);
+#endif
 gboolean        xkb_xfconf_get_display_tooltip_icon        (XkbXfconf     *config);
 XkbGroupPolicy  xkb_xfconf_get_group_policy                (XkbXfconf     *config);
 

@@ -35,6 +35,9 @@
 #define DEFAULT_DISPLAY_SCALE               DISPLAY_SCALE_MAX
 #define DEFAULT_CAPS_LOCK_INDICATOR         TRUE
 #define DEFAULT_DISPLAY_TOOLTIP_ICON        TRUE
+#ifdef HAVE_LIBNOTIFY
+#define DEFAULT_SHOW_NOTIFICATIONS          TRUE
+#endif
 #define DEFAULT_GROUP_POLICY                GROUP_POLICY_PER_APPLICATION
 
 static void            xkb_xfconf_finalize            (GObject          *object);
@@ -60,6 +63,9 @@ struct _XkbXfconf
   XkbDisplayName       display_name;
   guint                display_scale;
   gboolean             caps_lock_indicator;
+#ifdef HAVE_LIBNOTIFY
+  gboolean             show_notifications;
+#endif
   gboolean             display_tooltip_icon;
   XkbGroupPolicy       group_policy;
 };
@@ -71,6 +77,9 @@ enum
   PROP_DISPLAY_NAME,
   PROP_DISPLAY_SCALE,
   PROP_CAPS_LOCK_INDICATOR,
+#ifdef HAVE_LIBNOTIFY
+  PROP_SHOW_NOTIFICATIONS,
+#endif
   PROP_DISPLAY_TOOLTIP_ICON,
   PROP_GROUP_POLICY,
   N_PROPERTIES,
@@ -124,6 +133,13 @@ xkb_xfconf_class_init (XkbXfconfClass *klass)
                                                          DEFAULT_CAPS_LOCK_INDICATOR,
                                                          G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
 
+#ifdef HAVE_LIBNOTIFY
+  g_object_class_install_property (gobject_class, PROP_SHOW_NOTIFICATIONS,
+                                   g_param_spec_boolean (SHOW_NOTIFICATIONS, NULL, NULL,
+                                                         DEFAULT_SHOW_NOTIFICATIONS,
+                                                         G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
+#endif
+
   g_object_class_install_property (gobject_class, PROP_DISPLAY_TOOLTIP_ICON,
                                    g_param_spec_boolean (DISPLAY_TOOLTIP_ICON, NULL, NULL,
                                                          DEFAULT_DISPLAY_TOOLTIP_ICON,
@@ -154,6 +170,9 @@ xkb_xfconf_init (XkbXfconf *config)
   config->display_name = DEFAULT_DISPLAY_NAME;
   config->display_scale = DEFAULT_DISPLAY_SCALE;
   config->caps_lock_indicator = DEFAULT_CAPS_LOCK_INDICATOR;
+#ifdef HAVE_LIBNOTIFY
+  config->show_notifications = DEFAULT_SHOW_NOTIFICATIONS;
+#endif
   config->display_tooltip_icon = DEFAULT_DISPLAY_TOOLTIP_ICON;
   config->group_policy = DEFAULT_GROUP_POLICY;
 }
@@ -194,6 +213,12 @@ xkb_xfconf_get_property (GObject    *object,
     case PROP_CAPS_LOCK_INDICATOR:
       g_value_set_boolean (value, config->caps_lock_indicator);
       break;
+
+#ifdef HAVE_LIBNOTIFY
+    case PROP_SHOW_NOTIFICATIONS:
+      g_value_set_boolean (value, config->show_notifications);
+      break;
+#endif
 
     case PROP_DISPLAY_TOOLTIP_ICON:
       g_value_set_boolean (value, config->display_tooltip_icon);
@@ -263,6 +288,16 @@ xkb_xfconf_set_property (GObject      *object,
         }
       break;
 
+#ifdef HAVE_LIBNOTIFY
+    case PROP_SHOW_NOTIFICATIONS:
+      val_boolean = g_value_get_boolean (value);
+      if (config->show_notifications != val_boolean)
+        {
+          config->show_notifications = val_boolean;
+        }
+      break;
+#endif
+
     case PROP_DISPLAY_TOOLTIP_ICON:
       val_boolean = g_value_get_boolean (value);
       if (config->display_tooltip_icon != val_boolean)
@@ -327,6 +362,17 @@ xkb_xfconf_get_caps_lock_indicator (XkbXfconf *config)
 
 
 
+#ifdef HAVE_LIBNOTIFY
+gboolean
+xkb_xfconf_get_show_notifications (XkbXfconf *config)
+{
+  g_return_val_if_fail (IS_XKB_XFCONF (config), DEFAULT_SHOW_NOTIFICATIONS);
+  return config->show_notifications;
+}
+#endif
+
+
+
 gboolean
 xkb_xfconf_get_display_tooltip_icon (XkbXfconf *config)
 {
@@ -373,6 +419,12 @@ xkb_xfconf_new (const gchar *property_base)
       property = g_strconcat (property_base, "/" CAPS_LOCK_INDICATOR, NULL);
       xfconf_g_property_bind (channel, property, G_TYPE_BOOLEAN, config, CAPS_LOCK_INDICATOR);
       g_free (property);
+
+#ifdef HAVE_LIBNOTIFY
+      property = g_strconcat (property_base, "/" SHOW_NOTIFICATIONS, NULL);
+      xfconf_g_property_bind (channel, property, G_TYPE_BOOLEAN, config, SHOW_NOTIFICATIONS);
+      g_free (property);
+#endif
 
       property = g_strconcat (property_base, "/" DISPLAY_TOOLTIP_ICON, NULL);
       xfconf_g_property_bind (channel, property, G_TYPE_BOOLEAN, config, DISPLAY_TOOLTIP_ICON);
