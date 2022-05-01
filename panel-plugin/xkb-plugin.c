@@ -520,7 +520,7 @@ xkb_plugin_notify (XkbPlugin *plugin)
   if (!normalized_group_name)
     return;
 
-  notify_notification_update (plugin->notification, group_name, _("Keyboard layout changed"), "org.xfce.settings.keyboard");
+  notify_notification_update (plugin->notification, group_name, _("Keyboard layout changed"), "input-keyboard-symbolic");
 
   if (!notify_notification_show (plugin->notification, &error))
     {
