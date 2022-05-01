@@ -1,49 +1,105 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE svg>
-<svg width="1155" height="660" viewBox="-770 -440 1540 880" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-   <defs>
-      <path id="Allahu_Akbar" fill="white" d="M 0,0 h 1 v -2 h 3 v 2 h 5 v -3 h -3 v 1 h 2 v 1 h -3 v -2 H 0 z M 2,0 h 1 v -1 h -1 z M 0,-4 h 13 v -1 H 0 z M 13,0 h -3 v -3 h 4 v -2 h 1 v 4 h 1 v -4 h 1 v 4 h 1 v -4 h 1 v 5 h -5 v -2 h -3 v 1 h 2 z" transform="translate(-9.5)"/>
-      <path id="lines" fill="white" d="M 0,0 h 9 v -2 H 0 z M 10,0 h 9 v -2 H 10 z" transform="translate(-9.5)"/>
-   </defs>
-   <rect fill="white" x="-770" y="-440" width="1540" height="880"/>
-   <rect fill="#239f40" x="-770" y="-440" width="1540" height="294"/>
-   <g fill="#da0000">
-      <rect x="-770" y="146" width="1540" height="294"/>
-      <g transform="translate(0,-128)">
-         <path d="M 0,22 l -16,13 l 3,208 l 13,15 l 13,-15 l 3,-208 z"/>
-         <path d="M 32,0 a 22,22 0 0,1 -32,6 a 22,22 0 0,1 -32,-6 a 19,19 0 0,0 32,18 a 19,19 0 0,0 32,-18"/>
-         <path d="M  40,29 a 130,130 0 0,1 -120,206 a 120.5,120.5 0 0,0  120,-206"/>
-         <path d="M -40,29 a 130,130 0 0,0  120,206 a 120.5,120.5 0 0,1 -120,-206"/>
-         <path d="M  55,25 a 130,130 0 0,1  22,190 a 103,103 0 0,0 -22,-190"/>
-         <path d="M -55,25 a 130,130 0 0,0 -22,190 a 103,103 0 0,1  22,-190"/>
-      </g>
-   </g>
-   <g id="Allahu_Akbar_11" transform="translate(0,-160) scale(7)">
-      <use xlink:href="#Allahu_Akbar" transform="translate(-100)"/>
-      <use xlink:href="#Allahu_Akbar" transform="translate(-80)"/>
-      <use xlink:href="#Allahu_Akbar" transform="translate(-60)"/>
-      <use xlink:href="#Allahu_Akbar" transform="translate(-40)"/>
-      <use xlink:href="#Allahu_Akbar" transform="translate(-20)"/>
-      <use xlink:href="#Allahu_Akbar"/>
-      <use xlink:href="#Allahu_Akbar" transform="translate(20)"/>
-      <use xlink:href="#Allahu_Akbar" transform="translate(40)"/>
-      <use xlink:href="#Allahu_Akbar" transform="translate(60)"/>
-      <use xlink:href="#Allahu_Akbar" transform="translate(80)"/>
-      <use xlink:href="#Allahu_Akbar" transform="translate(100)"/>
-   </g>
-   <g id="lines_11" transform="translate(0,-139) scale(7)">
-      <use xlink:href="#lines" transform="translate(-100)"/>
-      <use xlink:href="#lines" transform="translate(-80)"/>
-      <use xlink:href="#lines" transform="translate(-60)"/>
-      <use xlink:href="#lines" transform="translate(-40)"/>
-      <use xlink:href="#lines" transform="translate(-20)"/>
-      <use xlink:href="#lines"/>
-      <use xlink:href="#lines" transform="translate(20)"/>
-      <use xlink:href="#lines" transform="translate(40)"/>
-      <use xlink:href="#lines" transform="translate(60)"/>
-      <use xlink:href="#lines" transform="translate(80)"/>
-      <use xlink:href="#lines" transform="translate(100)"/>
-   </g>
-   <use xlink:href="#Allahu_Akbar_11" transform="translate(0,355)"/>
-   <use xlink:href="#lines_11" transform="translate(0,292)"/>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   version="1.1"
+   width="80"
+   height="60"
+   id="svg3007">
+  <metadata
+     id="metadata3013">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs3011" />
+  <image
+     xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAA8CAYAAADxJz2MAAAABHNCSVQICAgIfAhkiAAADv9JREFU
+eJztm8uPHMd9xz9V/Zj3zL5IrkhRfK0shnZMJI7hGPAlpxiGYUM24INPlq2DgcCnAPkDdNDFPjiA
+jzZg+GAgBx0CX5yDHUSyIAGSjECKGQmUJZlcPrTvefVMv+qXQ3XP9gxnZrkSl+vQ+pGz3dVV/avf
+79vfqvpVdTV8Ip/IJ/KJ/OWKOqKyj4LI/RSaB4rKfrpwTRfyHkXJQTOFaya7PhXQWUAowAHcxsWl
+6tKXzlzRLX9NlPhKKaVQKKWULajYP8uOU9P3Yb1YHyTzRTKTH7Q+yfAQKeSKiGTXlDBMt8Pr2/91
+83/7t9oDIAFSpoA4zRQFuIC/8qUnTje/cOqfnab3Tb9SWvJ8TymtySBEqQxAC2jmbMHRApizKmPM
+qgmnsuMD1ScZfBau0TkIRgQxhjiOTRSE28lu9G/tF2/9687v79wFogzIMRDdKfVrwC+1Kgv1v135
+F93yvldu1VSz2cTzPLRWBQAnjiMAFWRA2vMcgHkOS/a/yJgcwAenbwy8EXAgGEQEY4Qkjp1Ot3My
+UPxT4wuruvPW5vNJnLQz1ck8AHP2lVqfP/U3uu4+rauu8ms+4guhikBPgjfOwuI1xs4ZsfQeh/Om
+piYczRn4APXt/wNRWV7hCILyFV7Vx4lCbVreN1t/t/qr7VfWX2NKU54FYFnV3MvK04vac0hUSpoO
+QSu05GywgOkxBlp2TGNlrn7SZSn+nXA0Z9AD1ScFELNzI/t9ohEDxoKpPAfl6xXd9J4C/gfbjOOD
+APSASpqkdbRSSiuMEjSgGQdPzQFPF1iSs8emp3ms7EnWOm2/BUYJSh6wPtS++8rmqdHR1mcQjDIo
+rUArbVLTAMpAH9vFjUbpSQA1dvT1ScVXKu9v9iucSE7kqYKD487uOzrBGpWzRWVuy3i5iSb7cfVJ
+Bmx+OR+OxruLgk8KJDU+UMqwGauuGOMVr7ki4hRBUsVzNW72ZEMaG0zYZ8nYQJOP2mNliqw+On2F
+nP10kcoTYROCgwXvHrwmL+Q4aYRxjZN0G3Nh34hppo47NmH0xMOY5+QD0afmADdGl4KI2B5snEfA
+9DBmUtvMy+MPbUbx4p1TAR4fbUXuyX5o+sZ0F/7Ok2lNeK7KQxty4GM4nP4Hre/gCudnz2SgHd4N
+RgQtBiMKJRqymGk/rFUopVGSt30QxSitsjCk2HHvd+xjUyl7JoIphBkAWqnCvblfMmriSqmxaZop
+BMn707ksTMkC5mIYUwyujeR+258cQOGZAJ6oLHFx8SLV5QZJyRCpGNdxScWwUlnEVc6oCfXiPrFJ
+LJAolsqt/f5LQTvsjuDSSrNYao3iNSPCXti2YYYYHOXQKjUQMQiQiqEddnCUQyopJadEy69nKCpS
+k9KJemilSUxCxS1T9SojAKM0phP1UEoRpwl1v0rZKY1iv0EypBv3UUoTJiELpSYeLkmcEPVDduIt
+Our24QFUKM7UV/GrZR5bXqVSrhBJTDvqslJeJDIxAMMkZLHcwtUuYRIySEMWS016cR+NJjEpV5bW
+0EozSIYMk5Cl8sLIKY2i4q4hCP14QGxiFkst2lEXI0LJ8ai4ZYwYulEfQVgsL9CNeogIFbdMyfFJ
+JKUX9XG0Q9Ut048DogywkuMTpRF7YZeqV8ZVrrUlDWmVmniZ7VvDXRb8BiIQDAL2ZI+TSy3uVt5j
+kz9NxWlmH9j06/iORxAPCJIBYRrR8usE8YDb/Q200rjKIUgG9KI+IkLNq9KNetzqfUjFLSPAMB2y
+F3YoOT6+49OJetwNNql7VRKTMExDdsI2da+GozTtsMuHwRZNv06YhoRpxM6wTctvANAJe2wNdmj6
+dYZJyDAN2Q3bLPgNEpOwO2zTDrs0/DpBMiBKI9phl8XyAqmkbATbBMmAulejHweESUgvDlgqLxCl
+MR8G24RJRM2r2AeaJgTJ4PAMvLx0iX94/O/pVkOunr1CrVwlkoSzjdM8tXgRRzv0oj53+hs8uXge
+haIb97nYOsvawjl0Bsb2YJcLrSfQSrE12KW3/CmeaJxBK83mYJsgHvBE4zRKKe70N0hMypn6Ktpx
+uNm7g6McVqsn0CLc6N7G1x4nqys4SnOzexvX8ThVXUahOF0/xVKpRavURCvFu3sfsFJZounXUUpz
+pnaKhVKTxXILEeGd3T9yoXkW3/EBWK2ucLZxmrL2CcOI3zsnKHcd9k6t8yfePhyAC36TC82zPP74
+GVqtBUolH6U1f73y1Fi5qyf+ajy9Mp4uyvnm4xPpM1Pzpd8nee89Hvdqdl66sYt7+al77j834/5Z
+6QsT6bWFc1PTYgxhGHFKL7G+fpNWqTHTp7mjcHFUSo3BKUT8RyGSJMhgAFoTvPoqw9/9DoDqV75C
+/alPYbpddLUKjnN0NoiQGlMYiWXuSDw3DizeeJTAASS3b9N74QXC11/HbG/T+Na3MP0+KEX9a18j
+uXmT4Wuv0X3hBdKNjSO15TC+HiKQPjqJ33+fneeeQ3ke0TvvoBsNJElI7twhWV9HkgRdrxNfvw4i
+bD/3HMnt2aHFw5RjB1CGQ3Z/9COcU6dQnocEAXpxEZRCOc6ouTqnTpFubeEsL6NLJfZ+/GMkSQ7Q
+fvRy7ACGb75J+MYb1L/+dQYvv4x79iwASuvCsos9uqurDF99lfo3vsHgpZeI354+Mj5MOXYAozff
+xFlexnnsMeLr19Gtls1QCnIQMwB1q0X09tu4Fy6gq1Wia9eO0XIrxw6g6fXQy8so18V0OpggsBkF
+4EZl+31Mp4Mql9ELC5hud4rGhyvHDqBz4gQkCcrzUJXKPqu0ZvQKNQMyunYNXa+jtEaMsfcesxw7
+gP5nP4vp9TDDIaWrVxn85jek29vjfaDWJLduMXjxRUqf+xxpuw1Jgv/pTx+v8fw5AHj5Mt7amh0c
+nn6a5NYtur/4hY1BMxAlSej89KdIr0ftq19l+NJLlK5exbtw4bjNP34AlefRevZZwtdfxz17luZ3
+vsPeT35C95e/tLsIkoTOz35G5+c/p/X976ObTaJr12g+84wF+Jhl3pL+QxP/yhUa3/42Zm+P1g9+
+QLq7y87zz0MYIsYQXb9O67vfpfnss8TvvUfzmWfwLl06crvuZ0Yy9xEe9fStKP6VKzirqyQ3blD+
+4hfxzp3D9PvIYIB/6RKlq1eJ330X9/RpvCeffGh2HSQHMnCsMz9iUa4LWuOurrLywx8S/PrXoBTV
+L38Z4tg2Wc97KLZMC6OmyWwA0xQJQ+IbN5BLlxClkDQl3dnBOXnSdu7DIabTuTedhRcyGGB6vf38
+Xg8ZDtFLS4CNASWKcJaXQSlMEOCsrOBnDHNPnx4BCpDu7CBhiLiuLb+7C1qjFxZAhHRrC12rocpl
+W35zE91ooCoVm97aQlerNi1C+uGHOCsr9qFkab24iDgOMhyS3LyJDIeIMZPoHAzg4OWX2dvcxOt2
+SU+exDcGlSSkd+9S+sxnwHWRICDd3cVZXETiGDMYYNpt/MuXUVrb8KTTQTcaYAxpu43EMf6lS/Z9
+xt4eMhjYJaoMAFwX75xdl0s2Ny0ZPA+lFMmdO+hGA/fMGXt/IR8gXl/HXV21oIiQ3L6NynSjFMn6
+Os7qqn1gaUqyvm7n3VEEShF/8AHe2hpSrRLFMTsffMCu5zF4663DA5ju7GCCAFUqWQM8z751q9WQ
+NEWyGYPyfSRNUY6D8jx0rWbB2tsDx9m/Xyl0uWxf5oiQ7uzYYDljCyKoSsWuCaYpZm/Pdh+OA1rb
+OqpVMMbmt9t2wcG3q8mSJDjZg5IownS7Fvg8FIoiVLVqg/DhEAkCW7eIXcSIInS1an0bDDBBgC6V
+rD357GiKzBxElOfZCrJZgm428S5cQDebmO1tlO9b5iQJynHQKyt458+jazXSjQ07Y/C80etK58wZ
+nNOnUb5PsrmJbjbtTMN1ERHc8+ftiozjkO7s2DmxCMr3UYB38SLO8jKiFGZvz+YbYx+Q1niXLqGX
+l21L6PfRCwtIHEOpZFm9toazsIAMBhasVsseSyVUpYK3toZuNpFeD4yx53FsQYzjj8DAu3cZ/Pa3
+BGGI6/tEWuOUSraCjC0q6ytwHHBdlOfZRVCREVPJlpxypuWLpLpWQ6LIstMYy66sG0Bry4bsHGNQ
+tZrt/8LQsr1Ws/mOA2k6SksU2fxqFen3wXVtfrWKBAESxyjXRZXLmF7PDlyZP6bbtQz0PGLfZ9Dr
+ETiOtfmwAJogIA0C+742CEY7rVUevAbBfpgztsfDjl5pBtToWqczVjadNCrPzx/g5EJBpzPSLQDd
+7ni9WZMms3NUPl9Vb7dHRUUE9vasrnzJfnd3Pw2kIhjsbsp5cn+B9LThPHeEKbsf8k13xfQsPcX8
++7FhVtlp9c3Tm4E106773FhzIID72x6ywHpSacGQqfn3I9Pu+ai7gu5D39hLoilgj7aZ5Ok5Vc0F
+UCZvLjJripEzy5KxdJKZk4ZPuXYk+qYBOOP+gx7jnNeadh9r3g/kfYGapH0hrYrGTLBxpiHzmHZE
++mRauUJe7m/u/0diYFFR/hMKcc8cIO9xZFr/NLXSQ4D5UfXNYyPjpEn4GADmCuLsl29duydwnAOc
+yq8fpj8rsmRCHqi+GTpyAGP2/Z89kbsXwLzZy1DreCgioYjys4v5DuupY+lHYchBMm2UfNCDSzGb
+/ZYXASEwVEoCpRKMmXrzNAYKYP6o1O1N6DZEWhr7NKbusj6sodNChoNAedD65kjefEPsNw0bSnXe
+V+oOM7rEaQxMgeQPxrz/377/SjmO//GkMaqcFZ7JwPuVj8OgI9aXMzABhsCG1vKG573ybhTdYMYH
+h9MATIChEWn/hzH/HtVq5ctJ8vmFJKm6Ih8PvP8HIkCiFHuu2/+D6772n8PhrxBpYzG952PDad8Q
+lIAWcBJ43HWcJ05XKpeXHeeMFinJ/nb/R1FEgTFKhVtpun57MHgnTdMbwDqwAbSxrXsE4jQAHaCC
+BfFE9lsCGox/rfOogVgcQ0KgC+wAm8AWFryAAz42zOPnXIFgqbuHBdVnyudOj5AUB+EBFoMO0MPi
+cM8gMgsITfbRNZZ1ZexHiC5/Bq9Cj1gM+yHgEEum/GPre0LCeUzKY2en8HuU+79c8lZYnITNnJDc
+DxiTH5D9JQA47fiJHIX8H0IT9B3+XCIPAAAAAElFTkSuQmCC
+"
+     x="0"
+     y="0"
+     width="80"
+     height="60"
+     id="image3015" />
 </svg>

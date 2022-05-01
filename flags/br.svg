@@ -1,112 +1,134 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="720px" height="504px" viewBox="-2100 -1470 4200 2940">
-	<title>Flag of Brazil</title>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
 
-	<defs>
-		<path id="O" d="M 0,0 a 31.5,35 0 0,0 0,-70 a 31.5,35 0 0,0 0,70 M 0,-13 a 18.5,22 0 0,0 0,-44 a 18.5,22 0 0,0 0,44" fill-rule="evenodd"/>
-		<g id="R">
-			<use xlink:href="#P"/>
-			<path d="M 28,0 c 0,-10 0,-32 -15,-32 h -19 c 22,0 22,22 22,32"/>
-		</g>
-		<path id="D" d="M -31.5,0 h 33 a 30,30 0 0,0 30,-30 v -10 a 30,30 0 0,0 -30,-30 H -31.5 z M -18.5,-13 h 19 a 19,19 0 0,0 19,-19 v -6 a 19,19 0 0,0 -19,-19 H -18.5 z" fill-rule="evenodd"/>
-		<path id="E" d="M 0,0 h 63 v -13 H 12 v -18 h 40 v -12 h -40 v -14 H 60 v -13 H 0 z" transform="translate(-31.5)"/>
-		<path id="M" d="M -31.5,0 h 12 v -48 l 14,48 h 11 l 14,-48 V 0 h 12 V -70 h -17.5 l -14,48 l -14,-48 H -31.5 z"/>
-		<path id="E_" d="M -26.25,0 h 52.5 v -12 h -40.5 v -16 h 33 v -12 h -33 v -11 H 25 v -12 H -26.25 z"/>
-		<path id="P" d="M -31.5,0 h 13 v -26 h 28 a 22,22 0 0,0 0,-44 h -40 z M -18.5,-39 h 27 a 9,9 0 0,0 0,-18 h -27 z" fill-rule="evenodd"/>
-		<g id="G">
-			<clipPath id="gcut">
-				<path d="M -31.5,0 v -70 h 63 v 70 z M 0,-47 v 12 h 31.5 v -12 z"/>
-			</clipPath>
-			<use xlink:href="#O" clip-path="url(#gcut)"/>
-			<rect x="5" y="-35" width="26.5" height="10"/>
-			<rect x="21.5" y="-35" width="10" height="35"/>
-		</g>
-		<path id="S" d="M -15.75,-22 C -15.75,-15 -9,-11.5 1,-11.5 C 11,-11.5 15.74,-14.75 15.75,-19.25 C 15.75,-33.5 -31,-24.5 -30.75,-49.5 C -30.5,-71 -6,-70 3,-70 C 12,-70 29,-66 28.75,-48.75 L 13.5,-48.75 C 13.5,-56.25 6.5,-59 -1.5,-59 C -9.25,-59 -14.75,-57.75 -14.75,-50.5 C -15,-38.75 31.5,-46.5 31.5,-21.75 C 31.5,-3.5 13.5,0 0,0 C -11.5,0 -31.55,-4.5 -31.5,-22 z"/>
-		<g id="star">
-			<g id="cone">
-				<polygon id="triangle" points="0,0 0,1 .5,1" transform="translate(0,-1) rotate(18)"/>
-				<use xlink:href="#triangle" transform="scale(-1,1)"/>
-			</g>
-			<use xlink:href="#cone" transform="rotate(72)"/>
-			<use xlink:href="#cone" transform="rotate(-72)"/>
-			<use xlink:href="#cone" transform="rotate(144)"/>
-			<use xlink:href="#cone" transform="rotate(-144)"/>
-		</g>
-		<use id="star1" xlink:href="#star" transform="scale(31.5)"/>
-		<use id="star2" xlink:href="#star" transform="scale(26.25)"/>
-		<use id="star3" xlink:href="#star" transform="scale(21)"/>
-		<use id="star4" xlink:href="#star" transform="scale(15)"/>
-		<use id="star5" xlink:href="#star" transform="scale(10.5)"/>
-	</defs>
-
-	<rect id="field" fill="#00923f" x="-50%" y="-50%" width="100%" height="100%"/>
-	<path id="rhombus" fill="#f8c300" d="M -1743,0 L 0,1113 L 1743,0 L 0,-1113 z"/>
-	<circle id="circle" fill="#28166f" r="735"/>
-	<clipPath id="clipcircle">
-		<use xlink:href="#circle"/>
-	</clipPath>
-
-	<path id="band" d="M-2205,1470 a1785,1785 0 0,1 3570,0 h-105 a1680,1680 0 1,0 -3360,0 z" clip-path="url(#clipcircle)" fill="white"/>
-	<g fill="#00923f" transform="translate(-420,1470)">
-		<g id="ORDEM" transform="rotate(-7)">
-			<use xlink:href="#O" transform="translate(0,-1697.5)"/>
-			<use xlink:href="#R" transform="rotate(3) translate(0,-1697.5)"/>
-			<use xlink:href="#D" transform="rotate(6) translate(0,-1697.5)"/>
-			<use xlink:href="#E" transform="rotate(9) translate(0,-1697.5)"/>
-			<use xlink:href="#M" transform="rotate(12) translate(0,-1697.5)"/>
-		</g>
-		<use xlink:href="#E_" transform="rotate(9.75) translate(0,-1697.5)"/>
-		<g id="PROGRESSO" transform="rotate(14.5)">
-			<use xlink:href="#P" transform="translate(0,-1697.5)"/>
-			<use xlink:href="#R" transform="rotate(3) translate(0,-1697.5)"/>
-			<use xlink:href="#O" transform="rotate(6) translate(0,-1697.5)"/>
-			<use xlink:href="#G" transform="rotate(9) translate(0,-1697.5)"/>
-			<use xlink:href="#R" transform="rotate(12) translate(0,-1697.5)"/>
-			<use xlink:href="#E" transform="rotate(15) translate(0,-1697.5)"/>
-			<use xlink:href="#S" transform="rotate(18) translate(0,-1697.5)"/>
-			<use xlink:href="#S" transform="rotate(21) translate(0,-1697.5)"/>
-			<use xlink:href="#O" transform="rotate(24) translate(0,-1697.5)"/>
-		</g>
-	</g>
-
-	<g id="stars" fill="white">
-		<use id="Alpha_Canis_Minoris" xlink:href="#star1" transform="translate(-600,-132)"/>
-		<g id="Canis_Majoris">
-			<use id="Alpha_Canis_Majoris" xlink:href="#star1" transform="translate(-535,177)"/>
-			<use id="Beta_Canis_Majoris" xlink:href="#star3" transform="translate(-625,243)"/>
-			<use id="Gamma_Canis_Majoris" xlink:href="#star4" transform="translate(-463,132)"/>
-			<use id="Delta_Canis_Majoris" xlink:href="#star2" transform="translate(-382,250)"/>
-			<use id="Epsilon_Canis_Majoris" xlink:href="#star2" transform="translate(-404,323)"/>
-		</g>
-		<use id="Alpha_Virginis" xlink:href="#star1" transform="translate(228,-228)"/>
-		<g id="Scorpio">
-			<use id="Alpha_Scorpii" xlink:href="#star1" transform="translate(515,258)"/>
-			<use id="Beta_Scorpii" xlink:href="#star3" transform="translate(617,265)"/>
-			<use id="Epsilon_Scorpii" xlink:href="#star2" transform="translate(545,323)"/>
-			<use id="Theta_Scorpii" xlink:href="#star2" transform="translate(368,477)"/>
-			<use id="Iota_Scorpii" xlink:href="#star3" transform="translate(367,551)"/>
-			<use id="Kappa_Scorpii" xlink:href="#star3" transform="translate(441,419)"/>
-			<use id="Lambda_Scorpii" xlink:href="#star2" transform="translate(500,382)"/>
-			<use id="Mu_Scorpii" xlink:href="#star3" transform="translate(365,405)"/>
-		</g>
-		<g id="Hydra">
-			<use id="Alpha_Hydrae" xlink:href="#star2" transform="translate(-280,30)"/>
-			<use id="Gamma_Hydrae" xlink:href="#star3" transform="translate(200,-37)"/>
-		</g>
-		<g id="Crux">
-			<use id="Alpha_Crucis" xlink:href="#star1" transform="translate(0,330)"/>
-			<use id="Beta_Crucis" xlink:href="#star2" transform="translate(85,184)"/>
-			<use id="Gamma_Crucis" xlink:href="#star2" transform="translate(0,118)"/>
-			<use id="Delta_Crucis" xlink:href="#star3" transform="translate(-74,184)"/>
-			<use id="Epsilon_Crucis" xlink:href="#star4" transform="translate(-37,235)"/>
-		</g>
-		<g id="Triangulum_Australe">
-			<use id="Alpha_Trianguli_Australe" xlink:href="#star2" transform="translate(220,495)"/>
-			<use id="Beta_Trianguli_Australe" xlink:href="#star3" transform="translate(283,430)"/>
-			<use id="Gamma_Trianguli_Australe" xlink:href="#star3" transform="translate(162,412)"/>
-		</g>
-		<use id="Alpha_Carinae" xlink:href="#star1" transform="translate(-295,390)"/>
-		<use id="Sigma_Octantis" xlink:href="#star5" transform="translate(0,575)"/>
-	</g>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   version="1.1"
+   width="80"
+   height="60"
+   id="svg3027">
+  <metadata
+     id="metadata3033">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs3031" />
+  <image
+     xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAA8CAYAAADxJz2MAAAABHNCSVQICAgIfAhkiAAAFXBJREFU
+eJztm3uQZFV9xz/n3H7Oo3ve75l97wLLwuouCLuIgEaBAEIgKhYoMZhKxfyRSixTZaxUEk2VlbJK
+80dSVkXUhFLRaBQUsdASKJYVlucuy2OfMzszOzsz3TvT093T73tO/rjv7p6HSKgKcqZ6+p7T557H
+935/j/M758I76Z30Tnon/f4m8X9U9+2Q9HoqrQaKsD/SVyZ9v70dkwOa8pUpu7wpoCsBIQADCMXG
+EvHO/aMXhTtjW0XIiAoQQggEQggAIWykhXuNkwen1vpnoLU9k+B436z2tFWIdkq0ttHR2q6rVc0s
+VdLFE4tPTL5enssXgRpg0gTEZqMRQAiIJK8YGkxeMfzX4Y7YHdGWWFc4HJZCSqSw4BPO1JqAaF37
+Ju78b9aj9k9Qu3lntG9uexrt5LV2odXayiulqFarqrxcSlcXit9ffGLyX3NH5ueAig1kAMRQk+4l
+EDHaIh2JPYOfC3fG7m3paBPt7QnC4TBS2oAJgXTBs6doT9BhifCVWQX+yftG4mOJTQKU9uRI2rf+
+Lu25IIEPOO2WKa3RWqGVplqtGtlotr8g+cvklcMi/0r6y9pUS3YXtdUAdNgXTewduNRoj9xmtIRF
+uCWKjkBZVEF6IDV+E7wWLndcgJsm4U0OoakpSEaqfLA/zbJp8Nh8N0VlYAjeUHsu4/CXWTnl+0UL
+jS1EhFuiGJWyDHVE70jsGfjZ0qGZ52giyisBGDPaIxfKiNEpwgY1YWKaJZACqR0xbWShxw4fG92J
+evrRnbnLFOu/0gJQ7ErmuHvDWfZ0LlFTgkuTXXxncohT+VaEALmu9nBBcgXVyftEWKNRDiO1fa00
+WipE2EBGQr2hZHQH8AqWGFfXAjAMxFG6HSmkkAIlNBLbBNczbgXwpG2wg2x0uvBP3BqLUoKuSJVb
+hua4ZWiO7kgFU0NYat7fv8BFiQL/PT3Io3M9LNdCSOnTg3XtCRs8Rx9bgIF2uhPaygjrN+H7Flqj
+AIVGSAGGkGgSQAxYtmFwrXQ9gBLL+ka0qSPCcWR8Awxk63IEgKwHr07520khkCj2dmX5+NhZdiVz
+CDSm9tXRgsF4hb/YMsXerizfnRzitVw72nmovvZcw2MjZ8PZMGotLFTr9ac1Zu1dC9CmigBRG5uA
+4ljJiIRQ2nCE0IPHG1wdrg3Aulbap6g8YK0nrhD0RsrcNjzHDQMpEuEqSgvfdD07rLRACs3+7iW2
+txV5cKafh2f7WKqGkcJhndWHJbTCBdHq0FMVHuROXQssx+VpsOwawwZP1v3SVIQd51k0/NIk42dh
+wEIGaoo68AQhqbm8a5E7R8+xo30ZTwfqhrv9eVMLuqM17tk0w7s783x3apAjmXaUFghhQ6c9YBrG
+IlxVaY/HB9wKM0RrR4PVy2RTBq40+sYKv6VTi7DEcShe4fbhWT7Qf57WUA3l8/OF0EhhOf+2B2K7
+e9aF0hKtLXa9qzPL5rYiPz/Xy0MzfaTKFhvXXoPVP6hm5eub22oABpr1CfCqtVYqV0BUaK7qXeSj
+o3NsaStYYmyzTkqNUoL0UgeTc71MzfeykG2jUgsRDZl0JvKM9qUY60/RncjZ9SWJkMnHRme5tCPP
+A5MDHFpMUHNF2e6+CcPerLQuAD3dIXzfzWo1lluOq2BDa4mPjs5xTe8iMUNZrMNinFKC1yY38PiL
+l/LiiS3ML3ZQqoQxFThKwZCaaKRGX2eG3dtOcc3uw2wfm8aQGq0FFyXyfO6CcX4518WPpvuZKUZW
+9hPfxLQuAFdKlo1beZQKQVyaXGuzbqy1hNbCZh1IqUgtJvnJk/t57IXdLObbsNwQ62NIR+FbIlup
+hZhO9TI138eBI5dwzbsOc+t7D9DXmUEpSatR49ahOXYlszwwOcCBdAdl1WyEazEyKOKr1V4/gLo+
+Izyfyh6iz+ChNWxtK/DxsVmu6skQkdoFDjRSaI5PjvAfP/tDXh3fYJVJZVlLv8j5iG0ZAevepeUW
+Hjywj+NTI9x708NcMDbltr+1tcDfbJ9gT2cnD0z2c6YQW3laAfF2XfB16FErNZjl9aT6+fk7MzXE
+DZNbh+f4p50nuK4vTUjYImt7/FIoXp8c5as/uINXxjcghLKdW9961V0x+K61ExjAZemrExv42g/u
+4NWJMaSwVllKQ0ya3DCQ4osXn+DGwRRRaWLq+rH7M3WTap5pSCsC6C3CPQ3ori+b9OEEzS5M5Pn8
+Baf4zJZJhuIlW9d5MEsUM+kuvv7gTZyZ7UMK5VnbdYzZfgbuqKQwmZzr5esP3szZVA8Sx4JbQI61
+FPmrbRP87QXjbGtbtlcZK5MgSIi1ebgqA3WznPa6cNaTpob2UI07R2f40s4TXN27gCE8Q+ENS1Gq
+SL73q/fx2sQIGoVpat9HoZS9RrXZ4n7wRVZ8IGpASMWJ6WEe+PW1lKuhABxKQ0gorutL888Xn+CP
+R2ZpNWouG/0s1E5n/hmvgeEqOtDfUNAOO51pBIaA3R1Z7tk4w97OLFIIexlW7xBrhFAsFi/DjF/N
+1fujKEwMwlQqikLBZHlZkc/XWMpVKJZqmKayAhbSUYIaHIdZ1zvxiqeOXMy+nS9z5cVHUUr6HpwF
+5GC8xGe2nGFvxyL/eWaIl5daUTg+pn+dsn4QVzcizgPRHnhOgwroiVa5fXie20fm6Y7UMBFrPLAY
+fcN3cvWNHWQrGfLlLD3xHkylKFUrtMoEM4sLjIV3MjtX5tR4nmOnF5lLlymVawihCYclWnls9Kfl
+UoRHn93Du7cfIxyq+iCw6ikNUiiu6llkR3ueH0738eOZPs6XQ8g6w+EZl9VntIYVrtcI2l2GXdG1
+xKc2zrC7I4dAYGpbGwj/vV4SKHLlESbTW5hJ5yhX25EiyRRlwhEDIyyQbSY6UmTHlnYSQ1n2XTnM
+gdMpqgudnDpucvpkhW0bW3n15BLz50vIhmWj4pXxDUzO9bFtdAql/JLgMcEEuiNlPr15ir2dGb45
+McTzC+2Yrt5fP4irAug36lasTDAQL/Ox0VluHU7RETatpZW/tl/OfS1JqXnqcDdff/A1IiGDcsXE
+VBohBIYUhMOSeNygM9nF9OAEw8NRRkdybOocYbZtkqs2t3J5ro3cXJyz8wXSCxVMpazYoK+/peUW
+XjszyvbRM1gq3kcCV3874QbN3q4MW9py/ORsH9+fGmC2FEZoFVBbq6U1/UANtiLWvLd3gT/dNMPO
+ZB5s1jUVWqfINzGl4eR0P6Wy4Iar+3nmcJrp2YK7ni6UNJkszMwu8/LrixhC0NISYsNQO1u3dbNx
+u6S1u0ByS57bhlt5/eUozzydZ3a+BNoL+tRMyelzA5gu+/xmWzd8TA3JcJVPbpxmT2eG+8aHODCf
+pOaLCq0G4poirDUMxUvcvWWeW4bTJMIK0xdFa0o4P5DuxAzSmQSmqXj8mTnyhZr9mw64FEJYYSut
+NbnlKkeOnefoCUH7E2Eu2Zlkx6Vh+oZLDFyywF0XjPLUkzkOv1giX6ggbcKlMwlqpiRk1OqsQBA8
+X6wagEuSOb648wQPdfRw/6l+poqyaaRmXQBqwNSCi9rz/P2uKS7tLoCQPl0XtFSi4W67RFvXyoRS
+JYzSmvRi2YvCO1WAro4I+UKNUtl05+xY4Gy+wvj4MudTYcIxyZX7R6iMnOemD/eycUuYA78uMzGV
+Q2lt9WMKkM28uyB49bqx1TC5c3SGHfEl/uG5MV4/vyp+qzNQoJkrRXhsvouB1hqDLVWUq0/EGiAG
+ARVCIYWJUiANxwfz0JNScNWeXl56bZFTU3nXQTUMgVKAEJxLFzmXLqKU5tR4np0Xx9n3vhL9W/Pc
+2B3l0OMdPPt8HilqCOHf+wkC2Aw8sNfgQjG+HOPhmR7myhEElTcKoNX4YjXEtyaGeC7Xyb2bZ3hv
+b4aw1PbSrBFEayD+QLl1HTJqJFvz7saNs24OhyTVmuVQP/LEDNWaF10OhQQ3v3+Ep55PMZsqYhjO
+toGgUKrx7LM5xidKXH1tK8MX5rnu5gStySRt5QqGUaM5cH5APfCk0JRMwS/nevnm6UFOLMZQtQpB
+V/u3AtBKDhRHMm184ehWbhpKc/eGc4y2lO1Vgh9Ex7Z5/51kSJORvjnAWnVs39ROyJCcSxUpZy2t
+WiybVitaEzIkfd0xDh1Oo7WmpzPK+UwZ6ae5EKRSFX76Y5P3zLSz71q49yMXElo4iKSKFYV3Hmuj
+GKPtNbXQnMrH+dbEEI/OdlGsCpvBTvU34Ma4ImZPSArNck3y/akBXlhMcM/GGT7Qv2DH9mSAic4Q
+nStnn2LH2BmSbVU0MaJhS0gzSxWSiTC55SrK1IHxhkMWwPGoQTRq2Pso2ouEO+Iv4OnfZKku97D7
+7hD9nccxSwrdsGXkd2ksp3q5ZvDIbDf/NTHERCGG0Mpe6azlwFjJaJKPAe2xzR2XRMfa98l4SMiw
+gXBPJEC6EuHg+Q6mCjHGWkr0RCv2uMQKitAaTGusyImzuxDGIK+czDB/voRhCDYOt5HJVqj5AKwp
+xVKuSldHlPRimVy+6gIXCARo2Luri1BIcm6+xOzs81y+43+QotjQf4B1wGu5Vr56fAPfmRxkoRJG
+uuBqa7VTMzELVV2ayD5Vnsy+AuSBEpa9AdYdDwy6lRIom4KHz/VwZKmdu8bOcdNQivaQaVtp7boo
+/lhhR3uO3ZsP8m8/7kdgHafo646TzVcplkyvtu3CmUoz3B8nGpGMTy+jbccbbX07515OT+URQjCX
+LrJh/68JG2lLtdQxDsAQiqVqiIdmevnO5KAVubYNSOD0QkD3rczGVaIxDht88bm6P4FmqhDlK8c3
+8HdHt/JSpg2BsvSfq6d9fpfWXLfneXaMnaFmWsCmM2VSCyWEhMt2ddPbFUMpR4VoJmcKLGQqCKCj
+PULIEHQkIkgJvV0xerpi9PfEyOYV20Yn+eBlz/mA88bhBAxezLTz+aNb+dqJMRe85rNb3YFeB4BB
+++XkneMQTrnAOsvy2Hwnnz28nfvGh1msGhjCd6zOCYQqQU8ywyevf4REax6lBMWSSaFo+X3RsERK
+rw+t4VyqSCZnuRJCgFLa3VuMhq3V8ImJZSQZ7rn+F/R2LKKVvXdpPzxDKBarBveND/HZw9t5MtVh
+bzwFj34E453W/WuBuKIOjG5OXhIdS1g6MCRB2hvVjgKv03USWDYNnl9McDTbTm+0zHC8jFG3zai1
+YKQvRSRU46WTW6nWQhYwWjNxdtlaobh1g32UyiYjgy0sZiuAYKA3zpmZAlqV+JMbfs7173nGNzDt
+nsE4tJDgX45t5KGZXvI1JwQRXIe44NnH3FAaVVOoYlWXJ7JPlSdzb0AH6kAXePv+vt1pEShFacGh
+hQTHc9u4bXieO8dmGYyVA0c1JPBH73sCU8G3fn4DuUILUmr3xILXvaa1JUS1qqhUNdGI5LJd3Tz5
+3DzpxTI1U9AWL3HXHzzC7dc8jpTKvd8Q1iLggalBfnS2j0XbSIjAjHygubD7NefvwMDY5uQlkdH2
+fTIWEjIsrYM2fgb6w5l1FwJNWRm8lGnnhcUEyXCV0ZYSIekNyBCKnZsmGO2bZ2K2n/PZhCV67jQs
+MMMhSU1plP05djpHNm+taPo7zvDnH/4hN+07SMiwwJPCWoI+me7ky69v5hez3ZTMYNDDzzoPNB9k
+dQwsTWSfqrwhBgaaxjMOjgUMrHcJiLVzeXSplS8c3cqNA2k+sfEsG1uLaDvSIYRnVH52cB+/eu7d
+nE31UqkZbn/ZZSd0YTsZIZOR3jTv3/MCN+8/yEhfCqUkWlusmy7GuP/MEA/N9JKrhpCiiU2tPwbn
+Wmo/oASd4RXSqsGEQENo0AIttOsz63oKBsIq9pfQFEzJD6b7eD7Tzj0bz3L9QJq4YaK0QCnBcE+K
+P7vlIW7Zf4CXTm7l8MnNnJkdYDHXStUMETZMOtrzbOif49Ktp9i97RSDXeftTXmJFIqKkjw61819
+4yO8nm21VItQHkj1ex1NgXMA8wzIWiK8Zki/3h/y9J2nsHTAoDQBE8tvO5mP8aVXN3EwneRTm6a5
+MLHsSAugGehOc2NPig9d/jSlSoRSJYJpGhiGSSxSIRapYkjlbc5razUxvhzn2xPDPHKuh2XTsFhX
+Z0GD10Hg/GVBF2ZtR2btTSXfE0EIr0+bhkEgm20mOc1ZVrGsLAf8cKaNuzbMcOvwPMmwt0vmbEjF
+ImXikZJvNJbzYtp6UgpN0TT4xWwP3xwf5lS+BSm0tbfRMO86Y9AMOF3/e5CNK6WVAfSzz9eWsE8i
+eG1qv+cArHD2yTnIgBUwnS5G+cqxjRw8n+TTm6Z5V0fWXoN6dwfbcB6YZceOZVv5xvgIv5rrpqQk
+hv1AVeDBB+9tEOIGFad9YbZg1ZXS6iKssM4La41QGu263Q4U/s6Coa2GpIMXAqhpeHyuk1cyrXx0
+9BwfGZ2lJ1IJHAHxkkAKRa4W4qczvXz7zDBThbjNOs99aT6COgB1Y01XgLU3Z3f3b5VprcpArWwF
+ZWrv6IXnxfjtsA+YxhOmfhWpAznrpEKqGOLfj49wMJXk3k1TXNG9ZB8Hsd0ie119ZKmNb4yP8GSq
+i6oWSEygflem0VgEf12htv8JOHN25v+GAFQabWp0zfogPD2Ib9jBtj2H2s6uOJGG7oBnU20cz2zj
+lqF57hydYSheRgCZapifnO3je1ODzJai9jIx+D7WqqmBnY0jCgCpcOetTbVqaKseQIewWpXNiq6Y
+WldNoUO2sErhAtisSREArHmAv7603uQsVQX3n+zn0Fwbn9h4lo5wlfvPDHNoIWkf4zUDwK3W3kq/
+rBrqs90CXVXWp6K0LpmBVxv8qRkDNaBqM8szaqmSVfFQB0IglH3sf5VTi6syrYmTHbin7uZXyzH+
+cXEjYaHJ1kK2uPqq/ZbtrTs5uq+qUOUaKlNZqs4WZsE7l+Sv3oyBJlArTeYmWk7nnpZR40NaaSGr
+0mXgW3HyE6DgWHVRWb+4/g7JMhgWA1VFoTMVXT2R/U3lXH6SFV44bAZgDSih9VLuubkHO5URDY20
+XqZaZCuGF3F+izB0B/WW9aEBU2tRMAvmmeVD+RfnfgosYa2BG142rMdBYL1QkgT6gBHDMMZa+xI7
+IonYCEJEbWfmrcTvrUxaIBRalytLpenlVPaYaZqTwDQwjwVkmeaaxM0bQBwLxF770wW0E3xb5+0G
+omNATSyQcsACkALSWOAVWONlQ42lKJ0GNBZ1M1igRmjyutPbKDkAVoAiFgZZvDBWgxFZCQjrdS8L
+sChWjDBsl72hc9X/j5LC0nVVLNDKeC9bN9iy1Zgk8F4+9L8r9nZln5McKTR9nwbmOWk9YIgVvt+u
+qT6M8FY4Ab+/6X8B4Hf4frl8wCoAAAAASUVORK5CYII=
+"
+     x="0"
+     y="0"
+     width="80"
+     height="60"
+     id="image3035" />
 </svg>
