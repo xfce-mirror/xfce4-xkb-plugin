@@ -1,7 +1,14 @@
 @SET_MAKE@
 ACLOCAL_AMFLAGS = -I m4
 
-SUBDIRS = panel-plugin flags po
+SUBDIRS = \
+	panel-plugin \
+	flags \
+	po \
+	icons
+
+distuninstallcheck_listfiles = 						\
+	find . -type f -print | grep -v ./share/icons/hicolor/icon-theme.cache
 
 distclean-local:
 	rm -rf *.cache *~
