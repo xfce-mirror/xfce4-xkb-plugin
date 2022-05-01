@@ -108,7 +108,7 @@ xkb_dialog_configure_plugin (XfcePanelPlugin *plugin,
   settings_dialog = xfce_titled_dialog_new_with_buttons (_("Keyboard Layouts"),
                                                          NULL, 0, "gtk-close",
                                                          GTK_RESPONSE_OK, NULL);
-  gtk_window_set_icon_name (GTK_WINDOW (settings_dialog), "xfce4-settings");
+  gtk_window_set_icon_name (GTK_WINDOW (settings_dialog), "org.xfce.panel.xkb");
 
   vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 18);
   gtk_box_set_homogeneous (GTK_BOX (vbox), FALSE);
@@ -299,8 +299,6 @@ xkb_dialog_configure_plugin (XfcePanelPlugin *plugin,
 void
 xkb_dialog_about_show (void)
 {
-  GdkPixbuf *icon;
-
   const gchar* authors[] =
     {
       "Alexander Iliev <sasoiliev@mamul.org>",
@@ -309,10 +307,8 @@ xkb_dialog_about_show (void)
       NULL
     };
 
-  icon = xfce_panel_pixbuf_from_source ("preferences-desktop-keyboard", NULL, 32);
-
   gtk_show_about_dialog (NULL,
-                         "logo", icon,
+                         "logo-icon-name", "org.xfce.panel.xkb",
                          "program-name", _("Keyboard Layouts Plugin"),
                          "version", PACKAGE_VERSION,
                          "comments", _("Allows you to configure and use multiple keyboard layouts."),
@@ -320,7 +316,4 @@ xkb_dialog_about_show (void)
                          "license", xfce_get_license_text (XFCE_LICENSE_TEXT_GPL),
                          "authors", authors,
                          NULL);
-
-  if (icon)
-    g_object_unref (G_OBJECT (icon));
 }

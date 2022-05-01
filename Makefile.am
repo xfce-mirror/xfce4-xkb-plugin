@@ -1,7 +1,11 @@
 @SET_MAKE@
 ACLOCAL_AMFLAGS = -I m4
 
-SUBDIRS = panel-plugin flags po
+SUBDIRS = \
+	panel-plugin \
+	flags \
+	po \
+	icons
 
 distclean-local:
 	rm -rf *.cache *~
