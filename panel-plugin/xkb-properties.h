@@ -35,6 +35,11 @@
 #endif
 #define DISPLAY_TOOLTIP_ICON        "display-tooltip-icon"
 #define GROUP_POLICY                "group-policy"
+#define LAYOUT1_DEFAULTS            "layout1-defaults"
+#define LAYOUT2_DEFAULTS            "layout2-defaults"
+#define LAYOUT3_DEFAULTS            "layout3-defaults"
+#define MAX_LAYOUTS                 4
+
 
 typedef enum
 {
