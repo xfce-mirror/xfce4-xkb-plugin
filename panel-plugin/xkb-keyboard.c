@@ -574,6 +574,12 @@ xkb_keyboard_active_window_changed (WnckScreen  *screen,
   guint       id = 0;
   WnckWindow *window;
   guint       window_id, application_id;
+  const gchar *classname;
+  const gchar *layoutdefaults;
+  guint       trygroup;
+  gchar       **defclasses;
+  gchar       **aclass;
+  gboolean    matched_default = FALSE;
 
   g_return_if_fail (IS_XKB_KEYBOARD (keyboard));
 
@@ -605,8 +611,24 @@ xkb_keyboard_active_window_changed (WnckScreen  *screen,
 
   if (g_hash_table_lookup_extended (hashtable, GINT_TO_POINTER (id), &key, &value))
     group = GPOINTER_TO_INT (value);
-  else
+  else {
+    classname = wnck_window_get_class_group_name (window);
+    for (trygroup = 1; trygroup < MAX_LAYOUTS; ++trygroup) {
+      layoutdefaults = xkb_xfconf_get_layout_defaults (keyboard->config, trygroup);
+      defclasses = g_strsplit (layoutdefaults, ",", -1);
+      for (aclass = defclasses; *aclass; ++aclass) {
+	if (g_strcmp0 (*aclass, classname) == 0) {
+	  matched_default = TRUE;
+	  group = trygroup;
+	  break;
+	}
+      }
+      g_strfreev (defclasses);
+      if (matched_default) break;
+    }
+
     g_hash_table_insert (hashtable, GINT_TO_POINTER (id), GINT_TO_POINTER (group));
+  }
 
   xkb_keyboard_set_group (keyboard, group);
 }
