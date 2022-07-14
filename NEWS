@@ -1,3 +1,22 @@
+0.8.3
+======
+- Add optional notification support (Fixes #48)
+- Disable notifications by default
+- Use symbolic icon for notification
+- Add new plugin icon
+- Use Xfce's icon name
+- Fix make distcheck
+- build: Fix intltool lock file problem during make distcheck
+- Fix compilation warnings
+- autoconf: Some updates
+- Update `.gitignore`
+- Translation Updates:
+  Albanian, Basque, Belarusian, Bulgarian, Catalan, Chinese (China),
+  Chinese (Taiwan), Dutch, English (Canada), Estonian, French,
+  Galician, Georgian, German, Hebrew, Italian, Japanese, Lithuanian,
+  Norwegian Bokmål, Occitan (post 1500), Polish, Portuguese, Russian,
+  Serbian, Slovak, Slovenian, Spanish, Swedish, Turkish, Ukrainian
+
 0.8.2
 ======
 - Update configure.ac.in syntax
