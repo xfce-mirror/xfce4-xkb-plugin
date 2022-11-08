@@ -87,15 +87,14 @@ xkb_dialog_set_style_warning_tooltip (GtkWidget *widget,
 
 
 static gboolean
-xkb_dialog_layoutdefault_tooltip (GtkWidget *widget,
-				  gint        x,
-				  gint        y,
-				  gboolean    keyboard_mode,
-				  GtkTooltip *tooltip)
+xkb_dialog_layout_defaults_tooltip (GtkWidget *widget,
+				    gint        x,
+				    gint        y,
+				    gboolean    keyboard_mode,
+				    GtkTooltip *tooltip)
 {
-  gtk_tooltip_set_text (
-    tooltip,
-    _("Enter a comma-separated list of window classes which will default to this layout."));
+  gtk_tooltip_set_text (tooltip,
+			_("Enter a comma-separated list of window classes which will default to this layout."));
   return TRUE;
 }
 
@@ -117,7 +116,7 @@ xkb_dialog_configure_plugin (XfcePanelPlugin *plugin,
   GtkWidget *group_policy_combo;
   GtkWidget *layoutdefault_entry[MAX_LAYOUTS];
   GtkWidget *vbox, *frame, *bin, *grid, *label;
-  GString   *labtext;
+  GString   *label_text;
   gint       grid_vertical;
   guint      i;
   const gchar *prop_names[MAX_LAYOUTS];
@@ -265,10 +264,10 @@ xkb_dialog_configure_plugin (XfcePanelPlugin *plugin,
 
   grid_vertical++;
   for (i = 1; i < MAX_LAYOUTS; ++i,++grid_vertical) {
-    labtext = g_string_new (_("... layout "));
-    g_string_append_printf (labtext, "%d:", i);
-    label = gtk_label_new (labtext->str);
-    g_string_free (labtext, TRUE);
+    label_text = g_string_new (_("... layout "));
+    g_string_append_printf (label_text, "%d:", i);
+    label = gtk_label_new (label_text->str);
+    g_string_free (label_text, TRUE);
     gtk_label_set_xalign (GTK_LABEL (label), 0.1f);
     gtk_grid_attach (GTK_GRID (grid), label, 0, grid_vertical, 1, 1);
     layoutdefault_entry[i] = gtk_entry_new();
@@ -331,7 +330,7 @@ xkb_dialog_configure_plugin (XfcePanelPlugin *plugin,
 			    G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
     gtk_widget_set_has_tooltip (layoutdefault_entry[i], TRUE);
     g_signal_connect (layoutdefault_entry[i], "query-tooltip",
-		      G_CALLBACK (xkb_dialog_layoutdefault_tooltip), NULL);
+		      G_CALLBACK (xkb_dialog_layout_defaults_tooltip), NULL);
   }
 
   gtk_widget_set_has_tooltip (display_scale_range, TRUE);

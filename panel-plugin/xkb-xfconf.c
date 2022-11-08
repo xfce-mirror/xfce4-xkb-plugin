@@ -456,12 +456,16 @@ xkb_xfconf_get_group_policy (XkbXfconf *config)
 }
 
 
+
 const gchar *
-xkb_xfconf_get_layout_defaults (XkbXfconf     *config, guint layout)
+xkb_xfconf_get_layout_defaults (XkbXfconf     *config,
+                                guint layout)
 {
   g_return_val_if_fail (IS_XKB_XFCONF (config), DEFAULT_LAYOUT_DEFAULTS);
   return config->layout_defaults[layout]->str;
 }
+
+
 
 XkbXfconf *
 xkb_xfconf_new (const gchar *property_base)
