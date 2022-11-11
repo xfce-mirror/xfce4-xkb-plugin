@@ -38,7 +38,7 @@
 #define LAYOUT1_DEFAULTS            "layout1-defaults"
 #define LAYOUT2_DEFAULTS            "layout2-defaults"
 #define LAYOUT3_DEFAULTS            "layout3-defaults"
-#define MAX_LAYOUTS                 4
+#define MAX_LAYOUT                  3
 
 
 typedef enum
