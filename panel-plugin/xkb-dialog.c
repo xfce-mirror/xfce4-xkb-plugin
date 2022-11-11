@@ -100,8 +100,18 @@ xkb_dialog_configure_plugin (XfcePanelPlugin *plugin,
 #endif
   GtkWidget *display_tooltip_icon_switch;
   GtkWidget *group_policy_combo;
+  // CAUTION: the entry for layout 1 is stored in layoutdefault_entry[0], etc.
+  GtkWidget *layoutdefault_entry[MAX_LAYOUT];
   GtkWidget *vbox, *frame, *bin, *grid, *label;
+  gchar     *label_text;
   gint       grid_vertical;
+  guint      i;
+  // CAUTION: the prop_name for layout 1 is stored in prop_names[0], etc.
+  const gchar *prop_names[MAX_LAYOUT];
+
+  prop_names[0] = LAYOUT1_DEFAULTS;
+  prop_names[1] = LAYOUT2_DEFAULTS;
+  prop_names[2] = LAYOUT3_DEFAULTS;
 
   xfce_panel_plugin_block_menu (plugin);
 
@@ -233,6 +243,31 @@ xkb_dialog_configure_plugin (XfcePanelPlugin *plugin,
   gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (group_policy_combo), _("per application"));
   gtk_widget_set_size_request (group_policy_combo, 230, -1);
   gtk_grid_attach (GTK_GRID (grid), group_policy_combo, 1, grid_vertical, 1, 1);
+
+  grid_vertical++;
+
+  label = gtk_label_new (_("Window classes which default to ..."));
+  gtk_label_set_xalign (GTK_LABEL (label), 0.f);
+  gtk_grid_attach (GTK_GRID (grid), label, 0, grid_vertical, 2, 1);
+
+  grid_vertical++;
+  for (i = 1; i <= MAX_LAYOUT; ++i,++grid_vertical)
+    {
+      label_text = g_strdup_printf ("... layout %d:", i);
+      label = gtk_label_new (label_text);
+      g_free (label_text);
+      gtk_label_set_xalign (GTK_LABEL (label), 0.1f);
+      gtk_grid_attach (GTK_GRID (grid), label, 0, grid_vertical, 1, 1);
+      layoutdefault_entry[i - 1] = gtk_entry_new();
+      gtk_widget_set_hexpand (layoutdefault_entry[i - 1], TRUE);
+      gtk_grid_attach (GTK_GRID (grid), layoutdefault_entry[i - 1], 1,
+		       grid_vertical, 1, 1);
+      g_object_bind_property (G_OBJECT (config), prop_names[i - 1],
+                              G_OBJECT (layoutdefault_entry[i - 1]), "text",
+                              G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
+      gtk_widget_set_tooltip_text (layoutdefault_entry[i - 1],
+				   _("Enter a comma-separated list of window classes which will default to this layout."));
+    }
 
   gtk_widget_show_all (vbox);
 
