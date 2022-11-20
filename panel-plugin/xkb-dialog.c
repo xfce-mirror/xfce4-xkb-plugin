@@ -29,6 +29,7 @@
 
 #include <libxfce4ui/libxfce4ui.h>
 
+#include "xkb-keyboard.h"
 #include "xkb-plugin.h"
 #include "xkb-properties.h"
 #include "xkb-dialog.h"
@@ -88,26 +89,31 @@ xkb_dialog_set_style_warning_tooltip (GtkWidget *widget,
 
 void
 xkb_dialog_configure_plugin (XfcePanelPlugin *plugin,
-                             XkbXfconf       *config)
+                             XkbXfconf       *config,
+                             XkbKeyboard     *keyboard)
 {
-  GtkWidget *settings_dialog;
-  GtkWidget *display_type_combo;
-  GtkWidget *display_name_combo;
-  GtkWidget *display_scale_range;
-  GtkWidget *caps_lock_indicator_switch;
+  GtkWidget      *settings_dialog;
+  GtkWidget      *display_type_combo;
+  GtkWidget      *display_name_combo;
+  GtkWidget      *display_scale_range;
+  GtkWidget      *caps_lock_indicator_switch;
 #ifdef HAVE_LIBNOTIFY
-  GtkWidget *show_notifications_switch;
+  GtkWidget      *show_notifications_switch;
 #endif
-  GtkWidget *display_tooltip_icon_switch;
-  GtkWidget *group_policy_combo;
+  GtkWidget      *display_tooltip_icon_switch;
+  GtkWidget      *group_policy_combo;
   // CAUTION: the entry for layout 1 is stored in layoutdefault_entry[0], etc.
-  GtkWidget *layoutdefault_entry[MAX_LAYOUT];
-  GtkWidget *vbox, *frame, *bin, *grid, *label;
-  gchar     *label_text;
-  gint       grid_vertical;
-  guint      i;
+  GtkWidget      *layoutdefault_entry[MAX_LAYOUT];
+  GtkWidget      *vbox, *frame, *bin, *grid, *label;
+  gchar          *label_text;
+  gint            grid_vertical;
+  gint            group_count;
+  XkbDisplayName  display_name;
+  gint            variant;
+  const gchar    *group_name;
+  gint           i;
   // CAUTION: the prop_name for layout 1 is stored in prop_names[0], etc.
-  const gchar *prop_names[MAX_LAYOUT];
+  const gchar    *prop_names[MAX_LAYOUT];
 
   prop_names[0] = LAYOUT1_DEFAULTS;
   prop_names[1] = LAYOUT2_DEFAULTS;
@@ -246,27 +252,41 @@ xkb_dialog_configure_plugin (XfcePanelPlugin *plugin,
 
   grid_vertical++;
 
-  label = gtk_label_new (_("Window classes which default to ..."));
-  gtk_label_set_xalign (GTK_LABEL (label), 0.f);
-  gtk_grid_attach (GTK_GRID (grid), label, 0, grid_vertical, 2, 1);
-
-  grid_vertical++;
-  for (i = 1; i <= MAX_LAYOUT; ++i,++grid_vertical)
+  group_count = xkb_keyboard_get_group_count(keyboard);
+  if (group_count > 1)
     {
-      label_text = g_strdup_printf ("... layout %d:", i);
-      label = gtk_label_new (label_text);
-      g_free (label_text);
-      gtk_label_set_xalign (GTK_LABEL (label), 0.1f);
-      gtk_grid_attach (GTK_GRID (grid), label, 0, grid_vertical, 1, 1);
-      layoutdefault_entry[i - 1] = gtk_entry_new();
-      gtk_widget_set_hexpand (layoutdefault_entry[i - 1], TRUE);
-      gtk_grid_attach (GTK_GRID (grid), layoutdefault_entry[i - 1], 1,
-		       grid_vertical, 1, 1);
-      g_object_bind_property (G_OBJECT (config), prop_names[i - 1],
-                              G_OBJECT (layoutdefault_entry[i - 1]), "text",
-                              G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
-      gtk_widget_set_tooltip_text (layoutdefault_entry[i - 1],
-				   _("Enter a comma-separated list of window classes which will default to this layout."));
+      label = gtk_label_new (_("Window classes which default to:"));
+      gtk_label_set_xalign (GTK_LABEL (label), 0.f);
+      gtk_grid_attach (GTK_GRID (grid), label, 0, grid_vertical, 2, 1);
+
+      grid_vertical++;
+      display_name = xkb_xfconf_get_display_name (config);
+      for (i = 1; i < group_count; ++i,++grid_vertical)
+        {
+          variant = xkb_keyboard_get_variant_index (keyboard, display_name, i);
+          group_name = xkb_keyboard_get_group_name (keyboard, display_name, i);
+          if (variant > 0)
+              label_text = g_strdup_printf ("%s_%d (layout %d):",
+                                            group_name, variant, i);
+          else
+              label_text = g_strdup_printf ("%s (layout %d):", group_name, i);
+
+          label = gtk_label_new (label_text);
+          g_free (label_text);
+          gtk_label_set_xalign (GTK_LABEL (label), 0.1f);
+          gtk_grid_attach (GTK_GRID (grid), label, 0, grid_vertical, 1, 1);
+          layoutdefault_entry[i - 1] = gtk_entry_new();
+          gtk_widget_set_hexpand (layoutdefault_entry[i - 1], TRUE);
+          gtk_grid_attach (GTK_GRID (grid), layoutdefault_entry[i - 1], 1,
+                           grid_vertical, 1, 1);
+          g_object_bind_property (G_OBJECT (config), prop_names[i - 1],
+                                  G_OBJECT (layoutdefault_entry[i - 1]),
+                                  "text",
+                                  G_BINDING_SYNC_CREATE
+                                  | G_BINDING_BIDIRECTIONAL);
+          gtk_widget_set_tooltip_text (layoutdefault_entry[i - 1],
+                                       _("Enter a comma-separated list of window classes which will default to this layout."));
+        }
     }
 
   gtk_widget_show_all (vbox);
