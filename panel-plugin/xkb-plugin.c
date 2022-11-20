@@ -322,7 +322,8 @@ xkb_plugin_configure_plugin (XfcePanelPlugin *plugin)
 {
   XkbPlugin *xkb_plugin = XKB_PLUGIN (plugin);
 
-  xkb_dialog_configure_plugin (plugin, xkb_plugin->config);
+  xkb_dialog_configure_plugin (plugin,
+                               xkb_plugin->config, xkb_plugin->keyboard);
 }
 
 
