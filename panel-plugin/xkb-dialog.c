@@ -65,6 +65,21 @@ xkb_dialog_transform_scale_range_for_caps_lock_indicator (GBinding     *binding,
 
 
 static gboolean
+xkb_dialog_transform_group_policy_for_layout_defaults (GBinding     *binding,
+                                                       const GValue *from_value,
+                                                       GValue       *to_value,
+                                                       gpointer      user_data)
+{
+  gint group_policy = g_value_get_int (from_value);
+  g_value_set_boolean (to_value,
+                       group_policy == GROUP_POLICY_PER_WINDOW
+                       || group_policy == GROUP_POLICY_PER_APPLICATION);
+  return TRUE;
+}
+
+
+
+static gboolean
 xkb_dialog_set_style_warning_tooltip (GtkWidget *widget,
                                       gint        x,
                                       gint        y,
@@ -258,6 +273,11 @@ xkb_dialog_configure_plugin (XfcePanelPlugin *plugin,
       label = gtk_label_new (_("Window classes which default to:"));
       gtk_label_set_xalign (GTK_LABEL (label), 0.f);
       gtk_grid_attach (GTK_GRID (grid), label, 0, grid_vertical, 2, 1);
+      g_object_bind_property_full (G_OBJECT (group_policy_combo), "active",
+                                   G_OBJECT (label), "sensitive",
+                                   G_BINDING_SYNC_CREATE,
+                                   xkb_dialog_transform_group_policy_for_layout_defaults,
+                                   NULL, NULL, NULL);
 
       grid_vertical++;
       display_name = xkb_xfconf_get_display_name (config);
@@ -275,6 +295,12 @@ xkb_dialog_configure_plugin (XfcePanelPlugin *plugin,
           g_free (label_text);
           gtk_label_set_xalign (GTK_LABEL (label), 0.1f);
           gtk_grid_attach (GTK_GRID (grid), label, 0, grid_vertical, 1, 1);
+          g_object_bind_property_full (G_OBJECT (group_policy_combo), "active",
+                                       G_OBJECT (label), "sensitive",
+                                       G_BINDING_SYNC_CREATE,
+                                       xkb_dialog_transform_group_policy_for_layout_defaults,
+                                       NULL, NULL, NULL);
+
           layoutdefault_entry[i - 1] = gtk_entry_new();
           gtk_widget_set_hexpand (layoutdefault_entry[i - 1], TRUE);
           gtk_grid_attach (GTK_GRID (grid), layoutdefault_entry[i - 1], 1,
@@ -286,6 +312,12 @@ xkb_dialog_configure_plugin (XfcePanelPlugin *plugin,
                                   | G_BINDING_BIDIRECTIONAL);
           gtk_widget_set_tooltip_text (layoutdefault_entry[i - 1],
                                        _("Enter a comma-separated list of window classes which will default to this layout."));
+          g_object_bind_property_full (G_OBJECT (group_policy_combo), "active",
+                                       G_OBJECT (layoutdefault_entry[i - 1]),
+                                       "sensitive",
+                                       G_BINDING_SYNC_CREATE,
+                                       xkb_dialog_transform_group_policy_for_layout_defaults,
+                                       NULL, NULL, NULL);
         }
     }
 
