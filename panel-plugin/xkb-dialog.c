@@ -126,7 +126,8 @@ xkb_dialog_configure_plugin (XfcePanelPlugin *plugin,
   XkbDisplayName  display_name;
   gint            variant;
   const gchar    *group_name;
-  gint           i;
+  gint            i;
+  const gint      defaults_explanation_lines = 3;
   // CAUTION: the prop_name for layout 1 is stored in prop_names[0], etc.
   const gchar    *prop_names[MAX_LAYOUT];
 
@@ -270,26 +271,32 @@ xkb_dialog_configure_plugin (XfcePanelPlugin *plugin,
   group_count = xkb_keyboard_get_group_count(keyboard);
   if (group_count > 1)
     {
-      label = gtk_label_new (_("Window classes which default to:"));
+      display_name = xkb_xfconf_get_display_name (config);
+      group_name = xkb_keyboard_get_group_name (keyboard, display_name, 0);
+      label = gtk_label_new (NULL);
+      label_text = g_strdup_printf(_("Use <a href=\"keyboard-settings:\">Keyboard Settings</a> to set available layouts.\n  Then new windows start with '%s' (layout 0),\n  except for:\nWindow classes which default to:"),
+                                   group_name);
+      gtk_label_set_markup (GTK_LABEL(label), label_text);
       gtk_label_set_xalign (GTK_LABEL (label), 0.f);
-      gtk_grid_attach (GTK_GRID (grid), label, 0, grid_vertical, 2, 1);
+      gtk_grid_attach (GTK_GRID (grid), label, 0, grid_vertical,
+                       2, defaults_explanation_lines);
       g_object_bind_property_full (G_OBJECT (group_policy_combo), "active",
                                    G_OBJECT (label), "sensitive",
                                    G_BINDING_SYNC_CREATE,
                                    xkb_dialog_transform_group_policy_for_layout_defaults,
                                    NULL, NULL, NULL);
 
-      grid_vertical++;
-      display_name = xkb_xfconf_get_display_name (config);
+      grid_vertical += defaults_explanation_lines;
       for (i = 1; i < group_count; ++i,++grid_vertical)
         {
           variant = xkb_keyboard_get_variant_index (keyboard, display_name, i);
           group_name = xkb_keyboard_get_group_name (keyboard, display_name, i);
           if (variant > 0)
-              label_text = g_strdup_printf ("%s_%d (layout %d):",
+              label_text = g_strdup_printf (_("%s_%d (layout %d):"),
                                             group_name, variant, i);
           else
-              label_text = g_strdup_printf ("%s (layout %d):", group_name, i);
+              label_text = g_strdup_printf (_("%s (layout %d):"),
+                                            group_name, i);
 
           label = gtk_label_new (label_text);
           g_free (label_text);
