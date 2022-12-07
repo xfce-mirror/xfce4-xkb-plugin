@@ -111,8 +111,6 @@ static void         xkb_plugin_notify                   (XkbPlugin        *plugi
 
 static void         xkb_plugin_refresh_gui              (XkbPlugin        *plugin);
 
-static void         xkb_plugin_configure_layout         (GtkWidget        *widget);
-
 static gboolean     xkb_plugin_button_clicked           (GtkWidget        *widget,
                                                          GdkEventButton   *event,
                                                          XkbPlugin        *plugin);
@@ -551,7 +549,7 @@ xkb_plugin_refresh_gui (XkbPlugin *plugin)
 
 
 
-static void
+void
 xkb_plugin_configure_layout (GtkWidget *widget)
 {
   gchar           *desktop_file;
