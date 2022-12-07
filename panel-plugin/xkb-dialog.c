@@ -100,8 +100,6 @@ xkb_dialog_set_style_warning_tooltip (GtkWidget *widget,
   return FALSE;
 }
 
-
-
 void
 xkb_dialog_configure_plugin (XfcePanelPlugin *plugin,
                              XkbXfconf       *config,
@@ -127,9 +125,14 @@ xkb_dialog_configure_plugin (XfcePanelPlugin *plugin,
   gint            variant;
   const gchar    *group_name;
   gint            i;
-  const gint      defaults_explanation_lines = 3;
   // CAUTION: the prop_name for layout 1 is stored in prop_names[0], etc.
   const gchar    *prop_names[MAX_LAYOUT];
+  const gint      defaults_explanation_grid_rows = 4;
+  const char     *defaults_explanation =
+    "Use <a href=\"keyboard-settings:\">Keyboard Settings</a> to set available layouts.\n"
+    "(Reopen this dialog to load changes.)\n"
+    "New windows start with '%s' (default layout),\n"
+    "except as specified for the other layouts:\n";
 
   prop_names[0] = LAYOUT1_DEFAULTS;
   prop_names[1] = LAYOUT2_DEFAULTS;
@@ -274,19 +277,27 @@ xkb_dialog_configure_plugin (XfcePanelPlugin *plugin,
       display_name = xkb_xfconf_get_display_name (config);
       group_name = xkb_keyboard_get_group_name (keyboard, display_name, 0);
       label = gtk_label_new (NULL);
-      label_text = g_strdup_printf(_("Use <a href=\"keyboard-settings:\">Keyboard Settings</a> to set available layouts.\n  Then new windows start with '%s' (layout 0),\n  except for:\nWindow classes which default to:"),
-                                   group_name);
+      label_text = g_strdup_printf(_(defaults_explanation), group_name);
       gtk_label_set_markup (GTK_LABEL(label), label_text);
+      g_signal_connect_swapped (G_OBJECT (label), "activate-link",
+                                G_CALLBACK (xkb_plugin_configure_layout),
+                                settings_dialog);
       gtk_label_set_xalign (GTK_LABEL (label), 0.f);
       gtk_grid_attach (GTK_GRID (grid), label, 0, grid_vertical,
-                       2, defaults_explanation_lines);
+                       2, defaults_explanation_grid_rows);
       g_object_bind_property_full (G_OBJECT (group_policy_combo), "active",
                                    G_OBJECT (label), "sensitive",
                                    G_BINDING_SYNC_CREATE,
                                    xkb_dialog_transform_group_policy_for_layout_defaults,
                                    NULL, NULL, NULL);
-
-      grid_vertical += defaults_explanation_lines;
+      // To be honest, I am not sure why -1 is needed in the following
+      // calculation to avoid a blank line in the dialog, but without
+      // it there is an ugly gap in the layout:
+      grid_vertical += defaults_explanation_grid_rows - 1;
+      label = gtk_label_new("Window classes, comma-separated:");
+      gtk_label_set_xalign (GTK_LABEL (label), 0.f);
+      gtk_grid_attach(GTK_GRID (grid), label, 1, grid_vertical, 1, 1);
+      grid_vertical++;
       for (i = 1; i < group_count; ++i,++grid_vertical)
         {
           variant = xkb_keyboard_get_variant_index (keyboard, display_name, i);
