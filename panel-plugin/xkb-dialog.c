@@ -127,12 +127,12 @@ xkb_dialog_configure_plugin (XfcePanelPlugin *plugin,
   gint            i;
   // CAUTION: the prop_name for layout 1 is stored in prop_names[0], etc.
   const gchar    *prop_names[MAX_LAYOUT];
-  const gint      defaults_explanation_grid_rows = 4;
+  const gint      defaults_explanation_grid_rows = 3;
   const char     *defaults_explanation =
-    "Use <a href=\"keyboard-settings:\">Keyboard Settings</a> to set available layouts.\n"
-    "(Reopen this dialog to load changes.)\n"
-    "New windows start with '%s' (default layout),\n"
-    "except as specified for the other layouts:\n";
+    "Use <a href=\"keyboard-settings:\">Keyboard Settings</a> to set "
+    "available layouts; reopen this dialog to load changes. "
+    "New windows start with '%s' (default layout), "
+    "except as specified for the other layouts:";
 
   prop_names[0] = LAYOUT1_DEFAULTS;
   prop_names[1] = LAYOUT2_DEFAULTS;
@@ -283,6 +283,10 @@ xkb_dialog_configure_plugin (XfcePanelPlugin *plugin,
                                 G_CALLBACK (xkb_plugin_configure_layout),
                                 settings_dialog);
       gtk_label_set_xalign (GTK_LABEL (label), 0.f);
+      gtk_label_set_yalign (GTK_LABEL (label), 0.f);
+      gtk_label_set_line_wrap (GTK_LABEL (label), TRUE);
+      gtk_label_set_max_width_chars (GTK_LABEL (label), 50);
+      gtk_widget_set_size_request (GTK_WIDGET (label), 1, -1);
       gtk_grid_attach (GTK_GRID (grid), label, 0, grid_vertical,
                        2, defaults_explanation_grid_rows);
       g_object_bind_property_full (G_OBJECT (group_policy_combo), "active",
