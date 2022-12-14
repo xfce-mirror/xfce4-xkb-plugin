@@ -51,7 +51,8 @@ gboolean        xkb_xfconf_get_show_notifications          (XkbXfconf     *confi
 #endif
 gboolean        xkb_xfconf_get_display_tooltip_icon        (XkbXfconf     *config);
 XkbGroupPolicy  xkb_xfconf_get_group_policy                (XkbXfconf     *config);
-const gchar *   xkb_xfconf_get_layout_defaults             (XkbXfconf     *config, guint layout);
+const gchar *   xkb_xfconf_get_layout_defaults             (XkbXfconf     *config,
+                                                            guint          layout);
 
 G_END_DECLS
 

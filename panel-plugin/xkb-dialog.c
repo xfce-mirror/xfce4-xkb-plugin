@@ -100,43 +100,26 @@ xkb_dialog_set_style_warning_tooltip (GtkWidget *widget,
   return FALSE;
 }
 
+
+
 void
 xkb_dialog_configure_plugin (XfcePanelPlugin *plugin,
                              XkbXfconf       *config,
                              XkbKeyboard     *keyboard)
 {
-  GtkWidget      *settings_dialog;
-  GtkWidget      *display_type_combo;
-  GtkWidget      *display_name_combo;
-  GtkWidget      *display_scale_range;
-  GtkWidget      *caps_lock_indicator_switch;
+  GtkWidget *settings_dialog;
+  GtkWidget *display_type_combo;
+  GtkWidget *display_name_combo;
+  GtkWidget *display_scale_range;
+  GtkWidget *caps_lock_indicator_switch;
 #ifdef HAVE_LIBNOTIFY
-  GtkWidget      *show_notifications_switch;
+  GtkWidget *show_notifications_switch;
 #endif
-  GtkWidget      *display_tooltip_icon_switch;
-  GtkWidget      *group_policy_combo;
-  // CAUTION: the entry for layout 1 is stored in layoutdefault_entry[0], etc.
-  GtkWidget      *layoutdefault_entry[MAX_LAYOUT];
-  GtkWidget      *vbox, *frame, *bin, *grid, *label;
-  gchar          *label_text;
-  gint            grid_vertical;
-  gint            group_count;
-  XkbDisplayName  display_name;
-  gint            variant;
-  const gchar    *group_name;
-  gint            i;
-  // CAUTION: the prop_name for layout 1 is stored in prop_names[0], etc.
-  const gchar    *prop_names[MAX_LAYOUT];
-  const gint      defaults_explanation_grid_rows = 3;
-  const char     *defaults_explanation =
-    "Use <a href=\"keyboard-settings:\">Keyboard Settings</a> to set "
-    "available layouts; reopen this dialog to load changes. "
-    "New windows start with '%s' (default layout), "
-    "except as specified for the other layouts:";
-
-  prop_names[0] = LAYOUT1_DEFAULTS;
-  prop_names[1] = LAYOUT2_DEFAULTS;
-  prop_names[2] = LAYOUT3_DEFAULTS;
+  GtkWidget *display_tooltip_icon_switch;
+  GtkWidget *group_policy_combo;
+  GtkWidget *vbox, *frame, *bin, *grid, *label;
+  gint       grid_vertical;
+  gint       group_count;
 
   xfce_panel_plugin_block_menu (plugin);
 
@@ -271,13 +254,33 @@ xkb_dialog_configure_plugin (XfcePanelPlugin *plugin,
 
   grid_vertical++;
 
-  group_count = xkb_keyboard_get_group_count(keyboard);
+  group_count = xkb_keyboard_get_group_count (keyboard);
   if (group_count > 1)
     {
+      XkbDisplayName  display_name;
+      /* CAUTION: the prop_name for layout 1 is stored in prop_names[0], etc. */
+      const gchar    *prop_names[MAX_LAYOUT];
+      const gchar    *group_name;
+      /* CAUTION: the entry for layout 1 is stored in layoutdefault_entry[0], etc. */
+      GtkWidget      *layoutdefault_entry[MAX_LAYOUT];
+      gchar          *label_text;
+      gint            variant;
+      gint            i;
+      const gint      defaults_explanation_grid_rows = 3;
+      const char     *defaults_explanation =
+        "Use <a href=\"keyboard-settings:\">Keyboard Settings</a> to set "
+        "available layouts; reopen this dialog to load changes. "
+        "New windows start with '%s' (default layout), "
+        "except as specified for the other layouts:";
+
+      prop_names[0] = LAYOUT1_DEFAULTS;
+      prop_names[1] = LAYOUT2_DEFAULTS;
+      prop_names[2] = LAYOUT3_DEFAULTS;
+
       display_name = xkb_xfconf_get_display_name (config);
       group_name = xkb_keyboard_get_group_name (keyboard, display_name, 0);
       label = gtk_label_new (NULL);
-      label_text = g_strdup_printf(_(defaults_explanation), group_name);
+      label_text = g_strdup_printf (_(defaults_explanation), group_name);
       gtk_label_set_markup (GTK_LABEL(label), label_text);
       g_signal_connect_swapped (G_OBJECT (label), "activate-link",
                                 G_CALLBACK (xkb_plugin_configure_layout),
@@ -294,24 +297,22 @@ xkb_dialog_configure_plugin (XfcePanelPlugin *plugin,
                                    G_BINDING_SYNC_CREATE,
                                    xkb_dialog_transform_group_policy_for_layout_defaults,
                                    NULL, NULL, NULL);
-      // To be honest, I am not sure why -1 is needed in the following
-      // calculation to avoid a blank line in the dialog, but without
-      // it there is an ugly gap in the layout:
+      /* To be honest, I am not sure why -1 is needed in the following
+       * calculation to avoid a blank line in the dialog, but without
+       * it there is an ugly gap in the layout: */
       grid_vertical += defaults_explanation_grid_rows - 1;
-      label = gtk_label_new("Window classes, comma-separated:");
+      label = gtk_label_new ("Window classes, comma-separated:");
       gtk_label_set_xalign (GTK_LABEL (label), 0.f);
-      gtk_grid_attach(GTK_GRID (grid), label, 1, grid_vertical, 1, 1);
+      gtk_grid_attach (GTK_GRID (grid), label, 1, grid_vertical, 1, 1);
       grid_vertical++;
-      for (i = 1; i < group_count; ++i,++grid_vertical)
+      for (i = 1; i < group_count; i++,grid_vertical++)
         {
           variant = xkb_keyboard_get_variant_index (keyboard, display_name, i);
           group_name = xkb_keyboard_get_group_name (keyboard, display_name, i);
           if (variant > 0)
-              label_text = g_strdup_printf (_("%s_%d (layout %d):"),
-                                            group_name, variant, i);
+              label_text = g_strdup_printf (_("%s_%d (layout %d):"), group_name, variant, i);
           else
-              label_text = g_strdup_printf (_("%s (layout %d):"),
-                                            group_name, i);
+              label_text = g_strdup_printf (_("%s (layout %d):"), group_name, i);
 
           label = gtk_label_new (label_text);
           g_free (label_text);
@@ -323,15 +324,13 @@ xkb_dialog_configure_plugin (XfcePanelPlugin *plugin,
                                        xkb_dialog_transform_group_policy_for_layout_defaults,
                                        NULL, NULL, NULL);
 
-          layoutdefault_entry[i - 1] = gtk_entry_new();
+          layoutdefault_entry[i - 1] = gtk_entry_new ();
           gtk_widget_set_hexpand (layoutdefault_entry[i - 1], TRUE);
-          gtk_grid_attach (GTK_GRID (grid), layoutdefault_entry[i - 1], 1,
-                           grid_vertical, 1, 1);
+          gtk_grid_attach (GTK_GRID (grid), layoutdefault_entry[i - 1], 1, grid_vertical, 1, 1);
           g_object_bind_property (G_OBJECT (config), prop_names[i - 1],
                                   G_OBJECT (layoutdefault_entry[i - 1]),
                                   "text",
-                                  G_BINDING_SYNC_CREATE
-                                  | G_BINDING_BIDIRECTIONAL);
+                                  G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
           gtk_widget_set_tooltip_text (layoutdefault_entry[i - 1],
                                        _("Enter a comma-separated list of window classes which will default to this layout."));
           g_object_bind_property_full (G_OBJECT (group_policy_combo), "active",
