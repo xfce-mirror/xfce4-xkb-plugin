@@ -561,37 +561,43 @@ xkb_keyboard_update_from_xkl (XkbKeyboard *keyboard)
     }
 }
 
-static gboolean
-xkb_keyboard_lookup_layout_default (WnckWindow *window,
-				    XkbKeyboard *keyboard,
-				    gint       *group)
-{
-  const gchar *classname;
-  guint       trygroup;
-  const gchar *layoutdefaults;
-  gchar       **defclasses;
-  gchar       **aclass;
-  gboolean    matched_default = FALSE;
 
-  classname = wnck_window_get_class_group_name (window);
-  for (trygroup = 1; trygroup <= MAX_LAYOUT; ++trygroup)
+
+static gboolean
+xkb_keyboard_lookup_layout_default (WnckWindow  *window,
+                                    XkbKeyboard *keyboard,
+                                    gint        *group)
+{
+  const gchar *class_name;
+  guint        try_group;
+  const gchar *layout_defaults;
+  gchar      **classes;
+  gchar      **aclass;
+  gboolean     matched_default = FALSE;
+
+  class_name = wnck_window_get_class_group_name (window);
+
+  for (try_group = 1; try_group <= MAX_LAYOUT; try_group++)
     {
-      layoutdefaults = xkb_xfconf_get_layout_defaults (keyboard->config,
-                                                       trygroup);
-      defclasses = g_strsplit (layoutdefaults, ",", -1);
-      for (aclass = defclasses; *aclass; ++aclass)
-	{
-	  if (g_strcmp0 (*aclass, classname) == 0)
-	    {
-	      *group = trygroup;
-	      matched_default = TRUE;
-	      break;
-	    }
-	}
-      g_strfreev (defclasses);
+      layout_defaults = xkb_xfconf_get_layout_defaults (keyboard->config, try_group);
+      classes = g_strsplit (layout_defaults, ",", -1);
+
+      for (aclass = classes; *aclass; ++aclass)
+        {
+          if (g_strcmp0 (*aclass, class_name) == 0)
+            {
+              *group = try_group;
+              matched_default = TRUE;
+              break;
+            }
+        }
+
+      g_strfreev (classes);
+
       if (matched_default)
-	return TRUE;
+        return TRUE;
     }
+
   return FALSE;
 }
 

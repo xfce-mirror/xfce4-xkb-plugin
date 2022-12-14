@@ -69,7 +69,7 @@ struct _XkbXfconf
 #endif
   gboolean             display_tooltip_icon;
   XkbGroupPolicy       group_policy;
-  // CAUTION: The defaults for layout 1 are stored in layout_defaults[0], etc.
+  /* CAUTION: The defaults for layout 1 are stored in layout_defaults[0], etc. */
   gchar               *layout_defaults[MAX_LAYOUT];
 };
 
@@ -198,10 +198,8 @@ xkb_xfconf_init (XkbXfconf *config)
 #endif
   config->display_tooltip_icon = DEFAULT_DISPLAY_TOOLTIP_ICON;
   config->group_policy = DEFAULT_GROUP_POLICY;
-  for (i = 0; i < MAX_LAYOUT; ++i)
-    {
-      config->layout_defaults[i] = g_strdup (DEFAULT_FOR_LAYOUT_DEFAULTS);
-    }
+  for (i = 0; i < MAX_LAYOUT; i++)
+    config->layout_defaults[i] = g_strdup (DEFAULT_FOR_LAYOUT_DEFAULTS);
 }
 
 
@@ -209,13 +207,12 @@ xkb_xfconf_init (XkbXfconf *config)
 static void
 xkb_xfconf_finalize (GObject *object)
 {
+  guint      i;
   XkbXfconf *config = XKB_XFCONF (object);
-  guint i;
 
   xfconf_shutdown ();
-  for (i = 0; i < MAX_LAYOUT; ++i) {
+  for (i = 0; i < MAX_LAYOUT; i++)
     g_free (config->layout_defaults[i]);
-  }
   G_OBJECT_CLASS (xkb_xfconf_parent_class)->finalize (object);
 }
 
@@ -373,13 +370,13 @@ xkb_xfconf_set_property (GObject      *object,
       ++layout_index; /* FALL THROUGH */
     case PROP_LAYOUT1_DEFAULTS:
       val_string = g_value_get_string (value);
-      if (!g_str_equal (val_string, config->layout_defaults[layout_index]))
+      if (g_strcmp0 (val_string, config->layout_defaults[layout_index]) != 0)
         {
-          g_free(config->layout_defaults[layout_index]);
-          config->layout_defaults[layout_index] = g_strdup(val_string);
+          g_free (config->layout_defaults[layout_index]);
+          config->layout_defaults[layout_index] = g_strdup (val_string);
           g_object_notify (G_OBJECT (config), prop_names[layout_index]);
           g_signal_emit (G_OBJECT (config),
-			 xkb_xfconf_signals[CONFIGURATION_CHANGED], 0);
+                         xkb_xfconf_signals[CONFIGURATION_CHANGED], 0);
         }
       break;
 
@@ -457,8 +454,8 @@ xkb_xfconf_get_group_policy (XkbXfconf *config)
 
 
 const gchar *
-xkb_xfconf_get_layout_defaults (XkbXfconf     *config,
-                                guint layout)
+xkb_xfconf_get_layout_defaults (XkbXfconf *config,
+                                guint      layout)
 {
   g_return_val_if_fail (IS_XKB_XFCONF (config), DEFAULT_FOR_LAYOUT_DEFAULTS);
   return config->layout_defaults[layout - 1];
