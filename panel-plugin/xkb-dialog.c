@@ -29,6 +29,7 @@
 
 #include <libxfce4ui/libxfce4ui.h>
 
+#include "xkb-keyboard.h"
 #include "xkb-plugin.h"
 #include "xkb-properties.h"
 #include "xkb-dialog.h"
@@ -64,6 +65,21 @@ xkb_dialog_transform_scale_range_for_caps_lock_indicator (GBinding     *binding,
 
 
 static gboolean
+xkb_dialog_transform_group_policy_for_layout_defaults (GBinding     *binding,
+                                                       const GValue *from_value,
+                                                       GValue       *to_value,
+                                                       gpointer      user_data)
+{
+  gint group_policy = g_value_get_int (from_value);
+  g_value_set_boolean (to_value,
+                       group_policy == GROUP_POLICY_PER_WINDOW
+                       || group_policy == GROUP_POLICY_PER_APPLICATION);
+  return TRUE;
+}
+
+
+
+static gboolean
 xkb_dialog_set_style_warning_tooltip (GtkWidget *widget,
                                       gint        x,
                                       gint        y,
@@ -88,7 +104,8 @@ xkb_dialog_set_style_warning_tooltip (GtkWidget *widget,
 
 void
 xkb_dialog_configure_plugin (XfcePanelPlugin *plugin,
-                             XkbXfconf       *config)
+                             XkbXfconf       *config,
+                             XkbKeyboard     *keyboard)
 {
   GtkWidget *settings_dialog;
   GtkWidget *display_type_combo;
@@ -102,6 +119,7 @@ xkb_dialog_configure_plugin (XfcePanelPlugin *plugin,
   GtkWidget *group_policy_combo;
   GtkWidget *vbox, *frame, *bin, *grid, *label;
   gint       grid_vertical;
+  gint       group_count;
 
   xfce_panel_plugin_block_menu (plugin);
 
@@ -218,7 +236,7 @@ xkb_dialog_configure_plugin (XfcePanelPlugin *plugin,
   grid = gtk_grid_new ();
   gtk_grid_set_row_spacing (GTK_GRID (grid), 6);
   gtk_grid_set_column_spacing (GTK_GRID (grid), 12);
-  gtk_grid_set_row_homogeneous (GTK_GRID (grid), TRUE);
+  gtk_grid_set_row_homogeneous (GTK_GRID (grid), FALSE);
   gtk_widget_set_size_request (grid, -1, -1);
   gtk_container_add (GTK_CONTAINER (bin), grid);
 
@@ -233,6 +251,85 @@ xkb_dialog_configure_plugin (XfcePanelPlugin *plugin,
   gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (group_policy_combo), _("per application"));
   gtk_widget_set_size_request (group_policy_combo, 230, -1);
   gtk_grid_attach (GTK_GRID (grid), group_policy_combo, 1, grid_vertical, 1, 1);
+
+  grid_vertical++;
+
+  group_count = xkb_keyboard_get_group_count (keyboard);
+  if (group_count > 1)
+    {
+      XkbDisplayName  display_name;
+      const gchar    *prop_names[MAX_LAYOUT]; /* CAUTION: layout 1 is stored in prop_names[0], etc. */
+      const gchar    *group_name;
+      GtkWidget      *entry;
+      gchar          *label_text;
+      gint            variant, i;
+
+      prop_names[0] = LAYOUT1_DEFAULTS;
+      prop_names[1] = LAYOUT2_DEFAULTS;
+      prop_names[2] = LAYOUT3_DEFAULTS;
+      display_name = xkb_xfconf_get_display_name (config);
+      group_name = xkb_keyboard_get_group_name (keyboard, display_name, 0);
+
+      label = gtk_label_new (NULL);
+      label_text = g_strdup_printf (_("Use <a href=\"keyboard-settings:\">Keyboard Settings</a> to set "
+                                      "available layouts; reopen this dialog to load changes. "
+                                      "New windows start with '%s' (default layout), "
+                                      "except as specified for the other layouts:"), group_name);
+      gtk_label_set_markup (GTK_LABEL (label), label_text);
+      g_free (label_text);
+      gtk_label_set_xalign (GTK_LABEL (label), 0.f);
+      gtk_label_set_line_wrap (GTK_LABEL (label), TRUE);
+      gtk_label_set_max_width_chars (GTK_LABEL (label), 50);
+      gtk_grid_attach (GTK_GRID (grid), label, 0, grid_vertical, 2, 1);
+      g_signal_connect_swapped (G_OBJECT (label), "activate-link",
+                                G_CALLBACK (xkb_plugin_configure_layout),
+                                settings_dialog);
+      g_object_bind_property_full (G_OBJECT (group_policy_combo), "active",
+                                   G_OBJECT (label), "sensitive",
+                                   G_BINDING_SYNC_CREATE,
+                                   xkb_dialog_transform_group_policy_for_layout_defaults,
+                                   NULL, NULL, NULL);
+
+      grid_vertical++;
+
+      label = gtk_label_new (_("Window classes, comma-separated:"));
+      gtk_label_set_xalign (GTK_LABEL (label), 0.f);
+      gtk_grid_attach (GTK_GRID (grid), label, 1, grid_vertical, 1, 1);
+
+      grid_vertical++;
+
+      for (i = 1; i < group_count; i++, grid_vertical++)
+        {
+          variant = xkb_keyboard_get_variant_index (keyboard, display_name, i);
+          group_name = xkb_keyboard_get_group_name (keyboard, display_name, i);
+          label_text = variant > 0 ?
+            g_strdup_printf (_("%s_%d (layout %d):"), group_name, variant, i) :
+            g_strdup_printf (_("%s (layout %d):"), group_name, i);
+
+          label = gtk_label_new (label_text);
+          g_free (label_text);
+          gtk_label_set_xalign (GTK_LABEL (label), 0.1f);
+          gtk_grid_attach (GTK_GRID (grid), label, 0, grid_vertical, 1, 1);
+          g_object_bind_property_full (G_OBJECT (group_policy_combo), "active",
+                                       G_OBJECT (label), "sensitive",
+                                       G_BINDING_SYNC_CREATE,
+                                       xkb_dialog_transform_group_policy_for_layout_defaults,
+                                       NULL, NULL, NULL);
+
+          entry = gtk_entry_new ();
+          gtk_widget_set_hexpand (entry, TRUE);
+          gtk_grid_attach (GTK_GRID (grid), entry, 1, grid_vertical, 1, 1);
+          g_object_bind_property (G_OBJECT (config), prop_names[i - 1],
+                                  G_OBJECT (entry), "text",
+                                  G_BINDING_SYNC_CREATE | G_BINDING_BIDIRECTIONAL);
+          gtk_widget_set_tooltip_text (entry,
+                                       _("Enter a comma-separated list of window classes which will default to this layout."));
+          g_object_bind_property_full (G_OBJECT (group_policy_combo), "active",
+                                       G_OBJECT (entry), "sensitive", G_BINDING_SYNC_CREATE,
+                                       xkb_dialog_transform_group_policy_for_layout_defaults,
+                                       NULL, NULL, NULL);
+        }
+    }
 
   gtk_widget_show_all (vbox);
 
