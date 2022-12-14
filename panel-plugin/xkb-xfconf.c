@@ -225,7 +225,6 @@ xkb_xfconf_get_property (GObject    *object,
                          GParamSpec *pspec)
 {
   XkbXfconf *config = XKB_XFCONF (object);
-  guint      layout_index = 0;
 
   switch (prop_id)
     {
@@ -259,12 +258,16 @@ xkb_xfconf_get_property (GObject    *object,
       g_value_set_uint (value, config->group_policy);
       break;
 
-    case PROP_LAYOUT3_DEFAULTS:
-      ++layout_index; /* FALL THROUGH */
-    case PROP_LAYOUT2_DEFAULTS:
-      ++layout_index; /* FALL THROUGH */
     case PROP_LAYOUT1_DEFAULTS:
-      g_value_set_string(value, config->layout_defaults[layout_index]);
+      g_value_set_string (value, config->layout_defaults[0]);
+      break;
+
+    case PROP_LAYOUT2_DEFAULTS:
+      g_value_set_string (value, config->layout_defaults[1]);
+      break;
+
+    case PROP_LAYOUT3_DEFAULTS:
+      g_value_set_string (value, config->layout_defaults[2]);
       break;
 
     default:
