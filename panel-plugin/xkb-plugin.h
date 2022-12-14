@@ -45,6 +45,7 @@ typedef struct _XkbPlugin           XkbPlugin;
 GType             xkb_plugin_get_type                     (void)                       G_GNUC_CONST;
 
 void              xkb_plugin_register_type                (XfcePanelTypeModule   *type_module);
+void              xkb_plugin_configure_layout             (GtkWidget             *widget);
 
 G_END_DECLS
 
