@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-01 12:59+0200\n"
+"POT-Creation-Date: 2022-12-15 12:51+0100\n"
 "PO-Revision-Date: 2013-07-03 19:34+0000\n"
 "Last-Translator: Kiril Kirilov <cybercop_montana@abv.bg>, 2015,2017,2022\n"
 "Language-Team: Bulgarian (http://www.transifex.com/xfce/xfce-panel-plugins/language/bg/)\n"
@@ -20,95 +20,123 @@ msgstr ""
 "Language: bg\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../panel-plugin/xkb-dialog.c:76
+#: ../panel-plugin/xkb-dialog.c:92
 msgid "This option is not available for current layout style"
 msgstr "Тази опция не е налична за текущия стил на клавиатурната подредба"
 
-#: ../panel-plugin/xkb-dialog.c:108 ../panel-plugin/xkb.desktop.in.h:1
+#: ../panel-plugin/xkb-dialog.c:126 ../panel-plugin/xkb.desktop.in.h:1
 msgid "Keyboard Layouts"
 msgstr "Клавиатурни подредби"
 
-#: ../panel-plugin/xkb-dialog.c:121
+#: ../panel-plugin/xkb-dialog.c:139
 msgid "Appearance"
 msgstr "Външен вид"
 
-#: ../panel-plugin/xkb-dialog.c:134
+#: ../panel-plugin/xkb-dialog.c:152
 msgid "Show layout as:"
 msgstr "Показване на подредбата като:"
 
-#: ../panel-plugin/xkb-dialog.c:140
+#: ../panel-plugin/xkb-dialog.c:158
 msgid "image"
 msgstr "картинка"
 
-#: ../panel-plugin/xkb-dialog.c:141
+#: ../panel-plugin/xkb-dialog.c:159
 msgid "text"
 msgstr "текст"
 
-#: ../panel-plugin/xkb-dialog.c:142
+#: ../panel-plugin/xkb-dialog.c:160
 msgid "system"
 msgstr "система"
 
-#: ../panel-plugin/xkb-dialog.c:148
+#: ../panel-plugin/xkb-dialog.c:166
 msgid "Layout name:"
 msgstr "Име на подредбата:"
 
-#: ../panel-plugin/xkb-dialog.c:154
+#: ../panel-plugin/xkb-dialog.c:172
 msgid "country"
 msgstr "страна"
 
-#: ../panel-plugin/xkb-dialog.c:155
+#: ../panel-plugin/xkb-dialog.c:173
 msgid "language"
 msgstr "език"
 
-#: ../panel-plugin/xkb-dialog.c:161
+#: ../panel-plugin/xkb-dialog.c:179
 msgid "Widget size:"
 msgstr "Размер на джаджа:"
 
-#: ../panel-plugin/xkb-dialog.c:174
+#: ../panel-plugin/xkb-dialog.c:192
 msgid "Caps Lock indicator:"
 msgstr "Caps Lock индикатор:"
 
-#: ../panel-plugin/xkb-dialog.c:187
+#: ../panel-plugin/xkb-dialog.c:205
 msgid "Show notifications on layout change:"
 msgstr "Показване на уведомления при промяна на подредбата:"
 
-#: ../panel-plugin/xkb-dialog.c:200
+#: ../panel-plugin/xkb-dialog.c:218
 msgid "Tooltip icon:"
 msgstr "Икона на подсказката:"
 
-#: ../panel-plugin/xkb-dialog.c:212
+#: ../panel-plugin/xkb-dialog.c:230
 msgid "Behavior"
 msgstr "Поведение"
 
-#: ../panel-plugin/xkb-dialog.c:225
+#: ../panel-plugin/xkb-dialog.c:243
 msgid "Manage layout:"
 msgstr "Управлявай подредбата:"
 
-#: ../panel-plugin/xkb-dialog.c:231
+#: ../panel-plugin/xkb-dialog.c:249
 msgid "globally"
 msgstr "глобално"
 
-#: ../panel-plugin/xkb-dialog.c:232
+#: ../panel-plugin/xkb-dialog.c:250
 msgid "per window"
 msgstr "за всеки прозорец"
 
-#: ../panel-plugin/xkb-dialog.c:233
+#: ../panel-plugin/xkb-dialog.c:251
 msgid "per application"
 msgstr "за всяко приложение"
 
-#: ../panel-plugin/xkb-dialog.c:316
+#: ../panel-plugin/xkb-dialog.c:274
+#, c-format
+msgid ""
+"Use <a href=\"keyboard-settings:\">Keyboard Settings</a> to set available "
+"layouts; reopen this dialog to load changes. New windows start with '%s' "
+"(default layout), except as specified for the other layouts:"
+msgstr "Използвайте <a href=\"keyboard-settings:\">Настройки на клавиатурата</a>, за да зададете наличните подредби; отворете отново този диалогов прозорец, за да заредите промените. Новите прозорци стартират с ''%s\" (подредба по подразбиране), освен, ако са посочени други подредби:"
+
+#: ../panel-plugin/xkb-dialog.c:295
+msgid "Window classes, comma-separated:"
+msgstr "Прозоречни класове, разделени със запетая:"
+
+#: ../panel-plugin/xkb-dialog.c:306
+#, c-format
+msgid "%s_%d (layout %d):"
+msgstr "%s_%d (подредба %d):"
+
+#: ../panel-plugin/xkb-dialog.c:307
+#, c-format
+msgid "%s (layout %d):"
+msgstr "%s (подредба %d):"
+
+#: ../panel-plugin/xkb-dialog.c:326
+msgid ""
+"Enter a comma-separated list of window classes which will default to this "
+"layout."
+msgstr "Въведете разделен със запетаи списък с класове прозорци, които ще използват за тази подредба по подразбиране."
+
+#: ../panel-plugin/xkb-dialog.c:409
 msgid "Keyboard Layouts Plugin"
 msgstr "Клавиатурна подредба"
 
-#: ../panel-plugin/xkb-dialog.c:318
+#: ../panel-plugin/xkb-dialog.c:411
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "Позволява да конфигурирате и използвате повече от една клавиатурна подредба."
 
-#: ../panel-plugin/xkb-plugin.c:254
+#: ../panel-plugin/xkb-plugin.c:252
 msgid "Keyboard settings"
 msgstr "Настройка на клавиатурата"
 
-#: ../panel-plugin/xkb-plugin.c:523
+#: ../panel-plugin/xkb-plugin.c:522
 msgid "Keyboard layout changed"
 msgstr "Клавиатурната подредба е променена"
 
