@@ -39,6 +39,7 @@
 #define DEFAULT_SHOW_NOTIFICATIONS          FALSE
 #endif
 #define DEFAULT_GROUP_POLICY                GROUP_POLICY_PER_APPLICATION
+#define DEFAULT_FOR_LAYOUT_DEFAULTS         ""
 
 static void            xkb_xfconf_finalize            (GObject          *object);
 static void            xkb_xfconf_get_property        (GObject          *object,
@@ -68,6 +69,8 @@ struct _XkbXfconf
 #endif
   gboolean             display_tooltip_icon;
   XkbGroupPolicy       group_policy;
+  /* CAUTION: The defaults for layout 1 are stored in layout_defaults[0], etc. */
+  gchar               *layout_defaults[MAX_LAYOUT];
 };
 
 enum
@@ -82,6 +85,9 @@ enum
 #endif
   PROP_DISPLAY_TOOLTIP_ICON,
   PROP_GROUP_POLICY,
+  PROP_LAYOUT1_DEFAULTS,
+  PROP_LAYOUT2_DEFAULTS,
+  PROP_LAYOUT3_DEFAULTS,
   N_PROPERTIES,
 };
 
@@ -152,6 +158,21 @@ xkb_xfconf_class_init (XkbXfconfClass *klass)
                                                       DEFAULT_GROUP_POLICY,
                                                       G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
 
+  g_object_class_install_property (gobject_class, PROP_LAYOUT1_DEFAULTS,
+				   g_param_spec_string (LAYOUT1_DEFAULTS, NULL, NULL,
+							DEFAULT_FOR_LAYOUT_DEFAULTS,
+							G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
+
+  g_object_class_install_property (gobject_class, PROP_LAYOUT2_DEFAULTS,
+				   g_param_spec_string (LAYOUT2_DEFAULTS, NULL, NULL,
+							DEFAULT_FOR_LAYOUT_DEFAULTS,
+							G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
+
+  g_object_class_install_property (gobject_class, PROP_LAYOUT3_DEFAULTS,
+				   g_param_spec_string (LAYOUT3_DEFAULTS, NULL, NULL,
+							DEFAULT_FOR_LAYOUT_DEFAULTS,
+							G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
+
   xkb_xfconf_signals[CONFIGURATION_CHANGED] =
     g_signal_new (g_intern_static_string ("configuration-changed"),
                   G_TYPE_FROM_CLASS (gobject_class),
@@ -166,6 +187,8 @@ xkb_xfconf_class_init (XkbXfconfClass *klass)
 static void
 xkb_xfconf_init (XkbXfconf *config)
 {
+  guint i;
+
   config->display_type = DEFAULT_DISPLAY_TYPE;
   config->display_name = DEFAULT_DISPLAY_NAME;
   config->display_scale = DEFAULT_DISPLAY_SCALE;
@@ -175,6 +198,8 @@ xkb_xfconf_init (XkbXfconf *config)
 #endif
   config->display_tooltip_icon = DEFAULT_DISPLAY_TOOLTIP_ICON;
   config->group_policy = DEFAULT_GROUP_POLICY;
+  for (i = 0; i < MAX_LAYOUT; i++)
+    config->layout_defaults[i] = g_strdup (DEFAULT_FOR_LAYOUT_DEFAULTS);
 }
 
 
@@ -182,7 +207,12 @@ xkb_xfconf_init (XkbXfconf *config)
 static void
 xkb_xfconf_finalize (GObject *object)
 {
+  guint      i;
+  XkbXfconf *config = XKB_XFCONF (object);
+
   xfconf_shutdown ();
+  for (i = 0; i < MAX_LAYOUT; i++)
+    g_free (config->layout_defaults[i]);
   G_OBJECT_CLASS (xkb_xfconf_parent_class)->finalize (object);
 }
 
@@ -228,6 +258,18 @@ xkb_xfconf_get_property (GObject    *object,
       g_value_set_uint (value, config->group_policy);
       break;
 
+    case PROP_LAYOUT1_DEFAULTS:
+      g_value_set_string (value, config->layout_defaults[0]);
+      break;
+
+    case PROP_LAYOUT2_DEFAULTS:
+      g_value_set_string (value, config->layout_defaults[1]);
+      break;
+
+    case PROP_LAYOUT3_DEFAULTS:
+      g_value_set_string (value, config->layout_defaults[2]);
+      break;
+
     default:
       G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
       break;
@@ -242,9 +284,16 @@ xkb_xfconf_set_property (GObject      *object,
                          const GValue *value,
                          GParamSpec   *pspec)
 {
-  XkbXfconf *config = XKB_XFCONF (object);
-  guint      val_uint;
-  gboolean   val_boolean;
+  XkbXfconf   *config = XKB_XFCONF (object);
+  guint        val_uint;
+  gboolean     val_boolean;
+  const gchar *val_string;
+  guint        layout_index = 0;
+  const gchar *prop_names[MAX_LAYOUT];
+
+  prop_names[0] = LAYOUT1_DEFAULTS;
+  prop_names[1] = LAYOUT2_DEFAULTS;
+  prop_names[2] = LAYOUT3_DEFAULTS;
 
   switch (prop_id)
     {
@@ -315,6 +364,22 @@ xkb_xfconf_set_property (GObject      *object,
           config->group_policy = val_uint;
           g_object_notify (G_OBJECT (config), GROUP_POLICY);
           g_signal_emit (G_OBJECT (config), xkb_xfconf_signals[CONFIGURATION_CHANGED], 0);
+        }
+      break;
+
+    case PROP_LAYOUT3_DEFAULTS:
+      ++layout_index; /* FALL THROUGH */
+    case PROP_LAYOUT2_DEFAULTS:
+      ++layout_index; /* FALL THROUGH */
+    case PROP_LAYOUT1_DEFAULTS:
+      val_string = g_value_get_string (value);
+      if (g_strcmp0 (val_string, config->layout_defaults[layout_index]) != 0)
+        {
+          g_free (config->layout_defaults[layout_index]);
+          config->layout_defaults[layout_index] = g_strdup (val_string);
+          g_object_notify (G_OBJECT (config), prop_names[layout_index]);
+          g_signal_emit (G_OBJECT (config),
+                         xkb_xfconf_signals[CONFIGURATION_CHANGED], 0);
         }
       break;
 
@@ -391,6 +456,16 @@ xkb_xfconf_get_group_policy (XkbXfconf *config)
 
 
 
+const gchar *
+xkb_xfconf_get_layout_defaults (XkbXfconf *config,
+                                guint      layout)
+{
+  g_return_val_if_fail (IS_XKB_XFCONF (config), DEFAULT_FOR_LAYOUT_DEFAULTS);
+  return config->layout_defaults[layout - 1];
+}
+
+
+
 XkbXfconf *
 xkb_xfconf_new (const gchar *property_base)
 {
@@ -432,6 +507,18 @@ xkb_xfconf_new (const gchar *property_base)
 
       property = g_strconcat (property_base, "/" GROUP_POLICY, NULL);
       xfconf_g_property_bind (channel, property, G_TYPE_UINT, config, GROUP_POLICY);
+      g_free (property);
+
+      property = g_strconcat (property_base, "/" LAYOUT1_DEFAULTS, NULL);
+      xfconf_g_property_bind (channel, property, G_TYPE_STRING, config, LAYOUT1_DEFAULTS);
+      g_free (property);
+
+      property = g_strconcat (property_base, "/" LAYOUT2_DEFAULTS, NULL);
+      xfconf_g_property_bind (channel, property, G_TYPE_STRING, config, LAYOUT2_DEFAULTS);
+      g_free (property);
+
+      property = g_strconcat (property_base, "/" LAYOUT3_DEFAULTS, NULL);
+      xfconf_g_property_bind (channel, property, G_TYPE_STRING, config, LAYOUT3_DEFAULTS);
       g_free (property);
     }
 
