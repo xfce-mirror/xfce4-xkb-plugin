@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-01 12:59+0200\n"
+"POT-Creation-Date: 2022-12-15 12:51+0100\n"
 "PO-Revision-Date: 2013-07-03 19:34+0000\n"
 "Last-Translator: Moo, 2015-2017,2022\n"
 "Language-Team: Lithuanian (http://www.transifex.com/xfce/xfce-panel-plugins/language/lt/)\n"
@@ -19,95 +19,123 @@ msgstr ""
 "Language: lt\n"
 "Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < 11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? 1 : n % 1 != 0 ? 2: 3);\n"
 
-#: ../panel-plugin/xkb-dialog.c:76
+#: ../panel-plugin/xkb-dialog.c:92
 msgid "This option is not available for current layout style"
 msgstr "Šis parametras nėra prieinamas esamam išdėstymo stiliui"
 
-#: ../panel-plugin/xkb-dialog.c:108 ../panel-plugin/xkb.desktop.in.h:1
+#: ../panel-plugin/xkb-dialog.c:126 ../panel-plugin/xkb.desktop.in.h:1
 msgid "Keyboard Layouts"
 msgstr "Klaviatūros išdėstymai"
 
-#: ../panel-plugin/xkb-dialog.c:121
+#: ../panel-plugin/xkb-dialog.c:139
 msgid "Appearance"
 msgstr "Išvaizda"
 
-#: ../panel-plugin/xkb-dialog.c:134
+#: ../panel-plugin/xkb-dialog.c:152
 msgid "Show layout as:"
 msgstr "Rodyti išdėstymą kaip:"
 
-#: ../panel-plugin/xkb-dialog.c:140
+#: ../panel-plugin/xkb-dialog.c:158
 msgid "image"
 msgstr "paveikslą"
 
-#: ../panel-plugin/xkb-dialog.c:141
+#: ../panel-plugin/xkb-dialog.c:159
 msgid "text"
 msgstr "tekstą"
 
-#: ../panel-plugin/xkb-dialog.c:142
+#: ../panel-plugin/xkb-dialog.c:160
 msgid "system"
 msgstr "sistemą"
 
-#: ../panel-plugin/xkb-dialog.c:148
+#: ../panel-plugin/xkb-dialog.c:166
 msgid "Layout name:"
 msgstr "Išdėstymo pavadinimas:"
 
-#: ../panel-plugin/xkb-dialog.c:154
+#: ../panel-plugin/xkb-dialog.c:172
 msgid "country"
 msgstr "šalis"
 
-#: ../panel-plugin/xkb-dialog.c:155
+#: ../panel-plugin/xkb-dialog.c:173
 msgid "language"
 msgstr "kalba"
 
-#: ../panel-plugin/xkb-dialog.c:161
+#: ../panel-plugin/xkb-dialog.c:179
 msgid "Widget size:"
 msgstr "Valdiklio dydis:"
 
-#: ../panel-plugin/xkb-dialog.c:174
+#: ../panel-plugin/xkb-dialog.c:192
 msgid "Caps Lock indicator:"
 msgstr "Didžiųjų raidžių indikatorius:"
 
-#: ../panel-plugin/xkb-dialog.c:187
+#: ../panel-plugin/xkb-dialog.c:205
 msgid "Show notifications on layout change:"
 msgstr "Keičiant išdėstymus rodyti pranešimus:"
 
-#: ../panel-plugin/xkb-dialog.c:200
+#: ../panel-plugin/xkb-dialog.c:218
 msgid "Tooltip icon:"
 msgstr "Paaiškinimo piktograma:"
 
-#: ../panel-plugin/xkb-dialog.c:212
+#: ../panel-plugin/xkb-dialog.c:230
 msgid "Behavior"
 msgstr "Elgsena"
 
-#: ../panel-plugin/xkb-dialog.c:225
+#: ../panel-plugin/xkb-dialog.c:243
 msgid "Manage layout:"
 msgstr "Išdėstymą taikyti:"
 
-#: ../panel-plugin/xkb-dialog.c:231
+#: ../panel-plugin/xkb-dialog.c:249
 msgid "globally"
 msgstr "bendrai"
 
-#: ../panel-plugin/xkb-dialog.c:232
+#: ../panel-plugin/xkb-dialog.c:250
 msgid "per window"
 msgstr "langui"
 
-#: ../panel-plugin/xkb-dialog.c:233
+#: ../panel-plugin/xkb-dialog.c:251
 msgid "per application"
 msgstr "programai"
 
-#: ../panel-plugin/xkb-dialog.c:316
+#: ../panel-plugin/xkb-dialog.c:274
+#, c-format
+msgid ""
+"Use <a href=\"keyboard-settings:\">Keyboard Settings</a> to set available "
+"layouts; reopen this dialog to load changes. New windows start with '%s' "
+"(default layout), except as specified for the other layouts:"
+msgstr "Naudokite <a href=\"keyboard-settings:\">Klaviatūros nustatymus</a>, norėdami nustatyti prieinamus išdėstymus, o tuomet iš naujo atverkite šį dialogą, kad būtų įkelti pakeitimai. Nauji langai paleidžiami naudojant „%s“ (numatytąjį išdėstymą), išskyrus atvejus, kurie nurodyti kitiems išdėstymams:"
+
+#: ../panel-plugin/xkb-dialog.c:295
+msgid "Window classes, comma-separated:"
+msgstr "Langų klasės, atskirtos kableliais:"
+
+#: ../panel-plugin/xkb-dialog.c:306
+#, c-format
+msgid "%s_%d (layout %d):"
+msgstr "%s_%d (%d išdėstymas):"
+
+#: ../panel-plugin/xkb-dialog.c:307
+#, c-format
+msgid "%s (layout %d):"
+msgstr "%s (%d išdėstymas):"
+
+#: ../panel-plugin/xkb-dialog.c:326
+msgid ""
+"Enter a comma-separated list of window classes which will default to this "
+"layout."
+msgstr "Įveskite kableliais atskirtų langų klasių sąrašą, kuris bus pagal numatymą naudojamas su šiuo išdėstymu."
+
+#: ../panel-plugin/xkb-dialog.c:409
 msgid "Keyboard Layouts Plugin"
 msgstr "Klaviatūros išdėstymų įskiepis"
 
-#: ../panel-plugin/xkb-dialog.c:318
+#: ../panel-plugin/xkb-dialog.c:411
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "Leidžia konfigūruoti ir naudoti kelis klaviatūros išdėstymus."
 
-#: ../panel-plugin/xkb-plugin.c:254
+#: ../panel-plugin/xkb-plugin.c:252
 msgid "Keyboard settings"
 msgstr "Klaviatūros nustatymai"
 
-#: ../panel-plugin/xkb-plugin.c:523
+#: ../panel-plugin/xkb-plugin.c:522
 msgid "Keyboard layout changed"
 msgstr "Klaviatūros išdėstymas pakeistas"
 
