@@ -1,35 +1,87 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
-  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1"
-  xmlns:xlink="http://www.w3.org/1999/xlink"
-  width="660" height="480" viewBox="0 0 220 160">
-  <desc>Flag of Israel</desc>
-  <defs>
-    <!-- Specifications are taken from "The Provisional Council of State
-      Proclamation of the Flag of the State of Israel," 25 Tishrei 5709 (28
-      October 1948)
-    For Magen David, the "Israel Science and Technology Homepage" at
-      http://www.science.co.il/Israel-flag.asp specifies each side as 60 cm.
-      Outer radius is then 30 / cos(30) = 20 * sqrt(3)
-    For width of 5.5, use radius 20 * sqrt(3) - 5.5 (works for 30-60-90 tri.)
-    Coordinates for upward-pointing triangle relative to center are then:
-      (                            0,-(20*sqrt(3) - 5.5)          )
-      (-(20*sqrt(3) - 5.5) * cos(30), (20*sqrt(3) - 5.5) * sin(30))
-      ( (20*sqrt(3) - 5.5) * cos(30), (20*sqrt(3) - 5.5) * sin(30)) -->
-    <polygon id="triangle" points="0,-29.1410161513775421
-                -25.2368602791855814, 14.5705080756887710
-                 25.2368602791855814, 14.5705080756887710"
-      stroke="#0048c8" stroke-width="5.5" fill-opacity="0"/>
-  </defs>
-  <!-- "The flag is 220 cm long and 160 cm wide.  The background is white" -->
-  <rect width="220" height="160" fill="white"/>
-  <!-- "...two stripes of dark sky-blue, 25 cm broad, over the whole length of
-    the flag, at a distance of 15 cm from the top and from the bottom..."
-    Legislation does not specify exact shade of blue; "#0048c8" is typical of
-    flags used in Israel -->
-  <rect y=" 15" width="220" height="25" fill="#0048c8"/>
-  <rect y="120" width="220" height="25" fill="#0048c8"/>
-  <use xlink:href="#triangle" transform="translate(110,80)"/>
-  <use xlink:href="#triangle" transform="translate(110,80) rotate(180)"/>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   version="1.1"
+   width="80"
+   height="60"
+   id="svg3047">
+  <metadata
+     id="metadata3053">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs3051" />
+  <image
+     xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAA8CAYAAADxJz2MAAAABHNCSVQICAgIfAhkiAAACtlJREFU
+eJztm1uMFFUax3+nqrp7mrn0XHoGGwaNAu6yRGcxGRM1PPigmJg4UZagEgmKiBeUuA8bYzC+mLDB
+B9kYFYjcDYiiRFxRUCQmkDUiirirKCQKNjDDTM+l59aXqjr7UF3Tt6qeGWymZ2f5J5WqOnXOd873
+r++c7ztV58AVXMEVXMH/L8RlyjsRIEeSqRApInUoGWlKxrOJCJs0MyPNTKU7EupGhABUQGtqavI/
+9NBDf5oyZcoMj8fjs8sIIQqSKKVkmCyjKltsec7ZJIBMJBKxM2fOnNq0adPJ06dPDwI6YOBAopNU
+AWiAd+HChaEHHnjgr1ddddVfKioqan0+n6IoyiUrMt4hpcQ0TeLxuNnb29sRDod3bdz45j8++WR/
+G5DAIjKLRM1BjgJ4g8G66vvuu+9vjY1THw0Gg6KyshKPx4tFoFP1+YmXyrN0GX2KKy8/UUowTZNk
+MqFWVJRP1jRtxYMPPigOHjz492RS70kV0jPL5BJoW5/P673jz1u2GPfW1PSLysoyvF4DKVWEEKkj
+rZR1iKz79HVaazcCMhVMdSOkTKcXW551LXPu7TSJEAbJ5CDR6IASiagLAoE7/tnR8fHXOHRlNwLL
+IpHyWQcPJmqFGMDj8QAxQBkiUFHSCtmkOaVlKg8iT+nUsOOgTFr5Ysqzr00zOy19b2L5jQTJZD+Q
+DEL1H4H/YHXj5HAEegC/aeoVmqYKRVFThNmWp2QQRSqdnMMi2FY010LzFRaOFmGaApBFlZdJYjZx
+mXkEpinQNA3TVBVdNyqBMqAfa4gb8tK5BCpY3tcLhjcdyditzH7judeZ1ueW5qS0LTvTctL5ii3P
+Qu7wkL4XQy8hLcfwAj4sbrJqc3MiGphqbqUjubbv090tf8zKbLQQ6bOttJOSxZSXW8a+z32eHm9N
+FYu8zJgYcO7CAlCkNIVp2oJsydLBYUhsK8l3IOnnuQrmKpU7RmUO+ul2/H55+V028zo9HlrXdnmp
+pMjL7I6OBA6hpkYTtbVevF4fmlaGqtohTCZZuQ7Eicj8tFxkEybzCCymPGdnInNINDEMBV1Pkkh4
+6ehQiESc63IlsKUlwIIF0wiFplJVFcDr9aKq1hDg1vBMjCTPSGSYZnHkucWW+XkkhmGQSCSIRns4
+f97Dtm0BduxwLuNK4KRJKnV1GvX1GoGAhs/nQVFsK778uHhR58yZOM3N5WNSXxoS01SIx018Po14
+XMPvd9c5b1AcEpPn7uWI3mKx8PbbnaxadZ5z55JjVynZuuYOJU5wJbCU+OmnGLt2dXHyZIy33oqM
+6YsbLcYdgbou2bQpQnm5wpNP1vP++918++1AqZvlihETOFZfYL78sp8DB6IsXRpkxYoGZszwsW5d
+O7GYOXzhImE0uo6YQFmkfmTFWLlhhfWsr89k/foObrzRz913BygvV1ixooHjxwfZvz9alPqLDVcv
+fLnwww+DbN4cQdclppl+KYoiiEYNDh/uo6nJz0svXcAwJLouicdN1qxp4/DhvqzYUFWtOXJ1tcoj
+jwQJBoujzmiMpaAFZgoqVhdubPTy228JPvywm2jURNchmZScPZvgs896aWryc/XVXnp7DQYHTQwD
+brutgkhEZ//+KN3dBr29Bv39JkeP9rN5c4TuboPqarUo7YPR6TrmFlhdrbJ8eT0nT8a4884qFi2q
+xTRh9epWWluTvPxyIzNn+jLms2AYkhdfPM/HH0d59tkGZs/209mps2zZWaZP97F0aRBNG5sxOhcl
+8cJz51Zw++2VbNzYwfnzSU6ejLFnTxcLF9Yyc6YPyJ55qKpgyZIgHo9g+/ZOTBP27Onmm28GWLKk
+junTfaVQAyiBBQJ4vYJHHw2yZMmvvPlmBz09BoGAysKFNa5lZszwsXhxHevWtdPU5Gfz5ghz5viZ
+P9+9zFigZHHgDTf4uf/+GrZujbB3bzcPP1xHKOQpWGbBghquucbLCy+cp71d54kn6qmpKd7Ydyko
+aSDd0lLNpEkKjY1e5s0LDJu/vl5j/vwaenoMbr55EnPnVoxBKwujpAQePTpAV5fBhQtJTp2KDZs/
+FjP56qt+DANOn44TDo/tPNkJJSMwHE6wfn07N93kJxTy8Npr7fT3F55tfPRRD/v29XDPPQE6O3U2
+bGhH10s7US4JgVLCtm0R2tqSrFoVYsWKeo4c6WPfvh7XMuFwgrVrLzJzZhmrV09l/vwadu/u4siR
+vjFseT5KQuB33w2yY0cXixbV0dxczrx5AZqby3n99Xba2vK7pWnC+vUd/PJLgpUrGwiFPCxbFiQY
+9PDqq+1Eo0YJtLAw5mFMPC55442LdHdbocuePd1IKQmFPHz+eZTVq1tpbi5HCPB4BD6foLVVZ/v2
+CMGgSmtrkp07O1FVwbXXevn0017ee8/y4sXGSGYkBQm8HF9gjh8f4PvvB6mrU9m6Nf2jQQiYPNnD
+li0R9u7tGQpPhGDIWWiaYMOG9qH/IooCM2Z4+eKLXlpaAtTWjn1YO2yNxSZx1qwydu26Lm+FgaIw
+ND1raNBYu3Ya5eUKx44NsHz5GRYvruPppxsy2pV9rqwsTTw4LIHF+oxlo6pKparKWdlQyMNTT9Xz
+3HPnOHFigLvuCrBzZyeTJ3t47LEgDQ0lmTgVxLhrUUtLgN27u3jllYuEw0kOHIiyZs1Upk3zlrpp
+jhh3n/QrKlSeeaaB06fjPP/8OW69tYJ77y3tfLcQxh2BYH2taWmpxudTWLmygYqKcdlMYBx2YbC8
+7eOPB7n+eh+33DLW/4VHB1cCFUWgqpYyHo9AVfOWhVxWzJ7tZ9asslS9YwchLF0tna1vkYUCEVcC
+T5wY4N13u6iu9uP3J9A0X2plQubHznzJY/Tz7pLhHFTIrGemaaLrcQYHe+nq6uTHH90/dLgSeOhQ
+L4cOXcBaS1iBte4yvbQjN47LTLPhRKZTWq5SbpFTseRlr+aSOWkSS+ck0Ae0pc7OGMEYKCFnQXZ+
+o3M1HrkZFg4z7YfFlpeP3PWCab0Lx8EFCLTfROYB1vLZ9AzFeYGizFu351pLgTyXT56TVabXQObr
+7S50BAQaqUMnc4Vr5pLY7Pv8BjotrXWscYTPfo88d+KGUkjrbJBtPPkoQKCJRVoydYhUWrY3dhtf
+RqqkG3LLFFueSy6yx0Adh701WcglcKjjezyxpKompBC6ECKJ5UAcV7lm4X/TCw89JU2gjpRJpExI
+XR/Udd2ZRScLlIAZCv12bsECEb3uutrq8vIqfD4fiqKhKKOLB0dL6HCWUmx5ObkxTYlp6sTjcQYG
+vPz8c2vPzp3hC21tzgOikwUagB4O//vX3t5vvwwGa+dNmeIVkyYJNM1EiIm9V05KE13XGRiIce5c
+u+zu/vpfbW2nzuKy4dCJQB2ImabZ8847733Q1zfomzNnTnNdXV25x+OZsOTZkFKSTCZlR0fHwLFj
+x77at2/fh0AP1latvAExlw2BtaEkADQAjZqmXd3Y2PiHhoaGRlVVfakl/xOVRSmEMA3DiLe1tYXD
+4fBPhmGcBcLARSwi42SQ6ESgCvixSKxPHbVAJdm7dSYaibYHMbBI6gU6gXagA4u8AYbZbGi7IFuA
+xDLdbixSvThsd5pAsAlMAINYHESx5nIxHJyIGxGp7V7Ye8TKsCbDGuP0G2IRkRkAx7CMyd5snRdR
+F7IkQXrzYeZesYlqfTZyp2D2dMQxIBoJGcLlPFEhXc5XcDnwX5bpOmbGLl8sAAAAAElFTkSuQmCC
+
+"
+     x="0"
+     y="0"
+     width="80"
+     height="60"
+     id="image3055" />
 </svg>
