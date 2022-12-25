@@ -1,27 +1,68 @@
-<?xml version="1.0" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg 
-	height="300" 
-	width="450" 
-	version="1.1" 
-	xmlns="http://www.w3.org/2000/svg">
-	<desc>flag of Yemen</desc>
-<!--
-	from http://commons.wikimedia.org/wiki/Image:Flag_of_Yemen.svg
-	this file is in the public domain
--->
-	<rect 
-		fill="#ef2b2d" 
-		height="100" 
-		width="450" />
-	<rect 
-		fill="#ffffff" 
-		height="100" 
-		width="450" 
-		y="100" />
-	<rect 
-		fill="#000000" 
-		height="100" 
-		width="450" 
-		y="200" />
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   version="1.1"
+   width="80"
+   height="60"
+   id="svg2987">
+  <metadata
+     id="metadata2993">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs2991" />
+  <image
+     xlink:href="data:image/png;base64,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
+TkSuQmCC
+"
+     x="0"
+     y="0"
+     width="80"
+     height="60"
+     id="image2995" />
 </svg>
