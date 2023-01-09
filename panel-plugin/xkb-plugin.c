@@ -480,13 +480,15 @@ xkb_plugin_popup_menu_show (GtkWidget      *widget,
                             XkbPlugin      *plugin)
 {
   gtk_widget_set_state_flags (widget, GTK_STATE_FLAG_CHECKED, FALSE);
-#if GTK_CHECK_VERSION(3, 22, 0)
-  gtk_menu_popup_at_widget (GTK_MENU (plugin->popup), widget,
-                            GDK_GRAVITY_NORTH_WEST, GDK_GRAVITY_NORTH_WEST, (GdkEvent *) event);
+#if LIBXFCE4PANEL_CHECK_VERSION (4, 17 ,2)
+  xfce_panel_plugin_popup_menu (XFCE_PANEL_PLUGIN (plugin), GTK_MENU (plugin->popup),
+                                widget, (GdkEvent *) event);
 #else
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
   gtk_menu_popup (GTK_MENU (plugin->popup), NULL, NULL,
                   xfce_panel_plugin_position_menu, xkb_plugin_get_plugin (plugin),
                   0, event->time);
+G_GNUC_END_IGNORE_DEPRECATIONS
 #endif
 }
 
