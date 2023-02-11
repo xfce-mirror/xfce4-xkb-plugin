@@ -2,7 +2,7 @@
 
 # xfce4-xkb-plugin
 
-A panel plug-in that shows your current keyboard layout either in text form or with a country flag, as well as allows you to switch between different ones.
+An xfce4-panel plug-in that selects and displays the current keyboard layout. It provides mechanisms for switching between the layouts defined in xfce4-keyboard-settings, and maintains in the panel a display of the active layout, either as text or a flag icon.
 
 ----
 
