@@ -1,7 +1,77 @@
-<?xml version="1.0" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
-  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="1200" height="800" id="Flag_of_Ukraine">
- <rect width="1200" height="800" fill="#3a75c4" />
- <rect width="1200" height="400" y="400" fill="#f9dd16" />
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   version="1.1"
+   width="80"
+   height="60"
+   id="svg3097">
+  <metadata
+     id="metadata3103">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs3101" />
+  <image
+     xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAA8CAYAAADxJz2MAAAABHNCSVQICAgIfAhkiAAACKpJREFU
+eJztW8+PJDcV/p6rf8z0ZH6wuxnEZkg4IAVFKLCHcMkfwJVVJARCnDhyROJP4M6RC+KKhCKhSJE4
+hFMIAbSKUCJ2EDmQMMsmMEE7s7O9/aPsx8HlKttlu9zdtREZ5kmldtmuz35ff+/ZVd0FXNmVXdmV
+/f8aPaG+l8E4p1OKFKoOYdUJq+0ymiFNWXWqqg8SGiOCABQABnvPvTi59tL3Xij2jr7MGI2IQAQA
+RERAdVKxbZUBBojqb2GV2TMzAKrP+8ZjRqjMzAwGQGo2Kx988LfTt39x99H99x8DKAFIBEgMzYUA
+DACMnv7Gt2/uf/07Pyp2v/DKaHv32nA4JiEEqGKRqt7GqZpAaoBdUnOcbc5NuW88QxpXDaaNmaGU
+Qrmcq/nj80/Ks3/88sEffv7TT979zUcAFtBEOiQOAmMLAKPx3vWD3a/e/rHY++IPtvdu0N7eLobD
+IUgIEDSBghriKlUGiTREGzNFZyYRpxzSesDjikH73HwqZrBSWC6Xxfn5zuEUgx/u3fquODt+4yfl
+sjyr4MoUgUZ944Ov3b4lJoe3i619Gk72oAY7mNFAk1d1JK6cYmhVGmec+grYjUfHUdt5J7ysPn3h
+NUeYRCYGDUqMJgLzxVKo3ZuvHLz4rddO7/zqTwiEcozALdq+8RUabn9ODLdQYgQpCxCLhqhKDYIa
+Rdj19qcN7hQ8Z22Hbcf7xGtUSPW5ctoZrAowDSGGW6Dhzo3iqc8/D+A96DBedhE4BLCtpHwKoiCI
+AgzR5CDbGSTIs/OW5bgjGNIzIcsBcx2jWgq5Z7wKkytFm/6mU6NcARIFSAyEVLwLYAvAI+gUV0P5
+BAro1XfEshwRRBWwegQ/Whw1+CR6ztpqcXBsmbGrHn+R6gXPayOvH8G+Rn9zLMsRgDE0N85w9h7P
+rhuAVdHM2J5ZezIxYlvJ3leu1ze02vaJ588ztBA5FXVqUAU0eS2+/ApzmWDmFmZ0sMQkawd9Eqjd
+lvKhDzx0tNljOMZKQHPVmlJIgeaqjKESg8b6kF+xvq2LF7skh1zfEgS66MHQyhgg1CeoLC+Hflp4
+m1qawICxlQpz7rZDfUI3lqF926eBt6mlCVyBrOxJcry8lqN9461oKyswZZyYsaMS62RdJzfBi3K+
+xpxC98Lx0awqCp40955ETRnUbFr9hGT6+HcfTuj1iMcR9tb9IrsJrNHJ4YqhnYDvWOhyqy2k0pZj
+XdPZEM/Pi+2uFGtoWRaBOkK42aXbioBLmnHO7kN2fQjfC52WWnrE84nzF0UnLWRYksBgnrG+HDuM
+mazKAImpSfl5qOVsj3jNwwTPT/vcPO7yOQhYhwLtS9vM+TkJ5CrQdtpHC47G7Qn3jWd71tri1J39
+pB63zhC2J9AazEqIdnjVfW3nEd/pB58aW+U+8Wz1sV/v+5hhUQLrwasjFrK2GsgOZaB2lq2E7/sc
+DDczht+pDzwrlP0LbRKd8E2wmr2IgOEkdUdppkAWiVadn2/cVcfFcRYAU+4Rz8mHoXJu8qssrkAW
+kDxAqQZgpZ9u1feW1n0mAPexkiHXItm+6Y8qxstH/hPpvvBsQhW325gJrAoopX2XqoBK3E1HCXzu
+4H288OxvsXvjOsY7EwyGQwhRVASS5Uj7kWvzqCm8MWyp12OAqxajmr7x3HOur2Nm/YhfSZTLJeaP
+pnh4eoo//+UDPAhhI0Hgy196A99/+Xd45pkC+/sC4zFBCKrI6zoQKIdc9t32s5B/TR94foy6h/5p
+kzGfM87OFE5OJH727gzvIWxRAgkMQRKCAEEMQQRBolZfN3G+s/EwaDvrO903XozASp2kKp8VBElQ
+68tsLL2R9lcIfznsdMBXRszpHBX2iRcmr10O4bmWINAGsneyfl2X+dchcB4aM9TeB16IxNAYeZZ5
+JxJTYIzELrV0TTrkeF94KbW5dUQxghtLEuju9GNAKSWGVBvr55dz1LcOXuozpcqwdW6kiXLAViEx
+ZTl5Z1M8v657YVkzB+oLzV/D2kAh0nLzYny8cLlvvFVy4gYh3AbJzXl+v1S4+WPkjLspXk5OzAvl
+jlU4Nx+klJcbbva4oXKfeDkLSZ7/mQq0J5CzH8xN9rEx7M8nhed/due7kGUQGFPBKgPlOp2bAzfF
+61qJ/XLcMvaB62ye17HVkvdmeF1bGv+6tVdhG9TfPIfITCmjqy2nri+8vLDmjJ8KM++FDXDX1mVd
+ha5D4CZ4uWSiecgascQD1fbRDumUhRQSqwtd+yTxUrmWA37HLUmgUoCUgJQMKfVEhbDVZk/AV98q
+Dxty2vrGC5Pq+qzP11aglIyyJJQlUBS6TtT/pkkR6U+w68Z/1bZN8NKLlSGwLBsilULUogRKyVgu
+geWSsVgQiBhFoQkk+0eJ6IRynUzZOqTl4rXbTNQpBSwWwGKhOViFQLNm88UFFtMpeDYDjUa6sShQ
+/6iUnkxf251NF6cYXqSVTeQBs5k+plPwxYX7aoNtIQUyAHX3Lv/z/n2c7+/zgRCowpgsBa4/0dXt
+Se09vVHqvM+YzYCHDxn37uHs+Jg/gn61wbx4WFtIgRJA+c478u9vvTV6ezLBN2/eZJpM4IXw5TOb
+wOkUuHeP+M038fvjY/khIi8chggsAcyYcfbqq8tfz2Y741u3+KXr1+XOcHh5yTPGDCyX4NPTYnrn
+Dv3x9dcfvQbgDMAMgZcNQ78PjgHsAzgEcDQYFM8eHW0/f3g4OCoKjJkhsOI/+D87RkwEJSXmH38s
+T05Opn+VUn4I4ATAv6CJnMMiMURgAWAbmsSnq+MagF24b+tcNhLNAiqhSXoI4D8A/g3gFJq8KTpe
+NmToRGkAGFq6D6BJHSHwutMlMkPgAsBjaA7OAVxA89BaRGJE6Ne9NGFj6BfthlVdr39M/x80BZ3r
+ltCkzdG8bN3aEaaURGhePrTfFbus6jNmolBaR0t5xnLIWPU/FZ91y3lIeGV92X8BFHpYc5Z8FmAA
+AAAASUVORK5CYII=
+"
+     x="0"
+     y="0"
+     width="80"
+     height="60"
+     id="image3105" />
 </svg>
