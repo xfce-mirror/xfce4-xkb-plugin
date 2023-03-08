@@ -105,7 +105,7 @@ msgid ""
 "Use <a href=\"keyboard-settings:\">Keyboard Settings</a> to set available "
 "layouts; reopen this dialog to load changes. New windows start with '%s' "
 "(default layout), except as specified for the other layouts:"
-msgstr ""
+msgstr "Используйте <a href=\"keyboard-settings:\">Настройки Клавиатуры</a> , чтобы установить доступные раскладки; повторно откройте это диалоговое окно, чтобы загрузить изменения. Новые окна начинаются с \"%s\" (раскладка по умолчанию), за исключением случаев, указанных для других раскладок:"
 
 #: ../panel-plugin/xkb-dialog.c:295
 msgid "Window classes, comma-separated:"
