@@ -114,12 +114,12 @@ msgstr "Классы окон, через запятую:"
 #: ../panel-plugin/xkb-dialog.c:306
 #, c-format
 msgid "%s_%d (layout %d):"
-msgstr ""
+msgstr "%s_%d (раскладка %d):"
 
 #: ../panel-plugin/xkb-dialog.c:307
 #, c-format
 msgid "%s (layout %d):"
-msgstr ""
+msgstr "%s (раскладка %d):"
 
 #: ../panel-plugin/xkb-dialog.c:326
 msgid ""
