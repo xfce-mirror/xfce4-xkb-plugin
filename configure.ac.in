@@ -27,7 +27,7 @@ m4_define([xkb_debug_default], [ifelse(xkb_version_tag(), [git], [yes], [minimum
 dnl ***************************
 dnl *** Initialize autoconf ***
 dnl ***************************
-AC_COPYRIGHT([Copyright (c) 2006-2022
+AC_COPYRIGHT([Copyright (c) 2004-2023
         The Xfce development team. All rights reserved.])
 AC_INIT([xfce4-xkb-plugin], [xkb_version], [https://gitlab.xfce.org/panel-plugins/xfce4-xkb-plugin/], [xfce4-xkb-plugin])
 AC_PREREQ([2.50])
