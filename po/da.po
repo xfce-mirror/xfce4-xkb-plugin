@@ -72,7 +72,7 @@ msgstr "Caps Lock-indikator:"
 
 #: ../panel-plugin/xkb-dialog.c:205
 msgid "Show notifications on layout change:"
-msgstr ""
+msgstr "Vis underretninger når layoutet ændres:"
 
 #: ../panel-plugin/xkb-dialog.c:218
 msgid "Tooltip icon:"
@@ -108,7 +108,7 @@ msgstr ""
 
 #: ../panel-plugin/xkb-dialog.c:295
 msgid "Window classes, comma-separated:"
-msgstr ""
+msgstr "Vinduesklasser, kommasepareret:"
 
 #: ../panel-plugin/xkb-dialog.c:306
 #, c-format
@@ -124,7 +124,7 @@ msgstr "%s (layout %d):"
 msgid ""
 "Enter a comma-separated list of window classes which will default to this "
 "layout."
-msgstr ""
+msgstr "Indtast en kommasepareret liste med vinduesklasser der bruger layoutet som standard."
 
 #: ../panel-plugin/xkb-dialog.c:409
 msgid "Keyboard Layouts Plugin"
@@ -140,7 +140,7 @@ msgstr "Tastaturindstillinger"
 
 #: ../panel-plugin/xkb-plugin.c:524
 msgid "Keyboard layout changed"
-msgstr ""
+msgstr "Tastaturlayoutet blev ændret"
 
 #: ../panel-plugin/xkb.desktop.in.h:2
 msgid "Keyboard layouts setup and switch plugin"
