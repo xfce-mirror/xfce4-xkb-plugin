@@ -10,10 +10,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-15 12:51+0100\n"
+"POT-Creation-Date: 2023-05-30 00:55+0200\n"
 "PO-Revision-Date: 2013-07-03 19:34+0000\n"
 "Last-Translator: Arnold Marko <arnold.marko@gmail.com>, 2019,2023\n"
-"Language-Team: Slovenian (http://www.transifex.com/xfce/xfce-panel-plugins/language/sl/)\n"
+"Language-Team: Slovenian (http://app.transifex.com/xfce/xfce-panel-plugins/language/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -34,7 +34,7 @@ msgstr "Videz"
 
 #: ../panel-plugin/xkb-dialog.c:152
 msgid "Show layout as:"
-msgstr "Pokaži razpored kot:"
+msgstr "Prikaži razpored kot:"
 
 #: ../panel-plugin/xkb-dialog.c:158
 msgid "image"
@@ -136,7 +136,7 @@ msgstr "Omogoča prilagajanje in preklapljanje med različnimi razporedi tipk."
 msgid "Keyboard settings"
 msgstr "Nastavitve tipkovnice"
 
-#: ../panel-plugin/xkb-plugin.c:522
+#: ../panel-plugin/xkb-plugin.c:524
 msgid "Keyboard layout changed"
 msgstr "Postavitev tipk spremenjena"
 
