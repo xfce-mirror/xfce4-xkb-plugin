@@ -11,7 +11,6 @@ missing
 /panel-plugin/xkb.desktop
 /po/*.gmo
 /po/POTFILES
-/po/.intltool-merge-cache*
 .deps
 .libs
 *.la
@@ -28,3 +27,14 @@ ChangeLog
 !/configure.ac.in
 !/po/POTFILES.in
 !/panel-plugin/xkb.desktop.in
+ABOUT-NLS
+po/Makevars.template
+po/Rules-quot
+po/boldquot.sed
+po/en@boldquot.header
+po/en@quot.header
+po/insert-header.sin
+po/quot.sed
+po/remove-potcdate.sed
+po/remove-potcdate.sin
+po/xfce4-xkb-plugin.pot
