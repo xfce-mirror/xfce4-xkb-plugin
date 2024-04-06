@@ -3,8 +3,8 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Andre Miranda <andre42m@gmail.com>, 2017,2022
-# Andre Miranda <andre42m@gmail.com>, 2017
+# Andre Miranda <andre@andreldm.com>, 2017,2022
+# Andre Miranda <andre@andreldm.com>, 2017
 # Fábio Nogueira <deb-user-ba@ubuntu.com>, 2008
 # 3f37d448649cd548fa5a733e33387c2a_dee4ccf, 2015
 # Miguel V. S. Frasson <mvsfrasson@gmail.com>, 2017
@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-15 12:51+0100\n"
+"POT-Creation-Date: 2024-04-06 12:56+0200\n"
 "PO-Revision-Date: 2013-07-03 19:34+0000\n"
 "Last-Translator: The Cat, 2023\n"
 "Language-Team: Portuguese (Brazil) (http://app.transifex.com/xfce/xfce-panel-plugins/language/pt_BR/)\n"
@@ -30,7 +30,7 @@ msgstr ""
 msgid "This option is not available for current layout style"
 msgstr "Esta opção não está disponível para estilo de layout atual"
 
-#: ../panel-plugin/xkb-dialog.c:126 ../panel-plugin/xkb.desktop.in.h:1
+#: ../panel-plugin/xkb-dialog.c:126
 msgid "Keyboard Layouts"
 msgstr "Disposições de teclado"
 
@@ -142,10 +142,6 @@ msgstr "Permite configurar e usar múltiplas disposições de teclado."
 msgid "Keyboard settings"
 msgstr "Configurações de teclado"
 
-#: ../panel-plugin/xkb-plugin.c:522
+#: ../panel-plugin/xkb-plugin.c:524
 msgid "Keyboard layout changed"
 msgstr "A disposição do teclado foi alterada"
-
-#: ../panel-plugin/xkb.desktop.in.h:2
-msgid "Keyboard layouts setup and switch plugin"
-msgstr "Plug-in configurador e alternador de disposições de teclado"
