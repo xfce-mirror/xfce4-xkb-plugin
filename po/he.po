@@ -6,27 +6,27 @@
 # Elishai Eliyahu <elishai@mailfence.com>, 2017
 # Elishai Eliyahu <elishai@mailfence.com>, 2022
 # gk <genghiskhan@gmx.ca>, 2015
-# Omer I.S. <omeritzicschwartz@gmail.com>, 2022
+# 63f334ffc0709ba0fc2361b80bf3c0f0_00ffd1e <ab96c93ca0ac55ba7fa06385427e60dd_878890>, 2022
 # Yaron Shahrabani <sh.yaron@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-15 12:51+0100\n"
+"POT-Creation-Date: 2024-04-06 12:56+0200\n"
 "PO-Revision-Date: 2013-07-03 19:34+0000\n"
 "Last-Translator: Elishai Eliyahu <elishai@mailfence.com>, 2022\n"
-"Language-Team: Hebrew (http://www.transifex.com/xfce/xfce-panel-plugins/language/he/)\n"
+"Language-Team: Hebrew (http://app.transifex.com/xfce/xfce-panel-plugins/language/he/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: he\n"
-"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n == 2 && n % 1 == 0) ? 1: (n % 10 == 0 && n % 1 == 0 && n > 10) ? 2 : 3;\n"
+"Plural-Forms: nplurals=3; plural=(n == 1 && n % 1 == 0) ? 0 : (n == 2 && n % 1 == 0) ? 1: 2;\n"
 
 #: ../panel-plugin/xkb-dialog.c:92
 msgid "This option is not available for current layout style"
 msgstr "אפשרות זו אינה זמינה עבור עיצוב סידור נוכחי"
 
-#: ../panel-plugin/xkb-dialog.c:126 ../panel-plugin/xkb.desktop.in.h:1
+#: ../panel-plugin/xkb-dialog.c:126
 msgid "Keyboard Layouts"
 msgstr "פריסות מקלדת"
 
@@ -138,10 +138,6 @@ msgstr "מאפשר לך להגדיר ולהשתמש במספר פריסות מק
 msgid "Keyboard settings"
 msgstr "הגדרות מקלדת"
 
-#: ../panel-plugin/xkb-plugin.c:522
+#: ../panel-plugin/xkb-plugin.c:524
 msgid "Keyboard layout changed"
 msgstr "פריסת המקלדת שונתה"
-
-#: ../panel-plugin/xkb.desktop.in.h:2
-msgid "Keyboard layouts setup and switch plugin"
-msgstr "תוסף הגדרה והחלפה של פריסות מקלדת"
