@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-05 10:57+0200\n"
+"POT-Creation-Date: 2024-04-06 12:56+0200\n"
 "PO-Revision-Date: 2013-07-03 19:34+0000\n"
 "Last-Translator: Slavko <linux@slavino.sk>, 2015,2023\n"
 "Language-Team: Slovak (http://app.transifex.com/xfce/xfce-panel-plugins/language/sk/)\n"
@@ -26,7 +26,7 @@ msgstr ""
 msgid "This option is not available for current layout style"
 msgstr "Táto voľba nie je dostupná pre aktuálny štýl rozloženia"
 
-#: ../panel-plugin/xkb-dialog.c:126 ../panel-plugin/xkb.desktop.in.h:1
+#: ../panel-plugin/xkb-dialog.c:126
 msgid "Keyboard Layouts"
 msgstr "Rozloženie klávesnice"
 
@@ -141,7 +141,3 @@ msgstr "Nastavenia klávesnice"
 #: ../panel-plugin/xkb-plugin.c:524
 msgid "Keyboard layout changed"
 msgstr "Rozloženie klávesnice zmenené"
-
-#: ../panel-plugin/xkb.desktop.in.h:2
-msgid "Keyboard layouts setup and switch plugin"
-msgstr "Nastavuje a prepína rozloženie klávesnice"
