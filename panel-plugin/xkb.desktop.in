@@ -1,7 +1,7 @@
 [Xfce Panel]
 Type=X-XFCE-PanelPlugin
-_Name=Keyboard Layouts
-_Comment=Keyboard layouts setup and switch plugin
+Name=Keyboard Layouts
+Comment=Keyboard layouts setup and switch plugin
 Icon=org.xfce.panel.xkb
 X-XFCE-Module=xkb
 X-XFCE-Unique=TRUE
