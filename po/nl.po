@@ -8,10 +8,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-15 12:51+0100\n"
+"POT-Creation-Date: 2024-04-06 12:56+0200\n"
 "PO-Revision-Date: 2013-07-03 19:34+0000\n"
 "Last-Translator: Pjotr <pjotrvertaalt@gmail.com>, 2015,2017,2022\n"
-"Language-Team: Dutch (http://www.transifex.com/xfce/xfce-panel-plugins/language/nl/)\n"
+"Language-Team: Dutch (http://app.transifex.com/xfce/xfce-panel-plugins/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "This option is not available for current layout style"
 msgstr "Deze optie is niet beschikbaar voor de huidige indelingsstijl"
 
-#: ../panel-plugin/xkb-dialog.c:126 ../panel-plugin/xkb.desktop.in.h:1
+#: ../panel-plugin/xkb-dialog.c:126
 msgid "Keyboard Layouts"
 msgstr "Toetsenbordindelingen"
 
@@ -134,10 +134,6 @@ msgstr "Stelt u in staat om meerdere toetsenbordindelingen in te stellen en te g
 msgid "Keyboard settings"
 msgstr "Toetsenbordindelingen"
 
-#: ../panel-plugin/xkb-plugin.c:522
+#: ../panel-plugin/xkb-plugin.c:524
 msgid "Keyboard layout changed"
 msgstr "Toetsenbordindeling gewijzigd"
-
-#: ../panel-plugin/xkb.desktop.in.h:2
-msgid "Keyboard layouts setup and switch plugin"
-msgstr "Invoegsel voor het instellen en veranderen van toetsenbordindelingen"
