@@ -369,7 +369,6 @@ xkb_keyboard_initialize_xkb_options (XkbKeyboard        *keyboard,
           group_data->display_pixbuf = rsvg_handle_get_pixbuf (handle);
           group_data->tooltip_pixbuf = gdk_pixbuf_scale_simple (group_data->display_pixbuf,
                                                                 30, 22, GDK_INTERP_BILINEAR);
-          rsvg_handle_close (handle, NULL);
           g_object_unref (handle);
         }
       g_free (imgfilename);
