@@ -8,100 +8,132 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-27 00:32+0200\n"
-"PO-Revision-Date: 2017-09-19 21:20+0000\n"
-"Last-Translator: abuyop <abuyop@gmail.com>\n"
-"Language-Team: Malay (http://www.transifex.com/xfce/xfce-panel-plugins/language/ms/)\n"
+"POT-Creation-Date: 2024-04-06 12:56+0200\n"
+"PO-Revision-Date: 2013-07-03 19:34+0000\n"
+"Last-Translator: abuyop <abuyop@gmail.com>, 2013,2015,2017\n"
+"Language-Team: Malay (http://app.transifex.com/xfce/xfce-panel-plugins/language/ms/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ms\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../panel-plugin/xkb-dialog.c:76
+#: ../panel-plugin/xkb-dialog.c:92
 msgid "This option is not available for current layout style"
 msgstr "Pilihan ini tidak tersedia untuk gaya bentangan semasa"
 
-#: ../panel-plugin/xkb-dialog.c:105 ../panel-plugin/xkb.desktop.in.h:1
+#: ../panel-plugin/xkb-dialog.c:126
 msgid "Keyboard Layouts"
 msgstr "Bentangan Papan Kekunci"
 
-#: ../panel-plugin/xkb-dialog.c:121
+#: ../panel-plugin/xkb-dialog.c:139
 msgid "Appearance"
 msgstr "Penampilan"
 
-#: ../panel-plugin/xkb-dialog.c:131
+#: ../panel-plugin/xkb-dialog.c:152
 msgid "Show layout as:"
 msgstr "Tunjuk bentangan sebagai:"
 
-#: ../panel-plugin/xkb-dialog.c:137
+#: ../panel-plugin/xkb-dialog.c:158
 msgid "image"
 msgstr "imej"
 
-#: ../panel-plugin/xkb-dialog.c:138
+#: ../panel-plugin/xkb-dialog.c:159
 msgid "text"
 msgstr "teks"
 
-#: ../panel-plugin/xkb-dialog.c:139
+#: ../panel-plugin/xkb-dialog.c:160
 msgid "system"
 msgstr "sistem"
 
-#: ../panel-plugin/xkb-dialog.c:145
+#: ../panel-plugin/xkb-dialog.c:166
 msgid "Layout name:"
 msgstr "Nama bentangan:"
 
-#: ../panel-plugin/xkb-dialog.c:151
+#: ../panel-plugin/xkb-dialog.c:172
 msgid "country"
 msgstr "negara"
 
-#: ../panel-plugin/xkb-dialog.c:152
+#: ../panel-plugin/xkb-dialog.c:173
 msgid "language"
 msgstr "bahasa"
 
-#: ../panel-plugin/xkb-dialog.c:158
+#: ../panel-plugin/xkb-dialog.c:179
 msgid "Widget size:"
 msgstr "Saiz widjet:"
 
-#: ../panel-plugin/xkb-dialog.c:171
+#: ../panel-plugin/xkb-dialog.c:192
 msgid "Caps Lock indicator:"
 msgstr "Penunjuk Caps Lock:"
 
-#: ../panel-plugin/xkb-dialog.c:183
+#: ../panel-plugin/xkb-dialog.c:205
+msgid "Show notifications on layout change:"
+msgstr ""
+
+#: ../panel-plugin/xkb-dialog.c:218
 msgid "Tooltip icon:"
 msgstr "Ikon tip alat:"
 
-#: ../panel-plugin/xkb-dialog.c:195
+#: ../panel-plugin/xkb-dialog.c:230
 msgid "Behavior"
 msgstr "Kelakuan"
 
-#: ../panel-plugin/xkb-dialog.c:205
+#: ../panel-plugin/xkb-dialog.c:243
 msgid "Manage layout:"
 msgstr "Urus bentangan:"
 
-#: ../panel-plugin/xkb-dialog.c:211
+#: ../panel-plugin/xkb-dialog.c:249
 msgid "globally"
 msgstr "secara sejagat"
 
-#: ../panel-plugin/xkb-dialog.c:212
+#: ../panel-plugin/xkb-dialog.c:250
 msgid "per window"
 msgstr "per tetingkap"
 
-#: ../panel-plugin/xkb-dialog.c:213
+#: ../panel-plugin/xkb-dialog.c:251
 msgid "per application"
 msgstr "per aplikasi"
 
-#: ../panel-plugin/xkb-dialog.c:290
+#: ../panel-plugin/xkb-dialog.c:274
+#, c-format
+msgid ""
+"Use <a href=\"keyboard-settings:\">Keyboard Settings</a> to set available "
+"layouts; reopen this dialog to load changes. New windows start with '%s' "
+"(default layout), except as specified for the other layouts:"
+msgstr ""
+
+#: ../panel-plugin/xkb-dialog.c:295
+msgid "Window classes, comma-separated:"
+msgstr ""
+
+#: ../panel-plugin/xkb-dialog.c:306
+#, c-format
+msgid "%s_%d (layout %d):"
+msgstr ""
+
+#: ../panel-plugin/xkb-dialog.c:307
+#, c-format
+msgid "%s (layout %d):"
+msgstr ""
+
+#: ../panel-plugin/xkb-dialog.c:326
+msgid ""
+"Enter a comma-separated list of window classes which will default to this "
+"layout."
+msgstr ""
+
+#: ../panel-plugin/xkb-dialog.c:409
 msgid "Keyboard Layouts Plugin"
 msgstr "Pemalam Bentangan Papan Kekunci"
 
-#: ../panel-plugin/xkb-dialog.c:292
+#: ../panel-plugin/xkb-dialog.c:411
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "Membolehkan anda konfigur dan guna bentangan papan kekunci berbilang"
 
-#: ../panel-plugin/xkb-plugin.c:238
+#: ../panel-plugin/xkb-plugin.c:252
 msgid "Keyboard settings"
 msgstr "Tetapan papan kekunci"
 
-#: ../panel-plugin/xkb.desktop.in.h:2
-msgid "Keyboard layouts setup and switch plugin"
-msgstr "Pemalam persediaan bentangan dan pertukaran papan kekunci"
+#: ../panel-plugin/xkb-plugin.c:524
+msgid "Keyboard layout changed"
+msgstr ""
