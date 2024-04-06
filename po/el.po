@@ -11,10 +11,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-15 12:51+0100\n"
+"POT-Creation-Date: 2024-04-06 12:56+0200\n"
 "PO-Revision-Date: 2013-07-03 19:34+0000\n"
 "Last-Translator: Ioannis LM, 2015,2018,2022-2023\n"
-"Language-Team: Greek (http://www.transifex.com/xfce/xfce-panel-plugins/language/el/)\n"
+"Language-Team: Greek (http://app.transifex.com/xfce/xfce-panel-plugins/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -25,7 +25,7 @@ msgstr ""
 msgid "This option is not available for current layout style"
 msgstr "Η επιλογή δεν είναι διαθέσιμη για τη τρέχουσα διάταξη"
 
-#: ../panel-plugin/xkb-dialog.c:126 ../panel-plugin/xkb.desktop.in.h:1
+#: ../panel-plugin/xkb-dialog.c:126
 msgid "Keyboard Layouts"
 msgstr "Διάταξη πληκτρολογίου"
 
@@ -137,10 +137,6 @@ msgstr "Σας επιτρέπει να ρυθμίσετε και να χρησι
 msgid "Keyboard settings"
 msgstr "Ρυθμίσεις πληκτρολογίου"
 
-#: ../panel-plugin/xkb-plugin.c:522
+#: ../panel-plugin/xkb-plugin.c:524
 msgid "Keyboard layout changed"
 msgstr "Αλλαγή διάταξης πληκτρολογίου"
-
-#: ../panel-plugin/xkb.desktop.in.h:2
-msgid "Keyboard layouts setup and switch plugin"
-msgstr "Πρόσθετο εναλλαγής και ρύθμισης των διατάξεων πληκτρολογίου"
