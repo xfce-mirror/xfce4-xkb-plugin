@@ -10,10 +10,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-15 12:51+0100\n"
+"POT-Creation-Date: 2024-04-06 12:56+0200\n"
 "PO-Revision-Date: 2013-07-03 19:34+0000\n"
 "Last-Translator: Kiril Kirilov <cybercop_montana@abv.bg>, 2015,2017,2022\n"
-"Language-Team: Bulgarian (http://www.transifex.com/xfce/xfce-panel-plugins/language/bg/)\n"
+"Language-Team: Bulgarian (http://app.transifex.com/xfce/xfce-panel-plugins/language/bg/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,7 +24,7 @@ msgstr ""
 msgid "This option is not available for current layout style"
 msgstr "Тази опция не е налична за текущия стил на клавиатурната подредба"
 
-#: ../panel-plugin/xkb-dialog.c:126 ../panel-plugin/xkb.desktop.in.h:1
+#: ../panel-plugin/xkb-dialog.c:126
 msgid "Keyboard Layouts"
 msgstr "Клавиатурни подредби"
 
@@ -136,10 +136,6 @@ msgstr "Позволява да конфигурирате и използват
 msgid "Keyboard settings"
 msgstr "Настройка на клавиатурата"
 
-#: ../panel-plugin/xkb-plugin.c:522
+#: ../panel-plugin/xkb-plugin.c:524
 msgid "Keyboard layout changed"
 msgstr "Клавиатурната подредба е променена"
-
-#: ../panel-plugin/xkb.desktop.in.h:2
-msgid "Keyboard layouts setup and switch plugin"
-msgstr "Добавка за настройка и превключване на клавиатурните подредби"
