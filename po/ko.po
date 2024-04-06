@@ -11,10 +11,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-15 12:51+0100\n"
+"POT-Creation-Date: 2024-04-06 12:56+0200\n"
 "PO-Revision-Date: 2013-07-03 19:34+0000\n"
 "Last-Translator: Seong-ho Cho <darkcircle.0426@gmail.com>, 2012,2015,2022\n"
-"Language-Team: Korean (http://www.transifex.com/xfce/xfce-panel-plugins/language/ko/)\n"
+"Language-Team: Korean (http://app.transifex.com/xfce/xfce-panel-plugins/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -25,7 +25,7 @@ msgstr ""
 msgid "This option is not available for current layout style"
 msgstr "이 옵션은 현재 배열 방식에서는 지원하지 않습니다."
 
-#: ../panel-plugin/xkb-dialog.c:126 ../panel-plugin/xkb.desktop.in.h:1
+#: ../panel-plugin/xkb-dialog.c:126
 msgid "Keyboard Layouts"
 msgstr "키보드 배열"
 
@@ -137,10 +137,6 @@ msgstr "다중 키보드 배열을 설정하고 사용할 수 있게 합니다."
 msgid "Keyboard settings"
 msgstr "키보드 설정"
 
-#: ../panel-plugin/xkb-plugin.c:522
+#: ../panel-plugin/xkb-plugin.c:524
 msgid "Keyboard layout changed"
 msgstr "키보드 배열을 바꿨습니다"
-
-#: ../panel-plugin/xkb.desktop.in.h:2
-msgid "Keyboard layouts setup and switch plugin"
-msgstr "키보드 배열 설정 및 플러그인 변경"
