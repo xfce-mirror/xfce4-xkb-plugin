@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the xfce-panel-plugins.xfce4-xkb-plugin package.
 # 
 # Translators:
 # Dmitry Nikitin <luckas_fb@mail.ru>, 2007
@@ -11,8 +11,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-06 12:56+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2024-04-07 00:58+0200\n"
 "PO-Revision-Date: 2013-07-03 19:34+0000\n"
 "Last-Translator: Gordon Freeman, 2023\n"
 "Language-Team: Ukrainian (http://app.transifex.com/xfce/xfce-panel-plugins/language/uk/)\n"
@@ -22,83 +22,83 @@ msgstr ""
 "Language: uk\n"
 "Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
 
-#: ../panel-plugin/xkb-dialog.c:92
+#: panel-plugin/xkb-dialog.c:92
 msgid "This option is not available for current layout style"
 msgstr "Цей параметр не доступний для поточного стилю розкладки"
 
-#: ../panel-plugin/xkb-dialog.c:126
+#: panel-plugin/xkb-dialog.c:126 panel-plugin/xkb.desktop.in:4
 msgid "Keyboard Layouts"
 msgstr "Розкладки клавіатури"
 
-#: ../panel-plugin/xkb-dialog.c:139
+#: panel-plugin/xkb-dialog.c:139
 msgid "Appearance"
 msgstr "Зовнішній вигляд"
 
-#: ../panel-plugin/xkb-dialog.c:152
+#: panel-plugin/xkb-dialog.c:152
 msgid "Show layout as:"
 msgstr "Показувати розкладки як:"
 
-#: ../panel-plugin/xkb-dialog.c:158
+#: panel-plugin/xkb-dialog.c:158
 msgid "image"
 msgstr "малюнок"
 
-#: ../panel-plugin/xkb-dialog.c:159
+#: panel-plugin/xkb-dialog.c:159
 msgid "text"
 msgstr "текст"
 
-#: ../panel-plugin/xkb-dialog.c:160
+#: panel-plugin/xkb-dialog.c:160
 msgid "system"
 msgstr "система"
 
-#: ../panel-plugin/xkb-dialog.c:166
+#: panel-plugin/xkb-dialog.c:166
 msgid "Layout name:"
 msgstr "Назва розкладки:"
 
-#: ../panel-plugin/xkb-dialog.c:172
+#: panel-plugin/xkb-dialog.c:172
 msgid "country"
 msgstr "країна"
 
-#: ../panel-plugin/xkb-dialog.c:173
+#: panel-plugin/xkb-dialog.c:173
 msgid "language"
 msgstr "мова"
 
-#: ../panel-plugin/xkb-dialog.c:179
+#: panel-plugin/xkb-dialog.c:179
 msgid "Widget size:"
 msgstr "Розмір віджета:"
 
-#: ../panel-plugin/xkb-dialog.c:192
+#: panel-plugin/xkb-dialog.c:192
 msgid "Caps Lock indicator:"
 msgstr "Індикатор Caps Lock:"
 
-#: ../panel-plugin/xkb-dialog.c:205
+#: panel-plugin/xkb-dialog.c:205
 msgid "Show notifications on layout change:"
 msgstr "Показувати сповіщення про зміну розкладки:"
 
-#: ../panel-plugin/xkb-dialog.c:218
+#: panel-plugin/xkb-dialog.c:218
 msgid "Tooltip icon:"
 msgstr "Значок вигулькної допомоги:"
 
-#: ../panel-plugin/xkb-dialog.c:230
+#: panel-plugin/xkb-dialog.c:230
 msgid "Behavior"
 msgstr "Поведінка"
 
-#: ../panel-plugin/xkb-dialog.c:243
+#: panel-plugin/xkb-dialog.c:243
 msgid "Manage layout:"
 msgstr "Керувати розкладками:"
 
-#: ../panel-plugin/xkb-dialog.c:249
+#: panel-plugin/xkb-dialog.c:249
 msgid "globally"
 msgstr "глобально"
 
-#: ../panel-plugin/xkb-dialog.c:250
+#: panel-plugin/xkb-dialog.c:250
 msgid "per window"
 msgstr "для вікна"
 
-#: ../panel-plugin/xkb-dialog.c:251
+#: panel-plugin/xkb-dialog.c:251
 msgid "per application"
 msgstr "для програми"
 
-#: ../panel-plugin/xkb-dialog.c:274
+#: panel-plugin/xkb-dialog.c:274
 #, c-format
 msgid ""
 "Use <a href=\"keyboard-settings:\">Keyboard Settings</a> to set available "
@@ -106,38 +106,42 @@ msgid ""
 "(default layout), except as specified for the other layouts:"
 msgstr "Використовуйте <a href=\"keyboard-settings:\">Налаштування клавіатури</a>, щоб установити доступні розкладки; повторно відкрийте це діалогове вікно, щоб завантажити зміни. Нові вікна стартують з  '%s' (розкладка за замовчуванням), крім випадків, указаних для інших розкладок:"
 
-#: ../panel-plugin/xkb-dialog.c:295
+#: panel-plugin/xkb-dialog.c:295
 msgid "Window classes, comma-separated:"
 msgstr "Класи вікон, через кому:"
 
-#: ../panel-plugin/xkb-dialog.c:306
+#: panel-plugin/xkb-dialog.c:306
 #, c-format
 msgid "%s_%d (layout %d):"
 msgstr "%s_%d (розкладка %d):"
 
-#: ../panel-plugin/xkb-dialog.c:307
+#: panel-plugin/xkb-dialog.c:307
 #, c-format
 msgid "%s (layout %d):"
 msgstr "%s (розкладка %d):"
 
-#: ../panel-plugin/xkb-dialog.c:326
+#: panel-plugin/xkb-dialog.c:326
 msgid ""
 "Enter a comma-separated list of window classes which will default to this "
 "layout."
 msgstr "Введіть розділений комами список класів вікон, які за замовчуванням використовуватимуть цю розкладку."
 
-#: ../panel-plugin/xkb-dialog.c:409
+#: panel-plugin/xkb-dialog.c:409
 msgid "Keyboard Layouts Plugin"
 msgstr "Втулка Розкладки клавіатури"
 
-#: ../panel-plugin/xkb-dialog.c:411
+#: panel-plugin/xkb-dialog.c:411
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "Дозволяє Вам налаштувати і використовувати кілька розкладок клавіатури."
 
-#: ../panel-plugin/xkb-plugin.c:252
+#: panel-plugin/xkb-plugin.c:252
 msgid "Keyboard settings"
 msgstr "Налаштування клавіатури"
 
-#: ../panel-plugin/xkb-plugin.c:524
+#: panel-plugin/xkb-plugin.c:524
 msgid "Keyboard layout changed"
 msgstr "Змінена розкладка клавіатури"
+
+#: panel-plugin/xkb.desktop.in:5
+msgid "Keyboard layouts setup and switch plugin"
+msgstr "Втулка для налаштування та перемикання розкладок клавіатури"
