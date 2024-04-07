@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the xfce-panel-plugins.xfce4-xkb-plugin package.
 # 
 # Translators:
 # Carles Muñoz Gorriz <carlesmu@internautas.org>, 2012
@@ -12,8 +12,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-06 12:56+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2024-04-07 00:58+0200\n"
 "PO-Revision-Date: 2013-07-03 19:34+0000\n"
 "Last-Translator: Oscar Perez <oscarpc@gmail.com>, 2023\n"
 "Language-Team: Catalan (http://app.transifex.com/xfce/xfce-panel-plugins/language/ca/)\n"
@@ -23,83 +23,83 @@ msgstr ""
 "Language: ca\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../panel-plugin/xkb-dialog.c:92
+#: panel-plugin/xkb-dialog.c:92
 msgid "This option is not available for current layout style"
 msgstr "Aquesta opció no està disponible per a l'estil de disposició actual"
 
-#: ../panel-plugin/xkb-dialog.c:126
+#: panel-plugin/xkb-dialog.c:126 panel-plugin/xkb.desktop.in:4
 msgid "Keyboard Layouts"
 msgstr "Disposicions de teclats"
 
-#: ../panel-plugin/xkb-dialog.c:139
+#: panel-plugin/xkb-dialog.c:139
 msgid "Appearance"
 msgstr "Aparença"
 
-#: ../panel-plugin/xkb-dialog.c:152
+#: panel-plugin/xkb-dialog.c:152
 msgid "Show layout as:"
 msgstr "Mostra la disposició com:"
 
-#: ../panel-plugin/xkb-dialog.c:158
+#: panel-plugin/xkb-dialog.c:158
 msgid "image"
 msgstr "imatge"
 
-#: ../panel-plugin/xkb-dialog.c:159
+#: panel-plugin/xkb-dialog.c:159
 msgid "text"
 msgstr "text"
 
-#: ../panel-plugin/xkb-dialog.c:160
+#: panel-plugin/xkb-dialog.c:160
 msgid "system"
 msgstr "sistema"
 
-#: ../panel-plugin/xkb-dialog.c:166
+#: panel-plugin/xkb-dialog.c:166
 msgid "Layout name:"
 msgstr "Nom de la disposició:"
 
-#: ../panel-plugin/xkb-dialog.c:172
+#: panel-plugin/xkb-dialog.c:172
 msgid "country"
 msgstr "país"
 
-#: ../panel-plugin/xkb-dialog.c:173
+#: panel-plugin/xkb-dialog.c:173
 msgid "language"
 msgstr "idioma"
 
-#: ../panel-plugin/xkb-dialog.c:179
+#: panel-plugin/xkb-dialog.c:179
 msgid "Widget size:"
 msgstr "Mida de l'estri:"
 
-#: ../panel-plugin/xkb-dialog.c:192
+#: panel-plugin/xkb-dialog.c:192
 msgid "Caps Lock indicator:"
 msgstr "Indicador de Bloq Maj:"
 
-#: ../panel-plugin/xkb-dialog.c:205
+#: panel-plugin/xkb-dialog.c:205
 msgid "Show notifications on layout change:"
 msgstr "Mostra les notificacions en canviar la disposició"
 
-#: ../panel-plugin/xkb-dialog.c:218
+#: panel-plugin/xkb-dialog.c:218
 msgid "Tooltip icon:"
 msgstr "Icona de l'indicador de funció:"
 
-#: ../panel-plugin/xkb-dialog.c:230
+#: panel-plugin/xkb-dialog.c:230
 msgid "Behavior"
 msgstr "Comportament"
 
-#: ../panel-plugin/xkb-dialog.c:243
+#: panel-plugin/xkb-dialog.c:243
 msgid "Manage layout:"
 msgstr "Gestiona el tipus:"
 
-#: ../panel-plugin/xkb-dialog.c:249
+#: panel-plugin/xkb-dialog.c:249
 msgid "globally"
 msgstr "globalment"
 
-#: ../panel-plugin/xkb-dialog.c:250
+#: panel-plugin/xkb-dialog.c:250
 msgid "per window"
 msgstr "per finestra"
 
-#: ../panel-plugin/xkb-dialog.c:251
+#: panel-plugin/xkb-dialog.c:251
 msgid "per application"
 msgstr "per aplicació"
 
-#: ../panel-plugin/xkb-dialog.c:274
+#: panel-plugin/xkb-dialog.c:274
 #, c-format
 msgid ""
 "Use <a href=\"keyboard-settings:\">Keyboard Settings</a> to set available "
@@ -107,38 +107,42 @@ msgid ""
 "(default layout), except as specified for the other layouts:"
 msgstr "Utilitzeu els <a href=\"keyboard-settings:\">Ajustaments de teclat</a> per a establir les possibles disposicions; reobriu aquest diàleg per a carregar els canvis. Les noves finestres s'inicien amb '%s' (disposició per defecte), excepte l'especificat per a les altres disposicions:"
 
-#: ../panel-plugin/xkb-dialog.c:295
+#: panel-plugin/xkb-dialog.c:295
 msgid "Window classes, comma-separated:"
 msgstr "Classes de finestres, separades per comes:"
 
-#: ../panel-plugin/xkb-dialog.c:306
+#: panel-plugin/xkb-dialog.c:306
 #, c-format
 msgid "%s_%d (layout %d):"
 msgstr "%s_%d (disposició %d):"
 
-#: ../panel-plugin/xkb-dialog.c:307
+#: panel-plugin/xkb-dialog.c:307
 #, c-format
 msgid "%s (layout %d):"
 msgstr "%s (disposició %d):"
 
-#: ../panel-plugin/xkb-dialog.c:326
+#: panel-plugin/xkb-dialog.c:326
 msgid ""
 "Enter a comma-separated list of window classes which will default to this "
 "layout."
 msgstr "Introduïu una llista separada per comes de les classes de finestres a les que s'aplicarà per defecte aquesta disposició."
 
-#: ../panel-plugin/xkb-dialog.c:409
+#: panel-plugin/xkb-dialog.c:409
 msgid "Keyboard Layouts Plugin"
 msgstr "Connector de les disposicions del teclat"
 
-#: ../panel-plugin/xkb-dialog.c:411
+#: panel-plugin/xkb-dialog.c:411
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "Us permet configurar i utilitzar diverses disposicions de teclat."
 
-#: ../panel-plugin/xkb-plugin.c:252
+#: panel-plugin/xkb-plugin.c:252
 msgid "Keyboard settings"
 msgstr "Ajusts del teclat"
 
-#: ../panel-plugin/xkb-plugin.c:524
+#: panel-plugin/xkb-plugin.c:524
 msgid "Keyboard layout changed"
 msgstr "S'ha canviat la disposició del teclat"
+
+#: panel-plugin/xkb.desktop.in:5
+msgid "Keyboard layouts setup and switch plugin"
+msgstr "Connector de configuració i de canvi de la disposició del teclat"
