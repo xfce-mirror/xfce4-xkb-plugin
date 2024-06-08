@@ -298,7 +298,7 @@ xkb_dialog_configure_plugin (XfcePanelPlugin *plugin,
 
       grid_vertical++;
 
-      for (i = 1; i < group_count; i++, grid_vertical++)
+      for (i = 1; i < group_count && i < MAX_LAYOUT; i++, grid_vertical++)
         {
           variant = xkb_keyboard_get_variant_index (keyboard, display_name, i);
           group_name = xkb_keyboard_get_group_name (keyboard, display_name, i);
