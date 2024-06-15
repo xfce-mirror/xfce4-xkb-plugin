@@ -10,18 +10,7 @@ AC_CONFIG_MACRO_DIRS([m4])
 dnl ***************************
 dnl *** Version information ***
 dnl ***************************
-m4_define([xkb_version_major], [0])
-m4_define([xkb_version_minor], [8])
-m4_define([xkb_version_micro], [3])
-m4_define([xkb_version_nano], [])
-m4_define([xkb_version_build], [@REVISION@])
-m4_define([xkb_version_tag], [git])
-m4_define([xkb_version], [xkb_version_major().xkb_version_minor().xkb_version_micro()ifelse(xkb_version_nano(), [], [], [.xkb_version_nano()])ifelse(xkb_version_tag(), [git], [xkb_version_tag()-xkb_version_build()], [xkb_version_tag()])])
-
-dnl *******************************************
-dnl *** Debugging support for GIT  snapshots ***
-dnl *******************************************
-m4_define([xkb_debug_default], [ifelse(xkb_version_tag(), [git], [yes], [minimum])])
+XDT_VERSION_INIT([0.8.3], [git])
 
 
 dnl ***************************
@@ -29,10 +18,10 @@ dnl *** Initialize autoconf ***
 dnl ***************************
 AC_COPYRIGHT([Copyright (c) 2004-2023
         The Xfce development team. All rights reserved.])
-AC_INIT([xfce4-xkb-plugin], [xkb_version], [https://gitlab.xfce.org/panel-plugins/xfce4-xkb-plugin/], [xfce4-xkb-plugin])
-AC_PREREQ([2.50])
+AC_INIT([xfce4-xkb-plugin], [xdt_version], [https://gitlab.xfce.org/panel-plugins/xfce4-xkb-plugin/], [xfce4-xkb-plugin])
+AC_PREREQ([2.69])
 AC_CANONICAL_TARGET()
-AC_REVISION([@REVISION@])
+AC_REVISION([xdt_version_build])
 
 dnl ***************************
 dnl *** Initialize automake ***
@@ -94,7 +83,7 @@ XDT_CHECK_OPTIONAL_PACKAGE([LIBNOTIFY], [libnotify], [0.7.0], [libnotify],
 dnl ***********************************
 dnl *** Check for debugging support ***
 dnl ***********************************
-XDT_FEATURE_DEBUG([xkb_debug_default])
+XDT_FEATURE_DEBUG([xdt_debug_default])
 
 AC_CONFIG_FILES([
 panel-plugin/Makefile
