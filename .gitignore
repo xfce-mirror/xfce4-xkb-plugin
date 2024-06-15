@@ -13,6 +13,7 @@ missing
 /po/POTFILES
 .deps
 .libs
+*~
 *.la
 *.lo
 *.o
@@ -24,7 +25,7 @@ ChangeLog
 *.m4
 *.in
 /configure*
-!/configure.ac.in
+!/configure.ac
 !/po/POTFILES.in
 !/panel-plugin/xkb.desktop.in
 ABOUT-NLS
