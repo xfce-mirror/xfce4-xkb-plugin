@@ -237,6 +237,7 @@ xkb_cairo_draw_label_system (cairo_t                    *cr,
                              gint                        variant_markers_count,
                              gboolean                    caps_lock_enabled,
                              const PangoFontDescription *desc,
+                             PangoContext               *pc,
                              GdkRGBA                     rgba)
 {
   gchar       *normalized_group_name;
@@ -254,7 +255,7 @@ xkb_cairo_draw_label_system (cairo_t                    *cr,
   if (!normalized_group_name)
     return;
 
-  layout = pango_cairo_create_layout (cr);
+  layout = pango_layout_new (pc);
 
   pango_layout_set_text (layout, normalized_group_name, -1);
   pango_layout_set_font_description (layout, desc);

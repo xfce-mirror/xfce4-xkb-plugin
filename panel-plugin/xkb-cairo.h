@@ -53,6 +53,7 @@ void        xkb_cairo_draw_label_system     (cairo_t                        *cr,
                                              gint                            variant_markers_count,
                                              gboolean                        caps_lock_enabled,
                                              const PangoFontDescription     *desc,
+                                             PangoContext                   *pc,
                                              GdkRGBA                         rgba);
 
 #endif
