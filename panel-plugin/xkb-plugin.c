@@ -686,6 +686,7 @@ xkb_plugin_layout_image_draw (GtkWidget *widget,
   gint                  display_scale;
   gboolean              caps_lock_indicator;
   gboolean              caps_lock_enabled;
+  PangoContext         *pc;
 
   display_type = xkb_xfconf_get_display_type (plugin->config);
   display_name = xkb_xfconf_get_display_name (plugin->config);
@@ -730,12 +731,13 @@ xkb_plugin_layout_image_draw (GtkWidget *widget,
 
     case DISPLAY_TYPE_SYSTEM:
       gtk_style_context_get (style_ctx, state, "font", &desc, NULL);
+      pc = gtk_widget_get_pango_context (widget);
 
       xkb_cairo_draw_label_system (cr, group_name,
                                    actual_hsize, actual_vsize,
                                    variant_index,
                                    caps_lock_indicator && caps_lock_enabled,
-                                   desc, rgba);
+                                   desc, pc, rgba);
       break;
     }
 
