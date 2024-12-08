@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Igor Știrbu <igor.stirbu@gmail.com>, 2009
+# Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>, 2024
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
 "POT-Creation-Date: 2024-04-07 00:58+0200\n"
 "PO-Revision-Date: 2013-07-03 19:34+0000\n"
-"Last-Translator: Igor Știrbu <igor.stirbu@gmail.com>, 2009\n"
+"Last-Translator: Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>, 2024\n"
 "Language-Team: Romanian (http://app.transifex.com/xfce/xfce-panel-plugins/language/ro/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +21,7 @@ msgstr ""
 
 #: panel-plugin/xkb-dialog.c:92
 msgid "This option is not available for current layout style"
-msgstr ""
+msgstr "Această opțiune nu este disponibilă pentru stilul actual de aranjament"
 
 #: panel-plugin/xkb-dialog.c:126 panel-plugin/xkb.desktop.in:4
 msgid "Keyboard Layouts"
@@ -44,39 +45,39 @@ msgstr "text"
 
 #: panel-plugin/xkb-dialog.c:160
 msgid "system"
-msgstr ""
+msgstr "sistem"
 
 #: panel-plugin/xkb-dialog.c:166
 msgid "Layout name:"
-msgstr ""
+msgstr "Numele aranjamentului:"
 
 #: panel-plugin/xkb-dialog.c:172
 msgid "country"
-msgstr ""
+msgstr "țara"
 
 #: panel-plugin/xkb-dialog.c:173
 msgid "language"
-msgstr ""
+msgstr "limba"
 
 #: panel-plugin/xkb-dialog.c:179
 msgid "Widget size:"
-msgstr ""
+msgstr "Dimensiunea butonului:"
 
 #: panel-plugin/xkb-dialog.c:192
 msgid "Caps Lock indicator:"
-msgstr ""
+msgstr "Indicator blocare majuscule (CapsLock):"
 
 #: panel-plugin/xkb-dialog.c:205
 msgid "Show notifications on layout change:"
-msgstr ""
+msgstr "Afișează notificări la schimbarea aranjamentului:"
 
 #: panel-plugin/xkb-dialog.c:218
 msgid "Tooltip icon:"
-msgstr ""
+msgstr "Pictogramă în balonul-info:"
 
 #: panel-plugin/xkb-dialog.c:230
 msgid "Behavior"
-msgstr ""
+msgstr "Comportament"
 
 #: panel-plugin/xkb-dialog.c:243
 msgid "Manage layout:"
@@ -100,27 +101,27 @@ msgid ""
 "Use <a href=\"keyboard-settings:\">Keyboard Settings</a> to set available "
 "layouts; reopen this dialog to load changes. New windows start with '%s' "
 "(default layout), except as specified for the other layouts:"
-msgstr ""
+msgstr "Utilizați <a href=\"keyboard-settings:\">Configurări tastatură</a> pentru a selecta aranjamentele disponibile; redeschideți acest dialog pentru a încărca modificările. Ferestrele noi încep cu „%s” („aranjamentul implicit”), cu excepția celor specificate pentru celelalte aranjamente:"
 
 #: panel-plugin/xkb-dialog.c:295
 msgid "Window classes, comma-separated:"
-msgstr ""
+msgstr "Clase de ferestre, separate prin virgule:"
 
 #: panel-plugin/xkb-dialog.c:306
 #, c-format
 msgid "%s_%d (layout %d):"
-msgstr ""
+msgstr "%s_%d (aranjament %d):"
 
 #: panel-plugin/xkb-dialog.c:307
 #, c-format
 msgid "%s (layout %d):"
-msgstr ""
+msgstr "%s (aranjament %d):"
 
 #: panel-plugin/xkb-dialog.c:326
 msgid ""
 "Enter a comma-separated list of window classes which will default to this "
 "layout."
-msgstr ""
+msgstr "Introduceți o listă de clase de ferestre, separate prin virgule, care vor utiliza implicit acest aranjament."
 
 #: panel-plugin/xkb-dialog.c:409
 msgid "Keyboard Layouts Plugin"
@@ -132,11 +133,11 @@ msgstr "Permite configurarea și utilizarea mai multor aranjamente de tastatură
 
 #: panel-plugin/xkb-plugin.c:252
 msgid "Keyboard settings"
-msgstr ""
+msgstr "Configurări tastatură"
 
 #: panel-plugin/xkb-plugin.c:524
 msgid "Keyboard layout changed"
-msgstr ""
+msgstr "Aranjamentul tastaturii s-a schimbat"
 
 #: panel-plugin/xkb.desktop.in:5
 msgid "Keyboard layouts setup and switch plugin"
