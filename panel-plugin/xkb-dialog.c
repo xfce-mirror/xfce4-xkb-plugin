@@ -123,9 +123,10 @@ xkb_dialog_configure_plugin (XfcePanelPlugin *plugin,
 
   xfce_panel_plugin_block_menu (plugin);
 
-  settings_dialog = xfce_titled_dialog_new_with_buttons (_("Keyboard Layouts"),
-                                                         NULL, 0, "gtk-close",
-                                                         GTK_RESPONSE_OK, NULL);
+  settings_dialog = xfce_titled_dialog_new_with_mixed_buttons (_("Keyboard Layouts"),
+                                                               NULL, 0, "gtk-close",
+                                                               "window-close-symbolic", _("_Close"), GTK_RESPONSE_OK,
+                                                               NULL);
   gtk_window_set_icon_name (GTK_WINDOW (settings_dialog), "org.xfce.panel.xkb");
 
   vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 18);

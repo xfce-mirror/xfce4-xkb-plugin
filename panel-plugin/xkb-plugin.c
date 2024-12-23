@@ -568,13 +568,14 @@ xkb_plugin_configure_layout (GtkWidget *widget)
   if (item)
     {
       g_shell_parse_argv (garcon_menu_item_get_command (item), NULL, &argv, &error);
-      succeed = xfce_spawn_on_screen (gtk_widget_get_screen (widget),
-                                      garcon_menu_item_get_path (item),
-                                      argv, NULL, G_SPAWN_SEARCH_PATH,
-                                      garcon_menu_item_supports_startup_notification (item),
-                                      gtk_get_current_event_time (),
-                                      garcon_menu_item_get_icon_name (item),
-                                      &error);
+      succeed = xfce_spawn (gtk_widget_get_screen (widget),
+                            garcon_menu_item_get_path (item),
+                            argv, NULL, G_SPAWN_SEARCH_PATH,
+                            garcon_menu_item_supports_startup_notification (item),
+                            gtk_get_current_event_time (),
+                            garcon_menu_item_get_icon_name (item),
+                            TRUE,
+                            &error);
       g_strfreev (argv);
       garcon_menu_item_unref (item);
       g_assert (succeed);

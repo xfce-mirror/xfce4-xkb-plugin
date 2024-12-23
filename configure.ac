@@ -64,15 +64,15 @@ dnl ***********************************
 dnl *** Check for required packages ***
 dnl ***********************************
 XDT_CHECK_PACKAGE([GLIB], [glib-2.0], [2.50.0])
-XDT_CHECK_PACKAGE([GTK], [gtk+-3.0], [3.20.0])
-XDT_CHECK_PACKAGE([LIBXFCE4PANEL], [libxfce4panel-2.0], [4.12.0])
-XDT_CHECK_PACKAGE([LIBXFCE4UTIL], [libxfce4util-1.0], [4.12.0])
-XDT_CHECK_PACKAGE([LIBXFCE4UI], [libxfce4ui-2], [4.12.0])
-XDT_CHECK_PACKAGE([XFCONF], [libxfconf-0], [4.12.1])
+XDT_CHECK_PACKAGE([GTK], [gtk+-3.0], [3.22.0])
+XDT_CHECK_PACKAGE([LIBXFCE4PANEL], [libxfce4panel-2.0], [4.16.0])
+XDT_CHECK_PACKAGE([LIBXFCE4UTIL], [libxfce4util-1.0], [4.16.0])
+XDT_CHECK_PACKAGE([LIBXFCE4UI], [libxfce4ui-2], [4.16.0])
+XDT_CHECK_PACKAGE([XFCONF], [libxfconf-0], [4.16.0])
 XDT_CHECK_PACKAGE([LIBXKLAVIER], [libxklavier], [5.3])
 XDT_CHECK_PACKAGE([LIBRSVG], [librsvg-2.0], [2.40])
 XDT_CHECK_PACKAGE([LIBWNCK], [libwnck-3.0], [3.14])
-XDT_CHECK_PACKAGE([GARCON], [garcon-1], [0.4.0])
+XDT_CHECK_PACKAGE([GARCON], [garcon-1], [4.16.0])
 
 dnl **********************************
 dnl *** Optional libnotify Support ***
