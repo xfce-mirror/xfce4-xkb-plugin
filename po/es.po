@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
-"POT-Creation-Date: 2024-04-07 00:58+0200\n"
+"POT-Creation-Date: 2024-12-24 00:54+0100\n"
 "PO-Revision-Date: 2013-07-03 19:34+0000\n"
 "Last-Translator: Toni Estévez <toni.estevez@gmail.com>, 2021-2022\n"
 "Language-Team: Spanish (http://app.transifex.com/xfce/xfce-panel-plugins/language/es/)\n"
@@ -33,75 +33,79 @@ msgstr "Esta opción no está disponible para la distribución actual"
 msgid "Keyboard Layouts"
 msgstr "Distribuciones del teclado"
 
-#: panel-plugin/xkb-dialog.c:139
+#: panel-plugin/xkb-dialog.c:128
+msgid "_Close"
+msgstr "_Cerrar"
+
+#: panel-plugin/xkb-dialog.c:140
 msgid "Appearance"
 msgstr "Apariencia"
 
-#: panel-plugin/xkb-dialog.c:152
+#: panel-plugin/xkb-dialog.c:153
 msgid "Show layout as:"
 msgstr "Mostrar la distribución como:"
 
-#: panel-plugin/xkb-dialog.c:158
+#: panel-plugin/xkb-dialog.c:159
 msgid "image"
 msgstr "Imagen"
 
-#: panel-plugin/xkb-dialog.c:159
+#: panel-plugin/xkb-dialog.c:160
 msgid "text"
 msgstr "Texto"
 
-#: panel-plugin/xkb-dialog.c:160
+#: panel-plugin/xkb-dialog.c:161
 msgid "system"
 msgstr "Sistema"
 
-#: panel-plugin/xkb-dialog.c:166
+#: panel-plugin/xkb-dialog.c:167
 msgid "Layout name:"
 msgstr "Nombre de la distribución:"
 
-#: panel-plugin/xkb-dialog.c:172
+#: panel-plugin/xkb-dialog.c:173
 msgid "country"
 msgstr "País"
 
-#: panel-plugin/xkb-dialog.c:173
+#: panel-plugin/xkb-dialog.c:174
 msgid "language"
 msgstr "Idioma"
 
-#: panel-plugin/xkb-dialog.c:179
+#: panel-plugin/xkb-dialog.c:180
 msgid "Widget size:"
 msgstr "Tamaño del botón:"
 
-#: panel-plugin/xkb-dialog.c:192
+#: panel-plugin/xkb-dialog.c:193
 msgid "Caps Lock indicator:"
 msgstr "Indicador de Bloq Mayús:"
 
-#: panel-plugin/xkb-dialog.c:205
+#: panel-plugin/xkb-dialog.c:206
 msgid "Show notifications on layout change:"
 msgstr "Mostrar una notificación al cambiar la distribución:"
 
-#: panel-plugin/xkb-dialog.c:218
+#: panel-plugin/xkb-dialog.c:219
 msgid "Tooltip icon:"
 msgstr "Icono en la información emergente:"
 
-#: panel-plugin/xkb-dialog.c:230
+#: panel-plugin/xkb-dialog.c:231
 msgid "Behavior"
 msgstr "Comportamiento"
 
-#: panel-plugin/xkb-dialog.c:243
+#: panel-plugin/xkb-dialog.c:244
 msgid "Manage layout:"
 msgstr "Gestionar la distribución:"
 
-#: panel-plugin/xkb-dialog.c:249
+#: panel-plugin/xkb-dialog.c:250
 msgid "globally"
 msgstr "Globalmente"
 
-#: panel-plugin/xkb-dialog.c:250
+#: panel-plugin/xkb-dialog.c:251
 msgid "per window"
 msgstr "Por ventana"
 
-#: panel-plugin/xkb-dialog.c:251
+#: panel-plugin/xkb-dialog.c:252
 msgid "per application"
 msgstr "Por aplicación"
 
-#: panel-plugin/xkb-dialog.c:274
+#: panel-plugin/xkb-dialog.c:275
 #, c-format
 msgid ""
 "Use <a href=\"keyboard-settings:\">Keyboard Settings</a> to set available "
@@ -109,31 +113,31 @@ msgid ""
 "(default layout), except as specified for the other layouts:"
 msgstr "Use <a href=\"keyboard-settings:\">Configuración del teclado</a> para configurar las distribuciones disponibles; vuelva a abrir este diálogo para cargar los cambios. Las ventanas nuevas empiezan por «%s» (distribucion por defecto), excepto si se especifica lo contrario para las demás distribuciones:"
 
-#: panel-plugin/xkb-dialog.c:295
+#: panel-plugin/xkb-dialog.c:296
 msgid "Window classes, comma-separated:"
 msgstr "Clases de ventana, separadas por comas:"
 
-#: panel-plugin/xkb-dialog.c:306
+#: panel-plugin/xkb-dialog.c:307
 #, c-format
 msgid "%s_%d (layout %d):"
 msgstr "%s_%d (distribución %d):"
 
-#: panel-plugin/xkb-dialog.c:307
+#: panel-plugin/xkb-dialog.c:308
 #, c-format
 msgid "%s (layout %d):"
 msgstr "%s (distribución %d):"
 
-#: panel-plugin/xkb-dialog.c:326
+#: panel-plugin/xkb-dialog.c:327
 msgid ""
 "Enter a comma-separated list of window classes which will default to this "
 "layout."
 msgstr "Escriba una lista de las clases de ventana separadas por comas que usarán por defecto esta distribución."
 
-#: panel-plugin/xkb-dialog.c:409
+#: panel-plugin/xkb-dialog.c:410
 msgid "Keyboard Layouts Plugin"
 msgstr "Distribuciones del teclado"
 
-#: panel-plugin/xkb-dialog.c:411
+#: panel-plugin/xkb-dialog.c:412
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "Permite configurar y usar múltiples distribuciones del teclado."
 
