@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
-"POT-Creation-Date: 2024-04-07 00:58+0200\n"
+"POT-Creation-Date: 2024-12-24 00:54+0100\n"
 "PO-Revision-Date: 2013-07-03 19:34+0000\n"
 "Last-Translator: 黃柏諺 <s8321414@gmail.com>, 2022\n"
 "Language-Team: Chinese (Taiwan) (http://app.transifex.com/xfce/xfce-panel-plugins/language/zh_TW/)\n"
@@ -29,75 +29,79 @@ msgstr "此選項未在目前的佈局樣式中提供"
 msgid "Keyboard Layouts"
 msgstr "鍵盤配置"
 
-#: panel-plugin/xkb-dialog.c:139
+#: panel-plugin/xkb-dialog.c:128
+msgid "_Close"
+msgstr "關閉(_C)"
+
+#: panel-plugin/xkb-dialog.c:140
 msgid "Appearance"
 msgstr "外觀"
 
-#: panel-plugin/xkb-dialog.c:152
+#: panel-plugin/xkb-dialog.c:153
 msgid "Show layout as:"
 msgstr "顯示配置為："
 
-#: panel-plugin/xkb-dialog.c:158
+#: panel-plugin/xkb-dialog.c:159
 msgid "image"
 msgstr "影像"
 
-#: panel-plugin/xkb-dialog.c:159
+#: panel-plugin/xkb-dialog.c:160
 msgid "text"
 msgstr "文字"
 
-#: panel-plugin/xkb-dialog.c:160
+#: panel-plugin/xkb-dialog.c:161
 msgid "system"
 msgstr "系統"
 
-#: panel-plugin/xkb-dialog.c:166
+#: panel-plugin/xkb-dialog.c:167
 msgid "Layout name:"
 msgstr "佈局名稱："
 
-#: panel-plugin/xkb-dialog.c:172
+#: panel-plugin/xkb-dialog.c:173
 msgid "country"
 msgstr "國家"
 
-#: panel-plugin/xkb-dialog.c:173
+#: panel-plugin/xkb-dialog.c:174
 msgid "language"
 msgstr "語言"
 
-#: panel-plugin/xkb-dialog.c:179
+#: panel-plugin/xkb-dialog.c:180
 msgid "Widget size:"
 msgstr "小工具大小："
 
-#: panel-plugin/xkb-dialog.c:192
+#: panel-plugin/xkb-dialog.c:193
 msgid "Caps Lock indicator:"
 msgstr "大寫鎖定鍵指示器："
 
-#: panel-plugin/xkb-dialog.c:205
+#: panel-plugin/xkb-dialog.c:206
 msgid "Show notifications on layout change:"
 msgstr "當佈局變更時顯示通知："
 
-#: panel-plugin/xkb-dialog.c:218
+#: panel-plugin/xkb-dialog.c:219
 msgid "Tooltip icon:"
 msgstr "工具提示圖示："
 
-#: panel-plugin/xkb-dialog.c:230
+#: panel-plugin/xkb-dialog.c:231
 msgid "Behavior"
 msgstr "行為"
 
-#: panel-plugin/xkb-dialog.c:243
+#: panel-plugin/xkb-dialog.c:244
 msgid "Manage layout:"
 msgstr "管理配置："
 
-#: panel-plugin/xkb-dialog.c:249
+#: panel-plugin/xkb-dialog.c:250
 msgid "globally"
 msgstr "全域"
 
-#: panel-plugin/xkb-dialog.c:250
+#: panel-plugin/xkb-dialog.c:251
 msgid "per window"
 msgstr "各個視窗獨立"
 
-#: panel-plugin/xkb-dialog.c:251
+#: panel-plugin/xkb-dialog.c:252
 msgid "per application"
 msgstr "各個程式獨立"
 
-#: panel-plugin/xkb-dialog.c:274
+#: panel-plugin/xkb-dialog.c:275
 #, c-format
 msgid ""
 "Use <a href=\"keyboard-settings:\">Keyboard Settings</a> to set available "
@@ -105,31 +109,31 @@ msgid ""
 "(default layout), except as specified for the other layouts:"
 msgstr "使用<a href=\"keyboard-settings:\">鍵盤設定</a>來設定可用的鍵盤配置；重新開啟此對話方塊以載入變更。新視窗以「%s」開始（預設鍵盤配置），除非指定了其他配置。"
 
-#: panel-plugin/xkb-dialog.c:295
+#: panel-plugin/xkb-dialog.c:296
 msgid "Window classes, comma-separated:"
 msgstr "視窗類別，逗號分隔："
 
-#: panel-plugin/xkb-dialog.c:306
+#: panel-plugin/xkb-dialog.c:307
 #, c-format
 msgid "%s_%d (layout %d):"
 msgstr "%s_%d（鍵盤配置 %d）："
 
-#: panel-plugin/xkb-dialog.c:307
+#: panel-plugin/xkb-dialog.c:308
 #, c-format
 msgid "%s (layout %d):"
 msgstr "%s（鍵盤配置 %d）："
 
-#: panel-plugin/xkb-dialog.c:326
+#: panel-plugin/xkb-dialog.c:327
 msgid ""
 "Enter a comma-separated list of window classes which will default to this "
 "layout."
 msgstr "輸入以逗號分隔的視窗類別清單，這些視窗類別將會預設為此配置。"
 
-#: panel-plugin/xkb-dialog.c:409
+#: panel-plugin/xkb-dialog.c:410
 msgid "Keyboard Layouts Plugin"
 msgstr "鍵盤配置插件"
 
-#: panel-plugin/xkb-dialog.c:411
+#: panel-plugin/xkb-dialog.c:412
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "讓您設定並使用多種鍵盤配置。"
 
