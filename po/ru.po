@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
-"POT-Creation-Date: 2024-04-07 00:58+0200\n"
+"POT-Creation-Date: 2024-12-24 00:54+0100\n"
 "PO-Revision-Date: 2013-07-03 19:34+0000\n"
 "Last-Translator: Igor Vornovskii, 2023\n"
 "Language-Team: Russian (http://app.transifex.com/xfce/xfce-panel-plugins/language/ru/)\n"
@@ -31,75 +31,79 @@ msgstr "Данная опция недоступна для текущего с�
 msgid "Keyboard Layouts"
 msgstr "Раскладки клавиатуры"
 
-#: panel-plugin/xkb-dialog.c:139
+#: panel-plugin/xkb-dialog.c:128
+msgid "_Close"
+msgstr "_Закрыть"
+
+#: panel-plugin/xkb-dialog.c:140
 msgid "Appearance"
 msgstr "Внешний вид"
 
-#: panel-plugin/xkb-dialog.c:152
+#: panel-plugin/xkb-dialog.c:153
 msgid "Show layout as:"
 msgstr "Стиль отображения:"
 
-#: panel-plugin/xkb-dialog.c:158
+#: panel-plugin/xkb-dialog.c:159
 msgid "image"
 msgstr "значок"
 
-#: panel-plugin/xkb-dialog.c:159
+#: panel-plugin/xkb-dialog.c:160
 msgid "text"
 msgstr "текст"
 
-#: panel-plugin/xkb-dialog.c:160
+#: panel-plugin/xkb-dialog.c:161
 msgid "system"
 msgstr "системный"
 
-#: panel-plugin/xkb-dialog.c:166
+#: panel-plugin/xkb-dialog.c:167
 msgid "Layout name:"
 msgstr "Название раскладки:"
 
-#: panel-plugin/xkb-dialog.c:172
+#: panel-plugin/xkb-dialog.c:173
 msgid "country"
 msgstr "страна"
 
-#: panel-plugin/xkb-dialog.c:173
+#: panel-plugin/xkb-dialog.c:174
 msgid "language"
 msgstr "язык"
 
-#: panel-plugin/xkb-dialog.c:179
+#: panel-plugin/xkb-dialog.c:180
 msgid "Widget size:"
 msgstr "Размер виджета:"
 
-#: panel-plugin/xkb-dialog.c:192
+#: panel-plugin/xkb-dialog.c:193
 msgid "Caps Lock indicator:"
 msgstr "Индикатор Caps Lock:"
 
-#: panel-plugin/xkb-dialog.c:205
+#: panel-plugin/xkb-dialog.c:206
 msgid "Show notifications on layout change:"
 msgstr "Показывать уведомления об изменении раскладки:"
 
-#: panel-plugin/xkb-dialog.c:218
+#: panel-plugin/xkb-dialog.c:219
 msgid "Tooltip icon:"
 msgstr "Значок подсказок:"
 
-#: panel-plugin/xkb-dialog.c:230
+#: panel-plugin/xkb-dialog.c:231
 msgid "Behavior"
 msgstr "Поведение:"
 
-#: panel-plugin/xkb-dialog.c:243
+#: panel-plugin/xkb-dialog.c:244
 msgid "Manage layout:"
 msgstr "Управление раскладками:"
 
-#: panel-plugin/xkb-dialog.c:249
+#: panel-plugin/xkb-dialog.c:250
 msgid "globally"
 msgstr "глобально"
 
-#: panel-plugin/xkb-dialog.c:250
+#: panel-plugin/xkb-dialog.c:251
 msgid "per window"
 msgstr "для каждого окна"
 
-#: panel-plugin/xkb-dialog.c:251
+#: panel-plugin/xkb-dialog.c:252
 msgid "per application"
 msgstr "для каждого приложения"
 
-#: panel-plugin/xkb-dialog.c:274
+#: panel-plugin/xkb-dialog.c:275
 #, c-format
 msgid ""
 "Use <a href=\"keyboard-settings:\">Keyboard Settings</a> to set available "
@@ -107,31 +111,31 @@ msgid ""
 "(default layout), except as specified for the other layouts:"
 msgstr "Используйте <a href=\"keyboard-settings:\">Настройки Клавиатуры</a> , чтобы установить доступные раскладки; повторно откройте это диалоговое окно, чтобы загрузить изменения. Новые окна начинаются с \"%s\" (раскладка по умолчанию), за исключением случаев, указанных для других раскладок:"
 
-#: panel-plugin/xkb-dialog.c:295
+#: panel-plugin/xkb-dialog.c:296
 msgid "Window classes, comma-separated:"
 msgstr "Классы окон, через запятую:"
 
-#: panel-plugin/xkb-dialog.c:306
+#: panel-plugin/xkb-dialog.c:307
 #, c-format
 msgid "%s_%d (layout %d):"
 msgstr "%s_%d (раскладка %d):"
 
-#: panel-plugin/xkb-dialog.c:307
+#: panel-plugin/xkb-dialog.c:308
 #, c-format
 msgid "%s (layout %d):"
 msgstr "%s (раскладка %d):"
 
-#: panel-plugin/xkb-dialog.c:326
+#: panel-plugin/xkb-dialog.c:327
 msgid ""
 "Enter a comma-separated list of window classes which will default to this "
 "layout."
 msgstr "Введите список классов окон, разделенных запятыми, которые по умолчанию будут использовать эту компоновку."
 
-#: panel-plugin/xkb-dialog.c:409
+#: panel-plugin/xkb-dialog.c:410
 msgid "Keyboard Layouts Plugin"
 msgstr "Модуль раскладок клавиатуры"
 
-#: panel-plugin/xkb-dialog.c:411
+#: panel-plugin/xkb-dialog.c:412
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "Позволяет настроить и использовать несколько клавиатурных раскладок."
 
