@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
-"POT-Creation-Date: 2024-04-07 00:58+0200\n"
+"POT-Creation-Date: 2024-12-24 00:54+0100\n"
 "PO-Revision-Date: 2013-07-03 19:34+0000\n"
 "Last-Translator: Theppitak Karoonboonyanan <theppitak@gmail.com>, 2015,2017\n"
 "Language-Team: Thai (http://app.transifex.com/xfce/xfce-panel-plugins/language/th/)\n"
@@ -28,75 +28,79 @@ msgstr "ไม่มีตัวเลือกนี้สำหรับผั
 msgid "Keyboard Layouts"
 msgstr "ผังแป้นพิมพ์"
 
-#: panel-plugin/xkb-dialog.c:139
+#: panel-plugin/xkb-dialog.c:128
+msgid "_Close"
+msgstr "ปิ_ด"
+
+#: panel-plugin/xkb-dialog.c:140
 msgid "Appearance"
 msgstr "รูปปรากฏ"
 
-#: panel-plugin/xkb-dialog.c:152
+#: panel-plugin/xkb-dialog.c:153
 msgid "Show layout as:"
 msgstr "วิธีแสดงผัง:"
 
-#: panel-plugin/xkb-dialog.c:158
+#: panel-plugin/xkb-dialog.c:159
 msgid "image"
 msgstr "รูปภาพ"
 
-#: panel-plugin/xkb-dialog.c:159
+#: panel-plugin/xkb-dialog.c:160
 msgid "text"
 msgstr "ข้อความ"
 
-#: panel-plugin/xkb-dialog.c:160
+#: panel-plugin/xkb-dialog.c:161
 msgid "system"
 msgstr "ระบบ"
 
-#: panel-plugin/xkb-dialog.c:166
+#: panel-plugin/xkb-dialog.c:167
 msgid "Layout name:"
 msgstr "ชื่อผัง:"
 
-#: panel-plugin/xkb-dialog.c:172
+#: panel-plugin/xkb-dialog.c:173
 msgid "country"
 msgstr "ประเทศ"
 
-#: panel-plugin/xkb-dialog.c:173
+#: panel-plugin/xkb-dialog.c:174
 msgid "language"
 msgstr "ภาษา"
 
-#: panel-plugin/xkb-dialog.c:179
+#: panel-plugin/xkb-dialog.c:180
 msgid "Widget size:"
 msgstr "ขนาดวิดเจ็ต:"
 
-#: panel-plugin/xkb-dialog.c:192
+#: panel-plugin/xkb-dialog.c:193
 msgid "Caps Lock indicator:"
 msgstr "ตัวบ่งชี้ปุ่ม Caps Lock:"
 
-#: panel-plugin/xkb-dialog.c:205
+#: panel-plugin/xkb-dialog.c:206
 msgid "Show notifications on layout change:"
 msgstr "แจ้งเหตุเมื่อมีการเปลี่ยนผังแป้นพิมพ์:"
 
-#: panel-plugin/xkb-dialog.c:218
+#: panel-plugin/xkb-dialog.c:219
 msgid "Tooltip icon:"
 msgstr "ไอคอนในคำแนะนำเครื่องมือ:"
 
-#: panel-plugin/xkb-dialog.c:230
+#: panel-plugin/xkb-dialog.c:231
 msgid "Behavior"
 msgstr "พฤติกรรม"
 
-#: panel-plugin/xkb-dialog.c:243
+#: panel-plugin/xkb-dialog.c:244
 msgid "Manage layout:"
 msgstr "จัดการผัง:"
 
-#: panel-plugin/xkb-dialog.c:249
+#: panel-plugin/xkb-dialog.c:250
 msgid "globally"
 msgstr "ทั่วทั้งเดสก์ท็อป"
 
-#: panel-plugin/xkb-dialog.c:250
+#: panel-plugin/xkb-dialog.c:251
 msgid "per window"
 msgstr "รายหน้าต่าง"
 
-#: panel-plugin/xkb-dialog.c:251
+#: panel-plugin/xkb-dialog.c:252
 msgid "per application"
 msgstr "รายโปรแกรม"
 
-#: panel-plugin/xkb-dialog.c:274
+#: panel-plugin/xkb-dialog.c:275
 #, c-format
 msgid ""
 "Use <a href=\"keyboard-settings:\">Keyboard Settings</a> to set available "
@@ -104,31 +108,31 @@ msgid ""
 "(default layout), except as specified for the other layouts:"
 msgstr "ใช้ <a href=\"keyboard-settings:\">การตั้งค่าแป้นพิมพ์</a> กำหนดผังต่างๆ ที่จะใช้ แล้วเปิดกล่องโต้ตอบนี้ใหม่ หน้าต่างที่เปิดใหม่จะใช้ผัง '%s' (ผังปริยาย) ยกเว้นว่าจะกำหนดให้เป็นผังอื่น:"
 
-#: panel-plugin/xkb-dialog.c:295
+#: panel-plugin/xkb-dialog.c:296
 msgid "Window classes, comma-separated:"
 msgstr "ประเภทของหน้าต่าง, คั่นด้วยจุลภาค:"
 
-#: panel-plugin/xkb-dialog.c:306
+#: panel-plugin/xkb-dialog.c:307
 #, c-format
 msgid "%s_%d (layout %d):"
 msgstr "%s_%d (ผัง %d):"
 
-#: panel-plugin/xkb-dialog.c:307
+#: panel-plugin/xkb-dialog.c:308
 #, c-format
 msgid "%s (layout %d):"
 msgstr "%s (ผัง %d):"
 
-#: panel-plugin/xkb-dialog.c:326
+#: panel-plugin/xkb-dialog.c:327
 msgid ""
 "Enter a comma-separated list of window classes which will default to this "
 "layout."
 msgstr "ป้อนรายชื่อประเภทของหน้าต่างที่จะให้ใช้ผังนี้โดยปริยาย คั่นด้วยจุลภาค"
 
-#: panel-plugin/xkb-dialog.c:409
+#: panel-plugin/xkb-dialog.c:410
 msgid "Keyboard Layouts Plugin"
 msgstr "ปลั๊กอินผังแป้นพิมพ์"
 
-#: panel-plugin/xkb-dialog.c:411
+#: panel-plugin/xkb-dialog.c:412
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "ช่วยคุณตั้งค่าและใช้ผังแป้นพิมพ์หลายผัง"
 
