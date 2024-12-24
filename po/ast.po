@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the xfce-panel-plugins.xfce4-xkb-plugin package.
 # 
 # Translators:
 # enolp <enolp@softastur.org>, 2020
@@ -8,101 +8,141 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-27 00:32+0200\n"
-"PO-Revision-Date: 2020-03-19 19:56+0000\n"
-"Last-Translator: enolp <enolp@softastur.org>\n"
-"Language-Team: Asturian (http://www.transifex.com/xfce/xfce-panel-plugins/language/ast/)\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2024-12-24 00:54+0100\n"
+"PO-Revision-Date: 2013-07-03 19:34+0000\n"
+"Last-Translator: enolp <enolp@softastur.org>, 2020\n"
+"Language-Team: Asturian (http://app.transifex.com/xfce/xfce-panel-plugins/language/ast/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ast\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../panel-plugin/xkb-dialog.c:76
+#: panel-plugin/xkb-dialog.c:92
 msgid "This option is not available for current layout style"
 msgstr ""
 
-#: ../panel-plugin/xkb-dialog.c:105 ../panel-plugin/xkb.desktop.in.h:1
+#: panel-plugin/xkb-dialog.c:126 panel-plugin/xkb.desktop.in:4
 msgid "Keyboard Layouts"
 msgstr "Distribuciones pal tecláu"
 
-#: ../panel-plugin/xkb-dialog.c:121
+#: panel-plugin/xkb-dialog.c:128
+msgid "_Close"
+msgstr "_Zarrar"
+
+#: panel-plugin/xkb-dialog.c:140
 msgid "Appearance"
 msgstr "Aspeutu"
 
-#: ../panel-plugin/xkb-dialog.c:131
+#: panel-plugin/xkb-dialog.c:153
 msgid "Show layout as:"
 msgstr "Amosar la distribución como:"
 
-#: ../panel-plugin/xkb-dialog.c:137
+#: panel-plugin/xkb-dialog.c:159
 msgid "image"
 msgstr "imaxe"
 
-#: ../panel-plugin/xkb-dialog.c:138
+#: panel-plugin/xkb-dialog.c:160
 msgid "text"
 msgstr "testu"
 
-#: ../panel-plugin/xkb-dialog.c:139
+#: panel-plugin/xkb-dialog.c:161
 msgid "system"
 msgstr "sistema"
 
-#: ../panel-plugin/xkb-dialog.c:145
+#: panel-plugin/xkb-dialog.c:167
 msgid "Layout name:"
 msgstr "Nome de la distribución"
 
-#: ../panel-plugin/xkb-dialog.c:151
+#: panel-plugin/xkb-dialog.c:173
 msgid "country"
 msgstr "país"
 
-#: ../panel-plugin/xkb-dialog.c:152
+#: panel-plugin/xkb-dialog.c:174
 msgid "language"
 msgstr "llingua"
 
-#: ../panel-plugin/xkb-dialog.c:158
+#: panel-plugin/xkb-dialog.c:180
 msgid "Widget size:"
 msgstr "Tamañu del widget:"
 
-#: ../panel-plugin/xkb-dialog.c:171
+#: panel-plugin/xkb-dialog.c:193
 msgid "Caps Lock indicator:"
 msgstr "Indicador de Bloq Mayús:"
 
-#: ../panel-plugin/xkb-dialog.c:183
+#: panel-plugin/xkb-dialog.c:206
+msgid "Show notifications on layout change:"
+msgstr ""
+
+#: panel-plugin/xkb-dialog.c:219
 msgid "Tooltip icon:"
 msgstr "Iconu del conseyu emerxente:"
 
-#: ../panel-plugin/xkb-dialog.c:195
+#: panel-plugin/xkb-dialog.c:231
 msgid "Behavior"
 msgstr "Comportamientu"
 
-#: ../panel-plugin/xkb-dialog.c:205
+#: panel-plugin/xkb-dialog.c:244
 msgid "Manage layout:"
 msgstr ""
 
-#: ../panel-plugin/xkb-dialog.c:211
+#: panel-plugin/xkb-dialog.c:250
 msgid "globally"
 msgstr "globalmente"
 
-#: ../panel-plugin/xkb-dialog.c:212
+#: panel-plugin/xkb-dialog.c:251
 msgid "per window"
 msgstr "per ventana"
 
-#: ../panel-plugin/xkb-dialog.c:213
+#: panel-plugin/xkb-dialog.c:252
 msgid "per application"
 msgstr "per aplicación"
 
-#: ../panel-plugin/xkb-dialog.c:290
+#: panel-plugin/xkb-dialog.c:275
+#, c-format
+msgid ""
+"Use <a href=\"keyboard-settings:\">Keyboard Settings</a> to set available "
+"layouts; reopen this dialog to load changes. New windows start with '%s' "
+"(default layout), except as specified for the other layouts:"
+msgstr ""
+
+#: panel-plugin/xkb-dialog.c:296
+msgid "Window classes, comma-separated:"
+msgstr ""
+
+#: panel-plugin/xkb-dialog.c:307
+#, c-format
+msgid "%s_%d (layout %d):"
+msgstr ""
+
+#: panel-plugin/xkb-dialog.c:308
+#, c-format
+msgid "%s (layout %d):"
+msgstr ""
+
+#: panel-plugin/xkb-dialog.c:327
+msgid ""
+"Enter a comma-separated list of window classes which will default to this "
+"layout."
+msgstr ""
+
+#: panel-plugin/xkb-dialog.c:410
 msgid "Keyboard Layouts Plugin"
 msgstr ""
 
-#: ../panel-plugin/xkb-dialog.c:292
+#: panel-plugin/xkb-dialog.c:412
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr ""
 
-#: ../panel-plugin/xkb-plugin.c:238
+#: panel-plugin/xkb-plugin.c:252
 msgid "Keyboard settings"
 msgstr ""
 
-#: ../panel-plugin/xkb.desktop.in.h:2
+#: panel-plugin/xkb-plugin.c:524
+msgid "Keyboard layout changed"
+msgstr ""
+
+#: panel-plugin/xkb.desktop.in:5
 msgid "Keyboard layouts setup and switch plugin"
 msgstr ""
