@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
-"POT-Creation-Date: 2024-04-07 00:58+0200\n"
+"POT-Creation-Date: 2024-12-24 00:54+0100\n"
 "PO-Revision-Date: 2013-07-03 19:34+0000\n"
 "Last-Translator: Luna Jernberg <droidbittin@gmail.com>, 2022-2023\n"
 "Language-Team: Swedish (http://app.transifex.com/xfce/xfce-panel-plugins/language/sv/)\n"
@@ -28,75 +28,79 @@ msgstr "Detta alternativ är inte tillgängligt för aktuell layoutstil"
 msgid "Keyboard Layouts"
 msgstr "Tangentbordslayouter"
 
-#: panel-plugin/xkb-dialog.c:139
+#: panel-plugin/xkb-dialog.c:128
+msgid "_Close"
+msgstr "_Stäng"
+
+#: panel-plugin/xkb-dialog.c:140
 msgid "Appearance"
 msgstr "Utseende"
 
-#: panel-plugin/xkb-dialog.c:152
+#: panel-plugin/xkb-dialog.c:153
 msgid "Show layout as:"
 msgstr "Visa layout som:"
 
-#: panel-plugin/xkb-dialog.c:158
+#: panel-plugin/xkb-dialog.c:159
 msgid "image"
 msgstr "bild"
 
-#: panel-plugin/xkb-dialog.c:159
+#: panel-plugin/xkb-dialog.c:160
 msgid "text"
 msgstr "text"
 
-#: panel-plugin/xkb-dialog.c:160
+#: panel-plugin/xkb-dialog.c:161
 msgid "system"
 msgstr "system"
 
-#: panel-plugin/xkb-dialog.c:166
+#: panel-plugin/xkb-dialog.c:167
 msgid "Layout name:"
 msgstr "Layoutnamn:"
 
-#: panel-plugin/xkb-dialog.c:172
+#: panel-plugin/xkb-dialog.c:173
 msgid "country"
 msgstr "land"
 
-#: panel-plugin/xkb-dialog.c:173
+#: panel-plugin/xkb-dialog.c:174
 msgid "language"
 msgstr "språk"
 
-#: panel-plugin/xkb-dialog.c:179
+#: panel-plugin/xkb-dialog.c:180
 msgid "Widget size:"
 msgstr "Widget-storlek:"
 
-#: panel-plugin/xkb-dialog.c:192
+#: panel-plugin/xkb-dialog.c:193
 msgid "Caps Lock indicator:"
 msgstr "Caps Lock-indikator"
 
-#: panel-plugin/xkb-dialog.c:205
+#: panel-plugin/xkb-dialog.c:206
 msgid "Show notifications on layout change:"
 msgstr "Visa meddelanden när layouten ändras:"
 
-#: panel-plugin/xkb-dialog.c:218
+#: panel-plugin/xkb-dialog.c:219
 msgid "Tooltip icon:"
 msgstr "Verktygstipsikon:"
 
-#: panel-plugin/xkb-dialog.c:230
+#: panel-plugin/xkb-dialog.c:231
 msgid "Behavior"
 msgstr "Beteende"
 
-#: panel-plugin/xkb-dialog.c:243
+#: panel-plugin/xkb-dialog.c:244
 msgid "Manage layout:"
 msgstr "Hantera layout:"
 
-#: panel-plugin/xkb-dialog.c:249
+#: panel-plugin/xkb-dialog.c:250
 msgid "globally"
 msgstr "globalt"
 
-#: panel-plugin/xkb-dialog.c:250
+#: panel-plugin/xkb-dialog.c:251
 msgid "per window"
 msgstr "per fönster"
 
-#: panel-plugin/xkb-dialog.c:251
+#: panel-plugin/xkb-dialog.c:252
 msgid "per application"
 msgstr "per program"
 
-#: panel-plugin/xkb-dialog.c:274
+#: panel-plugin/xkb-dialog.c:275
 #, c-format
 msgid ""
 "Use <a href=\"keyboard-settings:\">Keyboard Settings</a> to set available "
@@ -104,31 +108,31 @@ msgid ""
 "(default layout), except as specified for the other layouts:"
 msgstr "Använd <a href=\"keyboard-settings:\">Tangentbordsinställningarna</a> för att ställa in tillgängliga layouter; öppna den här dialogrutan igen för att ladda ändringar. Nya fönster börjar med '%s' (standardlayout), förutom vad som anges för de andra layouterna:"
 
-#: panel-plugin/xkb-dialog.c:295
+#: panel-plugin/xkb-dialog.c:296
 msgid "Window classes, comma-separated:"
 msgstr "Fönsterklasser, kommaseparerade:"
 
-#: panel-plugin/xkb-dialog.c:306
+#: panel-plugin/xkb-dialog.c:307
 #, c-format
 msgid "%s_%d (layout %d):"
 msgstr "%s_%d (layout %d):"
 
-#: panel-plugin/xkb-dialog.c:307
+#: panel-plugin/xkb-dialog.c:308
 #, c-format
 msgid "%s (layout %d):"
 msgstr "%s (layout %d):"
 
-#: panel-plugin/xkb-dialog.c:326
+#: panel-plugin/xkb-dialog.c:327
 msgid ""
 "Enter a comma-separated list of window classes which will default to this "
 "layout."
 msgstr "Ange en kommaseparerad lista över fönsterklasser som kommer att ha denna layout som standard."
 
-#: panel-plugin/xkb-dialog.c:409
+#: panel-plugin/xkb-dialog.c:410
 msgid "Keyboard Layouts Plugin"
 msgstr "Insticksmodul för tangentbordslayouter"
 
-#: panel-plugin/xkb-dialog.c:411
+#: panel-plugin/xkb-dialog.c:412
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "Låter dig konfigurera och använda flera olika tangentbordslayouter."
 
