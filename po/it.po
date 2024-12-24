@@ -6,7 +6,7 @@
 # Cristian Marchi <cri.penta@gmail.com>, 2009,2013
 # Dmytro Tokayev, 2023
 # Emanuele Petriglia <transifex@emanuelepetriglia.com>, 2018
-# Emanuele Petriglia <transifex@emanuelepetriglia.com>, 2022
+# Emanuele Petriglia <transifex@emanuelepetriglia.com>, 2022,2024
 # oblo <oblomov78@hotmail.com>, 2015
 msgid ""
 msgstr ""
@@ -14,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
 "POT-Creation-Date: 2024-12-24 00:54+0100\n"
 "PO-Revision-Date: 2013-07-03 19:34+0000\n"
-"Last-Translator: Dmytro Tokayev, 2023\n"
+"Last-Translator: Emanuele Petriglia <transifex@emanuelepetriglia.com>, 2022,2024\n"
 "Language-Team: Italian (http://app.transifex.com/xfce/xfce-panel-plugins/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -108,7 +108,7 @@ msgid ""
 "Use <a href=\"keyboard-settings:\">Keyboard Settings</a> to set available "
 "layouts; reopen this dialog to load changes. New windows start with '%s' "
 "(default layout), except as specified for the other layouts:"
-msgstr "Usare <a href=\"keyboard-settings:\">Impostazioni della tastiera</a> per impostare le disposizioni disponibili; riaprire questa finestra per caricare le modifiche. Le nuove finestre iniziano con '%s' (disposizione predefinita), salvo quanto specificato per le altre disposizioni:"
+msgstr "Usare <a href=\"keyboard-settings:\">Impostazioni della tastiera</a> per impostare i layout disponibili; riaprire questa finestra per caricare le modifiche. Le nuove finestre iniziano con '%s' (layout predefinita), salvo quanto specificato per gli altri layout:"
 
 #: panel-plugin/xkb-dialog.c:296
 msgid "Window classes, comma-separated:"
@@ -117,18 +117,18 @@ msgstr "Classi di finestre, separate da virgole:"
 #: panel-plugin/xkb-dialog.c:307
 #, c-format
 msgid "%s_%d (layout %d):"
-msgstr "%s_%d (disposizione %d):"
+msgstr "%s_%d (layout %d):"
 
 #: panel-plugin/xkb-dialog.c:308
 #, c-format
 msgid "%s (layout %d):"
-msgstr "%s (disposizione %d):"
+msgstr "%s (layout %d):"
 
 #: panel-plugin/xkb-dialog.c:327
 msgid ""
 "Enter a comma-separated list of window classes which will default to this "
 "layout."
-msgstr "Inserire una lista di classi di finestre separate da virgole, le quali saranno predefinite per questa disposizione."
+msgstr "Inserire una lista di classi di finestre separate da virgole, le quali saranno predefinite per questo layout."
 
 #: panel-plugin/xkb-dialog.c:410
 msgid "Keyboard Layouts Plugin"
@@ -148,4 +148,4 @@ msgstr "Disposizione della tastiera cambiata"
 
 #: panel-plugin/xkb.desktop.in:5
 msgid "Keyboard layouts setup and switch plugin"
-msgstr "Componente aggiuntivo per l'impostazione ed il cambio della disposizione della tastiera"
+msgstr "Componente aggiuntivo per l'impostazione ed il cambio del layout della tastiera"
