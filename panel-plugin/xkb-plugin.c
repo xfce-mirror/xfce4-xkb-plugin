@@ -27,6 +27,11 @@
 #include <config.h>
 #endif
 
+#include <gtk/gtk.h>
+#ifdef GDK_WINDOWING_X11
+#include <gdk/gdkx.h>
+#endif
+
 #include <libxfce4ui/libxfce4ui.h>
 #include <librsvg/rsvg.h>
 #include <garcon/garcon.h>
@@ -181,6 +186,28 @@ xkb_plugin_construct (XfcePanelPlugin *plugin)
   GtkWidget      *configure_layouts;
   GtkCssProvider *css_provider;
 
+  xfce_textdomain (GETTEXT_PACKAGE, LOCALEDIR, "UTF-8");
+
+  /* abort on non X11 environments */
+#ifdef GDK_WINDOWING_X11
+  gboolean x11_windowing = GDK_IS_X11_DISPLAY (gdk_display_get_default ());
+#else
+  gboolean x11_windowing = FALSE;
+#endif
+  if (!x11_windowing)
+    {
+      GtkWidget *dialog = xfce_message_dialog_new (NULL, xfce_panel_plugin_get_display_name (plugin), "dialog-error",
+                                                   _("Unsupported windowing environment"), NULL,
+                                                   _("_OK"), GTK_RESPONSE_OK, NULL);
+      XFCE_PANEL_PLUGIN_GET_CLASS (plugin)->free_data = NULL;
+      XFCE_PANEL_PLUGIN_GET_CLASS (plugin)->orientation_changed = NULL;
+      XFCE_PANEL_PLUGIN_GET_CLASS (plugin)->size_changed = NULL;
+      gtk_dialog_run (GTK_DIALOG (dialog));
+      gtk_widget_destroy (dialog);
+      xfce_panel_plugin_remove (plugin);
+      return;
+    }
+
   xkb_plugin = XKB_PLUGIN (plugin);
 
   xkb_plugin->config = xkb_xfconf_new (xfce_panel_plugin_get_property_base (plugin));
@@ -241,8 +268,6 @@ xkb_plugin_construct (XfcePanelPlugin *plugin)
 
   g_signal_connect_swapped (G_OBJECT (xkb_plugin->modifier), "modifier-changed",
                             G_CALLBACK (xkb_plugin_modifier_changed), xkb_plugin);
-
-  xfce_textdomain (GETTEXT_PACKAGE, LOCALEDIR, "UTF-8");
 
   xfce_panel_plugin_menu_show_configure (plugin);
   xfce_panel_plugin_menu_show_about (plugin);
