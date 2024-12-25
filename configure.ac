@@ -16,7 +16,7 @@ XDT_VERSION_INIT([0.8.3], [git])
 dnl ***************************
 dnl *** Initialize autoconf ***
 dnl ***************************
-AC_COPYRIGHT([Copyright (c) 2004-2023
+AC_COPYRIGHT([Copyright (c) 2004-2024
         The Xfce development team. All rights reserved.])
 AC_INIT([xfce4-xkb-plugin], [xdt_version], [https://gitlab.xfce.org/panel-plugins/xfce4-xkb-plugin/], [xfce4-xkb-plugin])
 AC_PREREQ([2.69])
