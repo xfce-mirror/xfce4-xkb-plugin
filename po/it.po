@@ -140,7 +140,7 @@ msgstr "Permette di configurare e utilizzare diverse disposizioni della tastiera
 
 #: panel-plugin/xkb-plugin.c:200
 msgid "Unsupported windowing environment"
-msgstr ""
+msgstr "Ambiente di finestre non supportato"
 
 #: panel-plugin/xkb-plugin.c:201
 msgid "_OK"
