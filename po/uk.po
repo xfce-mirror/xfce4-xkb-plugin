@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
-"POT-Creation-Date: 2024-12-24 00:54+0100\n"
+"POT-Creation-Date: 2024-12-26 00:53+0100\n"
 "PO-Revision-Date: 2013-07-03 19:34+0000\n"
 "Last-Translator: Gordon Freeman, 2023\n"
 "Language-Team: Ukrainian (http://app.transifex.com/xfce/xfce-panel-plugins/language/uk/)\n"
@@ -138,11 +138,19 @@ msgstr "Втулка Розкладки клавіатури"
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "Дозволяє Вам налаштувати і використовувати кілька розкладок клавіатури."
 
-#: panel-plugin/xkb-plugin.c:252
+#: panel-plugin/xkb-plugin.c:200
+msgid "Unsupported windowing environment"
+msgstr ""
+
+#: panel-plugin/xkb-plugin.c:201
+msgid "_OK"
+msgstr "_Гаразд"
+
+#: panel-plugin/xkb-plugin.c:277
 msgid "Keyboard settings"
 msgstr "Налаштування клавіатури"
 
-#: panel-plugin/xkb-plugin.c:524
+#: panel-plugin/xkb-plugin.c:549
 msgid "Keyboard layout changed"
 msgstr "Змінена розкладка клавіатури"
 
