@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
-"POT-Creation-Date: 2024-12-24 00:54+0100\n"
+"POT-Creation-Date: 2024-12-26 00:53+0100\n"
 "PO-Revision-Date: 2013-07-03 19:34+0000\n"
 "Last-Translator: Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>, 2024\n"
 "Language-Team: Romanian (http://app.transifex.com/xfce/xfce-panel-plugins/language/ro/)\n"
@@ -135,11 +135,19 @@ msgstr "Modul pentru aranjamente de tastatură"
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "Permite configurarea și utilizarea mai multor aranjamente de tastatură."
 
-#: panel-plugin/xkb-plugin.c:252
+#: panel-plugin/xkb-plugin.c:200
+msgid "Unsupported windowing environment"
+msgstr "Mediu de ferestre neacceptat (fără suport)"
+
+#: panel-plugin/xkb-plugin.c:201
+msgid "_OK"
+msgstr "_Ok"
+
+#: panel-plugin/xkb-plugin.c:277
 msgid "Keyboard settings"
 msgstr "Configurări tastatură"
 
-#: panel-plugin/xkb-plugin.c:524
+#: panel-plugin/xkb-plugin.c:549
 msgid "Keyboard layout changed"
 msgstr "Aranjamentul tastaturii s-a schimbat"
 
