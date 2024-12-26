@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
-"POT-Creation-Date: 2024-12-24 00:54+0100\n"
+"POT-Creation-Date: 2024-12-26 00:53+0100\n"
 "PO-Revision-Date: 2013-07-03 19:34+0000\n"
 "Last-Translator: Arnold Marko <arnold.marko@gmail.com>, 2019,2023\n"
 "Language-Team: Slovenian (http://app.transifex.com/xfce/xfce-panel-plugins/language/sl/)\n"
@@ -136,11 +136,19 @@ msgstr "Vitčnik za razporede tipk"
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "Omogoča prilagajanje in preklapljanje med različnimi razporedi tipk."
 
-#: panel-plugin/xkb-plugin.c:252
+#: panel-plugin/xkb-plugin.c:200
+msgid "Unsupported windowing environment"
+msgstr ""
+
+#: panel-plugin/xkb-plugin.c:201
+msgid "_OK"
+msgstr "_V redu"
+
+#: panel-plugin/xkb-plugin.c:277
 msgid "Keyboard settings"
 msgstr "Nastavitve tipkovnice"
 
-#: panel-plugin/xkb-plugin.c:524
+#: panel-plugin/xkb-plugin.c:549
 msgid "Keyboard layout changed"
 msgstr "Postavitev tipk spremenjena"
 
