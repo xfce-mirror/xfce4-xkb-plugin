@@ -140,7 +140,7 @@ msgstr "複数のキーボードレイアウトを構成し、使うことを許
 
 #: panel-plugin/xkb-plugin.c:200
 msgid "Unsupported windowing environment"
-msgstr ""
+msgstr "サポートされていないウィンドウ環境"
 
 #: panel-plugin/xkb-plugin.c:201
 msgid "_OK"
