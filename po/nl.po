@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
-"POT-Creation-Date: 2024-12-24 00:54+0100\n"
+"POT-Creation-Date: 2024-12-26 00:53+0100\n"
 "PO-Revision-Date: 2013-07-03 19:34+0000\n"
 "Last-Translator: Pjotr <pjotrvertaalt@gmail.com>, 2015,2017,2022,2024\n"
 "Language-Team: Dutch (http://app.transifex.com/xfce/xfce-panel-plugins/language/nl/)\n"
@@ -134,11 +134,19 @@ msgstr "Toetsenbordindelingen-invoegsel"
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "Stelt u in staat om meerdere toetsenbordindelingen in te stellen en te gebruiken."
 
-#: panel-plugin/xkb-plugin.c:252
+#: panel-plugin/xkb-plugin.c:200
+msgid "Unsupported windowing environment"
+msgstr "Niet-ondersteunde vensteromgeving"
+
+#: panel-plugin/xkb-plugin.c:201
+msgid "_OK"
+msgstr "_Oké"
+
+#: panel-plugin/xkb-plugin.c:277
 msgid "Keyboard settings"
 msgstr "Toetsenbordindelingen"
 
-#: panel-plugin/xkb-plugin.c:524
+#: panel-plugin/xkb-plugin.c:549
 msgid "Keyboard layout changed"
 msgstr "Toetsenbordindeling gewijzigd"
 
