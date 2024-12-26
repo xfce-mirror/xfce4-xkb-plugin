@@ -9,15 +9,15 @@
 # wwj402 <wwj402@gmail.com>, 2017
 # 玉堂白鹤 <yjwork@qq.com>, 2013
 # 张诚 <xxzhangcheng1@gmail.com>, 2017
-# 玉堂白鹤 <yjwork@qq.com>, 2017,2022
+# 玉堂白鹤 <yjwork@qq.com>, 2017,2022,2024
 # Mingcong Bai <jeffbai@aosc.xyz>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
-"POT-Creation-Date: 2024-12-24 00:54+0100\n"
+"POT-Creation-Date: 2024-12-26 00:53+0100\n"
 "PO-Revision-Date: 2013-07-03 19:34+0000\n"
-"Last-Translator: No Body, 2022\n"
+"Last-Translator: 玉堂白鹤 <yjwork@qq.com>, 2017,2022,2024\n"
 "Language-Team: Chinese (China) (http://app.transifex.com/xfce/xfce-panel-plugins/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -141,11 +141,19 @@ msgstr "键盘布局插件"
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "让您配置并使用多种键盘布局。"
 
-#: panel-plugin/xkb-plugin.c:252
+#: panel-plugin/xkb-plugin.c:200
+msgid "Unsupported windowing environment"
+msgstr "不支持的窗口环境"
+
+#: panel-plugin/xkb-plugin.c:201
+msgid "_OK"
+msgstr "确定(_O)"
+
+#: panel-plugin/xkb-plugin.c:277
 msgid "Keyboard settings"
 msgstr "键盘设置"
 
-#: panel-plugin/xkb-plugin.c:524
+#: panel-plugin/xkb-plugin.c:549
 msgid "Keyboard layout changed"
 msgstr "键盘布局已更改"
 
