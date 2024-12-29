@@ -1,3 +1,32 @@
+0.8.4 (2024-12-29)
+=====
+- Exit early and remove plugin on non X11 environments
+- Update copyright year
+- build: Bump dependency versions and fix deprecation warnings
+- Use pango context to adjust dpi (Fixes #56)
+- build: Use XDT_VERSION_INIT and get rid of configure.ac.in
+- scan-build: Fix core.CallAndMessage
+- Avoid deprecated rsvg_handle_close()
+- I18n: Update po/LINGUAS list
+- build: Get rid of intltool
+- Update copyright year
+- Update README consistent with common template
+- build: Add GLib requirement
+- Use xfce_panel_plugin_popup_menu() when possible
+- Implement list of window class names that default to each layout (#33)
+- COPYING: Replace BSD-2-Clause with GPL (#41)
+- Translation Updates:
+  Albanian, Arabic, Armenian (Armenia), Asturian, Basque, Belarusian,
+  Bulgarian, Catalan, Chinese (China), Chinese (Taiwan), Croatian,
+  Czech, Danish, Dutch, Eastern Armenian, English (Australia), English
+  (Canada), English (United Kingdom), Estonian, Finnish, French,
+  Galician, German, Greek, Hebrew, Hungarian, Icelandic, Indonesian,
+  Interlingue, Italian, Japanese, Kazakh, Korean, Latvian, Lithuanian,
+  Malay, Norwegian Bokmål, Occitan (post 1500), Polish, Portuguese,
+  Portuguese (Brazil), Romanian, Russian, Serbian, Slovak, Slovenian,
+  Spanish, Swedish, Thai, Turkish, Ukrainian, Urdu, Urdu (Pakistan),
+  Uyghur, Uzbek, Uzbek (Latin)
+
 0.8.3
 ======
 - Add optional notification support (Fixes #48)
