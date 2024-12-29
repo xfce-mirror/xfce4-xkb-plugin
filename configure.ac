@@ -10,7 +10,7 @@ AC_CONFIG_MACRO_DIRS([m4])
 dnl ***************************
 dnl *** Version information ***
 dnl ***************************
-XDT_VERSION_INIT([0.8.5])
+XDT_VERSION_INIT([0.8.5], [git])
 
 
 dnl ***************************
