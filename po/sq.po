@@ -22,7 +22,7 @@ msgstr ""
 
 #: panel-plugin/xkb-dialog.c:92
 msgid "This option is not available for current layout style"
-msgstr "Kjo mundësi s’është e passhme për stilin e tanishëm të skemës"
+msgstr "Kjo mundësi s’mund të kihet për stilin e tanishëm të skemës"
 
 #: panel-plugin/xkb-dialog.c:126 panel-plugin/xkb.desktop.in:4
 msgid "Keyboard Layouts"
