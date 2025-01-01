@@ -137,7 +137,7 @@ msgstr "Allows you to configure and use multiple keyboard layouts."
 
 #: panel-plugin/xkb-plugin.c:200
 msgid "Unsupported windowing environment"
-msgstr ""
+msgstr "Unsupported windowing environment"
 
 #: panel-plugin/xkb-plugin.c:201
 msgid "_OK"
