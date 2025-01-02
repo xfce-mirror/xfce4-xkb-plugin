@@ -137,7 +137,7 @@ msgstr "Омогућава да подесите и користите више�
 
 #: panel-plugin/xkb-plugin.c:200
 msgid "Unsupported windowing environment"
-msgstr ""
+msgstr "Неподржана средина стварања прозора"
 
 #: panel-plugin/xkb-plugin.c:201
 msgid "_OK"
