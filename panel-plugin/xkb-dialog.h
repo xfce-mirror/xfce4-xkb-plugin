@@ -26,7 +26,7 @@
 #ifndef __XKB_SETTINGS_DIALOG_H__
 #define __XKB_SETTINGS_DIALOG_H__
 
-#include <libxfce4panel/xfce-panel-plugin.h>
+#include <libxfce4panel/libxfce4panel.h>
 
 #include "xkb-keyboard.h"
 #include "xkb-xfconf.h"
