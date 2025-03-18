@@ -136,7 +136,7 @@ msgstr "Võimaldab sul seadistada ja kasutada mitmeid klaviatuuri paigutusi."
 
 #: panel-plugin/xkb-plugin.c:200
 msgid "Unsupported windowing environment"
-msgstr ""
+msgstr "Mittetoetatud aknahalduri lahendus"
 
 #: panel-plugin/xkb-plugin.c:201
 msgid "_OK"
