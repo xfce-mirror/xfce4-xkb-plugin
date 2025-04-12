@@ -22,6 +22,7 @@ AC_INIT([xfce4-xkb-plugin], [xdt_version], [https://gitlab.xfce.org/panel-plugin
 AC_PREREQ([2.69])
 AC_CANONICAL_TARGET()
 AC_REVISION([xdt_version_build])
+AC_DEFINE([VERSION_FULL], [PACKAGE_VERSION], [Alias for VERSION and PACKAGE_VERSION for meson compatibility])
 
 dnl ***************************
 dnl *** Initialize automake ***

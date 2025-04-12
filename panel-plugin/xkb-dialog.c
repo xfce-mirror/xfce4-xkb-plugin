@@ -26,6 +26,9 @@
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
+#ifdef HAVE_XFCE_REVISION_H
+#include "xfce-revision.h"
+#endif
 
 #include <libxfce4ui/libxfce4ui.h>
 
@@ -407,7 +410,7 @@ xkb_dialog_about_show (void)
   gtk_show_about_dialog (NULL,
                          "logo-icon-name", "org.xfce.panel.xkb",
                          "program-name", _("Keyboard Layouts Plugin"),
-                         "version", PACKAGE_VERSION,
+                         "version", VERSION_FULL,
                          "comments", _("Allows you to configure and use multiple keyboard layouts."),
                          "website", "https://docs.xfce.org/panel-plugins/xfce4-xkb-plugin",
                          "license", xfce_get_license_text (XFCE_LICENSE_TEXT_GPL),

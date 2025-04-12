@@ -28,6 +28,7 @@ ChangeLog
 !/configure.ac
 !/po/POTFILES.in
 !/panel-plugin/xkb.desktop.in
+!/xfce-revision.h.in
 ABOUT-NLS
 po/Makevars.template
 po/Rules-quot
