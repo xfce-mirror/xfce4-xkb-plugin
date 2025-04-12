@@ -56,6 +56,7 @@ flags_DATA = ae.svg \
 			lv.svg \
 			ly.svg \
 			ma.svg \
+			me.svg \
 			mk.svg \
 			mm.svg \
 			mn.svg \
@@ -88,4 +89,7 @@ flags_DATA = ae.svg \
 			vn.svg \
 			ye.svg
 
-EXTRA_DIST = $(flags_DATA)
+EXTRA_DIST = \
+	$(flags_DATA) \
+	meson.build \
+	$(NULL)

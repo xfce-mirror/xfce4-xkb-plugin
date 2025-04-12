@@ -1,0 +1,6 @@
+option(
+  'libnotify',
+  type: 'feature',
+  value: 'auto',
+  description: 'libnotify support',
+)
