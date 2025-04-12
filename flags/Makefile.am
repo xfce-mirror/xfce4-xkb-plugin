@@ -56,6 +56,7 @@ flags_DATA = ae.svg \
 			lv.svg \
 			ly.svg \
 			ma.svg \
+			me.svg \
 			mk.svg \
 			mm.svg \
 			mn.svg \
