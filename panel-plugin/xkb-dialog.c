@@ -415,6 +415,6 @@ xkb_dialog_about_show (void)
                          "website", "https://docs.xfce.org/panel-plugins/xfce4-xkb-plugin",
                          "license", xfce_get_license_text (XFCE_LICENSE_TEXT_GPL),
                          "authors", authors,
-                         "copyright", "Copyright \302\251 2003-2024 The Xfce development team",
+                         "copyright", "Copyright \302\251 2003-" COPYRIGHT_YEAR " The Xfce development team",
                          NULL);
 }

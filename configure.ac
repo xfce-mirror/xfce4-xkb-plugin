@@ -6,6 +6,7 @@ dnl 2003 Benedikt Meurer <benedikt.meurer@unix-ag.uni-siegen.de>
 dnl
 
 AC_CONFIG_MACRO_DIRS([m4])
+m4_define([copyright_year], [2025])
 
 dnl ***************************
 dnl *** Version information ***
@@ -16,13 +17,16 @@ XDT_VERSION_INIT([0.8.5], [git])
 dnl ***************************
 dnl *** Initialize autoconf ***
 dnl ***************************
-AC_COPYRIGHT([Copyright (c) 2004-2024
+AC_COPYRIGHT([Copyright (c) 2004-copyright_year()
         The Xfce development team. All rights reserved.])
 AC_INIT([xfce4-xkb-plugin], [xdt_version], [https://gitlab.xfce.org/panel-plugins/xfce4-xkb-plugin/], [xfce4-xkb-plugin])
 AC_PREREQ([2.69])
 AC_CANONICAL_TARGET()
 AC_REVISION([xdt_version_build])
 AC_DEFINE([VERSION_FULL], [PACKAGE_VERSION], [Alias for VERSION and PACKAGE_VERSION for meson compatibility])
+COPYRIGHT_YEAR=copyright_year()
+AC_DEFINE_UNQUOTED([COPYRIGHT_YEAR], ["$COPYRIGHT_YEAR"], [Copyright year])
+AC_SUBST([COPYRIGHT_YEAR])
 
 dnl ***************************
 dnl *** Initialize automake ***
