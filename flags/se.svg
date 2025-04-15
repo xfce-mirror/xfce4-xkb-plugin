@@ -1,7 +1,1 @@
-<?xml version="1.0" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="1600" height="1000">
- <rect width="1600" height="1000" fill="#005b99"/>
- <rect width="200" height="1000" x="500" fill="#fcd116"/>
- <rect width="1600" height="200" y="400" fill="#fcd116"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000"><path fill="#005b99" d="M0 0h1600v1000H0z"/><path fill="#fcd116" d="M500 0h200v1000H500z"/><path fill="#fcd116" d="M0 400h1600v200H0z"/></svg>
