@@ -139,7 +139,7 @@ msgstr "다중 키보드 배열을 설정하고 사용할 수 있게 합니다."
 
 #: panel-plugin/xkb-plugin.c:200
 msgid "Unsupported windowing environment"
-msgstr ""
+msgstr "지원하지 않는 창 환경입니다"
 
 #: panel-plugin/xkb-plugin.c:201
 msgid "_OK"
