@@ -5,7 +5,7 @@
 # Translators:
 #  <abel.martin.ruiz@gmail.com>, 2009
 # Adolfo Jayme Barrientos, 2014
-# Adolfo Jayme-Barrientos, 2014
+# Adolfo Jayme Barrientos, 2014
 # David Segura Monroy <davidseg@gmail.com>, 2013
 # Pablo Lezaeta Reyes <prflr88@gmail.com>, 2017
 # Pablo Lezaeta Reyes <prflr88@gmail.com>, 2014
@@ -143,7 +143,7 @@ msgstr "Permite configurar y usar múltiples distribuciones del teclado."
 
 #: panel-plugin/xkb-plugin.c:200
 msgid "Unsupported windowing environment"
-msgstr ""
+msgstr "Entorno de ventanas no compatible"
 
 #: panel-plugin/xkb-plugin.c:201
 msgid "_OK"
