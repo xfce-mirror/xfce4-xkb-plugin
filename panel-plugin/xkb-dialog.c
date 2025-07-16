@@ -102,6 +102,14 @@ xkb_dialog_set_style_warning_tooltip (GtkWidget *widget,
 
 
 
+static void
+reset_dialog_pointer (XfcePanelPlugin *plugin)
+{
+  g_object_set_data (G_OBJECT (plugin), "settings-dialog", NULL);
+}
+
+
+
 void
 xkb_dialog_configure_plugin (XfcePanelPlugin *plugin,
                              XkbXfconf       *config,
@@ -121,11 +129,16 @@ xkb_dialog_configure_plugin (XfcePanelPlugin *plugin,
   gint       grid_vertical;
   gint       group_count;
 
-  xfce_panel_plugin_block_menu (plugin);
+  if ((settings_dialog = g_object_get_data (G_OBJECT (plugin), "settings-dialog")) != NULL)
+    {
+      gtk_window_present (GTK_WINDOW (settings_dialog));
+      return;
+    }
 
   settings_dialog = xfce_titled_dialog_new_with_mixed_buttons (_("Keyboard Layouts"), NULL, 0,
                                                                "window-close-symbolic", _("_Close"), GTK_RESPONSE_OK,
                                                                NULL);
+  g_object_set_data (G_OBJECT (plugin), "settings-dialog", settings_dialog);
   gtk_window_set_icon_name (GTK_WINDOW (settings_dialog), "org.xfce.panel.xkb");
 
   vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 18);
@@ -333,10 +346,9 @@ xkb_dialog_configure_plugin (XfcePanelPlugin *plugin,
 
   gtk_widget_show_all (vbox);
 
-  g_signal_connect_swapped (settings_dialog, "response",
-                            G_CALLBACK (xfce_panel_plugin_unblock_menu), plugin);
   g_signal_connect (settings_dialog, "response",
                     G_CALLBACK (gtk_widget_destroy), NULL);
+  g_signal_connect_swapped (settings_dialog, "destroy", G_CALLBACK (reset_dialog_pointer), plugin);
 
   g_object_bind_property (G_OBJECT (config), DISPLAY_TYPE,
                           G_OBJECT (display_type_combo), "active",
