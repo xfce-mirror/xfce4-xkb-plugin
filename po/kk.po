@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Xfce
-# This file is distributed under the same license as the xfce-panel-plugins.xfce4-xkb-plugin package.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
 # Baurzhan Muftakhidinov <baurthefirst@gmail.com>, 2009,2013,2016-2017,2022,2024
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
-"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
-"POT-Creation-Date: 2024-12-24 00:54+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-17 12:58+0200\n"
 "PO-Revision-Date: 2013-07-03 19:34+0000\n"
 "Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>, 2009,2013,2016-2017,2022,2024\n"
 "Language-Team: Kazakh (http://app.transifex.com/xfce/xfce-panel-plugins/language/kk/)\n"
@@ -18,87 +18,87 @@ msgstr ""
 "Language: kk\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
-#: panel-plugin/xkb-dialog.c:92
+#: ../panel-plugin/xkb-dialog.c:92
 msgid "This option is not available for current layout style"
 msgstr "Бұл опция ағымдағы жайма стилі үшін қолжетерсіз"
 
-#: panel-plugin/xkb-dialog.c:126 panel-plugin/xkb.desktop.in:4
+#: ../panel-plugin/xkb-dialog.c:138
 msgid "Keyboard Layouts"
 msgstr "Пернетақта жаймалары"
 
-#: panel-plugin/xkb-dialog.c:128
+#: ../panel-plugin/xkb-dialog.c:139
 msgid "_Close"
 msgstr "_Жабу"
 
-#: panel-plugin/xkb-dialog.c:140
+#: ../panel-plugin/xkb-dialog.c:152
 msgid "Appearance"
 msgstr "Сыртқы түрі"
 
-#: panel-plugin/xkb-dialog.c:153
+#: ../panel-plugin/xkb-dialog.c:165
 msgid "Show layout as:"
 msgstr "Жайманы қалайша көрсету:"
 
-#: panel-plugin/xkb-dialog.c:159
+#: ../panel-plugin/xkb-dialog.c:171
 msgid "image"
 msgstr "сурет"
 
-#: panel-plugin/xkb-dialog.c:160
+#: ../panel-plugin/xkb-dialog.c:172
 msgid "text"
 msgstr "мәтін"
 
-#: panel-plugin/xkb-dialog.c:161
+#: ../panel-plugin/xkb-dialog.c:173
 msgid "system"
 msgstr "жүйе"
 
-#: panel-plugin/xkb-dialog.c:167
+#: ../panel-plugin/xkb-dialog.c:179
 msgid "Layout name:"
 msgstr "Жайма атауы:"
 
-#: panel-plugin/xkb-dialog.c:173
+#: ../panel-plugin/xkb-dialog.c:185
 msgid "country"
 msgstr "ел"
 
-#: panel-plugin/xkb-dialog.c:174
+#: ../panel-plugin/xkb-dialog.c:186
 msgid "language"
 msgstr "тіл"
 
-#: panel-plugin/xkb-dialog.c:180
+#: ../panel-plugin/xkb-dialog.c:192
 msgid "Widget size:"
 msgstr "Виджет өлшемі:"
 
-#: panel-plugin/xkb-dialog.c:193
+#: ../panel-plugin/xkb-dialog.c:205
 msgid "Caps Lock indicator:"
 msgstr "Caps Lock индикаторы:"
 
-#: panel-plugin/xkb-dialog.c:206
+#: ../panel-plugin/xkb-dialog.c:218
 msgid "Show notifications on layout change:"
 msgstr "Пернетақта жаймасы ауыстырылған кезде хабарламаны көрсету:"
 
-#: panel-plugin/xkb-dialog.c:219
+#: ../panel-plugin/xkb-dialog.c:231
 msgid "Tooltip icon:"
 msgstr "Қалқымалы таңбаша:"
 
-#: panel-plugin/xkb-dialog.c:231
+#: ../panel-plugin/xkb-dialog.c:243
 msgid "Behavior"
 msgstr "Мінез-құлығы"
 
-#: panel-plugin/xkb-dialog.c:244
+#: ../panel-plugin/xkb-dialog.c:256
 msgid "Manage layout:"
 msgstr "Жайманы орнату:"
 
-#: panel-plugin/xkb-dialog.c:250
+#: ../panel-plugin/xkb-dialog.c:262
 msgid "globally"
 msgstr "глобалды"
 
-#: panel-plugin/xkb-dialog.c:251
+#: ../panel-plugin/xkb-dialog.c:263
 msgid "per window"
 msgstr "әр терезе үшін"
 
-#: panel-plugin/xkb-dialog.c:252
+#: ../panel-plugin/xkb-dialog.c:264
 msgid "per application"
 msgstr "әр қолданба үшін"
 
-#: panel-plugin/xkb-dialog.c:275
+#: ../panel-plugin/xkb-dialog.c:287
 #, c-format
 msgid ""
 "Use <a href=\"keyboard-settings:\">Keyboard Settings</a> to set available "
@@ -106,42 +106,46 @@ msgid ""
 "(default layout), except as specified for the other layouts:"
 msgstr "Қолжетімді жаймаларды көру үшін, <a href=\"keyboard-settings:\">Пернетақта баптаулары</a> қолданыңыз; өзгерістерді жүктеу үшін, бұл сұхбатты қайта ашыңыз. Жаңа терезелер '%s' (үнсіз келісім) жаймасымен басталады, тек басқа жаймалар үшін көрсетілгеннен бөлек:"
 
-#: panel-plugin/xkb-dialog.c:296
+#: ../panel-plugin/xkb-dialog.c:308
 msgid "Window classes, comma-separated:"
 msgstr "Терезе кластары, үтірмен ажыратылған:"
 
-#: panel-plugin/xkb-dialog.c:307
+#: ../panel-plugin/xkb-dialog.c:319
 #, c-format
 msgid "%s_%d (layout %d):"
 msgstr "%s_%d (жайма %d):"
 
-#: panel-plugin/xkb-dialog.c:308
+#: ../panel-plugin/xkb-dialog.c:320
 #, c-format
 msgid "%s (layout %d):"
 msgstr "%s (жайма %d):"
 
-#: panel-plugin/xkb-dialog.c:327
+#: ../panel-plugin/xkb-dialog.c:339
 msgid ""
 "Enter a comma-separated list of window classes which will default to this "
 "layout."
 msgstr "Бұл жайманы үнсіз келісім бойынша қолданатын, үтірлермен ажыратылған терезелер класстарын енгізіңіз."
 
-#: panel-plugin/xkb-dialog.c:410
+#: ../panel-plugin/xkb-dialog.c:421
 msgid "Keyboard Layouts Plugin"
 msgstr "Пернетақта жаймалары плагині"
 
-#: panel-plugin/xkb-dialog.c:412
+#: ../panel-plugin/xkb-dialog.c:423
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "Сізге көптеген пернетақта жаймаларын баптау мен қолдануға көмектеседі."
 
-#: panel-plugin/xkb-plugin.c:252
+#: ../panel-plugin/xkb-plugin.c:196
+msgid "Unsupported windowing environment"
+msgstr ""
+
+#: ../panel-plugin/xkb-plugin.c:197
+msgid "_OK"
+msgstr ""
+
+#: ../panel-plugin/xkb-plugin.c:273
 msgid "Keyboard settings"
 msgstr "Пернетақта баптаулары"
 
-#: panel-plugin/xkb-plugin.c:524
+#: ../panel-plugin/xkb-plugin.c:545
 msgid "Keyboard layout changed"
 msgstr "Пернетақта жаймасы ауыстырылды"
-
-#: panel-plugin/xkb.desktop.in:5
-msgid "Keyboard layouts setup and switch plugin"
-msgstr "Пернетақта жаймаларын орнату мен ауыстыру плагині"
