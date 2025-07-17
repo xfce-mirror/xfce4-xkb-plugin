@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Xfce
-# This file is distributed under the same license as the xfce-panel-plugins.xfce4-xkb-plugin package.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
 # Alois Nešpor <info@aloisnespor.info>, 2013
@@ -8,8 +8,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
-"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
-"POT-Creation-Date: 2024-12-26 00:53+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-17 12:58+0200\n"
 "PO-Revision-Date: 2013-07-03 19:34+0000\n"
 "Last-Translator: Michal Várady <miko.vaji@gmail.com>, 2015,2017,2024-2025\n"
 "Language-Team: Czech (http://app.transifex.com/xfce/xfce-panel-plugins/language/cs/)\n"
@@ -19,87 +19,87 @@ msgstr ""
 "Language: cs\n"
 "Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 
-#: panel-plugin/xkb-dialog.c:92
+#: ../panel-plugin/xkb-dialog.c:92
 msgid "This option is not available for current layout style"
 msgstr "Tato volba není dostupná pro aktuální styl rozložení "
 
-#: panel-plugin/xkb-dialog.c:126 panel-plugin/xkb.desktop.in:4
+#: ../panel-plugin/xkb-dialog.c:138
 msgid "Keyboard Layouts"
 msgstr "Rozložení klávesnice"
 
-#: panel-plugin/xkb-dialog.c:128
+#: ../panel-plugin/xkb-dialog.c:139
 msgid "_Close"
 msgstr "_Zavřít"
 
-#: panel-plugin/xkb-dialog.c:140
+#: ../panel-plugin/xkb-dialog.c:152
 msgid "Appearance"
 msgstr "Vzhled"
 
-#: panel-plugin/xkb-dialog.c:153
+#: ../panel-plugin/xkb-dialog.c:165
 msgid "Show layout as:"
 msgstr "Zobrazit rozložení jako:"
 
-#: panel-plugin/xkb-dialog.c:159
+#: ../panel-plugin/xkb-dialog.c:171
 msgid "image"
 msgstr "obrázek"
 
-#: panel-plugin/xkb-dialog.c:160
+#: ../panel-plugin/xkb-dialog.c:172
 msgid "text"
 msgstr "text"
 
-#: panel-plugin/xkb-dialog.c:161
+#: ../panel-plugin/xkb-dialog.c:173
 msgid "system"
 msgstr "systémové"
 
-#: panel-plugin/xkb-dialog.c:167
+#: ../panel-plugin/xkb-dialog.c:179
 msgid "Layout name:"
 msgstr "Název rozložení:"
 
-#: panel-plugin/xkb-dialog.c:173
+#: ../panel-plugin/xkb-dialog.c:185
 msgid "country"
 msgstr "země"
 
-#: panel-plugin/xkb-dialog.c:174
+#: ../panel-plugin/xkb-dialog.c:186
 msgid "language"
 msgstr "jazyk"
 
-#: panel-plugin/xkb-dialog.c:180
+#: ../panel-plugin/xkb-dialog.c:192
 msgid "Widget size:"
 msgstr "Velikost nástroje:"
 
-#: panel-plugin/xkb-dialog.c:193
+#: ../panel-plugin/xkb-dialog.c:205
 msgid "Caps Lock indicator:"
 msgstr "Indikátor Caps Lock:"
 
-#: panel-plugin/xkb-dialog.c:206
+#: ../panel-plugin/xkb-dialog.c:218
 msgid "Show notifications on layout change:"
 msgstr "Při změně rozložení zobrazit oznámení:"
 
-#: panel-plugin/xkb-dialog.c:219
+#: ../panel-plugin/xkb-dialog.c:231
 msgid "Tooltip icon:"
 msgstr "Ikona tipu:"
 
-#: panel-plugin/xkb-dialog.c:231
+#: ../panel-plugin/xkb-dialog.c:243
 msgid "Behavior"
 msgstr "Chování"
 
-#: panel-plugin/xkb-dialog.c:244
+#: ../panel-plugin/xkb-dialog.c:256
 msgid "Manage layout:"
 msgstr "Spravovat rozložení:"
 
-#: panel-plugin/xkb-dialog.c:250
+#: ../panel-plugin/xkb-dialog.c:262
 msgid "globally"
 msgstr "globálně"
 
-#: panel-plugin/xkb-dialog.c:251
+#: ../panel-plugin/xkb-dialog.c:263
 msgid "per window"
 msgstr "pro jednotlivá okna"
 
-#: panel-plugin/xkb-dialog.c:252
+#: ../panel-plugin/xkb-dialog.c:264
 msgid "per application"
 msgstr "pro jednotlivé aplikace"
 
-#: panel-plugin/xkb-dialog.c:275
+#: ../panel-plugin/xkb-dialog.c:287
 #, c-format
 msgid ""
 "Use <a href=\"keyboard-settings:\">Keyboard Settings</a> to set available "
@@ -107,50 +107,46 @@ msgid ""
 "(default layout), except as specified for the other layouts:"
 msgstr "Použijte <a href=\"keyboard-settings:\">Nastavení klávesnice</a> pro nastavení dostupných rozložení; pro načtení změn znovu otevřete toto dialogové okno. Nová okna se spouštějí s rozložením  '%s' (výchozí), vyjma těch, která jsou specifikována pro jiná rozložení:"
 
-#: panel-plugin/xkb-dialog.c:296
+#: ../panel-plugin/xkb-dialog.c:308
 msgid "Window classes, comma-separated:"
 msgstr "Třídy oken, oddělené čárkami:"
 
-#: panel-plugin/xkb-dialog.c:307
+#: ../panel-plugin/xkb-dialog.c:319
 #, c-format
 msgid "%s_%d (layout %d):"
 msgstr "%s_%d (rozložení %d):"
 
-#: panel-plugin/xkb-dialog.c:308
+#: ../panel-plugin/xkb-dialog.c:320
 #, c-format
 msgid "%s (layout %d):"
 msgstr "%s (rozložení %d):"
 
-#: panel-plugin/xkb-dialog.c:327
+#: ../panel-plugin/xkb-dialog.c:339
 msgid ""
 "Enter a comma-separated list of window classes which will default to this "
 "layout."
 msgstr "Zadejte čárkami oddělený seznam tříd oken, které budou výchozí pro toto rozložení."
 
-#: panel-plugin/xkb-dialog.c:410
+#: ../panel-plugin/xkb-dialog.c:421
 msgid "Keyboard Layouts Plugin"
 msgstr "Přepínač rozložení klávesnice"
 
-#: panel-plugin/xkb-dialog.c:412
+#: ../panel-plugin/xkb-dialog.c:423
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "Umožňuje konfigurovat a používat více rozložení klávesnic."
 
-#: panel-plugin/xkb-plugin.c:200
+#: ../panel-plugin/xkb-plugin.c:196
 msgid "Unsupported windowing environment"
 msgstr "Nepodporované prostředí správy oken"
 
-#: panel-plugin/xkb-plugin.c:201
+#: ../panel-plugin/xkb-plugin.c:197
 msgid "_OK"
 msgstr "_OK"
 
-#: panel-plugin/xkb-plugin.c:277
+#: ../panel-plugin/xkb-plugin.c:273
 msgid "Keyboard settings"
 msgstr "Nastavení klávesnice"
 
-#: panel-plugin/xkb-plugin.c:549
+#: ../panel-plugin/xkb-plugin.c:545
 msgid "Keyboard layout changed"
 msgstr "Rozložení klávesnice se změnilo"
-
-#: panel-plugin/xkb.desktop.in:5
-msgid "Keyboard layouts setup and switch plugin"
-msgstr "Nastavuje a přepíná rozložení klávesnice"
