@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Xfce
-# This file is distributed under the same license as the xfce-panel-plugins.xfce4-xkb-plugin package.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
 # Efstathios Iosifidis <iefstathios@gmail.com>, 2015
@@ -10,8 +10,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
-"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
-"POT-Creation-Date: 2024-12-26 00:53+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-17 12:58+0200\n"
 "PO-Revision-Date: 2013-07-03 19:34+0000\n"
 "Last-Translator: Ioannis LM, 2015,2018,2022-2023,2025\n"
 "Language-Team: Greek (http://app.transifex.com/xfce/xfce-panel-plugins/language/el/)\n"
@@ -21,87 +21,87 @@ msgstr ""
 "Language: el\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: panel-plugin/xkb-dialog.c:92
+#: ../panel-plugin/xkb-dialog.c:92
 msgid "This option is not available for current layout style"
 msgstr "Η επιλογή δεν είναι διαθέσιμη για τη τρέχουσα διάταξη"
 
-#: panel-plugin/xkb-dialog.c:126 panel-plugin/xkb.desktop.in:4
+#: ../panel-plugin/xkb-dialog.c:138
 msgid "Keyboard Layouts"
 msgstr "Διάταξη πληκτρολογίου"
 
-#: panel-plugin/xkb-dialog.c:128
+#: ../panel-plugin/xkb-dialog.c:139
 msgid "_Close"
 msgstr "_Κλείσιμο"
 
-#: panel-plugin/xkb-dialog.c:140
+#: ../panel-plugin/xkb-dialog.c:152
 msgid "Appearance"
 msgstr "Εμφάνιση"
 
-#: panel-plugin/xkb-dialog.c:153
+#: ../panel-plugin/xkb-dialog.c:165
 msgid "Show layout as:"
 msgstr "Εμφάνιση διάταξης ως:"
 
-#: panel-plugin/xkb-dialog.c:159
+#: ../panel-plugin/xkb-dialog.c:171
 msgid "image"
 msgstr "εικόνα"
 
-#: panel-plugin/xkb-dialog.c:160
+#: ../panel-plugin/xkb-dialog.c:172
 msgid "text"
 msgstr "κείμενο"
 
-#: panel-plugin/xkb-dialog.c:161
+#: ../panel-plugin/xkb-dialog.c:173
 msgid "system"
 msgstr "κείμενο συστήματος"
 
-#: panel-plugin/xkb-dialog.c:167
+#: ../panel-plugin/xkb-dialog.c:179
 msgid "Layout name:"
 msgstr "Όνομα διάταξης:"
 
-#: panel-plugin/xkb-dialog.c:173
+#: ../panel-plugin/xkb-dialog.c:185
 msgid "country"
 msgstr "χώρα"
 
-#: panel-plugin/xkb-dialog.c:174
+#: ../panel-plugin/xkb-dialog.c:186
 msgid "language"
 msgstr "γλώσσα"
 
-#: panel-plugin/xkb-dialog.c:180
+#: ../panel-plugin/xkb-dialog.c:192
 msgid "Widget size:"
 msgstr "Μέγεθος εικονιδίου:"
 
-#: panel-plugin/xkb-dialog.c:193
+#: ../panel-plugin/xkb-dialog.c:205
 msgid "Caps Lock indicator:"
 msgstr "Ένδειξη Caps Lock:"
 
-#: panel-plugin/xkb-dialog.c:206
+#: ../panel-plugin/xkb-dialog.c:218
 msgid "Show notifications on layout change:"
 msgstr "Εμφάνιση ειδοποιήσεων στην αλλαγή διάταξης:"
 
-#: panel-plugin/xkb-dialog.c:219
+#: ../panel-plugin/xkb-dialog.c:231
 msgid "Tooltip icon:"
 msgstr "Εικoνίδιο στην αναδυόμενη επεξήγηση:"
 
-#: panel-plugin/xkb-dialog.c:231
+#: ../panel-plugin/xkb-dialog.c:243
 msgid "Behavior"
 msgstr "Συμπεριφορά"
 
-#: panel-plugin/xkb-dialog.c:244
+#: ../panel-plugin/xkb-dialog.c:256
 msgid "Manage layout:"
 msgstr "Διαχείριση διάταξης:"
 
-#: panel-plugin/xkb-dialog.c:250
+#: ../panel-plugin/xkb-dialog.c:262
 msgid "globally"
 msgstr "καθολικά"
 
-#: panel-plugin/xkb-dialog.c:251
+#: ../panel-plugin/xkb-dialog.c:263
 msgid "per window"
 msgstr "ανά παράθυρο"
 
-#: panel-plugin/xkb-dialog.c:252
+#: ../panel-plugin/xkb-dialog.c:264
 msgid "per application"
 msgstr "ανά εφαρμογή"
 
-#: panel-plugin/xkb-dialog.c:275
+#: ../panel-plugin/xkb-dialog.c:287
 #, c-format
 msgid ""
 "Use <a href=\"keyboard-settings:\">Keyboard Settings</a> to set available "
@@ -109,50 +109,46 @@ msgid ""
 "(default layout), except as specified for the other layouts:"
 msgstr "Χρησιμοποιείστε τις <a href=\"keyboard-settings:\">Ρυθμίσεις πληκτρολογίου</a> για να ορίσετε διαθέσιμες διατάξεις, ανοίξτε πάλι αυτό το παράθυρο για να εμφανιστούν οι αλλαγές. Τα νέα παράθυρα εκτός των άλλων, ξεκινούν με '%s' (προεπιλεγμένη διάταξη):"
 
-#: panel-plugin/xkb-dialog.c:296
+#: ../panel-plugin/xkb-dialog.c:308
 msgid "Window classes, comma-separated:"
 msgstr "Κατηγορίες παραθύρων, διαχωρισμένες με κόμμα:"
 
-#: panel-plugin/xkb-dialog.c:307
+#: ../panel-plugin/xkb-dialog.c:319
 #, c-format
 msgid "%s_%d (layout %d):"
 msgstr "%s_%d (διάταξη %d):"
 
-#: panel-plugin/xkb-dialog.c:308
+#: ../panel-plugin/xkb-dialog.c:320
 #, c-format
 msgid "%s (layout %d):"
 msgstr "%s (διάταξη %d):"
 
-#: panel-plugin/xkb-dialog.c:327
+#: ../panel-plugin/xkb-dialog.c:339
 msgid ""
 "Enter a comma-separated list of window classes which will default to this "
 "layout."
 msgstr "Εισάγετε λίστα κατηγοριών παραθύρων διαχωρισμένη με κόμμα, οι οποίες θα είναι προεπιλεγμένες σε αυτή τη διάταξη."
 
-#: panel-plugin/xkb-dialog.c:410
+#: ../panel-plugin/xkb-dialog.c:421
 msgid "Keyboard Layouts Plugin"
 msgstr "Πρόσθετο διάταξης πληκτρολογίου"
 
-#: panel-plugin/xkb-dialog.c:412
+#: ../panel-plugin/xkb-dialog.c:423
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "Σας επιτρέπει να ρυθμίσετε και να χρησιμοποιήσετε πολλαπλές διατάξεις του πληκτρολογίου"
 
-#: panel-plugin/xkb-plugin.c:200
+#: ../panel-plugin/xkb-plugin.c:196
 msgid "Unsupported windowing environment"
 msgstr "Μη υποστηριζόμενο περιβάλλον παραθύρου"
 
-#: panel-plugin/xkb-plugin.c:201
+#: ../panel-plugin/xkb-plugin.c:197
 msgid "_OK"
 msgstr "_Εντάξει"
 
-#: panel-plugin/xkb-plugin.c:277
+#: ../panel-plugin/xkb-plugin.c:273
 msgid "Keyboard settings"
 msgstr "Ρυθμίσεις πληκτρολογίου"
 
-#: panel-plugin/xkb-plugin.c:549
+#: ../panel-plugin/xkb-plugin.c:545
 msgid "Keyboard layout changed"
 msgstr "Αλλαγή διάταξης πληκτρολογίου"
-
-#: panel-plugin/xkb.desktop.in:5
-msgid "Keyboard layouts setup and switch plugin"
-msgstr "Πρόσθετο εναλλαγής και ρύθμισης των διατάξεων πληκτρολογίου"
