@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Xfce
-# This file is distributed under the same license as the xfce-panel-plugins.xfce4-xkb-plugin package.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
 # Priit Jõerüüt <transifex@joeruut.com>, 2020,2022-2023
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
-"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
-"POT-Creation-Date: 2024-12-26 00:53+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-17 12:58+0200\n"
 "PO-Revision-Date: 2013-07-03 19:34+0000\n"
 "Last-Translator: Priit Jõerüüt <transifex@joeruut.com>, 2020,2022-2023\n"
 "Language-Team: Estonian (http://app.transifex.com/xfce/xfce-panel-plugins/language/et/)\n"
@@ -18,87 +18,87 @@ msgstr ""
 "Language: et\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: panel-plugin/xkb-dialog.c:92
+#: ../panel-plugin/xkb-dialog.c:92
 msgid "This option is not available for current layout style"
 msgstr "See valik ei ole praeguse paigutuse juures saadaval"
 
-#: panel-plugin/xkb-dialog.c:126 panel-plugin/xkb.desktop.in:4
+#: ../panel-plugin/xkb-dialog.c:138
 msgid "Keyboard Layouts"
 msgstr "Klaviatuuripaigutused"
 
-#: panel-plugin/xkb-dialog.c:128
+#: ../panel-plugin/xkb-dialog.c:139
 msgid "_Close"
 msgstr "_Sulge"
 
-#: panel-plugin/xkb-dialog.c:140
+#: ../panel-plugin/xkb-dialog.c:152
 msgid "Appearance"
 msgstr "Välimus"
 
-#: panel-plugin/xkb-dialog.c:153
+#: ../panel-plugin/xkb-dialog.c:165
 msgid "Show layout as:"
 msgstr "Näita kehtivat paigutust:"
 
-#: panel-plugin/xkb-dialog.c:159
+#: ../panel-plugin/xkb-dialog.c:171
 msgid "image"
 msgstr "pildina"
 
-#: panel-plugin/xkb-dialog.c:160
+#: ../panel-plugin/xkb-dialog.c:172
 msgid "text"
 msgstr "tekstina"
 
-#: panel-plugin/xkb-dialog.c:161
+#: ../panel-plugin/xkb-dialog.c:173
 msgid "system"
 msgstr "süsteemsena"
 
-#: panel-plugin/xkb-dialog.c:167
+#: ../panel-plugin/xkb-dialog.c:179
 msgid "Layout name:"
 msgstr "Paigutuse nimi:"
 
-#: panel-plugin/xkb-dialog.c:173
+#: ../panel-plugin/xkb-dialog.c:185
 msgid "country"
 msgstr "riigi järgi"
 
-#: panel-plugin/xkb-dialog.c:174
+#: ../panel-plugin/xkb-dialog.c:186
 msgid "language"
 msgstr "keele järgi"
 
-#: panel-plugin/xkb-dialog.c:180
+#: ../panel-plugin/xkb-dialog.c:192
 msgid "Widget size:"
 msgstr "Vidina suurus:"
 
-#: panel-plugin/xkb-dialog.c:193
+#: ../panel-plugin/xkb-dialog.c:205
 msgid "Caps Lock indicator:"
 msgstr "Suurtäheluku näidik:"
 
-#: panel-plugin/xkb-dialog.c:206
+#: ../panel-plugin/xkb-dialog.c:218
 msgid "Show notifications on layout change:"
 msgstr "Klaviatuuripaigutuse muutmisel näita teavitust:"
 
-#: panel-plugin/xkb-dialog.c:219
+#: ../panel-plugin/xkb-dialog.c:231
 msgid "Tooltip icon:"
 msgstr "Ikoon teabemullis: "
 
-#: panel-plugin/xkb-dialog.c:231
+#: ../panel-plugin/xkb-dialog.c:243
 msgid "Behavior"
 msgstr "Käitumine"
 
-#: panel-plugin/xkb-dialog.c:244
+#: ../panel-plugin/xkb-dialog.c:256
 msgid "Manage layout:"
 msgstr "Halda klaviatuuri paigutust:"
 
-#: panel-plugin/xkb-dialog.c:250
+#: ../panel-plugin/xkb-dialog.c:262
 msgid "globally"
 msgstr "kõikjal"
 
-#: panel-plugin/xkb-dialog.c:251
+#: ../panel-plugin/xkb-dialog.c:263
 msgid "per window"
 msgstr "akna kohaselt"
 
-#: panel-plugin/xkb-dialog.c:252
+#: ../panel-plugin/xkb-dialog.c:264
 msgid "per application"
 msgstr "rakenduse kohaselt"
 
-#: panel-plugin/xkb-dialog.c:275
+#: ../panel-plugin/xkb-dialog.c:287
 #, c-format
 msgid ""
 "Use <a href=\"keyboard-settings:\">Keyboard Settings</a> to set available "
@@ -106,50 +106,46 @@ msgid ""
 "(default layout), except as specified for the other layouts:"
 msgstr "Saadaval olevate klaviatuuripaigutuste määramiseks kasuta valikud <a href=\"keyboard-settings:\">Klaviatuuripaigutused</a>. Muudatuste laadimiseks ava see vaade uuesti. Uute akende puhul kehtib „%s“ (vaikimisi paigutus) alljärgnevate eranditega:"
 
-#: panel-plugin/xkb-dialog.c:296
+#: ../panel-plugin/xkb-dialog.c:308
 msgid "Window classes, comma-separated:"
 msgstr "Komadega eraldatud akende klassid"
 
-#: panel-plugin/xkb-dialog.c:307
+#: ../panel-plugin/xkb-dialog.c:319
 #, c-format
 msgid "%s_%d (layout %d):"
 msgstr "%s_%d (%d paigutus):"
 
-#: panel-plugin/xkb-dialog.c:308
+#: ../panel-plugin/xkb-dialog.c:320
 #, c-format
 msgid "%s (layout %d):"
 msgstr "%s (%d paigutus):"
 
-#: panel-plugin/xkb-dialog.c:327
+#: ../panel-plugin/xkb-dialog.c:339
 msgid ""
 "Enter a comma-separated list of window classes which will default to this "
 "layout."
 msgstr "Sisesta komadega eraldatud akende klasside loend, kus see klaviatuuripaigutus kehtib vaikimisi."
 
-#: panel-plugin/xkb-dialog.c:410
+#: ../panel-plugin/xkb-dialog.c:421
 msgid "Keyboard Layouts Plugin"
 msgstr "Klaviatuuripaigutuse pistikprogramm"
 
-#: panel-plugin/xkb-dialog.c:412
+#: ../panel-plugin/xkb-dialog.c:423
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "Võimaldab sul seadistada ja kasutada mitmeid klaviatuuri paigutusi."
 
-#: panel-plugin/xkb-plugin.c:200
+#: ../panel-plugin/xkb-plugin.c:196
 msgid "Unsupported windowing environment"
 msgstr "Mittetoetatud aknahalduri lahendus"
 
-#: panel-plugin/xkb-plugin.c:201
+#: ../panel-plugin/xkb-plugin.c:197
 msgid "_OK"
 msgstr "_Sobib"
 
-#: panel-plugin/xkb-plugin.c:277
+#: ../panel-plugin/xkb-plugin.c:273
 msgid "Keyboard settings"
 msgstr "Klaviatuuri seadistused"
 
-#: panel-plugin/xkb-plugin.c:549
+#: ../panel-plugin/xkb-plugin.c:545
 msgid "Keyboard layout changed"
 msgstr "Klaviatuuripaigutus on muutunud"
-
-#: panel-plugin/xkb.desktop.in:5
-msgid "Keyboard layouts setup and switch plugin"
-msgstr "Klaviatuuri paigutuse seadistamise ja vahetamise pistikprogramm"
