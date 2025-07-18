@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the xfce-panel-plugins.xfce4-xkb-plugin package.
 # 
 # Translators:
 # Demiray Muhterem <mdemiray@msn.com>, 2022
@@ -11,8 +11,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-17 12:58+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2025-07-18 11:09+0200\n"
 "PO-Revision-Date: 2013-07-03 19:34+0000\n"
 "Last-Translator: Emin Tufan Çetin <etcetin@gmail.com>, 2022\n"
 "Language-Team: Turkish (http://app.transifex.com/xfce/xfce-panel-plugins/language/tr/)\n"
@@ -22,87 +22,87 @@ msgstr ""
 "Language: tr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: ../panel-plugin/xkb-dialog.c:92
+#: panel-plugin/xkb-dialog.c:92
 msgid "This option is not available for current layout style"
 msgstr "Bu seçenek var olan yerleşim biçemi için kullanılamaz"
 
-#: ../panel-plugin/xkb-dialog.c:138
+#: panel-plugin/xkb-dialog.c:138 panel-plugin/xkb.desktop.in:4
 msgid "Keyboard Layouts"
 msgstr "Klavye Yerleşimleri"
 
-#: ../panel-plugin/xkb-dialog.c:139
+#: panel-plugin/xkb-dialog.c:139
 msgid "_Close"
 msgstr "_Kapat"
 
-#: ../panel-plugin/xkb-dialog.c:152
+#: panel-plugin/xkb-dialog.c:152
 msgid "Appearance"
 msgstr "Görünüm"
 
-#: ../panel-plugin/xkb-dialog.c:165
+#: panel-plugin/xkb-dialog.c:165
 msgid "Show layout as:"
 msgstr "Yerleşimi şu şekilde göster:"
 
-#: ../panel-plugin/xkb-dialog.c:171
+#: panel-plugin/xkb-dialog.c:171
 msgid "image"
 msgstr "resim"
 
-#: ../panel-plugin/xkb-dialog.c:172
+#: panel-plugin/xkb-dialog.c:172
 msgid "text"
 msgstr "yazı"
 
-#: ../panel-plugin/xkb-dialog.c:173
+#: panel-plugin/xkb-dialog.c:173
 msgid "system"
 msgstr "sistem"
 
-#: ../panel-plugin/xkb-dialog.c:179
+#: panel-plugin/xkb-dialog.c:179
 msgid "Layout name:"
 msgstr "Yerleşim adı:"
 
-#: ../panel-plugin/xkb-dialog.c:185
+#: panel-plugin/xkb-dialog.c:185
 msgid "country"
 msgstr "ülke"
 
-#: ../panel-plugin/xkb-dialog.c:186
+#: panel-plugin/xkb-dialog.c:186
 msgid "language"
 msgstr "dil"
 
-#: ../panel-plugin/xkb-dialog.c:192
+#: panel-plugin/xkb-dialog.c:192
 msgid "Widget size:"
 msgstr "Pencere boyutu:"
 
-#: ../panel-plugin/xkb-dialog.c:205
+#: panel-plugin/xkb-dialog.c:205
 msgid "Caps Lock indicator:"
 msgstr "Büyük Harf göstergesi:"
 
-#: ../panel-plugin/xkb-dialog.c:218
+#: panel-plugin/xkb-dialog.c:218
 msgid "Show notifications on layout change:"
 msgstr "Yerleşim değişikliğinde bildirimleri göster:"
 
-#: ../panel-plugin/xkb-dialog.c:231
+#: panel-plugin/xkb-dialog.c:231
 msgid "Tooltip icon:"
 msgstr "İpucu simgesi:"
 
-#: ../panel-plugin/xkb-dialog.c:243
+#: panel-plugin/xkb-dialog.c:243
 msgid "Behavior"
 msgstr "Davranış"
 
-#: ../panel-plugin/xkb-dialog.c:256
+#: panel-plugin/xkb-dialog.c:256
 msgid "Manage layout:"
 msgstr "Yerleşimi yönet:"
 
-#: ../panel-plugin/xkb-dialog.c:262
+#: panel-plugin/xkb-dialog.c:262
 msgid "globally"
 msgstr "genel olarak"
 
-#: ../panel-plugin/xkb-dialog.c:263
+#: panel-plugin/xkb-dialog.c:263
 msgid "per window"
 msgstr "pencere başına"
 
-#: ../panel-plugin/xkb-dialog.c:264
+#: panel-plugin/xkb-dialog.c:264
 msgid "per application"
 msgstr "uygulama başına"
 
-#: ../panel-plugin/xkb-dialog.c:287
+#: panel-plugin/xkb-dialog.c:287
 #, c-format
 msgid ""
 "Use <a href=\"keyboard-settings:\">Keyboard Settings</a> to set available "
@@ -110,46 +110,50 @@ msgid ""
 "(default layout), except as specified for the other layouts:"
 msgstr "Var olan yerleşimleri belirlemek için <a href=\"keyboard-settings:\">Klavye Ayarları</a>nı kullanın; değişiklikleri yüklemek için bu iletişim penceresini yeniden açın. Diğer yerleşimler için belirtilmişler dışında yeni pencereler '%s' (öntanımlı yerleşim) ile başlar:"
 
-#: ../panel-plugin/xkb-dialog.c:308
+#: panel-plugin/xkb-dialog.c:308
 msgid "Window classes, comma-separated:"
 msgstr "Pencere sınıfları, virgülle ayrılmış:"
 
-#: ../panel-plugin/xkb-dialog.c:319
+#: panel-plugin/xkb-dialog.c:319
 #, c-format
 msgid "%s_%d (layout %d):"
 msgstr "%s_%d (yerleşim %d):"
 
-#: ../panel-plugin/xkb-dialog.c:320
+#: panel-plugin/xkb-dialog.c:320
 #, c-format
 msgid "%s (layout %d):"
 msgstr "%s (yerleşim %d):"
 
-#: ../panel-plugin/xkb-dialog.c:339
+#: panel-plugin/xkb-dialog.c:339
 msgid ""
 "Enter a comma-separated list of window classes which will default to this "
 "layout."
 msgstr "Bu yerleşime öntanımlanacak pencere sınıflarının virgülle ayrılmış listesini gir."
 
-#: ../panel-plugin/xkb-dialog.c:421
+#: panel-plugin/xkb-dialog.c:421
 msgid "Keyboard Layouts Plugin"
 msgstr "Klavye Yerleşimleri Eklentisi"
 
-#: ../panel-plugin/xkb-dialog.c:423
+#: panel-plugin/xkb-dialog.c:423
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "Birden çok klavye yerleşimi kullanmanızı ve yapılandırmanızı sağlar."
 
-#: ../panel-plugin/xkb-plugin.c:196
+#: panel-plugin/xkb-plugin.c:196
 msgid "Unsupported windowing environment"
 msgstr "Desteklenmeyen pencere ortamı"
 
-#: ../panel-plugin/xkb-plugin.c:197
+#: panel-plugin/xkb-plugin.c:197
 msgid "_OK"
 msgstr "_Tamam"
 
-#: ../panel-plugin/xkb-plugin.c:273
+#: panel-plugin/xkb-plugin.c:273
 msgid "Keyboard settings"
 msgstr "Klavye ayarları"
 
-#: ../panel-plugin/xkb-plugin.c:545
+#: panel-plugin/xkb-plugin.c:545
 msgid "Keyboard layout changed"
 msgstr "Klavye yerleşimi değişti"
+
+#: panel-plugin/xkb.desktop.in:5
+msgid "Keyboard layouts setup and switch plugin"
+msgstr "Klavye yerleşimi yapılandırma ve değiştirme eklentisi"
