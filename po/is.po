@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the xfce-panel-plugins.xfce4-xkb-plugin package.
 # 
 # Translators:
 # Sveinn í Felli <sv1@fellsnet.is>, 2013-2015,2018-2019
@@ -8,8 +8,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-17 12:58+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2025-07-18 11:09+0200\n"
 "PO-Revision-Date: 2013-07-03 19:34+0000\n"
 "Last-Translator: Sveinn í Felli <sveinki@nett.is>, 2013,2018\n"
 "Language-Team: Icelandic (http://app.transifex.com/xfce/xfce-panel-plugins/language/is/)\n"
@@ -19,87 +19,87 @@ msgstr ""
 "Language: is\n"
 "Plural-Forms: nplurals=2; plural=(n % 10 != 1 || n % 100 == 11);\n"
 
-#: ../panel-plugin/xkb-dialog.c:92
+#: panel-plugin/xkb-dialog.c:92
 msgid "This option is not available for current layout style"
 msgstr "Þessi valkostur er ekki tiltækur fyrir núverandi stíl uppsetningar"
 
-#: ../panel-plugin/xkb-dialog.c:138
+#: panel-plugin/xkb-dialog.c:138 panel-plugin/xkb.desktop.in:4
 msgid "Keyboard Layouts"
 msgstr "Lyklaborðsuppsetningar"
 
-#: ../panel-plugin/xkb-dialog.c:139
+#: panel-plugin/xkb-dialog.c:139
 msgid "_Close"
 msgstr "_Loka"
 
-#: ../panel-plugin/xkb-dialog.c:152
+#: panel-plugin/xkb-dialog.c:152
 msgid "Appearance"
 msgstr "Útlit"
 
-#: ../panel-plugin/xkb-dialog.c:165
+#: panel-plugin/xkb-dialog.c:165
 msgid "Show layout as:"
 msgstr "Sýna lyklaborðsuppsetningu sem:"
 
-#: ../panel-plugin/xkb-dialog.c:171
+#: panel-plugin/xkb-dialog.c:171
 msgid "image"
 msgstr "mynd"
 
-#: ../panel-plugin/xkb-dialog.c:172
+#: panel-plugin/xkb-dialog.c:172
 msgid "text"
 msgstr "texti"
 
-#: ../panel-plugin/xkb-dialog.c:173
+#: panel-plugin/xkb-dialog.c:173
 msgid "system"
 msgstr "kerfi"
 
-#: ../panel-plugin/xkb-dialog.c:179
+#: panel-plugin/xkb-dialog.c:179
 msgid "Layout name:"
 msgstr "Heiti uppsetningar:"
 
-#: ../panel-plugin/xkb-dialog.c:185
+#: panel-plugin/xkb-dialog.c:185
 msgid "country"
 msgstr "land"
 
-#: ../panel-plugin/xkb-dialog.c:186
+#: panel-plugin/xkb-dialog.c:186
 msgid "language"
 msgstr "tungumál"
 
-#: ../panel-plugin/xkb-dialog.c:192
+#: panel-plugin/xkb-dialog.c:192
 msgid "Widget size:"
 msgstr "Stærð viðmótshluta (widget):"
 
-#: ../panel-plugin/xkb-dialog.c:205
+#: panel-plugin/xkb-dialog.c:205
 msgid "Caps Lock indicator:"
 msgstr "Ástandsvísir fyrir hástafalæsingu:"
 
-#: ../panel-plugin/xkb-dialog.c:218
+#: panel-plugin/xkb-dialog.c:218
 msgid "Show notifications on layout change:"
 msgstr ""
 
-#: ../panel-plugin/xkb-dialog.c:231
+#: panel-plugin/xkb-dialog.c:231
 msgid "Tooltip icon:"
 msgstr "Táknmynd vísbendingar:"
 
-#: ../panel-plugin/xkb-dialog.c:243
+#: panel-plugin/xkb-dialog.c:243
 msgid "Behavior"
 msgstr "Hegðun"
 
-#: ../panel-plugin/xkb-dialog.c:256
+#: panel-plugin/xkb-dialog.c:256
 msgid "Manage layout:"
 msgstr "Stýra uppsetningu:"
 
-#: ../panel-plugin/xkb-dialog.c:262
+#: panel-plugin/xkb-dialog.c:262
 msgid "globally"
 msgstr "allstaðar"
 
-#: ../panel-plugin/xkb-dialog.c:263
+#: panel-plugin/xkb-dialog.c:263
 msgid "per window"
 msgstr "fyrir hvern glugga"
 
-#: ../panel-plugin/xkb-dialog.c:264
+#: panel-plugin/xkb-dialog.c:264
 msgid "per application"
 msgstr "fyrir hvert forrit"
 
-#: ../panel-plugin/xkb-dialog.c:287
+#: panel-plugin/xkb-dialog.c:287
 #, c-format
 msgid ""
 "Use <a href=\"keyboard-settings:\">Keyboard Settings</a> to set available "
@@ -107,46 +107,50 @@ msgid ""
 "(default layout), except as specified for the other layouts:"
 msgstr ""
 
-#: ../panel-plugin/xkb-dialog.c:308
+#: panel-plugin/xkb-dialog.c:308
 msgid "Window classes, comma-separated:"
 msgstr ""
 
-#: ../panel-plugin/xkb-dialog.c:319
+#: panel-plugin/xkb-dialog.c:319
 #, c-format
 msgid "%s_%d (layout %d):"
 msgstr ""
 
-#: ../panel-plugin/xkb-dialog.c:320
+#: panel-plugin/xkb-dialog.c:320
 #, c-format
 msgid "%s (layout %d):"
 msgstr ""
 
-#: ../panel-plugin/xkb-dialog.c:339
+#: panel-plugin/xkb-dialog.c:339
 msgid ""
 "Enter a comma-separated list of window classes which will default to this "
 "layout."
 msgstr ""
 
-#: ../panel-plugin/xkb-dialog.c:421
+#: panel-plugin/xkb-dialog.c:421
 msgid "Keyboard Layouts Plugin"
 msgstr "Lyklaborðsuppsetningarviðbót"
 
-#: ../panel-plugin/xkb-dialog.c:423
+#: panel-plugin/xkb-dialog.c:423
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "Gerir þér kleift að stilla og nota margskonar lyklaborðsuppsetningar."
 
-#: ../panel-plugin/xkb-plugin.c:196
+#: panel-plugin/xkb-plugin.c:196
 msgid "Unsupported windowing environment"
 msgstr ""
 
-#: ../panel-plugin/xkb-plugin.c:197
+#: panel-plugin/xkb-plugin.c:197
 msgid "_OK"
 msgstr ""
 
-#: ../panel-plugin/xkb-plugin.c:273
+#: panel-plugin/xkb-plugin.c:273
 msgid "Keyboard settings"
 msgstr "Stillingar lyklaborðs"
 
-#: ../panel-plugin/xkb-plugin.c:545
+#: panel-plugin/xkb-plugin.c:545
 msgid "Keyboard layout changed"
 msgstr ""
+
+#: panel-plugin/xkb.desktop.in:5
+msgid "Keyboard layouts setup and switch plugin"
+msgstr "Viðbót fyrir uppsetningar og skiptingar milli lyklaborða"
