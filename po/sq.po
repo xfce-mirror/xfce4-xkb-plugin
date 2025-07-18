@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the xfce-panel-plugins.xfce4-xkb-plugin package.
 # 
 # Translators:
 # Besnik Bleta <besnik@programeshqip.org>, 2007,2019-2020
@@ -9,8 +9,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-17 12:58+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2025-07-18 11:09+0200\n"
 "PO-Revision-Date: 2013-07-03 19:34+0000\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>, 2007,2022-2024\n"
 "Language-Team: Albanian (http://app.transifex.com/xfce/xfce-panel-plugins/language/sq/)\n"
@@ -20,87 +20,87 @@ msgstr ""
 "Language: sq\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../panel-plugin/xkb-dialog.c:92
+#: panel-plugin/xkb-dialog.c:92
 msgid "This option is not available for current layout style"
 msgstr "Kjo mundësi s’mund të kihet për stilin e tanishëm të skemës"
 
-#: ../panel-plugin/xkb-dialog.c:138
+#: panel-plugin/xkb-dialog.c:138 panel-plugin/xkb.desktop.in:4
 msgid "Keyboard Layouts"
 msgstr "Skema Tastiere"
 
-#: ../panel-plugin/xkb-dialog.c:139
+#: panel-plugin/xkb-dialog.c:139
 msgid "_Close"
 msgstr "_Mbylle"
 
-#: ../panel-plugin/xkb-dialog.c:152
+#: panel-plugin/xkb-dialog.c:152
 msgid "Appearance"
 msgstr "Dukje"
 
-#: ../panel-plugin/xkb-dialog.c:165
+#: panel-plugin/xkb-dialog.c:165
 msgid "Show layout as:"
 msgstr "Shfaq skemë si:"
 
-#: ../panel-plugin/xkb-dialog.c:171
+#: panel-plugin/xkb-dialog.c:171
 msgid "image"
 msgstr "figurë"
 
-#: ../panel-plugin/xkb-dialog.c:172
+#: panel-plugin/xkb-dialog.c:172
 msgid "text"
 msgstr "tekst"
 
-#: ../panel-plugin/xkb-dialog.c:173
+#: panel-plugin/xkb-dialog.c:173
 msgid "system"
 msgstr "sistem"
 
-#: ../panel-plugin/xkb-dialog.c:179
+#: panel-plugin/xkb-dialog.c:179
 msgid "Layout name:"
 msgstr "Emër skeme:"
 
-#: ../panel-plugin/xkb-dialog.c:185
+#: panel-plugin/xkb-dialog.c:185
 msgid "country"
 msgstr "vend"
 
-#: ../panel-plugin/xkb-dialog.c:186
+#: panel-plugin/xkb-dialog.c:186
 msgid "language"
 msgstr "gjuhë"
 
-#: ../panel-plugin/xkb-dialog.c:192
+#: panel-plugin/xkb-dialog.c:192
 msgid "Widget size:"
 msgstr "Madhësi widget-i:"
 
-#: ../panel-plugin/xkb-dialog.c:205
+#: panel-plugin/xkb-dialog.c:205
 msgid "Caps Lock indicator:"
 msgstr "Indikator për Kyçje të Mëdhash:"
 
-#: ../panel-plugin/xkb-dialog.c:218
+#: panel-plugin/xkb-dialog.c:218
 msgid "Show notifications on layout change:"
 msgstr "Shfaq njoftime mbi ndryshim skeme:"
 
-#: ../panel-plugin/xkb-dialog.c:231
+#: panel-plugin/xkb-dialog.c:231
 msgid "Tooltip icon:"
 msgstr "Ikonë ndihmëze:"
 
-#: ../panel-plugin/xkb-dialog.c:243
+#: panel-plugin/xkb-dialog.c:243
 msgid "Behavior"
 msgstr "Sjellje"
 
-#: ../panel-plugin/xkb-dialog.c:256
+#: panel-plugin/xkb-dialog.c:256
 msgid "Manage layout:"
 msgstr "Administroni skemë:"
 
-#: ../panel-plugin/xkb-dialog.c:262
+#: panel-plugin/xkb-dialog.c:262
 msgid "globally"
 msgstr "globalisht"
 
-#: ../panel-plugin/xkb-dialog.c:263
+#: panel-plugin/xkb-dialog.c:263
 msgid "per window"
 msgstr "për dritare"
 
-#: ../panel-plugin/xkb-dialog.c:264
+#: panel-plugin/xkb-dialog.c:264
 msgid "per application"
 msgstr "për aplikacion"
 
-#: ../panel-plugin/xkb-dialog.c:287
+#: panel-plugin/xkb-dialog.c:287
 #, c-format
 msgid ""
 "Use <a href=\"keyboard-settings:\">Keyboard Settings</a> to set available "
@@ -108,46 +108,50 @@ msgid ""
 "(default layout), except as specified for the other layouts:"
 msgstr "Që të vini në punë skema të gatshme, përdorni <a href=\"keyboard-settings:\">Rregullime Tastiere</a>; që të ngarkohen ndryshimet, rihapni këtë dialog. Dritaret e reja zënë fill me “%s” (skema parazgjedhje), hiq rastet kur është caktuar për skema të tjera:"
 
-#: ../panel-plugin/xkb-dialog.c:308
+#: panel-plugin/xkb-dialog.c:308
 msgid "Window classes, comma-separated:"
 msgstr "Klasa dritaresh, ndarë me presje:"
 
-#: ../panel-plugin/xkb-dialog.c:319
+#: panel-plugin/xkb-dialog.c:319
 #, c-format
 msgid "%s_%d (layout %d):"
 msgstr "%s_%d (skema %d):"
 
-#: ../panel-plugin/xkb-dialog.c:320
+#: panel-plugin/xkb-dialog.c:320
 #, c-format
 msgid "%s (layout %d):"
 msgstr "%s (skema %d):"
 
-#: ../panel-plugin/xkb-dialog.c:339
+#: panel-plugin/xkb-dialog.c:339
 msgid ""
 "Enter a comma-separated list of window classes which will default to this "
 "layout."
 msgstr "Jepni një listë klasash dritaresh, ndarë me presje, që do të përdorin këtë skemë, si parazgjedhje."
 
-#: ../panel-plugin/xkb-dialog.c:421
+#: panel-plugin/xkb-dialog.c:421
 msgid "Keyboard Layouts Plugin"
 msgstr "Shtojcë Skemash Tastiere"
 
-#: ../panel-plugin/xkb-dialog.c:423
+#: panel-plugin/xkb-dialog.c:423
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "Ju lejon të formësoni dhe përdorni shumë skema tastiere njëherësh."
 
-#: ../panel-plugin/xkb-plugin.c:196
+#: panel-plugin/xkb-plugin.c:196
 msgid "Unsupported windowing environment"
 msgstr "Mjedis dritaresh i pambuluar"
 
-#: ../panel-plugin/xkb-plugin.c:197
+#: panel-plugin/xkb-plugin.c:197
 msgid "_OK"
 msgstr "_OK"
 
-#: ../panel-plugin/xkb-plugin.c:273
+#: panel-plugin/xkb-plugin.c:273
 msgid "Keyboard settings"
 msgstr "Rregullime tastiere"
 
-#: ../panel-plugin/xkb-plugin.c:545
+#: panel-plugin/xkb-plugin.c:545
 msgid "Keyboard layout changed"
 msgstr "Ndryshoi skemë tastiere"
+
+#: panel-plugin/xkb.desktop.in:5
+msgid "Keyboard layouts setup and switch plugin"
+msgstr "Shtojcë rregullimi dhe këmbimi skemash tastiere"
