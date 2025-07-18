@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the xfce-panel-plugins.xfce4-xkb-plugin package.
 # 
 # Translators:
 # Andhika Padmawan <andhika.padmawan@gmail.com>, 2008
@@ -9,8 +9,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-17 12:58+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2025-07-18 11:09+0200\n"
 "PO-Revision-Date: 2013-07-03 19:34+0000\n"
 "Last-Translator: Triyan W. Nugroho <triyan.wn@gmail.com>, 2022\n"
 "Language-Team: Indonesian (http://app.transifex.com/xfce/xfce-panel-plugins/language/id/)\n"
@@ -20,87 +20,87 @@ msgstr ""
 "Language: id\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../panel-plugin/xkb-dialog.c:92
+#: panel-plugin/xkb-dialog.c:92
 msgid "This option is not available for current layout style"
 msgstr "Opsi ini tidak tersedia untuk gaya tata letak saat ini"
 
-#: ../panel-plugin/xkb-dialog.c:138
+#: panel-plugin/xkb-dialog.c:138 panel-plugin/xkb.desktop.in:4
 msgid "Keyboard Layouts"
 msgstr "Tata Letak Papan Ketik"
 
-#: ../panel-plugin/xkb-dialog.c:139
+#: panel-plugin/xkb-dialog.c:139
 msgid "_Close"
 msgstr "_Tutup"
 
-#: ../panel-plugin/xkb-dialog.c:152
+#: panel-plugin/xkb-dialog.c:152
 msgid "Appearance"
 msgstr "Penampilan"
 
-#: ../panel-plugin/xkb-dialog.c:165
+#: panel-plugin/xkb-dialog.c:165
 msgid "Show layout as:"
 msgstr "Tampilkan tata letak sebagai:"
 
-#: ../panel-plugin/xkb-dialog.c:171
+#: panel-plugin/xkb-dialog.c:171
 msgid "image"
 msgstr "gambar"
 
-#: ../panel-plugin/xkb-dialog.c:172
+#: panel-plugin/xkb-dialog.c:172
 msgid "text"
 msgstr "teks"
 
-#: ../panel-plugin/xkb-dialog.c:173
+#: panel-plugin/xkb-dialog.c:173
 msgid "system"
 msgstr "sistem"
 
-#: ../panel-plugin/xkb-dialog.c:179
+#: panel-plugin/xkb-dialog.c:179
 msgid "Layout name:"
 msgstr "Nama tata letak:"
 
-#: ../panel-plugin/xkb-dialog.c:185
+#: panel-plugin/xkb-dialog.c:185
 msgid "country"
 msgstr "negara"
 
-#: ../panel-plugin/xkb-dialog.c:186
+#: panel-plugin/xkb-dialog.c:186
 msgid "language"
 msgstr "bahasa"
 
-#: ../panel-plugin/xkb-dialog.c:192
+#: panel-plugin/xkb-dialog.c:192
 msgid "Widget size:"
 msgstr "Ukuran widget:"
 
-#: ../panel-plugin/xkb-dialog.c:205
+#: panel-plugin/xkb-dialog.c:205
 msgid "Caps Lock indicator:"
 msgstr "Indikator Caps Lock:"
 
-#: ../panel-plugin/xkb-dialog.c:218
+#: panel-plugin/xkb-dialog.c:218
 msgid "Show notifications on layout change:"
 msgstr "Tampilkan notifikasi saat perubahan tata letak:"
 
-#: ../panel-plugin/xkb-dialog.c:231
+#: panel-plugin/xkb-dialog.c:231
 msgid "Tooltip icon:"
 msgstr "Ikon tooltip:"
 
-#: ../panel-plugin/xkb-dialog.c:243
+#: panel-plugin/xkb-dialog.c:243
 msgid "Behavior"
 msgstr "Perilaku"
 
-#: ../panel-plugin/xkb-dialog.c:256
+#: panel-plugin/xkb-dialog.c:256
 msgid "Manage layout:"
 msgstr "Atur tata letak:"
 
-#: ../panel-plugin/xkb-dialog.c:262
+#: panel-plugin/xkb-dialog.c:262
 msgid "globally"
 msgstr "secara global"
 
-#: ../panel-plugin/xkb-dialog.c:263
+#: panel-plugin/xkb-dialog.c:263
 msgid "per window"
 msgstr "per jendela"
 
-#: ../panel-plugin/xkb-dialog.c:264
+#: panel-plugin/xkb-dialog.c:264
 msgid "per application"
 msgstr "per aplikasi"
 
-#: ../panel-plugin/xkb-dialog.c:287
+#: panel-plugin/xkb-dialog.c:287
 #, c-format
 msgid ""
 "Use <a href=\"keyboard-settings:\">Keyboard Settings</a> to set available "
@@ -108,46 +108,50 @@ msgid ""
 "(default layout), except as specified for the other layouts:"
 msgstr ""
 
-#: ../panel-plugin/xkb-dialog.c:308
+#: panel-plugin/xkb-dialog.c:308
 msgid "Window classes, comma-separated:"
 msgstr ""
 
-#: ../panel-plugin/xkb-dialog.c:319
+#: panel-plugin/xkb-dialog.c:319
 #, c-format
 msgid "%s_%d (layout %d):"
 msgstr ""
 
-#: ../panel-plugin/xkb-dialog.c:320
+#: panel-plugin/xkb-dialog.c:320
 #, c-format
 msgid "%s (layout %d):"
 msgstr ""
 
-#: ../panel-plugin/xkb-dialog.c:339
+#: panel-plugin/xkb-dialog.c:339
 msgid ""
 "Enter a comma-separated list of window classes which will default to this "
 "layout."
 msgstr ""
 
-#: ../panel-plugin/xkb-dialog.c:421
+#: panel-plugin/xkb-dialog.c:421
 msgid "Keyboard Layouts Plugin"
 msgstr "Plugin Tata Letak Papan Ketik"
 
-#: ../panel-plugin/xkb-dialog.c:423
+#: panel-plugin/xkb-dialog.c:423
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "Memungkinkan anda untuk menyesuaikan berbagai tata letak papan ketik."
 
-#: ../panel-plugin/xkb-plugin.c:196
+#: panel-plugin/xkb-plugin.c:196
 msgid "Unsupported windowing environment"
 msgstr ""
 
-#: ../panel-plugin/xkb-plugin.c:197
+#: panel-plugin/xkb-plugin.c:197
 msgid "_OK"
 msgstr "_Oke"
 
-#: ../panel-plugin/xkb-plugin.c:273
+#: panel-plugin/xkb-plugin.c:273
 msgid "Keyboard settings"
 msgstr "Pengaturan papan ketik"
 
-#: ../panel-plugin/xkb-plugin.c:545
+#: panel-plugin/xkb-plugin.c:545
 msgid "Keyboard layout changed"
 msgstr "Tata letak papan ketik berubah"
+
+#: panel-plugin/xkb.desktop.in:5
+msgid "Keyboard layouts setup and switch plugin"
+msgstr "Pengaturan tata letak papan ketik dan pengalih plugin"
