@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the xfce-panel-plugins.xfce4-xkb-plugin package.
 # 
 # Translators:
 # Seong-ho Cho <darkcircle.0426@gmail.com>, 2013
@@ -10,8 +10,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-17 12:58+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2025-07-18 11:09+0200\n"
 "PO-Revision-Date: 2013-07-03 19:34+0000\n"
 "Last-Translator: Seong-ho Cho <darkcircle.0426@gmail.com>, 2012,2015,2022\n"
 "Language-Team: Korean (http://app.transifex.com/xfce/xfce-panel-plugins/language/ko/)\n"
@@ -21,87 +21,87 @@ msgstr ""
 "Language: ko\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../panel-plugin/xkb-dialog.c:92
+#: panel-plugin/xkb-dialog.c:92
 msgid "This option is not available for current layout style"
 msgstr "이 옵션은 현재 배열 방식에서는 지원하지 않습니다."
 
-#: ../panel-plugin/xkb-dialog.c:138
+#: panel-plugin/xkb-dialog.c:138 panel-plugin/xkb.desktop.in:4
 msgid "Keyboard Layouts"
 msgstr "키보드 배열"
 
-#: ../panel-plugin/xkb-dialog.c:139
+#: panel-plugin/xkb-dialog.c:139
 msgid "_Close"
 msgstr "닫기(_C)"
 
-#: ../panel-plugin/xkb-dialog.c:152
+#: panel-plugin/xkb-dialog.c:152
 msgid "Appearance"
 msgstr "꾸미기"
 
-#: ../panel-plugin/xkb-dialog.c:165
+#: panel-plugin/xkb-dialog.c:165
 msgid "Show layout as:"
 msgstr "다음 방식으로 배열 보기:"
 
-#: ../panel-plugin/xkb-dialog.c:171
+#: panel-plugin/xkb-dialog.c:171
 msgid "image"
 msgstr "그림"
 
-#: ../panel-plugin/xkb-dialog.c:172
+#: panel-plugin/xkb-dialog.c:172
 msgid "text"
 msgstr "텍스트"
 
-#: ../panel-plugin/xkb-dialog.c:173
+#: panel-plugin/xkb-dialog.c:173
 msgid "system"
 msgstr "시스템"
 
-#: ../panel-plugin/xkb-dialog.c:179
+#: panel-plugin/xkb-dialog.c:179
 msgid "Layout name:"
 msgstr "배열 이름:"
 
-#: ../panel-plugin/xkb-dialog.c:185
+#: panel-plugin/xkb-dialog.c:185
 msgid "country"
 msgstr "국가"
 
-#: ../panel-plugin/xkb-dialog.c:186
+#: panel-plugin/xkb-dialog.c:186
 msgid "language"
 msgstr "언어"
 
-#: ../panel-plugin/xkb-dialog.c:192
+#: panel-plugin/xkb-dialog.c:192
 msgid "Widget size:"
 msgstr "위젯 크기:"
 
-#: ../panel-plugin/xkb-dialog.c:205
+#: panel-plugin/xkb-dialog.c:205
 msgid "Caps Lock indicator:"
 msgstr "Caps Lock 표시기:"
 
-#: ../panel-plugin/xkb-dialog.c:218
+#: panel-plugin/xkb-dialog.c:218
 msgid "Show notifications on layout change:"
 msgstr "배열 바꿀 때 알림 표시:"
 
-#: ../panel-plugin/xkb-dialog.c:231
+#: panel-plugin/xkb-dialog.c:231
 msgid "Tooltip icon:"
 msgstr "풍선 도움말 아이콘:"
 
-#: ../panel-plugin/xkb-dialog.c:243
+#: panel-plugin/xkb-dialog.c:243
 msgid "Behavior"
 msgstr "움직임"
 
-#: ../panel-plugin/xkb-dialog.c:256
+#: panel-plugin/xkb-dialog.c:256
 msgid "Manage layout:"
 msgstr "배열 관리:"
 
-#: ../panel-plugin/xkb-dialog.c:262
+#: panel-plugin/xkb-dialog.c:262
 msgid "globally"
 msgstr "전역"
 
-#: ../panel-plugin/xkb-dialog.c:263
+#: panel-plugin/xkb-dialog.c:263
 msgid "per window"
 msgstr "창별"
 
-#: ../panel-plugin/xkb-dialog.c:264
+#: panel-plugin/xkb-dialog.c:264
 msgid "per application"
 msgstr "프로그램별"
 
-#: ../panel-plugin/xkb-dialog.c:287
+#: panel-plugin/xkb-dialog.c:287
 #, c-format
 msgid ""
 "Use <a href=\"keyboard-settings:\">Keyboard Settings</a> to set available "
@@ -109,46 +109,50 @@ msgid ""
 "(default layout), except as specified for the other layouts:"
 msgstr "가용 배열을 설정하려면 <a href=\"keyboard-settings:\">키보드 설정</a>을 활용하십시오. 이 대화 상자를 다시 열어 바뀐 내용을 불러오십시오. 다른 배열 지정 설정을 제외하고 '%s'(으)로 시작하는 새 창을 열어 확인하십시오:"
 
-#: ../panel-plugin/xkb-dialog.c:308
+#: panel-plugin/xkb-dialog.c:308
 msgid "Window classes, comma-separated:"
 msgstr "창 클래스, 쉼표 구분:"
 
-#: ../panel-plugin/xkb-dialog.c:319
+#: panel-plugin/xkb-dialog.c:319
 #, c-format
 msgid "%s_%d (layout %d):"
 msgstr "%s_%d (배열 %d):"
 
-#: ../panel-plugin/xkb-dialog.c:320
+#: panel-plugin/xkb-dialog.c:320
 #, c-format
 msgid "%s (layout %d):"
 msgstr "%s (배열 %d):"
 
-#: ../panel-plugin/xkb-dialog.c:339
+#: panel-plugin/xkb-dialog.c:339
 msgid ""
 "Enter a comma-separated list of window classes which will default to this "
 "layout."
 msgstr "이 배열을 기본으로 하는 창 클래스를 쉼표로 구분하여 입력하십시오."
 
-#: ../panel-plugin/xkb-dialog.c:421
+#: panel-plugin/xkb-dialog.c:421
 msgid "Keyboard Layouts Plugin"
 msgstr "키보드 배열 플러그인"
 
-#: ../panel-plugin/xkb-dialog.c:423
+#: panel-plugin/xkb-dialog.c:423
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "다중 키보드 배열을 설정하고 사용할 수 있게 합니다."
 
-#: ../panel-plugin/xkb-plugin.c:196
+#: panel-plugin/xkb-plugin.c:196
 msgid "Unsupported windowing environment"
 msgstr "지원하지 않는 창 환경입니다"
 
-#: ../panel-plugin/xkb-plugin.c:197
+#: panel-plugin/xkb-plugin.c:197
 msgid "_OK"
 msgstr "확인(_O)"
 
-#: ../panel-plugin/xkb-plugin.c:273
+#: panel-plugin/xkb-plugin.c:273
 msgid "Keyboard settings"
 msgstr "키보드 설정"
 
-#: ../panel-plugin/xkb-plugin.c:545
+#: panel-plugin/xkb-plugin.c:545
 msgid "Keyboard layout changed"
 msgstr "키보드 배열을 바꿨습니다"
+
+#: panel-plugin/xkb.desktop.in:5
+msgid "Keyboard layouts setup and switch plugin"
+msgstr "키보드 배열 설정 및 플러그인 변경"
