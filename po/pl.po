@@ -136,7 +136,7 @@ msgstr "Układy klawiatury"
 
 #: panel-plugin/xkb-dialog.c:423
 msgid "Allows you to configure and use multiple keyboard layouts."
-msgstr "Umożliwia skonfigurowanie i używanie wielu układów klawiatury"
+msgstr "Umożliwia skonfigurowanie i używanie wielu układów klawiatury."
 
 #: panel-plugin/xkb-plugin.c:196
 msgid "Unsupported windowing environment"
