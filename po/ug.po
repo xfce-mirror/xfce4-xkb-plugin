@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
-"POT-Creation-Date: 2024-04-07 00:58+0200\n"
+"POT-Creation-Date: 2025-07-18 11:09+0200\n"
 "PO-Revision-Date: 2013-07-03 19:34+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Uyghur (http://app.transifex.com/xfce/xfce-panel-plugins/language/ug/)\n"
@@ -19,124 +19,136 @@ msgstr ""
 
 #: panel-plugin/xkb-dialog.c:92
 msgid "This option is not available for current layout style"
-msgstr ""
+msgstr "بۇ تاللانمىنى نۆۋەتتىكى ھەرپتاختا ئورۇنلاشتۇرۇش ئۇسلۇبىدا ئىشلەتكىلى بولمايدۇ"
 
-#: panel-plugin/xkb-dialog.c:126 panel-plugin/xkb.desktop.in:4
+#: panel-plugin/xkb-dialog.c:138 panel-plugin/xkb.desktop.in:4
 msgid "Keyboard Layouts"
 msgstr "ھەرپتاختا ئورۇنلاشتۇرۇلۇشى"
 
 #: panel-plugin/xkb-dialog.c:139
+msgid "_Close"
+msgstr "ياپ(_C)"
+
+#: panel-plugin/xkb-dialog.c:152
 msgid "Appearance"
 msgstr "كۆرۈنۈشى"
 
-#: panel-plugin/xkb-dialog.c:152
+#: panel-plugin/xkb-dialog.c:165
 msgid "Show layout as:"
 msgstr "ئورۇنلاشتۇرۇلۇشىنى مۇنداق كۆرسەتسۇن:"
 
-#: panel-plugin/xkb-dialog.c:158
+#: panel-plugin/xkb-dialog.c:171
 msgid "image"
 msgstr "سۈرەت"
 
-#: panel-plugin/xkb-dialog.c:159
+#: panel-plugin/xkb-dialog.c:172
 msgid "text"
 msgstr "تېكىست"
 
-#: panel-plugin/xkb-dialog.c:160
-msgid "system"
-msgstr ""
-
-#: panel-plugin/xkb-dialog.c:166
-msgid "Layout name:"
-msgstr ""
-
-#: panel-plugin/xkb-dialog.c:172
-msgid "country"
-msgstr ""
-
 #: panel-plugin/xkb-dialog.c:173
-msgid "language"
-msgstr ""
+msgid "system"
+msgstr "سىستېما"
 
 #: panel-plugin/xkb-dialog.c:179
-msgid "Widget size:"
-msgstr ""
+msgid "Layout name:"
+msgstr "ئورۇنلاشتۇرۇش ئاتى:"
+
+#: panel-plugin/xkb-dialog.c:185
+msgid "country"
+msgstr "دۆلەت"
+
+#: panel-plugin/xkb-dialog.c:186
+msgid "language"
+msgstr "تىل"
 
 #: panel-plugin/xkb-dialog.c:192
-msgid "Caps Lock indicator:"
-msgstr ""
+msgid "Widget size:"
+msgstr "ئەپچە چوڭلۇقى:"
 
 #: panel-plugin/xkb-dialog.c:205
-msgid "Show notifications on layout change:"
-msgstr ""
+msgid "Caps Lock indicator:"
+msgstr "‫Caps lock كۆرسەتكۈچ:"
 
 #: panel-plugin/xkb-dialog.c:218
-msgid "Tooltip icon:"
-msgstr ""
+msgid "Show notifications on layout change:"
+msgstr "ئورۇنلاشتۇرۇش ئۆزگەرگەندە ئۇقتۇرۇش كۆرسىتىدۇ:"
 
-#: panel-plugin/xkb-dialog.c:230
-msgid "Behavior"
-msgstr ""
+#: panel-plugin/xkb-dialog.c:231
+msgid "Tooltip icon:"
+msgstr "قورال كۆرسەتمە سىنبەلگىسى:"
 
 #: panel-plugin/xkb-dialog.c:243
+msgid "Behavior"
+msgstr "ھەرىكەت"
+
+#: panel-plugin/xkb-dialog.c:256
 msgid "Manage layout:"
-msgstr "ئورۇنلاشتۇرۇلۇشىنى باشقۇرۇش:"
+msgstr "ئورۇنلاشتۇرۇش باشقۇرۇش:"
 
-#: panel-plugin/xkb-dialog.c:249
+#: panel-plugin/xkb-dialog.c:262
 msgid "globally"
-msgstr "سىستېمىدا"
+msgstr "ئومۇمىيەت"
 
-#: panel-plugin/xkb-dialog.c:250
+#: panel-plugin/xkb-dialog.c:263
 msgid "per window"
 msgstr "ھەر بىر كۆزنەكتە"
 
-#: panel-plugin/xkb-dialog.c:251
+#: panel-plugin/xkb-dialog.c:264
 msgid "per application"
-msgstr "ھەر بىر پروگراممىدا"
+msgstr "ھەر بىر پىروگراممىدا"
 
-#: panel-plugin/xkb-dialog.c:274
+#: panel-plugin/xkb-dialog.c:287
 #, c-format
 msgid ""
 "Use <a href=\"keyboard-settings:\">Keyboard Settings</a> to set available "
 "layouts; reopen this dialog to load changes. New windows start with '%s' "
 "(default layout), except as specified for the other layouts:"
-msgstr ""
+msgstr "<a href=\"keyboard-settings:\">ھەرپتاختا تەڭشىكى</a> ئارقىلىق ئىشلەتكىلى بولىدىغان ئورۇنلاشتۇرۇشنى تەڭشەيدۇ؛ بۇ سۆزلەشكۈ قايتا ئېچىلسا ئۆزگەرتىشنى يۈكلەيدۇ. يېڭى كۆزنەك «%s» دىن باشلىنىدۇ، باشقا ئورۇنلاشتۇرۇشتا بەلگىلەنگەنلىرى بۇنىڭ سىرتىدا:"
 
-#: panel-plugin/xkb-dialog.c:295
+#: panel-plugin/xkb-dialog.c:308
 msgid "Window classes, comma-separated:"
-msgstr ""
+msgstr "كۆزنەك تۈرى، پەش بىلەن ئايرىلغان:"
 
-#: panel-plugin/xkb-dialog.c:306
+#: panel-plugin/xkb-dialog.c:319
 #, c-format
 msgid "%s_%d (layout %d):"
-msgstr ""
+msgstr "%s_%d (ئورۇنلاشتۇرۇش %d):"
 
-#: panel-plugin/xkb-dialog.c:307
+#: panel-plugin/xkb-dialog.c:320
 #, c-format
 msgid "%s (layout %d):"
-msgstr ""
+msgstr "%s (ئورۇنلاشتۇرۇش %d):"
 
-#: panel-plugin/xkb-dialog.c:326
+#: panel-plugin/xkb-dialog.c:339
 msgid ""
 "Enter a comma-separated list of window classes which will default to this "
 "layout."
-msgstr ""
+msgstr "پەش بىلەن ئايرىلغان كۆزنەك تۈرى تىزىمى كىرگۈزۈلىدۇ، بۇ كۆزنەك كۆڭۈلدىكى ئەھۋالدا مۇشۇنداق ئورۇنلاشتۇرۇلىدۇ."
 
-#: panel-plugin/xkb-dialog.c:409
+#: panel-plugin/xkb-dialog.c:421
 msgid "Keyboard Layouts Plugin"
 msgstr "ھەرپتاختا ئورۇنلاشتۇرۇلۇشى قىستۇرمىسى"
 
-#: panel-plugin/xkb-dialog.c:411
+#: panel-plugin/xkb-dialog.c:423
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "بىر نەچچە ھەرپتاختا ئورۇنلاشتۇرۇلۇشى تەڭشەپ، ئۇنى ئىشلەتكىلى بولىدىغان قىلىدۇ."
 
-#: panel-plugin/xkb-plugin.c:252
-msgid "Keyboard settings"
-msgstr ""
+#: panel-plugin/xkb-plugin.c:196
+msgid "Unsupported windowing environment"
+msgstr "قوللىمايدىغان كۆزنەك مۇھىتى"
 
-#: panel-plugin/xkb-plugin.c:524
+#: panel-plugin/xkb-plugin.c:197
+msgid "_OK"
+msgstr "جەزملە(_O)"
+
+#: panel-plugin/xkb-plugin.c:273
+msgid "Keyboard settings"
+msgstr "ھەرپتاختا تەڭشەك"
+
+#: panel-plugin/xkb-plugin.c:545
 msgid "Keyboard layout changed"
-msgstr ""
+msgstr "ھەرپتاختا ئورۇنلاشتۇرۇلۇشى ئۆزگەردى"
 
 #: panel-plugin/xkb.desktop.in:5
 msgid "Keyboard layouts setup and switch plugin"
-msgstr "ھەرپتاختا ئورۇنلاشتۇرۇلۇشىنى تەڭشەش ۋە ئالماشتۇرۇش قىستۇرمىسىدۇر."
+msgstr "ھەرپتاختا ئورۇنلاشتۇرۇلۇشىنى تەڭشەش ۋە ئالماشتۇرۇش قىستۇرمىسىدۇر"
