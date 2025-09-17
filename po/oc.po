@@ -138,7 +138,7 @@ msgstr "Permet l'utilizacion de mantuna disposicions del clavièr."
 
 #: panel-plugin/xkb-plugin.c:196
 msgid "Unsupported windowing environment"
-msgstr ""
+msgstr "Environament de fenestratge non pres en carga"
 
 #: panel-plugin/xkb-plugin.c:197
 msgid "_OK"
