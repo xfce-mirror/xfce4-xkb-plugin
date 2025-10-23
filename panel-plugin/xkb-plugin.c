@@ -70,6 +70,7 @@ struct _XkbPlugin
 #ifdef HAVE_LIBNOTIFY
   NotifyNotification  *notification;
 #endif
+  gboolean             disabled;
 };
 
 /* ------------------------------------------------------------------ *
@@ -171,6 +172,7 @@ xkb_plugin_init (XkbPlugin *plugin)
   notify_init("xfce4-xkb-plugin");
   plugin->notification = NULL;
 #endif
+  plugin->disabled = FALSE;
 }
 
 
@@ -184,7 +186,9 @@ xkb_plugin_construct (XfcePanelPlugin *plugin)
 
   xfce_textdomain (GETTEXT_PACKAGE, LOCALEDIR, "UTF-8");
 
-  /* abort on non X11 environments */
+  xkb_plugin = XKB_PLUGIN (plugin);
+
+  /* disable on non X11 environments */
 #ifdef GDK_WINDOWING_X11
   gboolean x11_windowing = GDK_IS_X11_DISPLAY (gdk_display_get_default ());
 #else
@@ -192,19 +196,13 @@ xkb_plugin_construct (XfcePanelPlugin *plugin)
 #endif
   if (!x11_windowing)
     {
-      GtkWidget *dialog = xfce_message_dialog_new (NULL, xfce_panel_plugin_get_display_name (plugin), "dialog-error",
-                                                   _("Unsupported windowing environment"), NULL,
-                                                   _("_OK"), GTK_RESPONSE_OK, NULL);
-      XFCE_PANEL_PLUGIN_GET_CLASS (plugin)->free_data = NULL;
-      XFCE_PANEL_PLUGIN_GET_CLASS (plugin)->orientation_changed = NULL;
-      XFCE_PANEL_PLUGIN_GET_CLASS (plugin)->size_changed = NULL;
-      gtk_dialog_run (GTK_DIALOG (dialog));
-      gtk_widget_destroy (dialog);
-      xfce_panel_plugin_remove (plugin);
+      GtkWidget *button = gtk_button_new_from_icon_name ("action-unavailable-symbolic", GTK_ICON_SIZE_BUTTON);
+      gtk_widget_set_tooltip_text (button, _("Unsupported windowing environment"));
+      gtk_container_add (GTK_CONTAINER (plugin), button);
+      gtk_widget_show (button);
+      xkb_plugin->disabled = TRUE;
       return;
     }
-
-  xkb_plugin = XKB_PLUGIN (plugin);
 
   xkb_plugin->config = xkb_xfconf_new (xfce_panel_plugin_get_property_base (plugin));
 
@@ -311,6 +309,9 @@ xkb_plugin_free_data (XfcePanelPlugin *plugin)
 {
   XkbPlugin *xkb_plugin = XKB_PLUGIN (plugin);
 
+  if (xkb_plugin->disabled)
+    return;
+
 #ifdef HAVE_LIBNOTIFY
   g_object_unref (G_OBJECT (xkb_plugin->notification));
   xkb_plugin->notification = NULL;
@@ -340,6 +341,9 @@ static void
 xkb_plugin_configure_plugin (XfcePanelPlugin *plugin)
 {
   XkbPlugin *xkb_plugin = XKB_PLUGIN (plugin);
+
+  if (xkb_plugin->disabled)
+    return;
 
   xkb_dialog_configure_plugin (plugin,
                                xkb_plugin->config, xkb_plugin->keyboard);
@@ -392,6 +396,9 @@ xkb_plugin_calculate_sizes (XkbPlugin      *plugin,
   gint           hsize, vsize;
   gboolean       proportional;
   XkbDisplayType display_type;
+
+  if (plugin->disabled)
+    return TRUE;
 
   display_type = xkb_xfconf_get_display_type (plugin->config);
   nrows = xfce_panel_plugin_get_nrows (XFCE_PANEL_PLUGIN (plugin));
