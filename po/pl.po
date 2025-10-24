@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
-"POT-Creation-Date: 2025-07-18 11:09+0200\n"
+"POT-Creation-Date: 2025-10-24 13:07+0200\n"
 "PO-Revision-Date: 2013-07-03 19:34+0000\n"
 "Last-Translator: Marek Adamski, 2022,2024-2025\n"
 "Language-Team: Polish (http://app.transifex.com/xfce/xfce-panel-plugins/language/pl/)\n"
@@ -40,7 +40,7 @@ msgstr "Wygląd"
 
 #: panel-plugin/xkb-dialog.c:165
 msgid "Show layout as:"
-msgstr "Wyświetlanie"
+msgstr "Wyświetlanie układu jako:"
 
 #: panel-plugin/xkb-dialog.c:171
 msgid "image"
@@ -48,7 +48,7 @@ msgstr "Ikona"
 
 #: panel-plugin/xkb-dialog.c:172
 msgid "text"
-msgstr "Etykieta"
+msgstr "Tekst"
 
 #: panel-plugin/xkb-dialog.c:173
 msgid "system"
@@ -88,19 +88,19 @@ msgstr "Zachowanie"
 
 #: panel-plugin/xkb-dialog.c:256
 msgid "Manage layout:"
-msgstr "Zastosowanie"
+msgstr "Zarządzanie układem:"
 
 #: panel-plugin/xkb-dialog.c:262
 msgid "globally"
-msgstr "Środowisko"
+msgstr "Globalnie"
 
 #: panel-plugin/xkb-dialog.c:263
 msgid "per window"
-msgstr "Okno"
+msgstr "Według okna"
 
 #: panel-plugin/xkb-dialog.c:264
 msgid "per application"
-msgstr "Program"
+msgstr "Według programu"
 
 #: panel-plugin/xkb-dialog.c:287
 #, c-format
@@ -138,19 +138,15 @@ msgstr "Układy klawiatury"
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "Umożliwia skonfigurowanie i używanie wielu układów klawiatury."
 
-#: panel-plugin/xkb-plugin.c:196
+#: panel-plugin/xkb-plugin.c:200
 msgid "Unsupported windowing environment"
 msgstr "Nieobsługiwane środowisko okienkowe"
 
-#: panel-plugin/xkb-plugin.c:197
-msgid "_OK"
-msgstr "_OK"
-
-#: panel-plugin/xkb-plugin.c:273
+#: panel-plugin/xkb-plugin.c:271
 msgid "Keyboard settings"
 msgstr "Ustawienia klawiatury"
 
-#: panel-plugin/xkb-plugin.c:545
+#: panel-plugin/xkb-plugin.c:552
 msgid "Keyboard layout changed"
 msgstr "Zmieniono układ klawiatury"
 
