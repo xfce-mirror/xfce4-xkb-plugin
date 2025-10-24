@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
-"POT-Creation-Date: 2025-07-18 11:09+0200\n"
+"POT-Creation-Date: 2025-10-24 13:07+0200\n"
 "PO-Revision-Date: 2013-07-03 19:34+0000\n"
 "Last-Translator: Daniel Muñiz Fontoira <dani@damufo.eu>, 2024\n"
 "Language-Team: Galician (http://app.transifex.com/xfce/xfce-panel-plugins/language/gl/)\n"
@@ -136,19 +136,15 @@ msgstr "Engadido de disposicións de teclado"
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "Permítelle configurar e usar múltiples disposicións de teclado."
 
-#: panel-plugin/xkb-plugin.c:196
+#: panel-plugin/xkb-plugin.c:200
 msgid "Unsupported windowing environment"
 msgstr "O contorno de xanelas non é compatíbel"
 
-#: panel-plugin/xkb-plugin.c:197
-msgid "_OK"
-msgstr "_Vale"
-
-#: panel-plugin/xkb-plugin.c:273
+#: panel-plugin/xkb-plugin.c:271
 msgid "Keyboard settings"
 msgstr "Configuración do teclado"
 
-#: panel-plugin/xkb-plugin.c:545
+#: panel-plugin/xkb-plugin.c:552
 msgid "Keyboard layout changed"
 msgstr "Cambiou a disposición do teclado"
 
