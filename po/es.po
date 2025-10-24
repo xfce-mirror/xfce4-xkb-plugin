@@ -7,15 +7,15 @@
 # Adolfo Jayme Barrientos, 2014
 # Adolfo Jayme Barrientos, 2014
 # David Segura Monroy <davidseg@gmail.com>, 2013
-# Pablo Lezaeta Reyes <prflr88@gmail.com>, 2017
-# Pablo Lezaeta Reyes <prflr88@gmail.com>, 2014
-# Pablo Lezaeta Reyes <prflr88@gmail.com>, 2017
+# Pablo Lezaeta (Jota) <prflr88@gmail.com>, 2017
+# Pablo Lezaeta (Jota) <prflr88@gmail.com>, 2014
+# Pablo Lezaeta (Jota) <prflr88@gmail.com>, 2017
 # Toni Estévez <toni.estevez@gmail.com>, 2021-2022
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
-"POT-Creation-Date: 2025-07-18 11:09+0200\n"
+"POT-Creation-Date: 2025-10-24 13:07+0200\n"
 "PO-Revision-Date: 2013-07-03 19:34+0000\n"
 "Last-Translator: Toni Estévez <toni.estevez@gmail.com>, 2021-2022\n"
 "Language-Team: Spanish (http://app.transifex.com/xfce/xfce-panel-plugins/language/es/)\n"
@@ -141,19 +141,15 @@ msgstr "Distribuciones del teclado"
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "Permite configurar y usar múltiples distribuciones del teclado."
 
-#: panel-plugin/xkb-plugin.c:196
+#: panel-plugin/xkb-plugin.c:200
 msgid "Unsupported windowing environment"
 msgstr "Entorno de ventanas no compatible"
 
-#: panel-plugin/xkb-plugin.c:197
-msgid "_OK"
-msgstr "_Aceptar"
-
-#: panel-plugin/xkb-plugin.c:273
+#: panel-plugin/xkb-plugin.c:271
 msgid "Keyboard settings"
 msgstr "Configuración del teclado"
 
-#: panel-plugin/xkb-plugin.c:545
+#: panel-plugin/xkb-plugin.c:552
 msgid "Keyboard layout changed"
 msgstr "Distribución del teclado cambiada"
 
