@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
-"POT-Creation-Date: 2025-07-18 11:09+0200\n"
+"POT-Creation-Date: 2025-10-24 13:07+0200\n"
 "PO-Revision-Date: 2013-07-03 19:34+0000\n"
 "Last-Translator: 黃柏諺 <s8321414@gmail.com>, 2022\n"
 "Language-Team: Chinese (Taiwan) (http://app.transifex.com/xfce/xfce-panel-plugins/language/zh_TW/)\n"
@@ -137,19 +137,15 @@ msgstr "鍵盤配置插件"
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "讓您設定並使用多種鍵盤配置。"
 
-#: panel-plugin/xkb-plugin.c:196
+#: panel-plugin/xkb-plugin.c:200
 msgid "Unsupported windowing environment"
 msgstr "不支援的視窗環境"
 
-#: panel-plugin/xkb-plugin.c:197
-msgid "_OK"
-msgstr "確定(_O)"
-
-#: panel-plugin/xkb-plugin.c:273
+#: panel-plugin/xkb-plugin.c:271
 msgid "Keyboard settings"
 msgstr "鍵盤設定"
 
-#: panel-plugin/xkb-plugin.c:545
+#: panel-plugin/xkb-plugin.c:552
 msgid "Keyboard layout changed"
 msgstr "鍵盤佈局已變更"
 
