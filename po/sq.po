@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
-"POT-Creation-Date: 2025-07-18 11:09+0200\n"
+"POT-Creation-Date: 2025-10-24 13:07+0200\n"
 "PO-Revision-Date: 2013-07-03 19:34+0000\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>, 2007,2022-2024\n"
 "Language-Team: Albanian (http://app.transifex.com/xfce/xfce-panel-plugins/language/sq/)\n"
@@ -136,19 +136,15 @@ msgstr "Shtojcë Skemash Tastiere"
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "Ju lejon të formësoni dhe përdorni shumë skema tastiere njëherësh."
 
-#: panel-plugin/xkb-plugin.c:196
+#: panel-plugin/xkb-plugin.c:200
 msgid "Unsupported windowing environment"
 msgstr "Mjedis dritaresh i pambuluar"
 
-#: panel-plugin/xkb-plugin.c:197
-msgid "_OK"
-msgstr "_OK"
-
-#: panel-plugin/xkb-plugin.c:273
+#: panel-plugin/xkb-plugin.c:271
 msgid "Keyboard settings"
 msgstr "Rregullime tastiere"
 
-#: panel-plugin/xkb-plugin.c:545
+#: panel-plugin/xkb-plugin.c:552
 msgid "Keyboard layout changed"
 msgstr "Ndryshoi skemë tastiere"
 
