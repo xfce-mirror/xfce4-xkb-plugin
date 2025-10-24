@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
-"POT-Creation-Date: 2025-07-18 11:09+0200\n"
+"POT-Creation-Date: 2025-10-24 13:07+0200\n"
 "PO-Revision-Date: 2013-07-03 19:34+0000\n"
 "Last-Translator: jc1 <jc1.quebecos@gmail.com>, 2013,2022\n"
 "Language-Team: French (http://app.transifex.com/xfce/xfce-panel-plugins/language/fr/)\n"
@@ -139,19 +139,15 @@ msgstr "Greffon de disposition du clavier"
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr "Permet l’utilisation de plusieurs dispositions du clavier."
 
-#: panel-plugin/xkb-plugin.c:196
+#: panel-plugin/xkb-plugin.c:200
 msgid "Unsupported windowing environment"
 msgstr "Environnement de fenêtrage non pris en charge"
 
-#: panel-plugin/xkb-plugin.c:197
-msgid "_OK"
-msgstr "_OK"
-
-#: panel-plugin/xkb-plugin.c:273
+#: panel-plugin/xkb-plugin.c:271
 msgid "Keyboard settings"
 msgstr "Paramètres du clavier"
 
-#: panel-plugin/xkb-plugin.c:545
+#: panel-plugin/xkb-plugin.c:552
 msgid "Keyboard layout changed"
 msgstr "Disposition du clavier a changé"
 
