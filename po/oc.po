@@ -5,14 +5,14 @@
 # Translators:
 # Cédric Valmary <cvalmary@yahoo.fr>, 2016
 # Cédric Valmary <cvalmary@yahoo.fr>, 2013
-# Quentin PAGÈS, 2022
+# Quentin PAGÈS, 2022,2025
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
 "POT-Creation-Date: 2025-10-24 13:07+0200\n"
 "PO-Revision-Date: 2013-07-03 19:34+0000\n"
-"Last-Translator: Quentin PAGÈS, 2022\n"
+"Last-Translator: Quentin PAGÈS, 2022,2025\n"
 "Language-Team: Occitan (post 1500) (http://app.transifex.com/xfce/xfce-panel-plugins/language/oc/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: panel-plugin/xkb-dialog.c:92
 msgid "This option is not available for current layout style"
-msgstr ""
+msgstr "Aquesta opcion es pas disponibla per l’estil de disposicion actual"
 
 #: panel-plugin/xkb-dialog.c:138 panel-plugin/xkb.desktop.in:4
 msgid "Keyboard Layouts"
@@ -50,11 +50,11 @@ msgstr "tèxte"
 
 #: panel-plugin/xkb-dialog.c:173
 msgid "system"
-msgstr ""
+msgstr "sistèma"
 
 #: panel-plugin/xkb-dialog.c:179
 msgid "Layout name:"
-msgstr ""
+msgstr "Nom de la disposicion :"
 
 #: panel-plugin/xkb-dialog.c:185
 msgid "country"
@@ -66,19 +66,19 @@ msgstr "lenga"
 
 #: panel-plugin/xkb-dialog.c:192
 msgid "Widget size:"
-msgstr ""
+msgstr "Talha del widget :"
 
 #: panel-plugin/xkb-dialog.c:205
 msgid "Caps Lock indicator:"
-msgstr ""
+msgstr "Indicador de verr. Maj. :"
 
 #: panel-plugin/xkb-dialog.c:218
 msgid "Show notifications on layout change:"
-msgstr ""
+msgstr "Afichar una notificacion en modificant la disposicion :"
 
 #: panel-plugin/xkb-dialog.c:231
 msgid "Tooltip icon:"
-msgstr ""
+msgstr "Icòna de l'infobulla :"
 
 #: panel-plugin/xkb-dialog.c:243
 msgid "Behavior"
@@ -106,27 +106,27 @@ msgid ""
 "Use <a href=\"keyboard-settings:\">Keyboard Settings</a> to set available "
 "layouts; reopen this dialog to load changes. New windows start with '%s' "
 "(default layout), except as specified for the other layouts:"
-msgstr ""
+msgstr "Utilizatz <a href=\"keyboard-settings:\">Paramètres del clavièr</a> per definir las disposicions disponiblas ; tornatz dobrir aquesta fenèstra de dialòg per cargar los cambiaments. Las fenèstras novèlas començan amb « %s » (disposicion per defaut), levat çò qu'es especificat per las autras disposicions :"
 
 #: panel-plugin/xkb-dialog.c:308
 msgid "Window classes, comma-separated:"
-msgstr ""
+msgstr "Classas de fenèstras, separadas per de virgulas :"
 
 #: panel-plugin/xkb-dialog.c:319
 #, c-format
 msgid "%s_%d (layout %d):"
-msgstr ""
+msgstr "%s_%d (disposicion %d) :"
 
 #: panel-plugin/xkb-dialog.c:320
 #, c-format
 msgid "%s (layout %d):"
-msgstr ""
+msgstr "%s (disposicion %d) :"
 
 #: panel-plugin/xkb-dialog.c:339
 msgid ""
 "Enter a comma-separated list of window classes which will default to this "
 "layout."
-msgstr ""
+msgstr "Entratz una lista de classas de fenèstras, separadas per de virgulas, que seràn utilizadas per defaut per aquesta disposicion."
 
 #: panel-plugin/xkb-dialog.c:421
 msgid "Keyboard Layouts Plugin"
@@ -146,7 +146,7 @@ msgstr "Paramètres del clavièr"
 
 #: panel-plugin/xkb-plugin.c:552
 msgid "Keyboard layout changed"
-msgstr ""
+msgstr "Disposicion de clavièr modificada"
 
 #: panel-plugin/xkb.desktop.in:5
 msgid "Keyboard layouts setup and switch plugin"
