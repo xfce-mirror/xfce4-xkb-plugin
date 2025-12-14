@@ -1,0 +1,150 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the xfce-panel-plugins.xfce4-xkb-plugin package.
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: Xfce Panel Plugins\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2025-10-24 13:07+0200\n"
+"PO-Revision-Date: 2013-07-03 19:34+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Vietnamese (http://app.transifex.com/xfce/xfce-panel-plugins/language/vi/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: vi\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: panel-plugin/xkb-dialog.c:92
+msgid "This option is not available for current layout style"
+msgstr "Tùy chọn này không có sẵn cho kiểu bố cục hiện tại"
+
+#: panel-plugin/xkb-dialog.c:138 panel-plugin/xkb.desktop.in:4
+msgid "Keyboard Layouts"
+msgstr "Bố cục bàn phím"
+
+#: panel-plugin/xkb-dialog.c:139
+msgid "_Close"
+msgstr "Đóng"
+
+#: panel-plugin/xkb-dialog.c:152
+msgid "Appearance"
+msgstr "Diện mạo"
+
+#: panel-plugin/xkb-dialog.c:165
+msgid "Show layout as:"
+msgstr "Hiển thị bố cục dưới dạng:"
+
+#: panel-plugin/xkb-dialog.c:171
+msgid "image"
+msgstr "hình ảnh"
+
+#: panel-plugin/xkb-dialog.c:172
+msgid "text"
+msgstr "chữ"
+
+#: panel-plugin/xkb-dialog.c:173
+msgid "system"
+msgstr "hệ thống"
+
+#: panel-plugin/xkb-dialog.c:179
+msgid "Layout name:"
+msgstr "Tên bố cục:"
+
+#: panel-plugin/xkb-dialog.c:185
+msgid "country"
+msgstr "quốc gia"
+
+#: panel-plugin/xkb-dialog.c:186
+msgid "language"
+msgstr "ngôn ngữ"
+
+#: panel-plugin/xkb-dialog.c:192
+msgid "Widget size:"
+msgstr "Kích thước tiện ích:"
+
+#: panel-plugin/xkb-dialog.c:205
+msgid "Caps Lock indicator:"
+msgstr "Chỉ báo Caps Lock:"
+
+#: panel-plugin/xkb-dialog.c:218
+msgid "Show notifications on layout change:"
+msgstr "Hiển thị thông báo về thay đổi bố cục:"
+
+#: panel-plugin/xkb-dialog.c:231
+msgid "Tooltip icon:"
+msgstr "Biểu tượng chú giải công cụ:"
+
+#: panel-plugin/xkb-dialog.c:243
+msgid "Behavior"
+msgstr "Hành vi"
+
+#: panel-plugin/xkb-dialog.c:256
+msgid "Manage layout:"
+msgstr "Quản lý bố cục:"
+
+#: panel-plugin/xkb-dialog.c:262
+msgid "globally"
+msgstr "trên toàn cầu"
+
+#: panel-plugin/xkb-dialog.c:263
+msgid "per window"
+msgstr "mỗi cửa sổ"
+
+#: panel-plugin/xkb-dialog.c:264
+msgid "per application"
+msgstr "mỗi ứng dụng"
+
+#: panel-plugin/xkb-dialog.c:287
+#, c-format
+msgid ""
+"Use <a href=\"keyboard-settings:\">Keyboard Settings</a> to set available "
+"layouts; reopen this dialog to load changes. New windows start with '%s' "
+"(default layout), except as specified for the other layouts:"
+msgstr "Sử dụng <a href=\"keyboard-settings:\">Cài đặt bàn phím</a> để đặt bố cục có sẵn; mở lại hộp thoại này để tải các thay đổi. Cửa sổ mới bắt đầu bằng '%s' (bố cục mặc định), ngoại trừ như được chỉ định cho các bố cục khác:"
+
+#: panel-plugin/xkb-dialog.c:308
+msgid "Window classes, comma-separated:"
+msgstr "Các lớp cửa sổ, được phân tách bằng dấu phẩy:"
+
+#: panel-plugin/xkb-dialog.c:319
+#, c-format
+msgid "%s_%d (layout %d):"
+msgstr "%s_%d (bố cục %d):"
+
+#: panel-plugin/xkb-dialog.c:320
+#, c-format
+msgid "%s (layout %d):"
+msgstr "%s (bố cục %d):"
+
+#: panel-plugin/xkb-dialog.c:339
+msgid ""
+"Enter a comma-separated list of window classes which will default to this "
+"layout."
+msgstr "Nhập danh sách các lớp cửa sổ được phân tách bằng dấu phẩy sẽ mặc định có bố cục này."
+
+#: panel-plugin/xkb-dialog.c:421
+msgid "Keyboard Layouts Plugin"
+msgstr "Plugin bố trí bàn phím"
+
+#: panel-plugin/xkb-dialog.c:423
+msgid "Allows you to configure and use multiple keyboard layouts."
+msgstr "Cho phép bạn định cấu hình và sử dụng nhiều bố cục bàn phím."
+
+#: panel-plugin/xkb-plugin.c:200
+msgid "Unsupported windowing environment"
+msgstr "Môi trường cửa sổ không được hỗ trợ"
+
+#: panel-plugin/xkb-plugin.c:271
+msgid "Keyboard settings"
+msgstr "Cài đặt bàn phím"
+
+#: panel-plugin/xkb-plugin.c:552
+msgid "Keyboard layout changed"
+msgstr "Bố cục bàn phím đã thay đổi"
+
+#: panel-plugin/xkb.desktop.in:5
+msgid "Keyboard layouts setup and switch plugin"
+msgstr "Plugin thiết lập và chuyển đổi bố cục bàn phím"
