@@ -23,11 +23,7 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-#include "glib.h"
-#include "glibconfig.h"
 #include <gtk/gtk.h>
-#include <libnotify/notification.h>
-#include <string.h>
 #ifdef GDK_WINDOWING_X11
 #include <gdk/gdkx.h>
 #endif
