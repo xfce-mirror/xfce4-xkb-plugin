@@ -554,7 +554,7 @@ xkb_plugin_notify (XkbPlugin *plugin)
     return;
 
   notify_notification_set_image_from_pixbuf(plugin->notification, pixbuf);
-  notify_notification_update (plugin->notification, layout_name, _("Keyboard Layout Changed"), NULL);
+  notify_notification_update (plugin->notification, layout_name, _("Keyboard layout changed"), NULL);
 
   if (!notify_notification_show (plugin->notification, &error))
     {
