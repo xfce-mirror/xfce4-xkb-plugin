@@ -58,7 +58,6 @@ struct _XkbPluginClass
 struct _XkbPlugin
 {
   XfcePanelPlugin      __parent__;
-
   XkbXfconf           *config;
   XkbKeyboard         *keyboard;
   XkbModifier         *modifier;
