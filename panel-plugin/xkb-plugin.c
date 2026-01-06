@@ -543,7 +543,6 @@ xkb_plugin_notify (XkbPlugin *plugin)
   gchar                *layout_name;
   GdkPixbuf            *pixbuf;
 
-
   display_name = xkb_xfconf_get_display_name (plugin->config);
   group_name = xkb_keyboard_get_group_name (plugin->keyboard, display_name, -1);
   normalized_group_name = xkb_util_normalize_group_name (group_name, FALSE);
