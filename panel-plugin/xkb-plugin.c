@@ -58,7 +58,6 @@ struct _XkbPluginClass
 struct _XkbPlugin
 {
   XfcePanelPlugin      __parent__;
-    
   XkbXfconf           *config;
   XkbKeyboard         *keyboard;
   XkbModifier         *modifier;
@@ -541,15 +540,20 @@ xkb_plugin_notify (XkbPlugin *plugin)
   const gchar          *group_name;
   gchar                *normalized_group_name;
   GError               *error = NULL;
+  gchar                *layout_name;
+  GdkPixbuf            *pixbuf;
 
   display_name = xkb_xfconf_get_display_name (plugin->config);
   group_name = xkb_keyboard_get_group_name (plugin->keyboard, display_name, -1);
   normalized_group_name = xkb_util_normalize_group_name (group_name, FALSE);
+  layout_name = xkb_keyboard_get_pretty_layout_name (plugin->keyboard, -1);
+  pixbuf = xkb_keyboard_get_pixbuf (plugin->keyboard, FALSE, -1);
 
   if (!normalized_group_name)
     return;
 
-  notify_notification_update (plugin->notification, group_name, _("Keyboard layout changed"), "input-keyboard-symbolic");
+  notify_notification_set_image_from_pixbuf(plugin->notification, pixbuf);
+  notify_notification_update (plugin->notification, layout_name, _("Keyboard Layout Changed"), NULL);
 
   if (!notify_notification_show (plugin->notification, &error))
     {
