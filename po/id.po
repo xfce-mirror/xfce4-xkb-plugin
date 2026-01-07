@@ -5,6 +5,7 @@
 # Translators:
 # Andhika Padmawan <andhika.padmawan@gmail.com>, 2008
 # Ardjuna <Asyura.x@gmail.com>, 2013
+# Arif Budiman <arifpedia@gmail.com>, 2026
 # Triyan W. Nugroho <triyan.wn@gmail.com>, 2022
 msgid ""
 msgstr ""
@@ -12,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
 "POT-Creation-Date: 2025-10-24 13:07+0200\n"
 "PO-Revision-Date: 2013-07-03 19:34+0000\n"
-"Last-Translator: Triyan W. Nugroho <triyan.wn@gmail.com>, 2022\n"
+"Last-Translator: Arif Budiman <arifpedia@gmail.com>, 2026\n"
 "Language-Team: Indonesian (http://app.transifex.com/xfce/xfce-panel-plugins/language/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -106,27 +107,27 @@ msgid ""
 "Use <a href=\"keyboard-settings:\">Keyboard Settings</a> to set available "
 "layouts; reopen this dialog to load changes. New windows start with '%s' "
 "(default layout), except as specified for the other layouts:"
-msgstr ""
+msgstr "Gunakan <a href=\"keyboard-settings:\">Pengaturan Keyboard</a> untuk mengatur tata letak yang tersedia; buka kembali dialog ini untuk memuat perubahan. Jendela baru dimulai dengan '%s' (tata letak default), kecuali sebagaimana ditentukan untuk tata letak lainnya:"
 
 #: panel-plugin/xkb-dialog.c:308
 msgid "Window classes, comma-separated:"
-msgstr ""
+msgstr "Kelas jendela, dipisahkan koma:"
 
 #: panel-plugin/xkb-dialog.c:319
 #, c-format
 msgid "%s_%d (layout %d):"
-msgstr ""
+msgstr "%s_%d (tata letak %d):"
 
 #: panel-plugin/xkb-dialog.c:320
 #, c-format
 msgid "%s (layout %d):"
-msgstr ""
+msgstr "%s (tata letak %d):"
 
 #: panel-plugin/xkb-dialog.c:339
 msgid ""
 "Enter a comma-separated list of window classes which will default to this "
 "layout."
-msgstr ""
+msgstr "Masukkan daftar kelas jendela yang dipisahkan koma yang akan secara default menggunakan tata letak ini."
 
 #: panel-plugin/xkb-dialog.c:421
 msgid "Keyboard Layouts Plugin"
@@ -138,7 +139,7 @@ msgstr "Memungkinkan anda untuk menyesuaikan berbagai tata letak papan ketik."
 
 #: panel-plugin/xkb-plugin.c:200
 msgid "Unsupported windowing environment"
-msgstr ""
+msgstr "Lingkungan windowing tidak didukung"
 
 #: panel-plugin/xkb-plugin.c:271
 msgid "Keyboard settings"
