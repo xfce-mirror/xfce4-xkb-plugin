@@ -130,7 +130,7 @@ xkb_keyboard_class_init (XkbKeyboardClass *klass)
   gobject_class->finalize = xkb_keyboard_finalize;
 
   xkb_keyboard_signals[STATE_CHANGED] =
-    g_signal_new (g_intern_static_string ("state-changed"),
+    g_signal_new (g_intern_string ("state-changed"),
                   G_TYPE_FROM_CLASS (gobject_class),
                   G_SIGNAL_RUN_LAST,
                   0, NULL, NULL,

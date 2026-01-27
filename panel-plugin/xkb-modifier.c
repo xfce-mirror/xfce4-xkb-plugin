@@ -66,7 +66,7 @@ xkb_modifier_class_init (XkbModifierClass *klass)
   gobject_class->finalize = xkb_modifier_finalize;
 
   xkb_modifier_signals[MODIFIER_CHANGED] =
-    g_signal_new (g_intern_static_string ("modifier-changed"),
+    g_signal_new (g_intern_string ("modifier-changed"),
                   G_TYPE_FROM_CLASS (gobject_class),
                   G_SIGNAL_RUN_LAST,
                   0, NULL, NULL,

@@ -170,7 +170,7 @@ xkb_xfconf_class_init (XkbXfconfClass *klass)
 							G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
 
   xkb_xfconf_signals[CONFIGURATION_CHANGED] =
-    g_signal_new (g_intern_static_string ("configuration-changed"),
+    g_signal_new (g_intern_string ("configuration-changed"),
                   G_TYPE_FROM_CLASS (gobject_class),
                   G_SIGNAL_RUN_LAST,
                   0, NULL, NULL,
