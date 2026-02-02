@@ -1,107 +1,151 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the xfce-panel-plugins.xfce4-xkb-plugin package.
 # 
 # Translators:
-# ზურაბი დავითაშვილი <zdavitashvili0@gmail.com>, 2020
+# ზურაბი დავითაშვილი <zurabi@tuta.io>, 2020
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-27 00:32+0200\n"
-"PO-Revision-Date: 2020-01-15 15:19+0000\n"
-"Last-Translator: ზურაბი დავითაშვილი <zdavitashvili0@gmail.com>\n"
-"Language-Team: Georgian (http://www.transifex.com/xfce/xfce-panel-plugins/language/ka/)\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2025-10-24 13:07+0200\n"
+"PO-Revision-Date: 2013-07-03 19:34+0000\n"
+"Last-Translator: ზურაბი დავითაშვილი <zurabi@tuta.io>, 2020\n"
+"Language-Team: Georgian (http://app.transifex.com/xfce/xfce-panel-plugins/language/ka/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ka\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
-#: ../panel-plugin/xkb-dialog.c:76
+#: panel-plugin/xkb-dialog.c:92
 msgid "This option is not available for current layout style"
 msgstr "განლაგების მიმდინარე სტილისთვის ეს ვარიანტი მიუწვდომელია"
 
-#: ../panel-plugin/xkb-dialog.c:105 ../panel-plugin/xkb.desktop.in.h:1
+#: panel-plugin/xkb-dialog.c:138 panel-plugin/xkb.desktop.in:4
 msgid "Keyboard Layouts"
 msgstr "კლავიატურის განლაგებები"
 
-#: ../panel-plugin/xkb-dialog.c:121
+#: panel-plugin/xkb-dialog.c:139
+msgid "_Close"
+msgstr "და_ხურვა"
+
+#: panel-plugin/xkb-dialog.c:152
 msgid "Appearance"
 msgstr "გარეგნობა"
 
-#: ../panel-plugin/xkb-dialog.c:131
+#: panel-plugin/xkb-dialog.c:165
 msgid "Show layout as:"
 msgstr "განლაგების ჩვენება, როგორც:"
 
-#: ../panel-plugin/xkb-dialog.c:137
+#: panel-plugin/xkb-dialog.c:171
 msgid "image"
 msgstr "გამოსახულება"
 
-#: ../panel-plugin/xkb-dialog.c:138
+#: panel-plugin/xkb-dialog.c:172
 msgid "text"
 msgstr "ტექსტი"
 
-#: ../panel-plugin/xkb-dialog.c:139
+#: panel-plugin/xkb-dialog.c:173
 msgid "system"
 msgstr "სისტემა"
 
-#: ../panel-plugin/xkb-dialog.c:145
+#: panel-plugin/xkb-dialog.c:179
 msgid "Layout name:"
 msgstr "განლაგების სახელი:"
 
-#: ../panel-plugin/xkb-dialog.c:151
+#: panel-plugin/xkb-dialog.c:185
 msgid "country"
 msgstr "ქვეყანა"
 
-#: ../panel-plugin/xkb-dialog.c:152
+#: panel-plugin/xkb-dialog.c:186
 msgid "language"
 msgstr "ენა"
 
-#: ../panel-plugin/xkb-dialog.c:158
+#: panel-plugin/xkb-dialog.c:192
 msgid "Widget size:"
 msgstr ""
 
-#: ../panel-plugin/xkb-dialog.c:171
+#: panel-plugin/xkb-dialog.c:205
 msgid "Caps Lock indicator:"
 msgstr ""
 
-#: ../panel-plugin/xkb-dialog.c:183
+#: panel-plugin/xkb-dialog.c:218
+msgid "Show notifications on layout change:"
+msgstr ""
+
+#: panel-plugin/xkb-dialog.c:231
 msgid "Tooltip icon:"
 msgstr "მინიშნების ხატულა:"
 
-#: ../panel-plugin/xkb-dialog.c:195
+#: panel-plugin/xkb-dialog.c:243
 msgid "Behavior"
 msgstr "ქცევა"
 
-#: ../panel-plugin/xkb-dialog.c:205
+#: panel-plugin/xkb-dialog.c:256
 msgid "Manage layout:"
 msgstr "განლაგების მართვა:"
 
-#: ../panel-plugin/xkb-dialog.c:211
+#: panel-plugin/xkb-dialog.c:262
 msgid "globally"
 msgstr "გლობალურად"
 
-#: ../panel-plugin/xkb-dialog.c:212
+#: panel-plugin/xkb-dialog.c:263
 msgid "per window"
 msgstr "სათითაო ფანჯარა"
 
-#: ../panel-plugin/xkb-dialog.c:213
+#: panel-plugin/xkb-dialog.c:264
 msgid "per application"
 msgstr "სათითაო პროგრამა"
 
-#: ../panel-plugin/xkb-dialog.c:290
+#: panel-plugin/xkb-dialog.c:287
+#, c-format
+msgid ""
+"Use <a href=\"keyboard-settings:\">Keyboard Settings</a> to set available "
+"layouts; reopen this dialog to load changes. New windows start with '%s' "
+"(default layout), except as specified for the other layouts:"
+msgstr ""
+
+#: panel-plugin/xkb-dialog.c:308
+msgid "Window classes, comma-separated:"
+msgstr ""
+
+#: panel-plugin/xkb-dialog.c:319
+#, c-format
+msgid "%s_%d (layout %d):"
+msgstr ""
+
+#: panel-plugin/xkb-dialog.c:320
+#, c-format
+msgid "%s (layout %d):"
+msgstr ""
+
+#: panel-plugin/xkb-dialog.c:339
+msgid ""
+"Enter a comma-separated list of window classes which will default to this "
+"layout."
+msgstr ""
+
+#: panel-plugin/xkb-dialog.c:421
 msgid "Keyboard Layouts Plugin"
 msgstr "კლავიატურის განლაგებების მოდული"
 
-#: ../panel-plugin/xkb-dialog.c:292
+#: panel-plugin/xkb-dialog.c:423
 msgid "Allows you to configure and use multiple keyboard layouts."
 msgstr ""
 
-#: ../panel-plugin/xkb-plugin.c:238
+#: panel-plugin/xkb-plugin.c:200
+msgid "Unsupported windowing environment"
+msgstr ""
+
+#: panel-plugin/xkb-plugin.c:271
 msgid "Keyboard settings"
 msgstr "კლავიატურის პარამეტრები"
 
-#: ../panel-plugin/xkb.desktop.in.h:2
+#: panel-plugin/xkb-plugin.c:552
+msgid "Keyboard layout changed"
+msgstr ""
+
+#: panel-plugin/xkb.desktop.in:5
 msgid "Keyboard layouts setup and switch plugin"
 msgstr ""
