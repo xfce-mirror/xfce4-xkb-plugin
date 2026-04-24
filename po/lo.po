@@ -1,0 +1,150 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the xfce-panel-plugins.xfce4-xkb-plugin package.
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: Xfce Panel Plugins\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2025-10-24 13:07+0200\n"
+"PO-Revision-Date: 2013-07-03 19:34+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Lao (http://app.transifex.com/xfce/xfce-panel-plugins/language/lo/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: lo\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: panel-plugin/xkb-dialog.c:92
+msgid "This option is not available for current layout style"
+msgstr "ຕົວເລືອກນີ້ບໍ່ສາມາດໃຊ້ໄດ້ກັບຮູບແບບຜັງປັດຈຸບັນ"
+
+#: panel-plugin/xkb-dialog.c:138 panel-plugin/xkb.desktop.in:4
+msgid "Keyboard Layouts"
+msgstr "ຜັງຄີບອດ"
+
+#: panel-plugin/xkb-dialog.c:139
+msgid "_Close"
+msgstr "_ປິດ"
+
+#: panel-plugin/xkb-dialog.c:152
+msgid "Appearance"
+msgstr "ຮູບລັກສະນະ"
+
+#: panel-plugin/xkb-dialog.c:165
+msgid "Show layout as:"
+msgstr "ສະແດງຜັງເປັນ:"
+
+#: panel-plugin/xkb-dialog.c:171
+msgid "image"
+msgstr "ຮູບພາບ"
+
+#: panel-plugin/xkb-dialog.c:172
+msgid "text"
+msgstr "ຂໍ້ຄວາມ"
+
+#: panel-plugin/xkb-dialog.c:173
+msgid "system"
+msgstr "ລະບົບ"
+
+#: panel-plugin/xkb-dialog.c:179
+msgid "Layout name:"
+msgstr "ຊື່ຜັງ:"
+
+#: panel-plugin/xkb-dialog.c:185
+msgid "country"
+msgstr "ປະເທດ"
+
+#: panel-plugin/xkb-dialog.c:186
+msgid "language"
+msgstr "ພາສາ"
+
+#: panel-plugin/xkb-dialog.c:192
+msgid "Widget size:"
+msgstr "ຂະໜາດວິດເຈັດ:"
+
+#: panel-plugin/xkb-dialog.c:205
+msgid "Caps Lock indicator:"
+msgstr "ຕົວບົ່ງຊີ້ Caps Lock:"
+
+#: panel-plugin/xkb-dialog.c:218
+msgid "Show notifications on layout change:"
+msgstr "ສະແດງການແຈ້ງເຕືອນເມື່ອປ່ຽນຜັງ:"
+
+#: panel-plugin/xkb-dialog.c:231
+msgid "Tooltip icon:"
+msgstr "ໄອຄອນຄຳແນະນຳ:"
+
+#: panel-plugin/xkb-dialog.c:243
+msgid "Behavior"
+msgstr "ພຶດຕິກຳ"
+
+#: panel-plugin/xkb-dialog.c:256
+msgid "Manage layout:"
+msgstr "ການຈັດການຜັງ:"
+
+#: panel-plugin/xkb-dialog.c:262
+msgid "globally"
+msgstr "ທົ່ວລະບົບ"
+
+#: panel-plugin/xkb-dialog.c:263
+msgid "per window"
+msgstr "ແຍກຕາມໜ້າຕ່າງ"
+
+#: panel-plugin/xkb-dialog.c:264
+msgid "per application"
+msgstr "ແຍກຕາມແອັບພລິເຄຊັນ"
+
+#: panel-plugin/xkb-dialog.c:287
+#, c-format
+msgid ""
+"Use <a href=\"keyboard-settings:\">Keyboard Settings</a> to set available "
+"layouts; reopen this dialog to load changes. New windows start with '%s' "
+"(default layout), except as specified for the other layouts:"
+msgstr "ໃຊ້ <a href=\"keyboard-settings:\">ການຕັ້ງຄ່າຄີບອດ</a> ເພື່ອຕັ້ງຄ່າຜັງທີ່ມີໃຫ້ໃຊ້; ເປີດໜ້າຕ່າງນີ້ຄືນໃໝ່ເພື່ອໂຫຼດການປ່ຽນແປງ. ໜ້າຕ່າງໃໝ່ຈະເລີ່ມດ້ວຍ '%s' (ຜັງເລີ່ມຕົ້ນ), ຍົກເວັ້ນແຕ່ໄດ້ກຳນົດໄວ້ເປັນຢ່າງອື່ນສຳລັບຜັງອື່ນໆ:"
+
+#: panel-plugin/xkb-dialog.c:308
+msgid "Window classes, comma-separated:"
+msgstr "ຄລາສໜ້າຕ່າງ, ຂັ້ນດ້ວຍຈຸດ:"
+
+#: panel-plugin/xkb-dialog.c:319
+#, c-format
+msgid "%s_%d (layout %d):"
+msgstr "%s_%d (ຜັງ %d):"
+
+#: panel-plugin/xkb-dialog.c:320
+#, c-format
+msgid "%s (layout %d):"
+msgstr "%s (ຜັງ %d):"
+
+#: panel-plugin/xkb-dialog.c:339
+msgid ""
+"Enter a comma-separated list of window classes which will default to this "
+"layout."
+msgstr "ປ້ອນລາຍຊື່ຄລາສໜ້າຕ່າງທີ່ຂັ້ນດ້ວຍຈຸດ ເພື່ອໃຫ້ໃຊ້ຜັງນີ້ເປັນຄ່າເລີ່ມຕົ້ນ."
+
+#: panel-plugin/xkb-dialog.c:421
+msgid "Keyboard Layouts Plugin"
+msgstr "ປລັກອິນຜັງຄີບອດ"
+
+#: panel-plugin/xkb-dialog.c:423
+msgid "Allows you to configure and use multiple keyboard layouts."
+msgstr "ຊ່ວຍໃຫ້ທ່ານສາມາດຕັ້ງຄ່າ ແລະ ໃຊ້ງານໄດ້ຫຼາຍຜັງຄີບອດ."
+
+#: panel-plugin/xkb-plugin.c:200
+msgid "Unsupported windowing environment"
+msgstr "ສະພາບແວດລ້ອມໜ້າຕ່າງບໍ່ຮອງຮັບ"
+
+#: panel-plugin/xkb-plugin.c:271
+msgid "Keyboard settings"
+msgstr "ການຕັ້ງຄ່າຄີບອດ"
+
+#: panel-plugin/xkb-plugin.c:552
+msgid "Keyboard layout changed"
+msgstr "ຜັງຄີບອດຖືກປ່ຽນແລ້ວ"
+
+#: panel-plugin/xkb.desktop.in:5
+msgid "Keyboard layouts setup and switch plugin"
+msgstr "ປລັກອິນສຳລັບຕັ້ງຄ່າ ແລະ ສະຫຼັບຜັງຄີບອດ"
