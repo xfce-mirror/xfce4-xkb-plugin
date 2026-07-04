@@ -37,7 +37,7 @@ typedef struct _XkbModifier           XkbModifier;
 #define IS_XKB_MODIFIER_CLASS(klass)  (G_TYPE_CHECK_CLASS_TYPE ((klass),  TYPE_XKB_MODIFIER))
 #define XKB_MODIFIER_GET_CLASS(obj)   (G_TYPE_INSTANCE_GET_CLASS ((obj),  TYPE_XKB_MODIFIER, XkbModifier))
 
-GType             xkb_modifier_get_type                     (void)                           G_GNUC_CONST;
+GType             xkb_modifier_get_type                     (void);
 
 XkbModifier      *xkb_modifier_new                          (void);
 

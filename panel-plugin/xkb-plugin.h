@@ -42,7 +42,7 @@ typedef struct _XkbPlugin           XkbPlugin;
 #define IS_XKB_PLUGIN_CLASS(klass)  (G_TYPE_CHECK_CLASS_TYPE ((klass),  TYPE_XKB_PLUGIN))
 #define XKB_PLUGIN_GET_CLASS(obj)   (G_TYPE_INSTANCE_GET_CLASS ((obj),  TYPE_XKB_PLUGIN, XkbPlugin))
 
-GType             xkb_plugin_get_type                     (void)                       G_GNUC_CONST;
+GType             xkb_plugin_get_type                     (void);
 
 void              xkb_plugin_register_type                (XfcePanelTypeModule   *type_module);
 void              xkb_plugin_configure_layout             (GtkWidget             *widget);

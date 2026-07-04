@@ -38,7 +38,7 @@ typedef struct _XkbXfconf           XkbXfconf;
 #define IS_XKB_XFCONF_CLASS(klass)  (G_TYPE_CHECK_CLASS_TYPE ((klass),  TYPE_XKB_XFCONF))
 #define XKB_XFCONF_GET_CLASS(obj)   (G_TYPE_INSTANCE_GET_CLASS ((obj),  TYPE_XKB_XFCONF, XkbXfconfClass))
 
-GType           xkb_xfconf_get_type                        (void)                           G_GNUC_CONST;
+GType           xkb_xfconf_get_type                        (void);
 
 XkbXfconf      *xkb_xfconf_new                             (const gchar   *property_base);
 
