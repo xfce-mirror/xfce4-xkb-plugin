@@ -50,11 +50,6 @@ typedef struct
   gint group;
 } MenuItemData;
 
-struct _XkbPluginClass
-{
-  XfcePanelPluginClass __parent__;
-};
-
 struct _XkbPlugin
 {
   XfcePanelPlugin      __parent__;

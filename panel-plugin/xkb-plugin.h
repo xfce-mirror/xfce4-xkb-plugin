@@ -32,17 +32,8 @@
 
 G_BEGIN_DECLS
 
-typedef struct _XkbPluginClass      XkbPluginClass;
-typedef struct _XkbPlugin           XkbPlugin;
-
-#define TYPE_XKB_PLUGIN             (xkb_plugin_get_type ())
-#define XKB_PLUGIN(obj)             (G_TYPE_CHECK_INSTANCE_CAST ((obj), TYPE_XKB_PLUGIN, XkbPlugin))
-#define XKB_PLUGIN_CLASS(klass)     (G_TYPE_CHECK_CLASS_CAST ((klass),  TYPE_XKB_PLUGIN, XkbPluginClass))
-#define IS_XKB_PLUGIN(obj)          (G_TYPE_CHECK_INSTANCE_TYPE ((obj), TYPE_XKB_PLUGIN))
-#define IS_XKB_PLUGIN_CLASS(klass)  (G_TYPE_CHECK_CLASS_TYPE ((klass),  TYPE_XKB_PLUGIN))
-#define XKB_PLUGIN_GET_CLASS(obj)   (G_TYPE_INSTANCE_GET_CLASS ((obj),  TYPE_XKB_PLUGIN, XkbPlugin))
-
-GType             xkb_plugin_get_type                     (void);
+#define XKB_TYPE_PLUGIN (xkb_plugin_get_type ())
+G_DECLARE_FINAL_TYPE (XkbPlugin, xkb_plugin, XKB, PLUGIN, XfcePanelPlugin)
 
 void              xkb_plugin_register_type                (XfcePanelTypeModule   *type_module);
 void              xkb_plugin_configure_layout             (GtkWidget             *widget);

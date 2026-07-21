@@ -27,17 +27,8 @@
 
 G_BEGIN_DECLS
 
-typedef struct _XkbModifierClass      XkbModifierClass;
-typedef struct _XkbModifier           XkbModifier;
-
-#define TYPE_XKB_MODIFIER             (xkb_modifier_get_type ())
-#define XKB_MODIFIER(obj)             (G_TYPE_CHECK_INSTANCE_CAST ((obj), TYPE_XKB_MODIFIER, XkbModifier))
-#define XKB_MODIFIER_CLASS(klass)     (G_TYPE_CHECK_CLASS_CAST ((klass),  TYPE_XKB_MODIFIER, XkbModifierClass))
-#define IS_XKB_MODIFIER(obj)          (G_TYPE_CHECK_INSTANCE_TYPE ((obj), TYPE_XKB_MODIFIER))
-#define IS_XKB_MODIFIER_CLASS(klass)  (G_TYPE_CHECK_CLASS_TYPE ((klass),  TYPE_XKB_MODIFIER))
-#define XKB_MODIFIER_GET_CLASS(obj)   (G_TYPE_INSTANCE_GET_CLASS ((obj),  TYPE_XKB_MODIFIER, XkbModifier))
-
-GType             xkb_modifier_get_type                     (void);
+#define XKB_TYPE_MODIFIER (xkb_modifier_get_type ())
+G_DECLARE_FINAL_TYPE (XkbModifier, xkb_modifier, XKB, MODIFIER, GObject)
 
 XkbModifier      *xkb_modifier_new                          (void);
 

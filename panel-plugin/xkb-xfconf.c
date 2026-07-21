@@ -47,11 +47,6 @@ static void            xkb_xfconf_set_property        (GObject          *object,
                                                        const GValue     *value,
                                                        GParamSpec       *pspec);
 
-struct _XkbXfconfClass
-{
-  GObjectClass         __parent__;
-};
-
 struct _XkbXfconf
 {
   GObject              __parent__;
@@ -390,7 +385,7 @@ xkb_xfconf_set_property (GObject      *object,
 XkbDisplayType
 xkb_xfconf_get_display_type (XkbXfconf *config)
 {
-  g_return_val_if_fail (IS_XKB_XFCONF (config), DEFAULT_DISPLAY_TYPE);
+  g_return_val_if_fail (XKB_IS_XFCONF (config), DEFAULT_DISPLAY_TYPE);
   return config->display_type;
 }
 
@@ -399,7 +394,7 @@ xkb_xfconf_get_display_type (XkbXfconf *config)
 XkbDisplayName
 xkb_xfconf_get_display_name (XkbXfconf *config)
 {
-  g_return_val_if_fail (IS_XKB_XFCONF (config), DEFAULT_DISPLAY_NAME);
+  g_return_val_if_fail (XKB_IS_XFCONF (config), DEFAULT_DISPLAY_NAME);
   return config->display_name;
 }
 
@@ -408,7 +403,7 @@ xkb_xfconf_get_display_name (XkbXfconf *config)
 guint
 xkb_xfconf_get_display_scale (XkbXfconf *config)
 {
-  g_return_val_if_fail (IS_XKB_XFCONF (config), DEFAULT_DISPLAY_SCALE);
+  g_return_val_if_fail (XKB_IS_XFCONF (config), DEFAULT_DISPLAY_SCALE);
   return config->display_scale;
 }
 
@@ -417,7 +412,7 @@ xkb_xfconf_get_display_scale (XkbXfconf *config)
 gboolean
 xkb_xfconf_get_caps_lock_indicator (XkbXfconf *config)
 {
-  g_return_val_if_fail (IS_XKB_XFCONF (config), DEFAULT_CAPS_LOCK_INDICATOR);
+  g_return_val_if_fail (XKB_IS_XFCONF (config), DEFAULT_CAPS_LOCK_INDICATOR);
   return config->caps_lock_indicator;
 }
 
@@ -427,7 +422,7 @@ xkb_xfconf_get_caps_lock_indicator (XkbXfconf *config)
 gboolean
 xkb_xfconf_get_show_notifications (XkbXfconf *config)
 {
-  g_return_val_if_fail (IS_XKB_XFCONF (config), DEFAULT_SHOW_NOTIFICATIONS);
+  g_return_val_if_fail (XKB_IS_XFCONF (config), DEFAULT_SHOW_NOTIFICATIONS);
   return config->show_notifications;
 }
 #endif
@@ -437,7 +432,7 @@ xkb_xfconf_get_show_notifications (XkbXfconf *config)
 gboolean
 xkb_xfconf_get_display_tooltip_icon (XkbXfconf *config)
 {
-  g_return_val_if_fail (IS_XKB_XFCONF (config), DEFAULT_DISPLAY_TOOLTIP_ICON);
+  g_return_val_if_fail (XKB_IS_XFCONF (config), DEFAULT_DISPLAY_TOOLTIP_ICON);
   return config->display_tooltip_icon;
 }
 
@@ -446,7 +441,7 @@ xkb_xfconf_get_display_tooltip_icon (XkbXfconf *config)
 XkbGroupPolicy
 xkb_xfconf_get_group_policy (XkbXfconf *config)
 {
-  g_return_val_if_fail (IS_XKB_XFCONF (config), DEFAULT_GROUP_POLICY);
+  g_return_val_if_fail (XKB_IS_XFCONF (config), DEFAULT_GROUP_POLICY);
   return config->group_policy;
 }
 
@@ -456,7 +451,7 @@ const gchar *
 xkb_xfconf_get_layout_defaults (XkbXfconf *config,
                                 guint      layout)
 {
-  g_return_val_if_fail (IS_XKB_XFCONF (config), DEFAULT_FOR_LAYOUT_DEFAULTS);
+  g_return_val_if_fail (XKB_IS_XFCONF (config), DEFAULT_FOR_LAYOUT_DEFAULTS);
   return config->layout_defaults[layout - 1];
 }
 
@@ -469,7 +464,7 @@ xkb_xfconf_new (const gchar *property_base)
   XfconfChannel *channel;
   gchar         *property;
 
-  config = g_object_new (TYPE_XKB_XFCONF, NULL);
+  config = g_object_new (XKB_TYPE_XFCONF, NULL);
 
   if (xfconf_init (NULL))
     {
