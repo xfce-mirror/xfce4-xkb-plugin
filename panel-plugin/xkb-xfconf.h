@@ -28,17 +28,8 @@
 
 G_BEGIN_DECLS
 
-typedef struct _XkbXfconfClass      XkbXfconfClass;
-typedef struct _XkbXfconf           XkbXfconf;
-
-#define TYPE_XKB_XFCONF             (xkb_xfconf_get_type ())
-#define XKB_XFCONF(obj)             (G_TYPE_CHECK_INSTANCE_CAST ((obj), TYPE_XKB_XFCONF, XkbXfconf))
-#define XKB_XFCONF_CLASS(klass)     (G_TYPE_CHECK_CLASS_CAST ((klass),  TYPE_XKB_XFCONF, XkbXfconfClass))
-#define IS_XKB_XFCONF(obj)          (G_TYPE_CHECK_INSTANCE_TYPE ((obj), TYPE_XKB_XFCONF))
-#define IS_XKB_XFCONF_CLASS(klass)  (G_TYPE_CHECK_CLASS_TYPE ((klass),  TYPE_XKB_XFCONF))
-#define XKB_XFCONF_GET_CLASS(obj)   (G_TYPE_INSTANCE_GET_CLASS ((obj),  TYPE_XKB_XFCONF, XkbXfconfClass))
-
-GType           xkb_xfconf_get_type                        (void);
+#define XKB_TYPE_XFCONF (xkb_xfconf_get_type ())
+G_DECLARE_FINAL_TYPE (XkbXfconf, xkb_xfconf, XKB, XFCONF, GObject)
 
 XkbXfconf      *xkb_xfconf_new                             (const gchar   *property_base);
 

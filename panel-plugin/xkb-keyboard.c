@@ -43,11 +43,6 @@ typedef struct
   GdkPixbuf            *tooltip_pixbuf;
 } XkbGroupData;
 
-struct _XkbKeyboardClass
-{
-  GObjectClass         __parent__;
-};
-
 struct _XkbKeyboard
 {
   GObject              __parent__;
@@ -175,7 +170,7 @@ xkb_keyboard_new (XkbXfconf *config)
 {
   XkbKeyboard *keyboard;
 
-  keyboard = g_object_new (TYPE_XKB_KEYBOARD, NULL);
+  keyboard = g_object_new (XKB_TYPE_KEYBOARD, NULL);
 
   keyboard->group_policy = xkb_xfconf_get_group_policy (config);
 
@@ -223,7 +218,7 @@ xkb_keyboard_new (XkbXfconf *config)
 gboolean
 xkb_keyboard_get_initialized (XkbKeyboard *keyboard)
 {
-  g_return_val_if_fail (IS_XKB_KEYBOARD (keyboard), FALSE);
+  g_return_val_if_fail (XKB_IS_KEYBOARD (keyboard), FALSE);
 
   return G_LIKELY (keyboard->engine != NULL);
 }
@@ -455,7 +450,7 @@ gboolean
 xkb_keyboard_set_group (XkbKeyboard *keyboard,
                         gint         group)
 {
-  g_return_val_if_fail (IS_XKB_KEYBOARD (keyboard), FALSE);
+  g_return_val_if_fail (XKB_IS_KEYBOARD (keyboard), FALSE);
 
   if (G_UNLIKELY (keyboard->engine == NULL || group < 0 || group >= keyboard->group_count))
     return FALSE;
@@ -471,7 +466,7 @@ xkb_keyboard_set_group (XkbKeyboard *keyboard,
 gboolean
 xkb_keyboard_next_group (XkbKeyboard *keyboard)
 {
-  g_return_val_if_fail (IS_XKB_KEYBOARD (keyboard), FALSE);
+  g_return_val_if_fail (XKB_IS_KEYBOARD (keyboard), FALSE);
 
   if (G_UNLIKELY (keyboard->engine == NULL))
     return FALSE;
@@ -486,7 +481,7 @@ xkb_keyboard_next_group (XkbKeyboard *keyboard)
 gboolean
 xkb_keyboard_prev_group (XkbKeyboard *keyboard)
 {
-  g_return_val_if_fail (IS_XKB_KEYBOARD (keyboard), FALSE);
+  g_return_val_if_fail (XKB_IS_KEYBOARD (keyboard), FALSE);
 
   if (G_UNLIKELY (keyboard->engine == NULL))
     return FALSE;
@@ -614,7 +609,7 @@ xkb_keyboard_active_window_changed (WnckScreen  *screen,
   WnckWindow *window;
   guint       window_id, application_id;
 
-  g_return_if_fail (IS_XKB_KEYBOARD (keyboard));
+  g_return_if_fail (XKB_IS_KEYBOARD (keyboard));
 
   window = wnck_screen_get_active_window (screen);
 
@@ -665,7 +660,7 @@ xkb_keyboard_application_closed (WnckScreen      *screen,
 {
   guint application_id;
 
-  g_return_if_fail (IS_XKB_KEYBOARD (keyboard));
+  g_return_if_fail (XKB_IS_KEYBOARD (keyboard));
 
   application_id = wnck_application_get_pid (application);
 
@@ -690,7 +685,7 @@ xkb_keyboard_window_closed (WnckScreen  *screen,
 {
   guint window_id;
 
-  g_return_if_fail (IS_XKB_KEYBOARD (keyboard));
+  g_return_if_fail (XKB_IS_KEYBOARD (keyboard));
 
   window_id = wnck_window_get_xid (window);
 
@@ -711,7 +706,7 @@ xkb_keyboard_window_closed (WnckScreen  *screen,
 gint
 xkb_keyboard_get_group_count (XkbKeyboard *keyboard)
 {
-  g_return_val_if_fail (IS_XKB_KEYBOARD (keyboard), 0);
+  g_return_val_if_fail (XKB_IS_KEYBOARD (keyboard), 0);
 
   return keyboard->group_count;
 }
@@ -721,7 +716,7 @@ xkb_keyboard_get_group_count (XkbKeyboard *keyboard)
 guint
 xkb_keyboard_get_max_group_count (XkbKeyboard *keyboard)
 {
-  g_return_val_if_fail (IS_XKB_KEYBOARD (keyboard), 0);
+  g_return_val_if_fail (XKB_IS_KEYBOARD (keyboard), 0);
 
   if (G_UNLIKELY (keyboard->engine == NULL))
     return 0;
@@ -738,7 +733,7 @@ xkb_keyboard_get_group_name (XkbKeyboard    *keyboard,
 {
   XkbGroupData *group_data;
 
-  g_return_val_if_fail (IS_XKB_KEYBOARD (keyboard), NULL);
+  g_return_val_if_fail (XKB_IS_KEYBOARD (keyboard), NULL);
 
   if (group == -1)
     group = xkb_keyboard_get_current_group (keyboard);
@@ -770,7 +765,7 @@ xkb_keyboard_get_variant_index (XkbKeyboard    *keyboard,
 {
   XkbGroupData *group_data;
 
-  g_return_val_if_fail (IS_XKB_KEYBOARD (keyboard), 0);
+  g_return_val_if_fail (XKB_IS_KEYBOARD (keyboard), 0);
 
   if (group == -1)
     group = xkb_keyboard_get_current_group (keyboard);
@@ -888,7 +883,7 @@ xkb_keyboard_get_pixbuf (XkbKeyboard *keyboard,
                          gboolean     tooltip,
                          gint         group)
 {
-  g_return_val_if_fail (IS_XKB_KEYBOARD (keyboard), NULL);
+  g_return_val_if_fail (XKB_IS_KEYBOARD (keyboard), NULL);
 
   if (group == -1)
     group = xkb_keyboard_get_current_group (keyboard);
@@ -908,7 +903,7 @@ gchar*
 xkb_keyboard_get_pretty_layout_name (XkbKeyboard *keyboard,
                                      gint         group)
 {
-  g_return_val_if_fail (IS_XKB_KEYBOARD (keyboard), NULL);
+  g_return_val_if_fail (XKB_IS_KEYBOARD (keyboard), NULL);
 
   if (group == -1)
     group = xkb_keyboard_get_current_group (keyboard);
@@ -924,7 +919,7 @@ xkb_keyboard_get_pretty_layout_name (XkbKeyboard *keyboard,
 gint
 xkb_keyboard_get_current_group (XkbKeyboard *keyboard)
 {
-  g_return_val_if_fail (IS_XKB_KEYBOARD (keyboard), 0);
+  g_return_val_if_fail (XKB_IS_KEYBOARD (keyboard), 0);
 
   return keyboard->current_group;
 }

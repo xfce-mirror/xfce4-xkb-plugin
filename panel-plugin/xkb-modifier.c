@@ -26,11 +26,6 @@
 #include <X11/XKBlib.h>
 #include <X11/keysym.h>
 
-struct _XkbModifierClass
-{
-  GObjectClass         __parent__;
-};
-
 struct _XkbModifier
 {
   GObject              __parent__;
@@ -95,7 +90,7 @@ xkb_modifier_new (void)
   guint        states, caps_lock_mask;
   gchar       *atom_name;
 
-  modifier = g_object_new (TYPE_XKB_MODIFIER, NULL);
+  modifier = g_object_new (XKB_TYPE_MODIFIER, NULL);
 
   /* obtain xkb_event type and caps lock state */
   display = XOpenDisplay (NULL);
@@ -185,7 +180,7 @@ xkb_modifier_handle_xevent (GdkXEvent *xev,
 gboolean
 xkb_modifier_get_caps_lock_enabled (XkbModifier *modifier)
 {
-  g_return_val_if_fail (IS_XKB_MODIFIER (modifier), 0);
+  g_return_val_if_fail (XKB_IS_MODIFIER (modifier), 0);
 
   return modifier->caps_lock_enabled;
 }
