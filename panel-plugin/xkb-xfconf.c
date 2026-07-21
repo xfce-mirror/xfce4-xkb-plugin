@@ -331,10 +331,7 @@ xkb_xfconf_set_property (GObject      *object,
 #ifdef HAVE_LIBNOTIFY
     case PROP_SHOW_NOTIFICATIONS:
       val_boolean = g_value_get_boolean (value);
-      if (config->show_notifications != val_boolean)
-        {
-          config->show_notifications = val_boolean;
-        }
+      config->show_notifications = val_boolean;
       break;
 #endif
 
