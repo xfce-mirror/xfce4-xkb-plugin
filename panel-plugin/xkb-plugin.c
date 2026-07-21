@@ -313,8 +313,7 @@ xkb_plugin_free_data (XfcePanelPlugin *plugin)
     return;
 
 #ifdef HAVE_LIBNOTIFY
-  g_object_unref (G_OBJECT (xkb_plugin->notification));
-  xkb_plugin->notification = NULL;
+  g_clear_object (&xkb_plugin->notification);
   notify_uninit();
 #endif
 
@@ -454,8 +453,7 @@ xkb_plugin_popup_menu_destroy (XkbPlugin *plugin)
     {
       gtk_menu_popdown (GTK_MENU (plugin->popup));
       gtk_menu_detach (GTK_MENU (plugin->popup));
-      g_free (plugin->popup_user_data);
-      plugin->popup_user_data = NULL;
+      g_clear_pointer (&plugin->popup_user_data, g_free);
       plugin->popup = NULL;
     }
 }
