@@ -4,6 +4,7 @@
 # 
 # Translators:
 # ზურაბი დავითაშვილი <zurabi@tuta.io>, 2020
+# ზურაბი დავითაშვილი <zurabi@tuta.io>, 2020
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
@@ -64,15 +65,15 @@ msgstr "ენა"
 
 #: panel-plugin/xkb-dialog.c:192
 msgid "Widget size:"
-msgstr ""
+msgstr "ვიჯეტის ზომა:"
 
 #: panel-plugin/xkb-dialog.c:205
 msgid "Caps Lock indicator:"
-msgstr ""
+msgstr "Caps Lock-ის მაჩვენებელი:"
 
 #: panel-plugin/xkb-dialog.c:218
 msgid "Show notifications on layout change:"
-msgstr ""
+msgstr "გაფრთხილების ჩვენება განლაგების შეცვლისას:"
 
 #: panel-plugin/xkb-dialog.c:231
 msgid "Tooltip icon:"
@@ -104,27 +105,27 @@ msgid ""
 "Use <a href=\"keyboard-settings:\">Keyboard Settings</a> to set available "
 "layouts; reopen this dialog to load changes. New windows start with '%s' "
 "(default layout), except as specified for the other layouts:"
-msgstr ""
+msgstr "გამოიყენეთ <a href=\"keyboard-settings:\">კლავიატურის მორგება</a> კლავიატურის ხელმისაწვდომი განლაგებების დასაყენებლად. ახალი ფანჯრები გაეშვება '%s'-ით (ნაგულისხმევი განლაგება) იმ შემთხვევის გარდა, თუ მითითებულია სხვა:"
 
 #: panel-plugin/xkb-dialog.c:308
 msgid "Window classes, comma-separated:"
-msgstr ""
+msgstr "მძიმით გამოყოფილი ფანჯრების კლასების სია:"
 
 #: panel-plugin/xkb-dialog.c:319
 #, c-format
 msgid "%s_%d (layout %d):"
-msgstr ""
+msgstr "%s_%d (განლაგება %d):"
 
 #: panel-plugin/xkb-dialog.c:320
 #, c-format
 msgid "%s (layout %d):"
-msgstr ""
+msgstr "%s (განლაგება %d):"
 
 #: panel-plugin/xkb-dialog.c:339
 msgid ""
 "Enter a comma-separated list of window classes which will default to this "
 "layout."
-msgstr ""
+msgstr "შეიყვანეთ ფანჯრის კლასების მძიმით გამოყოფილი სია, რომელიც ნაგულისხმევად გამოიყენებს ამ განლაგებას."
 
 #: panel-plugin/xkb-dialog.c:421
 msgid "Keyboard Layouts Plugin"
@@ -132,11 +133,11 @@ msgstr "კლავიატურის განლაგებების �
 
 #: panel-plugin/xkb-dialog.c:423
 msgid "Allows you to configure and use multiple keyboard layouts."
-msgstr ""
+msgstr "საშუალებას გაძლევთ, მოირგოთ და გამოიყენოთ კლავიატურის განლაგებები."
 
 #: panel-plugin/xkb-plugin.c:200
 msgid "Unsupported windowing environment"
-msgstr ""
+msgstr "მხარდაუჭერელი ფანჯრების გარემო"
 
 #: panel-plugin/xkb-plugin.c:271
 msgid "Keyboard settings"
@@ -144,8 +145,8 @@ msgstr "კლავიატურის პარამეტრები"
 
 #: panel-plugin/xkb-plugin.c:552
 msgid "Keyboard layout changed"
-msgstr ""
+msgstr "კლავიატურის განლაგება შეიცვალა"
 
 #: panel-plugin/xkb.desktop.in:5
 msgid "Keyboard layouts setup and switch plugin"
-msgstr ""
+msgstr "კლავიატურის განლაგების მორგებისა და გადართვის დამატება"
