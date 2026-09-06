@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the xfce-panel-plugins.xfce4-xkb-plugin package.
 # 
 # Translators:
+# Dejweed, 2026
 # Arnold Marko <arnold.marko@gmail.com>, 2019,2023
 # Kernc, 2017
 # Martin Srebotnjak <miles@filmsi.net>, 2022
@@ -12,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
 "POT-Creation-Date: 2025-10-24 13:07+0200\n"
 "PO-Revision-Date: 2013-07-03 19:34+0000\n"
-"Last-Translator: Arnold Marko <arnold.marko@gmail.com>, 2019,2023\n"
+"Last-Translator: Dejweed, 2026\n"
 "Language-Team: Slovenian (http://app.transifex.com/xfce/xfce-panel-plugins/language/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,11 +23,11 @@ msgstr ""
 
 #: panel-plugin/xkb-dialog.c:92
 msgid "This option is not available for current layout style"
-msgstr "Ta možnost ni na voljo za trenutni razpored tipk"
+msgstr "Ta možnost ni na voljo za trenutno razporeditev tipk"
 
 #: panel-plugin/xkb-dialog.c:138 panel-plugin/xkb.desktop.in:4
 msgid "Keyboard Layouts"
-msgstr "Razporedi tipk"
+msgstr "Razporeditve tipk"
 
 #: panel-plugin/xkb-dialog.c:139
 msgid "_Close"
@@ -38,7 +39,7 @@ msgstr "Videz"
 
 #: panel-plugin/xkb-dialog.c:165
 msgid "Show layout as:"
-msgstr "Prikaži razpored kot:"
+msgstr "Prikaži razporeditev kot:"
 
 #: panel-plugin/xkb-dialog.c:171
 msgid "image"
@@ -54,7 +55,7 @@ msgstr "sistemsko"
 
 #: panel-plugin/xkb-dialog.c:179
 msgid "Layout name:"
-msgstr "Ime razporeda"
+msgstr "Ime razporeditve"
 
 #: panel-plugin/xkb-dialog.c:185
 msgid "country"
@@ -86,7 +87,7 @@ msgstr "Obnašanje"
 
 #: panel-plugin/xkb-dialog.c:256
 msgid "Manage layout:"
-msgstr "Urejanje razporeda:"
+msgstr "Urejanje razporeditve:"
 
 #: panel-plugin/xkb-dialog.c:262
 msgid "globally"
@@ -106,7 +107,7 @@ msgid ""
 "Use <a href=\"keyboard-settings:\">Keyboard Settings</a> to set available "
 "layouts; reopen this dialog to load changes. New windows start with '%s' "
 "(default layout), except as specified for the other layouts:"
-msgstr "Uporabite <a href=\"keyboard-settings:\">Nastavitve tipkovnice</a> za izbiranje med obstoječimi razporeditvami; ponovno odprite ta dialog, da naložite spremembe. Nova okna se začnejo z '%s' (privzeti razpored), razen kot je določeno za druge razporede: "
+msgstr "Uporabite <a href=\"keyboard-settings:\">Nastavitve tipkovnice</a> za izbiranje med obstoječimi razporeditvami; ponovno odprite ta dialog, da naložite spremembe. Nova okna se začnejo z '%s' (privzeta razporeditev), razen če je za druge razporeditve določeno drugače: "
 
 #: panel-plugin/xkb-dialog.c:308
 msgid "Window classes, comma-separated:"
@@ -115,30 +116,30 @@ msgstr "Razredi oken, ločeni z vejicami:"
 #: panel-plugin/xkb-dialog.c:319
 #, c-format
 msgid "%s_%d (layout %d):"
-msgstr "%s_%d (razpored %d):"
+msgstr "%s_%d (razporeditev %d):"
 
 #: panel-plugin/xkb-dialog.c:320
 #, c-format
 msgid "%s (layout %d):"
-msgstr "%s (razpored %d):"
+msgstr "%s (razporeditev %d):"
 
 #: panel-plugin/xkb-dialog.c:339
 msgid ""
 "Enter a comma-separated list of window classes which will default to this "
 "layout."
-msgstr "Vnesite z vejicami ločen seznam razredov oken, ki bo privzet za ta razpored."
+msgstr "Vnesite z vejicami ločen seznam razredov oken, za katere bo ta razpored privzeto nastavljen."
 
 #: panel-plugin/xkb-dialog.c:421
 msgid "Keyboard Layouts Plugin"
-msgstr "Vitčnik za razporede tipk"
+msgstr "Vtičnik za razporeditve tipk"
 
 #: panel-plugin/xkb-dialog.c:423
 msgid "Allows you to configure and use multiple keyboard layouts."
-msgstr "Omogoča prilagajanje in preklapljanje med različnimi razporedi tipk."
+msgstr "Omogoča prilagajanje in preklapljanje med različnimi razporeditvami tipk."
 
 #: panel-plugin/xkb-plugin.c:200
 msgid "Unsupported windowing environment"
-msgstr ""
+msgstr "Nepodprto okolje za upravljanje oken"
 
 #: panel-plugin/xkb-plugin.c:271
 msgid "Keyboard settings"
@@ -150,4 +151,4 @@ msgstr "Postavitev tipk spremenjena"
 
 #: panel-plugin/xkb.desktop.in:5
 msgid "Keyboard layouts setup and switch plugin"
-msgstr "Prilagoditev / preklapljanje razporeda tipk"
+msgstr "Prilagoditev / preklapljanje razporeditve tipk"
